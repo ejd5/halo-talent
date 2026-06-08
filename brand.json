@@ -1,0 +1,32 @@
+{
+  "name": "halo-talent",
+  "description": "Maison de management créatif premium et éthique",
+  "colors": {
+    "black": "#0A0908",
+    "espresso": "#1A1611",
+    "gold": "#D4AF37",
+    "goldLight": "#E8D4A8",
+    "ivory": "#F5F1E8",
+    "taupe": "#9B958A",
+    "success": "#7A9A65",
+    "alert": "#C44536"
+  },
+  "typography": {
+    "display": "Cormorant Garamond",
+    "body": "Inter",
+    "mono": "JetBrains Mono"
+  },
+  "values": [
+    "Transparence — commissions publiques, contrats clairs",
+    "Souveraineté — le créateur reste maître de son business",
+    "Élévation — on accompagne, on n'extrait pas",
+    "Discrétion — protection de l'image et de la vie privée"
+  ],
+  "departments": [
+    "Music & Performing Arts",
+    "Sport & Lifestyle",
+    "Business & Thought Leadership",
+    "Digital Creators",
+    "Talent Premium"
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Halo Talent",
+    "slug": "halo-talent",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "halo",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "backgroundColor": "#0A0908"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.halotalent.app",
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "Authentification rapide par reconnaissance faciale"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#0A0908"
+      },
+      "package": "com.halotalent.app"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-notifications",
+      "expo-local-authentication",
+      "expo-font",
+      "expo-asset"
+    ]
+  }
+}
