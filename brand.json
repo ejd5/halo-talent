@@ -2,18 +2,24 @@
   "name": "halo-talent",
   "description": "Maison de management créatif premium et éthique",
   "colors": {
-    "black": "#0A0908",
-    "espresso": "#1A1611",
-    "gold": "#D4AF37",
-    "goldLight": "#E8D4A8",
-    "ivory": "#F5F1E8",
-    "taupe": "#9B958A",
+    "base": "#F5F0EB",
+    "baseAlt": "#FFFFFF",
+    "surface": "#EDE8E1",
+    "ink": "#1A1614",
+    "inkMuted": "#7A736B",
+    "accent": "#C75B39",
+    "accentHover": "#A84A2D",
+    "accentSoft": "#F0DDD4",
+    "dark": "#1A1614",
+    "darkText": "#F5F0EB",
+    "darkMuted": "#9A9590",
     "success": "#7A9A65",
     "alert": "#C44536"
   },
   "typography": {
-    "display": "Cormorant Garamond",
-    "body": "Inter",
+    "display": "Syne",
+    "sans": "Plus Jakarta Sans",
+    "accent": "Instrument Serif",
     "mono": "JetBrains Mono"
   },
   "values": [

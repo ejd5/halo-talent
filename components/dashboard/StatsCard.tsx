@@ -23,16 +23,16 @@ export function StatsCard({
   return (
     <div
       className={cn(
-        "relative border border-white/5 p-6 hover:border-white/10 transition-colors group",
+        "relative border border-ink/5 p-6 hover:border-ink/10 transition-colors group",
         className
       )}
     >
-      <p className="text-xs text-brand-taupe uppercase tracking-[0.15em] mb-2">
+      <p className="text-xs text-ink-muted uppercase tracking-[0.15em] mb-2">
         {label}
       </p>
       <p
         className={cn(
-          "font-display text-3xl md:text-4xl text-brand-ivory",
+          "font-display text-3xl md:text-4xl text-ink",
           mono && "font-mono text-2xl md:text-3xl"
         )}
       >
@@ -42,7 +42,7 @@ export function StatsCard({
         <div
           className={cn(
             "flex items-center gap-1 mt-2 text-xs",
-            trend.positive ? "text-brand-success" : "text-brand-alert"
+            trend.positive ? "text-success" : "text-alert"
           )}
         >
           {trend.positive ? (

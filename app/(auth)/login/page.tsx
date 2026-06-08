@@ -38,44 +38,42 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex min-h-screen bg-base">
       {/* ─── GAUCHE : Image éditoriale ─── */}
-      <div className="hidden lg:flex w-1/2 relative bg-brand-black">
-        <div className="absolute inset-0 bg-gradient-to-r from-brand-black/60 to-transparent z-10" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(212,175,55,0.06)_0%,_transparent_70%)]" />
-        {/* Placeholder image */}
+      <div className="hidden lg:flex w-1/2 relative bg-base">
+        <div className="absolute inset-0 bg-gradient-to-r from-base/60 to-transparent z-10" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(199,91,57,0.06)_0%,_transparent_70%)]" />
         <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-3/4 h-3/4 border border-white/5 flex items-center justify-center">
-            <span className="text-brand-taupe text-xs uppercase tracking-[0.2em]">
+          <div className="w-3/4 h-3/4 border border-ink/5 flex items-center justify-center">
+            <span className="text-ink-muted text-xs uppercase tracking-[0.2em]">
               Image éditoriale
             </span>
           </div>
         </div>
-        {/* Logo en haut */}
         <Link
           href="/"
-          className="absolute top-8 left-8 z-20 font-display text-2xl italic tracking-wide text-brand-ivory hover:text-brand-gold transition-colors"
+          className="absolute top-8 left-8 z-20 font-display text-2xl font-bold text-ink tracking-tight"
         >
           Halo Talent
         </Link>
       </div>
 
       {/* ─── DROITE : Formulaire ─── */}
-      <div className="w-full lg:w-1/2 flex items-center justify-center bg-brand-black px-8 md:px-16">
+      <div className="w-full lg:w-1/2 flex items-center justify-center bg-base px-8 md:px-16">
         <div className="w-full max-w-md">
           <div className="lg:hidden mb-12">
             <Link
               href="/"
-              className="font-display text-2xl italic tracking-wide text-brand-ivory"
+              className="font-display text-2xl font-bold text-ink tracking-tight"
             >
               Halo Talent
             </Link>
           </div>
 
-          <h1 className="font-display text-4xl md:text-5xl italic text-brand-ivory mb-2">
+          <h1 className="font-display text-4xl md:text-5xl text-ink mb-2">
             Connexion
           </h1>
-          <p className="text-brand-taupe mb-10">
+          <p className="text-ink-muted mb-10">
             à votre espace créateur
           </p>
 
@@ -98,12 +96,12 @@ export default function LoginPage() {
             />
 
             {error && (
-              <p className="text-sm text-brand-alert">{error}</p>
+              <p className="text-sm text-alert">{error}</p>
             )}
 
             <div className="pt-4">
               <Button
-                variant="filled"
+                variant="primary"
                 type="submit"
                 className="w-full"
                 disabled={loading}
@@ -113,18 +111,17 @@ export default function LoginPage() {
             </div>
           </form>
 
-          <p className="mt-12 text-sm text-brand-taupe text-center">
+          <p className="mt-12 text-sm text-ink-muted text-center">
             Pas encore membre ?{" "}
             <Link
               href="/apply"
-              className="text-brand-gold hover:underline"
+              className="text-accent hover:text-accent-hover"
             >
               Postuler à la maison
             </Link>
           </p>
         </div>
       </div>
-
     </div>
   );
 }

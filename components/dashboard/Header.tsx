@@ -2,21 +2,34 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bell, Search, ChevronRight } from "lucide-react";
+import { Bell, Search, ChevronRight, Menu } from "lucide-react";
 import { useState } from "react";
+import { mockCreator } from "./data";
 
 const breadcrumbMap: Record<string, string> = {
   "/dashboard": "Vue d'ensemble",
-  "/dashboard/analytics": "Revenus & analytics",
-  "/dashboard/platforms": "Mes plateformes",
+  "/dashboard/revenues": "Mes revenus",
+  "/dashboard/goals": "Mes objectifs",
   "/dashboard/calendar": "Calendrier",
-  "/dashboard/ai": "Assistant IA",
-  "/dashboard/messages": "Messages",
+  "/dashboard/drafts": "Brouillons",
+  "/dashboard/library": "Bibliothèque",
+  "/dashboard/agents": "Mes agents IA",
+  "/dashboard/insights": "Insights",
+  "/dashboard/trends": "Tendances",
+  "/dashboard/platforms": "Mes comptes",
+  "/dashboard/analytics": "Analytics",
+  "/dashboard/manager": "Mon manager",
+  "/dashboard/messages": "Mes messages",
+  "/dashboard/community": "Communauté",
   "/dashboard/contracts": "Mes contrats",
-  "/dashboard/settings": "Paramètres",
+  "/dashboard/learn": "Apprentissage",
+  "/dashboard/wellness": "Wellness",
+  "/dashboard/profile": "Profil",
+  "/dashboard/integrations": "Plateformes connectées",
+  "/dashboard/preferences": "Préférences",
 };
 
-export function Header() {
+export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
   const pathname = usePathname();
   const [searchFocused, setSearchFocused] = useState(false);
 
@@ -24,23 +37,28 @@ export function Header() {
   const isRoot = pathname === "/dashboard";
 
   return (
-    <header className="fixed top-0 left-60 right-0 h-20 border-b border-white/5 bg-brand-black/80 backdrop-blur-sm z-30 flex items-center justify-between px-8">
+    <header className="fixed top-0 left-0 md:left-60 right-0 h-16 border-b border-[var(--color-border)] backdrop-blur-sm z-20 flex items-center justify-between px-4 md:px-8" style={{ backgroundColor: "color-mix(in srgb, var(--color-base) 85%, transparent)" }}>
+      {/* Mobile menu toggle */}
+      <button onClick={onMenuToggle} className="md:hidden p-2 mr-2 -ml-2 hover:bg-[var(--color-card)]">
+        <Menu size={18} />
+      </button>
+
       {/* Breadcrumb */}
       <div>
-        <div className="flex items-center gap-2 text-sm text-brand-taupe">
-          <Link href="/dashboard" className="hover:text-brand-ivory transition-colors">
-            Maison
+        <div className="flex items-center gap-2 text-xs">
+          <Link href="/dashboard" className="opacity-40 hover:opacity-100 transition-opacity">
+            Accueil
           </Link>
           {!isRoot && (
             <>
-              <ChevronRight size={14} />
-              <span className="text-brand-ivory">{pageTitle}</span>
+              <ChevronRight size={12} className="opacity-20" />
+              <span className="font-medium">{pageTitle}</span>
             </>
           )}
         </div>
         {isRoot && (
-          <p className="text-xs text-brand-taupe mt-0.5">
-            {pageTitle}
+          <p className="text-[11px] opacity-30 mt-0.5">
+            Bienvenue dans votre espace créateur
           </p>
         )}
       </div>
@@ -48,28 +66,25 @@ export function Header() {
       {/* Search */}
       <div className="hidden md:block">
         <div className="relative">
-          <Search
-            size={14}
-            className="absolute left-0 top-1/2 -translate-y-1/2 text-brand-taupe"
-          />
+          <Search size={13} className="absolute left-0 top-1/2 -translate-y-1/2 opacity-30" />
           <input
             type="text"
             placeholder="Rechercher..."
             onFocus={() => setSearchFocused(true)}
             onBlur={() => setSearchFocused(false)}
-            className="pl-6 pr-4 py-1.5 bg-transparent border-b border-white/10 text-sm text-brand-ivory placeholder:text-brand-taupe/50 focus:outline-none focus:border-brand-gold transition-colors w-64"
+            className="pl-6 pr-3 py-1.5 bg-transparent border-b border-[var(--color-border)] text-xs placeholder:opacity-30 focus:outline-none focus:border-[var(--color-accent)] transition-colors w-48 text-sm"
           />
         </div>
       </div>
 
       {/* Right */}
-      <div className="flex items-center gap-4">
-        <button className="relative text-brand-taupe hover:text-brand-ivory transition-colors">
-          <Bell size={20} strokeWidth={1.5} />
-          <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-brand-gold" />
+      <div className="flex items-center gap-3">
+        <button className="relative opacity-40 hover:opacity-100 transition-opacity">
+          <Bell size={18} />
+          <span className="absolute -top-0.5 -right-0.5 w-2 h-2" style={{ backgroundColor: "var(--color-accent)" }} />
         </button>
-        <div className="w-8 h-8 rounded-full bg-brand-gold/20 border border-brand-gold/30 flex items-center justify-center">
-          <span className="font-display text-xs text-brand-gold">JD</span>
+        <div className="w-8 h-8 border border-[var(--color-border)] flex items-center justify-center text-[10px] font-semibold" style={{ backgroundColor: "var(--color-card)" }}>
+          {mockCreator.full_name.split(" ").map((n) => n[0]).join("")}
         </div>
       </div>
     </header>

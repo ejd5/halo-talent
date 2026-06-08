@@ -33,7 +33,7 @@ const activities = [
 export function ActivityTimeline() {
   return (
     <div>
-      <h2 className="font-display text-2xl text-brand-ivory mb-6">
+      <h2 className="font-display text-2xl text-ink mb-6">
         Activité récente
       </h2>
       <div className="space-y-1">
@@ -41,19 +41,19 @@ export function ActivityTimeline() {
           <a
             key={i}
             href={item.href}
-            className="flex items-center justify-between py-3 px-4 border border-transparent hover:border-white/5 hover:bg-white/[0.02] transition-all group"
+            className="flex items-center justify-between py-3 px-4 border border-transparent hover:border-ink/5 hover:bg-black/[0.02] transition-all group"
           >
             <div className="flex items-center gap-4">
-              <div className="w-1.5 h-1.5 rounded-full bg-brand-gold/50" />
-              <span className="text-sm text-brand-taupe group-hover:text-brand-ivory transition-colors">
+              <div className="w-1.5 h-1.5 rounded-full bg-accent/50" />
+              <span className="text-sm text-ink-muted group-hover:text-ink transition-colors">
                 {item.label}
               </span>
             </div>
             <div className="flex items-center gap-3">
-              <span className="text-xs text-brand-taupe/60">{item.time}</span>
+              <span className="text-xs text-ink-muted/60">{item.time}</span>
               <ChevronRight
                 size={14}
-                className="text-brand-taupe/30 group-hover:text-brand-gold transition-colors"
+                className="text-ink-muted/30 group-hover:text-accent transition-colors"
               />
             </div>
           </a>

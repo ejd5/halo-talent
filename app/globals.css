@@ -1,44 +1,65 @@
 @import "tailwindcss";
 
-/* ─── Palette de couleurs ─── */
+/* ─── Palette v2 — Éditorial chaud ─── */
 @theme inline {
-  --color-brand-black: #0A0908;
-  --color-brand-espresso: #1A1611;
-  --color-brand-gold: #D4AF37;
-  --color-brand-gold-light: #E8D4A8;
-  --color-brand-ivory: #F5F1E8;
-  --color-brand-taupe: #9B958A;
-  --color-brand-success: #7A9A65;
-  --color-brand-alert: #C44536;
+  --color-base: #F5F0EB;
+  --color-base-alt: #FFFFFF;
+  --color-surface: #EDE8E1;
+  --color-ink: #1A1614;
+  --color-ink-muted: #7A736B;
+  --color-accent: #C75B39;
+  --color-accent-hover: #A84A2D;
+  --color-accent-soft: #F0DDD4;
+  --color-dark: #1A1614;
+  --color-dark-text: #F5F0EB;
+  --color-dark-muted: #9A9590;
+  --color-success: #7A9A65;
+  --color-alert: #C44536;
 
-  --color-background: var(--color-brand-black);
-  --color-foreground: var(--color-brand-ivory);
+  --color-background: var(--color-base);
+  --color-foreground: var(--color-ink);
 
-  --font-display: "Cormorant Garamond", serif;
-  --font-sans: "Inter", sans-serif;
+  --font-display: "Syne", sans-serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-accent: "Instrument Serif", serif;
   --font-mono: "JetBrains Mono", monospace;
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
 }
 
 @layer base {
+  :root {
+    --color-base: #F5F0EB;
+    --color-base-alt: #FFFFFF;
+    --color-surface: #EDE8E1;
+    --color-ink: #1A1614;
+    --color-ink-muted: #7A736B;
+    --color-accent: #C75B39;
+    --color-accent-hover: #A84A2D;
+    --color-accent-soft: #F0DDD4;
+    --color-dark: #1A1614;
+    --color-dark-text: #F5F0EB;
+    --color-dark-muted: #9A9590;
+    --color-success: #7A9A65;
+    --color-alert: #C44536;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    background: var(--color-brand-black);
-    color: var(--color-brand-ivory);
+    background: var(--color-base);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   ::selection {
-    background: rgba(212, 175, 55, 0.3);
-    color: #F5F1E8;
+    background: #C75B39;
+    color: #F5F0EB;
   }
 }
-

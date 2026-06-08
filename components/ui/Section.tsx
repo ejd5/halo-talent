@@ -6,13 +6,13 @@ type SectionProps = {
   className?: string;
   containerClassName?: string;
   as?: "section" | "div" | "article" | "header" | "footer";
-  background?: "black" | "espresso" | "ivory";
+  background?: "light" | "dark" | "cream";
 };
 
 const backgroundStyles = {
-  black: "bg-brand-black",
-  espresso: "bg-brand-espresso",
-  ivory: "bg-brand-ivory text-brand-black",
+  light: "bg-base",
+  dark: "bg-dark text-dark-text",
+  cream: "bg-base-alt",
 };
 
 export function Section({
@@ -20,7 +20,7 @@ export function Section({
   className,
   containerClassName,
   as: Tag = "section",
-  background = "black",
+  background = "light",
 }: SectionProps) {
   return (
     <Tag

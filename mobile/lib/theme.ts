@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
 
+/* ─── Palette v2 — Éditorial chaud (synced with web) ─── */
 export const colors = {
-  black: "#0A0908",
-  espresso: "#1A1611",
-  gold: "#D4AF37",
-  goldLight: "#E8D4A8",
-  ivory: "#F5F1E8",
-  taupe: "#9B958A",
+  black: "#1A1614",
+  espresso: "#1A1614",
+  gold: "#C75B39",
+  goldLight: "#F0DDD4",
+  ivory: "#F5F0EB",
+  taupe: "#7A736B",
   success: "#7A9A65",
   alert: "#C44536",
   white05: "rgba(255,255,255,0.05)",

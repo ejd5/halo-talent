@@ -1,0 +1,15 @@
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted
+/bin/bash: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: Operation not permitted

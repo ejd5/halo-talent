@@ -28,9 +28,9 @@ const data = [
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload?.length) {
     return (
-      <div className="bg-brand-espresso border border-white/10 px-4 py-3">
-        <p className="text-xs text-brand-taupe mb-1">{label}</p>
-        <p className="font-mono text-sm text-brand-gold">
+      <div className="bg-base-alt border border-ink/10 px-4 py-3">
+        <p className="text-xs text-ink-muted mb-1">{label}</p>
+        <p className="font-mono text-sm text-accent">
           {new Intl.NumberFormat("fr-FR", {
             style: "currency",
             currency: "EUR",
@@ -46,7 +46,7 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 export function RevenueChart() {
   return (
     <div>
-      <h2 className="font-display text-2xl text-brand-ivory mb-6">
+      <h2 className="font-display text-2xl text-ink mb-6">
         Revenus sur 12 mois
       </h2>
       <div className="h-72">
@@ -54,26 +54,26 @@ export function RevenueChart() {
           <AreaChart data={data}>
             <defs>
               <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#D4AF37" stopOpacity={0.12} />
-                <stop offset="100%" stopColor="#D4AF37" stopOpacity={0} />
+                <stop offset="0%" stopColor="#C75B39" stopOpacity={0.12} />
+                <stop offset="100%" stopColor="#C75B39" stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid
               strokeDasharray="3 3"
-              stroke="rgba(255,255,255,0.04)"
+              stroke="rgba(0,0,0,0.04)"
               vertical={false}
             />
             <XAxis
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#9B958A", fontSize: 11 }}
+              tick={{ fill: "#7A736B", fontSize: 11 }}
               dy={8}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#9B958A", fontSize: 11 }}
+              tick={{ fill: "#7A736B", fontSize: 11 }}
               dx={-8}
               tickFormatter={(v) =>
                 new Intl.NumberFormat("fr-FR", {
@@ -86,7 +86,7 @@ export function RevenueChart() {
             <Area
               type="monotone"
               dataKey="revenue"
-              stroke="#D4AF37"
+              stroke="#C75B39"
               strokeWidth={1.5}
               fill="url(#revenueGradient)"
             />

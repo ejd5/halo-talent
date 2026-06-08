@@ -1,18 +1,23 @@
+import { type NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
-import { NextResponse, type NextRequest } from "next/server";
 
-const privatePaths = ["/dashboard", "/manager", "/admin"];
+const adminRoutes = ["/admin"];
+const sensitiveActions = ["delete", "payout"];
 
 export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const isPrivatePath = privatePaths.some((path) =>
-    pathname.startsWith(path)
-  );
-
-  if (!isPrivatePath) {
+  // Only protect /admin routes
+  if (!pathname.startsWith("/admin")) {
     return NextResponse.next();
   }
+
+  // Bypass auth in development
+  if (process.env.NODE_ENV === "development") {
+    return NextResponse.next();
+  }
+
+  let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -26,6 +31,10 @@ export async function proxy(request: NextRequest) {
           cookiesToSet.forEach(({ name, value }) =>
             request.cookies.set(name, value)
           );
+          supabaseResponse = NextResponse.next({ request });
+          cookiesToSet.forEach(({ name, value, options }) =>
+            supabaseResponse.cookies.set(name, value, options)
+          );
         },
       },
     }
@@ -35,17 +44,43 @@ export async function proxy(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
+  // Not authenticated → redirect to login
   if (!user) {
-    const url = new URL("/login", request.url);
+    const url = request.nextUrl.clone();
+    url.pathname = "/login";
     url.searchParams.set("redirect", pathname);
     return NextResponse.redirect(url);
   }
 
-  return NextResponse.next();
+  // Check user role from database
+  const { data: profile } = await supabase
+    .from("profiles")
+    .select("role")
+    .eq("id", user.id)
+    .single();
+
+  const role = profile?.role as string | undefined;
+
+  // Not admin/manager → redirect to home
+  if (!role || !["admin", "manager"].includes(role)) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/";
+    return NextResponse.redirect(url);
+  }
+
+  // For sensitive actions, require 'admin' role
+  if (
+    role === "manager" &&
+    sensitiveActions.some((action) => pathname.includes(action))
+  ) {
+    const url = request.nextUrl.clone();
+    url.pathname = "/admin";
+    return NextResponse.redirect(url);
+  }
+
+  return supabaseResponse;
 }
 
 export const config = {
-  matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
-  ],
+  matcher: ["/admin/:path*"],
 };

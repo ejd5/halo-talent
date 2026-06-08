@@ -11,16 +11,16 @@ const suggestions = [
 
 export function AIAssistantCard() {
   return (
-    <div className="border border-brand-gold/20 p-6 bg-gradient-to-br from-brand-espresso to-brand-black">
+    <div className="border border-accent/20 p-6 bg-gradient-to-br from-accent-soft to-base">
       <div className="flex items-start gap-4">
-        <div className="w-10 h-10 rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center flex-shrink-0">
-          <Bot size={20} className="text-brand-gold" />
+        <div className="w-10 h-10 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center flex-shrink-0">
+          <Bot size={20} className="text-accent" />
         </div>
         <div className="flex-1 min-w-0">
-          <h2 className="font-display text-2xl text-brand-ivory mb-1">
+          <h2 className="font-display text-2xl text-ink mb-1">
             Votre assistant
           </h2>
-          <p className="text-sm text-brand-taupe mb-6">
+          <p className="text-sm text-ink-muted mb-6">
             Voici 3 suggestions pour cette semaine :
           </p>
           <ul className="space-y-4">
@@ -28,9 +28,9 @@ export function AIAssistantCard() {
               <li key={i} className="flex items-start gap-3">
                 <Sparkles
                   size={14}
-                  className="text-brand-gold mt-1 flex-shrink-0"
+                  className="text-accent mt-1 flex-shrink-0"
                 />
-                <span className="text-sm text-brand-taupe leading-relaxed">
+                <span className="text-sm text-ink-muted leading-relaxed">
                   {s}
                 </span>
               </li>
@@ -38,7 +38,7 @@ export function AIAssistantCard() {
           </ul>
           <Link
             href="/dashboard/ai"
-            className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.15em] text-brand-gold hover:text-brand-gold-light transition-colors"
+            className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.15em] text-accent hover:text-accent-hover transition-colors"
           >
             Discuter avec l&apos;assistant <ArrowRight size={14} />
           </Link>
