@@ -1,4 +1,1 @@
-/bin/sh: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: No such file or directory
-/bin/sh: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: No such file or directory
-/bin/sh: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: No such file or directory
-/bin/sh: /Users/duarteelton/Desktop/OFM PROJECT/halo-talent/scripts/auto-backup.sh: No such file or directory
+auto-backup restored and working — Mer 10 jui 2026 00:24:38 CEST
