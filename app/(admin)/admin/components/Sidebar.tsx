@@ -33,6 +33,8 @@ import {
   Cpu,
   ChevronLeft,
   ChevronRight,
+  Book,
+  Zap,
 } from "lucide-react";
 
 type NavItem = {
@@ -77,6 +79,21 @@ const navSections: NavSection[] = [
         icon: TrendingUp,
       },
       { label: "Contrats", href: "/admin/contracts", icon: FileSignature },
+      { label: "Benchmarking", href: "/admin/benchmarking", icon: BarChart3 },
+      { label: "Calendrier multi-créateur", href: "/admin/content-calendar", icon: CalendarDays },
+    ],
+  },
+  {
+    title: "Équipe",
+    items: [
+      { label: "Membres", href: "/admin/team", icon: UserCheck },
+    ],
+  },
+  {
+    title: "Monitoring",
+    items: [
+      { label: "Système", href: "/admin/monitoring", icon: Cpu },
+      { label: "Audit logs", href: "/admin/settings/logs", icon: ScrollText },
     ],
   },
   {
@@ -122,6 +139,12 @@ const navSections: NavSection[] = [
     ],
   },
   {
+    title: "Atlas",
+    items: [
+      { label: "Monitoring Atlas", href: "/admin/atlas/monitoring", icon: Zap },
+    ],
+  },
+  {
     title: "Paramètres",
     items: [
       { label: "Équipe", href: "/admin/settings/team", icon: Settings },
@@ -140,6 +163,12 @@ const navSections: NavSection[] = [
       { label: "Système", href: "/admin/settings/system", icon: Cpu },
     ],
   },
+  {
+    title: "Ressources",
+    items: [
+      { label: "Documentation", href: "/admin/docs", icon: Book },
+    ],
+  },
 ];
 
 type Props = {
@@ -156,7 +185,7 @@ export function Sidebar({ collapsed, onToggle, width }: Props) {
       className="fixed left-0 top-0 h-screen flex flex-col border-r z-30 transition-all duration-200 overflow-hidden"
       style={{
         width,
-        background: "#0F0D0B",
+        background: "#0A0908",
         borderColor: "rgba(255,255,255,0.06)",
       }}
     >
@@ -192,7 +221,7 @@ export function Sidebar({ collapsed, onToggle, width }: Props) {
             {!collapsed && (
               <p
                 className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] px-2 mb-2"
-                style={{ color: "#7A736B" }}
+                style={{ color: "#E0D8D0" }}
               >
                 {section.title}
               </p>
@@ -213,7 +242,7 @@ export function Sidebar({ collapsed, onToggle, width }: Props) {
                       collapsed ? "justify-center px-0 py-2" : "px-3 py-2"
                     )}
                     style={{
-                      color: isActive ? "#C75B39" : "#9A9590",
+                      color: isActive ? "#C75B39" : "#F5F0EB",
                       background: isActive
                         ? "rgba(199,91,57,0.08)"
                         : "transparent",
@@ -252,7 +281,7 @@ export function Sidebar({ collapsed, onToggle, width }: Props) {
         style={{
           height: 44,
           borderTop: "1px solid rgba(255,255,255,0.06)",
-          color: "#7A736B",
+          color: "#E0D8D0",
         }}
         aria-label={collapsed ? "Ouvrir le menu" : "Réduire le menu"}
       >
