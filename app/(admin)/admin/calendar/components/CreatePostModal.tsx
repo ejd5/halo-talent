@@ -66,7 +66,7 @@ export function CreatePostModal({
         onClick={onClose}
       >
         <div
-          className="w-[560px] border border-[var(--color-border)]"
+          className="w-[560px] border border-[var(--color-border)] card-accent"
           style={{ backgroundColor: "var(--color-base)" }}
           onClick={(e) => e.stopPropagation()}
         >

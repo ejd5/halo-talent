@@ -8,7 +8,7 @@ type Props = { application: Application };
 export function ResponsesTab({ application }: Props) {
   const app = application;
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent" style={{ background: "#0A0908" }}>
       {/* Objectifs */}
       <div>
         <div className="flex items-center gap-2 mb-2.5">
@@ -53,8 +53,8 @@ export function ResponsesTab({ application }: Props) {
       {app.concerns && (
         <div>
           <div className="flex items-center gap-2 mb-2.5">
-            <Quote size={13} strokeWidth={1.5} style={{ color: "#9A9590" }} />
-            <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em]" style={{ color: "#9A9590" }}>
+            <Quote size={13} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
+            <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em]" style={{ color: "#E0D8D0" }}>
               Freins / Hésitations
             </p>
           </div>

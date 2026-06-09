@@ -26,8 +26,8 @@ export function AIAnalysisTab({ creatorId }: Props) {
   if (reports.length === 0) {
     return (
       <div className="text-center py-12">
-        <Brain size={32} strokeWidth={1.5} style={{ color: "#5A544C" }} className="mx-auto mb-3" />
-        <p className="text-sm font-sans" style={{ color: "#5A544C" }}>
+        <Brain size={32} strokeWidth={1.5} style={{ color: "#E0D8D0" }} className="mx-auto mb-3" />
+        <p className="text-sm font-sans" style={{ color: "#E0D8D0" }}>
           Aucun rapport IA généré pour ce créateur.
         </p>
       </div>
@@ -37,7 +37,7 @@ export function AIAnalysisTab({ creatorId }: Props) {
   const latest = reports[0];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent">
       {/* Score + regenerate */}
       <div className="flex items-center justify-between p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
         <div className="flex items-center gap-4">
@@ -53,7 +53,7 @@ export function AIAnalysisTab({ creatorId }: Props) {
             <p className="font-display text-base font-bold" style={{ color: "#F5F0EB" }}>
               Performance globale
             </p>
-            <p className="text-[10px] font-sans mt-0.5" style={{ color: "#5A544C" }}>
+            <p className="text-[10px] font-sans mt-0.5" style={{ color: "#E0D8D0" }}>
               Généré {relativeTime(latest.generated_at)}
             </p>
           </div>
@@ -73,14 +73,14 @@ export function AIAnalysisTab({ creatorId }: Props) {
       <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
         <div className="flex items-center gap-2 mb-3">
           <TrendingUp size={13} strokeWidth={1.5} style={{ color: "#7A9A65" }} />
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#7A736B" }}>
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
             Tendances
           </p>
         </div>
         <ul className="space-y-2">
           {latest.trends.map((t, i) => (
             <li key={i} className="flex items-start gap-2 text-xs font-sans" style={{ color: "#D0CCC6" }}>
-              <TrendingUp size={11} strokeWidth={1.5} className="shrink-0 mt-0.5" style={{ color: t.includes("Hausse") || t.includes("Croissance") ? "#7A9A65" : "#9A9590" }} />
+              <TrendingUp size={11} strokeWidth={1.5} className="shrink-0 mt-0.5" style={{ color: t.includes("Hausse") || t.includes("Croissance") ? "#7A9A65" : "#E0D8D0" }} />
               {t}
             </li>
           ))}
@@ -91,7 +91,7 @@ export function AIAnalysisTab({ creatorId }: Props) {
       <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
         <div className="flex items-center gap-2 mb-3">
           <Lightbulb size={13} strokeWidth={1.5} style={{ color: "#C75B39" }} />
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#7A736B" }}>
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
             Suggestions stratégiques
           </p>
         </div>
@@ -111,7 +111,7 @@ export function AIAnalysisTab({ creatorId }: Props) {
       <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
         <div className="flex items-center gap-2 mb-3">
           <AlertTriangle size={13} strokeWidth={1.5} style={{ color: "#C44536" }} />
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#7A736B" }}>
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
             Risques détectés
           </p>
         </div>

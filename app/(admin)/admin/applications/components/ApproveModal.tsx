@@ -45,7 +45,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
         onClick={onClose}
       >
         <div
-          className="w-full max-w-[520px] shadow-2xl"
+          className="w-full max-w-[520px] shadow-2xl card-accent"
           style={{ background: "#0F0D0B", border: "1px solid rgba(255,255,255,0.08)" }}
           onClick={(e) => e.stopPropagation()}
         >
@@ -55,7 +55,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
               {step === "done" ? "Candidature approuvée" : "Approuver la candidature"}
             </h2>
             {step !== "processing" && (
-              <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#5A544C" }}>
+              <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#E0D8D0" }}>
                 <X size={16} strokeWidth={1.5} />
               </button>
             )}
@@ -70,7 +70,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
 
                 {/* Commission tier */}
                 <div>
-                  <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#9A9590" }}>
+                  <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#E0D8D0" }}>
                     Palier de commission initial
                   </label>
                   <div className="space-y-1.5">
@@ -100,7 +100,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
 
                 {/* Manager */}
                 <div>
-                  <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#9A9590" }}>
+                  <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#E0D8D0" }}>
                     Manager dédié
                   </label>
                   <select
@@ -109,7 +109,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                     className="w-full px-3 py-2.5 text-xs font-sans outline-none"
                     style={{
                       background: "transparent",
-                      color: manager ? "#F5F0EB" : "#5A544C",
+                      color: manager ? "#F5F0EB" : "#E0D8D0",
                       border: "1px solid rgba(255,255,255,0.08)",
                     }}
                   >
@@ -126,7 +126,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                   <button
                     onClick={onClose}
                     className="flex-1 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-                    style={{ color: "#7A736B", border: "1px solid rgba(255,255,255,0.08)" }}
+                    style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.08)" }}
                   >
                     Annuler
                   </button>
@@ -165,7 +165,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                       <span className="w-4 h-4 rounded-full flex items-center justify-center" style={{ background: "rgba(199,91,57,0.15)" }}>
                         <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#C75B39" }} />
                       </span>
-                      <span style={{ color: "#9A9590" }}>{step}</span>
+                      <span style={{ color: "#E0D8D0" }}>{step}</span>
                     </li>
                   ))}
                 </ul>
@@ -183,7 +183,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                 <p className="font-display text-xl font-bold mb-2" style={{ color: "#F5F0EB" }}>
                   Candidature approuvée
                 </p>
-                <p className="text-sm font-sans" style={{ color: "#9A9590" }}>
+                <p className="text-sm font-sans" style={{ color: "#E0D8D0" }}>
                   Contrat envoyé à {application.email}
                 </p>
                 <button

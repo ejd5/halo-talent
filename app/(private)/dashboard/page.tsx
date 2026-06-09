@@ -2,23 +2,23 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { TrendingUp, TrendingDown, Sparkles, MessageCircle, Lightbulb, ArrowRight, RefreshCw, BarChart3, Target, Calendar, User } from "lucide-react";
+import { TrendingUp, TrendingDown, Sparkles, MessageCircle, Lightbulb, ArrowRight, RefreshCw, BarChart3, Target, Calendar, User, Globe, ChevronRight } from "lucide-react";
 import { mockBrief, mockKpi, agentCards, mockActivities, mockEvolution, timeAgo, formatEuro, mockCreator } from "@/components/dashboard/data";
 
 // ── KPI Card ────────────────────────────────────────────
 
 function KpiCard({ label, value, trend, subtitle }: { label: string; value: string; trend?: { value: string; positive: boolean }; subtitle?: string }) {
   return (
-    <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <div className="text-[10px] font-semibold uppercase tracking-wider opacity-40 mb-1">{label}</div>
-      <div className="text-lg font-semibold font-mono" style={{ fontFamily: "var(--font-display)" }}>{value}</div>
+    <div className="p-6 border border-[var(--color-border)] card-accent" style={{ backgroundColor: "var(--color-card)" }}>
+      <div className="text-sm font-semibold uppercase tracking-wider mb-2" style={{ color: "#FFFFFF" }}>{label}</div>
+      <div className="text-3xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--color-accent)" }}>{value}</div>
       {trend && (
-        <div className={`flex items-center gap-1 mt-1 text-[11px] ${trend.positive ? "text-[#7A9A65]" : "text-[#C44536]"}`}>
-          {trend.positive ? <TrendingUp size={12} /> : <TrendingDown size={12} />}
+        <div className={`flex items-center gap-1 mt-2 text-sm ${trend.positive ? "text-[#A8D08D]" : "text-[#C44536]"}`}>
+          {trend.positive ? <TrendingUp size={16} /> : <TrendingDown size={16} />}
           <span>{trend.value}</span>
         </div>
       )}
-      {subtitle && <div className="text-[10px] opacity-30 mt-1">{subtitle}</div>}
+      {subtitle && <div className="text-sm mt-2" style={{ color: "#FFFFFF" }}>{subtitle}</div>}
     </div>
   );
 }
@@ -27,48 +27,48 @@ function KpiCard({ label, value, trend, subtitle }: { label: string; value: stri
 
 function DailyBrief({ onOpenChat }: { onOpenChat: () => void }) {
   return (
-    <div className="p-6 border border-[var(--color-border)] relative overflow-hidden" style={{ backgroundColor: "var(--color-card)" }}>
+    <div className="p-6 md:p-8 border border-[var(--color-border)] relative overflow-hidden" style={{ backgroundColor: "var(--color-card)" }}>
       {/* Decorative accent line */}
       <div className="absolute top-0 left-0 w-full h-0.5" style={{ backgroundColor: "var(--color-accent)" }} />
 
-      <div className="flex items-start justify-between mb-3">
+      <div className="flex items-start justify-between mb-4">
         <div>
-          <h2 className="text-base font-semibold" style={{ fontFamily: "var(--font-display)" }}>
+          <h2 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>
             Bonjour {mockBrief.greeting},
           </h2>
-          <p className="text-xs opacity-50 mt-1">
+          <p className="text-base mt-1.5 font-bold" style={{ color: "#FFFFFF" }}>
             {new Date().toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })}
           </p>
         </div>
-        <div className="p-1.5 border border-[var(--color-border)] opacity-30">
-          <Sparkles size={16} />
+        <div className="p-2 border border-[var(--color-border)] opacity-30">
+          <Sparkles size={18} />
         </div>
       </div>
 
-      <p className="text-sm leading-relaxed opacity-80 mb-3">{mockBrief.summary}</p>
-      <p className="text-xs opacity-50 mb-4">
+      <p className="text-lg leading-relaxed font-bold mb-4" style={{ color: "#FFFFFF" }}>{mockBrief.summary}</p>
+      <p className="text-base mb-5 font-bold" style={{ color: "#FFFFFF" }}>
         Hier: <strong className="text-[var(--color-accent)]" style={{ fontFamily: "var(--font-display)" }}>+{formatEuro(mockBrief.yesterday_revenue)}</strong> (+{mockBrief.revenue_change_pct}%) · Post {mockBrief.top_post_platform} : {mockBrief.top_post_views.toLocaleString()} vues
       </p>
 
       {/* Suggestions */}
-      <div className="space-y-2 mb-4">
-        <div className="text-[10px] font-semibold uppercase tracking-wider opacity-30 mb-2">Suggestions pour aujourd'hui</div>
+      <div className="space-y-2 mb-5">
+        <div className="text-sm font-semibold uppercase tracking-wider mb-3" style={{ color: "#FFFFFF" }}>Suggestions pour aujourd'hui</div>
         {mockBrief.suggestions.map((s, i) => (
-          <div key={s.id} className="flex items-start gap-2 text-xs p-2 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }}>
-            <span className="font-mono text-[10px] opacity-30 shrink-0">{(i + 1).toString().padStart(2, "0")}</span>
+          <div key={s.id} className="flex items-start gap-3 text-base p-3 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-surface)" }}>
+            <span className="font-mono text-sm shrink-0" style={{ color: "#FFFFFF" }}>{(i + 1).toString().padStart(2, "0")}</span>
             <span className="flex-1">{s.text}</span>
-            <Link href={`/dashboard/${s.action}`} className="text-[var(--color-accent)] text-[10px] hover:underline shrink-0">Détails</Link>
+            <Link href={`/dashboard/${s.action}`} className="text-sm shrink-0" style={{ color: "#C75B39" }}>Détails</Link>
           </div>
         ))}
       </div>
 
       <button
         onClick={onOpenChat}
-        className="flex items-center gap-2 text-xs font-medium opacity-60 hover:opacity-100 transition-opacity"
+        className="flex items-center gap-2 text-base font-medium transition-colors" style={{ color: "#C75B39" }}
       >
-        <MessageCircle size={14} />
+        <MessageCircle size={18} />
         Parler à mon assistant
-        <ArrowRight size={12} />
+        <ArrowRight size={16} />
       </button>
     </div>
   );
@@ -114,16 +114,16 @@ function AgentGrid() {
         <Link
           key={agent.id}
           href={agent.href}
-          className="p-4 border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all group"
+          className="p-5 border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all group card-accent"
           style={{ backgroundColor: "var(--color-card)" }}
         >
-          <div className="flex items-start justify-between mb-2">
-            <span className="text-lg">{agent.emoji}</span>
-            <ArrowRight size={14} className="opacity-0 group-hover:opacity-40 transition-opacity" />
+          <div className="flex items-start justify-between mb-3">
+            <span className="text-2xl">{agent.emoji}</span>
+            <ArrowRight size={18} className="opacity-0 group-hover:opacity-40 transition-opacity" />
           </div>
-          <h3 className="text-xs font-semibold mb-1">{agent.title}</h3>
-          <p className="text-[11px] opacity-50 mb-2 leading-relaxed">{agent.description}</p>
-          <div className="text-[10px] font-medium" style={{ color: "var(--color-accent)" }}>{agent.status}</div>
+          <h3 className="text-base font-bold mb-1.5">{agent.title}</h3>
+          <p className="text-sm mb-2 leading-relaxed" style={{ color: "#FFFFFF" }}>{agent.description}</p>
+          <div className="text-sm font-medium" style={{ color: "var(--color-accent)" }}>{agent.status}</div>
         </Link>
       ))}
     </div>
@@ -134,16 +134,16 @@ function AgentGrid() {
 
 function ActivityStream() {
   return (
-    <div className="border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <div className="px-4 py-3 border-b border-[var(--color-border)]">
-        <h3 className="text-xs font-semibold" style={{ fontFamily: "var(--font-display)" }}>Aujourd'hui</h3>
+    <div className="border border-[var(--color-border)] card-accent" style={{ backgroundColor: "var(--color-card)" }}>
+      <div className="px-5 py-3.5 border-b border-[var(--color-border)]">
+        <h3 className="text-base font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Aujourd'hui</h3>
       </div>
       <div className="divide-y divide-[var(--color-border)]">
         {mockActivities.map((act) => (
-          <div key={act.id} className="px-4 py-2.5 flex items-center gap-3 text-xs hover:bg-[var(--color-base)]/50 transition-colors">
-            <span className="text-sm">{act.emoji}</span>
-            <span className="flex-1">{act.text}</span>
-            <span className="text-[10px] opacity-30 shrink-0">{timeAgo(act.created_at)}</span>
+          <div key={act.id} className="px-5 py-3 flex items-center gap-3 text-sm hover:bg-[var(--color-base)]/50 transition-colors">
+            <span className="text-base">{act.emoji}</span>
+            <span className="flex-1 font-bold" style={{ color: "#FFFFFF" }}>{act.text}</span>
+            <span className="text-xs shrink-0 font-medium" style={{ color: "#FFFFFF" }}>{timeAgo(act.created_at)}</span>
           </div>
         ))}
       </div>
@@ -158,45 +158,45 @@ function QuickActions() {
     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
       <Link
         href="/dashboard/calendar"
-        className="flex items-center gap-3 p-4 border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all"
+        className="flex items-center gap-4 p-5 border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all card-accent"
         style={{ backgroundColor: "var(--color-card)" }}
       >
-        <div className="p-2 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }}>
-          <Calendar size={16} />
+        <div className="p-3 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-surface)" }}>
+          <Calendar size={20} />
         </div>
         <div>
-          <div className="text-xs font-medium">Créer du contenu</div>
-          <div className="text-[10px] opacity-30">Planifier une publication</div>
+          <div className="text-base font-bold">Créer du contenu</div>
+          <div className="text-sm mt-0.5 font-medium" style={{ color: "#FFFFFF" }}>Planifier une publication</div>
         </div>
-        <ArrowRight size={14} className="ml-auto opacity-20" />
+        <ArrowRight size={18} className="ml-auto shrink-0" style={{ color: "#FFFFFF" }} />
       </Link>
       <Link
         href="/dashboard/messages"
-        className="flex items-center gap-3 p-4 border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all"
+        className="flex items-center gap-4 p-5 border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all card-accent"
         style={{ backgroundColor: "var(--color-card)" }}
       >
-        <div className="p-2 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }}>
-          <MessageCircle size={16} />
+        <div className="p-3 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-surface)" }}>
+          <MessageCircle size={20} />
         </div>
         <div>
-          <div className="text-xs font-medium">Discuter avec mon manager</div>
-          <div className="text-[10px] opacity-30">Messagerie directe</div>
+          <div className="text-base font-bold">Discuter avec mon manager</div>
+          <div className="text-sm mt-0.5 font-medium" style={{ color: "#FFFFFF" }}>Messagerie directe</div>
         </div>
-        <ArrowRight size={14} className="ml-auto opacity-20" />
+        <ArrowRight size={18} className="ml-auto shrink-0" style={{ color: "#FFFFFF" }} />
       </Link>
       <Link
         href="/dashboard/insights"
-        className="flex items-center gap-3 p-4 border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all"
+        className="flex items-center gap-4 p-5 border border-[var(--color-border)] hover:border-[var(--color-accent)]/30 transition-all card-accent"
         style={{ backgroundColor: "var(--color-card)" }}
       >
-        <div className="p-2 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }}>
-          <Lightbulb size={16} />
+        <div className="p-3 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-surface)" }}>
+          <Lightbulb size={20} />
         </div>
         <div>
-          <div className="text-xs font-medium">Demander une revue stratégique</div>
-          <div className="text-[10px] opacity-30">Analyse personnalisée</div>
+          <div className="text-base font-bold">Demander une revue stratégique</div>
+          <div className="text-sm mt-0.5 font-medium" style={{ color: "#FFFFFF" }}>Analyse personnalisée</div>
         </div>
-        <ArrowRight size={14} className="ml-auto opacity-20" />
+        <ArrowRight size={18} className="ml-auto shrink-0" style={{ color: "#FFFFFF" }} />
       </Link>
     </div>
   );
@@ -209,15 +209,15 @@ function MiniChart({ data, color, label, unit }: { data: { month: string; value:
   const min = Math.min(...data.map((d) => d.value));
   const range = max - min || 1;
   return (
-    <div className="p-4 border border-[var(--color-border)] flex-1" style={{ backgroundColor: "var(--color-card)" }}>
-      <div className="text-[10px] font-semibold uppercase tracking-wider opacity-30 mb-3">{label}</div>
-      <div className="flex items-end gap-1 h-20">
+    <div className="p-5 border border-[var(--color-border)] flex-1 card-accent" style={{ backgroundColor: "var(--color-card)" }}>
+      <div className="text-sm font-semibold uppercase tracking-wider mb-4" style={{ color: "#FFFFFF" }}>{label}</div>
+      <div className="flex items-end gap-1.5 h-24">
         {data.map((d, i) => {
           const h = ((d.value - min) / range) * 100;
           return (
-            <div key={i} className="flex-1 flex flex-col items-center gap-1">
-              <div className="w-full rounded-[1px] transition-all duration-300" style={{ height: `${Math.max(h, 5)}%`, backgroundColor: color, opacity: 0.6 + (h / 100) * 0.4 }} />
-              <span className="text-[8px] opacity-20 font-mono">{d.month}</span>
+            <div key={i} className="flex-1 flex flex-col items-center gap-1.5">
+              <div className="w-full rounded-sm transition-all duration-300" style={{ height: `${Math.max(h, 5)}%`, backgroundColor: color, opacity: 0.6 + (h / 100) * 0.4 }} />
+              <span className="text-xs font-mono" style={{ color: "#FFFFFF" }}>{d.month}</span>
             </div>
           );
         })}
@@ -231,7 +231,7 @@ function EvolutionSection() {
     <div className="flex flex-col md:flex-row gap-3">
       <MiniChart data={mockEvolution.revenue} color="var(--color-accent)" label="Revenus 6 mois" unit="€" />
       <MiniChart data={mockEvolution.followers} color="#4A90D9" label="Followers 6 mois" unit="" />
-      <MiniChart data={mockEvolution.wellness_score} color="#7A9A65" label="Bien-être" unit="/10" />
+      <MiniChart data={mockEvolution.wellness_score} color="#A8D08D" label="Bien-être" unit="/10" />
     </div>
   );
 }
@@ -246,15 +246,45 @@ export default function DashboardPage() {
       {/* Section 1: Daily Brief */}
       <DailyBrief onOpenChat={() => setChatOpen(true)} />
 
-      {/* Section 2: KPI */}
+      {/* Section 2: Atlas CTA */}
+      <Link href="/dashboard/atlas" className="block group">
+        <div className="p-6 border border-[var(--color-border)] relative overflow-hidden" style={{ background: "linear-gradient(135deg, rgba(199,91,57,0.15) 0%, rgba(199,91,57,0.05) 50%, transparent 100%)" }}>
+          <div className="absolute top-0 left-0 w-1 h-full" style={{ backgroundColor: "var(--color-accent)" }} />
+          <div className="flex items-start justify-between">
+            <div className="flex items-start gap-4">
+              <div className="p-3 border border-[var(--color-accent)]/20 shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)" }}>
+                <Globe size={28} style={{ color: "var(--color-accent)" }} />
+              </div>
+              <div>
+                <h2 className="text-xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>
+                  Atlas CRM
+                </h2>
+                <p className="text-sm mt-1.5 font-medium" style={{ color: "#FFFFFF" }}>
+                  Gérez votre relation fan — scoring intelligent, campagnes automatisées, inbox unifié, funnels de conversion et modération IA.
+                </p>
+                <div className="flex items-center gap-4 mt-3 text-xs font-medium">
+                  <span className="flex items-center gap-1" style={{ color: "#10B981" }}>● Scoring & Tiers</span>
+                  <span className="flex items-center gap-1" style={{ color: "#10B981" }}>● Automatisations</span>
+                  <span className="flex items-center gap-1" style={{ color: "#10B981" }}>● Campagnes multi-canal</span>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 text-sm font-medium transition-opacity group-hover:opacity-80 shrink-0" style={{ color: "var(--color-accent)" }}>
+              Ouvrir <ChevronRight size={16} />
+            </div>
+          </div>
+        </div>
+      </Link>
+
+      {/* Section 3: KPI */}
       <KpiGrid />
 
       {/* Section 3: Agents IA */}
       <div>
-        <div className="flex items-center justify-between mb-3">
-          <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)" }}>Mes agents IA</h2>
-          <Link href="/dashboard/agents" className="text-[10px] font-medium opacity-30 hover:opacity-100 transition-opacity flex items-center gap-1">
-            Voir tout <ArrowRight size={10} />
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-lg font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Mes agents IA</h2>
+          <Link href="/dashboard/agents" className="text-sm font-medium flex items-center gap-1 transition-colors" style={{ color: "#FFFFFF" }}>
+            Voir tout <ArrowRight size={14} />
           </Link>
         </div>
         <AgentGrid />
@@ -268,14 +298,14 @@ export default function DashboardPage() {
           <QuickActions />
           {/* Evolution */}
           <div>
-            <h2 className="text-sm font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>Mon évolution</h2>
+            <h2 className="text-lg font-bold mb-4" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Mon évolution</h2>
             <EvolutionSection />
           </div>
         </div>
 
         {/* Right 1/3: Activity stream */}
         <div className="lg:col-span-1">
-          <h2 className="text-sm font-semibold mb-3" style={{ fontFamily: "var(--font-display)" }}>Activité en direct</h2>
+          <h2 className="text-lg font-bold mb-4" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Activité en direct</h2>
           <ActivityStream />
         </div>
       </div>

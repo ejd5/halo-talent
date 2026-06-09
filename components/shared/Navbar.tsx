@@ -2,8 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, startTransition } from "react";
 import { ShieldCheck } from "lucide-react";
+import { t } from "@/lib/i18n/legal";
+import { useLocale } from "@/lib/i18n/use-locale";
 
 interface NavItem {
   href?: string;
@@ -12,28 +14,32 @@ interface NavItem {
   items?: { href: string; label: string; description?: string }[];
 }
 
-const navItems: NavItem[] = [
-  { href: "/manifeste", label: "Manifeste" },
-  { href: "/departments", label: "Départements" },
-  { href: "/commissions", label: "Commissions" },
-  {
-    label: "Protection",
-    icon: ShieldCheck,
-    items: [
-      { href: "/protection", label: "Bouclier Légal", description: "L'outil gratuit d'analyse" },
-      { href: "/protection#droits", label: "Vos droits", description: "CGU & références juridiques" },
-      { href: "/contrat-type", label: "Contrat type", description: "PDF téléchargeable" },
-    ],
-  },
-  { href: "/saas", label: "SaaS" },
-];
+function getNavItems(locale: string): NavItem[] {
+  return [
+    { href: "/manifeste", label: "Manifeste" },
+    { href: "/departments", label: "Départements" },
+    { href: "/commissions", label: "Commissions" },
+    {
+      label: t("nav.label", locale),
+      icon: ShieldCheck,
+      items: [
+        { href: "/protection", label: t("nav.legal_shield", locale), description: t("nav.legal_shield_desc", locale) },
+        { href: "/protection#droits", label: t("nav.your_rights", locale), description: t("nav.your_rights_desc", locale) },
+        { href: "/contrat-type", label: t("nav.contract_template", locale), description: t("nav.contract_template_desc", locale) },
+      ],
+    },
+    { href: "/saas", label: "SaaS" },
+  ];
+}
 
 export function Navbar() {
+  const locale = useLocale();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
+  const navItems = getNavItems(locale);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -43,8 +49,10 @@ export function Navbar() {
 
   // Close mobile menu & dropdowns on route change
   useEffect(() => {
-    setIsOpen(false);
-    setActiveDropdown(null);
+    startTransition(() => {
+      setIsOpen(false);
+      setActiveDropdown(null);
+    });
   }, [pathname]);
 
   // Close dropdown on outside click

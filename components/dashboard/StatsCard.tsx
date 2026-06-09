@@ -23,7 +23,7 @@ export function StatsCard({
   return (
     <div
       className={cn(
-        "relative border border-ink/5 p-6 hover:border-ink/10 transition-colors group",
+        "relative border border-ink/5 p-6 hover:border-ink/10 transition-colors group card-accent",
         className
       )}
     >

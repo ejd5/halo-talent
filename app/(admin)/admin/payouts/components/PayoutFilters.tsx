@@ -36,13 +36,13 @@ export function PayoutFilters({
               onClick={() => onStatusChange(tab.id)}
               className="flex items-center gap-1.5 pb-3 px-1 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors relative"
               style={{
-                color: isActive ? "#C75B39" : "#7A736B",
+                color: isActive ? "#C75B39" : "#F5F0EB",
                 borderBottom: isActive ? "2px solid #C75B39" : "2px solid transparent",
                 marginBottom: "-1px",
               }}
             >
               {tab.label}
-              <span className="text-[9px] font-sans ml-0.5" style={{ color: isActive ? "#C75B39" : "#5A544C" }}>
+              <span className="text-[9px] font-sans ml-0.5" style={{ color: isActive ? "#C75B39" : "#E0D8D0" }}>
                 ({counts[tab.id] ?? 0})
               </span>
             </button>
@@ -53,7 +53,7 @@ export function PayoutFilters({
       {/* Search + method filter */}
       <div className="flex items-center gap-3">
         <div className="flex-1 flex items-center gap-2 px-3" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.06)" }}>
-          <Search size={14} strokeWidth={1.5} style={{ color: "#5A544C" }} />
+          <Search size={14} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
           <input
             type="text"
             value={search}
@@ -67,7 +67,7 @@ export function PayoutFilters({
           value={methodFilter}
           onChange={(e) => onMethodChange(e.target.value)}
           className="text-[10px] font-sans px-3 py-2.5 bg-transparent outline-none"
-          style={{ color: "#7A736B", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
         >
           <option value="all" style={{ background: "#1A1614" }}>Toutes méthodes</option>
           <option value="stripe" style={{ background: "#1A1614" }}>Stripe</option>

@@ -67,13 +67,13 @@ export function RevenueChart() {
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#7A736B", fontSize: 11 }}
+              tick={{ fill: "#FFFFFF", fontSize: 11 }}
               dy={8}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#7A736B", fontSize: 11 }}
+              tick={{ fill: "#FFFFFF", fontSize: 11 }}
               dx={-8}
               tickFormatter={(v) =>
                 new Intl.NumberFormat("fr-FR", {

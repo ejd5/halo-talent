@@ -4,6 +4,7 @@ import { type ReactNode, useState, useEffect, useCallback } from "react";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
 import { CommandPalette } from "./CommandPalette";
+import { KeyboardShortcuts } from "@/components/ui/KeyboardShortcuts";
 
 type Props = {
   children: ReactNode;
@@ -54,7 +55,7 @@ export function AdminShell({
   return (
     <div
       className="min-h-screen"
-      style={{ background: "#0A0908", color: "#F5F0EB" }}
+      style={{ background: "#4D2D17", color: "#F5F0EB" }}
     >
       {/* Sidebar */}
       <Sidebar
@@ -82,6 +83,7 @@ export function AdminShell({
 
       {/* Command palette modal */}
       {commandOpen && <CommandPalette onClose={() => setCommandOpen(false)} />}
+      <KeyboardShortcuts />
     </div>
   );
 }

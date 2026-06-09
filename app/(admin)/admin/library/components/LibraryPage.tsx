@@ -55,22 +55,33 @@ export function LibraryPage() {
       id: `med-${Date.now()}`,
       title: data.title,
       url: "/mock/upload-placeholder.jpg",
+      thumbnail_url: null,
       type: data.type,
+      mime_type: "image/jpeg",
       creator_id: "unknown",
       creator_name: data.creator_name,
+      manager_id: null,
       tags: data.tags,
-      created_at: new Date().toISOString(),
       file_size: 0,
       width: null,
       height: null,
+      duration: null,
+      ai_description: null,
+      ai_tags: [], ai_colors: [],
+      ai_mood: null, ai_suitable_platforms: [],
+      ai_analyzed: false, ai_analysis_date: null,
+      moderation_safe: true, moderation_concerns: [], moderation_checked: false,
+      used_in_post_ids: [], used_on_platforms: [],
+      post_id: null, folder: null, is_favorite: false,
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
     };
     setItems((prev) => [newItem, ...prev]);
   };
 
   return (
-    <div className="flex flex-col gap-4 p-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "#0A0908" }}>
+      <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>
             Bibliothèque média

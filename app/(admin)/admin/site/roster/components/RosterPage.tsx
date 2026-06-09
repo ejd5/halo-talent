@@ -29,7 +29,7 @@ export function RosterPage() {
   const visibleCount = items.filter((i) => i.visible).length;
 
   return (
-    <div className="flex flex-col gap-4 p-6">
+    <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "#0A0908" }}>
       <div>
         <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Talents</h1>
         <p className="text-xs opacity-40 mt-0.5">

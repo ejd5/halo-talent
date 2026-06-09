@@ -29,7 +29,7 @@ export function BusinessTab() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent" style={{ background: "#0A0908" }}>
       {/* Executive Summary */}
       <div className="border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
         <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--color-border)]">
@@ -77,7 +77,7 @@ export function BusinessTab() {
             series={[
               { key: "brut", color: "#C75B39", name: "Brut" },
               { key: "net", color: "#7A9A65", name: "Net" },
-              { key: "commission", color: "#9A9590", name: "Commission" },
+              { key: "commission", color: "#E0D8D0", name: "Commission" },
             ]}
             height={220}
           />
@@ -128,7 +128,7 @@ export function BusinessTab() {
             data={analyticsData.cac.map((c) => ({ ...c, source: c.source.slice(0, 6) }))}
             xKey="source"
             barKey="cac"
-            color="#9A9590"
+            color="#E0D8D0"
             height={180}
           />
         </div>

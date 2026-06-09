@@ -22,7 +22,7 @@ export function ByPlatformTab({ summaries }: Props) {
   if (summaries.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-sm font-sans" style={{ color: "#5A544C" }}>
+        <p className="text-sm font-sans" style={{ color: "#E0D8D0" }}>
           Aucune donnée plateforme pour cette période.
         </p>
       </div>
@@ -30,9 +30,9 @@ export function ByPlatformTab({ summaries }: Props) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 card-accent">
       {summaries.map((platform) => {
-        const color = PLATFORM_COLORS[platform.name] || "#5A544C";
+        const color = PLATFORM_COLORS[platform.name] || "#E0D8D0";
         const path = sparklinePath(platform.monthly_history, 120, 32);
         const maxRevenue = Math.max(...platform.monthly_history, 1);
 
@@ -53,7 +53,7 @@ export function ByPlatformTab({ summaries }: Props) {
                   <p className="text-sm font-sans font-semibold" style={{ color: "#F5F0EB" }}>
                     {platform.name}
                   </p>
-                  <p className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+                  <p className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                     {platform.active_creators} créateur{platform.active_creators > 1 ? "s" : ""} actif{platform.active_creators > 1 ? "s" : ""}
                   </p>
                 </div>
@@ -66,7 +66,7 @@ export function ByPlatformTab({ summaries }: Props) {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div>
-                <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#7A736B" }}>
+                <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>
                   Revenus totaux
                 </p>
                 <p className="font-display text-lg font-bold tabular-nums" style={{ color: "#F5F0EB" }}>
@@ -74,7 +74,7 @@ export function ByPlatformTab({ summaries }: Props) {
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#7A736B" }}>
+                <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>
                   Moy. par créateur
                 </p>
                 <p className="font-display text-lg font-bold tabular-nums" style={{ color: "#F5F0EB" }}>

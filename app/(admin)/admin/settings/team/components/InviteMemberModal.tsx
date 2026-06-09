@@ -54,7 +54,7 @@ export function InviteMemberModal({
   return (
     <>
       <div className="fixed inset-0 z-40 bg-black/60 flex items-center justify-center" onClick={onClose}>
-        <div className="w-[520px] border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }} onClick={(e) => e.stopPropagation()}>
+        <div className="w-[520px] border border-[var(--color-border)] card-accent" style={{ backgroundColor: "var(--color-base)" }} onClick={(e) => e.stopPropagation()}>
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4 border-b border-[var(--color-border)]">
             <h2 className="text-sm font-semibold flex items-center gap-2" style={{ fontFamily: "var(--font-display)" }}>

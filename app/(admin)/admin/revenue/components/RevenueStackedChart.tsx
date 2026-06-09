@@ -16,8 +16,8 @@ type Props = { data: AggregatedMonthlyRevenue[] };
 
 const COLORS = {
   commission: "#C75B39",
-  net: "#9A9590",
-  fees: "#5A544C",
+  net: "#E0D8D0",
+  fees: "#E0D8D0",
 };
 
 export function RevenueStackedChart({ data }: Props) {
@@ -29,14 +29,14 @@ export function RevenueStackedChart({ data }: Props) {
   }));
 
   return (
-    <div style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
+    <div className="card-accent" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
       {/* Header */}
       <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
         <div>
           <h2 className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
             Répartition des revenus
           </h2>
-          <p className="text-xs font-sans mt-0.5" style={{ color: "#7A736B" }}>
+          <p className="text-xs font-sans mt-0.5" style={{ color: "#F5F0EB" }}>
             Commission · Net créateurs · Frais plateformes
           </p>
         </div>
@@ -48,7 +48,7 @@ export function RevenueStackedChart({ data }: Props) {
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-1.5">
               <span className="w-2.5 h-2.5" style={{ background: item.color }} />
-              <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#7A736B" }}>
+              <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>
                 {item.label}
               </span>
             </div>
@@ -79,12 +79,12 @@ export function RevenueStackedChart({ data }: Props) {
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#7A736B", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
+              tick={{ fill: "#F5F0EB", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#7A736B", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
+              tick={{ fill: "#F5F0EB", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
               tickFormatter={formatEuro}
             />
             <Tooltip

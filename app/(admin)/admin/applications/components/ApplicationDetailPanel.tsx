@@ -55,7 +55,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
 
       {/* Panel */}
       <div
-        className="fixed top-0 right-0 h-screen z-50 flex flex-col shadow-2xl"
+        className="fixed top-0 right-0 h-screen z-50 flex flex-col shadow-2xl card-accent"
         style={{
           width: 600,
           background: "#0F0D0B",
@@ -78,7 +78,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
               <h2 className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
                 {app.full_name}
               </h2>
-              <p className="text-xs font-sans mt-0.5" style={{ color: "#7A736B" }}>
+              <p className="text-xs font-sans mt-0.5" style={{ color: "#F5F0EB" }}>
                 {app.email}
                 {app.phone && ` · ${app.phone}`}
               </p>
@@ -89,7 +89,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
                 >
                   {st.label}
                 </span>
-                <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+                <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                   <Clock size={10} strokeWidth={1.5} className="inline mr-1" />
                   {relativeTime(app.created_at)}
                 </span>
@@ -99,7 +99,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
           <button
             onClick={onClose}
             className="p-1.5 transition-colors hover:bg-white/5"
-            style={{ color: "#5A544C" }}
+            style={{ color: "#E0D8D0" }}
           >
             <X size={16} strokeWidth={1.5} />
           </button>
@@ -116,7 +116,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
               onClick={() => setActiveTab(t.key)}
               className="px-4 py-3 text-[11px] font-sans font-medium uppercase tracking-[0.08em] whitespace-nowrap transition-colors"
               style={{
-                color: activeTab === t.key ? "#C75B39" : "#7A736B",
+                color: activeTab === t.key ? "#C75B39" : "#F5F0EB",
                 borderBottom: activeTab === t.key ? "2px solid #C75B39" : "2px solid transparent",
                 marginBottom: -1,
               }}
@@ -145,7 +145,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
             <button
               onClick={() => onStatusUpdate(app.id, "review")}
               className="flex items-center gap-2 px-4 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-              style={{ color: "#9A9590", border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ color: "#E0D8D0", border: "1px solid rgba(255,255,255,0.08)" }}
             >
               <Clock size={14} strokeWidth={1.5} />
               Mettre en review

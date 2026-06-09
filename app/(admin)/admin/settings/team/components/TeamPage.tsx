@@ -44,11 +44,10 @@ export function TeamPage() {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "#0A0908" }}>
+      <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Équipe</h1>
+          <h1 className="font-display text-2xl font-bold" style={{ color: "#F5F0EB" }}>Équipe</h1>
           <p className="text-xs opacity-40 mt-0.5">{members.filter((m) => m.active).length} membres actifs · {members.length} total</p>
         </div>
         <button

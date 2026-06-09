@@ -17,7 +17,7 @@ export function KpiCards({ summary }: Props) {
       label: "Commission agence",
       value: formatEuro(summary.total_commission),
       sub: `+${Math.round(summary.margin_variation * 10) / 10}% vs période préc.`,
-      color: "#D4AF37",
+      color: "#C75B39",
     },
     {
       label: "Net créateurs",
@@ -34,7 +34,7 @@ export function KpiCards({ summary }: Props) {
   ];
 
   return (
-    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+    <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 card-accent">
       {cards.map((card) => (
         <div
           key={card.label}
@@ -43,7 +43,7 @@ export function KpiCards({ summary }: Props) {
         >
           <p
             className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] mb-2"
-            style={{ color: "#7A736B" }}
+            style={{ color: "#F5F0EB" }}
           >
             {card.label}
           </p>
@@ -53,7 +53,7 @@ export function KpiCards({ summary }: Props) {
           >
             {card.value}
           </p>
-          <p className="text-[10px] font-sans mt-1.5" style={{ color: "#5A544C" }}>
+          <p className="text-[10px] font-sans mt-1.5" style={{ color: "#E0D8D0" }}>
             {card.sub}
           </p>
         </div>

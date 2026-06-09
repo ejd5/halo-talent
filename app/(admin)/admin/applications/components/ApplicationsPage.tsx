@@ -91,11 +91,11 @@ export function ApplicationsPage() {
   };
 
   return (
-    <div className="max-w-[1600px]">
+    <div className="max-w-[1600px] card-accent" style={{ background: "#0A0908" }}>
       {/* Page header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "#7A736B" }}>
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "#F5F0EB" }}>
             Acquisition
           </p>
           <h1 className="font-display text-[32px] font-bold mt-1" style={{ color: "#F5F0EB" }}>
@@ -126,7 +126,7 @@ export function ApplicationsPage() {
                 onClick={() => setActiveTab(tab.key)}
                 className="relative px-4 py-3 text-xs font-sans font-medium uppercase tracking-[0.08em] transition-colors"
                 style={{
-                  color: activeTab === tab.key ? "#C75B39" : "#7A736B",
+                  color: activeTab === tab.key ? "#C75B39" : "#F5F0EB",
                   borderBottom: activeTab === tab.key ? "2px solid #C75B39" : "2px solid transparent",
                   marginBottom: -1,
                 }}
@@ -137,7 +137,7 @@ export function ApplicationsPage() {
                     className="ml-2 text-[10px] px-1.5 py-0.5"
                     style={{
                       background: activeTab === tab.key ? "rgba(199,91,57,0.15)" : "rgba(255,255,255,0.06)",
-                      color: activeTab === tab.key ? "#C75B39" : "#9A9590",
+                      color: activeTab === tab.key ? "#C75B39" : "#E0D8D0",
                     }}
                   >
                     {tab.count}
@@ -149,7 +149,7 @@ export function ApplicationsPage() {
               <button
                 onClick={() => setShowFilters(true)}
                 className="ml-auto px-3 py-3 text-[11px] font-sans uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-                style={{ color: "#7A736B" }}
+                style={{ color: "#F5F0EB" }}
               >
                 Filtres
               </button>

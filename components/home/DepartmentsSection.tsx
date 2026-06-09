@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { cn } from "@/lib/utils";
 
-/* ─── Data ─── */
 const departments = [
   {
     name: "Music & Performing Arts",
@@ -20,7 +18,7 @@ const departments = [
   },
   {
     name: "Business & Thought Leadership",
-    description: "Entrepreneurs, speakers",
+    description: "Entrepreneurs, speakers, experts",
     slug: "business",
     image: "1540575467063-178a50c2df87",
   },
@@ -38,7 +36,6 @@ const departments = [
   },
 ];
 
-/* ─── Animated card wrapper ─── */
 function DepartmentCard({
   dept,
   index,
@@ -67,47 +64,38 @@ function DepartmentCard({
     return () => observer.disconnect();
   }, []);
 
-  const delay = index * 100;
+  const delay = index * 120;
 
   return (
     <div
       ref={ref}
-      className={cn(className, "will-change-transform")}
+      className={className}
       style={{
         clipPath: visible ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
-        transform: visible ? "translateY(0)" : "translateY(40px)",
-        transition: `clip-path 0.8s cubic-bezier(0.77, 0, 0.18, 1) ${delay}ms, transform 0.8s cubic-bezier(0.77, 0, 0.18, 1) ${delay}ms`,
+        transform: visible ? "translateY(0)" : "translateY(30px)",
+        transition: `clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
       }}
     >
       <Link
         href={`/departements/${dept.slug}`}
         className="group relative block w-full h-full overflow-hidden bg-surface"
       >
-        {/* Photo de couverture */}
+        {/* Image */}
         <div
-          className="absolute inset-0 bg-cover bg-center transition-all duration-700 ease-out group-hover:scale-105"
+          className="absolute inset-0 bg-cover bg-center transition-all duration-[0.6s] ease-out group-hover:scale-[1.03]"
           style={{
             backgroundImage: `url(https://images.unsplash.com/photo-${dept.image}?w=800&q=80&auto=format&fit=crop)`,
             filter: "brightness(0.92) saturate(0.75)",
           }}
         />
-        {/* Warm overlay — s'éclaircit au hover */}
-        <div className="absolute inset-0 bg-amber-900/10 mix-blend-overlay transition-opacity duration-500 group-hover:opacity-0 pointer-events-none" />
-        {/* Grain texture */}
-        <div
-          className="absolute inset-0 opacity-[0.035] mix-blend-multiply pointer-events-none"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          }}
-        />
-        {/* Bottom gradient */}
-        <div className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-[rgba(26,22,20,0.85)] via-[rgba(26,22,20,0.25)] to-transparent pointer-events-none" />
-        {/* Content */}
+        {/* Overlay gradient bottom */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent transition-opacity duration-[0.6s] group-hover:opacity-80 pointer-events-none" />
+        {/* Texte en bas */}
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
           <h3 className="font-display text-xl md:text-2xl font-bold text-white uppercase">
             {dept.name}
           </h3>
-          <p className="text-sm text-white/80 mt-1 max-w-[90%]">
+          <p className="font-sans text-sm text-white/80 mt-1">
             {dept.description}
           </p>
         </div>
@@ -116,9 +104,7 @@ function DepartmentCard({
   );
 }
 
-/* ─── Section ─── */
 export function DepartmentsSection() {
-  /* Header animation */
   const headerRef = useRef<HTMLDivElement>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
 
@@ -139,70 +125,50 @@ export function DepartmentsSection() {
   }, []);
 
   return (
-    <section id="departements" className="py-32 md:py-44 bg-base">
+    <section className="bg-base py-32 md:py-44">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
-        {/* ─── Header ─── */}
+        {/* Header */}
         <div
           ref={headerRef}
-          className="mb-16 md:mb-20 max-w-2xl"
+          className="text-center mb-16 md:mb-20"
           style={{
             clipPath: headerVisible ? "inset(0 0 0 0)" : "inset(0 0 100% 0)",
             transform: headerVisible ? "translateY(0)" : "translateY(30px)",
-            transition: `clip-path 0.8s cubic-bezier(0.77, 0, 0.18, 1) 0ms, transform 0.8s cubic-bezier(0.77, 0, 0.18, 1) 0ms`,
+            transition: "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
           }}
         >
-          <p className="text-xs uppercase tracking-[0.12em] text-accent mb-4 font-sans font-semibold">
-            Nos expertises
-          </p>
-          <h2 className="font-display text-[36px] md:text-[44px] font-bold text-ink tracking-tight leading-[1.1]">
-            Cinq départements,<br />une seule exigence.
+          <h2 className="font-display text-[2rem] md:text-[2.5rem] font-bold text-ink uppercase tracking-[-0.02em]">
+            Nos cinq départements
           </h2>
-          <p className="text-lg text-ink-muted leading-relaxed mt-4 max-w-[600px]">
-            Quel que soit votre medium, nous avons l&apos;expertise pour vous
-            accompagner.
+          <p className="font-sans text-base md:text-lg text-ink-secondary mt-4 max-w-xl mx-auto leading-relaxed">
+            Quel que soit votre medium, nous avons l&apos;expertise pour vous accompagner.
           </p>
         </div>
 
-        {/* ─── Grille asymétrique ─── */}
-        {/* Desktop : 2/3 + 1/3 avec sous-grilles */}
-        <div className="hidden md:grid grid-cols-3 gap-6">
-          {/* Colonne gauche — 2/3 */}
-          <div className="col-span-2 flex flex-col gap-6">
-            <DepartmentCard
-              dept={departments[0]}
-              index={0}
-              className="w-full h-[480px]"
-            />
-            <div className="grid grid-cols-2 gap-6">
-              <DepartmentCard
-                dept={departments[2]}
-                index={2}
-                className="w-full h-[300px]"
-              />
-              <DepartmentCard
-                dept={departments[3]}
-                index={3}
-                className="w-full h-[300px]"
-              />
-            </div>
+        {/* ─── Desktop : grille asymétrique ─── */}
+        <div className="hidden md:grid grid-cols-6 gap-5">
+          {/* Row 1 : 4/6 + 2/6 */}
+          <div className="col-span-4 h-[400px]">
+            <DepartmentCard dept={departments[0]} index={0} className="w-full h-full" />
           </div>
-          {/* Colonne droite — 1/3 */}
-          <div className="col-span-1 flex flex-col gap-6">
-            <DepartmentCard
-              dept={departments[1]}
-              index={1}
-              className="w-full h-[300px]"
-            />
-            <DepartmentCard
-              dept={departments[4]}
-              index={4}
-              className="w-full h-[480px]"
-            />
+          <div className="col-span-2 h-[400px]">
+            <DepartmentCard dept={departments[1]} index={1} className="w-full h-full" />
+          </div>
+
+          {/* Row 2 : 2/6 + 2/6 + 2/6 */}
+          <div className="col-span-2 h-[350px]">
+            <DepartmentCard dept={departments[2]} index={2} className="w-full h-full" />
+          </div>
+          <div className="col-span-2 h-[350px]">
+            <DepartmentCard dept={departments[3]} index={3} className="w-full h-full" />
+          </div>
+          <div className="col-span-2 h-[350px]">
+            <DepartmentCard dept={departments[4]} index={4} className="w-full h-full" />
           </div>
         </div>
 
-        {/* ─── Mobile : stack vertical ─── */}
-        <div className="md:hidden flex flex-col gap-5">
+        {/* ─── Mobile ─── */}
+        <div className="md:hidden flex flex-col gap-4">
           {departments.map((dept, i) => (
             <DepartmentCard
               key={dept.slug}

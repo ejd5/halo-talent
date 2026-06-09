@@ -367,9 +367,9 @@ export const managers = [
 ];
 
 export const tierConfig: Record<string, { label: string; color: string; minRevenue: number }> = {
-  discovery: { label: "Découverte", color: "#9A9590", minRevenue: 0 },
+  discovery: { label: "Découverte", color: "#E0D8D0", minRevenue: 0 },
   growth: { label: "Croissance", color: "#C75B39", minRevenue: 5000 },
   scale: { label: "Scale", color: "#B8860B", minRevenue: 10000 },
-  elite: { label: "Elite", color: "#D4AF37", minRevenue: 20000 },
-  icon: { label: "Icon", color: "#FFD700", minRevenue: 30000 },
+  elite: { label: "Elite", color: "#C75B39", minRevenue: 20000 },
+  icon: { label: "Icon", color: "#C75B39", minRevenue: 30000 },
 };

@@ -12,12 +12,12 @@ export function PlatformDonutChart({ data }: Props) {
     name: p.name,
     value: p.total_revenue,
     share: p.share_pct,
-    color: PLATFORM_COLORS[p.name] || "#5A544C",
+    color: PLATFORM_COLORS[p.name] || "#E0D8D0",
   }));
 
   return (
-    <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "#7A736B" }}>
+    <div className="p-5 card-accent" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
+      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "#F5F0EB" }}>
         Répartition par plateforme
       </p>
       <div className="flex items-center gap-4">
@@ -58,7 +58,7 @@ export function PlatformDonutChart({ data }: Props) {
             <div key={entry.name} className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2" style={{ background: entry.color }} />
-                <span className="text-[11px] font-sans" style={{ color: "#9A9590" }}>
+                <span className="text-[11px] font-sans" style={{ color: "#E0D8D0" }}>
                   {entry.name}
                 </span>
               </div>

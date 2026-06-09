@@ -76,7 +76,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-[520px] shadow-2xl"
+        className="w-full max-w-[520px] shadow-2xl card-accent"
         style={{ background: "#0F0D0B", border: "1px solid rgba(255,255,255,0.08)" }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -85,7 +85,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
           <h2 className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
             Refuser avec message
           </h2>
-          <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#5A544C" }}>
+          <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#E0D8D0" }}>
             <X size={16} strokeWidth={1.5} />
           </button>
         </div>
@@ -97,7 +97,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
 
           {/* Templates */}
           <div>
-            <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#9A9590" }}>
+            <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#E0D8D0" }}>
               Template de refus
             </label>
             <select
@@ -120,7 +120,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
 
           {/* Message preview / edit */}
           <div>
-            <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#9A9590" }}>
+            <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#E0D8D0" }}>
               Message personnalisé
             </label>
             <textarea
@@ -139,7 +139,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
             <button
               onClick={onClose}
               className="flex-1 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-              style={{ color: "#7A736B", border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.08)" }}
             >
               Annuler
             </button>

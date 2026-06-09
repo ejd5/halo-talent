@@ -40,18 +40,18 @@ export function PayoutsPage() {
   };
 
   return (
-    <div>
+    <div className="card-accent" style={{ background: "#0A0908" }}>
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="font-display text-2xl font-bold" style={{ color: "#F5F0EB" }}>
             Payouts
           </h1>
-          <p className="text-xs font-sans mt-1" style={{ color: "#7A736B" }}>
+          <p className="text-xs font-sans mt-1" style={{ color: "#F5F0EB" }}>
             Paiements aux créateurs
           </p>
         </div>
         <div className="text-right">
-          <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#7A736B" }}>
+          <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>
             Total en attente
           </p>
           <p className="font-display text-xl font-bold tabular-nums" style={{ color: "#C75B39" }}>

@@ -16,7 +16,7 @@ export function AnalyticsPage() {
   const [tab, setTab] = useState<AnalyticsTab>("business");
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full card-accent" style={{ background: "#0A0908" }}>
       {/* Tabs */}
       <div className="flex border-b border-[var(--color-border)] px-6">
         {TABS.map((t) => (

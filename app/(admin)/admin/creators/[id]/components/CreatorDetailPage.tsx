@@ -41,12 +41,12 @@ export function CreatorDetailPage({ creator }: Props) {
   const st = statusLabels[creator.status];
 
   return (
-    <div className="max-w-[1400px]">
+    <div className="max-w-[1400px] card-accent">
       {/* Back link */}
       <Link
         href="/admin/creators"
         className="inline-flex items-center gap-1.5 text-[11px] font-sans font-medium uppercase tracking-[0.1em] mb-4 transition-colors hover:opacity-70"
-        style={{ color: "#7A736B" }}
+        style={{ color: "#F5F0EB" }}
       >
         <ArrowLeft size={14} strokeWidth={1.5} />
         Retour au roster
@@ -79,7 +79,7 @@ export function CreatorDetailPage({ creator }: Props) {
                 {tier.label}
               </span>
             </div>
-            <p className="text-sm font-sans mt-1" style={{ color: "#7A736B" }}>
+            <p className="text-sm font-sans mt-1" style={{ color: "#F5F0EB" }}>
               {creator.department} · Manager : {creator.manager_name}
             </p>
           </div>
@@ -90,7 +90,7 @@ export function CreatorDetailPage({ creator }: Props) {
           <button
             onClick={() => setShowActions(!showActions)}
             className="px-4 py-2 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-            style={{ color: "#9A9590", border: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ color: "#E0D8D0", border: "1px solid rgba(255,255,255,0.08)" }}
           >
             Actions
           </button>
@@ -136,7 +136,7 @@ export function CreatorDetailPage({ creator }: Props) {
             onClick={() => setActiveTab(t.key)}
             className="px-4 py-3.5 text-[11px] font-sans font-medium uppercase tracking-[0.08em] whitespace-nowrap transition-colors"
             style={{
-              color: activeTab === t.key ? "#C75B39" : "#7A736B",
+              color: activeTab === t.key ? "#C75B39" : "#F5F0EB",
               borderBottom: activeTab === t.key ? "2px solid #C75B39" : "2px solid transparent",
               marginBottom: -1,
             }}

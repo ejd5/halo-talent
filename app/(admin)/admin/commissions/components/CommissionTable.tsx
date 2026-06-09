@@ -13,12 +13,12 @@ type Props = {
 
 export function CommissionTable({ rows, onAdjust, pendingAdjustments, onValidate }: Props) {
   return (
-    <div style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
+    <div className="card-accent" style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>
             <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]"
-              style={{ color: "#5A544C", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+              style={{ color: "#E0D8D0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
               <th className="py-3 px-4 font-medium">Créateur</th>
               <th className="py-3 px-4 font-medium">Département</th>
               <th className="py-3 px-4 font-medium">Palier</th>
@@ -51,23 +51,23 @@ export function CommissionTable({ rows, onAdjust, pendingAdjustments, onValidate
                       </span>
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-xs font-sans" style={{ color: "#9A9590" }}>{row.department}</td>
+                  <td className="py-3 px-4 text-xs font-sans" style={{ color: "#E0D8D0" }}>{row.department}</td>
                   <td className="py-3 px-4">
-                    <span className="text-[10px] font-sans capitalize" style={{ color: "#7A736B" }}>{row.tier}</span>
+                    <span className="text-[10px] font-sans capitalize" style={{ color: "#F5F0EB" }}>{row.tier}</span>
                   </td>
                   <td className="py-3 px-4 text-xs font-sans tabular-nums" style={{ color: "#F5F0EB" }}>
                     {formatEuro(row.gross)}
                   </td>
-                  <td className="py-3 px-4 text-xs font-sans tabular-nums" style={{ color: "#9A9590" }}>
+                  <td className="py-3 px-4 text-xs font-sans tabular-nums" style={{ color: "#E0D8D0" }}>
                     {row.contract_rate}%
                   </td>
                   <td className="py-3 px-4 text-xs font-sans tabular-nums" style={{ color: "#D0CCC6" }}>
                     {formatEuro(row.contract_commission_eur)}
                   </td>
-                  <td className="py-3 px-4 text-xs font-sans tabular-nums" style={{ color: "#9A9590" }}>
+                  <td className="py-3 px-4 text-xs font-sans tabular-nums" style={{ color: "#E0D8D0" }}>
                     {formatEuro(row.tier_min_revenue)}
                   </td>
-                  <td className="py-3 px-4 text-[10px] font-sans" style={{ color: "#7A736B" }}>
+                  <td className="py-3 px-4 text-[10px] font-sans" style={{ color: "#F5F0EB" }}>
                     {row.tier_reason}
                   </td>
                   <td className="py-3 px-4">
@@ -93,7 +93,7 @@ export function CommissionTable({ rows, onAdjust, pendingAdjustments, onValidate
                         {row.adjustment.difference >= 0 ? "+" : ""}{formatEuro(row.adjustment.difference)}
                       </span>
                     ) : (
-                      <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>—</span>
+                      <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>—</span>
                     )}
                   </td>
                   <td className="py-3 px-4 text-xs font-sans font-semibold tabular-nums" style={{ color: "#C75B39" }}>
@@ -103,7 +103,7 @@ export function CommissionTable({ rows, onAdjust, pendingAdjustments, onValidate
                     <button
                       onClick={() => onAdjust(row.creator_id)}
                       className="p-1 transition-colors hover:bg-white/5"
-                      style={{ color: "#7A736B" }}
+                      style={{ color: "#F5F0EB" }}
                       title="Ajuster la commission"
                     >
                       <Pencil size={12} strokeWidth={1.5} />

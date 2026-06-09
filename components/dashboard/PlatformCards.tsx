@@ -158,7 +158,7 @@ export function PlatformCards() {
             return (
               <div
                 key={account.id}
-                className="border border-ink/5 p-5 hover:border-ink/10 transition-colors group bg-base-alt"
+                className="border border-ink/5 p-5 hover:border-ink/10 transition-colors group bg-base-alt card-accent"
               >
                 {/* Header */}
                 <div className="flex items-center justify-between mb-4">

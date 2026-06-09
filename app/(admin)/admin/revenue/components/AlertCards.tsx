@@ -29,7 +29,7 @@ export function AlertCards({ alerts }: Props) {
   if (alerts.length === 0) {
     return (
       <div className="p-5 text-center" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <p className="text-xs font-sans" style={{ color: "#5A544C" }}>
+        <p className="text-xs font-sans" style={{ color: "#E0D8D0" }}>
           Aucune alerte financière
         </p>
       </div>
@@ -38,7 +38,7 @@ export function AlertCards({ alerts }: Props) {
 
   return (
     <div>
-      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "#7A736B" }}>
+      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "#F5F0EB" }}>
         Alertes & notifications
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -59,7 +59,7 @@ export function AlertCards({ alerts }: Props) {
                     color:
                       alert.severity === "high" ? "#C44536"
                       : alert.severity === "medium" ? "#C75B39"
-                      : "#7A736B",
+                      : "#F5F0EB",
                   }}
                 />
                 <div>
@@ -67,7 +67,7 @@ export function AlertCards({ alerts }: Props) {
                     {alert.message}
                   </p>
                   {alert.creator_name && (
-                    <p className="text-[10px] font-sans mt-1" style={{ color: "#5A544C" }}>
+                    <p className="text-[10px] font-sans mt-1" style={{ color: "#E0D8D0" }}>
                       {alert.creator_name}
                     </p>
                   )}

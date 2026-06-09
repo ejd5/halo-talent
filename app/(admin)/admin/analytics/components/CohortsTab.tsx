@@ -13,7 +13,7 @@ export function CohortsTab() {
   const lastRetention = lastCohort.retention[lastCohort.retention.length - 1] ?? 0;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent" style={{ background: "#0A0908" }}>
       {/* KPI */}
       <div className="grid grid-cols-4 gap-3">
         <StatCard title="Cohortes analysées" value={cohorts.length.toString()} subtitle="Depuis juillet 2024" icon={<Calendar size={14} />} />
@@ -85,7 +85,7 @@ export function CohortsTab() {
             <p className="opacity-70">La première cohorte (2024-07) a la rétention la plus basse : <strong>{cohorts[0].retention.slice(-1)[0]}%</strong>. Les premiers mois étaient expérimentaux, le processus d&apos;onboarding n&apos;était pas encore rodé.</p>
           </div>
           <div className="flex items-start gap-2 text-sm">
-            <span className="text-[#9A9590] mt-0.5">📊</span>
+            <span className="text-[#E0D8D0] mt-0.5">📊</span>
             <p className="opacity-70">Tendance générale : le taux de rétention s&apos;améliore de <strong>~5% par cohorte</strong> grâce aux processus mis en place et à la sélection plus rigoureuse des candidatures.</p>
           </div>
         </div>

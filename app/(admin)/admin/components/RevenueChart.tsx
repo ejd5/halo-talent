@@ -47,6 +47,7 @@ export function RevenueChart() {
 
   return (
     <div
+      className="card-accent"
       style={{
         background: "#1A1614",
         border: "1px solid rgba(255,255,255,0.04)",
@@ -66,22 +67,22 @@ export function RevenueChart() {
           >
             Revenus — 12 mois
           </h2>
-          <p className="text-xs font-sans mt-0.5" style={{ color: "#7A736B" }}>
+          <p className="text-xs font-sans mt-0.5" style={{ color: "#F5F0EB" }}>
             Bruts · Commission · Net créateurs
           </p>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#C75B39" }} />
-            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#7A736B" }}>Brut</span>
+            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>Brut</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#9A9590" }} />
-            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#7A736B" }}>Commission</span>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#E0D8D0" }} />
+            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>Commission</span>
           </div>
           <div className="flex items-center gap-1.5">
             <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#F5F0EB" }} />
-            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#7A736B" }}>Net</span>
+            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>Net</span>
           </div>
         </div>
       </div>
@@ -96,8 +97,8 @@ export function RevenueChart() {
                 <stop offset="100%" stopColor="#C75B39" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="gradientCommission" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#9A9590" stopOpacity={0.15} />
-                <stop offset="100%" stopColor="#9A9590" stopOpacity={0} />
+                <stop offset="0%" stopColor="#E0D8D0" stopOpacity={0.15} />
+                <stop offset="100%" stopColor="#E0D8D0" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="gradientNet" x1="0" y1="0" x2="0" y2="1">
                 <stop offset="0%" stopColor="#F5F0EB" stopOpacity={0.1} />
@@ -113,12 +114,12 @@ export function RevenueChart() {
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#7A736B", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
+              tick={{ fill: "#F5F0EB", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#7A736B", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
+              tick={{ fill: "#F5F0EB", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
               tickFormatter={formatEuro}
             />
             <Tooltip
@@ -144,11 +145,11 @@ export function RevenueChart() {
             <Area
               type="monotone"
               dataKey="commission"
-              stroke="#9A9590"
+              stroke="#E0D8D0"
               strokeWidth={1.5}
               fill="url(#gradientCommission)"
               dot={false}
-              activeDot={{ r: 3, stroke: "#9A9590", strokeWidth: 1.5, fill: "#0F0D0B" }}
+              activeDot={{ r: 3, stroke: "#E0D8D0", strokeWidth: 1.5, fill: "#0F0D0B" }}
             />
             <Area
               type="monotone"

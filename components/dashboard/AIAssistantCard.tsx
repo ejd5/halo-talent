@@ -11,7 +11,7 @@ const suggestions = [
 
 export function AIAssistantCard() {
   return (
-    <div className="border border-accent/20 p-6 bg-gradient-to-br from-accent-soft to-base">
+    <div className="border border-accent/20 p-6 bg-gradient-to-br from-accent-soft to-base card-accent">
       <div className="flex items-start gap-4">
         <div className="w-10 h-10 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center flex-shrink-0">
           <Bot size={20} className="text-accent" />

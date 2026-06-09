@@ -27,7 +27,7 @@ export function NotesTab({ applicationId }: Props) {
   };
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 card-accent">
       {/* Add note */}
       <div>
         <div
@@ -50,7 +50,7 @@ export function NotesTab({ applicationId }: Props) {
           />
         </div>
         <div className="flex items-center justify-between mt-2">
-          <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+          <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
             <kbd className="px-1 py-0.5" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>⌘↵</kbd> pour envoyer
           </span>
           <button
@@ -67,7 +67,7 @@ export function NotesTab({ applicationId }: Props) {
 
       {/* Notes list */}
       {notes.length === 0 ? (
-        <p className="text-xs font-sans text-center py-6" style={{ color: "#5A544C" }}>
+        <p className="text-xs font-sans text-center py-6" style={{ color: "#E0D8D0" }}>
           Aucune note interne pour cette candidature.
         </p>
       ) : (
@@ -86,11 +86,11 @@ export function NotesTab({ applicationId }: Props) {
                 <span className="text-xs font-sans font-medium" style={{ color: "#D0CCC6" }}>
                   {note.author}
                 </span>
-                <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+                <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                   {relativeTime(note.created_at)}
                 </span>
               </div>
-              <p className="text-xs font-sans leading-relaxed" style={{ color: "#9A9590" }}>
+              <p className="text-xs font-sans leading-relaxed" style={{ color: "#E0D8D0" }}>
                 {note.content}
               </p>
             </div>

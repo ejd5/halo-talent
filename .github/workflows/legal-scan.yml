@@ -1,0 +1,51 @@
+name: Legal Knowledge Update
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-knowledge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: |
+          npm install
+          pip install graphify 2>/dev/null || true
+
+      - name: Run legal scanner
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/legal-scanner.js
+
+      - name: Rebuild Graphify knowledge graph
+        run: |
+          npx --yes @sentropic/graphify detect . --scope auto 2>/dev/null || true
+          npx --yes @sentropic/graphify 2>/dev/null || true
+
+      - name: Sync to Supabase
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: npm run knowledge:sync
+
+      - name: Commit changes if any
+        run: |
+          git config --global user.name 'Legal Bot'
+          git config --global user.email 'bot@haloascend.com'
+          git add knowledge/ .graphify/
+          git diff --staged --quiet || git commit -m "🔍 Legal knowledge update $(date +%Y-%m-%d)"
+          git push

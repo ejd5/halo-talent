@@ -70,9 +70,9 @@ export default function AIChatPage() {
             <Bot size={20} style={{ color: "var(--color-accent)" }} />
             Assistant IA
           </h1>
-          <p className="text-xs opacity-40 mt-1">Conseils marketing, stratégie et analytics</p>
+          <p className="text-sm opacity-40 mt-1">Conseils marketing, stratégie et analytics</p>
         </div>
-        <button onClick={handleNewConversation} className="flex items-center gap-1.5 text-[11px] font-medium opacity-40 hover:opacity-100 transition-opacity">
+        <button onClick={handleNewConversation} className="flex items-center gap-1.5 text-sm font-medium opacity-40 hover:opacity-100 transition-opacity">
           <Plus size={12} /> Nouvelle conversation
         </button>
       </div>
@@ -83,13 +83,13 @@ export default function AIChatPage() {
             <div className="p-3 border border-[var(--color-border)] mb-4" style={{ backgroundColor: "var(--color-card)" }}>
               <Bot size={24} style={{ color: "var(--color-accent)" }} />
             </div>
-            <p className="text-xs opacity-40 mb-6 max-w-md">
+            <p className="text-sm opacity-40 mb-6 max-w-md">
               Posez une question sur votre stratégie, vos revenus, ou demandez des conseils personnalisés.
             </p>
             <div className="flex flex-wrap gap-2 justify-center max-w-lg">
               {suggestions.map((s) => (
                 <button key={s} onClick={() => setInput(s)}
-                  className="px-3 py-2 text-[11px] border border-[var(--color-border)] opacity-40 hover:opacity-100 hover:border-[var(--color-accent)]/50 transition-all"
+                  className="px-3 py-2 text-sm border border-[var(--color-border)] opacity-40 hover:opacity-100 hover:border-[var(--color-accent)]/50 transition-all"
                 >{s}</button>
               ))}
             </div>
@@ -103,7 +103,7 @@ export default function AIChatPage() {
                 <Bot size={14} style={{ color: "var(--color-accent)" }} />
               </div>
             )}
-            <div className={`max-w-xl px-4 py-3 text-xs leading-relaxed whitespace-pre-wrap ${
+            <div className={`max-w-xl px-4 py-3 text-sm leading-relaxed whitespace-pre-wrap ${
               msg.role === "user"
                 ? "text-white"
                 : "border border-[var(--color-border)]"
@@ -128,7 +128,7 @@ export default function AIChatPage() {
           </div>
         )}
 
-        {error && <div className="p-3 border border-[#C44536]/30 text-xs text-[#C44536]" style={{ backgroundColor: "#C4453610" }}>{error}</div>}
+        {error && <div className="p-3 border border-[#C44536]/30 text-sm text-[#C44536]" style={{ backgroundColor: "#C4453610" }}>{error}</div>}
         <div ref={chatEndRef} />
       </div>
 
@@ -138,7 +138,7 @@ export default function AIChatPage() {
             onKeyDown={(e) => e.key === "Enter" && handleSend()}
             placeholder="Posez votre question..."
             disabled={loading}
-            className="flex-1 bg-transparent border-b border-[var(--color-border)] py-2 text-sm placeholder:opacity-30 focus:outline-none focus:border-[var(--color-accent)] transition-colors disabled:opacity-40"
+            className="flex-1 bg-transparent border-b border-[var(--color-border)] py-2 text-base placeholder:opacity-30 focus:outline-none focus:border-[var(--color-accent)] transition-colors disabled:opacity-40"
           />
           <button onClick={handleSend} disabled={!input.trim() || loading}
             className="opacity-40 hover:opacity-100 transition-opacity disabled:opacity-20" style={{ color: "var(--color-accent)" }}>

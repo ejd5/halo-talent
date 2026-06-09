@@ -65,7 +65,7 @@ export function TimelineView({
   }
 
   return (
-    <div className="border border-[var(--color-border)] divide-y divide-[var(--color-border)]">
+    <div className="border border-[var(--color-border)] divide-y divide-[var(--color-border)] card-accent">
       {grouped.map(([dateKey, dayEvents]) => {
         const d = new Date(dateKey);
         const isToday =

@@ -22,7 +22,7 @@ export function CreatorsTab() {
   const maxVal = Math.max(...heatData.map((h) => h.value), 1);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent">
       {/* KPI summary */}
       <div className="grid grid-cols-4 gap-3">
         <StatCard title="Total créateurs" value={`${analyticsData.departmentDist.reduce((a, d) => a + d.count, 0)}`} icon={<Users size={14} />} />
@@ -67,7 +67,7 @@ export function CreatorsTab() {
             data={analyticsData.departmentDist.map((d) => ({ ...d }))}
             xKey="department"
             barKey="count"
-            color="#9A9590"
+            color="#E0D8D0"
             height={200}
           />
         </div>
@@ -147,8 +147,8 @@ export function CreatorsTab() {
                   <span
                     className="text-[9px] px-1.5 py-[1px]"
                     style={{
-                      backgroundColor: alert.severity === "high" ? "#C4453620" : alert.severity === "medium" ? "#C75B3920" : "#9A959020",
-                      color: alert.severity === "high" ? "#C44536" : alert.severity === "medium" ? "#C75B39" : "#9A9590",
+                      backgroundColor: alert.severity === "high" ? "#C4453620" : alert.severity === "medium" ? "#C75B3920" : "#E0D8D020",
+                      color: alert.severity === "high" ? "#C44536" : alert.severity === "medium" ? "#C75B39" : "#E0D8D0",
                     }}
                   >
                     {alert.severity === "high" ? "Haute" : alert.severity === "medium" ? "Moyenne" : "Basse"}

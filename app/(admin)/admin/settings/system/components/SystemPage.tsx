@@ -177,7 +177,7 @@ export function SystemPage() {
   ];
 
   return (
-    <div className="flex flex-col gap-4 p-6">
+    <div className="flex flex-col gap-4 p-6 card-accent">
       <div>
         <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Système</h1>
         <p className="text-xs opacity-40 mt-0.5">Statut des services, maintenance et configuration</p>

@@ -71,11 +71,11 @@ export function CreatorsGridPage() {
     setFilters((f) => ({ ...f, [key]: value }));
 
   return (
-    <div className="max-w-[1600px]">
+    <div className="max-w-[1600px] card-accent">
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "#7A736B" }}>
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "#F5F0EB" }}>
             Créateurs
           </p>
           <h1 className="font-display text-[32px] font-bold mt-1" style={{ color: "#F5F0EB" }}>
@@ -149,14 +149,14 @@ export function CreatorsGridPage() {
           <button
             onClick={() => setView("grid")}
             className="p-1.5 transition-colors"
-            style={{ color: view === "grid" ? "#C75B39" : "#5A544C", background: view === "grid" ? "rgba(199,91,57,0.1)" : "transparent" }}
+            style={{ color: view === "grid" ? "#C75B39" : "#E0D8D0", background: view === "grid" ? "rgba(199,91,57,0.1)" : "transparent" }}
           >
             <Grid3x3 size={15} strokeWidth={1.5} />
           </button>
           <button
             onClick={() => setView("list")}
             className="p-1.5 transition-colors"
-            style={{ color: view === "list" ? "#C75B39" : "#5A544C", background: view === "list" ? "rgba(199,91,57,0.1)" : "transparent" }}
+            style={{ color: view === "list" ? "#C75B39" : "#E0D8D0", background: view === "list" ? "rgba(199,91,57,0.1)" : "transparent" }}
           >
             <List size={15} strokeWidth={1.5} />
           </button>
@@ -164,7 +164,7 @@ export function CreatorsGridPage() {
             value={filters.sort}
             onChange={(e) => updateFilter("sort", e.target.value as Filters["sort"])}
             className="bg-transparent text-[10px] font-sans font-semibold uppercase tracking-[0.1em] px-2 py-1.5 outline-none ml-2"
-            style={{ color: "#7A736B", border: "1px solid rgba(255,255,255,0.06)" }}
+            style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
           >
             <option value="revenue" style={{ background: "#1A1614" }}>Revenus</option>
             <option value="date" style={{ background: "#1A1614" }}>Date d'arrivée</option>
@@ -199,9 +199,9 @@ export function CreatorsGridPage() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-sans font-medium" style={{ color: "#F5F0EB" }}>{creator.full_name}</p>
-                <p className="text-[11px] font-sans" style={{ color: "#5A544C" }}>{creator.department}</p>
+                <p className="text-[11px] font-sans" style={{ color: "#E0D8D0" }}>{creator.department}</p>
               </div>
-              <span className="text-xs font-sans font-medium" style={{ color: "#9A9590" }}>{creator.tier}</span>
+              <span className="text-xs font-sans font-medium" style={{ color: "#E0D8D0" }}>{creator.tier}</span>
               <span className="text-sm font-display font-bold" style={{ color: "#C75B39" }}>
                 {new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", notation: "compact" }).format(creator.current_month_revenue)}
               </span>
@@ -211,7 +211,7 @@ export function CreatorsGridPage() {
       )}
 
       {filtered.length === 0 && (
-        <p className="text-sm font-sans text-center py-12" style={{ color: "#5A544C" }}>
+        <p className="text-sm font-sans text-center py-12" style={{ color: "#E0D8D0" }}>
           Aucun créateur trouvé
         </p>
       )}

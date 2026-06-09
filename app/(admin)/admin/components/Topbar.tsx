@@ -47,7 +47,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
       style={{
         height: 64,
         padding: "0 24px",
-        background: "#0F0D0B",
+        background: "#0A0908",
         borderBottom: "1px solid rgba(255,255,255,0.06)",
       }}
     >
@@ -57,7 +57,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
         className="flex items-center gap-3 text-sm font-sans transition-colors hover:bg-white/5"
         style={{
           padding: "8px 16px",
-          color: "#7A736B",
+          color: "#E0D8D0",
           border: "1px solid rgba(255,255,255,0.08)",
           minWidth: 280,
         }}
@@ -67,7 +67,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
         <kbd
           className="ml-auto text-[10px] font-sans px-1.5 py-0.5"
           style={{
-            color: "#5A544C",
+            color: "#E0D8D0",
             border: "1px solid rgba(255,255,255,0.08)",
           }}
         >
@@ -84,7 +84,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
             className="flex items-center gap-2 text-xs font-sans font-medium uppercase tracking-[0.08em] transition-colors hover:bg-white/5"
             style={{
               padding: "8px 12px",
-              color: "#9A9590",
+              color: "#F5F0EB",
             }}
           >
             {periods.find((p) => p.value === period)?.label}
@@ -107,7 +107,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
                   }}
                   className="block w-full text-left text-xs font-sans px-4 py-2 transition-colors hover:bg-white/5"
                   style={{
-                    color: period === p.value ? "#C75B39" : "#9A9590",
+                    color: period === p.value ? "#C75B39" : "#F5F0EB",
                   }}
                 >
                   {p.label}
@@ -120,7 +120,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
         {/* Notification bell */}
         <button
           className="relative p-2 transition-colors hover:bg-white/5"
-          style={{ color: "#9A9590" }}
+          style={{ color: "#F5F0EB" }}
           aria-label="Notifications"
         >
           <Bell size={18} strokeWidth={1.5} />
@@ -133,7 +133,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
         {/* Messages icon */}
         <button
           className="relative p-2 transition-colors hover:bg-white/5"
-          style={{ color: "#9A9590" }}
+          style={{ color: "#F5F0EB" }}
           aria-label="Messages internes"
         >
           <MessageSquare size={18} strokeWidth={1.5} />
@@ -178,11 +178,11 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
               <p className="text-xs font-sans font-medium truncate max-w-[120px]" style={{ color: "#F5F0EB" }}>
                 {userName}
               </p>
-              <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#7A736B" }}>
+              <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#E0D8D0" }}>
                 {userRole === "admin" ? "Administrateur" : "Manager"}
               </p>
             </div>
-            <ChevronDown size={14} strokeWidth={1.5} style={{ color: "#7A736B" }} />
+            <ChevronDown size={14} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
           </button>
 
           {avatarOpen && (
@@ -197,7 +197,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
                 href="/admin/settings/team"
                 onClick={() => setAvatarOpen(false)}
                 className="flex items-center gap-3 px-4 py-2.5 text-xs font-sans transition-colors hover:bg-white/5"
-                style={{ color: "#9A9590" }}
+                style={{ color: "#F5F0EB" }}
               >
                 <User size={14} strokeWidth={1.5} />
                 Mon profil
@@ -206,7 +206,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
                 href="/admin/settings/system"
                 onClick={() => setAvatarOpen(false)}
                 className="flex items-center gap-3 px-4 py-2.5 text-xs font-sans transition-colors hover:bg-white/5"
-                style={{ color: "#9A9590" }}
+                style={{ color: "#F5F0EB" }}
               >
                 <Settings size={14} strokeWidth={1.5} />
                 Paramètres

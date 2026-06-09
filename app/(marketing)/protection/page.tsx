@@ -4,6 +4,8 @@ import { useEffect, useState, useRef, useCallback } from "react";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { cn } from "@/lib/utils";
+import { t, translateCategory, translatePlatform, riskLabel, translateClauseLabel, cguQuotes } from "@/lib/i18n/legal";
+import { useLocale } from "@/lib/i18n/use-locale";
 
 /* ─── Types ─── */
 interface Clause {
@@ -35,41 +37,23 @@ interface AnalyzeResult {
 }
 
 /* ─── Helpers ─── */
-const CATEGORY_LABELS: Record<string, { icon: string; label: string }> = {
-  account_control: { icon: "🔒", label: "CONTRÔLE DE COMPTE" },
-  financial: { icon: "💰", label: "FINANCES" },
-  contractual: { icon: "📄", label: "CONTRAT" },
-  content_rights: { icon: "🎨", label: "DROITS SUR LE CONTENU" },
-  communication: { icon: "💬", label: "COMMUNICATION" },
-  psychological: { icon: "🧠", label: "PSYCHOLOGIQUE" },
-};
 
-const PLATFORMS = [
-  { id: "onlyfans", label: "OnlyFans" },
-  { id: "fansly", label: "Fansly" },
-  { id: "mym", label: "MYM" },
-  { id: "instagram", label: "Instagram" },
-  { id: "other", label: "Autre" },
-];
+const PLATFORM_IDS = ["onlyfans", "fansly", "mym", "instagram", "other"];
 
-const FALLBACK_STATS = [
-  { value: "40-50%", label: "de commission moyenne dans le secteur" },
-  { value: "72%", label: "des contrats n'ont pas de clause de sortie claire" },
-  { value: "1/3", label: "des créateurs n'ont pas accès à leurs identifiants" },
-];
-
-const CGU_QUOTES = [
-  { text: "Le titulaire du compte est la personne vérifiée par pièce d'identité.", source: "CGU OnlyFans, 2026" },
-  { text: "Les créateurs conservent la propriété de leur contenu. Une licence limitée est accordée à la plateforme.", source: "CGU OnlyFans, 2026" },
-  { text: "Le partage de compte est strictement interdit. Chaque compte correspond à une personne physique unique.", source: "CGU Fansly, 2026" },
+const FALLBACK_VALUES = [
+  { value: "40-50%", labelKey: "stats.fallback_commission" },
+  { value: "72%", labelKey: "stats.fallback_exit" },
+  { value: "1/3", labelKey: "stats.fallback_access" },
 ];
 
 const SEVERITY_COLORS = {
-  low: { bar: "bg-success", text: "text-success", label: "Gérable" },
-  medium: { bar: "bg-[#D4A04A]", text: "text-[#D4A04A]", label: "Problématique" },
-  high: { bar: "bg-alert", text: "text-alert", label: "Dangereux" },
-  critical: { bar: "bg-red-600", text: "text-red-600", label: "Urgent" },
+  low: { bar: "bg-success", text: "text-success" },
+  medium: { bar: "bg-[#D4A04A]", text: "text-[#D4A04A]" },
+  high: { bar: "bg-alert", text: "text-alert" },
+  critical: { bar: "bg-red-600", text: "text-red-600" },
 };
+
+const categoryOrder = ["account_control", "financial", "contractual", "content_rights", "communication", "psychological"];
 
 function getRiskLevel(score: number): string {
   if (score >= 21) return "critical";
@@ -84,6 +68,8 @@ function getMaxScore(clauses: Clause[]): number {
 
 /* ─── Component ─── */
 export default function ProtectionPage() {
+  const locale = useLocale();
+
   /* state */
   const [clauses, setClauses] = useState<Clause[]>([]);
   const [loadingClauses, setLoadingClauses] = useState(true);
@@ -134,8 +120,6 @@ export default function ProtectionPage() {
     acc[c.category].push(c);
     return acc;
   }, {});
-
-  const categoryOrder = ["account_control", "financial", "contractual", "content_rights", "communication", "psychological"];
 
   /* scroll to form */
   const scrollToForm = useCallback(() => {
@@ -213,11 +197,8 @@ export default function ProtectionPage() {
   return (
     <>
       {/* ─── SEO ─── */}
-      <title>Contrat d'agence abusif ? Analysez gratuitement vos droits | Halo Talent</title>
-      <meta
-        name="description"
-        content="Outil gratuit d'analyse de contrat pour créateurs OnlyFans, Fansly, MYM. Identifiez les clauses abusives et générez une lettre de mise en demeure."
-      />
+      <title>{t("seo.title", locale)}</title>
+      <meta name="description" content={t("seo.description", locale)} />
 
       {/* ─── SECTION 1: HERO ─── */}
       <Section background="cream" className="relative overflow-hidden">
@@ -225,23 +206,24 @@ export default function ProtectionPage() {
           {/* Left */}
           <div className="space-y-6">
             <span className="font-sans text-xs tracking-[0.15em] uppercase text-accent font-semibold">
-              Bouclier Légal
+              {t("hero.badge", locale)}
             </span>
             <h1 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[1.05] font-bold text-ink">
-              VOTRE CONTRAT<br />
-              VOUS PIÈGE ?
+              {t("hero.title", locale).split("\n").map((line, i) => (
+                <span key={i}>{i > 0 && <br />}{line}</span>
+              ))}
             </h1>
             <p className="font-sans text-lg md:text-xl text-ink-secondary leading-relaxed max-w-lg">
-              Analysez gratuitement votre contrat d'agence en 2 minutes. Découvrez vos droits. Reprenez le contrôle.
+              {t("hero.subtitle", locale)}
             </p>
             <div className="space-y-3">
               <button
                 onClick={scrollToForm}
                 className="inline-block bg-accent hover:bg-accent-hover text-white font-sans font-semibold text-sm tracking-widest px-10 py-4 transition-colors"
               >
-                ANALYSER MON CONTRAT
+                {t("hero.cta", locale)}
               </button>
-              <p className="font-sans text-xs text-ink-tertiary">100% gratuit · Anonyme · Aucune inscription requise</p>
+              <p className="font-sans text-xs text-ink-tertiary">{t("hero.disclaimer", locale)}</p>
             </div>
           </div>
 
@@ -257,8 +239,8 @@ export default function ProtectionPage() {
               </span>
               <p className="font-sans text-ink-secondary text-lg md:text-xl max-w-xs mt-2">
                 {stats
-                  ? "analyses effectuées"
-                  : "des créateurs sous contrat ont au moins une clause abusive"}
+                  ? t("hero.stats.analyses_done", locale)
+                  : t("hero.stats.percent_abusive", locale)}
               </p>
             </div>
           </div>
@@ -270,17 +252,17 @@ export default function ProtectionPage() {
         <Container>
           {stats ? (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
-              <StatCard value={`${stats.total_analyses}`} label="analyses effectuées" />
-              <StatCard value={`${stats.average_score}/25`} label="score moyen de dangerosité" />
+              <StatCard value={`${stats.total_analyses}`} label={t("stats.analyses", locale)} />
+              <StatCard value={`${stats.average_score}/25`} label={t("stats.avg_score", locale)} />
               <StatCard
                 value={stats.top_clauses[0]?.label || "—"}
-                label="clause la plus fréquente"
+                label={t("stats.top_clause", locale)}
               />
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-8">
-              {FALLBACK_STATS.map((s, i) => (
-                <StatCard key={i} value={s.value} label={s.label} />
+              {FALLBACK_VALUES.map((s, i) => (
+                <StatCard key={i} value={s.value} label={t(s.labelKey, locale)} />
               ))}
             </div>
           )}
@@ -311,7 +293,7 @@ export default function ProtectionPage() {
                   {currentScore}/{maxScore}
                 </span>
                 <span className="font-sans text-xs text-ink-tertiary hidden sm:inline">
-                  {riskColor.label}
+                  {riskLabel(riskLevel, locale)}
                 </span>
               </div>
               <button
@@ -319,7 +301,7 @@ export default function ProtectionPage() {
                 disabled={checkedArray.length === 0}
                 className="bg-accent hover:bg-accent-hover disabled:opacity-40 disabled:cursor-not-allowed text-white font-sans font-semibold text-xs tracking-widest px-6 py-3 transition-colors whitespace-nowrap"
               >
-                OBTENIR MON DIAGNOSTIC
+                {t("form.clauses.submit", locale)}
               </button>
             </div>
           </div>
@@ -329,26 +311,26 @@ export default function ProtectionPage() {
             <div className="space-y-8 animate-fade-in">
               <div className="space-y-2 text-center">
                 <h2 className="font-display text-3xl md:text-4xl text-ink">
-                  Sur quelle plateforme exercez-vous ?
+                  {t("form.platform.title", locale)}
                 </h2>
                 <p className="font-sans text-ink-secondary">
-                  Choisissez la plateforme pour laquelle vous avez signé un contrat d'agence.
+                  {t("form.platform.subtitle", locale)}
                 </p>
               </div>
 
               <div className="flex flex-wrap justify-center gap-3">
-                {PLATFORMS.map((p) => (
+                {PLATFORM_IDS.map((id) => (
                   <button
-                    key={p.id}
-                    onClick={() => setSelectedPlatform(p.id)}
+                    key={id}
+                    onClick={() => setSelectedPlatform(id)}
                     className={cn(
                       "px-8 py-4 font-sans font-semibold text-sm tracking-wider transition-all border",
-                      selectedPlatform === p.id
+                      selectedPlatform === id
                         ? "border-accent bg-accent-muted text-accent"
                         : "border-border text-ink-secondary hover:border-border-hover hover:bg-base-alt"
                     )}
                   >
-                    {p.label}
+                    {translatePlatform(id, locale)}
                   </button>
                 ))}
               </div>
@@ -359,7 +341,7 @@ export default function ProtectionPage() {
                   disabled={!selectedPlatform}
                   className="bg-accent hover:bg-accent-hover disabled:opacity-40 disabled:cursor-not-allowed text-white font-sans font-semibold text-sm tracking-widest px-10 py-4 transition-colors"
                 >
-                  CONTINUER
+                  {t("form.platform.continue", locale)}
                 </button>
               </div>
             </div>
@@ -370,10 +352,10 @@ export default function ProtectionPage() {
             <div className="space-y-10 animate-fade-in">
               <div className="space-y-2 text-center">
                 <h2 className="font-display text-3xl md:text-4xl text-ink">
-                  Cochez ce qui s'applique à vous
+                  {t("form.clauses.title", locale)}
                 </h2>
                 <p className="font-sans text-ink-secondary">
-                  Sélectionnez toutes les clauses que vous retrouvez dans votre contrat.
+                  {t("form.clauses.subtitle", locale)}
                 </p>
               </div>
 
@@ -386,7 +368,7 @@ export default function ProtectionPage() {
                   {categoryOrder
                     .filter((cat) => groupedClauses[cat]?.length)
                     .map((cat) => {
-                      const info = CATEGORY_LABELS[cat] || { icon: "📋", label: cat };
+                      const info = translateCategory(cat, locale);
                       return (
                         <div key={cat}>
                           <h3 className="font-sans text-xs tracking-[0.15em] uppercase text-ink-secondary font-semibold mb-3">
@@ -399,6 +381,7 @@ export default function ProtectionPage() {
                                 clause={clause}
                                 checked={checkedClauses.has(clause.id)}
                                 onToggle={toggleClause}
+                                locale={locale}
                               />
                             ))}
                           </div>
@@ -411,12 +394,12 @@ export default function ProtectionPage() {
               {/* Other clause */}
               <div className="space-y-2">
                 <label className="font-sans text-sm text-ink-secondary font-medium">
-                  Autre clause que vous jugez abusive
+                  {t("form.clauses.other_label", locale)}
                 </label>
                 <textarea
                   value={otherClause}
                   onChange={(e) => setOtherClause(e.target.value)}
-                  placeholder="Décrivez une clause qui vous semble abusive mais qui n'est pas listée ci-dessus..."
+                  placeholder={t("form.clauses.other_placeholder", locale)}
                   className="w-full p-4 bg-surface border border-border font-sans text-sm text-ink placeholder:text-ink-tertiary resize-none focus:outline-none focus:border-accent transition-colors"
                   rows={3}
                 />
@@ -425,13 +408,13 @@ export default function ProtectionPage() {
               {/* Agency name */}
               <div className="space-y-2">
                 <label className="font-sans text-sm text-ink-secondary font-medium">
-                  Nom de l'agence (optionnel — pour statistiques)
+                  {t("form.clauses.agency_label", locale)}
                 </label>
                 <input
                   type="text"
                   value={agencyName}
                   onChange={(e) => setAgencyName(e.target.value)}
-                  placeholder="Ex: MyAgency Management"
+                  placeholder={t("form.clauses.agency_placeholder", locale)}
                   className="w-full p-4 bg-surface border border-border font-sans text-sm text-ink placeholder:text-ink-tertiary focus:outline-none focus:border-accent transition-colors"
                 />
               </div>
@@ -445,10 +428,10 @@ export default function ProtectionPage() {
                 {analyzing ? (
                   <span className="inline-flex items-center gap-3">
                     <span className="w-5 h-5 border-2 border-white border-t-transparent animate-spin" />
-                    Analyse en cours...
+                    {t("form.clauses.analyzing", locale)}
                   </span>
                 ) : (
-                  "OBTENIR MON DIAGNOSTIC"
+                  t("form.clauses.submit", locale)
                 )}
               </button>
             </div>
@@ -472,13 +455,13 @@ export default function ProtectionPage() {
                   />
                 </div>
                 <p className={cn("font-display text-xl font-semibold", riskColor.text)}>
-                  Situation {riskColor.label.toUpperCase()}
+                  {t("risk.situation", locale).replace("{level}", riskLabel(result.risk_level || riskLevel, locale).toUpperCase())}
                 </p>
               </div>
 
               {/* Diagnosis */}
               <div className="prose prose-sm max-w-none font-sans text-ink">
-                <h3 className="font-display text-xl text-ink">Diagnostic</h3>
+                <h3 className="font-display text-xl text-ink">{t("result.diagnosis", locale)}</h3>
                 <div className="whitespace-pre-wrap text-ink-secondary leading-relaxed">
                   {result.diagnosis}
                 </div>
@@ -488,7 +471,7 @@ export default function ProtectionPage() {
               {result.clauses_details.length > 0 && (
                 <div className="space-y-6">
                   <h3 className="font-display text-xl text-ink">
-                    Détail des clauses identifiées
+                    {t("result.clauses_title", locale)}
                   </h3>
                   {result.clauses_details.map((cd) => (
                     <div
@@ -497,7 +480,7 @@ export default function ProtectionPage() {
                     >
                       <div className="flex items-start justify-between gap-4">
                         <h4 className="font-sans font-semibold text-ink">
-                          {cd.label}
+                          {translateClauseLabel(cd.label, locale)}
                         </h4>
                         <span
                           className={cn(
@@ -507,7 +490,7 @@ export default function ProtectionPage() {
                               : "bg-accent-muted text-accent"
                           )}
                         >
-                          Sévérité {cd.severity}/5
+                          {t("result.severity", locale).replace("{score}", String(cd.severity))}
                         </span>
                       </div>
                       <p className="font-sans text-sm text-ink-secondary leading-relaxed">
@@ -522,7 +505,7 @@ export default function ProtectionPage() {
               {result.actions.length > 0 && (
                 <div className="space-y-4">
                   <h3 className="font-display text-xl text-ink">
-                    3 actions recommandées
+                    {t("result.actions_title", locale)}
                   </h3>
                   <ol className="space-y-3">
                     {result.actions.map((action, i) => (
@@ -539,9 +522,9 @@ export default function ProtectionPage() {
 
               {/* Generate letter */}
               <div className="space-y-4 p-8 border border-accent-border bg-accent-muted/50">
-                <h3 className="font-display text-xl text-ink">Générer une lettre</h3>
+                <h3 className="font-display text-xl text-ink">{t("result.letter_title", locale)}</h3>
                 <p className="font-sans text-sm text-ink-secondary">
-                  Obtenez une lettre prête à envoyer pour demander la restitution de vos droits.
+                  {t("result.letter_subtitle", locale)}
                 </p>
 
                 <div className="flex flex-wrap gap-3">
@@ -554,7 +537,7 @@ export default function ProtectionPage() {
                         : "border-border text-ink-secondary hover:border-accent"
                     )}
                   >
-                    Lettre à l'agence
+                    {t("result.letter_agency", locale)}
                   </button>
                   <button
                     onClick={() => setLetterType("platform_support")}
@@ -565,7 +548,7 @@ export default function ProtectionPage() {
                         : "border-border text-ink-secondary hover:border-accent"
                     )}
                   >
-                    Email au support plateforme
+                    {t("result.letter_platform", locale)}
                   </button>
                 </div>
 
@@ -577,10 +560,10 @@ export default function ProtectionPage() {
                   {generatingLetter ? (
                     <span className="inline-flex items-center gap-3">
                       <span className="w-5 h-5 border-2 border-white border-t-transparent animate-spin" />
-                      Génération en cours...
+                      {t("result.letter_generating", locale)}
                     </span>
                   ) : (
-                    "GÉNÉRER MA LETTRE DE MISE EN DEMEURE"
+                    t("result.letter_generate", locale)
                   )}
                 </button>
 
@@ -596,7 +579,7 @@ export default function ProtectionPage() {
                         onClick={() => copyToClipboard(letter.content)}
                         className="flex-1 bg-dark hover:bg-dark-surface text-dark-text font-sans font-semibold text-sm tracking-widest py-3 transition-colors"
                       >
-                        {copied ? "COPIÉ ✓" : "COPIER"}
+                        {copied ? t("result.copied", locale) : t("result.copy", locale)}
                       </button>
                     </div>
                   </div>
@@ -606,13 +589,13 @@ export default function ProtectionPage() {
               {/* CTA secondaire */}
               <div className="p-8 border border-border bg-surface text-center space-y-4">
                 <p className="font-serif italic text-lg text-ink-secondary leading-relaxed">
-                  Vous méritez mieux. Chez Halo Talent, la commission baisse quand vous grandissez, le contrat est téléchargeable avant signature, et la sortie se fait en 30 jours.
+                  {t("result.bottom_cta.text", locale)}
                 </p>
                 <a
                   href="/apply"
                   className="inline-block bg-dark hover:bg-dark-surface text-dark-text font-sans font-semibold text-sm tracking-widest px-8 py-4 transition-colors"
                 >
-                  DÉCOUVRIR NOTRE APPROCHE
+                  {t("result.bottom_cta.button", locale)}
                 </a>
               </div>
             </div>
@@ -624,10 +607,10 @@ export default function ProtectionPage() {
       <Section background="cream" className="bg-base-alt">
         <Container className="py-16 md:py-24 text-center space-y-12">
           <h2 className="font-display text-3xl md:text-4xl text-ink">
-            Ce que disent les CGU
+            {t("cgu.title", locale)}
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
-            {CGU_QUOTES.map((quote, i) => (
+            {cguQuotes(locale).map((quote, i) => (
               <blockquote key={i} className="space-y-3">
                 <p className="font-serif italic text-xl md:text-2xl text-ink leading-snug">
                   &ldquo;{quote.text}&rdquo;
@@ -645,21 +628,22 @@ export default function ProtectionPage() {
       <Section background="dark">
         <Container className="py-16 md:py-24 text-center space-y-8">
           <h2 className="font-display text-3xl md:text-5xl text-dark-text leading-tight">
-            REPRENEZ LE CONTRÔLE<br />
-            DE VOTRE CARRIÈRE
+            {t("final_cta.title", locale).split("\n").map((line, i) => (
+              <span key={i}>{i > 0 && <br />}{line}</span>
+            ))}
           </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <button
               onClick={scrollToForm}
               className="bg-accent hover:bg-accent-hover text-white font-sans font-semibold text-sm tracking-widest px-10 py-4 transition-colors"
             >
-              ANALYSER MON CONTRAT
+              {t("final_cta.cta", locale)}
             </button>
             <a
               href="/apply"
               className="border border-dark-text/20 text-dark-text hover:bg-dark-surface font-sans font-semibold text-sm tracking-widest px-10 py-4 transition-colors"
             >
-              POSTULER CHEZ NOUS
+              {t("final_cta.apply", locale)}
             </a>
           </div>
         </Container>
@@ -683,10 +667,12 @@ function ClauseCheckbox({
   clause,
   checked,
   onToggle,
+  locale,
 }: {
   clause: Clause;
   checked: boolean;
   onToggle: (id: string) => void;
+  locale: string;
 }) {
   return (
     <div className="border-b border-border last:border-b-0">
@@ -703,7 +689,7 @@ function ClauseCheckbox({
           className="mt-1 w-4 h-4 accent-accent rounded-none"
         />
         <div className="flex-1 min-w-0">
-          <span className="font-sans text-sm font-medium text-ink">{clause.label}</span>
+          <span className="font-sans text-sm font-medium text-ink">{translateClauseLabel(clause.label, locale as any)}</span>
           {checked && clause.description && (
             <p className="mt-2 font-sans text-xs text-ink-secondary leading-relaxed animate-fade-in">
               {clause.description}

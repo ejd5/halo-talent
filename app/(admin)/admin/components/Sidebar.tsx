@@ -145,6 +145,15 @@ const navSections: NavSection[] = [
     ],
   },
   {
+    title: "Juridique & Protection",
+    items: [
+      { label: "Base juridique", href: "/admin/legal/knowledge", icon: BookOpen },
+      { label: "Clauses abusives", href: "/admin/legal/clauses", icon: FileSignature },
+      { label: "Analyses contrats", href: "/admin/legal/analyses", icon: BarChart3 },
+      { label: "Journal mises à jour", href: "/admin/legal/updates", icon: Clock },
+    ],
+  },
+  {
     title: "Paramètres",
     items: [
       { label: "Équipe", href: "/admin/settings/team", icon: Settings },

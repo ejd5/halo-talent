@@ -8,7 +8,7 @@ type Props = { creatorId: string };
 
 const statusStyles: Record<string, { icon: React.ElementType; label: string; color: string }> = {
   active: { icon: CheckCircle, label: "Actif", color: "#7A9A65" },
-  expired: { icon: Clock, label: "Expiré", color: "#9A9590" },
+  expired: { icon: Clock, label: "Expiré", color: "#E0D8D0" },
   terminated: { icon: XCircle, label: "Résilié", color: "#C44536" },
 };
 
@@ -16,9 +16,9 @@ export function ContractsTab({ creatorId }: Props) {
   const list = contracts[creatorId] ?? [];
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 card-accent">
       {list.length === 0 ? (
-        <p className="text-sm font-sans text-center py-8" style={{ color: "#5A544C" }}>
+        <p className="text-sm font-sans text-center py-8" style={{ color: "#E0D8D0" }}>
           Aucun contrat pour ce créateur.
         </p>
       ) : (
@@ -44,7 +44,7 @@ export function ContractsTab({ creatorId }: Props) {
                       <Icon size={10} strokeWidth={1.5} />
                       {st.label}
                     </span>
-                    <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+                    <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                       Commission : {contract.commission_rate}%
                     </span>
                   </div>
@@ -57,12 +57,12 @@ export function ContractsTab({ creatorId }: Props) {
                   PDF
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-4 text-xs font-sans" style={{ color: "#7A736B" }}>
+              <div className="grid grid-cols-2 gap-4 text-xs font-sans" style={{ color: "#F5F0EB" }}>
                 <div>
-                  <span style={{ color: "#5A544C" }}>Signé le :</span> {formatDate(contract.signed_date)}
+                  <span style={{ color: "#E0D8D0" }}>Signé le :</span> {formatDate(contract.signed_date)}
                 </div>
                 <div>
-                  <span style={{ color: "#5A544C" }}>Expire le :</span> {contract.end_date ? formatDate(contract.end_date) : "—"}
+                  <span style={{ color: "#E0D8D0" }}>Expire le :</span> {contract.end_date ? formatDate(contract.end_date) : "—"}
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function ContractsTab({ creatorId }: Props) {
 
       <button
         className="flex items-center gap-2 w-full justify-center py-3 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-        style={{ color: "#7A736B", border: "1px dashed rgba(255,255,255,0.1)" }}
+        style={{ color: "#F5F0EB", border: "1px dashed rgba(255,255,255,0.1)" }}
       >
         <Plus size={14} strokeWidth={1.5} />
         Créer un avenant

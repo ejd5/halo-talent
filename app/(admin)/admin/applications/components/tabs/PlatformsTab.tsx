@@ -26,7 +26,7 @@ const platformVerified: Record<string, boolean> = {
 export function PlatformsTab({ application }: Props) {
   const app = application;
   return (
-    <div className="space-y-3">
+    <div className="space-y-3 card-accent" style={{ background: "#0A0908" }}>
       {app.platforms.map((platform) => (
         <div
           key={platform}
@@ -52,7 +52,7 @@ export function PlatformsTab({ application }: Props) {
 
           <div className="grid grid-cols-2 gap-3 mb-3">
             <div>
-              <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#5A544C" }}>
+              <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#E0D8D0" }}>
                 Username
               </p>
               <p className="text-xs font-sans mt-0.5" style={{ color: "#D0CCC6" }}>
@@ -60,7 +60,7 @@ export function PlatformsTab({ application }: Props) {
               </p>
             </div>
             <div>
-              <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#5A544C" }}>
+              <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#E0D8D0" }}>
                 Abonnés estimés
               </p>
               <p className="text-xs font-sans mt-0.5" style={{ color: "#D0CCC6" }}>
@@ -80,8 +80,8 @@ export function PlatformsTab({ application }: Props) {
                 </>
               ) : (
                 <>
-                  <AlertCircle size={11} strokeWidth={1.5} style={{ color: "#9A9590" }} />
-                  <span className="text-[10px] font-sans" style={{ color: "#9A9590" }}>
+                  <AlertCircle size={11} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
+                  <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                     Non vérifié
                   </span>
                 </>

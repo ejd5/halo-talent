@@ -28,9 +28,16 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Halo Talent — Maison de management créatif",
+  title: {
+    default: "Halo Talent — Maison de management créatif",
+    template: "%s — Halo Talent",
+  },
   description:
     "Cinq départements, une commission dégressive (30% → 10%), une seule exigence : votre succès. Management créatif avec transparence radicale.",
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
     title: "Halo Talent — Maison de management créatif",
     description:
@@ -49,6 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
+      data-theme="light"
       className={`${syne.variable} ${plusJakartaSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>

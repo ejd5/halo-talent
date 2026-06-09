@@ -69,7 +69,7 @@ export function CreatorCard({ creator, onClick }: Props) {
           <h3 className="font-display text-base font-bold" style={{ color: "#F5F0EB" }}>
             {creator.full_name}
           </h3>
-          <p className="text-[11px] font-sans mt-0.5" style={{ color: "#7A736B" }}>
+          <p className="text-[11px] font-sans mt-0.5" style={{ color: "#F5F0EB" }}>
             {creator.department}
           </p>
         </div>
@@ -77,7 +77,7 @@ export function CreatorCard({ creator, onClick }: Props) {
         {/* Revenue + Sparkline */}
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#5A544C" }}>
+            <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#E0D8D0" }}>
               Revenus du mois
             </p>
             <p className="font-display text-lg font-bold mt-0.5" style={{ color: "#C75B39" }}>
@@ -97,12 +97,12 @@ export function CreatorCard({ creator, onClick }: Props) {
             ) : creator.growth_rate < 0 ? (
               <TrendingDown size={12} strokeWidth={2} style={{ color: "#C44536" }} />
             ) : (
-              <Minus size={12} strokeWidth={2} style={{ color: "#9A9590" }} />
+              <Minus size={12} strokeWidth={2} style={{ color: "#E0D8D0" }} />
             )}
             <span
               className="text-[11px] font-sans font-semibold"
               style={{
-                color: creator.growth_rate > 0 ? "#7A9A65" : creator.growth_rate < 0 ? "#C44536" : "#9A9590",
+                color: creator.growth_rate > 0 ? "#7A9A65" : creator.growth_rate < 0 ? "#C44536" : "#E0D8D0",
               }}
             >
               {creator.growth_rate > 0 ? "+" : ""}
@@ -114,11 +114,11 @@ export function CreatorCard({ creator, onClick }: Props) {
           <div className="flex items-center gap-1.5">
             <div
               className="w-5 h-5 flex items-center justify-center text-[8px] font-sans font-semibold"
-              style={{ background: "rgba(255,255,255,0.06)", color: "#7A736B" }}
+              style={{ background: "rgba(255,255,255,0.06)", color: "#F5F0EB" }}
             >
               {creator.manager_name.charAt(0)}
             </div>
-            <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+            <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
               {creator.manager_name}
             </span>
           </div>

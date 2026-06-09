@@ -42,7 +42,7 @@ export function WeekView({
   const today = new Date();
 
   return (
-    <div className="border border-[var(--color-border)] overflow-auto">
+    <div className="border border-[var(--color-border)] overflow-auto card-accent">
       {/* Header row */}
       <div className="grid grid-cols-[60px_repeat(7,1fr)] border-b border-[var(--color-border)]">
         <div className="p-2" />

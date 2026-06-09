@@ -1,11 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect } from "react";
 import {
   ShieldCheck, FileText, Search, AlertTriangle, BookOpen,
-  Scale, Send, Clock, ChevronRight, Copy, Check,
-  ExternalLink, Filter, X, Plus,
+  Scale, Send, ChevronRight, Copy, Check,
+  ExternalLink, Plus,
 } from "lucide-react";
+import { t, translatePlatform } from "@/lib/i18n/legal";
+import { useLocale } from "@/lib/i18n/use-locale";
 
 // ─── Types ────────────────────────────────────────────
 
@@ -43,7 +45,7 @@ interface LegalUpdate {
   created_at: string;
   action: string;
   source: string;
-  details: any;
+  details: Record<string, string>;
   items_affected: number;
   reviewed_by_admin: boolean;
 }
@@ -97,23 +99,25 @@ const JURISDICTION_OPTIONS = ["fr", "eu", "us", "uk", "international"];
 
 // ─── Tab 1: Mon contrat ───────────────────────────
 
-function MonContratTab() {
+function MonContratTab({ locale }: { locale: string }) {
   const [analyses, setAnalyses] = useState<Analysis[]>([]);
   const [loading, setLoading] = useState(true);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    try {
-      const res = await fetch("/api/legal/analyses");
-      const d = await res.json();
-      setAnalyses(d.analyses || []);
-    } catch {} finally {
-      setLoading(false);
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        const res = await fetch("/api/legal/analyses");
+        const d = await res.json();
+        if (!cancelled) setAnalyses(d.analyses || []);
+      } catch {} finally {
+        if (!cancelled) setLoading(false);
+      }
     }
+    load();
+    return () => { cancelled = true; };
   }, []);
-
-  useEffect(() => { load(); }, [load]);
 
   const handleCopy = async (text: string, id: string) => {
     try {
@@ -135,11 +139,8 @@ function MonContratTab() {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-center">
         <Scale size={48} strokeWidth={1} className="mb-4" style={{ color: "var(--color-ink-tertiary)" }} />
-        <h3 className="text-lg font-semibold" style={{ color: "#F5F0EB" }}>Aucune analyse pour le moment</h3>
-        <p className="text-sm mt-2 max-w-md" style={{ color: "var(--color-ink-secondary)" }}>
-          Tu n&rsquo;as pas encore analysé de contrat. Rends-toi sur la page{" "}
-          <a href="/protection" className="underline" style={{ color: "#C75B39" }}>Bouclier Légal</a>{" "}
-          pour faire une première analyse.
+        <p className="text-sm" style={{ color: "var(--color-ink-secondary)" }}>
+          {t("atlas.no_analyses", locale)}
         </p>
       </div>
     );
@@ -162,7 +163,7 @@ function MonContratTab() {
               />
               <div>
                 <span className="text-sm font-medium capitalize" style={{ color: "#F5F0EB" }}>
-                  Analyse {a.platform}
+                  {t("atlas.analysis_of", locale).replace("{platform}", translatePlatform(a.platform, locale))}
                 </span>
                 <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>
                   {formatDate(a.created_at)}
@@ -179,11 +180,11 @@ function MonContratTab() {
                   color: RISK_COLORS[a.risk_level],
                 }}
               >
-                Score {a.total_score}
+                {t("atlas.score_label", locale).replace("{value}", String(a.total_score))}
               </div>
               {a.letter_generated && (
                 <div className="flex items-center gap-1 text-xs" style={{ color: "#22c55e" }}>
-                  <FileText size={12} /> Lettre prête
+                  <FileText size={12} /> {t("atlas.letter_ready", locale)}
                 </div>
               )}
             </div>
@@ -220,7 +221,7 @@ function MonContratTab() {
             {a.letters.length > 0 && (
               <div className="space-y-1.5">
                 <p className="text-xs font-medium uppercase tracking-wider" style={{ color: "var(--color-ink-tertiary)" }}>
-                  Lettres générées
+                  {t("atlas.letters_generated", locale)}
                 </p>
                 {a.letters.map((l) => (
                   <button
@@ -231,7 +232,7 @@ function MonContratTab() {
                   >
                     <div className="flex items-center gap-2">
                       <FileText size={12} />
-                      <span className="capitalize">{l.letter_type.replace(/_/g, " ")}</span>
+                      <span className="capitalize">{l.letter_type === "mise_en_demeure" ? t("result.letter_agency", locale) : t("result.letter_platform", locale)}</span>
                     </div>
                     <div className="flex items-center gap-2">
                       <span style={{ color: "var(--color-ink-tertiary)" }}>{timeAgo(l.created_at)}</span>
@@ -254,11 +255,11 @@ function MonContratTab() {
               className="flex items-center gap-1.5 text-xs font-medium transition-opacity hover:opacity-70"
               style={{ color: "#C75B39" }}
             >
-              <ExternalLink size={12} /> Nouvelle analyse
+              <ExternalLink size={12} /> {t("atlas.new_analysis_link", locale)}
             </a>
             {a.letter_generated && (
               <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>
-                · Tu peux copier les lettres ci-dessus
+                · {t("atlas.helper_copy", locale)}
               </span>
             )}
           </div>
@@ -270,7 +271,7 @@ function MonContratTab() {
 
 // ─── Tab 2: Base juridique ─────────────────────────
 
-function BaseJuridiqueTab() {
+function BaseJuridiqueTab({ locale }: { locale: string }) {
   const [entries, setEntries] = useState<KnowledgeEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -285,23 +286,25 @@ function BaseJuridiqueTab() {
   const [suggestSent, setSuggestSent] = useState(false);
   const [sending, setSending] = useState(false);
 
-  const load = useCallback(async () => {
-    setLoading(true);
-    try {
-      const params = new URLSearchParams();
-      if (search) params.set("search", search);
-      if (platform) params.set("platform", platform);
-      if (jurisdiction) params.set("jurisdiction", jurisdiction);
-      if (category) params.set("category", category);
-      const res = await fetch(`/api/legal/knowledge?${params}`);
-      const d = await res.json();
-      setEntries(d.entries || []);
-    } catch {} finally {
-      setLoading(false);
+  useEffect(() => {
+    let cancelled = false;
+    async function load() {
+      try {
+        const params = new URLSearchParams();
+        if (search) params.set("search", search);
+        if (platform) params.set("platform", platform);
+        if (jurisdiction) params.set("jurisdiction", jurisdiction);
+        if (category) params.set("category", category);
+        const res = await fetch(`/api/legal/knowledge?${params}`);
+        const d = await res.json();
+        if (!cancelled) setEntries(d.entries || []);
+      } catch {} finally {
+        if (!cancelled) setLoading(false);
+      }
     }
+    load();
+    return () => { cancelled = true; };
   }, [search, platform, jurisdiction, category]);
-
-  useEffect(() => { load(); }, [load]);
 
   const handleSuggest = async () => {
     if (!suggestLabel.trim()) return;
@@ -331,7 +334,7 @@ function BaseJuridiqueTab() {
           <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "var(--color-ink-tertiary)" }} />
           <input
             type="text"
-            placeholder="Rechercher dans la base juridique..."
+            placeholder={t("atlas.knowledge_search", locale)}
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="w-full text-xs pl-9 pr-3 py-2.5 rounded outline-none transition-colors"
@@ -399,7 +402,7 @@ function BaseJuridiqueTab() {
       ) : entries.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
           <BookOpen size={40} strokeWidth={1} className="mb-3" style={{ color: "var(--color-ink-tertiary)" }} />
-          <p className="text-sm" style={{ color: "var(--color-ink-secondary)" }}>Aucun résultat trouvé</p>
+          <p className="text-sm" style={{ color: "var(--color-ink-secondary)" }}>{t("atlas.no_results", locale)}</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -441,7 +444,7 @@ function BaseJuridiqueTab() {
                         color: SEVERITY_COLORS[e.severity_score],
                       }}
                     >
-                      Sévérité {e.severity_score}/5
+                      {t("result.severity", locale).replace("{score}", String(e.severity_score))}
                     </span>
                   </div>
 
@@ -479,7 +482,7 @@ function BaseJuridiqueTab() {
                       className="flex items-center gap-1 text-[10px] font-medium transition-opacity hover:opacity-70"
                       style={{ color: "#C75B39" }}
                     >
-                      {isExpanded ? "Réduire" : "Lire plus"}
+                      {isExpanded ? t("atlas.collapse", locale) : t("atlas.read_more", locale)}
                       <ChevronRight size={10} style={{ transform: isExpanded ? "rotate(90deg)" : "none" }} />
                     </button>
                   </div>
@@ -495,19 +498,19 @@ function BaseJuridiqueTab() {
         {suggestOpen ? (
           <div className="mt-6 p-5 rounded-lg" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
             <h4 className="text-sm font-semibold mb-4" style={{ color: "#F5F0EB" }}>
-              Suggérer une nouvelle clause abusive
+              {t("atlas.suggest_title", locale)}
             </h4>
             <div className="space-y-3">
               <input
                 type="text"
-                placeholder="Nom de la clause"
+                placeholder={t("atlas.suggest_name", locale)}
                 value={suggestLabel}
                 onChange={(e) => setSuggestLabel(e.target.value)}
                 className="w-full text-xs px-3 py-2.5 rounded outline-none"
                 style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
               />
               <textarea
-                placeholder="Description de la clause abusive que tu as rencontrée..."
+                placeholder={t("atlas.suggest_desc_placeholder", locale)}
                 value={suggestDesc}
                 onChange={(e) => setSuggestDesc(e.target.value)}
                 rows={3}
@@ -520,7 +523,7 @@ function BaseJuridiqueTab() {
                 className="w-full text-xs px-3 py-2.5 rounded outline-none"
                 style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)", color: suggestPlatform ? "#F5F0EB" : "var(--color-ink-tertiary)" }}
               >
-                <option value="">Plateforme concernée (optionnel)</option>
+                <option value="">{t("atlas.suggest_platform", locale)}</option>
                 {PLATFORM_OPTIONS.map((p) => (
                   <option key={p} value={p}>{p}</option>
                 ))}
@@ -532,7 +535,7 @@ function BaseJuridiqueTab() {
                   className="flex items-center gap-1.5 text-xs font-medium px-4 py-2 transition-opacity hover:opacity-70 disabled:opacity-40"
                   style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
                 >
-                  {sending ? "Envoi..." : suggestSent ? "Envoyé !" : "Suggérer"}
+                  {sending ? t("atlas.sending", locale) : suggestSent ? t("atlas.sent", locale) : t("atlas.send", locale)}
                   {suggestSent ? <Check size={12} /> : <Send size={12} />}
                 </button>
                 <button
@@ -540,7 +543,7 @@ function BaseJuridiqueTab() {
                   className="text-xs px-4 py-2 transition-opacity hover:opacity-70"
                   style={{ color: "var(--color-ink-secondary)", border: "1px solid rgba(245,240,235,0.08)" }}
                 >
-                  Annuler
+                  {t("atlas.cancel", locale)}
                 </button>
               </div>
             </div>
@@ -551,7 +554,7 @@ function BaseJuridiqueTab() {
             className="flex items-center gap-2 text-xs font-medium mt-6 px-4 py-2.5 transition-opacity hover:opacity-70"
             style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.2)" }}
           >
-            <Plus size={14} /> Suggérer une nouvelle clause abusive
+            <Plus size={14} /> {t("atlas.knowledge_suggest", locale)}
           </button>
         )}
       </div>
@@ -561,7 +564,7 @@ function BaseJuridiqueTab() {
 
 // ─── Tab 3: Alertes juridiques ─────────────────────
 
-function AlertesJuridiquesTab() {
+function AlertesJuridiquesTab({ locale }: { locale: string }) {
   const [updates, setUpdates] = useState<LegalUpdate[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -684,7 +687,7 @@ function AlertesJuridiquesTab() {
                   className="text-[9px] font-semibold px-1 py-px rounded"
                   style={{ backgroundColor: "rgba(234,179,8,0.12)", color: "#eab308" }}
                 >
-                  En attente
+                  {t("atlas.pending", locale)}
                 </span>
               )}
             </div>
@@ -701,7 +704,7 @@ function AlertesJuridiquesTab() {
             )}
             <p className="text-[10px] mt-1.5" style={{ color: "var(--color-ink-tertiary)" }}>
               {u.items_affected > 0 && `${u.items_affected} élément(s) affecté(s) · `}
-              Source: {u.source}
+              {t("atlas.source", locale).replace("{source}", u.source)}
             </p>
           </div>
         </div>
@@ -712,16 +715,15 @@ function AlertesJuridiquesTab() {
 
 // ─── Main page ─────────────────────────────────────
 
-const TABS = [
-  { id: "contrat", label: "Mon contrat", icon: FileText },
-  { id: "juridique", label: "Base juridique", icon: BookOpen },
-  { id: "alertes", label: "Alertes juridiques", icon: AlertTriangle },
-] as const;
-
-type TabId = (typeof TABS)[number]["id"];
-
 export default function AtlasLegalPage() {
-  const [activeTab, setActiveTab] = useState<TabId>("contrat");
+  const locale = useLocale();
+  const [activeTab, setActiveTab] = useState<string>("contrat");
+
+  const TABS = [
+    { id: "contrat", label: t("atlas.tab_contract", locale), icon: FileText },
+    { id: "juridique", label: t("atlas.tab_knowledge", locale), icon: BookOpen },
+    { id: "alertes", label: t("atlas.tab_alerts", locale), icon: AlertTriangle },
+  ] as const;
 
   return (
     <div className="space-y-6 animate-fade-in">
@@ -731,10 +733,10 @@ export default function AtlasLegalPage() {
           <ShieldCheck size={28} strokeWidth={1.5} style={{ color: "#C75B39" }} />
           <div>
             <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
-              Bouclier Légal
+              {t("hero.badge", locale)}
             </h1>
             <p className="text-sm mt-1" style={{ color: "var(--color-ink-secondary)" }}>
-              Analyse tes contrats d&rsquo;agence, suis tes droits, reste informé
+              {t("atlas.description", locale)}
             </p>
           </div>
         </div>
@@ -764,9 +766,9 @@ export default function AtlasLegalPage() {
 
       {/* Tab content */}
       <div className="animate-slide-up">
-        {activeTab === "contrat" && <MonContratTab />}
-        {activeTab === "juridique" && <BaseJuridiqueTab />}
-        {activeTab === "alertes" && <AlertesJuridiquesTab />}
+        {activeTab === "contrat" && <MonContratTab locale={locale} />}
+        {activeTab === "juridique" && <BaseJuridiqueTab locale={locale} />}
+        {activeTab === "alertes" && <AlertesJuridiquesTab locale={locale} />}
       </div>
     </div>
   );

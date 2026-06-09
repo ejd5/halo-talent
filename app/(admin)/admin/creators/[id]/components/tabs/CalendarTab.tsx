@@ -23,9 +23,9 @@ export function CalendarTab({ creatorId }: Props) {
   const posts = calendarPosts[creatorId] ?? [];
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 card-accent">
       {posts.length === 0 ? (
-        <p className="text-sm font-sans text-center py-8" style={{ color: "#5A544C" }}>
+        <p className="text-sm font-sans text-center py-8" style={{ color: "#E0D8D0" }}>
           Aucun contenu planifié pour ce créateur.
         </p>
       ) : (
@@ -35,7 +35,7 @@ export function CalendarTab({ creatorId }: Props) {
             <p className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
               Juin 2026
             </p>
-            <p className="text-[11px] font-sans mt-1" style={{ color: "#7A736B" }}>
+            <p className="text-[11px] font-sans mt-1" style={{ color: "#F5F0EB" }}>
               {posts.filter((p) => p.status === "planned").length} contenus planifiés
             </p>
           </div>
@@ -52,12 +52,12 @@ export function CalendarTab({ creatorId }: Props) {
                   className="flex items-center gap-4 p-4 transition-colors hover:bg-white/[0.02]"
                   style={{ border: "1px solid rgba(255,255,255,0.04)" }}
                 >
-                  <PlatformIcon size={16} strokeWidth={1.5} style={{ color: "#7A736B" }} />
+                  <PlatformIcon size={16} strokeWidth={1.5} style={{ color: "#F5F0EB" }} />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-sans font-medium truncate" style={{ color: "#D0CCC6" }}>
                       {post.content_preview}
                     </p>
-                    <p className="text-[10px] font-sans mt-0.5" style={{ color: "#5A544C" }}>
+                    <p className="text-[10px] font-sans mt-0.5" style={{ color: "#E0D8D0" }}>
                       {formatDate(post.scheduled_date)}
                     </p>
                   </div>

@@ -13,7 +13,7 @@ export function RevenueTab({ creator }: Props) {
   const months = creator.monthly_revenue;
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent">
       {/* Actions */}
       <div className="flex items-center gap-3">
         <button
@@ -25,7 +25,7 @@ export function RevenueTab({ creator }: Props) {
         </button>
         <button
           className="flex items-center gap-1.5 px-3 py-2 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-          style={{ color: "#9A9590", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ color: "#E0D8D0", border: "1px solid rgba(255,255,255,0.08)" }}
         >
           <Download size={12} strokeWidth={1.5} />
           Export CSV
@@ -34,7 +34,7 @@ export function RevenueTab({ creator }: Props) {
           value={filterPlatform}
           onChange={(e) => setFilterPlatform(e.target.value)}
           className="ml-auto bg-transparent text-[10px] font-sans px-2 py-2 outline-none"
-          style={{ color: "#7A736B", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
         >
           <option value="all" style={{ background: "#1A1614" }}>Toutes les plateformes</option>
           {creator.platforms.map((p) => (
@@ -45,7 +45,7 @@ export function RevenueTab({ creator }: Props) {
 
       {/* Stacked bar chart (simplified) */}
       <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "#7A736B" }}>
+        <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "#F5F0EB" }}>
           Répartition par plateforme
         </p>
         <div className="flex items-end gap-2 h-40">
@@ -54,14 +54,14 @@ export function RevenueTab({ creator }: Props) {
             const h = (m.total_gross / max) * 100;
             return (
               <div key={m.month} className="flex-1 flex flex-col items-center gap-1">
-                <span className="text-[8px] font-sans tabular-nums" style={{ color: "#9A9590" }}>
+                <span className="text-[8px] font-sans tabular-nums" style={{ color: "#E0D8D0" }}>
                   {formatEuro(m.total_gross)}
                 </span>
                 <div
                   className="w-full rounded-none"
                   style={{ height: `${Math.max(h, 3)}%`, background: "rgba(199,91,57,0.4)" }}
                 />
-                <span className="text-[9px] font-sans" style={{ color: "#5A544C" }}>{m.month}</span>
+                <span className="text-[9px] font-sans" style={{ color: "#E0D8D0" }}>{m.month}</span>
               </div>
             );
           })}
@@ -72,7 +72,7 @@ export function RevenueTab({ creator }: Props) {
       <div className="overflow-x-auto" style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
         <table className="w-full text-left">
           <thead>
-            <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "#5A544C", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+            <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "#E0D8D0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
               <th className="py-3 px-4 font-medium">Mois</th>
               <th className="py-3 px-4 font-medium">Plateforme</th>
               <th className="py-3 px-4 font-medium">Revenu brut</th>
@@ -109,7 +109,7 @@ export function RevenueTab({ creator }: Props) {
                       <td className="py-3 px-4 text-sm font-sans font-medium" style={{ color: "#F5F0EB" }}>
                         {formatEuro(p.gross)}
                       </td>
-                      <td className="py-3 px-4 text-xs font-sans" style={{ color: "#7A736B" }}>
+                      <td className="py-3 px-4 text-xs font-sans" style={{ color: "#F5F0EB" }}>
                         {p.commission_pct}%
                       </td>
                       <td className="py-3 px-4 text-sm font-sans font-medium" style={{ color: "#C75B39" }}>

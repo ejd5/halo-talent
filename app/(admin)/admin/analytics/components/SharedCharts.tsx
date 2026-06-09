@@ -12,7 +12,7 @@ export function StatCard({ title, value, subtitle, trend, trendValue, icon }: {
   trend?: "up" | "down"; trendValue?: string; icon?: ReactNode;
 }) {
   return (
-    <div className="border border-[var(--color-border)] p-4">
+    <div className="border border-[var(--color-border)] p-4 card-accent">
       <div className="flex items-center justify-between mb-1">
         <span className="text-[10px] font-semibold uppercase tracking-wider opacity-40">{title}</span>
         {icon && <span className="opacity-30">{icon}</span>}

@@ -7,7 +7,7 @@ import type { BlogPost } from "../../types";
 import { BlogEditor } from "./BlogEditor";
 
 const STATUS_LABELS: Record<string, { label: string; color: string }> = {
-  draft: { label: "Brouillon", color: "#9A9590" },
+  draft: { label: "Brouillon", color: "#E0D8D0" },
   published: { label: "Publié", color: "#7A9A65" },
   scheduled: { label: "Programmé", color: "#C75B39" },
 };
@@ -52,11 +52,10 @@ export function BlogListPage() {
   }
 
   return (
-    <div className="flex flex-col gap-4 p-6">
-      {/* Header */}
-      <div className="flex items-center justify-between">
+    <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "#0A0908" }}>
+      <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Blog</h1>
+          <h1 className="font-display text-2xl font-bold" style={{ color: "#F5F0EB" }}>Blog</h1>
           <p className="text-xs opacity-40 mt-0.5">{filtered.length} article{filtered.length > 1 ? "s" : ""}</p>
         </div>
         <button

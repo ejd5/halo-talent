@@ -17,7 +17,7 @@ const criteriaLabels: Record<string, string> = {
 function scoreColor(score: number): string {
   if (score >= 80) return "#7A9A65";
   if (score >= 60) return "#C75B39";
-  if (score >= 40) return "#9A9590";
+  if (score >= 40) return "#E0D8D0";
   return "#C44536";
 }
 
@@ -51,7 +51,7 @@ export function AIScoreTab({ application }: Props) {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent">
       {/* Score total */}
       {analysis && (
         <div className="text-center py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
@@ -80,7 +80,7 @@ export function AIScoreTab({ application }: Props) {
       {/* Scores détaillés */}
       {analysis && (
         <div>
-          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-3" style={{ color: "#7A736B" }}>
+          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-3" style={{ color: "#F5F0EB" }}>
             Scores détaillés
           </p>
           <div className="space-y-2.5">
@@ -127,10 +127,10 @@ export function AIScoreTab({ application }: Props) {
       {/* Reasoning */}
       {analysis && (
         <div>
-          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "#7A736B" }}>
+          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "#F5F0EB" }}>
             Analyse
           </p>
-          <p className="text-sm font-sans leading-relaxed" style={{ color: "#9A9590" }}>
+          <p className="text-sm font-sans leading-relaxed" style={{ color: "#E0D8D0" }}>
             {analysis.reasoning}
           </p>
         </div>
@@ -175,7 +175,7 @@ export function AIScoreTab({ application }: Props) {
         onClick={handleRegenerate}
         disabled={regenerating}
         className="flex items-center gap-2 w-full justify-center py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5 disabled:opacity-50"
-        style={{ color: "#7A736B", border: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.08)" }}
       >
         <RefreshCw
           size={14}

@@ -27,17 +27,30 @@ const breadcrumbMap: Record<string, string> = {
   "/dashboard/profile": "Profil",
   "/dashboard/integrations": "Plateformes connectées",
   "/dashboard/preferences": "Préférences",
+  "/dashboard/atlas": "Atlas — Vue d'ensemble",
+  "/dashboard/atlas/fans": "Atlas — Fans CRM",
+  "/dashboard/atlas/fans/segments": "Atlas — Segments",
+  "/dashboard/atlas/inbox": "Atlas — Inbox",
+  "/dashboard/atlas/inbox/drafts": "Atlas — Brouillons IA",
+  "/dashboard/atlas/campaigns/email": "Atlas — Email",
+  "/dashboard/atlas/campaigns/sms": "Atlas — SMS",
+  "/dashboard/atlas/campaigns/push": "Atlas — Push",
+  "/dashboard/atlas/funnels": "Atlas — Funnels",
+  "/dashboard/atlas/comments": "Atlas — Modération",
+  "/dashboard/atlas/rules": "Atlas — Automations",
+  "/dashboard/atlas/analytics": "Atlas — Analytics",
+  "/dashboard/atlas/settings": "Atlas — Paramètres",
 };
 
 export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
   const pathname = usePathname();
   const [searchFocused, setSearchFocused] = useState(false);
 
-  const pageTitle = breadcrumbMap[pathname] || "Dashboard";
+  const pageTitle = breadcrumbMap[pathname] || (pathname.startsWith("/dashboard/atlas") ? "Atlas" : "Dashboard");
   const isRoot = pathname === "/dashboard";
 
   return (
-    <header className="fixed top-0 left-0 md:left-60 right-0 h-16 border-b border-[var(--color-border)] backdrop-blur-sm z-20 flex items-center justify-between px-4 md:px-8" style={{ backgroundColor: "color-mix(in srgb, var(--color-base) 85%, transparent)" }}>
+    <header className="fixed top-0 left-0 md:left-60 right-0 h-16 border-b border-[var(--color-border)] z-20 flex items-center justify-between px-4 md:px-8" style={{ backgroundColor: "var(--color-base-alt)" }}>
       {/* Mobile menu toggle */}
       <button onClick={onMenuToggle} className="md:hidden p-2 mr-2 -ml-2 hover:bg-[var(--color-card)]">
         <Menu size={18} />
@@ -46,18 +59,18 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
       {/* Breadcrumb */}
       <div>
         <div className="flex items-center gap-2 text-xs">
-          <Link href="/dashboard" className="opacity-40 hover:opacity-100 transition-opacity">
+          <Link href="/dashboard" className="transition-colors" style={{ color: "#FFFFFF" }}>
             Accueil
           </Link>
           {!isRoot && (
             <>
-              <ChevronRight size={12} className="opacity-20" />
+              <ChevronRight size={12} style={{ color: "#FFFFFF" }} />
               <span className="font-medium">{pageTitle}</span>
             </>
           )}
         </div>
         {isRoot && (
-          <p className="text-[11px] opacity-30 mt-0.5">
+          <p className="text-xs mt-0.5" style={{ color: "#FFFFFF" }}>
             Bienvenue dans votre espace créateur
           </p>
         )}
@@ -66,7 +79,7 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
       {/* Search */}
       <div className="hidden md:block">
         <div className="relative">
-          <Search size={13} className="absolute left-0 top-1/2 -translate-y-1/2 opacity-30" />
+          <Search size={13} className="absolute left-0 top-1/2 -translate-y-1/2" style={{ color: "#FFFFFF" }} />
           <input
             type="text"
             placeholder="Rechercher..."
@@ -79,7 +92,7 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
 
       {/* Right */}
       <div className="flex items-center gap-3">
-        <button className="relative opacity-40 hover:opacity-100 transition-opacity">
+        <button className="relative transition-colors" style={{ color: "#FFFFFF" }}>
           <Bell size={18} />
           <span className="absolute -top-0.5 -right-0.5 w-2 h-2" style={{ backgroundColor: "var(--color-accent)" }} />
         </button>

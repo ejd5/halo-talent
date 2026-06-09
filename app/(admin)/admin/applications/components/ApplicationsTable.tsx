@@ -46,7 +46,7 @@ const statusStyles: Record<string, { bg: string; fg: string; label: string }> = 
 function scoreColor(score: number): string {
   if (score >= 80) return "#7A9A65";
   if (score >= 60) return "#C75B39";
-  if (score >= 40) return "#9A9590";
+  if (score >= 40) return "#E0D8D0";
   return "#C44536";
 }
 
@@ -72,13 +72,13 @@ export function ApplicationsTable({
     <div>
       {/* Search bar */}
       <div
-        className="flex items-center gap-3 px-4 mb-4"
+        className="flex items-center gap-3 px-4 mb-4 card-accent"
         style={{
           background: "#1A1614",
           border: "1px solid rgba(255,255,255,0.06)",
         }}
       >
-        <Search size={15} strokeWidth={1.5} style={{ color: "#5A544C" }} />
+        <Search size={15} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
         <input
           type="text"
           value={search}
@@ -90,7 +90,7 @@ export function ApplicationsTable({
         <button
           onClick={onToggleFilters}
           className="p-1.5 transition-colors hover:bg-white/5"
-          style={{ color: "#7A736B" }}
+          style={{ color: "#F5F0EB" }}
         >
           <SlidersHorizontal size={14} strokeWidth={1.5} />
         </button>
@@ -98,7 +98,7 @@ export function ApplicationsTable({
 
       {/* Table */}
       <div
-        className="overflow-x-auto"
+        className="overflow-x-auto card-accent"
         style={{
           border: "1px solid rgba(255,255,255,0.04)",
         }}
@@ -108,7 +108,7 @@ export function ApplicationsTable({
             <tr
               className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]"
               style={{
-                color: "#5A544C",
+                color: "#E0D8D0",
                 borderBottom: "1px solid rgba(255,255,255,0.04)",
               }}
             >
@@ -128,7 +128,7 @@ export function ApplicationsTable({
                 <td
                   colSpan={8}
                   className="py-12 text-center text-sm font-sans"
-                  style={{ color: "#5A544C" }}
+                  style={{ color: "#E0D8D0" }}
                 >
                   Aucune candidature trouvée
                 </td>
@@ -161,8 +161,8 @@ export function ApplicationsTable({
                     {/* Date */}
                     <td className="py-3.5 px-4 whitespace-nowrap">
                       <div className="flex items-center gap-1.5">
-                        <Clock size={11} strokeWidth={1.5} style={{ color: "#5A544C" }} />
-                        <span className="text-xs font-sans" style={{ color: "#7A736B" }}>
+                        <Clock size={11} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
+                        <span className="text-xs font-sans" style={{ color: "#F5F0EB" }}>
                           {relativeTime(app.created_at)}
                         </span>
                       </div>
@@ -184,7 +184,7 @@ export function ApplicationsTable({
                           <p className="text-sm font-sans font-medium" style={{ color: "#F5F0EB" }}>
                             {app.full_name}
                           </p>
-                          <p className="text-[11px] font-sans" style={{ color: "#5A544C" }}>
+                          <p className="text-[11px] font-sans" style={{ color: "#E0D8D0" }}>
                             {app.email}
                           </p>
                         </div>
@@ -213,7 +213,7 @@ export function ApplicationsTable({
                             <span
                               key={p}
                               className="flex items-center gap-1 text-[10px] font-sans"
-                              style={{ color: "#7A736B" }}
+                              style={{ color: "#F5F0EB" }}
                               title={p}
                             >
                               <Icon size={12} strokeWidth={1.5} />
@@ -275,7 +275,7 @@ export function ApplicationsTable({
                           setMenuOpen(menuOpen === app.id ? null : app.id);
                         }}
                         className="p-1 transition-colors hover:bg-white/5"
-                        style={{ color: "#5A544C" }}
+                        style={{ color: "#E0D8D0" }}
                       >
                         <MoreHorizontal size={14} strokeWidth={1.5} />
                       </button>

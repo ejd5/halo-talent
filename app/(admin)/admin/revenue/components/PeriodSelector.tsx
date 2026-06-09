@@ -23,7 +23,7 @@ export function PeriodSelector({ value, onChange }: Props) {
             className="px-3 py-1.5 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors"
             style={{
               background: isActive ? "#C75B39" : "transparent",
-              color: isActive ? "#F5F0EB" : "#7A736B",
+              color: isActive ? "#F5F0EB" : "#F5F0EB",
             }}
           >
             {opt.label}

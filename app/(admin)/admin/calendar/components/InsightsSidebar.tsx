@@ -58,7 +58,7 @@ export function InsightsSidebar({
         onClick={onClose}
       />
       <div
-        className="fixed top-0 right-0 z-50 h-full w-[380px] border-l border-[var(--color-border)] overflow-y-auto"
+        className="fixed top-0 right-0 z-50 h-full w-[380px] border-l border-[var(--color-border)] overflow-y-auto card-accent"
         style={{ backgroundColor: "var(--color-base)" }}
       >
         {/* Header */}

@@ -60,11 +60,11 @@ export function ForecastTab() {
   if (!forecast && !loading && !error) {
     return (
       <div className="text-center py-16" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <Brain size={40} strokeWidth={1.5} style={{ color: "#5A544C" }} className="mx-auto mb-4" />
+        <Brain size={40} strokeWidth={1.5} style={{ color: "#E0D8D0" }} className="mx-auto mb-4" />
         <p className="font-display text-lg font-bold mb-2" style={{ color: "#F5F0EB" }}>
           Prévisions IA
         </p>
-        <p className="text-sm font-sans mb-6" style={{ color: "#7A736B" }}>
+        <p className="text-sm font-sans mb-6" style={{ color: "#F5F0EB" }}>
           Analyse prédictive basée sur les 12 derniers mois de données
         </p>
         <button
@@ -125,12 +125,12 @@ export function ForecastTab() {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <TrendingUp size={16} strokeWidth={1.5} style={{ color: "#C75B39" }} />
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#7A736B" }}>
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
             Prévisions générées par IA
           </p>
         </div>
@@ -149,14 +149,14 @@ export function ForecastTab() {
       <div className="grid grid-cols-3 gap-4">
         {periods.map(({ key, label, period }) => (
           <div key={key} className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-            <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "#7A736B" }}>
+            <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "#F5F0EB" }}>
               {label}
             </p>
             <p className="font-display text-2xl font-bold mb-1" style={{ color: "#F5F0EB" }}>
               {formatEuro(period.estimate)}
             </p>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+              <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                 {formatEuro(period.lower_bound)} – {formatEuro(period.upper_bound)}
               </span>
             </div>
@@ -175,7 +175,7 @@ export function ForecastTab() {
         <p className="font-display text-base font-bold mb-2" style={{ color: "#F5F0EB" }}>
           Résumé
         </p>
-        <p className="text-sm font-sans leading-relaxed" style={{ color: "#9A9590" }}>
+        <p className="text-sm font-sans leading-relaxed" style={{ color: "#E0D8D0" }}>
           {forecast!.summary}
         </p>
       </div>
@@ -185,7 +185,7 @@ export function ForecastTab() {
         <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
           <div className="flex items-center gap-2 mb-3">
             <AlertTriangle size={12} strokeWidth={1.5} style={{ color: "#C44536" }} />
-            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#7A736B" }}>
+            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
               Risques
             </p>
           </div>
@@ -201,7 +201,7 @@ export function ForecastTab() {
         <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
           <div className="flex items-center gap-2 mb-3">
             <Lightbulb size={12} strokeWidth={1.5} style={{ color: "#7A9A65" }} />
-            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#7A736B" }}>
+            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
               Opportunités
             </p>
           </div>

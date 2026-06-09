@@ -54,16 +54,16 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
     <>
       <div className="fixed inset-0 z-40 bg-black/50" onClick={onClose} />
       <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <div className="w-full max-w-lg" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
+        <div className="w-full max-w-lg card-accent" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
             <div>
               <p className="font-display text-base font-bold" style={{ color: "#F5F0EB" }}>
                 Ajuster la commission
               </p>
-              <p className="text-[11px] font-sans mt-0.5" style={{ color: "#7A736B" }}>{creatorName}</p>
+              <p className="text-[11px] font-sans mt-0.5" style={{ color: "#F5F0EB" }}>{creatorName}</p>
             </div>
-            <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#7A736B" }}>
+            <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#F5F0EB" }}>
               <X size={16} strokeWidth={1.5} />
             </button>
           </div>
@@ -71,7 +71,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
           <div className="px-6 py-5 space-y-4">
             {/* Current */}
             <div>
-              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#5A544C" }}>
+              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#E0D8D0" }}>
                 Commission actuelle
               </p>
               <p className="font-display text-xl font-bold" style={{ color: "#F5F0EB" }}>
@@ -81,7 +81,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
 
             {/* New amount */}
             <div>
-              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#5A544C" }}>
+              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#E0D8D0" }}>
                 Nouveau montant (€)
               </p>
               <input
@@ -110,7 +110,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
 
             {/* Reason */}
             <div>
-              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#5A544C" }}>
+              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#E0D8D0" }}>
                 Motif
               </p>
               <select
@@ -127,7 +127,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
 
             {/* Justification */}
             <div>
-              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#5A544C" }}>
+              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#E0D8D0" }}>
                 Justification
               </p>
               <textarea
@@ -146,7 +146,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
             <button
               onClick={onClose}
               className="px-4 py-2 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-              style={{ color: "#7A736B" }}
+              style={{ color: "#F5F0EB" }}
             >
               Annuler
             </button>

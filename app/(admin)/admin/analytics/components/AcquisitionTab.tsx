@@ -11,7 +11,7 @@ export function AcquisitionTab() {
   const overallConversion = ((totalApps / totalVisits) * 100);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent" style={{ background: "#0A0908" }}>
       {/* KPI */}
       <div className="grid grid-cols-4 gap-3">
         <StatCard title="Visites / mois" value={totalVisits.toLocaleString("fr-FR")} icon={<Users size={14} />} />

@@ -480,7 +480,7 @@ export function AuditLogsPage() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 p-6">
+    <div className="flex flex-col gap-4 p-6 card-accent">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>

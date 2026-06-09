@@ -147,7 +147,7 @@ export const ROLE_COLORS: Record<Role, string> = {
   owner: "#C75B39",
   admin: "#7A9A65",
   manager: "#4A90D9",
-  assistant: "#9A9590",
+  assistant: "#E0D8D0",
   custom: "#C7A254",
 };
 

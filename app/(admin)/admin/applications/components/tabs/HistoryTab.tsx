@@ -23,12 +23,12 @@ const actionIcons: Record<string, React.ElementType> = {
 };
 
 const actionColors: Record<string, string> = {
-  Soumise: "#9A9590",
-  "Analyse IA": "#7A736B",
+  Soumise: "#E0D8D0",
+  "Analyse IA": "#F5F0EB",
   "Mise en review": "#C75B39",
   Approuvée: "#7A9A65",
-  "Note ajoutée": "#9A9590",
-  Vu: "#5A544C",
+  "Note ajoutée": "#E0D8D0",
+  Vu: "#E0D8D0",
 };
 
 export function HistoryTab({ applicationId }: Props) {
@@ -36,14 +36,14 @@ export function HistoryTab({ applicationId }: Props) {
 
   if (!logs || logs.length === 0) {
     return (
-      <p className="text-sm font-sans text-center py-8" style={{ color: "#5A544C" }}>
+      <p className="text-sm font-sans text-center py-8" style={{ color: "#E0D8D0" }}>
         Aucun historique pour cette candidature.
       </p>
     );
   }
 
   return (
-    <div className="relative">
+    <div className="relative card-accent" style={{ background: "#0A0908" }}>
       {/* Timeline line */}
       <div
         className="absolute left-[11px] top-2 bottom-2 w-px"
@@ -62,7 +62,7 @@ export function HistoryTab({ applicationId }: Props) {
               log.action.startsWith(k)
             );
             const Icon = prefix ? actionIcons[prefix] : Clock;
-            const color = prefix ? actionColors[prefix] : "#5A544C";
+            const color = prefix ? actionColors[prefix] : "#E0D8D0";
 
             return (
               <div key={log.id} className="flex gap-4 pb-5 relative">
@@ -79,10 +79,10 @@ export function HistoryTab({ applicationId }: Props) {
                     {log.action}
                   </p>
                   <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-[11px] font-sans" style={{ color: "#5A544C" }}>
+                    <span className="text-[11px] font-sans" style={{ color: "#E0D8D0" }}>
                       par {log.actor}
                     </span>
-                    <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+                    <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                       {relativeTime(log.created_at)}
                     </span>
                   </div>
@@ -90,7 +90,7 @@ export function HistoryTab({ applicationId }: Props) {
                     <p
                       className="mt-1.5 text-xs font-sans p-2 leading-relaxed"
                       style={{
-                        color: "#9A9590",
+                        color: "#E0D8D0",
                         background: "rgba(255,255,255,0.02)",
                         borderLeft: "2px solid rgba(255,255,255,0.06)",
                       }}

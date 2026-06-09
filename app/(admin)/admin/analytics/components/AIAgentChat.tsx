@@ -61,7 +61,7 @@ export function AIAgentChat() {
 
       {/* Chat panel */}
       {open && (
-        <div className="fixed bottom-6 right-6 z-40 w-[380px] h-[520px] border border-[var(--color-border)] flex flex-col shadow-xl"
+        <div className="fixed bottom-6 right-6 z-40 w-[380px] h-[520px] border border-[var(--color-border)] flex flex-col shadow-xl card-accent"
           style={{ backgroundColor: "var(--color-base)" }}
         >
           {/* Header */}

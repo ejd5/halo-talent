@@ -25,7 +25,7 @@ const methodLabels: Record<string, string> = {
 const statusStyles: Record<string, { icon: React.ElementType; label: string; bg: string; fg: string }> = {
   pending: { icon: Loader2, label: "En attente", bg: "rgba(199,91,57,0.12)", fg: "#C75B39" },
   validated: { icon: CheckCircle, label: "Validé", bg: "rgba(122,154,101,0.12)", fg: "#7A9A65" },
-  completed: { icon: CheckCircle, label: "Effectué", bg: "rgba(255,255,255,0.06)", fg: "#5A544C" },
+  completed: { icon: CheckCircle, label: "Effectué", bg: "rgba(255,255,255,0.06)", fg: "#E0D8D0" },
   error: { icon: XCircle, label: "Erreur", bg: "rgba(196,69,54,0.12)", fg: "#C44536" },
 };
 
@@ -73,18 +73,18 @@ export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
   if (payouts.length === 0) {
     return (
       <div className="text-center py-12" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <p className="text-sm font-sans" style={{ color: "#5A544C" }}>Aucun payout trouvé</p>
+        <p className="text-sm font-sans" style={{ color: "#E0D8D0" }}>Aucun payout trouvé</p>
       </div>
     );
   }
 
   return (
-    <div style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
+    <div className="card-accent" style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>
             <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]"
-              style={{ color: "#5A544C", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+              style={{ color: "#E0D8D0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
               <th className="py-3 px-4 font-medium">Créateur</th>
               <th className="py-3 px-4 font-medium">Montant</th>
               <th className="py-3 px-4 font-medium">Période</th>
@@ -117,7 +117,7 @@ export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
                         <p className="text-xs font-sans font-medium" style={{ color: "#D0CCC6" }}>
                           {po.creator_name}
                         </p>
-                        <p className="text-[9px] font-sans" style={{ color: "#5A544C" }}>{po.department}</p>
+                        <p className="text-[9px] font-sans" style={{ color: "#E0D8D0" }}>{po.department}</p>
                       </div>
                     </div>
                   </td>
@@ -131,16 +131,16 @@ export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
                       )}
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-xs font-sans" style={{ color: "#9A9590" }}>{po.period}</td>
+                  <td className="py-3 px-4 text-xs font-sans" style={{ color: "#E0D8D0" }}>{po.period}</td>
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-1.5">
-                      <MethodIcon size={11} strokeWidth={1.5} style={{ color: "#7A736B" }} />
-                      <span className="text-[10px] font-sans" style={{ color: "#7A736B" }}>
+                      <MethodIcon size={11} strokeWidth={1.5} style={{ color: "#F5F0EB" }} />
+                      <span className="text-[10px] font-sans" style={{ color: "#F5F0EB" }}>
                         {methodLabels[po.method]}
                       </span>
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-[11px] font-sans" style={{ color: "#7A736B" }}>
+                  <td className="py-3 px-4 text-[11px] font-sans" style={{ color: "#F5F0EB" }}>
                     {new Date(po.scheduled_date).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
                   </td>
                   <td className="py-3 px-4">

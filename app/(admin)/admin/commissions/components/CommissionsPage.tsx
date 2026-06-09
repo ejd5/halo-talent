@@ -52,13 +52,13 @@ export function CommissionsPage() {
   };
 
   return (
-    <div>
+    <div className="card-accent">
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="font-display text-2xl font-bold" style={{ color: "#F5F0EB" }}>
             Commissions
           </h1>
-          <p className="text-xs font-sans mt-1" style={{ color: "#7A736B" }}>
+          <p className="text-xs font-sans mt-1" style={{ color: "#F5F0EB" }}>
             Calcul détaillé des commissions par créateur
           </p>
         </div>

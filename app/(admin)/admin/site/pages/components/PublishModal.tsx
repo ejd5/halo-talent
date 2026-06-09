@@ -20,7 +20,7 @@ export function PublishModal({
     <>
       <div className="fixed inset-0 z-50 bg-black/60 flex items-center justify-center" onClick={onClose}>
         <div
-          className="w-[640px] max-h-[80vh] border border-[var(--color-border)] flex flex-col"
+          className="w-[640px] max-h-[80vh] border border-[var(--color-border)] flex flex-col card-accent"
           style={{ backgroundColor: "var(--color-base)" }}
           onClick={(e) => e.stopPropagation()}
         >

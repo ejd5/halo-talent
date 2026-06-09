@@ -33,7 +33,7 @@ const activities: Activity[] = [
     icon: MessageSquare,
     text: "Message non lu de Léa R.",
     time: "2 h",
-    color: "#9A9590",
+    color: "#E0D8D0",
   },
   {
     icon: FileText,
@@ -70,7 +70,7 @@ const activities: Activity[] = [
 export function ActivityFeed() {
   return (
     <div
-      className="flex flex-col"
+      className="flex flex-col card-accent"
       style={{
         background: "#1A1614",
         border: "1px solid rgba(255,255,255,0.04)",
@@ -130,7 +130,7 @@ export function ActivityFeed() {
                 </p>
                 <p
                   className="text-[11px] font-sans mt-1"
-                  style={{ color: "#5A544C" }}
+                  style={{ color: "#E0D8D0" }}
                 >
                   il y a {item.time}
                 </p>

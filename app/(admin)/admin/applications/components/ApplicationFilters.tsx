@@ -26,12 +26,12 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
   };
 
   return (
-    <div>
+    <div className="card-accent" style={{ background: "#0A0908" }}>
       <div className="flex items-center justify-between mb-4">
-        <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em]" style={{ color: "#7A736B" }}>
+        <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em]" style={{ color: "#F5F0EB" }}>
           Filtres
         </p>
-        <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#5A544C" }}>
+        <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#E0D8D0" }}>
           <X size={14} strokeWidth={1.5} />
         </button>
       </div>
@@ -39,7 +39,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
       <div className="space-y-5">
         {/* Statut */}
         <div>
-          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#9A9590" }}>Statut</p>
+          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#E0D8D0" }}>Statut</p>
           <div className="space-y-1">
             {(["all", "pending", "review", "approved", "rejected"] as const).map((s) => (
               <label key={s} className="flex items-center gap-2 py-1 cursor-pointer group">
@@ -60,7 +60,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
 
         {/* Département */}
         <div>
-          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#9A9590" }}>Département</p>
+          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#E0D8D0" }}>Département</p>
           <div className="space-y-1 max-h-[180px] overflow-y-auto">
             {departments.map((d) => (
               <label key={d} className="flex items-center gap-2 py-1 cursor-pointer group">
@@ -80,7 +80,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
 
         {/* Plateformes */}
         <div>
-          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#9A9590" }}>Plateformes</p>
+          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#E0D8D0" }}>Plateformes</p>
           <div className="space-y-1">
             {platformOptions.map((p) => (
               <label key={p} className="flex items-center gap-2 py-1 cursor-pointer group">
@@ -100,7 +100,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
 
         {/* Score min */}
         <div>
-          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#9A9590" }}>
+          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#E0D8D0" }}>
             Score IA min : {filters.scoreMin}
           </p>
           <input
@@ -127,7 +127,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
             })
           }
           className="w-full py-2 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-          style={{ color: "#7A736B", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.08)" }}
         >
           Réinitialiser
         </button>

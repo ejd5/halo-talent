@@ -7,7 +7,7 @@ import { StatCard, SimpleBarChart } from "./SharedCharts";
 const TREND_ICONS: Record<string, React.ReactNode> = {
   up: <TrendingUp size={10} className="text-[#7A9A65]" />,
   down: <TrendingDown size={10} className="text-[#C44536]" />,
-  stable: <span className="w-2 h-0.5 bg-[#9A9590] inline-block" />,
+  stable: <span className="w-2 h-0.5 bg-[#E0D8D0] inline-block" />,
 };
 
 const DEVICE_ICONS: Record<string, React.ReactNode> = {
@@ -21,7 +21,7 @@ export function WebTab() {
   const totalViews = analyticsData.webTraffic.reduce((a, p) => a + p.views, 0);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 card-accent">
       {/* KPI */}
       <div className="grid grid-cols-4 gap-3">
         <StatCard title="Visites (30j)" value={totalVisits.toLocaleString("fr-FR")} icon={<Users size={14} />} />
@@ -62,7 +62,7 @@ export function WebTab() {
                 <span className="opacity-40">{DEVICE_ICONS[d.device]}</span>
                 <span className="text-xs flex-1">{d.device}</span>
                 <div className="w-32 h-3 border border-[var(--color-border)]">
-                  <div className="h-full transition-all" style={{ width: `${d.percentage}%`, backgroundColor: d.device === "Mobile" ? "#C75B39" : d.device === "Desktop" ? "#7A9A65" : "#9A9590" }} />
+                  <div className="h-full transition-all" style={{ width: `${d.percentage}%`, backgroundColor: d.device === "Mobile" ? "#C75B39" : d.device === "Desktop" ? "#7A9A65" : "#E0D8D0" }} />
                 </div>
                 <span className="text-[11px] font-medium w-10 text-right">{d.percentage}%</span>
               </div>

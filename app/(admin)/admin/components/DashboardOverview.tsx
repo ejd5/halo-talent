@@ -28,7 +28,7 @@ export function DashboardOverview({ userName }: Props) {
   }, []);
 
   return (
-    <div className="max-w-[1400px]">
+    <div className="max-w-[1400px] card-accent">
       {/* Greeting */}
       <div className="mb-8">
         <h1

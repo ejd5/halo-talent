@@ -12,8 +12,8 @@ export function TopCreatorsTable({ rows }: Props) {
     .slice(0, 10);
 
   return (
-    <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "#7A736B" }}>
+    <div className="p-5 card-accent" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
+      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "#F5F0EB" }}>
         Top créateurs
       </p>
       <div className="space-y-2">
@@ -31,7 +31,7 @@ export function TopCreatorsTable({ rows }: Props) {
               <p className="text-xs font-sans truncate" style={{ color: "#D0CCC6" }}>
                 {row.creator_name}
               </p>
-              <p className="text-[9px] font-sans" style={{ color: "#5A544C" }}>
+              <p className="text-[9px] font-sans" style={{ color: "#E0D8D0" }}>
                 {row.department}
               </p>
             </div>

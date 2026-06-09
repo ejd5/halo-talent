@@ -41,12 +41,12 @@ export function NotesDocumentsTab({ creatorId }: Props) {
   };
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 card-accent">
       {/* Notes internes */}
       <div>
         <div className="flex items-center gap-2 mb-4">
           <MessageSquare size={14} strokeWidth={1.5} style={{ color: "#C75B39" }} />
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#7A736B" }}>
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
             Notes internes
           </p>
         </div>
@@ -62,7 +62,7 @@ export function NotesDocumentsTab({ creatorId }: Props) {
             style={{ color: "#D0CCC6" }}
           />
           <div className="flex items-center justify-between mt-2">
-            <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+            <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
               <kbd className="px-1 py-0.5" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>⌘↵</kbd>
             </span>
             <button
@@ -79,7 +79,7 @@ export function NotesDocumentsTab({ creatorId }: Props) {
 
         {/* Notes list */}
         {notes.length === 0 ? (
-          <p className="text-xs font-sans text-center py-6" style={{ color: "#5A544C" }}>
+          <p className="text-xs font-sans text-center py-6" style={{ color: "#E0D8D0" }}>
             Aucune note interne.
           </p>
         ) : (
@@ -93,9 +93,9 @@ export function NotesDocumentsTab({ creatorId }: Props) {
                 <div className="flex items-center gap-2 mb-1">
                   <MessageSquare size={10} strokeWidth={1.5} style={{ color: "#C75B39" }} />
                   <span className="text-[11px] font-sans font-medium" style={{ color: "#D0CCC6" }}>{note.author}</span>
-                  <span className="text-[9px] font-sans" style={{ color: "#5A544C" }}>{relativeTime(note.created_at)}</span>
+                  <span className="text-[9px] font-sans" style={{ color: "#E0D8D0" }}>{relativeTime(note.created_at)}</span>
                 </div>
-                <p className="text-xs font-sans leading-relaxed" style={{ color: "#9A9590" }}>{note.content}</p>
+                <p className="text-xs font-sans leading-relaxed" style={{ color: "#E0D8D0" }}>{note.content}</p>
               </div>
             ))}
           </div>
@@ -107,7 +107,7 @@ export function NotesDocumentsTab({ creatorId }: Props) {
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
             <FileText size={14} strokeWidth={1.5} style={{ color: "#C75B39" }} />
-            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#7A736B" }}>
+            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
               Documents
             </p>
           </div>
@@ -121,7 +121,7 @@ export function NotesDocumentsTab({ creatorId }: Props) {
         </div>
 
         {docs.length === 0 ? (
-          <p className="text-xs font-sans text-center py-6" style={{ color: "#5A544C" }}>
+          <p className="text-xs font-sans text-center py-6" style={{ color: "#E0D8D0" }}>
             Aucun document uploadé.
           </p>
         ) : (
@@ -139,7 +139,7 @@ export function NotesDocumentsTab({ creatorId }: Props) {
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-sans font-medium truncate" style={{ color: "#D0CCC6" }}>{doc.title}</p>
-                    <p className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+                    <p className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                       {docLabels[doc.type]} · {doc.uploaded_by} · {relativeTime(doc.uploaded_at)}
                     </p>
                   </div>

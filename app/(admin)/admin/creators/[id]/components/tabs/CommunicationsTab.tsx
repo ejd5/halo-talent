@@ -10,7 +10,7 @@ export function CommunicationsTab({ creatorId }: Props) {
   const list = messages[creatorId] ?? [];
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-4 card-accent">
       {/* Action */}
       <button
         className="flex items-center gap-2 px-4 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-90"
@@ -21,7 +21,7 @@ export function CommunicationsTab({ creatorId }: Props) {
       </button>
 
       {list.length === 0 ? (
-        <p className="text-sm font-sans text-center py-8" style={{ color: "#5A544C" }}>
+        <p className="text-sm font-sans text-center py-8" style={{ color: "#E0D8D0" }}>
           Aucune conversation pour ce créateur.
         </p>
       ) : (
@@ -38,19 +38,19 @@ export function CommunicationsTab({ creatorId }: Props) {
             >
               <div className="flex items-start justify-between mb-1.5">
                 <div className="flex items-center gap-2">
-                  <MessageSquare size={12} strokeWidth={1.5} style={{ color: msg.read ? "#5A544C" : "#C75B39" }} />
+                  <MessageSquare size={12} strokeWidth={1.5} style={{ color: msg.read ? "#E0D8D0" : "#C75B39" }} />
                   <span className="text-xs font-sans font-semibold" style={{ color: "#D0CCC6" }}>
                     {msg.from} → {msg.to}
                   </span>
                 </div>
-                <span className="text-[10px] font-sans" style={{ color: "#5A544C" }}>
+                <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
                   {relativeTime(msg.created_at)}
                 </span>
               </div>
-              <p className="text-xs font-sans font-medium mb-1" style={{ color: "#9A9590" }}>
+              <p className="text-xs font-sans font-medium mb-1" style={{ color: "#E0D8D0" }}>
                 {msg.subject}
               </p>
-              <p className="text-xs font-sans leading-relaxed" style={{ color: "#7A736B" }}>
+              <p className="text-xs font-sans leading-relaxed" style={{ color: "#F5F0EB" }}>
                 {msg.content}
               </p>
             </div>

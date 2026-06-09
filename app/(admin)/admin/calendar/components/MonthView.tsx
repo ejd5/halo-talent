@@ -50,7 +50,7 @@ export function MonthView({
   const todayYear = today.getFullYear();
 
   return (
-    <div className="border border-[var(--color-border)]">
+    <div className="border border-[var(--color-border)] card-accent">
       {/* Day headers */}
       <div className="grid grid-cols-7 border-b border-[var(--color-border)]">
         {DAY_HEADERS.map((d) => (

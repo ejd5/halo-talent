@@ -55,7 +55,7 @@ export function MediaUploadModal({
         onClick={onClose}
       >
         <div
-          className="w-[480px] border border-[var(--color-border)]"
+          className="w-[480px] border border-[var(--color-border)] card-accent"
           style={{ backgroundColor: "var(--color-base)" }}
           onClick={(e) => e.stopPropagation()}
         >

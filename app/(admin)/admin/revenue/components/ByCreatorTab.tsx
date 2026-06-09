@@ -84,7 +84,7 @@ export function ByCreatorTab({ rows }: Props) {
     <th
       className="py-3 px-3 font-medium cursor-pointer hover:opacity-80 select-none"
       onClick={() => handleSort(sk)}
-      style={{ color: "#5A544C" }}
+      style={{ color: "#E0D8D0" }}
     >
       <div className="flex items-center gap-1">
         {label}
@@ -100,9 +100,9 @@ export function ByCreatorTab({ rows }: Props) {
   return (
     <div>
       {/* Toolbar */}
-      <div className="flex items-center gap-3 mb-4">
+      <div className="flex items-center gap-3 mb-4 card-accent">
         <div className="flex-1 flex items-center gap-2 px-3" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.06)" }}>
-          <Search size={14} strokeWidth={1.5} style={{ color: "#5A544C" }} />
+          <Search size={14} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
           <input
             type="text"
             value={search}
@@ -115,7 +115,7 @@ export function ByCreatorTab({ rows }: Props) {
         <button
           onClick={() => setShowFilters(!showFilters)}
           className="p-2 transition-colors hover:bg-white/5"
-          style={{ color: "#7A736B", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
         >
           <SlidersHorizontal size={14} strokeWidth={1.5} />
         </button>
@@ -130,7 +130,7 @@ export function ByCreatorTab({ rows }: Props) {
       </div>
 
       {/* Table */}
-      <div style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="card-accent" style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
@@ -150,7 +150,7 @@ export function ByCreatorTab({ rows }: Props) {
             <tbody>
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={10} className="py-12 text-center text-xs font-sans" style={{ color: "#5A544C" }}>
+                  <td colSpan={10} className="py-12 text-center text-xs font-sans" style={{ color: "#E0D8D0" }}>
                     Aucun résultat
                   </td>
                 </tr>
@@ -175,10 +175,10 @@ export function ByCreatorTab({ rows }: Props) {
                         </div>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-xs font-sans" style={{ color: "#9A9590" }}>{row.department}</span>
+                        <span className="text-xs font-sans" style={{ color: "#E0D8D0" }}>{row.department}</span>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-[10px] font-sans capitalize" style={{ color: "#7A736B" }}>{row.tier}</span>
+                        <span className="text-[10px] font-sans capitalize" style={{ color: "#F5F0EB" }}>{row.tier}</span>
                       </td>
                       <td className="py-3 px-3">
                         <span className="text-xs font-sans font-medium tabular-nums" style={{ color: "#F5F0EB" }}>
@@ -186,7 +186,7 @@ export function ByCreatorTab({ rows }: Props) {
                         </span>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-xs font-sans tabular-nums" style={{ color: "#9A9590" }}>
+                        <span className="text-xs font-sans tabular-nums" style={{ color: "#E0D8D0" }}>
                           {formatEuro(row.last_month)}
                         </span>
                       </td>
@@ -208,7 +208,7 @@ export function ByCreatorTab({ rows }: Props) {
                         </span>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-xs font-sans tabular-nums" style={{ color: "#9A9590" }}>
+                        <span className="text-xs font-sans tabular-nums" style={{ color: "#E0D8D0" }}>
                           {row.commission_rate}%
                         </span>
                       </td>
@@ -230,7 +230,7 @@ export function ByCreatorTab({ rows }: Props) {
             </tbody>
           </table>
         </div>
-        <div className="px-3 py-2 text-[10px] font-sans text-right" style={{ color: "#5A544C", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="px-3 py-2 text-[10px] font-sans text-right" style={{ color: "#E0D8D0", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
           {filtered.length} créateurs
         </div>
       </div>

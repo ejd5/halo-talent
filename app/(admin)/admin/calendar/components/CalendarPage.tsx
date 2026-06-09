@@ -90,9 +90,9 @@ export function CalendarPage() {
   );
 
   return (
-    <div className="flex h-full">
+    <div className="flex h-full card-accent" style={{ background: "#0A0908" }}>
       {/* Main content */}
-      <div className="flex-1 flex flex-col gap-4 p-6 overflow-auto">
+      <div className="flex-1 flex flex-col">
         <CalendarToolbar
           currentDate={currentDate}
           onPrevMonth={() => navigateMonth(-1)}

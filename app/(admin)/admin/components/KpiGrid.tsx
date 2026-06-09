@@ -50,7 +50,7 @@ const kpis: Kpi[] = [
 
 export function KpiGrid() {
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[1px]">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-[1px] card-accent">
       {kpis.map((kpi) => {
         const isPositive = kpi.variation >= 0;
         return (
@@ -65,7 +65,7 @@ export function KpiGrid() {
           >
             <p
               className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em] mb-2"
-              style={{ color: "#7A736B" }}
+              style={{ color: "#F5F0EB" }}
             >
               {kpi.label}
             </p>
@@ -102,7 +102,7 @@ export function KpiGrid() {
               </span>
               <span
                 className="text-[10px] font-sans ml-1"
-                style={{ color: "#5A544C" }}
+                style={{ color: "#E0D8D0" }}
               >
                 vs période préc.
               </span>

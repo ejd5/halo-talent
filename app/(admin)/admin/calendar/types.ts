@@ -72,7 +72,7 @@ export const STATUS_LABELS: Record<string, string> = {
 };
 
 export const STATUS_COLORS: Record<string, string> = {
-  draft: "#9A9590",
+  draft: "#E0D8D0",
   planned: "#C75B39",
   published: "#7A9A65",
   failed: "#C44536",

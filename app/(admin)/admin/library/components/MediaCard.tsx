@@ -6,6 +6,7 @@ import type { MediaItem } from "../types";
 const TYPE_ICONS = {
   image: ImageIcon,
   video: Play,
+  audio: FileText,
   document: FileText,
 };
 

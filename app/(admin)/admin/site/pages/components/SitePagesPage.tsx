@@ -73,7 +73,7 @@ export function SitePagesPage() {
   // Page list view
   if (!editingPage) {
     return (
-      <div className="flex flex-col gap-4 p-6">
+      <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "#0A0908" }}>
         <div>
           <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Pages du site</h1>
           <p className="text-xs opacity-40 mt-0.5">{pages.length} pages · Gérez le contenu de votre site marketing</p>
@@ -85,7 +85,7 @@ export function SitePagesPage() {
 
   // Editor view
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full card-accent" style={{ background: "#0A0908" }}>
       {/* Editor top bar */}
       <div className="flex items-center justify-between px-6 py-3 border-b border-[var(--color-border)]">
         <div className="flex items-center gap-3">
