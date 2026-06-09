@@ -10,6 +10,7 @@ import {
   User, Link2, Settings, ChevronDown, LogOut, X, Globe,
   Inbox, Mail, Phone, Bell, Megaphone, Filter, Shuffle,
   MessageCircle, Zap, Database, Package, AlertTriangle,
+  ShieldCheck,
 } from "lucide-react";
 import { mockCreator } from "./data";
 
@@ -19,7 +20,7 @@ const iconMap: Record<string, React.ElementType> = {
   MessageSquare, Users, FileSignature, GraduationCap, Heart,
   User, Link2, Settings, Globe, Inbox, Mail, Phone, Bell,
   Megaphone, Filter, Shuffle, MessageCircle, Zap, Database,
-  Package, AlertTriangle,
+  Package, AlertTriangle, ShieldCheck,
 };
 
 type NavItem = { label: string; href: string; icon: string };
@@ -105,6 +106,9 @@ const atlasNavSections: NavSection[] = [
   ]},
   { title: "Analytics", items: [
     { label: "Vue d'ensemble", href: "/dashboard/atlas/analytics", icon: "BarChart3" },
+  ]},
+  { title: "PROTECTION", items: [
+    { label: "Bouclier Légal", href: "/dashboard/atlas/legal", icon: "ShieldCheck" },
   ]},
   { title: "Paramètres", items: [
     { label: "Configuration", href: "/dashboard/atlas/settings", icon: "Settings" },
