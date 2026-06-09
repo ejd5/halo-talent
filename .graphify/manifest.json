@@ -1,0 +1,3038 @@
+{
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/components/AIAgentChat.tsx": {
+    "mtime": 1780997034312.2825,
+    "hash": "a0e4bdd6d7e1468e6fe379d6b0f8f7fe"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/components/AcquisitionTab.tsx": {
+    "mtime": 1780997034200.5684,
+    "hash": "3d7f14753c0c1dfcb01c48707f4ac7ce"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/components/AnalyticsPage.tsx": {
+    "mtime": 1780997034179.533,
+    "hash": "370dba902b4321423090806ccad76f87"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/components/BusinessTab.tsx": {
+    "mtime": 1780997034334.87,
+    "hash": "99460b8ef8414f6d1fd8a9abd39e62db"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/components/CohortsTab.tsx": {
+    "mtime": 1780997034250.2659,
+    "hash": "e6f2313292c1ea47d8c17d39309983c7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/components/CreatorsTab.tsx": {
+    "mtime": 1780997034229.4868,
+    "hash": "b9b598843154deece4e310d52b904b06"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/components/SharedCharts.tsx": {
+    "mtime": 1780997034289.1619,
+    "hash": "7419ceb02e0df24fc2f0868d203d4466"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/components/WebTab.tsx": {
+    "mtime": 1780997034158.5251,
+    "hash": "09140eaaf8cfbde87af85999c12bbd06"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/data.ts": {
+    "mtime": 1780997031026.6914,
+    "hash": "dc1890b05695611a75f9a7cf174a489f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/page.tsx": {
+    "mtime": 1780997031061.7644,
+    "hash": "c1b8223dce75036103e83e17e9a3cfc4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/analytics/types.ts": {
+    "mtime": 1780997031045.1343,
+    "hash": "056c3a8976b81500a5e4d6c860602284"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/ApplicationDetailPanel.tsx": {
+    "mtime": 1780997033555.8997,
+    "hash": "b91492144373b10cdce54c1f37fcb477"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/ApplicationFilters.tsx": {
+    "mtime": 1780997033619.4365,
+    "hash": "0b71ee6c7895db8404add40ad5fa00e7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/ApplicationsPage.tsx": {
+    "mtime": 1780997033643.443,
+    "hash": "c0cd5ebd2a39c6c56164af818c8e2e36"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/ApplicationsTable.tsx": {
+    "mtime": 1780997033599.3093,
+    "hash": "b0e91c7e6ec035ae6345f3240cfb52df"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/ApproveModal.tsx": {
+    "mtime": 1780997033576.2915,
+    "hash": "03efb137365f2cada199357a200ed166"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/RejectModal.tsx": {
+    "mtime": 1780997033667.0105,
+    "hash": "88e7d5892001e23404aa0371572b3e86"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/tabs/AIScoreTab.tsx": {
+    "mtime": 1780997035717.1958,
+    "hash": "b3de727d4475e42370ef76e1dd42e9d8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/tabs/HistoryTab.tsx": {
+    "mtime": 1780997035611.6968,
+    "hash": "31cb4e15f667f454580682ab9ca3030a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/tabs/NotesTab.tsx": {
+    "mtime": 1780997035686.0488,
+    "hash": "63833cd928f4678cf504e69d825851bf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/tabs/PlatformsTab.tsx": {
+    "mtime": 1780997035664.768,
+    "hash": "aac04b391a035d4a516b549279366bc7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/tabs/ProfileTab.tsx": {
+    "mtime": 1780997035747.4473,
+    "hash": "0aa62efb1d16be34c7e82d47afa4bf14"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/components/tabs/ResponsesTab.tsx": {
+    "mtime": 1780997035639.566,
+    "hash": "ee490ef3a90a067fe4cdfc58acb91513"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/data.ts": {
+    "mtime": 1780997030665.903,
+    "hash": "0d7f6555ba0ad99af3f4cc4a352554fc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/page.tsx": {
+    "mtime": 1780997030737.1985,
+    "hash": "65a7461424104348c9697c588381bbab"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/types.ts": {
+    "mtime": 1780997030714.6836,
+    "hash": "85a511559a54a92ce4352ea8a4b5398d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/applications/utils.ts": {
+    "mtime": 1780997030687.5972,
+    "hash": "ce872032f6f05aebab3070adc38a319f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/benchmarking/page.tsx": {
+    "mtime": 1781031923941.223,
+    "hash": "5292169e17731bd969d10f3941ef04aa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/CalendarCard.tsx": {
+    "mtime": 1780997033364.2227,
+    "hash": "ae43b1794241aa32341bcd16f02e6d2c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/CalendarPage.tsx": {
+    "mtime": 1780997033169.942,
+    "hash": "66bb8d3b4dfb4efb9893993ffe86d296"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/CalendarToolbar.tsx": {
+    "mtime": 1780997033274.5454,
+    "hash": "b077fef32543510372fd9596cf833bbf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/CreatePostModal.tsx": {
+    "mtime": 1780997033314.4292,
+    "hash": "5b1ef17c22b1b8e0d1711bad7ed83707"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/DayView.tsx": {
+    "mtime": 1780997033147.679,
+    "hash": "3c8616f381e2a0819fc42f316df51885"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/EventDetailPanel.tsx": {
+    "mtime": 1780997033238.8816,
+    "hash": "6d443529346cab189d4de5a3928a0050"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/InsightsSidebar.tsx": {
+    "mtime": 1780997033121.4578,
+    "hash": "a9426ad14c0cd6fe51064c223a59d39d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/MonthView.tsx": {
+    "mtime": 1780997033191.1824,
+    "hash": "9a5cfc40d38ab73686c8a0c345c7b06f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/TimelineView.tsx": {
+    "mtime": 1780997033338.7695,
+    "hash": "3f358254163bc7a86b04ec72d2515108"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/components/WeekView.tsx": {
+    "mtime": 1780997033212.0808,
+    "hash": "8dc9c26d78c247dd2cc6517eec4a7a83"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/data.ts": {
+    "mtime": 1780997030172.3005,
+    "hash": "bb51b90a5d6ed11de97f85037b9749bb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/page.tsx": {
+    "mtime": 1780997030208.877,
+    "hash": "45dbb43fad5ebbbd03e8d4401939a317"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/calendar/types.ts": {
+    "mtime": 1780997030189.578,
+    "hash": "36ca637478a3e50920e37d0640f8c259"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/command-center/page.tsx": {
+    "mtime": 1781031535692.1147,
+    "hash": "538df2ce314b4dae9bfa9bc2b98c5f7c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/commissions/components/AdjustmentModal.tsx": {
+    "mtime": 1780997032929.0723,
+    "hash": "9fb226fcfe05ff9df7e9210d97dc6395"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/commissions/components/CommissionTable.tsx": {
+    "mtime": 1780997032946.6455,
+    "hash": "bfcbe83a832a1debc928462e73c4573d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/commissions/components/CommissionsPage.tsx": {
+    "mtime": 1780997032993.481,
+    "hash": "67d41a3c9a1de283d6b6be707ee6c33a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/commissions/components/ValidationModal.tsx": {
+    "mtime": 1780997032963.177,
+    "hash": "e9a7e9bf81e518f890e2d7618e44615e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/commissions/data.ts": {
+    "mtime": 1780997030055.9321,
+    "hash": "9196004c8e06513f558327b805b627a4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/commissions/page.tsx": {
+    "mtime": 1780997030097.176,
+    "hash": "077e02e811b801117493b2860a6dc462"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/commissions/types.ts": {
+    "mtime": 1780997030083.1921,
+    "hash": "351a5a533ec3c279da9b73c98dc77c27"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/commissions/utils.ts": {
+    "mtime": 1780997030069.3994,
+    "hash": "cc364555cc96cc6deb48edf36c0e4c27"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/ActivityFeed.tsx": {
+    "mtime": 1780997030500.597,
+    "hash": "d8673f286542324a4d2d73487177fabb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/AdminShell.tsx": {
+    "mtime": 1780997030312.7659,
+    "hash": "cfe571c575c55c33a6c063c8d1e2b516"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/CommandPalette.tsx": {
+    "mtime": 1780997030331.443,
+    "hash": "5a969e75ff985ae21b6da920b0508cac"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/DashboardOverview.tsx": {
+    "mtime": 1780997030416.04,
+    "hash": "fd0e222651988b8a398897550d6ff2f5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/InsightsWidget.tsx": {
+    "mtime": 1780997030381.7688,
+    "hash": "31f55d53a85de517de78b200a9b69a88"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/KpiGrid.tsx": {
+    "mtime": 1780997030399.309,
+    "hash": "8db1c5d47220cb92e62ee67dc218de74"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/RevenueChart.tsx": {
+    "mtime": 1780997030475.7754,
+    "hash": "d992d79d25741c5310e4bdab70ecc92d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/Sidebar.tsx": {
+    "mtime": 1781033186424.811,
+    "hash": "0877a22f50cfa751f407430de4a87d0d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/components/Topbar.tsx": {
+    "mtime": 1780997030351.6096,
+    "hash": "e85a297e53ebbbf770e01897e91c1072"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/content-calendar/analytics/page.tsx": {
+    "mtime": 1781033156894.7563,
+    "hash": "25b1874ae916cb5d384f05605d1e2b5f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/content-calendar/page.tsx": {
+    "mtime": 1781033139475.311,
+    "hash": "d91023a75d83db2e274ab8b2bc136980"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/CreatorDetailPage.tsx": {
+    "mtime": 1780997035591.5671,
+    "hash": "674d41c7ce8e3b5b25417379893a1347"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/tabs/AIAnalysisTab.tsx": {
+    "mtime": 1780997036188.7517,
+    "hash": "77e8b79ae6089898a5d8d778848eac0b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/tabs/CalendarTab.tsx": {
+    "mtime": 1780997036267.0332,
+    "hash": "3f0a31e77f7eeccf2caa3363adf19b27"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/tabs/CommunicationsTab.tsx": {
+    "mtime": 1780997036110.2502,
+    "hash": "7fc6280900740b319b589d055aa6ffed"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/tabs/ContractsTab.tsx": {
+    "mtime": 1780997036237.5977,
+    "hash": "f3b23178c9aa0f1a59c2c42b7cd3cc15"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/tabs/NotesDocumentsTab.tsx": {
+    "mtime": 1780997036168.307,
+    "hash": "7f1ceb2c26203e1712827b2b843ba55e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/tabs/OverviewTab.tsx": {
+    "mtime": 1780997036130.9543,
+    "hash": "dfaf9e1b71dc143873dca2ce64430de9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/tabs/PlatformsTab.tsx": {
+    "mtime": 1780997036149.6572,
+    "hash": "f8d79b7f248c764caca5e6d5cc688da5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/components/tabs/RevenueTab.tsx": {
+    "mtime": 1780997036210.5168,
+    "hash": "8de866d6925110724756af6cba90b481"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/[id]/page.tsx": {
+    "mtime": 1780997033536.4504,
+    "hash": "4c3a2b45488377c06621da3f2175baa4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/components/CreatorCard.tsx": {
+    "mtime": 1780997033513.6648,
+    "hash": "538694f0860a4ee64deb981f4c2a16db"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/components/CreatorsGridPage.tsx": {
+    "mtime": 1780997033495.0342,
+    "hash": "06708ddaa15dd5b4bdbe3ee08bd0f8db"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/data.ts": {
+    "mtime": 1780999974883.2183,
+    "hash": "0de2f6ec3c3617f43241f6f743e6de5b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/page.tsx": {
+    "mtime": 1780997030599.2954,
+    "hash": "1623a602791c0ed235f4bf02d9c1bbd2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/types.ts": {
+    "mtime": 1780997030579.662,
+    "hash": "3ec21e45356a1d8337b21753644c286c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/creators/utils.ts": {
+    "mtime": 1780997030555.0957,
+    "hash": "f8f1caf9fd3ff03f1a1525ac480ca08d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/layout.tsx": {
+    "mtime": 1780997028380.3364,
+    "hash": "9dcb578de45195b431894c4e833a3cda"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/library/components/LibraryFilters.tsx": {
+    "mtime": 1780997033448.7222,
+    "hash": "13bf62dc4b2a5b52abc0d44ba4b931f2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/library/components/LibraryPage.tsx": {
+    "mtime": 1780997033471.942,
+    "hash": "7db59ddb5fc392ce4c66c1839c77f8fd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/library/components/MediaCard.tsx": {
+    "mtime": 1780997033425.1143,
+    "hash": "060392749e1b4c94b55a11b7c66e6bf7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/library/components/MediaGrid.tsx": {
+    "mtime": 1780997033384.7832,
+    "hash": "179aeaaa405f1bac2440033e5ab418c4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/library/components/MediaUploadModal.tsx": {
+    "mtime": 1780997033404.457,
+    "hash": "7dc21b830e11898ff460ddf216aa13a5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/library/data.ts": {
+    "mtime": 1780997030229.1543,
+    "hash": "9592d112c824f3a069447a0f8ae5d48f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/library/page.tsx": {
+    "mtime": 1780997030267.2478,
+    "hash": "f0dd7e1674f00637dc398c65775ab3d8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/library/types.ts": {
+    "mtime": 1780997030246.0735,
+    "hash": "5a20af8249a4dae71eb4bfa94ca58a34"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/monitoring/page.tsx": {
+    "mtime": 1781033252395.9556,
+    "hash": "343eb4fb6d197495666d2bb90a02ee56"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/page.tsx": {
+    "mtime": 1780997028401.362,
+    "hash": "5c348419ea8eccdc005d644345dfba9d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/payouts/components/PayoutDetailPanel.tsx": {
+    "mtime": 1780997034115.3462,
+    "hash": "bfa123ff0ad3c61e2917b7c7c5d5c484"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/payouts/components/PayoutFilters.tsx": {
+    "mtime": 1780997034136.2148,
+    "hash": "2d914b3faafa14c470e40062da9f5924"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/payouts/components/PayoutTable.tsx": {
+    "mtime": 1780997034094.9075,
+    "hash": "8dc04cd05aca3067b767da0b6cb27b26"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/payouts/components/PayoutsPage.tsx": {
+    "mtime": 1780997034073.1519,
+    "hash": "1f4227457af50598e2fb18f5738379a4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/payouts/data.ts": {
+    "mtime": 1780997030965.2285,
+    "hash": "58ea6a436d50d61d46800aebebdf31ff"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/payouts/page.tsx": {
+    "mtime": 1780997031000.2712,
+    "hash": "9bf86a9bea2eb38ae789160cedc307dd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/payouts/types.ts": {
+    "mtime": 1780997030982.7195,
+    "hash": "ba1c0473324cdbc31658fbeec93dc1ad"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/AlertCards.tsx": {
+    "mtime": 1780997033828.3674,
+    "hash": "0228a16a076252a6cddd1d4731641c82"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/ByCreatorTab.tsx": {
+    "mtime": 1780997034051.7783,
+    "hash": "83055d6d527376672defe080d8ce84b0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/ByPlatformTab.tsx": {
+    "mtime": 1780997033942.3523,
+    "hash": "8c2fabe6e122e3bdc8a1e580323ecb32"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/ExportTab.tsx": {
+    "mtime": 1780997033986.2827,
+    "hash": "9ea080bdf2bd4f7a80e8af2e2ffd7c38"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/ForecastTab.tsx": {
+    "mtime": 1780997033851.5159,
+    "hash": "6a1ffcad602f027ae3acc78fba044af8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/KpiCards.tsx": {
+    "mtime": 1780999969761.3738,
+    "hash": "c1cab03e7302143cc93c46f724e726df"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/PeriodSelector.tsx": {
+    "mtime": 1780997033872.2874,
+    "hash": "a6fd71c5dba100503b3314306e9d062a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/PlatformDonutChart.tsx": {
+    "mtime": 1780997033810.3335,
+    "hash": "2fa3f02ddba715648052e11282cc5230"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/RevenuePage.tsx": {
+    "mtime": 1780997033965.3923,
+    "hash": "743af631ad409593e897e56426dbb6e7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/RevenueStackedChart.tsx": {
+    "mtime": 1780997033891.9133,
+    "hash": "ae673ba8be7aafca06d633b611c8b525"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/RevenueTabBar.tsx": {
+    "mtime": 1780997033915.947,
+    "hash": "52657c4117e6f0972d47465e3d0d25e2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/components/TopCreatorsTable.tsx": {
+    "mtime": 1780997034008.679,
+    "hash": "2ab03ffbf1f2ef617e31f30387fd19c8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/page.tsx": {
+    "mtime": 1780997030909.9387,
+    "hash": "033b8316c0d50d4feef5705b783cda1a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/types.ts": {
+    "mtime": 1780997030892.6147,
+    "hash": "f582da2da13fbfe79e9bb7cb59d2b5da"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/revenue/utils.ts": {
+    "mtime": 1780997030843.107,
+    "hash": "b2de95bd491e9c545c82c544b9fc1a21"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/data.ts": {
+    "mtime": 1780997030115.3472,
+    "hash": "2ea1e8dd3e14c64ee3bd53094b3df31e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/logs/components/AuditLogsPage.tsx": {
+    "mtime": 1780997035522.515,
+    "hash": "080c5bdbbcf50d3f57278f677eea9868"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/logs/data.ts": {
+    "mtime": 1780997033078.0894,
+    "hash": "65ed300762b6a5e7e0fd3dcba77151f9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/logs/page.tsx": {
+    "mtime": 1780997033091.4382,
+    "hash": "12df0cb71683e4dbc73d00c5bda483d5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/permissions.ts": {
+    "mtime": 1780997030131.778,
+    "hash": "cf0d27dae3a1a5a7d9bc15bf772c47f8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/permissions/components/PermissionsPage.tsx": {
+    "mtime": 1780997035462.9087,
+    "hash": "afb1a447ac34593ee585de4d244f5024"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/permissions/page.tsx": {
+    "mtime": 1780997033008.7134,
+    "hash": "980fed7a9ea6c0d0249be3858685c837"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/system/components/SystemPage.tsx": {
+    "mtime": 1780997035492.8562,
+    "hash": "c25ee509ee5dd4e849fccf2ed8e9c691"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/system/page.tsx": {
+    "mtime": 1780997033027.8655,
+    "hash": "ad7dc412fab890785604c7d2b69ec2d2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/team/components/InviteMemberModal.tsx": {
+    "mtime": 1780997035544.5425,
+    "hash": "5a865abd0b33fb847066655b46c133b1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/team/components/TeamPage.tsx": {
+    "mtime": 1780997035570.7124,
+    "hash": "8ec2a3f8f59627ad089875de2666bbd3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/team/page.tsx": {
+    "mtime": 1780997033105.37,
+    "hash": "fb2fc70255e68d623221569a8c2af563"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/settings/types.ts": {
+    "mtime": 1780997030153.673,
+    "hash": "c8b613721e0b977c87bbe7388ea4fb49"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/blog/components/BlogEditor.tsx": {
+    "mtime": 1780997035813.4678,
+    "hash": "ec5733410137f0796e216be1a38c9385"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/blog/components/BlogListPage.tsx": {
+    "mtime": 1780997035841.6006,
+    "hash": "6bb885d42364cd176d60941eff1a6baf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/blog/page.tsx": {
+    "mtime": 1780997033726.4648,
+    "hash": "5fc05c0095ca72954072881cf8bafc32"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/data.ts": {
+    "mtime": 1780997030766.174,
+    "hash": "ff076763d260512e89d3a4730054014b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/manifesto/components/ManifestoEditor.tsx": {
+    "mtime": 1780997035867.372,
+    "hash": "2f737dbfc634ec077965fcfeccbbe49d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/manifesto/page.tsx": {
+    "mtime": 1780997033749.3667,
+    "hash": "7146d66d6b53101357df698f2c36bc1b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/page.tsx": {
+    "mtime": 1780997030808.3904,
+    "hash": "24c8265a0d3602af8cedf17c6a65ba0a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/components/BlockEditor.tsx": {
+    "mtime": 1780997035927.5156,
+    "hash": "f18d5154e1b2832d11d810304fc9b7b7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/components/BlockPreview.tsx": {
+    "mtime": 1780997036028.022,
+    "hash": "904cc04c337ac99efb95efb517d925c8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/components/PageList.tsx": {
+    "mtime": 1780997035888.7383,
+    "hash": "bec62e13cf2125865492cfe6a0255777"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/components/PublishModal.tsx": {
+    "mtime": 1780997035944.227,
+    "hash": "69a297e0b756e19d52b6910adc0e6900"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/components/SitePagesPage.tsx": {
+    "mtime": 1780997035970.0571,
+    "hash": "db1c8fe3e370a81f89fbc2acd942f225"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/components/TextEditor.tsx": {
+    "mtime": 1780997036007.6833,
+    "hash": "7b21ddaa5a0b90d0a11064dd1add3043"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/components/TranslationPanel.tsx": {
+    "mtime": 1780997035988.0046,
+    "hash": "8e11b55807a8d252a97855400c8bf79a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/components/VersionHistory.tsx": {
+    "mtime": 1780997035908.542,
+    "hash": "cc45987380a65c2e83657e52f7815b0b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/pages/page.tsx": {
+    "mtime": 1780997033791.4927,
+    "hash": "af993f72e894cbd66a82029954dd03bb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/roster/components/RosterPage.tsx": {
+    "mtime": 1780997035776.6533,
+    "hash": "43e3b5c93545646829c1c1efb58ec7a3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/roster/page.tsx": {
+    "mtime": 1780997033694.1277,
+    "hash": "504a959825027712193ffe15412b059f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/site/types.ts": {
+    "mtime": 1780997030787.737,
+    "hash": "01103faae424415ef554f01a9d189cc6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/team/[memberId]/page.tsx": {
+    "mtime": 1781032926123.6506,
+    "hash": "fd667ee79739a29d4ecc0ebfc43b136b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/team/page.tsx": {
+    "mtime": 1781032865225.5327,
+    "hash": "61107cc8151e92ab133ddb6d97a399e5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(auth)/apply/page.tsx": {
+    "mtime": 1780997028324.7305,
+    "hash": "7c3adfc4a780a01d7b4d5656b7891faf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(auth)/layout.tsx": {
+    "mtime": 1780997026591.204,
+    "hash": "3d84325421d65c42621f963ba258afb2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(auth)/login/page.tsx": {
+    "mtime": 1780997028365.022,
+    "hash": "f6f1af1a923796f6449ff63a0e37c7a4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(auth)/signup/page.tsx": {
+    "mtime": 1780997028344.99,
+    "hash": "8f6d64a3755343164b451323478d0c1c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/blog/[slug]/page.tsx": {
+    "mtime": 1780997028606.6301,
+    "hash": "375c59175ae772ad81558ec6aa5a3541"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/blog/page.tsx": {
+    "mtime": 1780997028037.294,
+    "hash": "30d97db928c93a3f0439d2c8e2a342a7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/commissions/page.tsx": {
+    "mtime": 1780997027962.9995,
+    "hash": "445e75c790aef979bf0621d6bfee050c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/contrat-type/page.tsx": {
+    "mtime": 1780997027944.736,
+    "hash": "62784b79c5e07901ea130e72c5fad876"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/departements/[slug]/page.tsx": {
+    "mtime": 1780997028621.3977,
+    "hash": "5a75e29342550218a69ca88b1ee6c322"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/departments/page.tsx": {
+    "mtime": 1780997028014.5493,
+    "hash": "36c9962d12f4c5afb985d1e9f9e48502"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/layout.tsx": {
+    "mtime": 1780997026557.9062,
+    "hash": "e54b893daa05a1e3d8b9f7ac45f6932a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/manifeste/page.tsx": {
+    "mtime": 1780997027985.0686,
+    "hash": "8f636c0878c00dd1fb437e82d9210880"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/page.tsx": {
+    "mtime": 1780997329914.643,
+    "hash": "e3fb1ff31fb7c6f33353a32defdfaad4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/saas/page.tsx": {
+    "mtime": 1780997028064.3394,
+    "hash": "0342ce0d6b144c961aa36b5de509c1aa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/talents/page.tsx": {
+    "mtime": 1780997028085.3723,
+    "hash": "367c1f7c41d03fa23fab36d2c205d6ba"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/agents/page.tsx": {
+    "mtime": 1780997029277.2874,
+    "hash": "5f6eb0d2066ff008d9b86651a14d42e9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/ai/page.tsx": {
+    "mtime": 1780997029397.5251,
+    "hash": "2c0209768c5796f977a94020f166585e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/analytics/page.tsx": {
+    "mtime": 1780997029477.4966,
+    "hash": "d87caa9e98f595e2e77ff0a7895c4ddd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/calendar/page.tsx": {
+    "mtime": 1780997029168.9817,
+    "hash": "7321b9b4085d6891f889c8af458aead4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/community/page.tsx": {
+    "mtime": 1780997029458.6858,
+    "hash": "5a5fc17b574a8b1ef0269387f54223db"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/contracts/page.tsx": {
+    "mtime": 1780997029259.4304,
+    "hash": "59e5d6b7d24c56579574675a4adcc791"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/drafts/page.tsx": {
+    "mtime": 1780997029233.81,
+    "hash": "84a4e094b7a449f292c5ffce1c4edaad"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/goals/page.tsx": {
+    "mtime": 1780997029191.9421,
+    "hash": "cc10bdd65c95669d6cdbc898bc13dbcb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/insights/page.tsx": {
+    "mtime": 1780997029022.2974,
+    "hash": "ac16a891f0e630ba94df046ab42f3670"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/integrations/page.tsx": {
+    "mtime": 1780997029317.4763,
+    "hash": "f49d1e3861f9185120adb3b97881d8a9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/layout.tsx": {
+    "mtime": 1781012243803.7185,
+    "hash": "d9c964fd8ca37a3c6a9ca194f66841ae"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/learn/page.tsx": {
+    "mtime": 1780997029125.5356,
+    "hash": "9135a03c3683628e19323b947f39f097"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/library/page.tsx": {
+    "mtime": 1780997029299.0159,
+    "hash": "ec7448f8269b97d0007b732faf1802c7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/manager/page.tsx": {
+    "mtime": 1780997029338.8079,
+    "hash": "0bc5f7a0b6c6078286d7ac00cbb8c3db"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/messages/page.tsx": {
+    "mtime": 1780997029148.0442,
+    "hash": "91ff6eefd089bff88c2feaa5a065e329"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/page.tsx": {
+    "mtime": 1780997028223.3696,
+    "hash": "7a85d093e40285099d4ce34ce6d297c9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/platforms/page.tsx": {
+    "mtime": 1780997029105.062,
+    "hash": "c27be5f2a9e12686283998ef7a741254"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/preferences/page.tsx": {
+    "mtime": 1780997029073.4133,
+    "hash": "52e796a2de5fe2ac4a990ad6e140d28c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/profile/page.tsx": {
+    "mtime": 1780997029354.8994,
+    "hash": "8446007f947762cb0de8e815427b6cf4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/revenues/page.tsx": {
+    "mtime": 1780997029055.223,
+    "hash": "436294964b0f71fdde4ff65fb8f91ebf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/settings/page.tsx": {
+    "mtime": 1780997029039.39,
+    "hash": "16a53443ff1db6fa8c004e8adba9ebe6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/page.tsx": {
+    "mtime": 1781023529199.5168,
+    "hash": "fd4014a96409229f621859f895fd07be"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/wellness/page.tsx": {
+    "mtime": 1780997029215.247,
+    "hash": "bff411ca8c44fa0a42db7f383cb3cd64"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/manager/page.tsx": {
+    "mtime": 1780997028243.7168,
+    "hash": "8a6c41d644c61141cca7b88c5c3c7c03"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/analytics/query/route.ts": {
+    "mtime": 1780997032526.9756,
+    "hash": "1337e83ae90086e41c4051876398a783"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/analytics/summary/route.ts": {
+    "mtime": 1780997032548.188,
+    "hash": "1cf8be3c8d31a16c3f32b21158966550"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/applications/[id]/score/route.ts": {
+    "mtime": 1780997035269.621,
+    "hash": "ac96fa5c9c8efc07a060451e111f3000"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/benchmarking/best-practices/route.ts": {
+    "mtime": 1781031845900.0295,
+    "hash": "9837c60b821383142d3dbbf8b74d83e9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/benchmarking/cohorts/route.ts": {
+    "mtime": 1781031834881.2524,
+    "hash": "dcef199935e695a0c586e9d84bbfcc46"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/benchmarking/compare/route.ts": {
+    "mtime": 1781031841583.074,
+    "hash": "54c3600bd87452d503dd8c8cf6e739ad"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/benchmarking/departments/route.ts": {
+    "mtime": 1781031820105.6028,
+    "hash": "78cfb8c397e714d2d867858c398fc82f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/benchmarking/overview/route.ts": {
+    "mtime": 1781031813199.6165,
+    "hash": "a30c6509eb962b5487fc775ab1b9e99e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/benchmarking/tiers/route.ts": {
+    "mtime": 1781031827489.4219,
+    "hash": "9da5259e2bea852435f87e866ce5852d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/command-center/route.ts": {
+    "mtime": 1781031469565.2546,
+    "hash": "929e0ab6c6bb59b2e98a63f6b45f34f4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/content-calendar/analytics/route.ts": {
+    "mtime": 1781033065496.772,
+    "hash": "828194714f2b8e45c1cadc45c5a0be5d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/content-calendar/campaigns/route.ts": {
+    "mtime": 1781033049747.9526,
+    "hash": "2a961d6f17ca08a0a6187a26522bdf12"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/content-calendar/conflicts/route.ts": {
+    "mtime": 1781033078822.7952,
+    "hash": "4d468f83323f9662b3d79ca713713742"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/content-calendar/creators/route.ts": {
+    "mtime": 1781033087017.983,
+    "hash": "ddeec4856b998d82556449cd327f0e0d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/content-calendar/export/route.ts": {
+    "mtime": 1781033071618.4348,
+    "hash": "2c9d3d0de1f8063ea66582f508a9643e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/content-calendar/route.ts": {
+    "mtime": 1781033044398.9146,
+    "hash": "d8afe54adea6d38626b70193dd952c8b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/content-calendar/templates/route.ts": {
+    "mtime": 1781033058882.2769,
+    "hash": "2c555ffc5c5620359ca1abe486c0b589"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/forecast/route.ts": {
+    "mtime": 1780997029659.246,
+    "hash": "5b5f95bc71a90079aaee45c058fcd07a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/health/route.ts": {
+    "mtime": 1780997029695.1304,
+    "hash": "a088d8826323b8828932eecf0550c235"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/monitoring/route.ts": {
+    "mtime": 1781033243107.821,
+    "hash": "d2f427e65c79338c7ad78d1ad062c930"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/settings/invite/route.ts": {
+    "mtime": 1780997032466.8376,
+    "hash": "ddc81490fd4685a41d1c6335966a2be4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/settings/logs/route.ts": {
+    "mtime": 1780997032502.685,
+    "hash": "498d0c84728e1c6675f02a0957e75c4d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/settings/members/[id]/route.ts": {
+    "mtime": 1780997035246.218,
+    "hash": "bbfa93dbc14682941bc4623fb703dd0e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/site/generate-seo/route.ts": {
+    "mtime": 1780997032645.6462,
+    "hash": "a64f5ef1e59caac9558bd6325ffee4ef"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/site/improve-paragraph/route.ts": {
+    "mtime": 1780997032587.3904,
+    "hash": "68b78444eebab7552795425449f852ab"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/site/suggest-tags/route.ts": {
+    "mtime": 1780997032625.2148,
+    "hash": "f7be458c51f715d07132a7cca56e9e1f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/site/suggest-title/route.ts": {
+    "mtime": 1780997032568.585,
+    "hash": "351df286da9adcf312f1e70267c27d38"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/site/translate/route.ts": {
+    "mtime": 1780997032607.311,
+    "hash": "3e60d71040ef72b69c058e097c2090ed"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/team/[memberId]/route.ts": {
+    "mtime": 1781032788191.512,
+    "hash": "019700966e7cf3315fff0613065e5104"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/team/assign/route.ts": {
+    "mtime": 1781032795199.1028,
+    "hash": "847d7530d921ab9dfc6ce4bdf4627ded"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/team/audit-log/route.ts": {
+    "mtime": 1781032817696.6821,
+    "hash": "dc2539b4aae852b6649086e0a3bbd052"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/team/auto-assign/route.ts": {
+    "mtime": 1781032802931.2646,
+    "hash": "6ae060019fe4add6ae4fa9480761c7f3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/team/availability/route.ts": {
+    "mtime": 1781032813468.9724,
+    "hash": "94b518a1a3754800e4aaefebf252ca7a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/team/permissions/route.ts": {
+    "mtime": 1781032808771.7515,
+    "hash": "6f9ed44e424db1740ad6c9048cca0e77"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/team/route.ts": {
+    "mtime": 1781032778716.485,
+    "hash": "5bb6dcb57a6439ebf29633cf23164fc6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/ai/chat/route.ts": {
+    "mtime": 1780997029810.1702,
+    "hash": "4fa7d091bf02daf303b40b655c41bd32"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/apply/route.ts": {
+    "mtime": 1780997028265.3916,
+    "hash": "96d70dd923b7d423eda61502d60331c4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/benchmarking/weekly-insights/route.ts": {
+    "mtime": 1781031852854.6477,
+    "hash": "f290b85c22aedfc30a25c7af642188bd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/calendar/scheduled-publish/route.ts": {
+    "mtime": 1781033082871.3577,
+    "hash": "59067112e36621794ce0522f2553a239"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/publish/route.ts": {
+    "mtime": 1780997029846.295,
+    "hash": "ad5640c8131dc1f930718c6226e5fcaf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/sync-platforms/route.ts": {
+    "mtime": 1780997029872.5007,
+    "hash": "c6590abd491ccedb2e02067a0aae334f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dev/seed/route.ts": {
+    "mtime": 1780997029915.272,
+    "hash": "c93ae36c22c915a3d50a39f7b856062a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/platforms/instagram/sync/route.ts": {
+    "mtime": 1780997032254.0593,
+    "hash": "8d4a0d74a0185aebcbf64c8084e53e8e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/platforms/onlyfans/sync/route.ts": {
+    "mtime": 1780997032361.3403,
+    "hash": "7dd2035af87d2bcfbf794e43eadccf28"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/platforms/tiktok/sync/route.ts": {
+    "mtime": 1780997032381.7366,
+    "hash": "17450908c0c9a20fc34c7097e5aa0464"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/platforms/youtube/sync/route.ts": {
+    "mtime": 1780997032344.5393,
+    "hash": "e0b37587683d71226093ea489878c3d8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/layout.tsx": {
+    "mtime": 1780997026478.3528,
+    "hash": "79faecc5fc948c689ffcd8082a1a5f49"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/AIAssistantCard.tsx": {
+    "mtime": 1780997027734.681,
+    "hash": "f83b1c7fbd875b740005b9b215d16302"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/ActivityTimeline.tsx": {
+    "mtime": 1780997027834.5474,
+    "hash": "4e7dc4b8662ae6e4d9383fdbca2b9072"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/Header.tsx": {
+    "mtime": 1780997027819.0383,
+    "hash": "778ebab56d13699ef91ebc22aacccca8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/PlatformCards.tsx": {
+    "mtime": 1780997027887.338,
+    "hash": "2dfff79da682c891b9dde7b87cb2bde9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/RevenueChart.tsx": {
+    "mtime": 1780997027904.108,
+    "hash": "ef2dbb1ee8631b82653bba943899316d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/Sidebar.tsx": {
+    "mtime": 1781033227555.7998,
+    "hash": "d31bcebe1f1459d076b8473d5c068481"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/StatsCard.tsx": {
+    "mtime": 1780997027777.355,
+    "hash": "3706d7a9c9f3ab6abd0be9ee5c2fa47c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/data.ts": {
+    "mtime": 1780997027722.4106,
+    "hash": "ea3893b308b7e96942d25fc7b7afb453"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/types.ts": {
+    "mtime": 1780997027789.0247,
+    "hash": "a5f3f9af6cfca68319f77726bc04a951"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/home/CommissionsSection.tsx": {
+    "mtime": 1780997027641.464,
+    "hash": "e41a6990c0a235ea4ad2ba2de6de4a69"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/home/DepartmentsSection.tsx": {
+    "mtime": 1780997306035.7065,
+    "hash": "cc5e9a89c251ab70f099f5ed04e178e4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/home/FinalCtaSection.tsx": {
+    "mtime": 1780997027653.5835,
+    "hash": "e3f13f5abc64ade86b4db12038da6975"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/home/HeroSection.tsx": {
+    "mtime": 1780997260800.315,
+    "hash": "812df065018acd744d58c7ecf099852c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/home/SocialProofSection.tsx": {
+    "mtime": 1780997027628.0107,
+    "hash": "41eed4f28fc69da33918ee35525538d9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/shared/Footer.tsx": {
+    "mtime": 1780997027707.9458,
+    "hash": "d2c4ff8716838a49c95cc6709be7f624"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/shared/Navbar.tsx": {
+    "mtime": 1780997322188.123,
+    "hash": "e33481ef9222a44ec57c0b4947b758ae"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/Button.tsx": {
+    "mtime": 1780999151291.5996,
+    "hash": "fb20674d28ebea836c430fa5c890b091"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/Container.tsx": {
+    "mtime": 1780997027519.457,
+    "hash": "a3a1f14bf6f665bd433d8e996e4385ad"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/Input.tsx": {
+    "mtime": 1780999154923.7573,
+    "hash": "a9beafc708795d4eff2a6a7cd3a507ea"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/Section.tsx": {
+    "mtime": 1780997027532.1204,
+    "hash": "56c28e00b85367b3975ceab51a7e8892"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/SectionDivider.tsx": {
+    "mtime": 1780997027555.8591,
+    "hash": "204f2aea1dbc1cff19020a52ae72a225"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/eslint.config.mjs": {
+    "mtime": 1780878840944.4944,
+    "hash": "dfa1f5f6a7037bf39dc510f30b180002"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/audit-log.ts": {
+    "mtime": 1780997026547.493,
+    "hash": "738775233cb95cb0deafd8d74350f2c1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/command-center/alerts.ts": {
+    "mtime": 1781031454121.4119,
+    "hash": "69597515351aa2ffb8f87543fccaa8cf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/supabase/client.ts": {
+    "mtime": 1780997027333.2295,
+    "hash": "5453d99289cf630306e5030428c0fc33"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/supabase/server.ts": {
+    "mtime": 1780997027346.8987,
+    "hash": "11d704fc88f3822538a72dd7f8452de9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/utils.ts": {
+    "mtime": 1780997026505.5151,
+    "hash": "428087bfb16a9c6e691c4dfed09659fc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/utils/index.ts": {
+    "mtime": 1780997027304.3574,
+    "hash": "618d00bf4537ce84f9ba62c5b215fb30"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/validations/apply.ts": {
+    "mtime": 1780997027317.8513,
+    "hash": "ef76c6161dafeed6e384a9d8ab20095a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/(auth)/_layout.tsx": {
+    "mtime": 1780883526222.619,
+    "hash": "d7fcf1f7e4f16454764d3f5918441399"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/(auth)/login.tsx": {
+    "mtime": 1780885774103.6926,
+    "hash": "b641c546989976570cc70d40858f1007"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/(tabs)/_layout.tsx": {
+    "mtime": 1780885779998.449,
+    "hash": "2c04c74e4a97e72d04bac50b21566d4f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/(tabs)/ai.tsx": {
+    "mtime": 1780885811695.3787,
+    "hash": "dfd8811d339b490c3755f0b13347ed77"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/(tabs)/index.tsx": {
+    "mtime": 1780885789820.9,
+    "hash": "52d4adb30288530022c2131e73653872"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/(tabs)/messages.tsx": {
+    "mtime": 1780885823839.7134,
+    "hash": "7e86e5ea6c781b5fdb1bd09feea6d5a8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/(tabs)/profile.tsx": {
+    "mtime": 1780885834747.4937,
+    "hash": "d8f2435d242e107952a5fe1ad0789caa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/(tabs)/revenues.tsx": {
+    "mtime": 1780885800052.734,
+    "hash": "5a4b331ad4d045b42ce1f7b8aa99ec69"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/_layout.tsx": {
+    "mtime": 1780885755940.3828,
+    "hash": "e79ce92c9c8a78cd0b2a368d5ea06e9a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/app/index.tsx": {
+    "mtime": 1780883604694.4185,
+    "hash": "7a159770a853356d152ddc32ed0c5d63"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/babel.config.js": {
+    "mtime": 1780885745939.9368,
+    "hash": "f53ba4860b4388a29b68e46c837899bc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/components/ActivityItem.tsx": {
+    "mtime": 1780883597850.8174,
+    "hash": "e1624e201613f89a7e22bf306ba166e0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/components/MiniChart.tsx": {
+    "mtime": 1780883591659.2446,
+    "hash": "846f71b082120d1e2d1982da33f9cdb2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/components/RevenueChart.tsx": {
+    "mtime": 1780883595890.9578,
+    "hash": "0be2f370a7c0c0ef72ee3f1bc5f252be"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/components/StatCard.tsx": {
+    "mtime": 1780883589862.5105,
+    "hash": "fb48d7b948c9b714010f7d26f6002c56"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/lib/index.ts": {
+    "mtime": 1780883513316.3645,
+    "hash": "4ee545d527cbcf09b0596b08a84c968c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/lib/supabase.ts": {
+    "mtime": 1780883511237.5103,
+    "hash": "9b5d9419a13137cffa7b666241752b08"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/lib/theme.ts": {
+    "mtime": 1780907649169.0398,
+    "hash": "ae9dc37298446477f2d32bbbcc53e79b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/metro.config.js": {
+    "mtime": 1780885746412.0515,
+    "hash": "25e5a9b1cd67a2214f99223aaf1ede55"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/nativewind-env.d.ts": {
+    "mtime": 1780883507326.5728,
+    "hash": "b02bcf4fde15f746f6e5248537d0b156"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/tailwind.config.js": {
+    "mtime": 1780885746847.309,
+    "hash": "880e0b3cbdc0959df8713434be592153"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/next.config.ts": {
+    "mtime": 1780878840944.5195,
+    "hash": "9b77af189a21a7a64e4bd7a426f64176"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/postcss.config.mjs": {
+    "mtime": 1780878840944.7908,
+    "hash": "239f3ebf717465dc636818a1a619398d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/proxy.ts": {
+    "mtime": 1780916855013.331,
+    "hash": "4c8c14be9c1e657c884fbbca118b2226"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/00001_init.sql": {
+    "mtime": 1780881267765.281,
+    "hash": "8a995c4f63dd090ea9b3116af1befd65"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/028_team_management.sql": {
+    "mtime": 1781032746172.0432,
+    "hash": "b006fe4dcb97f64a78b55802f28cb0b2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/029_content_calendar.sql": {
+    "mtime": 1781033027394.1406,
+    "hash": "7a220bcf8794ceec4ac57cc186d2b7d7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/init.sql": {
+    "mtime": 1780881417619.7397,
+    "hash": "9857e83a10dfaf63f075306b5f73a4ba"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/types/index.ts": {
+    "mtime": 1780879048299.3567,
+    "hash": "f8f8cf219ce7fd93343ce1eb7a90cacb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/AGENTS.md": {
+    "mtime": 1780878884403.3567,
+    "hash": "9e09241799026ac05be315a2f0b50055"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/BRAND.md": {
+    "mtime": 1780905659199.0012,
+    "hash": "55a93bd4e9ec47c8ff06116da7cad935"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/CLAUDE.md": {
+    "mtime": 1780878884403.533,
+    "hash": "5c27369b226fcf2be8a6cfe52224e767"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/README.md": {
+    "mtime": 1780878840945.1094,
+    "hash": "f15aaa42d5d299d091b1171097ea56ad"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/docs/DEPLOYMENT.md": {
+    "mtime": 1781033269330.717,
+    "hash": "d7277465e9c934b797bec7533e7f01f3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/docs/SERIE_V_COMPLETE.md": {
+    "mtime": 1781033279099.6157,
+    "hash": "2b4d045ba54907f398b82e60761ded2f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/docs/TREND_HUB.md": {
+    "mtime": 1781033272618.9458,
+    "hash": "94154be11ef86da8ec2be1a63b1a94d0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/docs/atlas/API.md": {
+    "mtime": 1781012436964.2893,
+    "hash": "3417776c9c66aa0d2f7c0fa49d1ac51e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/docs/atlas/COMPLIANCE.md": {
+    "mtime": 1781012417384.4995,
+    "hash": "604c0177ff239c9530ce42b77c485bd8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/docs/atlas/README.md": {
+    "mtime": 1781012380699.2695,
+    "hash": "8f617bb9658591167c92dc3c523bd60d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/docs/atlas/TROUBLESHOOTING.md": {
+    "mtime": 1781012460723.578,
+    "hash": "68c8b61fb22d3abc3b7e831a80335bab"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/docs/atlas/WORKFLOWS.md": {
+    "mtime": 1781012396824.206,
+    "hash": "c050108ceac00f7b7703c018ef6bf050"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/mobile/assets/images/icon.png": {
+    "mtime": 1780885168878.9148,
+    "hash": "3e8c3746291002112e2c8f82aa5aecbb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/file.svg": {
+    "mtime": 1780878840944.508,
+    "hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/globe.svg": {
+    "mtime": 1780878840945.5576,
+    "hash": "2aaafa6a49b6563925fe440891e32717"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/images/heropic.png": {
+    "mtime": 1780908619161.1287,
+    "hash": "1dc3a691f7535050dc61d575b4b896aa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/images/heropic2.png": {
+    "mtime": 1780909821649.3948,
+    "hash": "04dd4ba9d89f5124e563cc2cdda8feec"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/images/heropic3.png": {
+    "mtime": 1780909821655.5388,
+    "hash": "84f731c5c7e7623c8a8d4c92778275b5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/images/heropic4.png": {
+    "mtime": 1780909821663.462,
+    "hash": "ed34490d75a814da9640aeaa2c376cc6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/images/heropic5.png": {
+    "mtime": 1780910591675.9863,
+    "hash": "1e5b4509a68017986296a55fb2233728"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/images/heropic6.png": {
+    "mtime": 1780910591681.3018,
+    "hash": "f19a5ae758dc775402baf7834df3d070"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/images/heropic7.png": {
+    "mtime": 1780910591686.185,
+    "hash": "806ddadfecaf086538c9a82d5575ba1d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/next.svg": {
+    "mtime": 1780878840945.9512,
+    "hash": "8e061864f388b47f33a1c3780831193e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/vercel.svg": {
+    "mtime": 1780878840945.926,
+    "hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/window.svg": {
+    "mtime": 1780878840945.9644,
+    "hash": "a2760511c65806022ad20adf74370ff3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/atlas/monitoring/page.tsx": {
+    "mtime": 1781012433725.5288,
+    "hash": "a8017e7a928a102628de5b3d2f8cb31f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/credits/page.tsx": {
+    "mtime": 1780999969175.0544,
+    "hash": "11782a69e03c8b90b594262955b9ae85"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(admin)/admin/docs/page.tsx": {
+    "mtime": 1780997030287.1375,
+    "hash": "611d33099beceb3d134576c2552b9d53"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/atlas/conformite/page.tsx": {
+    "mtime": 1781012499206.664,
+    "hash": "351b9bf34496b93c917305a270960052"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/atlas/fonctionnalites/page.tsx": {
+    "mtime": 1781012577534.327,
+    "hash": "393e87283920c2125ba2fde5a97a5815"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/atlas/page.tsx": {
+    "mtime": 1781012439179.1277,
+    "hash": "7ca13adc8c5d69e6d10fd1392b8e2d6c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/atlas/pricing/page.tsx": {
+    "mtime": 1781012535778.234,
+    "hash": "3e7848eebda896abf70c3689e6a2275a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(marketing)/atlas/testimonials/page.tsx": {
+    "mtime": 1781012853517.1113,
+    "hash": "0c23db28eeed3d61084ee45cab9504e2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/agents/[agentName]/page.tsx": {
+    "mtime": 1780997031759.545,
+    "hash": "a6eec1944726dcde3a9dfe19e5c1b1f8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/analytics/components/AttributionTab.tsx": {
+    "mtime": 1781011146474.2212,
+    "hash": "f2360d381304f240f572291894feff7b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/analytics/components/ChannelsTab.tsx": {
+    "mtime": 1781011153682.2217,
+    "hash": "f2f6e05860d2318b952bc867023421ea"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/analytics/components/CohortsTab.tsx": {
+    "mtime": 1781011154997.013,
+    "hash": "9c1a7c30616e93368587edd9175568db"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/analytics/components/OverviewTab.tsx": {
+    "mtime": 1781011152976.159,
+    "hash": "5617ebb464cb0eab780b1dc2123a2b81"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/analytics/components/ROITab.tsx": {
+    "mtime": 1781011155678.6213,
+    "hash": "df53052de501541372a24a58cfd01efe"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/analytics/components/RevenueTab.tsx": {
+    "mtime": 1781011255212.599,
+    "hash": "dbe25b8b63037aae242880d6e32dff1e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/analytics/components/shared.tsx": {
+    "mtime": 1781011000182.149,
+    "hash": "30f4a30b4248cfdcd6cc3991120311c7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/analytics/page.tsx": {
+    "mtime": 1781011072404.751,
+    "hash": "b7fdfefd709a2ccec4cb8a7b9728981d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/campaigns/[id]/page.tsx": {
+    "mtime": 1780997034890.2085,
+    "hash": "ba5721f81cf8cc74853e3e799db6c7ee"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/campaigns/email/page.tsx": {
+    "mtime": 1780997034911.291,
+    "hash": "1e1f3b6d45f5cfe0ef3ad74c6d370eee"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/campaigns/new/page.tsx": {
+    "mtime": 1780997034867.735,
+    "hash": "7f7a612ce79e843c7762703fb17e27fa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/campaigns/push/page.tsx": {
+    "mtime": 1780997034843.8943,
+    "hash": "7ad71c6680583b16dc99d59f7512daa1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/campaigns/sms/page.tsx": {
+    "mtime": 1780997034826.6848,
+    "hash": "78fbec01dfc5f28831f32dcba7446c89"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/comments/page.tsx": {
+    "mtime": 1781007641678.1628,
+    "hash": "5b43e4a05bac028afdc5269d3a5cfe33"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/comments/rules/page.tsx": {
+    "mtime": 1781005385118.6743,
+    "hash": "9954858d6efc3259fa4992c85f0560b3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/fans/[fanId]/page.tsx": {
+    "mtime": 1781031253677.549,
+    "hash": "f5712f564536cf277317e52daaab853c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/fans/page.tsx": {
+    "mtime": 1780997031997.07,
+    "hash": "0ebdc1cf8f6a4955c7c3b82d60519079"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/fans/segments/page.tsx": {
+    "mtime": 1780997034989.1719,
+    "hash": "fd62fb5ce89c46c36766f28375a04e60"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/funnels/[id]/page.tsx": {
+    "mtime": 1781002389095.4695,
+    "hash": "b185e952bbdc87ef763ac791509610ac"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/funnels/lead-capture/[id]/page.tsx": {
+    "mtime": 1781004096666.0938,
+    "hash": "33f3b07bbc39f4a413d35755d81d0951"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/funnels/lead-capture/page.tsx": {
+    "mtime": 1781004044670.1382,
+    "hash": "e39cd8c208d5d72e240ca4e5afbf27f0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/funnels/page.tsx": {
+    "mtime": 1781002207891.8726,
+    "hash": "459a68eaeb16b945744c1e28c5df6a59"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/inbox/drafts/page.tsx": {
+    "mtime": 1780997034710.6594,
+    "hash": "ea372bc3cc533c6b657fb8beac9d0e49"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/inbox/page.tsx": {
+    "mtime": 1780997031912.2751,
+    "hash": "c40291b5f5eb41911a4d6466c7ed18fa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/onboarding/page.tsx": {
+    "mtime": 1781013164012.3928,
+    "hash": "99046f7e50739dbfaa84a3afad075e5f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/page.tsx": {
+    "mtime": 1781013656454.404,
+    "hash": "eaf1746b4a909efbbbe084d9fa404f97"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/rules/components/shared.tsx": {
+    "mtime": 1781011941822.663,
+    "hash": "fb95d7bd2f54089aac984756a22547f0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/rules/page.tsx": {
+    "mtime": 1781012004402.9175,
+    "hash": "cadf0aa6fd5167d33b702725fe06c384"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/settings/compliance/components/shared.tsx": {
+    "mtime": 1781011466802.669,
+    "hash": "5fa1d1b7a6ebbf75fbf90e975bea6311"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/settings/compliance/page.tsx": {
+    "mtime": 1781011587194,
+    "hash": "465d0335e84d3fc3d0bd74fd423fe8d1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/atlas/settings/page.tsx": {
+    "mtime": 1781011521106.8083,
+    "hash": "ca0e9ad98c1e6cc1de9a600ad2c59fbe"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/integrations/co-management/audit/page.tsx": {
+    "mtime": 1781027441674.536,
+    "hash": "d2f204f733ec01816d8cc9c5a6a3db09"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/integrations/co-management/components/OnboardingWizard.tsx": {
+    "mtime": 1781027410728.1963,
+    "hash": "1b423810e4d57d5d7a55505f3a1fe7d7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/integrations/co-management/components/RevokeModal.tsx": {
+    "mtime": 1781027424756.7754,
+    "hash": "e887b5b9160550d76cb92d31a3805ee6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/integrations/co-management/page.tsx": {
+    "mtime": 1781027302043.5942,
+    "hash": "f1072d8b39f077a09a48a6c9dd0ae8d2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/integrations/pro-mode/acknowledge/page.tsx": {
+    "mtime": 1781025756641.1025,
+    "hash": "91842acfd46a00d76f3c7e3566cd16cc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/integrations/pro-mode/page.tsx": {
+    "mtime": 1781025752288.3782,
+    "hash": "5eb2b523869508bc2728b02d56802495"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/library/components/LibraryFilters.tsx": {
+    "mtime": 1780997031782.9875,
+    "hash": "cbabfdfc47f75d6750d6811411363467"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/library/components/MediaPreview.tsx": {
+    "mtime": 1780997031813.465,
+    "hash": "3c7aeefa50fae18dd285a67928f6622c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/library/components/UploadModal.tsx": {
+    "mtime": 1780997031836.091,
+    "hash": "d9b58f88c3c5235c3e583f4472b33d75"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/at-risk/page.tsx": {
+    "mtime": 1781031216313.2854,
+    "hash": "c890093097ae049a97017844b5403d98"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/ppv/page.tsx": {
+    "mtime": 1781030963642.7576,
+    "hash": "0bce486ed10ecd8ed47590089d9c56f8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/segments/[id]/edit/page.tsx": {
+    "mtime": 1781029423446.8286,
+    "hash": "f31a05119f47390c005516372b1c0899"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/segments/[id]/page.tsx": {
+    "mtime": 1781029393072.5447,
+    "hash": "ca5f652588da7417fbc1463274aa9247"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/segments/new/page.tsx": {
+    "mtime": 1781029373691.8792,
+    "hash": "49cf62e3763c5370b1a009938645b1c5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/segments/page.tsx": {
+    "mtime": 1781029330220.7556,
+    "hash": "9ac455ee14eb2fbd8b147b61601a9fc8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/settings/compliance/page.tsx": {
+    "mtime": 1781028704148.9263,
+    "hash": "60dbc01241be5704929af3b6183ca499"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/smart-messages/[campaignId]/results/page.tsx": {
+    "mtime": 1781030641891.1526,
+    "hash": "2c20b7aed1bed8474c596cc2b2b56e70"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/smart-messages/[campaignId]/validate/page.tsx": {
+    "mtime": 1781030626268.9697,
+    "hash": "a023efe39e8e74e8af5e4a3adf3a19ad"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/smart-messages/new/page.tsx": {
+    "mtime": 1781030596890.949,
+    "hash": "2b3b5a8c529114cd040c83d6dfcbb2d3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/smart-messages/page.tsx": {
+    "mtime": 1781030556190.347,
+    "hash": "fee0eb2cb8f548b4b21ef4c261100077"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/sovereign-chat/vault/page.tsx": {
+    "mtime": 1781031197092.7322,
+    "hash": "469d3c6548b633ac1b8d8701f7bed0d8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/TrendCard.tsx": {
+    "mtime": 1781015107443.567,
+    "hash": "9a3f6b511bd2e498ca8be27ce6441164"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/alerts/page.tsx": {
+    "mtime": 1781024248294.98,
+    "hash": "8c14eb5e5631e7bd02f3abfee9b2c8c3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/google/page.tsx": {
+    "mtime": 1781017418192.8403,
+    "hash": "49ef923f42d48c9830749bb6692d5ffa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/layout.tsx": {
+    "mtime": 1781024497973.7874,
+    "hash": "b125546595ea10a5f745854b4aec5669"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/tiktok/components/FreshnessIndicator.tsx": {
+    "mtime": 1781024838016.2678,
+    "hash": "e54c3285878cf5540654954d62ae5cd1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/tiktok/components/HashtagAnalysisPopup.tsx": {
+    "mtime": 1781025192879.7153,
+    "hash": "a3b389d366b47554fc063e0f86c61b1f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/tiktok/components/HashtagsTab.tsx": {
+    "mtime": 1781025189527.1633,
+    "hash": "c524a81b4fbdd9154d648be109f7e23d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/tiktok/components/SongCard.tsx": {
+    "mtime": 1781025179181.7412,
+    "hash": "92893c4db00458f98cab733619c5de58"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/tiktok/components/SongsTab.tsx": {
+    "mtime": 1781025182874.9766,
+    "hash": "cf6aadab8d7663deab70b25acb79294f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/tiktok/components/TopAdsTab.tsx": {
+    "mtime": 1781024891101.2603,
+    "hash": "6190713c42ad13c872587b334643f186"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/tiktok/page.tsx": {
+    "mtime": 1781024941809.0955,
+    "hash": "12b88dbb46920ad6d6ea5b1f1e263b1f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/watchlist/page.tsx": {
+    "mtime": 1781014758744.2144,
+    "hash": "402776755e397f76185a9b4877743d5f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/trends/youtube/page.tsx": {
+    "mtime": 1781023878405.4077,
+    "hash": "30f127839f318be56cb32eca86865b8c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/dashboard/upgrade/page.tsx": {
+    "mtime": 1780997029090.7798,
+    "hash": "7a822d798ce6495594645c03c3b8b06e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/StudioLayoutClient.tsx": {
+    "mtime": 1780997576145.159,
+    "hash": "6dd61cde69762d5d2aa89ea151e49822"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/api-keys/page.tsx": {
+    "mtime": 1781001167950.0518,
+    "hash": "35450769a49ec7760b6c76c98b32cd02"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/components/CreditsWidget.tsx": {
+    "mtime": 1780997657848.8774,
+    "hash": "01a30ef2573ef88b95426428d9874cf1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/components/DraftsRow.tsx": {
+    "mtime": 1780997028843.603,
+    "hash": "4ac09e01214b9b8c15ad86e337d9bef5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/components/InspirationFeed.tsx": {
+    "mtime": 1780997640368.8767,
+    "hash": "78e04c7a5328d8cd5b57f4bdf660b390"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/components/KpiRow.tsx": {
+    "mtime": 1780997614739.156,
+    "hash": "c970c82daf8cd87364a763d7cae9dc78"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/components/QuickStartGrid.tsx": {
+    "mtime": 1780997627574.5354,
+    "hash": "fc4961330ae572af06bf1010516577ec"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/components/StudioSidebar.tsx": {
+    "mtime": 1780997568886.0142,
+    "hash": "8b2462145a8d6e4c913c516e048ceca5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/components/StudioTopbar.tsx": {
+    "mtime": 1780997593629.2017,
+    "hash": "6140c1c8c57bd60cd6f4ee04920b1c1c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/composer/components/CaptionTab.tsx": {
+    "mtime": 1780997031422.1213,
+    "hash": "e427d31d149b5d99384fe34cf0dee538"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/composer/components/ConfigTab.tsx": {
+    "mtime": 1780997031400.3582,
+    "hash": "5c29697b8a46733780a18bff952cb99c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/composer/components/ContentTab.tsx": {
+    "mtime": 1780997031378.1802,
+    "hash": "195c84866dd79aaa000ed76070edfa33"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/composer/components/PlatformSelector.tsx": {
+    "mtime": 1780997031356.5195,
+    "hash": "be216a009a71ff42dbc1205f405832d3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/composer/components/PreviewPanel.tsx": {
+    "mtime": 1780997031304.1362,
+    "hash": "58de1f84433471a29d6fa8782e46a2cc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/composer/components/PublishFooter.tsx": {
+    "mtime": 1780997031335.5808,
+    "hash": "48b74511ce95d112749ce2cdd298978e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/composer/hooks/useComposerState.ts": {
+    "mtime": 1781025146780.4993,
+    "hash": "d3359c1a469711dd9ef1cd027661cbed"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/composer/page.tsx": {
+    "mtime": 1781025354003.4136,
+    "hash": "e21427e640538cac8e472e4ac325b6ad"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/credits/page.tsx": {
+    "mtime": 1780999985481.6782,
+    "hash": "067c6ea0898f55ddd56b4926391a3510"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/audio/page.tsx": {
+    "mtime": 1780997031489.5955,
+    "hash": "3b3ebb68da3fc24d1a9a17d695a54740"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/photo/page.tsx": {
+    "mtime": 1780997031513.244,
+    "hash": "aaf1320b9a8c9d6c6486cf4ded51d2f1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/AudioWaveform.tsx": {
+    "mtime": 1780997034517.0117,
+    "hash": "3b59eaf6c5455870311f41f035b2fe5f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/CaptionGenerator.tsx": {
+    "mtime": 1780997034449.3423,
+    "hash": "d69f58278c86d01969c7d9ebb9b567c6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/EditorPreview.tsx": {
+    "mtime": 1780997034355.565,
+    "hash": "539575ffb794ef1288799aa66dd45941"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/EditorSidebar.tsx": {
+    "mtime": 1780997034565.9119,
+    "hash": "cf4900b465c7d4044ad4b29fbfdb1934"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/EditorTimeline.tsx": {
+    "mtime": 1780997034590.7122,
+    "hash": "fa50480becfa782c60a29c2d01096ae6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/EditorToolbar.tsx": {
+    "mtime": 1780997034428.4695,
+    "hash": "00afdc75dab0a6514c20970ab5d8fddc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/EffectsPicker.tsx": {
+    "mtime": 1780997034542.0037,
+    "hash": "52d02fb2c7f04d514046457888e34c90"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/StickerLibrary.tsx": {
+    "mtime": 1780997034469.862,
+    "hash": "8918130080c41c25d8afe26963760df7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/TemplateLibrary.tsx": {
+    "mtime": 1780997034677.0303,
+    "hash": "9b357e5197cfa55bd535ada681a90476"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/editor-types.ts": {
+    "mtime": 1780997034488.2585,
+    "hash": "c740d8b3a253a3ceb46ac7cc0e8dbbf2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/editor-utils.ts": {
+    "mtime": 1780997034398.574,
+    "hash": "2301d4363468a5409953cc452bba0e33"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/components/template-data.ts": {
+    "mtime": 1780997034375.88,
+    "hash": "e1a848ff0469861e0c700743e33056c4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/edit/video/page.tsx": {
+    "mtime": 1780997031467.709,
+    "hash": "77c9db7d3ae9c2c983b6f7de5e8aaace"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/generate/audio/page.tsx": {
+    "mtime": 1781001167951.8774,
+    "hash": "eb0a4d0ac4f0ab82aef101fda10a8b88"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/generate/avatar/page.tsx": {
+    "mtime": 1780997031614.9846,
+    "hash": "fc586c4613a73f4111280a7c6e889d46"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/generate/image/page.tsx": {
+    "mtime": 1780997031566.8088,
+    "hash": "0e9114630638878cd1fcc03a530ef5c6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/generate/text/page.tsx": {
+    "mtime": 1780997031636.2476,
+    "hash": "e37820d41ded4a1621b1056deee1ce0d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/generate/video/page.tsx": {
+    "mtime": 1780999950401.2578,
+    "hash": "3c79d4a5f2c70b46da8e1c4ebd1bf731"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/history/page.tsx": {
+    "mtime": 1780997028936.286,
+    "hash": "f5b81c6947984613de48ff9dac8f7cf9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/insights/page.tsx": {
+    "mtime": 1780997028639.5647,
+    "hash": "56aa2000856e6e442f5905602fe14276"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/layout.tsx": {
+    "mtime": 1780997028133.1897,
+    "hash": "081cbdc6be98bc1a5e83136793bee7c6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/learnings/page.tsx": {
+    "mtime": 1780997028910.8318,
+    "hash": "5e8f41c8cfdf69c81b5db434d2a34e91"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/manual-publish/[id]/page.tsx": {
+    "mtime": 1780999968103.3313,
+    "hash": "ac1d886f6e15c2c4449b4075c93e0eab"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/page.tsx": {
+    "mtime": 1780997604591.443,
+    "hash": "3ec7c72c3253d2cd491dc2751d0d513c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/platforms/page.tsx": {
+    "mtime": 1780997028660.294,
+    "hash": "9bdbf77dc6836af0a099c4dcdcecfb35"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/publish/page.tsx": {
+    "mtime": 1780997028886.7812,
+    "hash": "bc296dae2e30aa2f2cde1fcf7fe292f8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/scheduled/page.tsx": {
+    "mtime": 1780997028985.617,
+    "hash": "bfba7c2068020a6c25a405717966d775"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/templates/market/page.tsx": {
+    "mtime": 1780997031695.876,
+    "hash": "926f653cbe7066b93de29d7acd72f028"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/templates/mine/page.tsx": {
+    "mtime": 1780997031663.3064,
+    "hash": "f8d53a8992d35e5dc4cb4eddce3aca7c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/(private)/studio/templates/page.tsx": {
+    "mtime": 1780999967523.7534,
+    "hash": "cc9f665f4201bc6d5b716e576a347243"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/[slug]/page.tsx": {
+    "mtime": 1781008304661.883,
+    "hash": "75a24331984aa427bee138d22f2b75d2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/apify/usage/route.ts": {
+    "mtime": 1781024575988.6719,
+    "hash": "d75ccac26bda0a3d91b0952378c28154"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/admin/atlas/monitoring/route.ts": {
+    "mtime": 1781012347165.7754,
+    "hash": "63579f0b64ea1278221cd79fe5c75df6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/ai/draft/[id]/route.ts": {
+    "mtime": 1781009293790.3945,
+    "hash": "e88aecac12adcf7cd917cd761ed77e13"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/ai/draft/route.ts": {
+    "mtime": 1781009285646.3066,
+    "hash": "4efdabff3353d4d1bd977df70c7bb431"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/analytics/attribution/route.ts": {
+    "mtime": 1781010952629.395,
+    "hash": "039cc976e7965c99c8dfa92e718d6278"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/analytics/channels/route.ts": {
+    "mtime": 1781010968831.508,
+    "hash": "09a877c285fc9cacb180ffeb61246182"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/analytics/cohorts/route.ts": {
+    "mtime": 1781010960535.484,
+    "hash": "0ba4b61efc817dc3041cff85a003d196"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/analytics/export/route.ts": {
+    "mtime": 1781010985115.878,
+    "hash": "4eb6ffcbe89b2125916482e4e2c9be17"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/analytics/insight/route.ts": {
+    "mtime": 1781011080031.7056,
+    "hash": "32a564719caa21330a73c844a9b08976"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/analytics/overview/route.ts": {
+    "mtime": 1781010941924.804,
+    "hash": "6a539323d104582757652b4e08fe3a30"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/analytics/revenue/route.ts": {
+    "mtime": 1781010947524.9639,
+    "hash": "adf5e74e2fa943fd6545d8d2f0dbd256"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/analytics/roi/route.ts": {
+    "mtime": 1781010974674.5232,
+    "hash": "88c7d6f27b44c16c2512c7f5edb266ea"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/compliance/audit/route.ts": {
+    "mtime": 1781011427264.33,
+    "hash": "10e308a5ed1191c8f589348eb21e2269"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/compliance/consents/route.ts": {
+    "mtime": 1781011425486.819,
+    "hash": "ea78a54696796ac87da1e208705462f5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/compliance/disclosures/route.ts": {
+    "mtime": 1781011423227.679,
+    "hash": "09d950300a9b7128a73a7f87ab8173bf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/compliance/rgpd/route.ts": {
+    "mtime": 1781011436841.5754,
+    "hash": "330f27ddd081ff5da8318dc127d41da0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/compliance/settings/route.ts": {
+    "mtime": 1781011439117.2517,
+    "hash": "2a96ab9bf68d595b50bf4ec88782334d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/compliance/spam-check/route.ts": {
+    "mtime": 1781011446264.4075,
+    "hash": "144e9299d96107a8b68ffa2a8c32a928"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/compliance/status/route.ts": {
+    "mtime": 1781011420724.8813,
+    "hash": "497d83ce0e2fbad5e2339f016fc0572b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/compliance/templates/route.ts": {
+    "mtime": 1781011453977.8418,
+    "hash": "59e71f7d122f492632547150f74547c9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/push/campaigns/[id]/route.ts": {
+    "mtime": 1781008252114.4248,
+    "hash": "7c739edacb61cda908849abccf72951c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/push/campaigns/route.ts": {
+    "mtime": 1781008245800.6882,
+    "hash": "9d0c8b39c3a7676aca0c9d17fb951a2c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/push/subscribe/route.ts": {
+    "mtime": 1781008237972.5476,
+    "hash": "fe2e0ff8f7ac7f76a4662dfaf1a90697"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/push/track-click/route.ts": {
+    "mtime": 1781008240402.15,
+    "hash": "8342193f41cdd9e5354a3b22350a25a7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/push/vapid-key/route.ts": {
+    "mtime": 1781008240782.6477,
+    "hash": "2fa4cc729fe8d9226ce0627f511e7691"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/sms/status/route.ts": {
+    "mtime": 1780997032860.7695,
+    "hash": "7e3f8951bb2989058708a9c81359e1fc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/sms/webhook/route.ts": {
+    "mtime": 1780997032836.609,
+    "hash": "7d3fc475ea1e7ad63de50209e29b1bd5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/track/click/route.ts": {
+    "mtime": 1780997032879.0708,
+    "hash": "d8656c184e7e8fe7b1fac74d5bbe39b4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/track/open/route.ts": {
+    "mtime": 1780997032895.2246,
+    "hash": "e85090d2a71fcdce83932d0c505bea7b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/atlas/webhooks/[...slug]/route.ts": {
+    "mtime": 1781011925297.5093,
+    "hash": "4386f25a8a3a34587675bbb1c97b4950"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/atlas/daily-digest/route.ts": {
+    "mtime": 1781013284567.4072,
+    "hash": "a0284f2d9145c1feed3877f6d11b6063"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/atlas/update-scores/route.ts": {
+    "mtime": 1780997032816.125,
+    "hash": "73c94d8f11adc892706fbfb67757541d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/atlas/weekly-report/route.ts": {
+    "mtime": 1781011091565.2935,
+    "hash": "8dbc85fc05ba9f682685d4c79cc55da2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/refresh-tokens/route.ts": {
+    "mtime": 1780997029828.0186,
+    "hash": "e287c047b2ae72f1fec1b8e2eeec9887"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/reset-credits/route.ts": {
+    "mtime": 1780997029898.0276,
+    "hash": "9d210a0f4faa04488af5a308692161d1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/segments/recalculate-all/route.ts": {
+    "mtime": 1781029297945.3723,
+    "hash": "fd3d841cb36b9aaedc052e1896237b8c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/trends/daily-digest/route.ts": {
+    "mtime": 1781025333576.218,
+    "hash": "6c691201f0f1b27fcb8b0164c4c01dcc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/cron/trends/refresh/route.ts": {
+    "mtime": 1781024209813.4312,
+    "hash": "efd92d89a51a295bb1e11a161bbe59ee"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/agents/[agentName]/chat/route.ts": {
+    "mtime": 1780997035295.031,
+    "hash": "934028d1c46c1b2c1bba81e2c6df2131"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/analytics/route.ts": {
+    "mtime": 1780997032796.4255,
+    "hash": "92519b5eadf9f6a77f3021d8bb1e1b90"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/campaigns/[id]/route.ts": {
+    "mtime": 1780997035400.2234,
+    "hash": "84d2fd6699b93754dc4c7723c37cf684"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/campaigns/[id]/send/route.ts": {
+    "mtime": 1780997036073.0059,
+    "hash": "150c6289d7430176170933c1e65b829f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/campaigns/estimate/route.ts": {
+    "mtime": 1780997035379.117,
+    "hash": "6750a9a7e843374c1267c2320a760a31"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/campaigns/route.ts": {
+    "mtime": 1780997032718.5933,
+    "hash": "090b5c7d7cc7413095050c1cd8ec8465"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/comments/[id]/route.ts": {
+    "mtime": 1781005250946.7158,
+    "hash": "ef6fee702413afb8f7fae1c6dd321dfe"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/comments/route.ts": {
+    "mtime": 1781005242319.9915,
+    "hash": "328707625621cd0e3b7e896402ab752c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/comments/rules/route.ts": {
+    "mtime": 1781005260702.178,
+    "hash": "f5e73aeca691cac26c6a245199b7aee7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/comments/sync/route.ts": {
+    "mtime": 1781005294148.0789,
+    "hash": "c2c2841cc7dfa2cd97ac7621a5fcbe39"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/comments/templates/route.ts": {
+    "mtime": 1781005270145.6013,
+    "hash": "9ccd3f8ecc4a9b281635e2f5e7bdf0e9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/fans/[fanId]/notes/route.ts": {
+    "mtime": 1780997036092.1248,
+    "hash": "0d7dd8b1184181d786fbc462535987ab"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/fans/[fanId]/route.ts": {
+    "mtime": 1780997035422.6072,
+    "hash": "63992be5718ee059767593c18cdc8e8c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/fans/route.ts": {
+    "mtime": 1780997032763.7712,
+    "hash": "e9467cd716e0cf1180f3015430686c2b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/fans/segments/route.ts": {
+    "mtime": 1780997035441.7874,
+    "hash": "b397dfec0a3fadd443ac427130943fb8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/funnels/[id]/route.ts": {
+    "mtime": 1781002181374.6636,
+    "hash": "886a3e438c784ee8aacfa7394603c5ad"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/funnels/route.ts": {
+    "mtime": 1781002172800.0151,
+    "hash": "a99ae13efeb8f77eeef133b8bd2c2c36"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/inbox/[fanId]/route.ts": {
+    "mtime": 1780997035361.4126,
+    "hash": "7b12fade6e78b6bbf499128fc5670d38"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/inbox/draft/route.ts": {
+    "mtime": 1780997035322.5247,
+    "hash": "4bb684fecb08927d6ea917bbb51f3616"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/inbox/drafts/route.ts": {
+    "mtime": 1780997035341.4172,
+    "hash": "ea73bc7bb63775d98ae7706722ccd3b4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/inbox/route.ts": {
+    "mtime": 1780997032667.9263,
+    "hash": "4b7f5ee80cc7e1e48ce0ee5524b8f6bd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/lead-capture/[id]/links/route.ts": {
+    "mtime": 1781003973812.3489,
+    "hash": "dbe0db6b90bb747a66ed69465af898ae"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/lead-capture/[id]/route.ts": {
+    "mtime": 1781003963250.394,
+    "hash": "a7f766b6e8f59536858fcae01495b4aa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/lead-capture/route.ts": {
+    "mtime": 1781003953918.856,
+    "hash": "56199c339848d1081bd2f54a5ec212d3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/overview/route.ts": {
+    "mtime": 1780997032780.1536,
+    "hash": "1d8e614eab8450516c17dc75bb24a797"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/rules/[id]/route.ts": {
+    "mtime": 1781011903218.6313,
+    "hash": "9bf2c3e23cb0bfb9ed81c0b5c39e4d8f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/rules/api-keys/route.ts": {
+    "mtime": 1781011914919.114,
+    "hash": "456908f8615e963bcef11e8bc5ac28ba"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/rules/executions/route.ts": {
+    "mtime": 1781011911502.7117,
+    "hash": "14378c27336a9941bddc9ee73e3b1822"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/rules/outgoing/route.ts": {
+    "mtime": 1781011918662.6924,
+    "hash": "8e02f9fc6c7cbddf4719f3e7f11763e2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/rules/process-queue/route.ts": {
+    "mtime": 1781011920751.1687,
+    "hash": "7986e306d429e6993a89d611d9e57e89"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/rules/route.ts": {
+    "mtime": 1781011900282.6975,
+    "hash": "df5677a9a60cd9bb394985d2056981fb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/atlas/rules/test/route.ts": {
+    "mtime": 1781011909517.4512,
+    "hash": "ffc027a89d64ab37510635a5dbfc9abf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/trends/alerts/route.ts": {
+    "mtime": 1781024227744.0767,
+    "hash": "654e1be9be22c12e87623f906046fbe0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/trends/route.ts": {
+    "mtime": 1781023924488.199,
+    "hash": "80d24e84ce86061a26faaa39b77f075f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dashboard/trends/watchlist/route.ts": {
+    "mtime": 1781023536258.635,
+    "hash": "5dc03c26f237adbbea832f548cbc6a45"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dev/diag/route.ts": {
+    "mtime": 1780997029933.2578,
+    "hash": "039a5b29622583e2b5f5e074ccfb68ec"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dev/fix-profile/route.ts": {
+    "mtime": 1780997029967.4287,
+    "hash": "d37b91565f81ee20ac63ecdd609119a9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dev/setup-storage/route.ts": {
+    "mtime": 1780997029951.0247,
+    "hash": "6c55f8c968e80d48b913ea3a55351a7d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dev/test-credits/route.ts": {
+    "mtime": 1780997029984.5247,
+    "hash": "a1cdeb5ad15d43c29d7347623df9f5c6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dna/finalize/route.ts": {
+    "mtime": 1780997030038.6157,
+    "hash": "a2e2358d831ccfd82f889c39028160c5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dna/sections/route.ts": {
+    "mtime": 1780997030002.698,
+    "hash": "3338e313aaff09025e5f828d50f04258"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/dna/status/route.ts": {
+    "mtime": 1780997030021.369,
+    "hash": "52cf4f69d9953347f2e23f4a4874972c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/health/route.ts": {
+    "mtime": 1780997028283.626,
+    "hash": "bbed1b8bde06d20c90d48f8f5cd6cb9d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/integrations/co-management/audit/route.ts": {
+    "mtime": 1781027240749.263,
+    "hash": "3cf507a0bd70de85cb11c540aa302afd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/integrations/co-management/route.ts": {
+    "mtime": 1781027236142.0112,
+    "hash": "cc322c3c5f68e610f542f9c2cef88924"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/integrations/pro-mode/acknowledge/route.ts": {
+    "mtime": 1781025536607.926,
+    "hash": "d621c70ae5c52ea2b2347496af843139"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/integrations/pro-mode/revoke/route.ts": {
+    "mtime": 1781025538381.409,
+    "hash": "47a9742ae50effeb2510376bec6724f9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/lead-capture/confirm/route.ts": {
+    "mtime": 1781004001498.358,
+    "hash": "63792f78ccaedd7b29929f975717d17a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/lead-capture/qr/route.ts": {
+    "mtime": 1781004008348.507,
+    "hash": "a129d9c0a11042b0050e11310e5ed594"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/lead-capture/submit/route.ts": {
+    "mtime": 1781003994834.3215,
+    "hash": "e98a270eeac3032d188be746f3fc3e4c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/library/analyze/route.ts": {
+    "mtime": 1780997029735.4817,
+    "hash": "70cc60e71b4097165561ba75844a7c88"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/library/export/route.ts": {
+    "mtime": 1780997029756.978,
+    "hash": "eef55a3c86d9137538fc18edfcc66c27"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/library/list/route.ts": {
+    "mtime": 1780997029715.4082,
+    "hash": "395f53ebef86cb480a9a1b61ab547528"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/library/upload/route.ts": {
+    "mtime": 1780997029783.0664,
+    "hash": "0e8e3ac0706e7f7bd9bd6d018181a591"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/oauth/[platform]/callback/route.ts": {
+    "mtime": 1780997032425.4045,
+    "hash": "56f55f4bef4751bb1a788a07a64ff63a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/oauth/[platform]/disconnect/route.ts": {
+    "mtime": 1780997032444.3206,
+    "hash": "64b0083929b854f7b4d027f30365ac83"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/oauth/[platform]/init/route.ts": {
+    "mtime": 1780997032408.1292,
+    "hash": "36517314b5ff7ae1bb93ea7d2ec9043a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/oauth/connections/route.ts": {
+    "mtime": 1780997029639.0447,
+    "hash": "3a20b62eeb977055812c12c6d106861d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/draft/route.ts": {
+    "mtime": 1781028674587.1196,
+    "hash": "59ac0493f47b9d33293192d98d3af7ff"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/ab-tests/route.ts": {
+    "mtime": 1781030887837.5366,
+    "hash": "3eccd1f0ab605f1eac9887684c8c070c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/fan/route.ts": {
+    "mtime": 1781030899226.5386,
+    "hash": "922e5c5576e65260bed03cd50bcf2b3c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/overview/route.ts": {
+    "mtime": 1781030861415.54,
+    "hash": "35bbbc58de6a3e0da4a5fbc99fe3ebd5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/products/route.ts": {
+    "mtime": 1781030868522.3137,
+    "hash": "86834a76dcc35cb93d20cab0d8456ff4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/scripts/route.ts": {
+    "mtime": 1781030873172.4194,
+    "hash": "03be48dbf5108745a77b9b5d664af2bc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/sends/log/route.ts": {
+    "mtime": 1781030876637.0513,
+    "hash": "b5f6b43d053b26d982a35151dfbbbcfc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/sends/route.ts": {
+    "mtime": 1781030900888.5842,
+    "hash": "907731dd053c5a9754db83d7e40c877c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/sends/unlock/route.ts": {
+    "mtime": 1781030882282.0374,
+    "hash": "d596d1da6e18444e0d59505191318a16"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/ppv/time-to-unlock/route.ts": {
+    "mtime": 1781030895209.9104,
+    "hash": "fefd3d2f4ed82d5a8bead75ff7b9c6f2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/predict/churn/route.ts": {
+    "mtime": 1781031155580.8115,
+    "hash": "422cb6270e2cdaf3199f101125d83078"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/predict/ltv/route.ts": {
+    "mtime": 1781031153979.1555,
+    "hash": "8dc4186bbfa08ea3333c7add11575866"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/segments/members/route.ts": {
+    "mtime": 1781029293039.3308,
+    "hash": "acd4958aa16bda0436ad741e427a5799"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/segments/preview/route.ts": {
+    "mtime": 1781029296875.8167,
+    "hash": "1ed37f77ac205a4e2f8ec63b6beea679"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/segments/recalculate/route.ts": {
+    "mtime": 1781029294828.1262,
+    "hash": "8194673d21a8ff7fe556baf018af6f85"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/segments/route.ts": {
+    "mtime": 1781029290403.5193,
+    "hash": "cafd2047f6e9b014b0481f61b5fc1c96"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/settings/route.ts": {
+    "mtime": 1781028685814.011,
+    "hash": "b0d14a34ed4d443b6bd9fd95e2d302f7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/smart-messages/generate/route.ts": {
+    "mtime": 1781030523068.2932,
+    "hash": "23cd8efa26aaa1cdefd0a5ddf47f0351"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/smart-messages/results/route.ts": {
+    "mtime": 1781030539688.4253,
+    "hash": "1a4f30c6d4785260740d5bdbd04919c7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/smart-messages/route.ts": {
+    "mtime": 1781030525720.9631,
+    "hash": "783aa42854e4a0d919bbaa613d5047d7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/smart-messages/send-all/route.ts": {
+    "mtime": 1781030533591.5286,
+    "hash": "d1bb8fa38a3ad208c16e25bdd00d2baf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/smart-messages/validate/route.ts": {
+    "mtime": 1781030530294.9785,
+    "hash": "e111de1c2d109e9c15a9de73a02f5085"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/vault/at-risk/route.ts": {
+    "mtime": 1781031157764.3284,
+    "hash": "c97295abc42b8fd54074e2d78176ee08"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/vault/recommend-fans/route.ts": {
+    "mtime": 1781031151123.9368,
+    "hash": "eefaa876d4a0c787d5caa6e28dcdde44"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/sovereign-chat/vault/recommend-products/route.ts": {
+    "mtime": 1781031152468.4207,
+    "hash": "8d9ae2d8b3478f22315b9c91a9949838"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/api-keys/route.ts": {
+    "mtime": 1780997029521.2205,
+    "hash": "6b5319576be06f910bda39597fad40f7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/credits/admin/route.ts": {
+    "mtime": 1780997032304.664,
+    "hash": "979dfa7870c1803c41039f036d2853f6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/credits/purchase/route.ts": {
+    "mtime": 1780997032323.8862,
+    "hash": "5cd1ceee22abf2976521cba2ba7b093c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/credits/route.ts": {
+    "mtime": 1780997029618.8877,
+    "hash": "17378d5bdc74bf52c6b80f31ee4c4a2e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/credits/webhook/route.ts": {
+    "mtime": 1780997032277.1438,
+    "hash": "f0d3a1def101fb9edb2acf8f650f9b5f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/audio/library/route.ts": {
+    "mtime": 1780997035158.3853,
+    "hash": "97ef7864c5bc609d4df382823c8668c0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/audio/music/route.ts": {
+    "mtime": 1780997035122.7446,
+    "hash": "40b522afcec16f1505f5367fd6fbf124"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/audio/transcribe/route.ts": {
+    "mtime": 1780997035177.0728,
+    "hash": "583e737370a02cf15aa2f1e738214270"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/audio/voice-clone/route.ts": {
+    "mtime": 1780997035143.3037,
+    "hash": "e3f8838c96e8ae7df0fc6ac9badbdac8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/image/inpaint/route.ts": {
+    "mtime": 1780997035088.2659,
+    "hash": "8cb21346560761c9fb5b719199a086d1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/image/remove-bg/route.ts": {
+    "mtime": 1780997035103.8005,
+    "hash": "d54d462619d7c8b93221daf5cfbde534"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/image/route.ts": {
+    "mtime": 1780997032146.6157,
+    "hash": "2c15435e0a7ef79611893246916bcc8d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/image/upscale/route.ts": {
+    "mtime": 1780997035070.67,
+    "hash": "e0349e0a0d7ae338f034104be829eef5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/image/variations/route.ts": {
+    "mtime": 1780997035047.7622,
+    "hash": "e73c4c2a7e4b4c1293ec968dcb681234"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/text/route.ts": {
+    "mtime": 1780997032173.0374,
+    "hash": "d1c1df1ceea2d532bdc68552b50a9016"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/video/[jobId]/status/route.ts": {
+    "mtime": 1780997036051.441,
+    "hash": "2f6951c1be90de6b80d6126b22e0ab5e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/video/demo/route.ts": {
+    "mtime": 1780997035010.5935,
+    "hash": "7dce9a67528621734c2dd26527e9018c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/video/history/route.ts": {
+    "mtime": 1780997035026.7705,
+    "hash": "829683ce0328ae787c85555be091c124"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/generate/video/route.ts": {
+    "mtime": 1780997032122.859,
+    "hash": "78436f01008eb8cfc524b3651ed48e15"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/history/route.ts": {
+    "mtime": 1780997029560.285,
+    "hash": "56b9fe0fcf7c201bd906a8ba6bdadd44"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/insights/ab-tests/route.ts": {
+    "mtime": 1780997032043.2178,
+    "hash": "ea5e95c0db9845049be4a1b47a4bf017"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/insights/coach/route.ts": {
+    "mtime": 1780997032095.8518,
+    "hash": "abdd2d9d3c725b75f22a88f4d90e562e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/insights/feedback/route.ts": {
+    "mtime": 1780997032065.3481,
+    "hash": "79c12f203b3a8da513efd0db2c0139fe"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/insights/route.ts": {
+    "mtime": 1780997029497.9392,
+    "hash": "3560cef1afbf27fb80b95ad4a4b221dc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/manual-publish/[id]/route.ts": {
+    "mtime": 1780997032232.3552,
+    "hash": "f3a32ad742e530169e78d3ae57d51f3a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/manual-publish/route.ts": {
+    "mtime": 1780997029594.712,
+    "hash": "a61874ece6d2c35ca7df0886df5bee1d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/publish/route.ts": {
+    "mtime": 1780997029541.1936,
+    "hash": "49427849791083317e80d4c21ccb95d2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/templates/[id]/like/route.ts": {
+    "mtime": 1780997035200.461,
+    "hash": "baeb51128a1d7e9b7313c90281caf25f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/templates/[id]/route.ts": {
+    "mtime": 1780997032210.6304,
+    "hash": "3ceed19355513cc6017568ae5ed74f6f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/templates/[id]/use/route.ts": {
+    "mtime": 1780997035224.3655,
+    "hash": "1aceeae52124e706dba8f4746ba23d21"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/studio/templates/route.ts": {
+    "mtime": 1780997029577.7485,
+    "hash": "7363fb4429d5be7ebb20d91811f93944"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/trends/google/route.ts": {
+    "mtime": 1781015848021.7227,
+    "hash": "0f78271ad054aeb8b4f81809a076ac8c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/trends/tiktok/details/route.ts": {
+    "mtime": 1781025168782.7666,
+    "hash": "60f4f5e52bb713da72d6c0c5c19bd267"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/trends/tiktok/hashtags/route.ts": {
+    "mtime": 1781024477601.738,
+    "hash": "21587e4ad72f6c449e7fe3df2698fa37"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/trends/tiktok/songs/route.ts": {
+    "mtime": 1781024479999.2854,
+    "hash": "dedcfbfb323df125ec7531ff2cd250a6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/trends/tiktok/top-ads/route.ts": {
+    "mtime": 1781024482351.356,
+    "hash": "944a4e5eecc524fda0a5348d6bb6966d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/trends/youtube/route.ts": {
+    "mtime": 1781023867619.2092,
+    "hash": "7c4a39100f9d06a580bf33c3039b21a2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/api/unsubscribe/route.ts": {
+    "mtime": 1780997028301.5068,
+    "hash": "8342c1c3f5ac585b223ba7e6e675e349"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/sitemap.ts": {
+    "mtime": 1780997026468.377,
+    "hash": "5ce0f7e6d5341f7e0673d59693eda332"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/app/thanks/page.tsx": {
+    "mtime": 1781004262325.928,
+    "hash": "69b217dd879bdc592ca27d128c5e57a1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/atlas/AtlasGuidedTour.tsx": {
+    "mtime": 1781013524559.5933,
+    "hash": "41d481c3070813f13100dccf10a79578"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/atlas/AtlasLauncher.tsx": {
+    "mtime": 1781012237832.3108,
+    "hash": "a163c0e3a45ede3fc6666469337c8669"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/atlas/AtlasShared.tsx": {
+    "mtime": 1781012450504.338,
+    "hash": "3ed4d3e61ef1424bafd315ec14b800d1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/atlas/PushOptIn.tsx": {
+    "mtime": 1781008503538.2688,
+    "hash": "5cee7b139c0208869c04da86f0899f2c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/ContentStrategistChat.tsx": {
+    "mtime": 1780997027925.1135,
+    "hash": "89c8eb861d1f8ad218e43cf039f812c9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/EngagementHelperChat.tsx": {
+    "mtime": 1780997027803.7917,
+    "hash": "a5875d387ef18ec43151ae1c230392dc"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/PricingAdvisorChat.tsx": {
+    "mtime": 1780997027868.2708,
+    "hash": "4cb345cd352d060df0b6e54fa1cf78f7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/TrendSpotterChat.tsx": {
+    "mtime": 1781025311872.1692,
+    "hash": "e09cd6dd4e606e629a6456d206e46aef"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/dashboard/WellnessCoachChat.tsx": {
+    "mtime": 1780997027764.0227,
+    "hash": "7bb9fab77a1daa160d8ba4ee0b2bd8cd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/home/StatsBar.tsx": {
+    "mtime": 1780997271998.5527,
+    "hash": "68edb4c1a84376ec012fa58ae56565a5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/home/WhyUsSection.tsx": {
+    "mtime": 1780997285291.9004,
+    "hash": "2d0a3735bbb36a8300d14a8b6c8ed23c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/lead-capture/CaptureForm.tsx": {
+    "mtime": 1781008283185.4116,
+    "hash": "021f48a33d8807c1e6a3e77178896045"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/Badge.tsx": {
+    "mtime": 1780999156894.5884,
+    "hash": "d7abd4a1013e04bba7b458c64576a83c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/CommandPalette.tsx": {
+    "mtime": 1781012223399.5232,
+    "hash": "211e5b0786691ea263d583523feb1af3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/EmptyState.tsx": {
+    "mtime": 1780997027591,
+    "hash": "4e342db6089d75608cbc88c4aed97f19"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/ErrorState.tsx": {
+    "mtime": 1780997027544.4526,
+    "hash": "f5e0bec5b9fb30d600377afe2739a245"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/KeyboardShortcuts.tsx": {
+    "mtime": 1781012214503.3657,
+    "hash": "65edad816dab871e21067bef390b8285"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/Modal.tsx": {
+    "mtime": 1780999160842.5732,
+    "hash": "8fd52ef91d5b27a3feff2f64d5636ae0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/components/ui/Skeleton.tsx": {
+    "mtime": 1780997027615.316,
+    "hash": "094aabc161520b45e8f378d5cb06b19c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/AnalyticsCoach.ts": {
+    "mtime": 1780997027105.6492,
+    "hash": "59162b6deabc8c68dbfafd8ce6ed4c44"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/ContentStrategist.ts": {
+    "mtime": 1780997027082.9119,
+    "hash": "0c8c3ef1401c8f310c8a04d21657b5c9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/EngagementHelper.ts": {
+    "mtime": 1780997027214.8152,
+    "hash": "9e5063e62df496c5cfe0918ee77b3057"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/PricingAdvisor.ts": {
+    "mtime": 1780997027128.2854,
+    "hash": "0fc6800117c7646dbabc2d67f83f7c19"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/TrendSpotter.ts": {
+    "mtime": 1781025254882.9326,
+    "hash": "5c5429a32f87cf2ff1e17ffebd15d583"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/WellnessCoach.ts": {
+    "mtime": 1780997027187.0945,
+    "hash": "0e1e666e7980e876844f8ec4fe424fb5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/Agent.ts": {
+    "mtime": 1780997028441.0332,
+    "hash": "f5d6f9086ac4af0a1293df49f8922492"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/tools/analytics.ts": {
+    "mtime": 1780997031154.4592,
+    "hash": "03c7559dd84166de6624acb2363889ca"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/tools/communications.ts": {
+    "mtime": 1780997031088.5046,
+    "hash": "aa5b1e744d715fd47a986fdeaab68a23"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/tools/content.ts": {
+    "mtime": 1780997031234.5684,
+    "hash": "0eb5cc88c251a098fce2e8bb23b7b9b6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/tools/database.ts": {
+    "mtime": 1780997031261.4753,
+    "hash": "aac53c65356f93d2834f0151dd25d1e2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/tools/platforms.ts": {
+    "mtime": 1780997031281.6045,
+    "hash": "4525f835ad9cb71a4a32c51af4e43d83"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/tools/pricing.ts": {
+    "mtime": 1780997031208.1057,
+    "hash": "5b8330dc46a69a6316d703fcf5caea95"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/tools/trends.ts": {
+    "mtime": 1781025236400.806,
+    "hash": "10182c2b2223b88726330901714cc9ae"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/tools/wellness.ts": {
+    "mtime": 1780997031129.8896,
+    "hash": "737b5f5b8f43ac23a46ba8716ba052ba"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/base/types.ts": {
+    "mtime": 1780997028457.4216,
+    "hash": "b6c23b80e9b9903b8a2f849ee674bc18"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/constants.ts": {
+    "mtime": 1780997027143.8757,
+    "hash": "6428535eaca474bf2d7b29cfee396f15"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/agents/index.ts": {
+    "mtime": 1780997027162.9382,
+    "hash": "3fc3b46ed79633568e9b44a50780a164"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/analytics/coach.ts": {
+    "mtime": 1780997027488.4697,
+    "hash": "a702f3070431fd69af0913856edf5766"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/analytics/types.ts": {
+    "mtime": 1780997027466.329,
+    "hash": "5da25c70038fc16f4788ab7851adab58"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/ai/drafter.ts": {
+    "mtime": 1781009385929.8303,
+    "hash": "525250e4f1020f5426bf459c57d62715"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/ai/moderator.ts": {
+    "mtime": 1780997028530.5537,
+    "hash": "457946c365f193c337923f07cc37b60b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/automation/rules.ts": {
+    "mtime": 1781011887222.9207,
+    "hash": "88cd42b0e970dd5cb11bf8e9c67b11b9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/channels/email.ts": {
+    "mtime": 1780997028592.5085,
+    "hash": "d945afa7e90e9692b4ee9de6a284703a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/channels/push.ts": {
+    "mtime": 1781008317216.1184,
+    "hash": "96fcb99e84724f709a30d8d9f445c381"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/channels/sms.ts": {
+    "mtime": 1780997028578.0002,
+    "hash": "17290f99e087bcd26d2a89553c7597e3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/comments/analyze.ts": {
+    "mtime": 1781005305563.52,
+    "hash": "2dfa1ce2deebca54392ae2d83a7608b9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/comments/types.ts": {
+    "mtime": 1781005110443.0234,
+    "hash": "1d9693eb6617254f119f3be5247d37a7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/crm/fans.ts": {
+    "mtime": 1780997028474.989,
+    "hash": "1b1da01de530b251cc27f23c22127450"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/crm/scoring.ts": {
+    "mtime": 1780997028491.9556,
+    "hash": "d8988df42fd407ea0fa6e3e539d609f3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/crm/segments.ts": {
+    "mtime": 1780997028511.4744,
+    "hash": "75c610d6d8d9a1e346f548350fbacce6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/funnels/types.ts": {
+    "mtime": 1781008266529.0713,
+    "hash": "5db78d809d40f508f08736cb2c84a6f5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/lead-capture/email-templates.ts": {
+    "mtime": 1781003935752.3657,
+    "hash": "6a99be8411f9bcf9e7c77cae254444b1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/atlas/lead-capture/types.ts": {
+    "mtime": 1781003926957.7537,
+    "hash": "39030955f2e5fe2d0131458fb42eb18a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/credits/index.ts": {
+    "mtime": 1780997027453.353,
+    "hash": "314c1f85450d9724799cc5f946774d8f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/credits/pricing.ts": {
+    "mtime": 1780997027433.3652,
+    "hash": "ed68255e85930a72a47abdc99a72d16d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/crypto.ts": {
+    "mtime": 1780997026529.8223,
+    "hash": "487e72096987bb2561baeab3b50612ea"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/dna/finalizer.ts": {
+    "mtime": 1780997027421.7307,
+    "hash": "adce425a52963d2db4ca4084ce997a47"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/dna/helpers.ts": {
+    "mtime": 1780997027364.515,
+    "hash": "407be643c054c7e3becff0c3b0b84b6e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/dna/prompts.ts": {
+    "mtime": 1780997027390.1262,
+    "hash": "2025c9320837aeab42830a0e090d3985"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/dna/schema.sql": {
+    "mtime": 1780943047847.7485,
+    "hash": "7f0533944aca995c87976f928cbaa0b5"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/dna/studio-schema.sql": {
+    "mtime": 1780943886860.8267,
+    "hash": "9f09308ada9fbe179dce6e6b0c8dfea3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/dna/types.ts": {
+    "mtime": 1780997027408.005,
+    "hash": "927b6d0b796dabaa9680336fb3238c2f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/dna/versioning.ts": {
+    "mtime": 1780997027377.4177,
+    "hash": "3030cd7171674061f68e746bb88bcf56"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/library/constants.ts": {
+    "mtime": 1780997027289.907,
+    "hash": "585cb0ea549ff345b2c940d740e5e6f6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/library/mock.ts": {
+    "mtime": 1780997027258.9377,
+    "hash": "b146ae00e3fcc6d7b40f6568575ed32b"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/library/types.ts": {
+    "mtime": 1780997027274.3145,
+    "hash": "aa33644dced5c2ccf64cf473e2129f3a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/notifications.ts": {
+    "mtime": 1781024164479.9392,
+    "hash": "16015e1ffbe616e9e331c36679444a14"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/bluesky.ts": {
+    "mtime": 1780997026758.9292,
+    "hash": "35c13d21035d0273dab76d645fe9c4e1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/instagram.ts": {
+    "mtime": 1780997026882.897,
+    "hash": "7ce54035ee32cd044c900d538db1f89a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/linkedin.ts": {
+    "mtime": 1780997026823.228,
+    "hash": "43674acf18856c958512ca278a06e9f2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/manual.ts": {
+    "mtime": 1780997026996.8643,
+    "hash": "9e5c025578dcdb3b97b66837af806985"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/threads.ts": {
+    "mtime": 1780997026945.4175,
+    "hash": "df798e68e3c99022e918ad286389ac63"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/tiktok.ts": {
+    "mtime": 1780997026855.7495,
+    "hash": "aaa8344de809cde61a17543efeb58bcf"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/twitter.ts": {
+    "mtime": 1780997026916.0867,
+    "hash": "2bd22f4196e3bccc80fb5a4ad5b470b0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/types.ts": {
+    "mtime": 1780997026973.1816,
+    "hash": "bf819d2ef0b8ee9191fe29b47aff66a7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/platforms/youtube.ts": {
+    "mtime": 1780997027035.9604,
+    "hash": "9fa6f00af7dbb0060427b7c770d81cba"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/sovereign-chat/disclosure.ts": {
+    "mtime": 1781028641089.5474,
+    "hash": "37e000b7e4ff05fb04b257984a160805"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/sovereign-chat/drafter.ts": {
+    "mtime": 1781028660746.4092,
+    "hash": "29aae3c4c77da3ca4772070629c47019"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/sovereign-chat/predict/churn.ts": {
+    "mtime": 1781031141881.4353,
+    "hash": "343419e25b9b0fb00aa063b0e3b94eb6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/sovereign-chat/predict/ltv.ts": {
+    "mtime": 1781031135809.56,
+    "hash": "26cf5084631718e98225b3f3ccdeee11"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/sovereign-chat/segments/engine.ts": {
+    "mtime": 1781029273432.3818,
+    "hash": "8e0df26327f496513981b64dc0bac5b9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/sovereign-chat/vault/recommender.ts": {
+    "mtime": 1781031327390.4414,
+    "hash": "c039c60e4f20e217201c323f151c5fa7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/studio/api-config.ts": {
+    "mtime": 1780997026672.4636,
+    "hash": "c3b6f84d3e97b76efd55bd0da0cd08cb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/studio/credits.ts": {
+    "mtime": 1780997026630.1184,
+    "hash": "04eef39b57a108460821fa60ef1306e4"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/studio/manual-schema.sql": {
+    "mtime": 1780946889322.0974,
+    "hash": "48709daeab4002fc9c8764b47aa6aa05"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/studio/oauth.ts": {
+    "mtime": 1780999970293.2837,
+    "hash": "22fee2f23eb7bf66a27ef710389e7253"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/studio/plans.ts": {
+    "mtime": 1780997026642.327,
+    "hash": "dc9a39ff980e92772ac7798990c20d0d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/studio/platforms-schema.sql": {
+    "mtime": 1780946066109.0283,
+    "hash": "aca8d40578b0afa57f2323ea3c78984d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/studio/types.ts": {
+    "mtime": 1781025133309.7998,
+    "hash": "04727816c2a9bad5867869d3af790211"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/studio/video/providers.ts": {
+    "mtime": 1780997028419.4158,
+    "hash": "677372383995c312fa09b62259a4ab41"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/aggregator.ts": {
+    "mtime": 1781023971899.6707,
+    "hash": "9dbed5b9b7ab79384d545cdcdb6945af"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/alerts.ts": {
+    "mtime": 1781024206582.107,
+    "hash": "61efe74a9ba3debbbf0e62a65d59fef0"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/providers/google.ts": {
+    "mtime": 1781018022124.2817,
+    "hash": "de7b1fbc08bbf1d65be7b769c7dd9ecd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/providers/news.ts": {
+    "mtime": 1781023760057.069,
+    "hash": "d54cbabfe1a89163d84a4c3776445fdb"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/providers/reddit.ts": {
+    "mtime": 1781023739145.8284,
+    "hash": "6e0cd55e7f96935a1c809829794d91f9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/providers/tiktok-creative.ts": {
+    "mtime": 1781024475037.4172,
+    "hash": "e424c41b17e2c5d1f34d41403a81b645"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/providers/youtube.ts": {
+    "mtime": 1781023757817.3896,
+    "hash": "f2492b8dfaee017ab2706cd35e36ab4d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/scoring.ts": {
+    "mtime": 1781024180939.5344,
+    "hash": "49a929bd883e4823db1df7b5652015de"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/lib/trends/types.ts": {
+    "mtime": 1781023535467.393,
+    "hash": "cf003d58cb6a729f046936de91541a53"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/middleware.ts": {
+    "mtime": 1781025523376.6853,
+    "hash": "5a577a05466ff63796df6ab90da16043"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/sw.js": {
+    "mtime": 1781008316376.7642,
+    "hash": "5f931feadfdd6efe659347c8fa6a5640"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/remotion/ImageOverlay.tsx": {
+    "mtime": 1780959704946.262,
+    "hash": "8883c0a8a22f9197ba9cbc29ebfb8476"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/remotion/MyVideo.tsx": {
+    "mtime": 1780960201162.7488,
+    "hash": "254afae91063452b5cc617060663ea16"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/remotion/TextOverlay.tsx": {
+    "mtime": 1780959699381.9768,
+    "hash": "fa6278a710b4a0a3884903f731661efa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/002_credit_system.sql": {
+    "mtime": 1780950298885.6501,
+    "hash": "c00577be3501f874ff3f7904658337e6"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/003_media_library.sql": {
+    "mtime": 1780957239007.7278,
+    "hash": "8208171d30ec81a9da969d30a9897886"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/004_video_generation.sql": {
+    "mtime": 1780958322792.149,
+    "hash": "13b3fa9c3be9afa183a760c1aceaab8e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/005_subscription_tiers.sql": {
+    "mtime": 1780961060081.5024,
+    "hash": "30b7de68171d243b816c1aa20583ce3c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/006_templates.sql": {
+    "mtime": 1780961849877.1401,
+    "hash": "b3fbfb4c0dadf61532996b7d726c51ec"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/007_analytics.sql": {
+    "mtime": 1780962489024.7617,
+    "hash": "f09bcf4452c2432fcd5ab4541827b83c"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/008_atlas.sql": {
+    "mtime": 1780963023245.7205,
+    "hash": "44cb7e1aaf75b0dbde9b128f1f8a37d2"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/009_atlas_fan_profile.sql": {
+    "mtime": 1780964636566.1,
+    "hash": "f3715fcac288d5d92840fe87c40d52fa"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/010_atlas_scoring_v2.sql": {
+    "mtime": 1780965319118.6082,
+    "hash": "53bb551402d688cc6b86611d3bc33d81"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/011_atlas_inbox.sql": {
+    "mtime": 1780991445983.879,
+    "hash": "d20d55b09526533b9e91a1b1bd65c1f1"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/012_atlas_email_campaigns.sql": {
+    "mtime": 1780993349743.3516,
+    "hash": "034fabad7a7edaf7e6b2eff8aa72f92e"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/013_atlas_sms_campaigns.sql": {
+    "mtime": 1780994514350.694,
+    "hash": "e6285ae7e17bdbfd19ce1a7927b5ea56"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/014_lead_capture.sql": {
+    "mtime": 1781003905197.7087,
+    "hash": "5226fc72819ef4bbc6de4a029954b332"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/015_comment_moderation.sql": {
+    "mtime": 1781005090062.6348,
+    "hash": "4f3bb9d175a207988084ebc06f9a373f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/016_atlas_push_subscriptions.sql": {
+    "mtime": 1781008142362.8325,
+    "hash": "54f179bb5f00d6e4e4e19b0075a9eeba"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/017_atlas_compliance_drafter.sql": {
+    "mtime": 1781009144064.5652,
+    "hash": "e864c01d317613b5dabce7f1003dd123"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/018_atlas_analytics.sql": {
+    "mtime": 1781010930946.5857,
+    "hash": "52464272af6e625d0f615289032bbd59"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/019_atlas_compliance.sql": {
+    "mtime": 1781011390595.367,
+    "hash": "3c6786be93b0203da8f528a842ec93fd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/019_pro_mode.sql": {
+    "mtime": 1781025499801.1558,
+    "hash": "a26900cc703b82728d2fd684927aab81"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/020_atlas_rules_engine.sql": {
+    "mtime": 1781011867225.333,
+    "hash": "b4632da49e61f886407a3dd7c844ec5a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/020_co_management.sql": {
+    "mtime": 1781027222697.5684,
+    "hash": "5fd726412fb3467cd8eec6b83e8bcb74"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/021_atlas_trends.sql": {
+    "mtime": 1781014589382.9656,
+    "hash": "c9531ad361d867f3ea23e53b4e2ba471"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/022_atrends_apify_logs.sql": {
+    "mtime": 1781024492875.8616,
+    "hash": "73d53f2264e2aba119d33b39c0f62f2d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/023_atlas_drafts.sql": {
+    "mtime": 1781028640127.0952,
+    "hash": "bfb995b51ea390d841d6d26a9722b37a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/024_atlas_segments.sql": {
+    "mtime": 1781029248257.2117,
+    "hash": "bc3080d9665ee3dd064efd1b658b2b9f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/025_atlas_smart_messages.sql": {
+    "mtime": 1781030499494.8325,
+    "hash": "d11d7714b60aee3cb946b13546a82770"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/026_atlas_ppv.sql": {
+    "mtime": 1781030850385.068,
+    "hash": "94bb7944fe4e32420998750b9d239b66"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/supabase/migrations/027_benchmarking.sql": {
+    "mtime": 1781031794506.8445,
+    "hash": "f0a1f23b39f42570d91a9daecd70f883"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/README.md": {
+    "mtime": 1781033731629.6687,
+    "hash": "e5f483ac2eba05c0134de57d0f5d6ebd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/contracts/clauses-abusives-catalogue.md": {
+    "mtime": 1781033707095.658,
+    "hash": "bd933c3f675c266a705a85d8cd335e74"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/contracts/comparaison-contrats-agences.md": {
+    "mtime": 1781033717608.5398,
+    "hash": "f3f543f7ebb27748371e3c78b0843e73"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/contracts/contrat-type-halo-talent.md": {
+    "mtime": 1781033714036.2837,
+    "hash": "cdc79f803aceadea86786001110b9698"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/industry/agency-practices-report.md": {
+    "mtime": 1781033723082.0317,
+    "hash": "f8e59767cc6f0d7190035181a2a5c76a"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/industry/commission-rates-benchmark.md": {
+    "mtime": 1781033719896.5503,
+    "hash": "45c98a89b9e8a270d0d79c8f25d8a81d"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/industry/creator-rights-guide.md": {
+    "mtime": 1781033728234.7476,
+    "hash": "6ce4c7805c06f9e7d971b3bc10401762"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/jurisprudence/chatters-lawsuits-2026.md": {
+    "mtime": 1781033697000.1692,
+    "hash": "20c1d08f47d75004a609744cb94ead86"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/jurisprudence/class-action-onlyfans-2024.md": {
+    "mtime": 1781033690366.7942,
+    "hash": "3843511350ce7a6e0728539a8e5677c9"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/jurisprudence/unruly-agency-buzzfeed-2021.md": {
+    "mtime": 1781033693836.1143,
+    "hash": "c56cbad3c2abdc3c51896c6a5fb80065"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/laws/eu/digital-services-act.md": {
+    "mtime": 1781033679867.2107,
+    "hash": "c72491a36c9216e333dc1ad5612e6c22"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/laws/eu/rgpd-extraits.md": {
+    "mtime": 1781033677643.6494,
+    "hash": "14d47e75c3815dfe3ef160e31fc421ac"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/laws/france/code-civil-contrats.md": {
+    "mtime": 1781033665882.5808,
+    "hash": "0539e9fd3e1f714f8de434a078c981fe"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/laws/france/code-consommation.md": {
+    "mtime": 1781033672319.2786,
+    "hash": "aa5a8b33ec110b6453b8a81071096a57"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/laws/france/code-propriete-intellectuelle.md": {
+    "mtime": 1781033669753.5962,
+    "hash": "edf1ebd5677814a817b177b63fccefce"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/laws/uk/online-safety-bill.md": {
+    "mtime": 1781033685003.7087,
+    "hash": "1a29476e53b5cd1e65967977c97195c7"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/laws/us/take-it-down-act-2026.md": {
+    "mtime": 1781033682672.0007,
+    "hash": "5b1c23e1adafc4be5b945461d6f9e637"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/platforms/fansly/terms-of-service.md": {
+    "mtime": 1781033652243.7695,
+    "hash": "1392f932fdfb578c99317f05f379f9b3"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/platforms/instagram/terms-of-service.md": {
+    "mtime": 1781033658190.739,
+    "hash": "ea40989254520cb7e4236ed3b1e761cd"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/platforms/mym/terms-of-service.md": {
+    "mtime": 1781033654488.5967,
+    "hash": "32a8879e7fe7355e6e574dd8bbc9ef77"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/platforms/onlyfans/acceptable-use-policy.md": {
+    "mtime": 1781033644475.7454,
+    "hash": "2c885ed89320e696257da937c00f814f"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/platforms/onlyfans/ai-content-policy-2026.md": {
+    "mtime": 1781033649731.811,
+    "hash": "ff3748af337349cded567b0b9ad17783"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/platforms/onlyfans/creator-guidelines.md": {
+    "mtime": 1781033647078.1465,
+    "hash": "649871537108291ead0dbd8e30cf1977"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/knowledge/platforms/onlyfans/terms-of-service-2026.md": {
+    "mtime": 1781033642314.1113,
+    "hash": "22550a7f006c0ed9840b1a21966cadf8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/robots.txt": {
+    "mtime": 1780941193384.6013,
+    "hash": "c634b1e4d63f61486f1a68b123c9d8c8"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/badge.svg": {
+    "mtime": 1781008312209.045,
+    "hash": "be984794cd0e6852f1dc2360be9a70ba"
+  },
+  "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent/public/default-icon.svg": {
+    "mtime": 1781008311047.1472,
+    "hash": "b5d3ee1f1826057b7e7d536b6c8a4fcc"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "branchName": "main",
+  "worktreePath": "/Users/duarteelton/Desktop/OFM PROJECT/halo-talent",
+  "upstream": null,
+  "mergeBase": null,
+  "firstSeenHead": "af262564ecbd064903f825787fb452bd6b0437a4",
+  "lastSeenHead": "af262564ecbd064903f825787fb452bd6b0437a4",
+  "lastAnalyzedHead": "af262564ecbd064903f825787fb452bd6b0437a4",
+  "stale": false,
+  "staleReason": null,
+  "staleSince": null,
+  "lifecycleEvent": null,
+  "createdAt": "2026-06-09T19:36:08.688Z",
+  "updatedAt": "2026-06-09T19:36:22.633Z"
+}

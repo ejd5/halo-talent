@@ -75,6 +75,7 @@ export function Footer() {
                 { href: "/departements", label: "Départements" },
                 { href: "/commissions", label: "Commissions" },
                 { href: "/talents", label: "Talents" },
+                { href: "/protection", label: "Bouclier Légal" },
                 { href: "/saas", label: "SaaS" },
                 { href: "/blog", label: "Blog" },
               ].map((l) => (
