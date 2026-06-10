@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Halo Companion — Politique de Confidentialité</title>
+  <style>
+    :root {
+      --bg: #0A0A0A;
+      --bg-card: #141414;
+      --text: #E5E5E5;
+      --text-muted: #A1A1AA;
+      --accent: #F97316;
+      --border: rgba(255,255,255,0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 40px 24px;
+    }
+    h1 { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+    h2 { font-size: 18px; font-weight: 600; color: #fff; margin-top: 32px; margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    h3 { font-size: 14px; font-weight: 600; color: var(--accent); margin-top: 20px; margin-bottom: 8px; }
+    p, li { font-size: 14px; color: var(--text-muted); margin-bottom: 8px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { margin-bottom: 4px; }
+    .meta { font-size: 12px; color: #666; margin-bottom: 32px; }
+    .lang-switch { font-size: 12px; color: var(--accent); margin-bottom: 24px; }
+    .lang-switch a { color: var(--accent); }
+    .badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 500;
+      background: rgba(34,197,94,0.1); color: #22C55E; margin-bottom: 24px;
+    }
+    hr { border: none; border-top: 1px solid var(--border); margin: 32px 0; }
+    .footer { font-size: 11px; color: #555; text-align: center; margin-top: 48px; }
+    code {
+      background: var(--bg-card); padding: 1px 6px; border-radius: 4px;
+      font-family: "JetBrains Mono", monospace; font-size: 12px; color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+
+<div class="lang-switch">
+  🇫🇷 Français | <a href="#en">English below ↓</a>
+</div>
+
+<h1>Halo Companion</h1>
+<p>Politique de Confidentialité — Extension Chrome</p>
+<div class="meta">Dernière mise à jour : 10 juin 2026 · Version 1.0.0</div>
+
+<div class="badge">✅ Conforme RGPD · Données chiffrées · Consentement explicite</div>
+
+<!-- ─── FR ───────────────────────────────────── -->
+
+<h2>1. Introduction</h2>
+<p>
+  Halo Companion est une extension Chrome développée par <strong>Halo Talent</strong>.
+  Cette politique de confidentialité explique quelles données sont collectées,
+  comment elles sont utilisées, et vos droits concernant ces données.
+</p>
+
+<h2>2. Données collectées</h2>
+
+<h3>2.1 Informations visibles sur les plateformes</h3>
+<p>L'extension lit <strong>uniquement les informations visibles à l'écran</strong> sur les plateformes que vous utilisez, avec votre consentement explicite :</p>
+<ul>
+  <li><strong>Profil fan public</strong> : nom d'utilisateur, nom d'affichage, badge VIP, montant total dépensé, durée d'abonnement</li>
+  <li><strong>Messages visibles</strong> : contenu des messages affichés dans le chat (lecture seule)</li>
+  <li><strong>Statistiques visibles</strong> : revenus affichés, nombre de fans, top contributeurs</li>
+</ul>
+
+<h3>2.2 Données utilisateur Halo</h3>
+<ul>
+  <li>Adresse email (pour l'authentification au service Halo Talent)</li>
+  <li>Préférences de l'extension (thème, langue, plateformes activées, notifications)</li>
+  <li>Notes et tags que vous ajoutez manuellement sur les fans</li>
+</ul>
+
+<h3>2.3 Données techniques</h3>
+<ul>
+  <li>URL de la page courante (pour détecter la plateforme et la page)</li>
+  <li>Horodatage des actions (pour l'audit log local)</li>
+  <li>Identifiant d'extension Chrome (pour le fonctionnement technique)</li>
+</ul>
+
+<h3>2.4 Ce que nous ne collectons JAMAIS</h3>
+<ul>
+  <li><strong>Mots de passe</strong> ou identifiants de plateforme</li>
+  <li><strong>Médias</strong> (photos, vidéos, fichiers) des fans ou du créateur</li>
+  <li><strong>Cookies</strong> ou tokens de session des plateformes</li>
+  <li><strong>Données bancaires</strong> ou de paiement</li>
+  <li><strong>Messages privés complets</strong> — seul un résumé IA (max 200 caractères) peut être généré</li>
+</ul>
+
+<h2>3. Utilisation des données</h2>
+<p>Les données collectées sont utilisées exclusivement pour :</p>
+<ul>
+  <li>Afficher les informations fans dans le side panel de l'extension</li>
+  <li>Générer des suggestions de messages IA pertinentes</li>
+  <li>Fournir des analytics et des insights (LTV, segmentation, taux d'engagement)</li>
+  <li>Synchroniser vos données avec votre compte Halo Talent (si connecté)</li>
+  <li>Journaliser les actions pour votre audit log personnel</li>
+</ul>
+
+<h2>4. Stockage des données</h2>
+<ul>
+  <li><strong>Stockage local</strong> : Toutes les données sont stockées localement dans votre navigateur (chrome.storage.local et IndexedDB)</li>
+  <li><strong>Chiffrement</strong> : Les données sensibles sont chiffrées en AES-256-GCM avant stockage local</li>
+  <li><strong>Expiration</strong> : Le cache local expire automatiquement après 24 heures (configurable)</li>
+  <li><strong>Backend Halo</strong> : Si vous connectez un compte Halo Talent, les données minimales (username, segment, LTV, tags, notes) sont synchronisées avec <code>api.halotalent.com</code> via HTTPS</li>
+</ul>
+
+<h2>5. Durée de conservation</h2>
+<ul>
+  <li><strong>Cache local</strong> : 24 heures par défaut (configurable dans les paramètres)</li>
+  <li><strong>Audit log</strong> : 500 derniers événements conservés localement</li>
+  <li><strong>Backend Halo</strong> : Aussi longtemps que votre compte Halo Talent est actif</li>
+</ul>
+
+<h2>6. Partage des données</h2>
+<p>
+  <strong>Aucune donnée n'est partagée avec des tiers.</strong>
+  Les données ne quittent votre navigateur que si vous choisissez de connecter un compte Halo Talent.
+  Même dans ce cas, seules les données minimales nécessaires sont transmises.
+  Les données ne sont jamais vendues, louées, ou utilisées à des fins publicitaires.
+</p>
+
+<h2>7. Vos droits (RGPD)</h2>
+<p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez des droits suivants :</p>
+<ul>
+  <li><strong>Droit d'accès</strong> : Consultez toutes vos données dans les paramètres de l'extension</li>
+  <li><strong>Droit de rectification</strong> : Modifiez vos tags et notes fan à tout moment</li>
+  <li><strong>Droit à l'effacement</strong> : "Effacer le cache local" dans Paramètres → Données supprime tout</li>
+  <li><strong>Droit à la portabilité</strong> : "Exporter mes données" dans Paramètres → Données</li>
+  <li><strong>Droit d'opposition</strong> : Désactivez l'extension ou des plateformes spécifiques à tout moment</li>
+  <li><strong>Droit de retrait du consentement</strong> : Désactivez les plateformes dans Paramètres → Plateformes</li>
+</ul>
+
+<h2>8. Sécurité</h2>
+<ul>
+  <li>Toutes les données en cache local sont chiffrées avec AES-256-GCM via l'API Web Crypto</li>
+  <li>Les communications avec le backend Halo utilisent HTTPS (TLS 1.3)</li>
+  <li>Le Privacy Guard vérifie chaque donnée avant qu'elle ne quitte le navigateur</li>
+  <li>Le Compliance Guard bloque les actions interdites avant exécution</li>
+  <li>L'extension ne fait PAS de reverse engineering d'API cachée — elle lit uniquement le DOM visible</li>
+</ul>
+
+<h2>9. Consentement</h2>
+<p>
+  L'extension ne fonctionne que sur les plateformes que vous avez <strong>explicitement activées</strong>
+  dans les paramètres. Aucune lecture de données n'a lieu sans votre consentement préalable.
+  Vous pouvez révoquer ce consentement à tout moment.
+</p>
+
+<h2>10. Contact</h2>
+<p>
+  Pour toute question concernant cette politique de confidentialité ou vos données :<br />
+  Email : <code>privacy@halotalent.com</code><br />
+  Site web : <a href="https://halotalent.com" style="color:var(--accent)">halotalent.com</a>
+</p>
+
+<hr id="en" />
+
+<!-- ─── EN ───────────────────────────────────── -->
+
+<h1>Halo Companion</h1>
+<p>Privacy Policy — Chrome Extension</p>
+<div class="meta">Last updated: June 10, 2026 · Version 1.0.0</div>
+
+<div class="badge">✅ GDPR Compliant · Encrypted Data · Explicit Consent</div>
+
+<h2>1. Introduction</h2>
+<p>
+  Halo Companion is a Chrome extension developed by <strong>Halo Talent</strong>.
+  This privacy policy explains what data is collected, how it is used, and your rights regarding that data.
+</p>
+
+<h2>2. Data Collected</h2>
+
+<h3>2.1 Visible Platform Information</h3>
+<p>The extension reads <strong>only on-screen visible information</strong> on platforms you use, with your explicit consent:</p>
+<ul>
+  <li><strong>Public fan profile</strong>: username, display name, VIP badge, total spent, subscription duration</li>
+  <li><strong>Visible messages</strong>: message content displayed in chat (read-only)</li>
+  <li><strong>Visible statistics</strong>: displayed revenue, fan count, top spenders</li>
+</ul>
+
+<h3>2.2 Halo User Data</h3>
+<ul>
+  <li>Email address (for Halo Talent authentication)</li>
+  <li>Extension preferences (theme, language, enabled platforms, notifications)</li>
+  <li>Manually added fan notes and tags</li>
+</ul>
+
+<h3>2.3 Technical Data</h3>
+<ul>
+  <li>Current page URL (for platform and page detection)</li>
+  <li>Action timestamps (for local audit log)</li>
+  <li>Chrome extension ID (for technical operation)</li>
+</ul>
+
+<h3>2.4 What We NEVER Collect</h3>
+<ul>
+  <li><strong>Passwords</strong> or platform credentials</li>
+  <li><strong>Media</strong> (photos, videos, files) from fans or creator</li>
+  <li><strong>Cookies</strong> or platform session tokens</li>
+  <li><strong>Payment</strong> or banking data</li>
+  <li><strong>Full private messages</strong> — only an AI summary (max 200 chars) may be generated</li>
+</ul>
+
+<h2>3. Data Usage</h2>
+<p>Collected data is used exclusively for:</p>
+<ul>
+  <li>Displaying fan information in the extension side panel</li>
+  <li>Generating relevant AI message suggestions</li>
+  <li>Providing analytics and insights (LTV, segmentation, engagement rate)</li>
+  <li>Synchronizing your data with your Halo Talent account (if connected)</li>
+  <li>Logging actions for your personal audit log</li>
+</ul>
+
+<h2>4. Data Storage</h2>
+<ul>
+  <li><strong>Local storage</strong>: All data is stored locally in your browser (chrome.storage.local and IndexedDB)</li>
+  <li><strong>Encryption</strong>: Sensitive data is encrypted with AES-256-GCM before local storage</li>
+  <li><strong>Expiration</strong>: Local cache automatically expires after 24 hours (configurable)</li>
+  <li><strong>Halo Backend</strong>: If you connect a Halo Talent account, minimal data (username, segment, LTV, tags, notes) is synced with <code>api.halotalent.com</code> via HTTPS</li>
+</ul>
+
+<h2>5. Data Retention</h2>
+<ul>
+  <li><strong>Local cache</strong>: 24 hours by default (configurable in settings)</li>
+  <li><strong>Audit log</strong>: Last 500 events stored locally</li>
+  <li><strong>Halo Backend</strong>: As long as your Halo Talent account is active</li>
+</ul>
+
+<h2>6. Data Sharing</h2>
+<p>
+  <strong>No data is shared with third parties.</strong>
+  Data only leaves your browser if you choose to connect a Halo Talent account.
+  Even then, only the minimal necessary data is transmitted.
+  Data is never sold, rented, or used for advertising purposes.
+</p>
+
+<h2>7. Your Rights (GDPR)</h2>
+<p>In accordance with the General Data Protection Regulation (GDPR), you have the following rights:</p>
+<ul>
+  <li><strong>Right of access</strong>: View all your data in extension settings</li>
+  <li><strong>Right to rectification</strong>: Modify your fan tags and notes at any time</li>
+  <li><strong>Right to erasure</strong>: "Clear local cache" in Settings → Data removes everything</li>
+  <li><strong>Right to portability</strong>: "Export my data" in Settings → Data</li>
+  <li><strong>Right to object</strong>: Disable the extension or specific platforms at any time</li>
+  <li><strong>Right to withdraw consent</strong>: Disable platforms in Settings → Platforms</li>
+</ul>
+
+<h2>8. Security</h2>
+<ul>
+  <li>All locally cached data is encrypted with AES-256-GCM via Web Crypto API</li>
+  <li>Backend communications use HTTPS (TLS 1.3)</li>
+  <li>Privacy Guard validates every piece of data before it leaves the browser</li>
+  <li>Compliance Guard blocks unauthorized actions before execution</li>
+  <li>The extension does NOT reverse-engineer hidden APIs — it only reads visible DOM</li>
+</ul>
+
+<h2>9. Consent</h2>
+<p>
+  The extension only operates on platforms you have <strong>explicitly enabled</strong>
+  in settings. No data reading occurs without your prior consent.
+  You may revoke this consent at any time.
+</p>
+
+<h2>10. Contact</h2>
+<p>
+  For any questions about this privacy policy or your data:<br />
+  Email: <code>privacy@halotalent.com</code><br />
+  Website: <a href="https://halotalent.com" style="color:var(--accent)">halotalent.com</a>
+</p>
+
+<div class="footer">
+  Halo Talent — © 2026 — Tous droits réservés · All rights reserved
+</div>
+
+</body>
+</html>

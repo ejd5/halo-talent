@@ -1,0 +1,182 @@
+{
+  "extension": {
+    "name": "Halo Companion",
+    "version": "1.0.0",
+    "category": "Productivity",
+    "language": "fr",
+    "homepage_url": "https://halotalent.com",
+    "support_url": "https://docs.halotalent.com",
+    "privacy_policy_url": "https://halotalent.com/extension/privacy"
+  },
+
+  "store_listing": {
+    "fr": {
+      "title": "Halo Companion — Assistant IA pour créateurs de contenu",
+      "summary": "Gérez vos fans, optimisez vos revenus et protégez votre carrière. CRM intégré, suggestions IA, analytics — tout en un clic.",
+      "description": [
+        "Halo Companion est l'assistant IA indispensable pour les créateurs de contenu sur OnlyFans, Fansly, MYM, Instagram et TikTok.",
+        "",
+        "FONCTIONNALITÉS PRINCIPALES :",
+        "",
+        "🧠 FAN BRAIN — Profil intelligent de chaque fan",
+        "- Segmentation automatique (VIP, Loyal, Regular, Nouveau, À risque)",
+        "- LTV, historique d'achat, dernier message, notes personnelles",
+        "- Détection des fans à risque et des opportunités de revenus",
+        "",
+        "💬 ASSISTANT DE CHAT IA",
+        "- Suggestions de messages personnalisées selon le profil du fan",
+        "- Adaptation du ton (amical, flirty, pro, mystérieux…)",
+        "- Insertion en un clic — VOUS gardez le contrôle de l'envoi",
+        "",
+        "📊 ANALYTICS EN TEMPS RÉEL",
+        "- Revenus du jour, de la semaine, du mois",
+        "- Top fans, heatmap horaire d'activité",
+        "- Taux d'ouverture PPV estimé",
+        "",
+        "🔍 VAULT INTELLIGENT",
+        "- Recherche dans votre bibliothèque de contenu",
+        "- Suggestion de PPV adapté à chaque fan",
+        "- Détection des contenus déjà envoyés ou achetés",
+        "",
+        "📝 SCRIPTS & TRADUCTION",
+        "- Bibliothèque de scripts par catégorie (bienvenue, upsell, comeback…)",
+        "- Traduction automatique des messages des fans",
+        "- Détection automatique de la langue",
+        "",
+        "🛡️ SÉCURITÉ & CONFORMITÉ",
+        "- Privacy Guard : aucune donnée sensible ne quitte votre navigateur",
+        "- Compliance Guard : bloque les actions interdites avant exécution",
+        "- Chiffrement AES-256-GCM du cache local",
+        "- Consentement explicite pour chaque plateforme",
+        "- ZÉRO automatisation — VOUS décidez de chaque action",
+        "",
+        "✅ CONFIDENTIALITÉ TOTALE",
+        "- Aucune donnée partagée avec des tiers",
+        "- Pas de stockage de messages complets (résumé IA uniquement, max 200 caractères)",
+        "- Pas de téléchargement de médias",
+        "- Pas de reverse engineering d'API cachée",
+        "- Audit log complet consultable et exportable",
+        "",
+        "✅ COMPATIBILITÉ",
+        "- OnlyFans, Fansly, MYM (support complet : chat, fans, stats)",
+        "- Instagram, TikTok (support partiel : profil fan)"
+      ]
+    },
+
+    "en": {
+      "title": "Halo Companion — AI Assistant for Content Creators",
+      "summary": "Manage your fans, optimize your revenue, and protect your career. Built-in CRM, AI suggestions, analytics — all in one click.",
+      "description": [
+        "Halo Companion is the essential AI assistant for content creators on OnlyFans, Fansly, MYM, Instagram, and TikTok.",
+        "",
+        "KEY FEATURES:",
+        "",
+        "🧠 FAN BRAIN — Intelligent fan profiles",
+        "- Automatic segmentation (VIP, Loyal, Regular, New, At-Risk)",
+        "- LTV, purchase history, last message, personal notes",
+        "- At-risk fan and revenue opportunity detection",
+        "",
+        "💬 AI CHAT ASSISTANT",
+        "- Personalized message suggestions based on fan profile",
+        "- Tone adaptation (friendly, flirty, professional, mysterious...)",
+        "- One-click insert — YOU stay in control of sending",
+        "",
+        "📊 REAL-TIME ANALYTICS",
+        "- Daily, weekly, monthly revenue",
+        "- Top fans, hourly activity heatmap",
+        "- Estimated PPV open rate",
+        "",
+        "🔍 SMART VAULT",
+        "- Search your content library",
+        "- PPV suggestions tailored to each fan",
+        "- Detection of already sent or purchased content",
+        "",
+        "📝 SCRIPTS & TRANSLATION",
+        "- Script library by category (welcome, upsell, comeback...)",
+        "- Automatic fan message translation",
+        "- Automatic language detection",
+        "",
+        "🛡️ SECURITY & COMPLIANCE",
+        "- Privacy Guard: no sensitive data leaves your browser",
+        "- Compliance Guard: blocks unauthorized actions before execution",
+        "- AES-256-GCM local cache encryption",
+        "- Explicit consent for each platform",
+        "- ZERO automation — YOU decide every action",
+        "",
+        "✅ TOTAL PRIVACY",
+        "- No data shared with third parties",
+        "- No full message storage (AI summary only, max 200 chars)",
+        "- No media downloads",
+        "- No hidden API reverse engineering",
+        "- Full exportable audit log",
+        "",
+        "✅ COMPATIBILITY",
+        "- OnlyFans, Fansly, MYM (full support: chat, fans, stats)",
+        "- Instagram, TikTok (partial support: fan profile)"
+      ]
+    },
+
+    "single_purpose": "Halo Companion assists content creators in managing fan relationships and optimizing their content strategy across supported creator platforms, through a side panel CRM overlay."
+  },
+
+  "screenshots": {
+    "required_formats": ["1280×800", "640×400"],
+    "recommended_shots": [
+      {
+        "file": "screenshot-1-sidepanel-fanbrain.png",
+        "caption_fr": "Side panel Halo Companion ouvert à côté d'OnlyFans — Profil Fan Brain avec segmentation et analytics",
+        "caption_en": "Halo Companion side panel next to OnlyFans — Fan Brain profile with segmentation and analytics"
+      },
+      {
+        "file": "screenshot-2-ai-suggestions.png",
+        "caption_fr": "Suggestions IA personnalisées dans le popup overlay — insertion en un clic",
+        "caption_en": "Personalized AI suggestions in the overlay popup — one-click insert"
+      },
+      {
+        "file": "screenshot-3-dashboard.png",
+        "caption_fr": "Dashboard analytics — revenus, top fans, heatmap horaire",
+        "caption_en": "Dashboard analytics — revenue, top fans, hourly heatmap"
+      },
+      {
+        "file": "screenshot-4-vault.png",
+        "caption_fr": "Vault intelligent — recherche de contenu et suggestions PPV par fan",
+        "caption_en": "Smart Vault — content search and per-fan PPV suggestions"
+      },
+      {
+        "file": "screenshot-5-settings.png",
+        "caption_fr": "Paramètres — plateformes, thème, langue, notifications, confidentialité",
+        "caption_en": "Settings — platforms, theme, language, notifications, privacy"
+      }
+    ]
+  },
+
+  "promotional_tiles": {
+    "small_tile": {
+      "caption_fr": "Halo Companion — Assistant IA pour créateurs",
+      "caption_en": "Halo Companion — AI Assistant for Creators"
+    },
+    "marquee_tile": {
+      "caption_fr": "CRM · Analytics · IA · Vault — Tout en un clic, sur vos plateformes",
+      "caption_en": "CRM · Analytics · AI · Vault — One click, on your platforms"
+    }
+  },
+
+  "reviewer_notes": {
+    "permissions_justification": {
+      "sidePanel": "Required to display the main Halo Companion interface as a Chrome Side Panel",
+      "storage": "Used to cache fan profiles, scripts, and user preferences locally with AES-256-GCM encryption",
+      "alarms": "Used for periodic cache refresh and audit log sync (non-blocking background timers)",
+      "notifications": "Used to notify creators when VIP fans come online or action is needed (opt-in per notification type)",
+      "activeTab": "Used to read the current tab URL for platform detection and to inject the Side Panel context",
+      "tabs": "Optional — used to open the Halo Talent web app login page in a new tab during onboarding",
+      "host_permissions_onlyfans": "Required to inject the AI assistant overlay and read visible fan data on OnlyFans — DOM only, no API calls",
+      "host_permissions_fansly": "Required to inject the AI assistant overlay and read visible fan data on Fansly — DOM only, no API calls",
+      "host_permissions_mym": "Required to inject the AI assistant overlay and read visible fan data on MYM — DOM only, no API calls",
+      "host_permissions_instagram": "Required to read visible fan profile data on Instagram (limited support)",
+      "host_permissions_tiktok": "Required to read visible fan profile data on TikTok (limited support)",
+      "host_permissions_api": "Required to sync fan data and authenticate with the creator's Halo Talent account"
+    },
+    "content_script_behavior": "The content script injects a Shadow DOM overlay into supported platform pages (OnlyFans, Fansly, MYM). The overlay shows fan badges, AI suggestions, and an assistance toolbar. It only reads on-screen visible DOM content — no hidden APIs, no content scraping, no automated actions. All styles are scoped to the Shadow DOM and cannot affect the host page.",
+    "remote_code": "This extension does NOT load or execute any remote code. All JavaScript is bundled and minified at build time. The only external resources loaded are Google Fonts (Inter, JetBrains Mono) for UI rendering."
+  }
+}
