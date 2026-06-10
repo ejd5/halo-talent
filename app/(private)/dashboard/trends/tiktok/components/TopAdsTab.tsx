@@ -50,10 +50,10 @@ function AdPatternModal({ ad, onClose }: { ad: TopAd; onClose: () => void }) {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.7)" }}>
       <div
         className="w-full max-w-md p-5"
-        style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}
+        style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}
       >
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h3 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Pattern IA — {ad.brand_name}
           </h3>
           <button onClick={onClose} className="p-1 hover:opacity-70" style={{ color: "rgba(245,240,235,0.2)" }}>
@@ -63,19 +63,19 @@ function AdPatternModal({ ad, onClose }: { ad: TopAd; onClose: () => void }) {
         <div className="space-y-3">
           <div className="p-2.5" style={{ backgroundColor: "rgba(245,240,235,0.03)" }}>
             <p className="text-[9px] uppercase tracking-wider mb-1" style={{ color: "rgba(245,240,235,0.2)" }}>Hook détecté</p>
-            <p className="text-sm" style={{ color: "#F5F0EB" }}>{pattern.hook}</p>
+            <p className="text-sm" style={{ color: "var(--text-primary)" }}>{pattern.hook}</p>
           </div>
           <div className="p-2.5" style={{ backgroundColor: "rgba(245,240,235,0.03)" }}>
             <p className="text-[9px] uppercase tracking-wider mb-1" style={{ color: "rgba(245,240,235,0.2)" }}>Format</p>
-            <p className="text-sm" style={{ color: "#F5F0EB" }}>{pattern.format}</p>
+            <p className="text-sm" style={{ color: "var(--text-primary)" }}>{pattern.format}</p>
           </div>
           <div className="p-2.5" style={{ backgroundColor: "rgba(245,240,235,0.03)" }}>
             <p className="text-[9px] uppercase tracking-wider mb-1" style={{ color: "rgba(245,240,235,0.2)" }}>CTA</p>
-            <p className="text-sm" style={{ color: "#F5F0EB" }}>{pattern.cta}</p>
+            <p className="text-sm" style={{ color: "var(--text-primary)" }}>{pattern.cta}</p>
           </div>
           <div className="p-2.5" style={{ backgroundColor: "rgba(245,240,235,0.03)" }}>
             <p className="text-[9px] uppercase tracking-wider mb-1" style={{ color: "rgba(245,240,235,0.2)" }}>Durée optimale</p>
-            <p className="text-sm" style={{ color: "#F5F0EB" }}>{pattern.optimal_duration}</p>
+            <p className="text-sm" style={{ color: "var(--text-primary)" }}>{pattern.optimal_duration}</p>
           </div>
         </div>
       </div>
@@ -92,7 +92,7 @@ function AdVideoCard({ ad }: { ad: TopAd }) {
       <div
         className="relative overflow-hidden group transition-all"
         style={{
-          backgroundColor: "#2A2420",
+          backgroundColor: "var(--bg-card)",
           border: "1px solid rgba(245,240,235,0.06)",
           aspectRatio: "9/16",
         }}
@@ -122,7 +122,7 @@ function AdVideoCard({ ad }: { ad: TopAd }) {
             background: "linear-gradient(to top, rgba(26,22,20,0.95) 0%, rgba(26,22,20,0.6) 60%, transparent 100%)",
           }}
         >
-          <p className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>
+          <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
             {ad.brand_name}
           </p>
           {ad.industry && (
@@ -159,7 +159,7 @@ function AdVideoCard({ ad }: { ad: TopAd }) {
           <button
             onClick={() => setShowPattern(true)}
             className="mt-2 w-full text-[9px] font-medium py-1.5 transition-all hover:opacity-80"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             Analyser le pattern
           </button>

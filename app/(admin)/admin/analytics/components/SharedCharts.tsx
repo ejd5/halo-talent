@@ -20,7 +20,7 @@ export function StatCard({ title, value, subtitle, trend, trendValue, icon }: {
       <div className="text-xl font-bold" style={{ fontFamily: "var(--font-display)" }}>{value}</div>
       {subtitle && <div className="text-[10px] opacity-40 mt-0.5">{subtitle}</div>}
       {trend && (
-        <div className={`flex items-center gap-1 mt-1 text-[10px] font-medium ${trend === "up" ? "text-[#7A9A65]" : "text-[#C44536]"}`}>
+        <div className={`flex items-center gap-1 mt-1 text-[10px] font-medium ${trend === "up" ? "text-[var(--success)]" : "text-[var(--danger)]"}`}>
           {trend === "up" ? <TrendingUp size={10} /> : <TrendingDown size={10} />}
           {trendValue} {trend === "up" ? "hausse" : "baisse"}
         </div>

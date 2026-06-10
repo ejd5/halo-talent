@@ -84,7 +84,7 @@ export function LegalShieldSection() {
                 className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold tracking-wider uppercase transition-all hover:opacity-90"
                 style={{
                   background: "var(--color-accent)",
-                  color: "#F5F0EB",
+                  color: "var(--text-primary)",
                 }}
               >
                 {t("home.cta", locale)}
@@ -179,7 +179,7 @@ export function LegalShieldSection() {
                           >
                             <path
                               d="M2 5L4.5 7.5L8 2.5"
-                              stroke="#F5F0EB"
+                              stroke="var(--text-primary)"
                               strokeWidth="1.5"
                               strokeLinecap="round"
                               strokeLinejoin="round"

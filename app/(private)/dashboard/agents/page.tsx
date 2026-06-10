@@ -24,7 +24,7 @@ export default function AgentsPage() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Mes agents IA</h1>
-        <p className="text-base mt-1" style={{ color: "#FFFFFF" }}>6 assistants spécialisés pour booster votre activité</p>
+        <p className="text-base mt-1" style={{ color: "var(--text-primary)" }}>6 assistants spécialisés pour booster votre activité</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -44,13 +44,13 @@ export default function AgentsPage() {
                   </div>
                   <div>
                     <h3 className="text-base font-semibold">{AGENT_LABELS[key]}</h3>
-                    <p className="text-sm mt-0.5" style={{ color: "#FFFFFF" }}>{AGENT_DESCRIPTIONS[key]}</p>
+                    <p className="text-sm mt-0.5" style={{ color: "var(--text-primary)" }}>{AGENT_DESCRIPTIONS[key]}</p>
                   </div>
                 </div>
-                <ArrowRight size={14} className="opacity-0 group-hover:opacity-60 transition-opacity shrink-0" style={{ color: "#FFFFFF" }} />
+                <ArrowRight size={14} className="opacity-0 group-hover:opacity-60 transition-opacity shrink-0" style={{ color: "var(--text-primary)" }} />
               </div>
               <div className="flex items-center gap-2">
-                <Icon size={14} className="shrink-0" style={{ color: "#FFFFFF" }} />
+                <Icon size={14} className="shrink-0" style={{ color: "var(--text-primary)" }} />
                 <span className="text-sm font-medium" style={{ color: "var(--color-accent)" }}>{status}</span>
               </div>
             </Link>

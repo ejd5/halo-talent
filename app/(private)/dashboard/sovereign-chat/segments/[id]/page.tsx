@@ -93,7 +93,7 @@ export default function SegmentDetailPage({ params }: { params: Promise<{ id: st
           </Link>
           <div>
             <div className="flex items-center gap-2">
-              <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+              <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
                 {loading ? "..." : segment?.name || "Introuvable"}
               </h1>
               {segment && (
@@ -101,7 +101,7 @@ export default function SegmentDetailPage({ params }: { params: Promise<{ id: st
                   className="text-[8px] px-1.5 py-0.5 uppercase tracking-wider"
                   style={{
                     backgroundColor: segment.type === "smart" ? "rgba(122,154,101,0.1)" : "rgba(199,91,57,0.1)",
-                    color: segment.type === "smart" ? "#7A9A65" : "#C75B39",
+                    color: segment.type === "smart" ? "var(--success)" : "var(--accent)",
                   }}
                 >
                   {segment.type === "smart" ? "Smart" : "Static"}
@@ -137,7 +137,7 @@ export default function SegmentDetailPage({ params }: { params: Promise<{ id: st
           <Link
             href={`/dashboard/sovereign-chat/segments/${id}/edit`}
             className="text-[10px] font-semibold py-2 px-3 transition-all hover:opacity-80"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             Éditer
           </Link>
@@ -163,7 +163,7 @@ export default function SegmentDetailPage({ params }: { params: Promise<{ id: st
           ) : (
             <div className="flex flex-wrap gap-1.5">
               {segment.rules.map((rule: any, i: number) => (
-                <span key={i} className="text-[9px] px-2 py-1" style={{ backgroundColor: "rgba(199,91,57,0.08)", color: "#C75B39" }}>
+                <span key={i} className="text-[9px] px-2 py-1" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>
                   {rule.field} {rule.operator} {typeof rule.value === "string" && rule.value.startsWith("now-") ? `${rule.value.replace("now-", "")}` : JSON.stringify(rule.value)}
                 </span>
               ))}
@@ -180,7 +180,7 @@ export default function SegmentDetailPage({ params }: { params: Promise<{ id: st
       {/* Members list */}
       {segment && (
         <div>
-          <h2 className="text-xs font-semibold mb-3" style={{ color: "#F5F0EB" }}>
+          <h2 className="text-xs font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
             Membres ({members.length})
           </h2>
 
@@ -200,12 +200,12 @@ export default function SegmentDetailPage({ params }: { params: Promise<{ id: st
                   <div className="flex items-center gap-2.5 min-w-0">
                     <div
                       className="w-7 h-7 flex items-center justify-center text-[9px] font-medium shrink-0"
-                      style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}
+                      style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}
                     >
                       {(fan.display_name || fan.email || "?").charAt(0).toUpperCase()}
                     </div>
                     <div className="min-w-0">
-                      <p className="text-[11px] font-medium truncate" style={{ color: "#F5F0EB" }}>
+                      <p className="text-[11px] font-medium truncate" style={{ color: "var(--text-primary)" }}>
                         {fan.display_name || fan.email || fan.username_onlyfans || "Anonyme"}
                       </p>
                       <p className="text-[8px] truncate" style={{ color: "rgba(245,240,235,0.2)" }}>
@@ -222,8 +222,8 @@ export default function SegmentDetailPage({ params }: { params: Promise<{ id: st
                           fan.fan_tier === "whale" ? "rgba(122,154,101,0.1)" :
                           "rgba(245,240,235,0.04)",
                         color:
-                          fan.fan_tier === "vip" ? "#C75B39" :
-                          fan.fan_tier === "whale" ? "#7A9A65" :
+                          fan.fan_tier === "vip" ? "var(--accent)" :
+                          fan.fan_tier === "whale" ? "var(--success)" :
                           "rgba(245,240,235,0.3)",
                       }}
                     >

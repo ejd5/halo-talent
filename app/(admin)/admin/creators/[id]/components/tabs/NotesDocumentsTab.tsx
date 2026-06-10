@@ -45,14 +45,14 @@ export function NotesDocumentsTab({ creatorId }: Props) {
       {/* Notes internes */}
       <div>
         <div className="flex items-center gap-2 mb-4">
-          <MessageSquare size={14} strokeWidth={1.5} style={{ color: "#C75B39" }} />
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
+          <MessageSquare size={14} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "var(--text-primary)" }}>
             Notes internes
           </p>
         </div>
 
         {/* Add note */}
-        <div className="mb-4 p-3" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="mb-4 p-3" style={{ border: "1px solid var(--border-default)" }}>
           <textarea
             value={noteText}
             onChange={(e) => setNoteText(e.target.value)}
@@ -62,14 +62,14 @@ export function NotesDocumentsTab({ creatorId }: Props) {
             style={{ color: "#D0CCC6" }}
           />
           <div className="flex items-center justify-between mt-2">
-            <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
-              <kbd className="px-1 py-0.5" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>⌘↵</kbd>
+            <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
+              <kbd className="px-1 py-0.5" style={{ border: "1px solid var(--border-default)" }}>⌘↵</kbd>
             </span>
             <button
               onClick={handleAddNote}
               disabled={!noteText.trim()}
               className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-80 disabled:opacity-30"
-              style={{ background: "#C75B39", color: "#F5F0EB" }}
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
             >
               <Send size={11} strokeWidth={1.5} />
               Envoyer
@@ -79,7 +79,7 @@ export function NotesDocumentsTab({ creatorId }: Props) {
 
         {/* Notes list */}
         {notes.length === 0 ? (
-          <p className="text-xs font-sans text-center py-6" style={{ color: "#E0D8D0" }}>
+          <p className="text-xs font-sans text-center py-6" style={{ color: "var(--text-secondary)" }}>
             Aucune note interne.
           </p>
         ) : (
@@ -88,14 +88,14 @@ export function NotesDocumentsTab({ creatorId }: Props) {
               <div
                 key={note.id}
                 className="p-3"
-                style={{ background: "rgba(255,255,255,0.02)", borderLeft: "2px solid rgba(199,91,57,0.2)" }}
+                style={{ background: "var(--bg-card)", borderLeft: "2px solid rgba(199,91,57,0.2)" }}
               >
                 <div className="flex items-center gap-2 mb-1">
-                  <MessageSquare size={10} strokeWidth={1.5} style={{ color: "#C75B39" }} />
+                  <MessageSquare size={10} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
                   <span className="text-[11px] font-sans font-medium" style={{ color: "#D0CCC6" }}>{note.author}</span>
-                  <span className="text-[9px] font-sans" style={{ color: "#E0D8D0" }}>{relativeTime(note.created_at)}</span>
+                  <span className="text-[9px] font-sans" style={{ color: "var(--text-secondary)" }}>{relativeTime(note.created_at)}</span>
                 </div>
-                <p className="text-xs font-sans leading-relaxed" style={{ color: "#E0D8D0" }}>{note.content}</p>
+                <p className="text-xs font-sans leading-relaxed" style={{ color: "var(--text-secondary)" }}>{note.content}</p>
               </div>
             ))}
           </div>
@@ -106,14 +106,14 @@ export function NotesDocumentsTab({ creatorId }: Props) {
       <div>
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
-            <FileText size={14} strokeWidth={1.5} style={{ color: "#C75B39" }} />
-            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
+            <FileText size={14} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
+            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "var(--text-primary)" }}>
               Documents
             </p>
           </div>
           <button
             className="flex items-center gap-1 px-3 py-1.5 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-            style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.3)" }}
+            style={{ color: "var(--accent)", border: "1px solid var(--accent-border)" }}
           >
             <Upload size={11} strokeWidth={1.5} />
             Uploader
@@ -121,7 +121,7 @@ export function NotesDocumentsTab({ creatorId }: Props) {
         </div>
 
         {docs.length === 0 ? (
-          <p className="text-xs font-sans text-center py-6" style={{ color: "#E0D8D0" }}>
+          <p className="text-xs font-sans text-center py-6" style={{ color: "var(--text-secondary)" }}>
             Aucun document uploadé.
           </p>
         ) : (
@@ -132,14 +132,14 @@ export function NotesDocumentsTab({ creatorId }: Props) {
                 <div
                   key={doc.id}
                   className="flex items-center gap-3 p-3 transition-colors hover:bg-white/[0.02]"
-                  style={{ border: "1px solid rgba(255,255,255,0.04)" }}
+                  style={{ border: "1px solid var(--border-default)" }}
                 >
                   <div className="w-8 h-8 flex items-center justify-center" style={{ background: "rgba(199,91,57,0.1)" }}>
-                    <Icon size={14} strokeWidth={1.5} style={{ color: "#C75B39" }} />
+                    <Icon size={14} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
                   </div>
                   <div className="flex-1 min-w-0">
                     <p className="text-xs font-sans font-medium truncate" style={{ color: "#D0CCC6" }}>{doc.title}</p>
-                    <p className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
+                    <p className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
                       {docLabels[doc.type]} · {doc.uploaded_by} · {relativeTime(doc.uploaded_at)}
                     </p>
                   </div>

@@ -11,7 +11,7 @@ import { FUNNEL_PRESETS } from "@/lib/atlas/funnels/types";
 import type { Funnel } from "@/lib/atlas/funnels/types";
 
 const STATUS_STYLES: Record<string, { label: string; color: string; bg: string }> = {
-  active:    { label: "Actif",     color: "#10B981", bg: "rgba(16,185,129,0.1)" },
+  active:    { label: "Actif",     color: "var(--success)", bg: "rgba(16,185,129,0.1)" },
   paused:    { label: "En pause",  color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
   draft:     { label: "Brouillon", color: "rgba(255,255,255,0.4)", bg: "rgba(255,255,255,0.05)" },
   completed: { label: "Terminé",   color: "#5B8FA8", bg: "rgba(91,143,168,0.1)" },
@@ -98,7 +98,7 @@ export default function FunnelsPage() {
       {/* ─── Header ─── */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Funnels de conversion
           </h1>
           <p className="text-sm mt-0.5" style={{ color: "var(--color-ink-secondary)" }}>
@@ -108,7 +108,7 @@ export default function FunnelsPage() {
         <button
           onClick={() => setShowPresets(!showPresets)}
           className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-sm transition-opacity hover:opacity-80"
-          style={{ background: "#C75B39", color: "#FFFFFF" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={14} /> Nouveau funnel
         </button>
@@ -122,12 +122,12 @@ export default function FunnelsPage() {
             { icon: Users, label: "Fans dans les funnels", value: totalEntries },
             { icon: DollarSign, label: "Revenus générés", value: `${totalRevenue.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })}` },
           ].map((kpi) => (
-            <div key={kpi.label} className="p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <div key={kpi.label} className="p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
               <div className="flex items-center gap-2 mb-1">
                 <kpi.icon size={12} style={{ color: "var(--color-ink-tertiary)" }} />
                 <span className="text-[0.6rem] uppercase tracking-[0.1em]" style={{ color: "var(--color-ink-tertiary)" }}>{kpi.label}</span>
               </div>
-              <p className="text-xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+              <p className="text-xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
                 {kpi.value}
               </p>
             </div>
@@ -154,14 +154,14 @@ export default function FunnelsPage() {
             <button
               onClick={() => setShowPresets(true)}
               className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-sm transition-opacity hover:opacity-80"
-              style={{ background: "#C75B39", color: "#FFFFFF" }}
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
             >
               <Plus size={14} /> Créer un funnel
             </button>
             <Link
               href="/dashboard/atlas/rules"
               className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-sm transition-opacity hover:bg-white/5"
-              style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+              style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
             >
               <Shuffle size={14} /> Voir les règles
             </Link>
@@ -171,7 +171,7 @@ export default function FunnelsPage() {
 
       {/* ─── Presets panel ─── */}
       {showPresets && (
-        <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+        <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-ink-tertiary)" }}>
               Démarrer avec un template
@@ -188,9 +188,9 @@ export default function FunnelsPage() {
                 className="p-3 text-left rounded-sm transition-all hover:bg-white/5"
                 style={{ border: "1px solid rgba(245,240,235,0.06)" }}
               >
-                <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{preset.name}</span>
+                <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{preset.name}</span>
                 <p className="text-[10px] mt-1" style={{ color: "var(--color-ink-tertiary)" }}>{preset.description}</p>
-                <span className="inline-block mt-2 text-[9px] px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+                <span className="inline-block mt-2 text-[9px] px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                   {preset.steps.nodes.length} étapes
                 </span>
               </button>
@@ -209,7 +209,7 @@ export default function FunnelsPage() {
               <div
                 key={funnel.id}
                 className="flex items-center gap-3 p-4 border transition-colors"
-                style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}
+                style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}
               >
                 {/* Status indicator */}
                 <div className="w-1 h-10 shrink-0 rounded-sm" style={{ backgroundColor: st.color }} />
@@ -218,7 +218,7 @@ export default function FunnelsPage() {
                 <div className="flex-1 min-w-0">
                   <Link href={`/dashboard/atlas/funnels/${funnel.id}`} className="hover:opacity-70 transition-opacity">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{funnel.name}</span>
+                      <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{funnel.name}</span>
                       <span className="text-[9px] px-1.5 py-0.5 rounded-sm font-medium" style={{ background: st.bg, color: st.color }}>
                         {st.label}
                       </span>
@@ -246,7 +246,7 @@ export default function FunnelsPage() {
                       {isToggling ? <Loader size={13} className="animate-spin" /> : (
                         funnel.status === "active"
                           ? <Pause size={13} style={{ color: "#F59E0B" }} />
-                          : <Play size={13} style={{ color: "#10B981" }} />
+                          : <Play size={13} style={{ color: "var(--success)" }} />
                       )}
                     </button>
                   )}
@@ -272,7 +272,7 @@ export default function FunnelsPage() {
                   >
                     {deleting === funnel.id
                       ? <Loader size={13} className="animate-spin" />
-                      : <Trash2 size={13} style={{ color: "#C44536" }} />
+                      : <Trash2 size={13} style={{ color: "var(--danger)" }} />
                     }
                   </button>
                 </div>

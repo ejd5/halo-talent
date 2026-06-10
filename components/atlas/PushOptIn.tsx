@@ -110,7 +110,7 @@ export default function PushOptIn({ creatorHandle, creatorName, creatorId }: Pus
   if (subscribed) {
     return (
       <div className="flex items-center gap-2 px-3 py-2 text-xs rounded-sm"
-        style={{ backgroundColor: "rgba(16,185,129,0.1)", color: "#10B981", border: "1px solid rgba(16,185,129,0.2)" }}
+        style={{ backgroundColor: "rgba(16,185,129,0.1)", color: "var(--success)", border: "1px solid rgba(16,185,129,0.2)" }}
       >
         <Bell size={14} />
         <span>Notifications activées ✓</span>
@@ -124,7 +124,7 @@ export default function PushOptIn({ creatorHandle, creatorName, creatorId }: Pus
         onClick={handleSubscribe}
         disabled={loading}
         className="flex items-center gap-2 px-4 py-2.5 text-sm font-medium rounded-sm transition-all hover:opacity-90 disabled:opacity-50 w-full justify-center"
-        style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+        style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
       >
         {loading ? (
           <Loader size={16} className="animate-spin" />
@@ -134,7 +134,7 @@ export default function PushOptIn({ creatorHandle, creatorName, creatorId }: Pus
         {loading ? "Activation..." : `🔔 Activer les notifications${creatorName ? ` de ${creatorName}` : ""}`}
       </button>
       {error && (
-        <p className="text-xs mt-1.5" style={{ color: "#C44536" }}>{error}</p>
+        <p className="text-xs mt-1.5" style={{ color: "var(--danger)" }}>{error}</p>
       )}
     </div>
   );

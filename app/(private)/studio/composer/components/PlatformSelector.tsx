@@ -46,19 +46,19 @@ export function PlatformSelector({ platforms, onToggle, onSubtypeChange }: Platf
                 onClick={() => onToggle(def.type)}
                 className="flex items-center gap-2.5 w-full text-left px-2.5 py-2 text-xs rounded transition-all"
                 style={{
-                  color: enabled ? "#F5F0EB" : "rgba(255,255,255,0.3)",
+                  color: enabled ? "var(--text-primary)" : "rgba(255,255,255,0.3)",
                   background: enabled ? "rgba(199,91,57,0.08)" : "transparent",
                   border: enabled
                     ? "1px solid rgba(199,91,57,0.2)"
                     : "1px solid transparent",
                 }}
               >
-                <Icon size={14} style={{ color: enabled ? "#C75B39" : "rgba(255,255,255,0.2)" }} />
+                <Icon size={14} style={{ color: enabled ? "var(--accent)" : "rgba(255,255,255,0.2)" }} />
                 <span className="flex-1">{def.label}</span>
                 {enabled && (
                   <span
                     className="w-1.5 h-1.5 rounded-full"
-                    style={{ background: "#C75B39" }}
+                    style={{ background: "var(--accent)" }}
                   />
                 )}
               </button>
@@ -76,7 +76,7 @@ export function PlatformSelector({ platforms, onToggle, onSubtypeChange }: Platf
                         }}
                         className="text-[10px] px-1.5 py-0.5 rounded transition-all"
                         style={{
-                          color: isActive ? "#C75B39" : "rgba(255,255,255,0.3)",
+                          color: isActive ? "var(--accent)" : "rgba(255,255,255,0.3)",
                           background: isActive ? "rgba(199,91,57,0.1)" : "transparent",
                           border: isActive
                             ? "1px solid rgba(199,91,57,0.2)"

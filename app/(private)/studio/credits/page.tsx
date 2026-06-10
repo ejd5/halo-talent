@@ -106,7 +106,7 @@ export default function CreditsPage() {
   if (loading) {
     return (
       <div className="flex-1 overflow-y-auto p-4 md:p-8 flex items-center justify-center">
-        <Loader size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+        <Loader size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
       </div>
     );
   }
@@ -122,7 +122,7 @@ export default function CreditsPage() {
           <Link href="/studio" className="p-1 transition-opacity hover:opacity-70" style={{ color: "rgba(255,255,255,0.4)" }}>
             <ArrowLeft size={16} />
           </Link>
-          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Crédits IA</h1>
+          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Crédits IA</h1>
         </div>
 
         {/* ─── Balance card ─── */}
@@ -130,11 +130,11 @@ export default function CreditsPage() {
           <div className="flex items-start justify-between mb-4">
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <Coins size={20} style={{ color: "#C75B39" }} />
+                <Coins size={20} style={{ color: "var(--accent)" }} />
                 <span className="text-xs uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Solde actuel</span>
               </div>
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#C75B39" }}>
+                <span className="text-4xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--accent)" }}>
                   {isUnlimited ? "∞" : balance.toLocaleString("fr-FR")}
                 </span>
                 {!isUnlimited && data?.monthly_quota && data.monthly_quota > 0 && (
@@ -147,7 +147,7 @@ export default function CreditsPage() {
             <div className="text-right">
               <span className="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-sm" style={{
                 background: isUnlimited ? "rgba(199,91,57,0.1)" : "rgba(199,91,57,0.1)",
-                color: isUnlimited ? "#C75B39" : "#C75B39",
+                color: isUnlimited ? "var(--accent)" : "var(--accent)",
               }}>
                 {data?.tier?.name ?? "Free"}
               </span>
@@ -164,14 +164,14 @@ export default function CreditsPage() {
             <div className="relative h-1.5 w-full mb-1 rounded-sm" style={{ background: "rgba(255,255,255,0.06)" }}>
               <div
                 className="absolute left-0 top-0 h-full rounded-sm transition-all duration-500"
-                style={{ width: `${Math.min(100, (balance / data.monthly_quota) * 100)}%`, background: balance < 100 ? "#E5484D" : "#C75B39" }}
+                style={{ width: `${Math.min(100, (balance / data.monthly_quota) * 100)}%`, background: balance < 100 ? "var(--danger)" : "var(--accent)" }}
               />
             </div>
           )}
 
           {/* Low credits warning */}
           {!isUnlimited && balance > 0 && balance < 100 && (
-            <div className="flex items-center gap-1.5 text-[10px] mt-2" style={{ color: "#E5484D" }}>
+            <div className="flex items-center gap-1.5 text-[10px] mt-2" style={{ color: "var(--danger)" }}>
               <AlertTriangle size={10} />
               Moins de 100 crédits restants
             </div>
@@ -196,7 +196,7 @@ export default function CreditsPage() {
                     title={`${day.date}: ${day.value} crédits`}
                     style={{
                       height: `${Math.max(height, 1)}%`,
-                      background: day.value > 0 ? "#C75B39" : "rgba(255,255,255,0.03)",
+                      background: day.value > 0 ? "var(--accent)" : "rgba(255,255,255,0.03)",
                     }}
                   />
                 );
@@ -220,11 +220,11 @@ export default function CreditsPage() {
                   return (
                     <div key={category}>
                       <div className="flex items-center justify-between text-[10px] mb-0.5">
-                        <span style={{ color: "#F5F0EB" }}>{getCategoryLabel(category)}</span>
+                        <span style={{ color: "var(--text-primary)" }}>{getCategoryLabel(category)}</span>
                         <span style={{ color: "rgba(255,255,255,0.3)" }}>{amount} crédits ({pct}%)</span>
                       </div>
                       <div className="relative h-1 w-full rounded-sm" style={{ background: "rgba(255,255,255,0.06)" }}>
-                        <div className="absolute left-0 top-0 h-full rounded-sm" style={{ width: `${pct}%`, background: "#C75B39" }} />
+                        <div className="absolute left-0 top-0 h-full rounded-sm" style={{ width: `${pct}%`, background: "var(--accent)" }} />
                       </div>
                     </div>
                   );
@@ -242,12 +242,12 @@ export default function CreditsPage() {
             </div>
 
             {buySuccess && (
-              <div className="flex items-center gap-1.5 px-3 py-2 text-[10px] mb-3 rounded-sm" style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.15)", color: "#10B981" }}>
+              <div className="flex items-center gap-1.5 px-3 py-2 text-[10px] mb-3 rounded-sm" style={{ background: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.15)", color: "var(--success)" }}>
                 <Check size={10} /> {buySuccess}
               </div>
             )}
             {buyError && (
-              <div className="flex items-center gap-1.5 px-3 py-2 text-[10px] mb-3 rounded-sm" style={{ background: "rgba(229,72,77,0.06)", border: "1px solid rgba(229,72,77,0.15)", color: "#E5484D" }}>
+              <div className="flex items-center gap-1.5 px-3 py-2 text-[10px] mb-3 rounded-sm" style={{ background: "rgba(229,72,77,0.06)", border: "1px solid rgba(229,72,77,0.15)", color: "var(--danger)" }}>
                 <AlertTriangle size={10} /> {buyError}
               </div>
             )}
@@ -265,23 +265,23 @@ export default function CreditsPage() {
                   }}
                 >
                   {pack.popular && (
-                    <span className="absolute -top-2 right-2 text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-sm" style={{ background: "#C75B39", color: "#FFFFFF" }}>
+                    <span className="absolute -top-2 right-2 text-[8px] uppercase tracking-wider px-1.5 py-0.5 rounded-sm" style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                       Populaire
                     </span>
                   )}
                   <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+                    <span className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
                       {pack.credits.toLocaleString("fr-FR")}
                     </span>
                     <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>crédits</span>
                   </div>
-                  <p className="text-[11px] font-medium" style={{ color: "#C75B39" }}>{pack.price} €</p>
+                  <p className="text-[11px] font-medium" style={{ color: "var(--accent)" }}>{pack.price} €</p>
                   <p className="text-[8px] mt-1" style={{ color: "rgba(255,255,255,0.15)" }}>
                     {(pack.price / pack.credits).toFixed(2)} €/crédit
                   </p>
                   {buying === pack.id && (
                     <div className="absolute inset-0 flex items-center justify-center rounded-sm" style={{ background: "rgba(0,0,0,0.5)" }}>
-                      <Loader size={14} className="animate-spin" style={{ color: "#C75B39" }} />
+                      <Loader size={14} className="animate-spin" style={{ color: "var(--accent)" }} />
                     </div>
                   )}
                 </button>
@@ -296,7 +296,7 @@ export default function CreditsPage() {
             <Link
               href="/dashboard/upgrade"
               className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-sm transition-opacity hover:opacity-80"
-              style={{ background: "#C75B39", color: "#FFFFFF" }}
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
             >
               <Sparkles size={12} />
               Changer de plan
@@ -305,7 +305,7 @@ export default function CreditsPage() {
           <Link
             href="/studio/api-keys"
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-sm transition-opacity hover:bg-white/5"
-            style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           >
             <KeyRound size={12} />
             BYOK — Mes clés API
@@ -333,7 +333,7 @@ export default function CreditsPage() {
                   background: tx.type === "deduct" ? "rgba(229,72,77,0.02)" : tx.type === "purchase" ? "rgba(16,185,129,0.02)" : "transparent",
                 }}>
                   {/* Icon */}
-                  <span style={{ color: tx.type === "purchase" ? "#10B981" : tx.type === "grant" ? "#C75B39" : "#E5484D" }}>
+                  <span style={{ color: tx.type === "purchase" ? "var(--success)" : tx.type === "grant" ? "var(--accent)" : "var(--danger)" }}>
                     {tx.type === "purchase" ? <TrendingUp size={10} /> : tx.type === "grant" ? <Coins size={10} /> : <TrendingDown size={10} />}
                   </span>
 
@@ -344,7 +344,7 @@ export default function CreditsPage() {
 
                   {/* Type */}
                   <span className="w-16 shrink-0 font-medium" style={{
-                    color: tx.type === "purchase" ? "#10B981" : tx.type === "grant" ? "#C75B39" : tx.type === "deduct" ? "#E5484D" : "rgba(255,255,255,0.3)",
+                    color: tx.type === "purchase" ? "var(--success)" : tx.type === "grant" ? "var(--accent)" : tx.type === "deduct" ? "var(--danger)" : "rgba(255,255,255,0.3)",
                   }}>
                     {tx.type === "purchase" ? "Achat" : tx.type === "grant" ? "Crédits" : tx.type === "deduct" ? "Génération" : tx.type === "refund" ? "Remb." : "Bonus"}
                   </span>
@@ -353,7 +353,7 @@ export default function CreditsPage() {
                   <span className="flex-1 truncate">{tx.reason?.replace(/_/g, " ") || ""}</span>
 
                   {/* Amount */}
-                  <span style={{ color: tx.type === "purchase" || tx.type === "grant" || tx.type === "bonus" ? "#10B981" : "#E5484D" }}>
+                  <span style={{ color: tx.type === "purchase" || tx.type === "grant" || tx.type === "bonus" ? "var(--success)" : "var(--danger)" }}>
                     {tx.amount > 0 ? "+" : ""}{tx.amount}
                   </span>
                 </div>

@@ -1,3 +1,4 @@
+import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Container } from "./Container";
 
@@ -7,6 +8,7 @@ type SectionProps = {
   containerClassName?: string;
   as?: "section" | "div" | "article" | "header" | "footer";
   background?: "light" | "dark" | "cream";
+  id?: string;
 };
 
 const backgroundStyles = {
@@ -15,15 +17,19 @@ const backgroundStyles = {
   cream: "bg-base-alt",
 };
 
-export function Section({
+export const Section = forwardRef<HTMLElement, SectionProps>(function Section({
   children,
   className,
   containerClassName,
   as: Tag = "section",
   background = "light",
-}: SectionProps) {
+  id,
+}, ref) {
+  const As = Tag as any;
   return (
-    <Tag
+    <As
+      ref={ref}
+      id={id}
       className={cn(
         "py-30 md:py-40",
         backgroundStyles[background],
@@ -31,6 +37,6 @@ export function Section({
       )}
     >
       <Container className={containerClassName}>{children}</Container>
-    </Tag>
+    </As>
   );
-}
+});

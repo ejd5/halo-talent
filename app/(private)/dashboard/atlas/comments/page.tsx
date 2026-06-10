@@ -110,7 +110,7 @@ export default function CommentsPage() {
       {/* ─── Header ─── */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Commentaires publics
           </h1>
           <p className="text-sm mt-0.5" style={{ color: "var(--color-ink-secondary)" }}>
@@ -122,7 +122,7 @@ export default function CommentsPage() {
             onClick={handleSync}
             disabled={syncing}
             className="flex items-center gap-1 px-3 py-2 text-[10px] rounded-sm transition-colors hover:bg-white/5 disabled:opacity-30"
-            style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
           >
             <RefreshCw size={12} className={syncing ? "animate-spin" : ""} />
             {syncing ? "Sync..." : "Sync"}
@@ -130,7 +130,7 @@ export default function CommentsPage() {
           <Link
             href="/dashboard/atlas/comments/rules"
             className="flex items-center gap-1 px-3 py-2 text-[10px] font-medium rounded-sm transition-opacity hover:opacity-80"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             <Shield size={12} /> Règles auto
           </Link>
@@ -141,12 +141,12 @@ export default function CommentsPage() {
       <div className="grid grid-cols-5 gap-2">
         {[
           { key: "new", label: "Nouveaux", value: statusCounts.new || 0, color: "#5B8FA8" },
-          { key: "replied", label: "Répondu", value: statusCounts.replied || 0, color: "#10B981" },
+          { key: "replied", label: "Répondu", value: statusCounts.replied || 0, color: "var(--success)" },
           { key: "hidden", label: "Masqué", value: statusCounts.hidden || 0, color: "#F59E0B" },
-          { key: "flagged", label: "Signalé", value: statusCounts.flagged || 0, color: "#C44536" },
-          { key: null, label: "Total", value: statusCounts.all || 0, color: "#C75B39" },
+          { key: "flagged", label: "Signalé", value: statusCounts.flagged || 0, color: "var(--danger)" },
+          { key: null, label: "Total", value: statusCounts.all || 0, color: "var(--accent)" },
         ].map((kpi) => (
-          <div key={kpi.key || "total"} className="p-2 text-center" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+          <div key={kpi.key || "total"} className="p-2 text-center" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
             <p className="text-[0.55rem] uppercase tracking-[0.1em]" style={{ color: "var(--color-ink-tertiary)" }}>{kpi.label}</p>
             <p className="text-lg font-bold" style={{ fontFamily: "var(--font-display)", color: kpi.color }}>{kpi.value}</p>
           </div>
@@ -155,7 +155,7 @@ export default function CommentsPage() {
 
       {/* ─── Filters ─── */}
       <div className="flex items-center gap-2 flex-wrap">
-        <div className="flex items-center gap-1 p-1 rounded-sm" style={{ backgroundColor: "#2A2420" }}>
+        <div className="flex items-center gap-1 p-1 rounded-sm" style={{ backgroundColor: "var(--bg-card)" }}>
           {["new", "all", "replied", "hidden", "flagged"].map((s) => (
             <button
               key={s}
@@ -163,7 +163,7 @@ export default function CommentsPage() {
               className="px-2 py-1 text-[9px] uppercase tracking-wider rounded-sm transition-colors"
               style={{
                 backgroundColor: filterStatus === s ? "rgba(199,91,57,0.2)" : "transparent",
-                color: filterStatus === s ? "#C75B39" : "var(--color-ink-tertiary)",
+                color: filterStatus === s ? "var(--accent)" : "var(--color-ink-tertiary)",
               }}
             >
               {s === "all" ? "Tous" : STATUS_LABELS[s as keyof typeof STATUS_LABELS] || s}
@@ -177,7 +177,7 @@ export default function CommentsPage() {
             value={filterPlatform}
             onChange={(e) => setFilterPlatform(e.target.value)}
             className="bg-transparent text-[10px] outline-none cursor-pointer"
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           >
             <option value="all">Toutes plateformes</option>
             {Object.entries(PLATFORM_LABELS).map(([k, v]) => (
@@ -193,7 +193,7 @@ export default function CommentsPage() {
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Rechercher..."
             className="w-full bg-transparent text-[10px] pl-7 pr-2 py-1 rounded-sm outline-none"
-            style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
           />
         </div>
       </div>
@@ -212,7 +212,7 @@ export default function CommentsPage() {
             onClick={handleSync}
             disabled={syncing}
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-sm mt-4 transition-opacity hover:opacity-80"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             <RefreshCw size={14} className={syncing ? "animate-spin" : ""} />
             Synchroniser
@@ -230,7 +230,7 @@ export default function CommentsPage() {
               <div key={comment.id} className="p-3 transition-colors" style={{
                 backgroundColor: comment.status === "flagged" ? "rgba(196,69,54,0.03)" : comment.status === "new" ? "rgba(91,143,168,0.03)" : "#2A2420",
                 border: "1px solid rgba(245,240,235,0.06)",
-                borderLeft: `2px solid ${comment.status === "new" ? "#5B8FA8" : comment.status === "flagged" ? "#C44536" : comment.status === "replied" ? "#10B981" : "transparent"}`,
+                borderLeft: `2px solid ${comment.status === "new" ? "#5B8FA8" : comment.status === "flagged" ? "var(--danger)" : comment.status === "replied" ? "var(--success)" : "transparent"}`,
               }}>
                 {/* Main row */}
                 <div className="flex items-start gap-3">
@@ -242,7 +242,7 @@ export default function CommentsPage() {
                   {/* Content */}
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
-                      <span className="text-[11px] font-medium" style={{ color: "#F5F0EB" }}>
+                      <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>
                         {comment.author_display_name || comment.author_username || "Anonyme"}
                       </span>
                       <span className="text-[8px]" style={{ color: platformColor }}>
@@ -271,9 +271,9 @@ export default function CommentsPage() {
                     {/* Auto-reply indicator */}
                     {comment.auto_reply_content && (
                       <div className="flex items-start gap-1.5 mt-2 p-2 rounded-sm" style={{ backgroundColor: "rgba(16,185,129,0.05)", border: "1px solid rgba(16,185,129,0.1)" }}>
-                        <Zap size={10} style={{ color: "#10B981", marginTop: 1 }} />
+                        <Zap size={10} style={{ color: "var(--success)", marginTop: 1 }} />
                         <div>
-                          <span className="text-[8px] font-medium" style={{ color: "#10B981" }}>Auto-réponse</span>
+                          <span className="text-[8px] font-medium" style={{ color: "var(--success)" }}>Auto-réponse</span>
                           <p className="text-[10px] mt-0.5" style={{ color: "rgba(245,240,235,0.5)" }}>{comment.auto_reply_content}</p>
                         </div>
                       </div>
@@ -288,7 +288,7 @@ export default function CommentsPage() {
                           onChange={(e) => setReplyText(e.target.value)}
                           placeholder="Écris ta réponse..."
                           className="flex-1 px-2 py-1.5 text-[10px] bg-transparent rounded-sm outline-none"
-                          style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+                          style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
                           onKeyDown={(e) => { if (e.key === "Enter") handleReply(comment.id); if (e.key === "Escape") setReplyingTo(null); }}
                           autoFocus
                         />
@@ -296,7 +296,7 @@ export default function CommentsPage() {
                           onClick={() => handleReply(comment.id)}
                           disabled={replyingLoading || !replyText.trim()}
                           className="p-1.5 rounded-sm disabled:opacity-30"
-                          style={{ color: "#C75B39" }}
+                          style={{ color: "var(--accent)" }}
                         >
                           {replyingLoading ? <Loader size={12} className="animate-spin" /> : <SendHorizonal size={12} />}
                         </button>
@@ -310,7 +310,7 @@ export default function CommentsPage() {
                       onClick={() => { setReplyingTo(replyingTo === comment.id ? null : comment.id); setReplyText(comment.auto_reply_content || ""); }}
                       className="p-1.5 rounded-sm transition-colors hover:bg-white/5"
                       title="Répondre"
-                      style={{ color: comment.status === "replied" ? "#10B981" : "var(--color-ink-tertiary)" }}
+                      style={{ color: comment.status === "replied" ? "var(--success)" : "var(--color-ink-tertiary)" }}
                     >
                       <Reply size={12} />
                     </button>
@@ -329,7 +329,7 @@ export default function CommentsPage() {
                         disabled={actingOn === comment.id}
                         className="p-1.5 rounded-sm transition-colors hover:bg-white/5 disabled:opacity-30"
                         title="Supprimer"
-                        style={{ color: "#C44536" }}
+                        style={{ color: "var(--danger)" }}
                       >
                         {actingOn === comment.id ? <Loader size={12} className="animate-spin" /> : <Trash2 size={12} />}
                       </button>
@@ -338,7 +338,7 @@ export default function CommentsPage() {
                       onClick={() => handleStatus(comment.id, comment.status === "flagged" ? "approved" : "flagged")}
                       className="p-1.5 rounded-sm transition-colors hover:bg-white/5"
                       title={comment.status === "flagged" ? "Lever le signalement" : "Signaler"}
-                      style={{ color: comment.status === "flagged" ? "#C44536" : "var(--color-ink-tertiary)" }}
+                      style={{ color: comment.status === "flagged" ? "var(--danger)" : "var(--color-ink-tertiary)" }}
                     >
                       <AlertTriangle size={12} />
                     </button>

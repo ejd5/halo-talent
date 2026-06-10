@@ -216,7 +216,6 @@ export async function finalizeDNA(
       .from("profiles")
       .update({
         studio_access: true,
-        dna_completed: true,
         onboarding_completed_at: new Date().toISOString(),
       })
       .eq("id", creatorId);

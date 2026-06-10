@@ -10,9 +10,9 @@ type SortKey = keyof CreatorRevenueRow;
 type SortDir = "asc" | "desc";
 
 const paymentStatusStyles: Record<string, { label: string; color: string }> = {
-  paid: { label: "Payé", color: "#7A9A65" },
-  pending: { label: "En attente", color: "#C75B39" },
-  overdue: { label: "En retard", color: "#C44536" },
+  paid: { label: "Payé", color: "var(--success)" },
+  pending: { label: "En attente", color: "var(--accent)" },
+  overdue: { label: "En retard", color: "var(--danger)" },
 };
 
 export function ByCreatorTab({ rows }: Props) {
@@ -84,12 +84,12 @@ export function ByCreatorTab({ rows }: Props) {
     <th
       className="py-3 px-3 font-medium cursor-pointer hover:opacity-80 select-none"
       onClick={() => handleSort(sk)}
-      style={{ color: "#E0D8D0" }}
+      style={{ color: "var(--text-secondary)" }}
     >
       <div className="flex items-center gap-1">
         {label}
         {sortKey === sk && (
-          <span className="text-[8px]" style={{ color: "#C75B39" }}>
+          <span className="text-[8px]" style={{ color: "var(--accent)" }}>
             {sortDir === "asc" ? "▲" : "▼"}
           </span>
         )}
@@ -101,28 +101,28 @@ export function ByCreatorTab({ rows }: Props) {
     <div>
       {/* Toolbar */}
       <div className="flex items-center gap-3 mb-4 card-accent">
-        <div className="flex-1 flex items-center gap-2 px-3" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.06)" }}>
-          <Search size={14} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
+        <div className="flex-1 flex items-center gap-2 px-3" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+          <Search size={14} strokeWidth={1.5} style={{ color: "var(--text-secondary)" }} />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Rechercher un créateur..."
             className="flex-1 bg-transparent text-xs font-sans py-2.5 outline-none"
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           />
         </div>
         <button
           onClick={() => setShowFilters(!showFilters)}
           className="p-2 transition-colors hover:bg-white/5"
-          style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
         >
           <SlidersHorizontal size={14} strokeWidth={1.5} />
         </button>
         <button
           onClick={handleExport}
           className="flex items-center gap-1.5 px-3 py-2 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-          style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.3)" }}
+          style={{ color: "var(--accent)", border: "1px solid var(--accent-border)" }}
         >
           <Download size={11} strokeWidth={1.5} />
           CSV
@@ -130,11 +130,11 @@ export function ByCreatorTab({ rows }: Props) {
       </div>
 
       {/* Table */}
-      <div className="card-accent" style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="card-accent" style={{ border: "1px solid var(--border-default)" }}>
         <div className="overflow-x-auto">
           <table className="w-full text-left">
             <thead>
-              <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+              <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ borderBottom: "1px solid var(--border-default)" }}>
                 <SortHeader label="Créateur" sortKey="creator_name" />
                 <SortHeader label="Département" sortKey="department" />
                 <SortHeader label="Palier" sortKey="tier" />
@@ -150,7 +150,7 @@ export function ByCreatorTab({ rows }: Props) {
             <tbody>
               {filtered.length === 0 ? (
                 <tr>
-                  <td colSpan={10} className="py-12 text-center text-xs font-sans" style={{ color: "#E0D8D0" }}>
+                  <td colSpan={10} className="py-12 text-center text-xs font-sans" style={{ color: "var(--text-secondary)" }}>
                     Aucun résultat
                   </td>
                 </tr>
@@ -166,7 +166,7 @@ export function ByCreatorTab({ rows }: Props) {
                       <td className="py-3 px-3">
                         <div className="flex items-center gap-2">
                           <div className="w-7 h-7 flex items-center justify-center text-[10px] font-sans font-semibold"
-                            style={{ background: "rgba(199,91,57,0.15)", color: "#C75B39" }}>
+                            style={{ background: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>
                             {row.creator_name.charAt(0)}
                           </div>
                           <span className="text-xs font-sans font-medium" style={{ color: "#D0CCC6" }}>
@@ -175,29 +175,29 @@ export function ByCreatorTab({ rows }: Props) {
                         </div>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-xs font-sans" style={{ color: "#E0D8D0" }}>{row.department}</span>
+                        <span className="text-xs font-sans" style={{ color: "var(--text-secondary)" }}>{row.department}</span>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-[10px] font-sans capitalize" style={{ color: "#F5F0EB" }}>{row.tier}</span>
+                        <span className="text-[10px] font-sans capitalize" style={{ color: "var(--text-primary)" }}>{row.tier}</span>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-xs font-sans font-medium tabular-nums" style={{ color: "#F5F0EB" }}>
+                        <span className="text-xs font-sans font-medium tabular-nums" style={{ color: "var(--text-primary)" }}>
                           {formatEuro(row.current_month)}
                         </span>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-xs font-sans tabular-nums" style={{ color: "#E0D8D0" }}>
+                        <span className="text-xs font-sans tabular-nums" style={{ color: "var(--text-secondary)" }}>
                           {formatEuro(row.last_month)}
                         </span>
                       </td>
                       <td className="py-3 px-3">
                         <div className="flex items-center gap-1">
                           {row.variation_pct >= 0 ? (
-                            <TrendingUp size={10} strokeWidth={1.5} style={{ color: "#7A9A65" }} />
+                            <TrendingUp size={10} strokeWidth={1.5} style={{ color: "var(--success)" }} />
                           ) : (
-                            <TrendingDown size={10} strokeWidth={1.5} style={{ color: "#C44536" }} />
+                            <TrendingDown size={10} strokeWidth={1.5} style={{ color: "var(--danger)" }} />
                           )}
-                          <span className="text-xs font-sans tabular-nums" style={{ color: row.variation_pct >= 0 ? "#7A9A65" : "#C44536" }}>
+                          <span className="text-xs font-sans tabular-nums" style={{ color: row.variation_pct >= 0 ? "var(--success)" : "var(--danger)" }}>
                             {row.variation_pct >= 0 ? "+" : ""}{row.variation_pct}%
                           </span>
                         </div>
@@ -208,12 +208,12 @@ export function ByCreatorTab({ rows }: Props) {
                         </span>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-xs font-sans tabular-nums" style={{ color: "#E0D8D0" }}>
+                        <span className="text-xs font-sans tabular-nums" style={{ color: "var(--text-secondary)" }}>
                           {row.commission_rate}%
                         </span>
                       </td>
                       <td className="py-3 px-3">
-                        <span className="text-xs font-sans tabular-nums" style={{ color: "#C75B39" }}>
+                        <span className="text-xs font-sans tabular-nums" style={{ color: "var(--accent)" }}>
                           {formatEuro(row.commission_eur)}
                         </span>
                       </td>
@@ -230,7 +230,7 @@ export function ByCreatorTab({ rows }: Props) {
             </tbody>
           </table>
         </div>
-        <div className="px-3 py-2 text-[10px] font-sans text-right" style={{ color: "#E0D8D0", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="px-3 py-2 text-[10px] font-sans text-right" style={{ color: "var(--text-secondary)", borderTop: "1px solid var(--border-default)" }}>
           {filtered.length} créateurs
         </div>
       </div>

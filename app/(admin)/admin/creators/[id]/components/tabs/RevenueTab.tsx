@@ -18,14 +18,14 @@ export function RevenueTab({ creator }: Props) {
       <div className="flex items-center gap-3">
         <button
           className="flex items-center gap-1.5 px-3 py-2 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-          style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.3)" }}
+          style={{ color: "var(--accent)", border: "1px solid var(--accent-border)" }}
         >
           <Plus size={12} strokeWidth={1.5} />
           Saisir un revenu manuel
         </button>
         <button
           className="flex items-center gap-1.5 px-3 py-2 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-          style={{ color: "#E0D8D0", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ color: "var(--text-secondary)", border: "1px solid var(--border-default)" }}
         >
           <Download size={12} strokeWidth={1.5} />
           Export CSV
@@ -34,18 +34,18 @@ export function RevenueTab({ creator }: Props) {
           value={filterPlatform}
           onChange={(e) => setFilterPlatform(e.target.value)}
           className="ml-auto bg-transparent text-[10px] font-sans px-2 py-2 outline-none"
-          style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
         >
-          <option value="all" style={{ background: "#1A1614" }}>Toutes les plateformes</option>
+          <option value="all" style={{ background: "var(--bg-primary)" }}>Toutes les plateformes</option>
           {creator.platforms.map((p) => (
-            <option key={p.name} value={p.name} style={{ background: "#1A1614" }}>{p.name}</option>
+            <option key={p.name} value={p.name} style={{ background: "var(--bg-primary)" }}>{p.name}</option>
           ))}
         </select>
       </div>
 
       {/* Stacked bar chart (simplified) */}
-      <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "#F5F0EB" }}>
+      <div className="p-5" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+        <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "var(--text-primary)" }}>
           Répartition par plateforme
         </p>
         <div className="flex items-end gap-2 h-40">
@@ -54,14 +54,14 @@ export function RevenueTab({ creator }: Props) {
             const h = (m.total_gross / max) * 100;
             return (
               <div key={m.month} className="flex-1 flex flex-col items-center gap-1">
-                <span className="text-[8px] font-sans tabular-nums" style={{ color: "#E0D8D0" }}>
+                <span className="text-[8px] font-sans tabular-nums" style={{ color: "var(--text-secondary)" }}>
                   {formatEuro(m.total_gross)}
                 </span>
                 <div
                   className="w-full rounded-none"
                   style={{ height: `${Math.max(h, 3)}%`, background: "rgba(199,91,57,0.4)" }}
                 />
-                <span className="text-[9px] font-sans" style={{ color: "#E0D8D0" }}>{m.month}</span>
+                <span className="text-[9px] font-sans" style={{ color: "var(--text-secondary)" }}>{m.month}</span>
               </div>
             );
           })}
@@ -69,10 +69,10 @@ export function RevenueTab({ creator }: Props) {
       </div>
 
       {/* Monthly table */}
-      <div className="overflow-x-auto" style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="overflow-x-auto" style={{ border: "1px solid var(--border-default)" }}>
         <table className="w-full text-left">
           <thead>
-            <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "#E0D8D0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+            <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "var(--text-secondary)", borderBottom: "1px solid var(--border-default)" }}>
               <th className="py-3 px-4 font-medium">Mois</th>
               <th className="py-3 px-4 font-medium">Plateforme</th>
               <th className="py-3 px-4 font-medium">Revenu brut</th>
@@ -104,18 +104,18 @@ export function RevenueTab({ creator }: Props) {
                         </td>
                       )}
                       <td className="py-3 px-4">
-                        <span className="text-xs font-sans" style={{ color: "#C75B39" }}>{p.name}</span>
+                        <span className="text-xs font-sans" style={{ color: "var(--accent)" }}>{p.name}</span>
                       </td>
-                      <td className="py-3 px-4 text-sm font-sans font-medium" style={{ color: "#F5F0EB" }}>
+                      <td className="py-3 px-4 text-sm font-sans font-medium" style={{ color: "var(--text-primary)" }}>
                         {formatEuro(p.gross)}
                       </td>
-                      <td className="py-3 px-4 text-xs font-sans" style={{ color: "#F5F0EB" }}>
+                      <td className="py-3 px-4 text-xs font-sans" style={{ color: "var(--text-primary)" }}>
                         {p.commission_pct}%
                       </td>
-                      <td className="py-3 px-4 text-sm font-sans font-medium" style={{ color: "#C75B39" }}>
+                      <td className="py-3 px-4 text-sm font-sans font-medium" style={{ color: "var(--accent)" }}>
                         {formatEuro(p.commission_eur)}
                       </td>
-                      <td className="py-3 px-4 text-sm font-sans font-semibold" style={{ color: "#7A9A65" }}>
+                      <td className="py-3 px-4 text-sm font-sans font-semibold" style={{ color: "var(--success)" }}>
                         {formatEuro(p.net)}
                       </td>
                     </tr>

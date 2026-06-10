@@ -90,7 +90,7 @@ export function CalendarPage() {
   );
 
   return (
-    <div className="flex h-full card-accent" style={{ background: "#0A0908" }}>
+    <div className="flex h-full card-accent" style={{ background: "var(--bg-primary)" }}>
       {/* Main content */}
       <div className="flex-1 flex flex-col">
         <CalendarToolbar

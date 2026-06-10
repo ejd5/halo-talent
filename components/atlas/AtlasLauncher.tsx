@@ -82,8 +82,8 @@ export function AtlasLauncher() {
         onClick={() => setOpen(true)}
         className="fixed bottom-6 right-6 z-40 flex items-center gap-2 px-4 py-3 text-sm font-medium shadow-xl transition-all hover:opacity-90"
         style={{
-          backgroundColor: "#C75B39",
-          color: "#F5F0EB",
+          backgroundColor: "var(--accent)",
+          color: "var(--text-primary)",
           fontFamily: "var(--font-display)",
         }}
       >
@@ -107,7 +107,7 @@ export function AtlasLauncher() {
           >
             {/* Search */}
             <div className="flex items-center gap-2 px-4 border-b" style={{ borderColor: "rgba(245,240,235,0.06)" }}>
-              <Zap size={16} style={{ color: "#C75B39" }} />
+              <Zap size={16} style={{ color: "var(--accent)" }} />
               <input
                 ref={inputRef}
                 type="text"
@@ -116,7 +116,7 @@ export function AtlasLauncher() {
                 onChange={(e) => setQuery(e.target.value)}
                 onKeyDown={handleKeyDown}
                 className="flex-1 bg-transparent border-none outline-none py-3 text-sm"
-                style={{ color: "#F5F0EB" }}
+                style={{ color: "var(--text-primary)" }}
               />
               <kbd className="text-[9px] uppercase tracking-wider px-1.5 py-0.5 opacity-40 border" style={{ borderColor: "rgba(245,240,235,0.1)" }}>
                 <Command size={10} className="inline mr-0.5" />A
@@ -137,13 +137,13 @@ export function AtlasLauncher() {
                     onMouseEnter={() => setSelected(i)}
                     className="flex items-center gap-3 w-full text-left px-3 py-2.5 text-sm transition-all"
                     style={{
-                      color: "#F5F0EB",
+                      color: "var(--text-primary)",
                       backgroundColor: i === selected ? "rgba(199,91,57,0.1)" : "transparent",
-                      borderLeft: i === selected ? "2px solid #C75B39" : "2px solid transparent",
+                      borderLeft: i === selected ? "2px solid var(--accent)" : "2px solid transparent",
                     }}
                   >
                     <div className="w-8 h-8 flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)" }}>
-                      <action.icon size={14} style={{ color: "#C75B39" }} />
+                      <action.icon size={14} style={{ color: "var(--accent)" }} />
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="text-sm font-medium truncate" style={{ fontFamily: "var(--font-display)" }}>

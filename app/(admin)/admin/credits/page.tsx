@@ -71,7 +71,7 @@ export default function AdminCreditsPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+        <Loader size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
       </div>
     );
   }
@@ -80,13 +80,13 @@ export default function AdminCreditsPage() {
     <div className="p-6 animate-fade-in">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-xl font-semibold" style={{ color: "#F5F0EB" }}>Crédits & Générations IA</h1>
+          <h1 className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>Crédits & Générations IA</h1>
           <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>Monitoring et gestion des quotas IA</p>
         </div>
         <button
           onClick={fetchStats}
           className="flex items-center gap-1.5 px-3 py-1.5 text-[11px] transition-colors hover:bg-white/5 rounded-sm"
-          style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#F5F0EB" }}
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
         >
           <RefreshCw size={12} /> Actualiser
         </button>
@@ -95,15 +95,15 @@ export default function AdminCreditsPage() {
       {/* Stats cards */}
       <div className="grid grid-cols-5 gap-4 mb-6">
         {[
-          { label: "Générations totales", value: stats?.total_generations ?? 0, icon: Coins, color: "#C75B39" },
-          { label: "Crédits consommés", value: stats?.total_credits_used ?? 0, icon: Coins, color: "#C75B39" },
-          { label: "Coût estimé", value: `${((stats?.total_cost_estimate ?? 0)).toFixed(2)} €`, icon: Coins, color: "#F5F0EB" },
-          { label: "Utilisateurs actifs", value: stats?.active_users ?? 0, icon: Coins, color: "#C75B39" },
+          { label: "Générations totales", value: stats?.total_generations ?? 0, icon: Coins, color: "var(--accent)" },
+          { label: "Crédits consommés", value: stats?.total_credits_used ?? 0, icon: Coins, color: "var(--accent)" },
+          { label: "Coût estimé", value: `${((stats?.total_cost_estimate ?? 0)).toFixed(2)} €`, icon: Coins, color: "var(--text-primary)" },
+          { label: "Utilisateurs actifs", value: stats?.active_users ?? 0, icon: Coins, color: "var(--accent)" },
           { label: "Erreurs récentes", value: stats?.recent_errors?.length ?? 0, icon: AlertTriangle, color: "#E5484D" },
         ].map((card) => (
-          <div key={card.label} className="p-4 border rounded-sm" style={{ borderColor: "rgba(255,255,255,0.06)", background: "#0A0908" }}>
+          <div key={card.label} className="p-4 border rounded-sm" style={{ borderColor: "rgba(255,255,255,0.06)", background: "var(--bg-primary)" }}>
             <card.icon size={16} style={{ color: card.color, opacity: 0.5 }} />
-            <p className="text-lg font-semibold mt-2" style={{ color: "#F5F0EB" }}>{card.value}</p>
+            <p className="text-lg font-semibold mt-2" style={{ color: "var(--text-primary)" }}>{card.value}</p>
             <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>{card.label}</p>
           </div>
         ))}
@@ -115,7 +115,7 @@ export default function AdminCreditsPage() {
         <div className="border rounded-sm overflow-hidden" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <table className="w-full text-xs">
             <thead>
-              <tr style={{ background: "rgba(255,255,255,0.02)" }}>
+              <tr style={{ background: "var(--bg-card)" }}>
                 <th className="text-left px-3 py-2 font-medium" style={{ color: "rgba(255,255,255,0.3)" }}>Email</th>
                 <th className="text-left px-3 py-2 font-medium" style={{ color: "rgba(255,255,255,0.3)" }}>Plan</th>
                 <th className="text-right px-3 py-2 font-medium" style={{ color: "rgba(255,255,255,0.3)" }}>Crédits utilisés</th>
@@ -124,10 +124,10 @@ export default function AdminCreditsPage() {
             </thead>
             <tbody>
               {stats?.top_users?.map((u) => (
-                <tr key={u.id} style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-                  <td className="px-3 py-2" style={{ color: "#F5F0EB" }}>{u.email}</td>
+                <tr key={u.id} style={{ borderTop: "1px solid var(--border-default)" }}>
+                  <td className="px-3 py-2" style={{ color: "var(--text-primary)" }}>{u.email}</td>
                   <td className="px-3 py-2" style={{ color: "rgba(255,255,255,0.5)" }}>{u.plan}</td>
-                  <td className="px-3 py-2 text-right" style={{ color: "#F5F0EB" }}>{u.total}</td>
+                  <td className="px-3 py-2 text-right" style={{ color: "var(--text-primary)" }}>{u.total}</td>
                   <td className="px-3 py-2 text-right">
                     <div className="flex items-center justify-end gap-1">
                       <button
@@ -161,7 +161,7 @@ export default function AdminCreditsPage() {
           <div className="border rounded-sm overflow-hidden" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
             <table className="w-full text-xs">
               <thead>
-                <tr style={{ background: "rgba(255,255,255,0.02)" }}>
+                <tr style={{ background: "var(--bg-card)" }}>
                   <th className="text-left px-3 py-2 font-medium" style={{ color: "rgba(255,255,255,0.3)" }}>Utilisateur</th>
                   <th className="text-left px-3 py-2 font-medium" style={{ color: "rgba(255,255,255,0.3)" }}>Action</th>
                   <th className="text-left px-3 py-2 font-medium" style={{ color: "rgba(255,255,255,0.3)" }}>Erreur</th>
@@ -170,8 +170,8 @@ export default function AdminCreditsPage() {
               </thead>
               <tbody>
                 {stats.recent_errors.map((e, i) => (
-                  <tr key={i} style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-                    <td className="px-3 py-2" style={{ color: "#F5F0EB" }}>{e.email}</td>
+                  <tr key={i} style={{ borderTop: "1px solid var(--border-default)" }}>
+                    <td className="px-3 py-2" style={{ color: "var(--text-primary)" }}>{e.email}</td>
                     <td className="px-3 py-2" style={{ color: "rgba(255,255,255,0.5)" }}>{e.action}</td>
                     <td className="px-3 py-2" style={{ color: "#E5484D" }}>{e.error?.slice(0, 80)}</td>
                     <td className="px-3 py-2 text-right" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -186,8 +186,8 @@ export default function AdminCreditsPage() {
       )}
 
       {/* Ajustement manuel */}
-      <div className="p-4 border rounded-sm" style={{ borderColor: "rgba(255,255,255,0.06)", background: "#0A0908" }}>
-        <h2 className="text-xs font-semibold mb-2" style={{ color: "#F5F0EB" }}>Ajuster manuellement les crédits</h2>
+      <div className="p-4 border rounded-sm" style={{ borderColor: "rgba(255,255,255,0.06)", background: "var(--bg-primary)" }}>
+        <h2 className="text-xs font-semibold mb-2" style={{ color: "var(--text-primary)" }}>Ajuster manuellement les crédits</h2>
         <p className="text-[10px] mb-3" style={{ color: "rgba(255,255,255,0.3)" }}>
           Entrez l&apos;ID utilisateur et le montant à ajouter (négatif pour retirer)
         </p>
@@ -199,7 +199,7 @@ export default function AdminCreditsPage() {
               onChange={(e) => setSearch(e.target.value)}
               placeholder="UUID de l'utilisateur"
               className="w-full text-xs px-2.5 py-1.5 bg-transparent outline-none rounded-sm"
-              style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+              style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
             />
           </div>
           <div className="w-24">
@@ -209,14 +209,14 @@ export default function AdminCreditsPage() {
               value={adjustAmount}
               onChange={(e) => setAdjustAmount(parseInt(e.target.value) || 0)}
               className="w-full text-xs px-2.5 py-1.5 bg-transparent outline-none rounded-sm"
-              style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+              style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
             />
           </div>
           <button
             onClick={() => handleAdjust(search)}
             disabled={!search || adjusting === search}
             className="px-3 py-1.5 text-[10px] font-medium transition-opacity hover:opacity-80 rounded-sm disabled:opacity-30"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             {adjusting === search ? <Loader size={12} className="animate-spin" /> : "Appliquer"}
           </button>

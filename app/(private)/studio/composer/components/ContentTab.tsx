@@ -59,7 +59,7 @@ export function ContentTab({ media, onAddMedia, onRemoveMedia, onSetMedia }: Con
         onClick={() => fileInputRef.current?.click()}
         className="relative flex flex-col items-center justify-center py-12 px-4 cursor-pointer transition-all rounded-sm"
         style={{
-          border: `2px dashed ${dragOver ? "#C75B39" : "rgba(255,255,255,0.1)"}`,
+          border: `2px dashed ${dragOver ? "var(--accent)" : "rgba(255,255,255,0.1)"}`,
           background: dragOver ? "rgba(199,91,57,0.04)" : "rgba(255,255,255,0.02)",
         }}
       >
@@ -71,8 +71,8 @@ export function ContentTab({ media, onAddMedia, onRemoveMedia, onSetMedia }: Con
           className="hidden"
           onChange={handleFileSelect}
         />
-        <Upload size={24} style={{ color: dragOver ? "#C75B39" : "rgba(255,255,255,0.2)" }} />
-        <p className="text-xs mt-3" style={{ color: dragOver ? "#C75B39" : "rgba(255,255,255,0.4)" }}>
+        <Upload size={24} style={{ color: dragOver ? "var(--accent)" : "rgba(255,255,255,0.2)" }} />
+        <p className="text-xs mt-3" style={{ color: dragOver ? "var(--accent)" : "rgba(255,255,255,0.4)" }}>
           {dragOver ? "Dépose ici" : "Glisse des fichiers ou clique pour ajouter"}
         </p>
         <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.2)" }}>
@@ -87,7 +87,7 @@ export function ContentTab({ media, onAddMedia, onRemoveMedia, onSetMedia }: Con
             <div
               key={m.id}
               className="relative w-20 h-20 rounded-sm overflow-hidden group"
-              style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ border: "1px solid var(--border-default)" }}
             >
               {m.type === "video" ? (
                 <div className="w-full h-full flex items-center justify-center" style={{ background: "rgba(255,255,255,0.03)" }}>
@@ -105,7 +105,7 @@ export function ContentTab({ media, onAddMedia, onRemoveMedia, onSetMedia }: Con
                 className="absolute top-0.5 right-0.5 p-0.5 opacity-0 group-hover:opacity-100 transition-opacity rounded-sm"
                 style={{ background: "rgba(0,0,0,0.7)" }}
               >
-                <X size={10} style={{ color: "#F5F0EB" }} />
+                <X size={10} style={{ color: "var(--text-primary)" }} />
               </button>
             </div>
           ))}
@@ -117,31 +117,31 @@ export function ContentTab({ media, onAddMedia, onRemoveMedia, onSetMedia }: Con
         <button
           className="flex items-center gap-2 px-3 py-2.5 text-xs transition-all rounded-sm hover:opacity-80"
           style={{
-            border: "1px solid rgba(255,255,255,0.08)",
-            color: "#F5F0EB",
+            border: "1px solid var(--border-default)",
+            color: "var(--text-primary)",
           }}
         >
-          <ImageIcon size={14} style={{ color: "#C75B39" }} />
+          <ImageIcon size={14} style={{ color: "var(--accent)" }} />
           Bibliothèque média
         </button>
         <button
           className="flex items-center gap-2 px-3 py-2.5 text-xs transition-all rounded-sm hover:opacity-80"
           style={{
-            border: "1px solid rgba(255,255,255,0.08)",
-            color: "#F5F0EB",
+            border: "1px solid var(--border-default)",
+            color: "var(--text-primary)",
           }}
         >
-          <Sparkles size={14} style={{ color: "#C75B39" }} />
+          <Sparkles size={14} style={{ color: "var(--accent)" }} />
           Générer avec l'IA
         </button>
         <button
           className="flex items-center gap-2 px-3 py-2.5 text-xs transition-all rounded-sm hover:opacity-80 col-span-2"
           style={{
-            border: "1px solid rgba(255,255,255,0.08)",
-            color: "#F5F0EB",
+            border: "1px solid var(--border-default)",
+            color: "var(--text-primary)",
           }}
         >
-          <BookTemplate size={14} style={{ color: "#C75B39" }} />
+          <BookTemplate size={14} style={{ color: "var(--accent)" }} />
           Choisir un template
         </button>
       </div>

@@ -215,9 +215,9 @@ export function ContentStrategistChat() {
     const artifact = parseArtifacts(content);
     if (!artifact) return null;
 
-    const accentColor = artifact.type === "caption" ? "#C75B39"
+    const accentColor = artifact.type === "caption" ? "var(--accent)"
       : artifact.type === "hook" ? "#8B5CF6"
-      : artifact.type === "idea" ? "#10B981"
+      : artifact.type === "idea" ? "var(--success)"
       : "#3B82F6";
 
     const typeLabel = artifact.type === "caption" ? "Caption généré"
@@ -243,7 +243,7 @@ export function ContentStrategistChat() {
               className="p-1 hover:opacity-70 transition-opacity"
               title="Copier"
             >
-              {copiedId === `copy-${msgId}` ? <Check size={12} style={{ color: accentColor }} /> : <Copy size={12} style={{ color: "#FFFFFF80" }} />}
+              {copiedId === `copy-${msgId}` ? <Check size={12} style={{ color: accentColor }} /> : <Copy size={12} style={{ color: "rgba(255, 255, 255, 0.5)" }} />}
             </button>
           </div>
         </div>
@@ -257,7 +257,7 @@ export function ContentStrategistChat() {
                 <span className="text-lg mt-[-2px]">💡</span>
               )}
               <div className="flex-1 min-w-0">
-                <p className="text-sm leading-relaxed" style={{ color: "#FFFFFF" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--text-primary)" }}>
                   {item}
                 </p>
               </div>
@@ -269,13 +269,13 @@ export function ContentStrategistChat() {
             <button
               onClick={() => copyToClipboard(artifact.items.join("\n\n"), `use-${msgId}`)}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-80"
-              style={{ backgroundColor: accentColor, color: "#FFFFFF" }}
+              style={{ backgroundColor: accentColor, color: "var(--text-primary)" }}
             >
               <Copy size={11} />
               Utiliser
             </button>
             <button className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium border transition-opacity hover:opacity-80"
-              style={{ borderColor: "#FFFFFF20", color: "#FFFFFF" }}>
+              style={{ borderColor: "rgba(255, 255, 255, 0.125)", color: "var(--text-primary)" }}>
               <Save size={11} />
               Sauvegarder
             </button>
@@ -307,8 +307,8 @@ export function ContentStrategistChat() {
                 const Icon = toolIcons[tc.tool] ?? Sparkles;
                 return (
                   <span key={j} className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[9px] font-medium border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-                    <Icon size={8} style={{ color: "#C75B3980" }} />
-                    <span style={{ color: "#FFFFFF80" }}>{toolLabels[tc.tool] ?? tc.tool}</span>
+                    <Icon size={8} style={{ color: "rgba(199, 91, 57, 0.5)" }} />
+                    <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>{toolLabels[tc.tool] ?? tc.tool}</span>
                   </span>
                 );
               })}
@@ -324,7 +324,7 @@ export function ContentStrategistChat() {
               : { backgroundColor: "var(--color-card)" }
             }
           >
-            <span style={{ color: msg.role === "user" ? "#FFFFFF" : "#FFFFFF" }}>
+            <span style={{ color: msg.role === "user" ? "var(--text-primary)" : "var(--text-primary)" }}>
               {msg.content}
             </span>
           </div>
@@ -347,10 +347,10 @@ export function ContentStrategistChat() {
         className="flex items-center gap-2 w-full p-3 text-left text-sm border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50 hover:bg-[#C75B39]/05 disabled:opacity-40"
         style={{ backgroundColor: "var(--color-card)" }}
       >
-        <div className="w-7 h-7 flex items-center justify-center" style={{ backgroundColor: "#C75B3915" }}>
-          <Icon size={13} style={{ color: "#C75B39" }} />
+        <div className="w-7 h-7 flex items-center justify-center" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)" }}>
+          <Icon size={13} style={{ color: "var(--accent)" }} />
         </div>
-        <span style={{ color: "#FFFFFF" }}>{skill.label}</span>
+        <span style={{ color: "var(--text-primary)" }}>{skill.label}</span>
       </button>
     );
   };
@@ -372,7 +372,7 @@ export function ContentStrategistChat() {
                 "flex-1 py-2.5 text-[10px] uppercase tracking-wider font-medium transition-colors",
                 sidebarTab === tab ? "border-b-2" : "opacity-40 hover:opacity-70"
               )}
-              style={{ borderColor: sidebarTab === tab ? "#C75B39" : "transparent", color: "#FFFFFF" }}
+              style={{ borderColor: sidebarTab === tab ? "var(--accent)" : "transparent", color: "var(--text-primary)" }}
             >
               {tab === "skills" ? "Actions" : tab === "ideas" ? "Idées" : "Brouillons"}
             </button>
@@ -382,7 +382,7 @@ export function ContentStrategistChat() {
         <div className="flex-1 overflow-y-auto p-4 space-y-2">
           {sidebarTab === "skills" && (
             <>
-              <p className="text-[10px] uppercase tracking-wider mb-3" style={{ color: "#FFFFFF60" }}>
+              <p className="text-[10px] uppercase tracking-wider mb-3" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Actions rapides
               </p>
               <div className="space-y-2">
@@ -395,21 +395,21 @@ export function ContentStrategistChat() {
 
           {sidebarTab === "ideas" && (
             <>
-              <p className="text-[10px] uppercase tracking-wider mb-3" style={{ color: "#FFFFFF60" }}>
+              <p className="text-[10px] uppercase tracking-wider mb-3" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Idées sauvegardées ({savedIdeas.length})
               </p>
               {savedIdeas.length === 0 ? (
-                <p className="text-xs" style={{ color: "#FFFFFF60" }}>Aucune idée sauvegardée</p>
+                <p className="text-xs" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Aucune idée sauvegardée</p>
               ) : (
                 savedIdeas.map((idea) => (
                   <div key={idea.id} className="p-3 border border-[var(--color-border)] text-sm" style={{ backgroundColor: "var(--color-base)" }}>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] px-1.5 py-0.5 font-mono uppercase" style={{ backgroundColor: "#C75B3915", color: "#C75B39" }}>
+                      <span className="text-[10px] px-1.5 py-0.5 font-mono uppercase" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)", color: "var(--accent)" }}>
                         {idea.platform}
                       </span>
                     </div>
-                    <p className="font-medium text-sm" style={{ color: "#FFFFFF" }}>{idea.title}</p>
-                    <p className="text-xs mt-1 line-clamp-2" style={{ color: "#FFFFFF80" }}>{idea.description}</p>
+                    <p className="font-medium text-sm" style={{ color: "var(--text-primary)" }}>{idea.title}</p>
+                    <p className="text-xs mt-1 line-clamp-2" style={{ color: "rgba(255, 255, 255, 0.5)" }}>{idea.description}</p>
                   </div>
                 ))
               )}
@@ -418,24 +418,24 @@ export function ContentStrategistChat() {
 
           {sidebarTab === "drafts" && (
             <>
-              <p className="text-[10px] uppercase tracking-wider mb-3" style={{ color: "#FFFFFF60" }}>
+              <p className="text-[10px] uppercase tracking-wider mb-3" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Posts planifiés ({draftedPosts.length})
               </p>
               {draftedPosts.length === 0 ? (
-                <p className="text-xs" style={{ color: "#FFFFFF60" }}>Aucun brouillon</p>
+                <p className="text-xs" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Aucun brouillon</p>
               ) : (
                 draftedPosts.map((post) => (
                   <div key={post.id} className="p-3 border border-[var(--color-border)] text-sm" style={{ backgroundColor: "var(--color-base)" }}>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-[10px] px-1.5 py-0.5 font-mono uppercase" style={{ backgroundColor: "#C75B3915", color: "#C75B39" }}>
+                      <span className="text-[10px] px-1.5 py-0.5 font-mono uppercase" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)", color: "var(--accent)" }}>
                         {post.platform}
                       </span>
-                      <span className="text-[9px] px-1.5 py-0.5" style={{ backgroundColor: "#FFFFFF10", color: "#FFFFFF60" }}>
+                      <span className="text-[9px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(255, 255, 255, 0.06)", color: "rgba(255, 255, 255, 0.375)" }}>
                         {post.status}
                       </span>
                     </div>
-                    <p className="text-xs line-clamp-2" style={{ color: "#FFFFFF" }}>{post.caption}</p>
-                    <p className="text-[10px] mt-1" style={{ color: "#FFFFFF60" }}>
+                    <p className="text-xs line-clamp-2" style={{ color: "var(--text-primary)" }}>{post.caption}</p>
+                    <p className="text-[10px] mt-1" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                       {new Date(post.scheduled_for).toLocaleDateString("fr-FR")}
                     </p>
                   </div>
@@ -461,13 +461,13 @@ export function ContentStrategistChat() {
               <div className="p-4 border border-[var(--color-border)] mb-4" style={{ backgroundColor: "var(--color-card)" }}>
                 <span className="text-4xl">📝</span>
               </div>
-              <p className="text-base font-semibold mb-2" style={{ color: "#FFFFFF" }}>
+              <p className="text-base font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
                 Content Strategist
               </p>
-              <p className="text-sm mb-1" style={{ color: "#FFFFFF" }}>
+              <p className="text-sm mb-1" style={{ color: "var(--text-primary)" }}>
                 Je t&apos;aide à planifier, optimiser et programmer tes contenus
               </p>
-              <p className="text-sm mb-8" style={{ color: "#FFFFFF60" }}>
+              <p className="text-sm mb-8" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Pose-moi une question ou clique sur une action rapide →
               </p>
             </div>
@@ -486,8 +486,8 @@ export function ContentStrategistChat() {
                   const Icon = toolIcons[tool] ?? Sparkles;
                   return (
                     <div key={i} className="flex items-center gap-1.5 px-2 py-1 text-sm font-medium border border-[var(--color-border)] animate-pulse" style={{ backgroundColor: "var(--color-card)" }}>
-                      <Icon size={10} style={{ color: "#C75B3980" }} />
-                      <span style={{ color: "#FFFFFF80" }}>{toolLabels[tool] ?? tool}</span>
+                      <Icon size={10} style={{ color: "rgba(199, 91, 57, 0.5)" }} />
+                      <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>{toolLabels[tool] ?? tool}</span>
                     </div>
                   );
                 })}
@@ -503,16 +503,16 @@ export function ContentStrategistChat() {
               </div>
               <div className="border border-[var(--color-border)] px-4 py-3" style={{ backgroundColor: "var(--color-card)" }}>
                 <div className="flex gap-1.5">
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full" style={{ backgroundColor: "#C75B39" }} />
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:150ms]" style={{ backgroundColor: "#C75B39" }} />
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:300ms]" style={{ backgroundColor: "#C75B39" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full" style={{ backgroundColor: "var(--accent)" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:150ms]" style={{ backgroundColor: "var(--accent)" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:300ms]" style={{ backgroundColor: "var(--accent)" }} />
                 </div>
               </div>
             </div>
           )}
 
           {error && (
-            <div className="p-3 border border-[#C44536]/30 text-sm" style={{ backgroundColor: "#C4453610", color: "#C44536" }}>
+            <div className="p-3 border border-[#C44536]/30 text-sm" style={{ backgroundColor: "#C4453610", color: "var(--danger)" }}>
               {error}
             </div>
           )}
@@ -532,13 +532,13 @@ export function ContentStrategistChat() {
               placeholder="Pose ta question..."
               disabled={loading}
               className="flex-1 bg-transparent border-b border-[var(--color-border)] py-3 text-lg placeholder:opacity-30 focus:outline-none focus:border-[#C75B39] transition-colors disabled:opacity-40"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "var(--text-primary)" }}
             />
             <button
               onClick={() => handleSend()}
               disabled={!input.trim() || loading}
               className="opacity-40 hover:opacity-100 transition-opacity disabled:opacity-20"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             >
               <Send size={16} />
             </button>
@@ -553,7 +553,7 @@ export function ContentStrategistChat() {
         style={{ backgroundColor: "var(--color-card)" }}
         title={sidebarOpen ? "Fermer le panneau" : "Ouvrir le panneau"}
       >
-        {sidebarOpen ? <PanelRightClose size={14} style={{ color: "#FFFFFF60" }} /> : <PanelRightOpen size={14} style={{ color: "#FFFFFF60" }} />}
+        {sidebarOpen ? <PanelRightClose size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} /> : <PanelRightOpen size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} />}
       </button>
 
       {/* Right sidebar */}

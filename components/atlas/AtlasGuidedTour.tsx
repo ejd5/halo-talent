@@ -92,7 +92,7 @@ export function AtlasGuidedTour({ autoStart = false }: { autoStart?: boolean }) 
             popover: {
               title: "Centre de conformité",
               description:
-                "Atlas vérifie en permanence que tout est légal : RGPD, anti-spam, consents, audit trail. Zéro ban garanti.",
+                "Atlas vérifie en permanence que tout est légal : RGPD, anti-spam, consents, audit trail. Protection anti-ban.",
               side: "over",
             },
           },
@@ -190,7 +190,7 @@ export function AtlasTourButton() {
     <button
       onClick={handleStartTour}
       className="flex items-center gap-1.5 text-xs px-3 py-1.5 font-medium transition-all hover:opacity-80"
-      style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39", border: "1px solid rgba(199,91,57,0.2)" }}
+      style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)", border: "1px solid rgba(199,91,57,0.2)" }}
     >
       Tour guidé
     </button>

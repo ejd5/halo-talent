@@ -22,9 +22,9 @@ const STATUS_BADGES: Record<string, { bg: string; color: string; label: string }
   draft: { bg: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.5)", label: "Brouillon" },
   scheduled: { bg: "rgba(245,158,11,0.15)", color: "#F59E0B", label: "Programmée" },
   sending: { bg: "rgba(59,130,246,0.15)", color: "#3B82F6", label: "En cours" },
-  sent: { bg: "rgba(16,185,129,0.15)", color: "#10B981", label: "Envoyée" },
-  paused: { bg: "rgba(239,68,68,0.15)", color: "#E5484D", label: "Pausée" },
-  failed: { bg: "rgba(239,68,68,0.15)", color: "#E5484D", label: "Échouée" },
+  sent: { bg: "rgba(16,185,129,0.15)", color: "var(--success)", label: "Envoyée" },
+  paused: { bg: "rgba(239,68,68,0.15)", color: "var(--danger)", label: "Pausée" },
+  failed: { bg: "rgba(239,68,68,0.15)", color: "var(--danger)", label: "Échouée" },
 };
 
 export default function SMSCampaignsPage() {
@@ -94,7 +94,7 @@ export default function SMSCampaignsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>SMS Marketing</h1>
+          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>SMS Marketing</h1>
           <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
             Campagnes SMS — Opt-in obligatoire · Mention STOP requise
           </p>
@@ -102,7 +102,7 @@ export default function SMSCampaignsPage() {
         <button
           onClick={() => setShowCompose(!showCompose)}
           className="flex items-center gap-1.5 px-4 py-2 text-sm rounded-sm transition-opacity hover:opacity-80"
-          style={{ background: "#C75B39", color: "#FFFFFF" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           {showCompose ? <X size={14} /> : <Plus size={14} />}
           {showCompose ? "Annuler" : "Nouveau SMS"}
@@ -116,7 +116,7 @@ export default function SMSCampaignsPage() {
             <label className="text-xs font-medium mb-1 block" style={{ color: "rgba(255,255,255,0.4)" }}>Nom de la campagne</label>
             <input value={name} onChange={(e) => setName(e.target.value)}
               className="w-full text-sm px-3 py-2 rounded-sm outline-none"
-              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
               placeholder="Ex: Promo été" />
           </div>
 
@@ -124,21 +124,21 @@ export default function SMSCampaignsPage() {
             <div className="flex items-center justify-between mb-1">
               <label className="text-xs font-medium" style={{ color: "rgba(255,255,255,0.4)" }}>Message</label>
               <div className="flex items-center gap-2 text-[10px]">
-                <span style={{ color: message.length > 160 ? "#E5484D" : "rgba(255,255,255,0.2)" }}>
+                <span style={{ color: message.length > 160 ? "var(--danger)" : "rgba(255,255,255,0.2)" }}>
                   {message.length} / {segments > 1 ? `${segments * 160} (${segments} seg.)` : "160"}
                 </span>
-                {segments > 1 && <span style={{ color: "#E5484D" }}>{segments} segments → coût ×{segments}</span>}
+                {segments > 1 && <span style={{ color: "var(--danger)" }}>{segments} segments → coût ×{segments}</span>}
               </div>
             </div>
             <textarea value={message} onChange={(e) => setMessage(e.target.value)}
               rows={4} maxLength={960}
               className="w-full text-sm px-3 py-2 rounded-sm outline-none resize-none"
-              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
               placeholder="Écris ton message SMS... (160 caratères par segment)" />
             <div className="flex items-center gap-2 mt-1.5 text-[10px]" style={{ color: "rgba(255,255,255,0.15)" }}>
               <span>Variables :</span>
-              <code style={{ color: "#C75B39" }}>{`{{first_name}}`}</code>
-              <code style={{ color: "#C75B39" }}>{`{{tier}}`}</code>
+              <code style={{ color: "var(--accent)" }}>{`{{first_name}}`}</code>
+              <code style={{ color: "var(--accent)" }}>{`{{tier}}`}</code>
             </div>
           </div>
 
@@ -150,7 +150,7 @@ export default function SMSCampaignsPage() {
 
           <button type="submit" disabled={saving || !name.trim() || !message.trim()}
             className="flex items-center gap-1.5 px-4 py-2 text-sm rounded-sm transition-opacity hover:opacity-80 disabled:opacity-40"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}>
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
             {saving ? <><Loader size={14} className="animate-spin" /> Création...</> : <><Send size={14} /> Créer la campagne SMS</>}
           </button>
         </form>
@@ -163,7 +163,7 @@ export default function SMSCampaignsPage() {
         <div className="flex flex-col items-center py-16 text-center">
           <AlertCircle size={24} style={{ color: "rgba(239,68,68,0.3)" }} />
           <p className="text-sm mt-3" style={{ color: "rgba(255,255,255,0.3)" }}>{error}</p>
-          <button onClick={fetchCampaigns} className="mt-3 text-xs px-3 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "#C75B39" }}>Réessayer</button>
+          <button onClick={fetchCampaigns} className="mt-3 text-xs px-3 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>Réessayer</button>
         </div>
       ) : campaigns.length === 0 && !showCompose ? (
         <div className="flex flex-col items-center py-16 text-center border border-dashed" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
@@ -172,7 +172,7 @@ export default function SMSCampaignsPage() {
           <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.1)" }}>Crée ta première campagne pour atteindre tes fans par SMS</p>
           <button onClick={() => setShowCompose(true)}
             className="mt-4 flex items-center gap-1.5 px-4 py-2 text-sm rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}>
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
             <Plus size={14} /> Créer une campagne
           </button>
         </div>
@@ -199,9 +199,9 @@ export default function SMSCampaignsPage() {
                     <td className="px-4 py-3.5">
                       <div className="flex items-center gap-2.5">
                         <div className="w-8 h-8 rounded-sm flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(16,185,129,0.1)" }}>
-                          <Smartphone size={14} style={{ color: "#10B981" }} />
+                          <Smartphone size={14} style={{ color: "var(--success)" }} />
                         </div>
-                        <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{c.name}</p>
+                        <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{c.name}</p>
                       </div>
                     </td>
                     <td className="px-4 py-3.5">
@@ -210,7 +210,7 @@ export default function SMSCampaignsPage() {
                     <td className="px-4 py-3.5 max-w-[200px]">
                       <p className="text-xs truncate" style={{ color: "rgba(255,255,255,0.4)" }}>{c.message_text || "(aucun message)"}</p>
                     </td>
-                    <td className="px-4 py-3.5 text-right text-xs" style={{ color: "#FFFFFF" }}>{c.stats?.sent || c.recipients_count || "-"}</td>
+                    <td className="px-4 py-3.5 text-right text-xs" style={{ color: "var(--text-primary)" }}>{c.stats?.sent || c.recipients_count || "-"}</td>
                     <td className="px-4 py-3.5 text-right text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
                       {c.sms_cost_actual > 0 ? `${c.sms_cost_actual.toFixed(2)}€` : c.sms_cost_estimate > 0 ? `~${c.sms_cost_estimate.toFixed(2)}€` : "-"}
                     </td>

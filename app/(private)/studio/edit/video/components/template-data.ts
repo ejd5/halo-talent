@@ -10,11 +10,11 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
     icon: "🎵",
     compatibleDna: true,
     scenes: [
-      { type: "text", startFrame: 0, duration: 30, props: { text: "📷 Mes moments", x: 50, y: 50, fontSize: 48, color: "#FFFFFF", animation: "fadeIn" } },
+      { type: "text", startFrame: 0, duration: 30, props: { text: "📷 Mes moments", x: 50, y: 50, fontSize: 48, color: "var(--text-primary)", animation: "fadeIn" } },
       { type: "image", startFrame: 30, duration: 90, props: { x: 50, y: 50, width: 100, height: 100, animation: "fadeIn" }, placeholder: { label: "Photo 1", accept: "image/*" } },
       { type: "image", startFrame: 120, duration: 90, props: { x: 50, y: 50, width: 100, height: 100, animation: "fadeIn" }, placeholder: { label: "Photo 2", accept: "image/*" } },
       { type: "image", startFrame: 210, duration: 90, props: { x: 50, y: 50, width: 100, height: 100, animation: "fadeIn" }, placeholder: { label: "Photo 3", accept: "image/*" } },
-      { type: "text", startFrame: 300, duration: 90, props: { text: "✨ Merci d'être passé", x: 50, y: 50, fontSize: 36, color: "#C75B39", animation: "slideUp" } },
+      { type: "text", startFrame: 300, duration: 90, props: { text: "✨ Merci d'être passé", x: 50, y: 50, fontSize: 36, color: "var(--accent)", animation: "slideUp" } },
     ],
   },
   {
@@ -26,11 +26,11 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
     icon: "👗",
     compatibleDna: true,
     scenes: [
-      { type: "text", startFrame: 0, duration: 30, props: { text: "👀 Outfit check", x: 50, y: 15, fontSize: 36, color: "#FFFFFF", animation: "fadeIn" } },
+      { type: "text", startFrame: 0, duration: 30, props: { text: "👀 Outfit check", x: 50, y: 15, fontSize: 36, color: "var(--text-primary)", animation: "fadeIn" } },
       { type: "video", startFrame: 30, duration: 90, props: { x: 50, y: 50, width: 100, height: 100, transition: "slideLeft" }, placeholder: { label: "Look 1", accept: "video/*" } },
       { type: "video", startFrame: 120, duration: 90, props: { x: 50, y: 50, width: 100, height: 100, transition: "slideLeft" }, placeholder: { label: "Look 2", accept: "video/*" } },
       { type: "video", startFrame: 210, duration: 90, props: { x: 50, y: 50, width: 100, height: 100, transition: "slideLeft" }, placeholder: { label: "Look 3", accept: "video/*" } },
-      { type: "text", startFrame: 300, duration: 60, props: { text: "Lequel préfères-tu ? 💬", x: 50, y: 80, fontSize: 28, color: "#FFFFFF", animation: "bounce" } },
+      { type: "text", startFrame: 300, duration: 60, props: { text: "Lequel préfères-tu ? 💬", x: 50, y: 80, fontSize: 28, color: "var(--text-primary)", animation: "bounce" } },
     ],
   },
   {
@@ -42,12 +42,12 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
     icon: "🌅",
     compatibleDna: false,
     scenes: [
-      { type: "text", startFrame: 0, duration: 30, props: { text: "🌅 Morning routine", x: 50, y: 20, fontSize: 32, color: "#F5F0EB", animation: "fadeIn" } },
+      { type: "text", startFrame: 0, duration: 30, props: { text: "🌅 Morning routine", x: 50, y: 20, fontSize: 32, color: "var(--text-primary)", animation: "fadeIn" } },
       { type: "video", startFrame: 30, duration: 60, props: { x: 50, y: 50, width: 100, height: 100 }, placeholder: { label: "Matin", accept: "video/*" } },
       { type: "video", startFrame: 90, duration: 60, props: { x: 50, y: 50, width: 100, height: 100 }, placeholder: { label: "Après-midi", accept: "video/*" } },
       { type: "video", startFrame: 150, duration: 60, props: { x: 50, y: 50, width: 100, height: 100 }, placeholder: { label: "Soir", accept: "video/*" } },
       { type: "video", startFrame: 210, duration: 60, props: { x: 50, y: 50, width: 100, height: 100 }, placeholder: { label: "Night", accept: "video/*" } },
-      { type: "text", startFrame: 270, duration: 90, props: { text: "Same day, different vibe ✨", x: 50, y: 80, fontSize: 24, color: "#C75B39", animation: "slideUp" } },
+      { type: "text", startFrame: 270, duration: 90, props: { text: "Same day, different vibe ✨", x: 50, y: 80, fontSize: 24, color: "var(--accent)", animation: "slideUp" } },
     ],
   },
   {
@@ -59,9 +59,9 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
     icon: "🔄",
     compatibleDna: true,
     scenes: [
-      { type: "text", startFrame: 0, duration: 30, props: { text: "Before", x: 50, y: 15, fontSize: 42, color: "#E5484D", animation: "fadeIn" } },
+      { type: "text", startFrame: 0, duration: 30, props: { text: "Before", x: 50, y: 15, fontSize: 42, color: "var(--danger)", animation: "fadeIn" } },
       { type: "image", startFrame: 30, duration: 90, props: { x: 50, y: 50, width: 100, height: 100, animation: "fadeIn" }, placeholder: { label: "Avant", accept: "image/*" } },
-      { type: "text", startFrame: 120, duration: 30, props: { text: "→ After", x: 50, y: 15, fontSize: 42, color: "#10B981", animation: "slideUp" } },
+      { type: "text", startFrame: 120, duration: 30, props: { text: "→ After", x: 50, y: 15, fontSize: 42, color: "var(--success)", animation: "slideUp" } },
       { type: "image", startFrame: 150, duration: 150, props: { x: 50, y: 50, width: 100, height: 100, animation: "zoomIn" }, placeholder: { label: "Après", accept: "image/*" } },
     ],
   },
@@ -74,9 +74,9 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
     icon: "💬",
     compatibleDna: true,
     scenes: [
-      { type: "text", startFrame: 0, duration: 150, props: { text: '"Le succès, c\'est de tomber sept fois, se relever huit."', x: 50, y: 40, fontSize: 32, color: "#F5F0EB", fontFamily: "serif", animation: "fadeIn" } },
+      { type: "text", startFrame: 0, duration: 150, props: { text: '"Le succès, c\'est de tomber sept fois, se relever huit."', x: 50, y: 40, fontSize: 32, color: "var(--text-primary)", fontFamily: "serif", animation: "fadeIn" } },
       { type: "text", startFrame: 150, duration: 60, props: { text: "— Proverb", x: 50, y: 65, fontSize: 20, color: "rgba(255,255,255,0.5)", animation: "fadeIn" } },
-      { type: "text", startFrame: 210, duration: 90, props: { text: "✨ halo-talent.com", x: 50, y: 85, fontSize: 16, color: "#C75B39", animation: "slideUp" } },
+      { type: "text", startFrame: 210, duration: 90, props: { text: "✨ halo-talent.com", x: 50, y: 85, fontSize: 16, color: "var(--accent)", animation: "slideUp" } },
     ],
   },
   {
@@ -88,11 +88,11 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
     icon: "📦",
     compatibleDna: true,
     scenes: [
-      { type: "text", startFrame: 0, duration: 30, props: { text: "✨ Nouvelle collection", x: 50, y: 15, fontSize: 30, color: "#F5F0EB", animation: "fadeIn" } },
+      { type: "text", startFrame: 0, duration: 30, props: { text: "✨ Nouvelle collection", x: 50, y: 15, fontSize: 30, color: "var(--text-primary)", animation: "fadeIn" } },
       { type: "video", startFrame: 30, duration: 90, props: { x: 50, y: 50, width: 100, height: 60, transition: "fade" }, placeholder: { label: "Vidéo produit", accept: "video/*" } },
-      { type: "text", startFrame: 120, duration: 60, props: { text: "🔥 Qualité premium", x: 50, y: 75, fontSize: 24, color: "#C75B39", animation: "slideUp" } },
-      { type: "text", startFrame: 180, duration: 60, props: { text: "Livraison offerte 🔗", x: 50, y: 85, fontSize: 20, color: "#FFFFFF", animation: "fadeIn" } },
-      { type: "text", startFrame: 240, duration: 120, props: { text: "Lien en bio ⬇️", x: 50, y: 90, fontSize: 18, color: "#10B981", animation: "bounce" } },
+      { type: "text", startFrame: 120, duration: 60, props: { text: "🔥 Qualité premium", x: 50, y: 75, fontSize: 24, color: "var(--accent)", animation: "slideUp" } },
+      { type: "text", startFrame: 180, duration: 60, props: { text: "Livraison offerte 🔗", x: 50, y: 85, fontSize: 20, color: "var(--text-primary)", animation: "fadeIn" } },
+      { type: "text", startFrame: 240, duration: 120, props: { text: "Lien en bio ⬇️", x: 50, y: 90, fontSize: 18, color: "var(--success)", animation: "bounce" } },
     ],
   },
   {
@@ -105,13 +105,13 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
     compatibleDna: false,
     scenes: [
       { type: "video", startFrame: 0, duration: 50, props: { x: 50, y: 50, width: 100, height: 100, transition: "slideRight" }, placeholder: { label: "Clip 1", accept: "video/*" } },
-      { type: "text", startFrame: 10, duration: 30, props: { text: "PART 1", x: 50, y: 50, fontSize: 48, color: "#FFFFFF", animation: "fadeIn" } },
+      { type: "text", startFrame: 10, duration: 30, props: { text: "PART 1", x: 50, y: 50, fontSize: 48, color: "var(--text-primary)", animation: "fadeIn" } },
       { type: "video", startFrame: 50, duration: 50, props: { x: 50, y: 50, width: 100, height: 100, transition: "slideLeft" }, placeholder: { label: "Clip 2", accept: "video/*" } },
-      { type: "text", startFrame: 60, duration: 30, props: { text: "PART 2", x: 50, y: 50, fontSize: 48, color: "#FFFFFF", animation: "fadeIn" } },
+      { type: "text", startFrame: 60, duration: 30, props: { text: "PART 2", x: 50, y: 50, fontSize: 48, color: "var(--text-primary)", animation: "fadeIn" } },
       { type: "video", startFrame: 100, duration: 50, props: { x: 50, y: 50, width: 100, height: 100, transition: "slideLeft" }, placeholder: { label: "Clip 3", accept: "video/*" } },
-      { type: "text", startFrame: 110, duration: 30, props: { text: "PART 3", x: 50, y: 50, fontSize: 48, color: "#FFFFFF", animation: "fadeIn" } },
+      { type: "text", startFrame: 110, duration: 30, props: { text: "PART 3", x: 50, y: 50, fontSize: 48, color: "var(--text-primary)", animation: "fadeIn" } },
       { type: "video", startFrame: 150, duration: 50, props: { x: 50, y: 50, width: 100, height: 100, transition: "fade" }, placeholder: { label: "Clip 4", accept: "video/*" } },
-      { type: "text", startFrame: 160, duration: 30, props: { text: "Lequel est ton pref ? ⬇️", x: 50, y: 80, fontSize: 20, color: "#C75B39", animation: "bounce" } },
+      { type: "text", startFrame: 160, duration: 30, props: { text: "Lequel est ton pref ? ⬇️", x: 50, y: 80, fontSize: 20, color: "var(--accent)", animation: "bounce" } },
     ],
   },
 ];

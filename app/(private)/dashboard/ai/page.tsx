@@ -128,7 +128,7 @@ export default function AIChatPage() {
           </div>
         )}
 
-        {error && <div className="p-3 border border-[#C44536]/30 text-sm text-[#C44536]" style={{ backgroundColor: "#C4453610" }}>{error}</div>}
+        {error && <div className="p-3 border border-[var(--danger)]/30 text-sm text-[var(--danger)]" style={{ backgroundColor: "#C4453610" }}>{error}</div>}
         <div ref={chatEndRef} />
       </div>
 

@@ -28,10 +28,10 @@ export function Modal({ open, onClose, title, children }: {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
       <div
         className="w-full max-w-2xl max-h-[90vh] overflow-y-auto custom-scrollbar animate-scale-fade"
-        style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.1)" }}
+        style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.1)" }}
       >
         <div className="flex items-center justify-between px-4 py-3 border-b" style={{ borderColor: "rgba(245,240,235,0.06)" }}>
-          <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>{title}</h2>
+          <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>{title}</h2>
           <button onClick={onClose} className="text-xs px-2 py-1" style={{ color: "var(--color-ink-tertiary)" }}>✕</button>
         </div>
         <div className="p-4">{children}</div>
@@ -48,13 +48,13 @@ export function StepIndicator({ steps, current }: { steps: string[]; current: nu
           <div
             className="w-6 h-6 flex items-center justify-center text-xs font-medium"
             style={{
-              backgroundColor: i <= current ? "#C75B39" : "rgba(245,240,235,0.06)",
-              color: i <= current ? "#F5F0EB" : "var(--color-ink-tertiary)",
+              backgroundColor: i <= current ? "var(--accent)" : "rgba(245,240,235,0.06)",
+              color: i <= current ? "var(--text-primary)" : "var(--color-ink-tertiary)",
             }}
           >
             {i + 1}
           </div>
-          <span className="text-xs hidden md:inline" style={{ color: i <= current ? "#F5F0EB" : "var(--color-ink-tertiary)" }}>
+          <span className="text-xs hidden md:inline" style={{ color: i <= current ? "var(--text-primary)" : "var(--color-ink-tertiary)" }}>
             {s}
           </span>
         </div>
@@ -73,7 +73,7 @@ export function SelectOption({ label, options, value, onChange }: {
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full px-3 py-2 text-sm"
-        style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }}
+        style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }}
       >
         <option value="">Sélectionner...</option>
         {options.map((o) => <option key={o.value} value={o.value}>{o.label}</option>)}
@@ -94,7 +94,7 @@ export function Input({ label, value, onChange, placeholder, type = "text" }: {
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className="w-full px-3 py-2 text-sm"
-        style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }}
+        style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }}
       />
     </div>
   );
@@ -104,7 +104,7 @@ export function Badge({ text, color }: { text: string; color?: string }) {
   return (
     <span
       className="inline-flex text-[10px] px-1.5 py-0.5 font-medium"
-      style={{ backgroundColor: color ? `${color}15` : "rgba(199,91,57,0.1)", color: color ?? "#C75B39" }}
+      style={{ backgroundColor: color ? `${color}15` : "rgba(199,91,57,0.1)", color: color ?? "var(--accent)" }}
     >
       {text}
     </span>
@@ -113,9 +113,9 @@ export function Badge({ text, color }: { text: string; color?: string }) {
 
 export function Alert({ children, type = "warning" }: { children: React.ReactNode; type?: "warning" | "info" | "success" }) {
   const colors = {
-    warning: { bg: "rgba(199,91,57,0.04)", border: "rgba(199,91,57,0.1)", text: "#C75B39" },
+    warning: { bg: "rgba(199,91,57,0.04)", border: "rgba(199,91,57,0.1)", text: "var(--accent)" },
     info: { bg: "rgba(91,143,168,0.04)", border: "rgba(91,143,168,0.1)", text: "#5B8FA8" },
-    success: { bg: "rgba(122,154,101,0.04)", border: "rgba(122,154,101,0.1)", text: "#7A9A65" },
+    success: { bg: "rgba(122,154,101,0.04)", border: "rgba(122,154,101,0.1)", text: "var(--success)" },
   };
   const c = colors[type];
   return (

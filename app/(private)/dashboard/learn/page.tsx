@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 // ─── Mock Data ──────────────────────────────────────────────
 
 const TRACKS = [
-  { id: "t1", title: "Maîtriser OnlyFans en 30 jours", description: "De la configuration à la monétisation avancée — un programme complet pour maximiser tes revenus.", modules: 12, duration: "30 jours", level: "Débutant", progress: 65, cover: "🎯", color: "#C75B39" },
+  { id: "t1", title: "Maîtriser OnlyFans en 30 jours", description: "De la configuration à la monétisation avancée — un programme complet pour maximiser tes revenus.", modules: 12, duration: "30 jours", level: "Débutant", progress: 65, cover: "🎯", color: "var(--accent)" },
   { id: "t2", title: "Stratégie Instagram pour créateurs", description: "Algorithme, Reels, Stories, collaborations — maîtrise toutes les ficelles d'Instagram.", modules: 8, duration: "3 semaines", level: "Intermédiaire", progress: 30, cover: "📸", color: "#E4405F" },
-  { id: "t3", title: "Gestion financière du créateur", description: "Budget, épargne, optimisation fiscale et préparation de la retraite pour travailleurs indépendants.", modules: 6, duration: "2 semaines", level: "Tous niveaux", progress: 0, cover: "💰", color: "#10B981" },
+  { id: "t3", title: "Gestion financière du créateur", description: "Budget, épargne, optimisation fiscale et préparation de la retraite pour travailleurs indépendants.", modules: 6, duration: "2 semaines", level: "Tous niveaux", progress: 0, cover: "💰", color: "var(--success)" },
   { id: "t4", title: "Santé mentale et créateur", description: "Prévenir le burnout, gérer la pression des réseaux, construire une carrière durable.", modules: 10, duration: "4 semaines", level: "Tous niveaux", progress: 0, cover: "🌱", color: "#8B5CF6" },
   { id: "t5", title: "Optimisation fiscale", description: "Déclarations, charges, TVA, statuts juridiques — tout pour optimiser ta fiscalité.", modules: 5, duration: "1 semaine", level: "Avancé", progress: 0, cover: "📊", color: "#3B82F6" },
 ];
@@ -74,20 +74,20 @@ export default function LearnPage() {
     <div className="flex flex-col gap-6">
       {/* Header */}
       <div>
-        <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Apprentissage</h1>
-        <p className="text-sm mt-1" style={{ color: "#FFFFFF" }}>Ressources, formations et webinars pour booster ta carrière</p>
+        <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Apprentissage</h1>
+        <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>Ressources, formations et webinars pour booster ta carrière</p>
       </div>
 
       {/* Search */}
       <div className="relative">
-        <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2" style={{ color: "#FFFFFF40" }} />
+        <Search size={14} className="absolute left-3.5 top-1/2 -translate-y-1/2" style={{ color: "rgba(255, 255, 255, 0.25)" }} />
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Recherche une ressource, un parcours..."
-          className="w-full bg-transparent border border-[var(--color-border)] pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[#C75B39] transition-colors"
-          style={{ color: "#FFFFFF" }}
+          className="w-full bg-transparent border border-[var(--color-border)] pl-10 pr-4 py-3 text-sm focus:outline-none focus:border-[var(--accent)] transition-colors"
+          style={{ color: "var(--text-primary)" }}
         />
       </div>
 
@@ -103,9 +103,9 @@ export default function LearnPage() {
             onClick={() => setActiveSection(tab.id)}
             className={cn(
               "flex items-center gap-2 pb-3 text-sm font-medium transition-all border-b-2 -mb-[1px]",
-              activeSection === tab.id ? "border-[#C75B39]" : "border-transparent opacity-50 hover:opacity-80"
+              activeSection === tab.id ? "border-[var(--accent)]" : "border-transparent opacity-50 hover:opacity-80"
             )}
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
           >
             <tab.icon size={15} />
             {tab.label}
@@ -124,9 +124,9 @@ export default function LearnPage() {
               </div>
               {/* Body */}
               <div className="p-4 flex-1 flex flex-col">
-                <h3 className="text-sm font-semibold mb-1" style={{ color: "#FFFFFF" }}>{track.title}</h3>
-                <p className="text-xs leading-relaxed mb-3 flex-1" style={{ color: "#FFFFFFCC" }}>{track.description}</p>
-                <div className="flex items-center gap-3 mb-3 text-[10px]" style={{ color: "#FFFFFF80" }}>
+                <h3 className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>{track.title}</h3>
+                <p className="text-xs leading-relaxed mb-3 flex-1" style={{ color: "rgba(255, 255, 255, 0.8)" }}>{track.description}</p>
+                <div className="flex items-center gap-3 mb-3 text-[10px]" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
                   <span className="flex items-center gap-1"><BookOpen size={11} /> {track.modules} modules</span>
                   <span className="flex items-center gap-1"><Clock size={11} /> {track.duration}</span>
                   <span className="flex items-center gap-1"><Star size={11} /> {track.level}</span>
@@ -135,17 +135,17 @@ export default function LearnPage() {
                 {track.progress > 0 ? (
                   <div className="mb-3">
                     <div className="flex items-center justify-between text-[10px] mb-1">
-                      <span style={{ color: "#FFFFFF60" }}>Progression</span>
-                      <span className="font-mono" style={{ color: "#C75B39" }}>{track.progress}%</span>
+                      <span style={{ color: "rgba(255, 255, 255, 0.375)" }}>Progression</span>
+                      <span className="font-mono" style={{ color: "var(--accent)" }}>{track.progress}%</span>
                     </div>
                     <div className="h-1.5 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }}>
-                      <div className="h-full transition-all" style={{ width: `${track.progress}%`, backgroundColor: "#C75B39" }} />
+                      <div className="h-full transition-all" style={{ width: `${track.progress}%`, backgroundColor: "var(--accent)" }} />
                     </div>
                   </div>
                 ) : null}
                 <button
                   className="w-full py-2 text-[10px] uppercase tracking-wider font-semibold transition-opacity hover:opacity-80"
-                  style={{ backgroundColor: track.progress > 0 ? "#C75B3920" : "#C75B39", color: track.progress > 0 ? "#C75B39" : "#FFFFFF" }}
+                  style={{ backgroundColor: track.progress > 0 ? "#C75B3920" : "var(--accent)", color: track.progress > 0 ? "var(--accent)" : "var(--text-primary)" }}
                 >
                   {track.progress > 0 ? "Continuer" : "Commencer"}
                 </button>
@@ -165,20 +165,20 @@ export default function LearnPage() {
                 <button key={cat} onClick={() => setCategoryFilter(cat)}
                   className={cn("px-2.5 py-1 text-[9px] uppercase tracking-wider font-medium transition-all",
                     categoryFilter === cat ? "border-b-2" : "opacity-50 hover:opacity-80")}
-                  style={{ borderColor: categoryFilter === cat ? "#C75B39" : "transparent", color: "#FFFFFF" }}>
+                  style={{ borderColor: categoryFilter === cat ? "var(--accent)" : "transparent", color: "var(--text-primary)" }}>
                   {cat}
                 </button>
               ))}
             </div>
-            <div className="w-px h-4" style={{ backgroundColor: "#FFFFFF20" }} />
+            <div className="w-px h-4" style={{ backgroundColor: "rgba(255, 255, 255, 0.125)" }} />
             <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)}
               className="bg-transparent border border-[var(--color-border)] px-2 py-1 text-[9px] uppercase tracking-wider focus:outline-none"
-              style={{ color: "#FFFFFF" }}>
+              style={{ color: "var(--text-primary)" }}>
               {LEVELS.map((l) => <option key={l} value={l}>{l}</option>)}
             </select>
             {savedArticles.length > 0 && (
               <button onClick={() => setCategoryFilter("Tout")}
-                className="text-[9px] px-2 py-1" style={{ color: "#C75B39" }}>
+                className="text-[9px] px-2 py-1" style={{ color: "var(--accent)" }}>
                 {savedArticles.length} sauvegardé{savedArticles.length > 1 ? "s" : ""}
               </button>
             )}
@@ -188,8 +188,8 @@ export default function LearnPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {filteredArticles.length === 0 ? (
               <div className="col-span-full py-12 text-center">
-                <BookOpen size={32} className="mx-auto mb-2" style={{ color: "#FFFFFF15" }} />
-                <p className="text-sm" style={{ color: "#FFFFFF60" }}>Aucun article trouvé</p>
+                <BookOpen size={32} className="mx-auto mb-2" style={{ color: "rgba(255, 255, 255, 0.08)" }} />
+                <p className="text-sm" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Aucun article trouvé</p>
               </div>
             ) : (
               filteredArticles.map((article) => (
@@ -197,26 +197,26 @@ export default function LearnPage() {
                   <div className="p-4">
                     {/* Header */}
                     <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[9px] px-1.5 py-0.5 font-mono uppercase" style={{ backgroundColor: "#C75B3915", color: "#C75B39" }}>
+                      <span className="text-[9px] px-1.5 py-0.5 font-mono uppercase" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)", color: "var(--accent)" }}>
                         {article.category}
                       </span>
-                      <span className="text-[9px]" style={{ color: "#FFFFFF60" }}>{article.level}</span>
-                      <span className="text-[9px] ml-auto" style={{ color: "#FFFFFF40" }}>{article.duration}</span>
+                      <span className="text-[9px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>{article.level}</span>
+                      <span className="text-[9px] ml-auto" style={{ color: "rgba(255, 255, 255, 0.25)" }}>{article.duration}</span>
                     </div>
                     {/* Title */}
-                    <h3 className="text-sm font-semibold mb-1.5 group-hover:opacity-80 transition-opacity" style={{ color: "#FFFFFF" }}>{article.title}</h3>
-                    <p className="text-xs leading-relaxed mb-3" style={{ color: "#FFFFFFCC" }}>{article.excerpt}</p>
+                    <h3 className="text-sm font-semibold mb-1.5 group-hover:opacity-80 transition-opacity" style={{ color: "var(--text-primary)" }}>{article.title}</h3>
+                    <p className="text-xs leading-relaxed mb-3" style={{ color: "rgba(255, 255, 255, 0.8)" }}>{article.excerpt}</p>
                     {/* Actions */}
                     <div className="flex items-center gap-2">
-                      <button className="flex items-center gap-1 px-2 py-1 text-[9px] uppercase tracking-wider border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50" style={{ color: "#FFFFFF80" }}>
+                      <button className="flex items-center gap-1 px-2 py-1 text-[9px] uppercase tracking-wider border border-[var(--color-border)] transition-all hover:border-[var(--accent)]/50" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
                         Lire <ChevronRight size={10} />
                       </button>
                       <button onClick={() => toggleSave(article.id)}
                         className="p-1.5 transition-opacity hover:opacity-70"
-                        style={{ color: savedArticles.includes(article.id) ? "#C75B39" : "#FFFFFF40" }}>
-                        <Bookmark size={12} fill={savedArticles.includes(article.id) ? "#C75B39" : "none"} />
+                        style={{ color: savedArticles.includes(article.id) ? "var(--accent)" : "rgba(255, 255, 255, 0.25)" }}>
+                        <Bookmark size={12} fill={savedArticles.includes(article.id) ? "var(--accent)" : "none"} />
                       </button>
-                      <button className="p-1.5 transition-opacity hover:opacity-70 flex items-center gap-1 text-[9px]" style={{ color: "#FFFFFF40" }}>
+                      <button className="p-1.5 transition-opacity hover:opacity-70 flex items-center gap-1 text-[9px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
                         <Heart size={11} /> {article.likes}
                       </button>
                     </div>
@@ -233,14 +233,14 @@ export default function LearnPage() {
         <div className="space-y-6">
           {/* Upcoming */}
           <div>
-            <h2 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: "#FFFFFF" }}>
-              <Calendar size={15} style={{ color: "#C75B39" }} /> À venir
+            <h2 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
+              <Calendar size={15} style={{ color: "var(--accent)" }} /> À venir
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {WEBINARS.filter((w) => w.type === "upcoming").map((w) => (
                 <div key={w.id} className="border border-[var(--color-border)] card-accent p-4" style={{ backgroundColor: "var(--color-card)" }}>
-                  <p className="text-xs font-semibold mb-2" style={{ color: "#FFFFFF" }}>{w.title}</p>
-                  <div className="space-y-1 text-[10px] mb-3" style={{ color: "#FFFFFF80" }}>
+                  <p className="text-xs font-semibold mb-2" style={{ color: "var(--text-primary)" }}>{w.title}</p>
+                  <div className="space-y-1 text-[10px] mb-3" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
                     <p>📅 {new Date(w.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })} à {w.time}</p>
                     <p>👤 {w.speaker}</p>
                     <p>👥 {w.spots}/{w.max_spots} places</p>
@@ -250,7 +250,7 @@ export default function LearnPage() {
                       "w-full py-2 text-[10px] uppercase tracking-wider font-semibold transition-opacity hover:opacity-80",
                       w.spots >= w.max_spots ? "opacity-40 cursor-not-allowed" : ""
                     )}
-                    style={{ backgroundColor: w.spots < w.max_spots ? "#C75B39" : "#FFFFFF15", color: "#FFFFFF" }}
+                    style={{ backgroundColor: w.spots < w.max_spots ? "var(--accent)" : "rgba(255, 255, 255, 0.08)", color: "var(--text-primary)" }}
                     disabled={w.spots >= w.max_spots}
                   >
                     {w.spots < w.max_spots ? "S'inscrire" : "Complet"}
@@ -262,20 +262,20 @@ export default function LearnPage() {
 
           {/* Replays */}
           <div>
-            <h2 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: "#FFFFFF" }}>
-              <PlayCircle size={15} style={{ color: "#C75B39" }} /> Replays disponibles
+            <h2 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
+              <PlayCircle size={15} style={{ color: "var(--accent)" }} /> Replays disponibles
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {WEBINARS.filter((w) => w.type === "replay").map((w) => (
                 <div key={w.id} className="border border-[var(--color-border)] flex items-center gap-4 p-4" style={{ backgroundColor: "var(--color-card)" }}>
-                  <div className="w-12 h-12 flex items-center justify-center shrink-0" style={{ backgroundColor: "#C75B3915" }}>
-                    <PlayCircle size={22} style={{ color: "#C75B39" }} />
+                  <div className="w-12 h-12 flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)" }}>
+                    <PlayCircle size={22} style={{ color: "var(--accent)" }} />
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{w.title}</p>
-                    <p className="text-[10px]" style={{ color: "#FFFFFF60" }}>{w.speaker} · {new Date(w.date).toLocaleDateString("fr-FR")}</p>
+                    <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{w.title}</p>
+                    <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>{w.speaker} · {new Date(w.date).toLocaleDateString("fr-FR")}</p>
                   </div>
-                  <button className="text-[9px] px-3 py-1.5 uppercase tracking-wider font-medium border border-[var(--color-border)] hover:border-[#C75B39]/50 transition-all" style={{ color: "#FFFFFF80" }}>
+                  <button className="text-[9px] px-3 py-1.5 uppercase tracking-wider font-medium border border-[var(--color-border)] hover:border-[var(--accent)]/50 transition-all" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
                     Voir
                   </button>
                 </div>
@@ -290,21 +290,21 @@ export default function LearnPage() {
         <div className="fixed bottom-6 right-6 w-80 border border-[var(--color-border)] shadow-2xl z-50" style={{ backgroundColor: "var(--color-card)" }}>
           <div className="flex items-center justify-between p-3 border-b border-[var(--color-border)]" style={{ backgroundColor: "#C75B3910" }}>
             <div className="flex items-center gap-2">
-              <Sparkles size={14} style={{ color: "#C75B39" }} />
-              <span className="text-xs font-semibold" style={{ color: "#FFFFFF" }}>Mentor IA</span>
+              <Sparkles size={14} style={{ color: "var(--accent)" }} />
+              <span className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>Mentor IA</span>
             </div>
-            <button onClick={() => setMentorOpen(false)} className="text-sm" style={{ color: "#FFFFFF60" }}>&times;</button>
+            <button onClick={() => setMentorOpen(false)} className="text-sm" style={{ color: "rgba(255, 255, 255, 0.375)" }}>&times;</button>
           </div>
           <div className="h-64 overflow-y-auto p-3 space-y-2">
             {mentorMessages.length === 0 ? (
               <div className="text-center py-6">
-                <GraduationCap size={24} className="mx-auto mb-2" style={{ color: "#FFFFFF15" }} />
-                <p className="text-[10px]" style={{ color: "#FFFFFF40" }}>Demande-moi une recommandation de parcours ou d&apos;article</p>
+                <GraduationCap size={24} className="mx-auto mb-2" style={{ color: "rgba(255, 255, 255, 0.08)" }} />
+                <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>Demande-moi une recommandation de parcours ou d&apos;article</p>
               </div>
             ) : (
               mentorMessages.map((m, i) => (
                 <div key={i} className={cn("text-xs leading-relaxed", m.role === "user" ? "font-medium" : "")}
-                  style={{ color: m.role === "user" ? "#FFFFFF" : "#FFFFFFCC" }}>
+                  style={{ color: m.role === "user" ? "var(--text-primary)" : "rgba(255, 255, 255, 0.8)" }}>
                   {m.content}
                 </div>
               ))
@@ -318,10 +318,10 @@ export default function LearnPage() {
                 onChange={(e) => setMentorInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleMentor()}
                 placeholder="Quel parcours me conseilles-tu ?"
-                className="flex-1 bg-transparent border-b border-[var(--color-border)] py-1.5 text-xs focus:outline-none focus:border-[#C75B39]"
-                style={{ color: "#FFFFFF" }}
+                className="flex-1 bg-transparent border-b border-[var(--color-border)] py-1.5 text-xs focus:outline-none focus:border-[var(--accent)]"
+                style={{ color: "var(--text-primary)" }}
               />
-              <button onClick={handleMentor} disabled={!mentorInput.trim()} className="opacity-40 hover:opacity-100 disabled:opacity-20 transition-opacity" style={{ color: "#C75B39" }}>
+              <button onClick={handleMentor} disabled={!mentorInput.trim()} className="opacity-40 hover:opacity-100 disabled:opacity-20 transition-opacity" style={{ color: "var(--accent)" }}>
                 <ArrowRight size={14} />
               </button>
             </div>
@@ -334,7 +334,7 @@ export default function LearnPage() {
         <button
           onClick={() => setMentorOpen(true)}
           className="fixed bottom-6 right-6 w-12 h-12 flex items-center justify-center shadow-lg z-50 hover:scale-105 transition-transform"
-          style={{ backgroundColor: "#C75B39" }}
+          style={{ backgroundColor: "var(--accent)" }}
           title="Mentor IA"
         >
           <Sparkles size={20} className="text-white" />

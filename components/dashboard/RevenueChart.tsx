@@ -54,8 +54,8 @@ export function RevenueChart() {
           <AreaChart data={data}>
             <defs>
               <linearGradient id="revenueGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#C75B39" stopOpacity={0.12} />
-                <stop offset="100%" stopColor="#C75B39" stopOpacity={0} />
+                <stop offset="0%" stopColor="var(--accent)" stopOpacity={0.12} />
+                <stop offset="100%" stopColor="var(--accent)" stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid
@@ -67,13 +67,13 @@ export function RevenueChart() {
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#FFFFFF", fontSize: 11 }}
+              tick={{ fill: "var(--text-primary)", fontSize: 11 }}
               dy={8}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#FFFFFF", fontSize: 11 }}
+              tick={{ fill: "var(--text-primary)", fontSize: 11 }}
               dx={-8}
               tickFormatter={(v) =>
                 new Intl.NumberFormat("fr-FR", {
@@ -86,7 +86,7 @@ export function RevenueChart() {
             <Area
               type="monotone"
               dataKey="revenue"
-              stroke="#C75B39"
+              stroke="var(--accent)"
               strokeWidth={1.5}
               fill="url(#revenueGradient)"
             />

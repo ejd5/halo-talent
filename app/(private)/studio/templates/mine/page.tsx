@@ -46,7 +46,7 @@ export default function MyTemplatesPage() {
           <Link href="/studio/templates" className="p-1 transition-opacity hover:opacity-70" style={{ color: "rgba(255,255,255,0.4)" }}>
             <ArrowLeft size={14} />
           </Link>
-          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Mes templates</h1>
+          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Mes templates</h1>
         </div>
         <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
           {templates.length} template{templates.length > 1 ? "s" : ""} créé{templates.length > 1 ? "s" : ""}
@@ -57,7 +57,7 @@ export default function MyTemplatesPage() {
         <Link href="/studio/templates" className="px-3 py-2.5 text-[11px] transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.4)" }}>
           Officiels
         </Link>
-        <Link href="/studio/templates/mine" className="px-3 py-2.5 text-[11px] font-medium" style={{ color: "#C75B39", borderBottom: "1px solid #C75B39" }}>
+        <Link href="/studio/templates/mine" className="px-3 py-2.5 text-[11px] font-medium" style={{ color: "var(--accent)", borderBottom: "1px solid var(--accent)" }}>
           Mes templates
         </Link>
         <Link href="/studio/templates/market" className="px-3 py-2.5 text-[11px] transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -66,10 +66,10 @@ export default function MyTemplatesPage() {
       </div>
 
       {/* Filter + create */}
-      <div className="px-4 md:px-6 py-3 flex items-center gap-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="px-4 md:px-6 py-3 flex items-center gap-2" style={{ borderBottom: "1px solid var(--border-default)" }}>
         <select value={type} onChange={(e) => setType(e.target.value)}
           className="text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-          style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}>
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
           <option value="">Tous les types</option>
           <option value="photo">Photo</option>
           <option value="video">Vidéo</option>
@@ -80,7 +80,7 @@ export default function MyTemplatesPage() {
         <div className="flex-1" />
         <Link href="/studio/composer"
           className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80"
-          style={{ background: "#C75B39", color: "#FFFFFF" }}>
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
           <Plus size={10} /> Créer un template
         </Link>
       </div>
@@ -94,7 +94,7 @@ export default function MyTemplatesPage() {
             <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.15)" }}>Tu n&apos;as pas encore créé de template</p>
             <Link href="/studio/composer"
               className="flex items-center gap-1.5 mt-4 px-4 py-2 text-xs rounded-sm transition-opacity hover:opacity-80"
-              style={{ background: "#C75B39", color: "#FFFFFF" }}>
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
               <Plus size={12} /> Créer depuis le composer
             </Link>
           </div>
@@ -103,19 +103,19 @@ export default function MyTemplatesPage() {
             {templates.map((t) => {
               const TypeIcon = TYPE_ICONS[t.type] || Layout;
               return (
-                <div key={t.id} className="rounded-sm overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+                <div key={t.id} className="rounded-sm overflow-hidden" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
                   <div className="relative aspect-video flex items-center justify-center" style={{ background: "rgba(0,0,0,0.3)" }}>
                     {t.preview_url ? (
                       <img src={t.preview_url} alt={t.name} className="w-full h-full object-cover" />
                     ) : (
                       <TypeIcon size={28} style={{ color: "rgba(255,255,255,0.06)" }} />
                     )}
-                    <span className="absolute top-1.5 right-1.5 flex items-center gap-1 text-[8px] px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(0,0,0,0.6)", color: t.is_public ? "#10B981" : "rgba(255,255,255,0.5)" }}>
+                    <span className="absolute top-1.5 right-1.5 flex items-center gap-1 text-[8px] px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(0,0,0,0.6)", color: t.is_public ? "var(--success)" : "rgba(255,255,255,0.5)" }}>
                       {t.is_public ? <><Globe size={8} /> Public</> : <><Lock size={8} /> Privé</>}
                     </span>
                   </div>
                   <div className="p-3">
-                    <h3 className="text-[11px] font-medium truncate" style={{ color: "#F5F0EB" }}>{t.name}</h3>
+                    <h3 className="text-[11px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{t.name}</h3>
                     <p className="text-[9px] mt-0.5 line-clamp-2" style={{ color: "rgba(255,255,255,0.3)" }}>
                       {t.description || "Aucune description"}
                     </p>
@@ -126,12 +126,12 @@ export default function MyTemplatesPage() {
                     <div className="flex items-center gap-1 mt-2">
                       <Link href={`/studio/composer?template=${t.id}`}
                         className="flex-1 flex items-center justify-center gap-1 px-2 py-1 text-[9px] rounded-sm transition-colors hover:bg-white/5"
-                        style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}>
+                        style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                         <Edit3 size={8} /> Éditer
                       </Link>
                       <button onClick={() => handleDelete(t.id)}
                         className="flex items-center justify-center gap-1 px-2 py-1 text-[9px] rounded-sm transition-colors hover:bg-white/5"
-                        style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#E5484D" }}>
+                        style={{ border: "1px solid var(--border-default)", color: "var(--danger)" }}>
                         <Trash2 size={8} />
                       </button>
                     </div>

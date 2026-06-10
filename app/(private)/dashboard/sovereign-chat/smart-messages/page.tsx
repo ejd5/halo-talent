@@ -19,11 +19,11 @@ interface Campaign {
 }
 
 const STATUS_CONFIG: Record<string, { label: string; color: string; bg: string }> = {
-  generating: { label: "Génération...", color: "#C75B39", bg: "rgba(199,91,57,0.1)" },
-  ready_for_validation: { label: "Prêt à valider", color: "#7A9A65", bg: "rgba(122,154,101,0.1)" },
-  in_progress: { label: "En cours", color: "#C75B39", bg: "rgba(199,91,57,0.1)" },
+  generating: { label: "Génération...", color: "var(--accent)", bg: "rgba(199,91,57,0.1)" },
+  ready_for_validation: { label: "Prêt à valider", color: "var(--success)", bg: "rgba(122,154,101,0.1)" },
+  in_progress: { label: "En cours", color: "var(--accent)", bg: "rgba(199,91,57,0.1)" },
   completed: { label: "Terminé", color: "rgba(245,240,235,0.3)", bg: "rgba(245,240,235,0.04)" },
-  cancelled: { label: "Annulé", color: "#C44536", bg: "rgba(196,69,54,0.08)" },
+  cancelled: { label: "Annulé", color: "var(--danger)", bg: "rgba(196,69,54,0.08)" },
 };
 
 export default function SmartMessagesPage() {
@@ -45,7 +45,7 @@ export default function SmartMessagesPage() {
         <div>
           <h1
             className="text-xl font-semibold"
-            style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
             Smart Messages
           </h1>
@@ -56,7 +56,7 @@ export default function SmartMessagesPage() {
         <Link
           href="/dashboard/sovereign-chat/smart-messages/new"
           className="text-[10px] font-semibold py-2.5 px-4 transition-all hover:opacity-80 flex items-center gap-1.5"
-          style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+          style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={12} />
           Nouvelle campagne
@@ -68,23 +68,23 @@ export default function SmartMessagesPage() {
         <div className="grid grid-cols-4 gap-3">
           <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
             <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.2)" }}>Total</p>
-            <p className="text-lg font-semibold mt-1" style={{ color: "#F5F0EB" }}>{campaigns.length}</p>
+            <p className="text-lg font-semibold mt-1" style={{ color: "var(--text-primary)" }}>{campaigns.length}</p>
           </div>
           <div className="p-3" style={{ backgroundColor: "rgba(122,154,101,0.06)", border: "1px solid rgba(122,154,101,0.1)" }}>
             <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(122,154,101,0.5)" }}>Prêtes</p>
-            <p className="text-lg font-semibold mt-1" style={{ color: "#7A9A65" }}>
+            <p className="text-lg font-semibold mt-1" style={{ color: "var(--success)" }}>
               {campaigns.filter((c) => c.status === "ready_for_validation").length}
             </p>
           </div>
           <div className="p-3" style={{ backgroundColor: "rgba(199,91,57,0.06)", border: "1px solid rgba(199,91,57,0.1)" }}>
             <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(199,91,57,0.5)" }}>En cours</p>
-            <p className="text-lg font-semibold mt-1" style={{ color: "#C75B39" }}>
+            <p className="text-lg font-semibold mt-1" style={{ color: "var(--accent)" }}>
               {campaigns.filter((c) => c.status === "generating" || c.status === "in_progress").length}
             </p>
           </div>
           <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
             <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.2)" }}>Envoyés</p>
-            <p className="text-lg font-semibold mt-1" style={{ color: "#F5F0EB" }}>
+            <p className="text-lg font-semibold mt-1" style={{ color: "var(--text-primary)" }}>
               {campaigns.reduce((s, c) => s + c.sent_count, 0)}
             </p>
           </div>
@@ -108,7 +108,7 @@ export default function SmartMessagesPage() {
           <Link
             href="/dashboard/sovereign-chat/smart-messages/new"
             className="inline-block mt-3 text-[10px] font-medium py-2 px-3"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             Créer une campagne
           </Link>
@@ -133,7 +133,7 @@ export default function SmartMessagesPage() {
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-0.5">
-                      <span className="text-sm font-medium truncate" style={{ color: "#F5F0EB" }}>
+                      <span className="text-sm font-medium truncate" style={{ color: "var(--text-primary)" }}>
                         {camp.name || "Sans nom"}
                       </span>
                       <span
@@ -161,7 +161,7 @@ export default function SmartMessagesPage() {
                         className="h-full transition-all"
                         style={{
                           width: `${progress}%`,
-                          backgroundColor: camp.status === "completed" ? "#7A9A65" : "#C75B39",
+                          backgroundColor: camp.status === "completed" ? "var(--success)" : "var(--accent)",
                         }}
                       />
                     </div>
@@ -173,7 +173,7 @@ export default function SmartMessagesPage() {
                       <Link
                         href={`/dashboard/sovereign-chat/smart-messages/${camp.id}/validate`}
                         className="text-[9px] font-medium py-1.5 px-2.5 transition-all hover:opacity-80 flex items-center gap-1"
-                        style={{ backgroundColor: "#7A9A65", color: "#F5F0EB" }}
+                        style={{ backgroundColor: "var(--success)", color: "var(--text-primary)" }}
                       >
                         Valider
                         <ChevronRight size={8} />

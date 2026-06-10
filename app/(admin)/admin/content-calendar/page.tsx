@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useMemo } from "react";
+import type { JSX } from "react";
 import { createClient } from "@/lib/supabase/client";
 import {
   CalendarDays,
@@ -66,10 +67,10 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const STATUS_COLORS: Record<string, string> = {
-  draft: "#E0D8D0",
-  scheduled: "#C75B39",
-  published: "#7A9A65",
-  failed: "#C44536",
+  draft: "var(--text-secondary)",
+  scheduled: "var(--accent)",
+  published: "var(--success)",
+  failed: "var(--danger)",
   cancelled: "rgba(255,255,255,0.2)",
 };
 
@@ -232,14 +233,14 @@ export default function ContentCalendarPage() {
       style={{
         background: `${PLATFORM_COLORS[event.platform] || "#666"}22`,
         borderLeft: `2px solid ${PLATFORM_COLORS[event.platform] || "#666"}`,
-        color: "#F5F0EB",
+        color: "var(--text-primary)",
       }}
       title={`${event.creator?.display_name || event.creator?.full_name || ""} - ${event.title || event.content_type}`}
     >
       <span className="mr-1">{CONTENT_TYPE_ICONS[event.content_type] || "📄"}</span>
       {event.creator?.display_name || event.creator?.full_name || event.creator?.email?.split("@")[0]}
-      {event.status === "published" && <Check size={10} className="inline ml-1" style={{ color: "#7A9A65" }} />}
-      {event.status === "failed" && <X size={10} className="inline ml-1" style={{ color: "#C44536" }} />}
+      {event.status === "published" && <Check size={10} className="inline ml-1" style={{ color: "var(--success)" }} />}
+      {event.status === "failed" && <X size={10} className="inline ml-1" style={{ color: "var(--danger)" }} />}
     </div>
   );
 
@@ -248,10 +249,10 @@ export default function ContentCalendarPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl font-display font-semibold" style={{ color: "#F5F0EB" }}>
+          <h1 className="text-2xl font-display font-semibold" style={{ color: "var(--text-primary)" }}>
             Calendrier de contenu
           </h1>
-          <p className="text-sm mt-1" style={{ color: "#E0D8D0" }}>
+          <p className="text-sm mt-1" style={{ color: "var(--text-secondary)" }}>
             Vue agence · {events.length} événement{events.length !== 1 ? "s" : ""}
           </p>
         </div>
@@ -259,7 +260,7 @@ export default function ContentCalendarPage() {
           <button
             onClick={() => setShowCreateModal(true)}
             className="flex items-center gap-1.5 px-3 py-2 text-sm font-medium transition-colors"
-            style={{ background: "#C75B39", color: "#F5F0EB" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             <Plus size={14} />
             Nouvel event
@@ -267,7 +268,7 @@ export default function ContentCalendarPage() {
           <a
             href={`/api/admin/content-calendar/export?format=ical&from=${getRange().from}&to=${getRange().to}`}
             className="flex items-center gap-1.5 px-3 py-2 text-sm transition-colors"
-            style={{ background: "rgba(255,255,255,0.06)", color: "#E0D8D0" }}
+            style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-secondary)" }}
           >
             <Download size={14} />
             Export
@@ -275,7 +276,7 @@ export default function ContentCalendarPage() {
           <a
             href="/admin/content-calendar/analytics"
             className="flex items-center gap-1.5 px-3 py-2 text-sm transition-colors"
-            style={{ background: "rgba(255,255,255,0.06)", color: "#E0D8D0" }}
+            style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-secondary)" }}
           >
             <TrendingUp size={14} />
             Analytics
@@ -286,22 +287,22 @@ export default function ContentCalendarPage() {
       {/* Toolbar */}
       <div
         className="flex items-center justify-between px-4 py-2 mb-4"
-        style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}
+        style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)" }}
       >
         <div className="flex items-center gap-2">
-          <button onClick={() => navigate(-1)} className="p-1 transition-colors" style={{ color: "#E0D8D0" }}>
+          <button onClick={() => navigate(-1)} className="p-1 transition-colors" style={{ color: "var(--text-secondary)" }}>
             <ChevronLeft size={18} />
           </button>
-          <h2 className="text-base font-semibold min-w-[200px] text-center" style={{ color: "#F5F0EB" }}>
+          <h2 className="text-base font-semibold min-w-[200px] text-center" style={{ color: "var(--text-primary)" }}>
             {pageTitle}
           </h2>
-          <button onClick={() => navigate(1)} className="p-1 transition-colors" style={{ color: "#E0D8D0" }}>
+          <button onClick={() => navigate(1)} className="p-1 transition-colors" style={{ color: "var(--text-secondary)" }}>
             <ChevronRight size={18} />
           </button>
           <button
             onClick={() => setCurrentDate(new Date())}
             className="ml-2 px-2 py-1 text-xs transition-colors"
-            style={{ background: "rgba(255,255,255,0.06)", color: "#E0D8D0" }}
+            style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-secondary)" }}
           >
             Aujourd'hui
           </button>
@@ -314,8 +315,8 @@ export default function ContentCalendarPage() {
               onClick={() => setViewMode(mode)}
               className="px-3 py-1 text-xs font-medium transition-colors"
               style={{
-                background: viewMode === mode ? "#C75B39" : "transparent",
-                color: viewMode === mode ? "#F5F0EB" : "#E0D8D0",
+                background: viewMode === mode ? "var(--accent)" : "transparent",
+                color: viewMode === mode ? "var(--text-primary)" : "var(--text-secondary)",
               }}
             >
               {mode === "month" ? "Mois" : mode === "week" ? "Semaine" : "Jour"}
@@ -327,7 +328,7 @@ export default function ContentCalendarPage() {
           <button
             onClick={() => setShowFilters(!showFilters)}
             className="flex items-center gap-1.5 px-2 py-1 text-xs transition-colors"
-            style={{ background: showFilters ? "rgba(199,91,57,0.15)" : "rgba(255,255,255,0.06)", color: "#E0D8D0" }}
+            style={{ background: showFilters ? "rgba(199,91,57,0.15)" : "rgba(255,255,255,0.06)", color: "var(--text-secondary)" }}
           >
             <Filter size={12} />
             Filtres
@@ -339,13 +340,13 @@ export default function ContentCalendarPage() {
       {showFilters && (
         <div
           className="flex items-center gap-3 px-4 py-3 mb-4 flex-wrap"
-          style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)" }}
         >
           <select
             value={selectedCreator}
             onChange={(e) => setSelectedCreator(e.target.value)}
             className="px-2 py-1.5 text-xs outline-none"
-            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           >
             <option value="">Tous les créateurs</option>
             {creators.map((c) => (
@@ -356,7 +357,7 @@ export default function ContentCalendarPage() {
             value={selectedPlatform}
             onChange={(e) => setSelectedPlatform(e.target.value)}
             className="px-2 py-1.5 text-xs outline-none"
-            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           >
             <option value="">Toutes les plateformes</option>
             {Object.entries(PLATFORM_LABELS).map(([key, label]) => (
@@ -367,7 +368,7 @@ export default function ContentCalendarPage() {
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
             className="px-2 py-1.5 text-xs outline-none"
-            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           >
             <option value="">Tous les types</option>
             {Object.entries(CONTENT_TYPE_LABELS).map(([key, label]) => (
@@ -378,7 +379,7 @@ export default function ContentCalendarPage() {
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
             className="px-2 py-1.5 text-xs outline-none"
-            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           >
             <option value="">Tous les statuts</option>
             {Object.entries(STATUS_LABELS).map(([key, label]) => (
@@ -389,7 +390,7 @@ export default function ContentCalendarPage() {
             <button
               onClick={() => { setSelectedCreator(""); setSelectedPlatform(""); setSelectedStatus(""); setSelectedType(""); }}
               className="text-xs px-2 py-1"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             >
               Réinitialiser
             </button>
@@ -411,7 +412,7 @@ export default function ContentCalendarPage() {
       {conflicts.length > 0 && (
         <div
           className="flex items-center gap-2 px-4 py-2 mb-4 text-sm"
-          style={{ background: "rgba(199,91,57,0.1)", color: "#C75B39" }}
+          style={{ background: "rgba(199,91,57,0.1)", color: "var(--accent)" }}
         >
           <AlertTriangle size={14} />
           {conflicts.length} conflit{conflicts.length > 1 ? "s" : ""} de hashtag détecté{conflicts.length > 1 ? "s" : ""}
@@ -421,16 +422,16 @@ export default function ContentCalendarPage() {
       {/* Loading */}
       {loading && (
         <div className="flex items-center justify-center py-20">
-          <Loader2 size={24} className="animate-spin" style={{ color: "#C75B39" }} />
+          <Loader2 size={24} className="animate-spin" style={{ color: "var(--accent)" }} />
         </div>
       )}
 
       {/* Month View */}
       {!loading && viewMode === "month" && (
-        <div style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ border: "1px solid var(--border-default)" }}>
           <div className="grid grid-cols-7" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
             {weekDays.map((d) => (
-              <div key={d} className="py-2 text-center text-[11px] font-semibold uppercase tracking-wider" style={{ color: "#E0D8D0" }}>
+              <div key={d} className="py-2 text-center text-[11px] font-semibold uppercase tracking-wider" style={{ color: "var(--text-secondary)" }}>
                 {d}
               </div>
             ))}
@@ -446,7 +447,7 @@ export default function ContentCalendarPage() {
                   className="p-1"
                   style={{
                     borderRight: "1px solid rgba(255,255,255,0.04)",
-                    borderBottom: "1px solid rgba(255,255,255,0.04)",
+                    borderBottom: "1px solid var(--border-default)",
                     minHeight: 100,
                     background: isToday ? "rgba(199,91,57,0.05)" : "transparent",
                   }}
@@ -454,8 +455,8 @@ export default function ContentCalendarPage() {
                   <span
                     className="inline-flex items-center justify-center w-6 h-6 text-xs mb-1"
                     style={{
-                      color: isToday ? "#F5F0EB" : "#E0D8D0",
-                      background: isToday ? "#C75B39" : "transparent",
+                      color: isToday ? "var(--text-primary)" : "var(--text-secondary)",
+                      background: isToday ? "var(--accent)" : "transparent",
                       borderRadius: isToday ? "50%" : undefined,
                     }}
                   >
@@ -491,7 +492,7 @@ export default function ContentCalendarPage() {
       {/* Suggestions */}
       {suggestions.length > 0 && !loading && (
         <div className="mt-6">
-          <h3 className="text-sm font-semibold mb-3" style={{ color: "#F5F0EB" }}>
+          <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
             Suggestions d'optimisation
           </h3>
           <div className="space-y-2">
@@ -501,8 +502,8 @@ export default function ContentCalendarPage() {
                 className="flex items-start gap-3 px-4 py-3 text-sm"
                 style={{ background: "rgba(122,154,101,0.08)", border: "1px solid rgba(122,154,101,0.15)" }}
               >
-                <TrendingUp size={14} className="mt-0.5" style={{ color: "#7A9A65" }} />
-                <span style={{ color: "#E0D8D0" }}>{s.message}</span>
+                <TrendingUp size={14} className="mt-0.5" style={{ color: "var(--success)" }} />
+                <span style={{ color: "var(--text-secondary)" }}>{s.message}</span>
               </div>
             ))}
           </div>
@@ -512,7 +513,7 @@ export default function ContentCalendarPage() {
       {/* Legend */}
       <div className="mt-6 flex items-center gap-4 flex-wrap">
         {Object.entries(PLATFORM_COLORS).map(([platform, color]) => (
-          <div key={platform} className="flex items-center gap-1.5 text-xs" style={{ color: "#E0D8D0" }}>
+          <div key={platform} className="flex items-center gap-1.5 text-xs" style={{ color: "var(--text-secondary)" }}>
             <span className="inline-block w-2.5 h-2.5 rounded-sm" style={{ background: color }} />
             {platform}
           </div>
@@ -554,14 +555,14 @@ function WeekViewContent({
   };
 
   return (
-    <div style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+    <div style={{ border: "1px solid var(--border-default)" }}>
       <div className="grid grid-cols-7" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         {days.map((d, i) => (
           <div key={i} className="py-2 px-2 text-center">
-            <div className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: "#E0D8D0" }}>
+            <div className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: "var(--text-secondary)" }}>
               {weekDays[i]}
             </div>
-            <div className="text-sm font-semibold mt-1" style={{ color: "#F5F0EB" }}>
+            <div className="text-sm font-semibold mt-1" style={{ color: "var(--text-primary)" }}>
               {d.getDate()}
             </div>
           </div>
@@ -594,14 +595,14 @@ function DayViewContent({ events, currentDate }: { events: CalendarEvent[]; curr
   };
 
   return (
-    <div style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+    <div style={{ border: "1px solid var(--border-default)" }}>
       {hours.map((hour) => {
         const hourEvts = getHourEvents(hour);
         return (
           <div
             key={hour}
             className="flex"
-            style={{ borderBottom: "1px solid rgba(255,255,255,0.04)", minHeight: 48 }}
+            style={{ borderBottom: "1px solid var(--border-default)", minHeight: 48 }}
           >
             <div
               className="w-16 shrink-0 flex items-start justify-end pr-3 pt-2 text-xs"
@@ -617,7 +618,7 @@ function DayViewContent({ events, currentDate }: { events: CalendarEvent[]; curr
                   style={{
                     background: `${PLATFORM_COLORS[e.platform] || "#666"}15`,
                     borderLeft: `3px solid ${PLATFORM_COLORS[e.platform] || "#666"}`,
-                    color: "#F5F0EB",
+                    color: "var(--text-primary)",
                   }}
                 >
                   <span>{CONTENT_TYPE_ICONS[e.content_type] || "📄"}</span>
@@ -679,17 +680,17 @@ function CreateEventModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.6)" }}>
-      <div className="w-full max-w-md p-6" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
+      <div className="w-full max-w-md p-6" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>Nouvel événement</h2>
-          <button onClick={onClose} style={{ color: "#E0D8D0" }}><X size={16} /></button>
+          <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Nouvel événement</h2>
+          <button onClick={onClose} style={{ color: "var(--text-secondary)" }}><X size={16} /></button>
         </div>
         <form onSubmit={handleSubmit} className="space-y-3">
           <div>
-            <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Créateur *</label>
+            <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Créateur *</label>
             <select value={creatorId} onChange={(e) => setCreatorId(e.target.value)} required
               className="w-full px-3 py-2 text-sm outline-none"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
               <option value="">Sélectionner...</option>
               {creators.map((c) => (
                 <option key={c.id} value={c.id}>{c.display_name || c.full_name || c.email}</option>
@@ -698,48 +699,48 @@ function CreateEventModal({
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Plateforme *</label>
+              <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Plateforme *</label>
               <select value={platform} onChange={(e) => setPlatform(e.target.value)}
                 className="w-full px-3 py-2 text-sm outline-none"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                 {Object.keys(PLATFORM_LABELS).map((p) => <option key={p} value={p}>{p}</option>)}
               </select>
             </div>
             <div>
-              <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Type *</label>
+              <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Type *</label>
               <select value={contentType} onChange={(e) => setContentType(e.target.value)}
                 className="w-full px-3 py-2 text-sm outline-none"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                 {Object.entries(CONTENT_TYPE_LABELS).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
               </select>
             </div>
           </div>
           <div>
-            <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Titre</label>
+            <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Titre</label>
             <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}
               className="w-full px-3 py-2 text-sm outline-none"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
           </div>
           <div className="grid grid-cols-2 gap-3">
             <div>
-              <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Date *</label>
+              <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Date *</label>
               <input type="date" value={scheduledDate} onChange={(e) => setScheduledDate(e.target.value)} required
                 className="w-full px-3 py-2 text-sm outline-none"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
             </div>
             <div>
-              <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Heure</label>
+              <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Heure</label>
               <input type="time" value={scheduledTime} onChange={(e) => setScheduledTime(e.target.value)}
                 className="w-full px-3 py-2 text-sm outline-none"
-                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
             </div>
           </div>
-          {error && <div className="text-xs" style={{ color: "#C44536" }}>{error}</div>}
+          {error && <div className="text-xs" style={{ color: "var(--danger)" }}>{error}</div>}
           <div className="flex justify-end gap-3 pt-2">
-            <button type="button" onClick={onClose} className="px-4 py-2 text-sm" style={{ color: "#E0D8D0" }}>Annuler</button>
+            <button type="button" onClick={onClose} className="px-4 py-2 text-sm" style={{ color: "var(--text-secondary)" }}>Annuler</button>
             <button type="submit" disabled={saving}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium"
-              style={{ background: "#C75B39", color: "#F5F0EB" }}>
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
               {saving ? <Loader2 size={14} className="animate-spin" /> : <Plus size={14} />}
               Créer
             </button>

@@ -7,7 +7,7 @@ import {
 import { DollarSign, TrendingUp } from "lucide-react";
 import { RevenueData, KpiCard, Card, Spinner, EmptyState, Table, eur } from "./shared";
 
-const CHANNEL_COLORS = ["#C75B39", "#5B8FA8", "#7A9A65", "#B0A89E", "#C44536"];
+const CHANNEL_COLORS = ["var(--accent)", "#5B8FA8", "var(--success)", "#B0A89E", "var(--danger)"];
 const CHANNEL_LABELS: Record<string, string> = {
   email: "Email", sms: "SMS", push: "Push", funnel: "Funnels", dm: "Messages directs",
 };
@@ -64,8 +64,8 @@ export default function RevenueTab() {
                     ))}
                   </Pie>
                   <Tooltip
-                    contentStyle={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
-                    labelStyle={{ color: "#F5F0EB" }}
+                    contentStyle={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
+                    labelStyle={{ color: "var(--text-primary)" }}
                     formatter={(v: any, name: any) => [eur(Number(v)), CHANNEL_LABELS[String(name)] ?? String(name)]}
                   />
                 </PieChart>
@@ -95,11 +95,11 @@ export default function RevenueTab() {
                   <XAxis dataKey="name" tick={{ fontSize: 10, fill: "var(--color-ink-tertiary)" }} />
                   <YAxis tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} tickFormatter={(v: number) => `${v}€`} />
                   <Tooltip
-                    contentStyle={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
-                    labelStyle={{ color: "#F5F0EB" }}
+                    contentStyle={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
+                    labelStyle={{ color: "var(--text-primary)" }}
                     formatter={(v: any) => [eur(Number(v)), "Revenu"]}
                   />
-                  <Bar dataKey="revenue" fill="#C75B39" radius={0} />
+                  <Bar dataKey="revenue" fill="var(--accent)" radius={0} />
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -123,7 +123,7 @@ export default function RevenueTab() {
               c.opened?.toLocaleString() ?? "-",
               c.clicked?.toLocaleString() ?? "-",
               c.converted_count ?? "-",
-              <span key="rev" style={{ color: "#7A9A65", fontWeight: 600 }}>{eur(c.revenue)}</span>,
+              <span key="rev" style={{ color: "var(--success)", fontWeight: 600 }}>{eur(c.revenue)}</span>,
             ])}
           />
         </Card>
@@ -141,7 +141,7 @@ export default function RevenueTab() {
               f.entry_count > 0
                 ? ((f.conversion_count / f.entry_count) * 100).toFixed(1) + "%"
                 : "-",
-              <span key="rev" style={{ color: "#7A9A65", fontWeight: 600 }}>{eur(f.revenue)}</span>,
+              <span key="rev" style={{ color: "var(--success)", fontWeight: 600 }}>{eur(f.revenue)}</span>,
             ])}
           />
         </Card>

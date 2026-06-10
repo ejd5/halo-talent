@@ -70,7 +70,7 @@ export default function MarketPage() {
           <Link href="/studio/templates" className="p-1 transition-opacity hover:opacity-70" style={{ color: "rgba(255,255,255,0.4)" }}>
             <ArrowLeft size={14} />
           </Link>
-          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Marketplace</h1>
+          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Marketplace</h1>
         </div>
         <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
           Templates créés par la communauté Halo Talent · {templates.length} disponibles
@@ -84,22 +84,22 @@ export default function MarketPage() {
         <Link href="/studio/templates/mine" className="px-3 py-2.5 text-[11px] transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.4)" }}>
           Mes templates
         </Link>
-        <Link href="/studio/templates/market" className="px-3 py-2.5 text-[11px] font-medium" style={{ color: "#C75B39", borderBottom: "1px solid #C75B39" }}>
+        <Link href="/studio/templates/market" className="px-3 py-2.5 text-[11px] font-medium" style={{ color: "var(--accent)", borderBottom: "1px solid var(--accent)" }}>
           Marketplace
         </Link>
       </div>
 
       {/* Filters */}
-      <div className="px-4 md:px-6 py-3 flex items-center gap-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="px-4 md:px-6 py-3 flex items-center gap-2" style={{ borderBottom: "1px solid var(--border-default)" }}>
         <div className="relative flex-1 min-w-[200px] max-w-xs">
           <Search size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2" style={{ color: "rgba(255,255,255,0.15)" }} />
           <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Rechercher dans la marketplace..."
             className="w-full text-[10px] bg-transparent pl-7 pr-2.5 py-1.5 rounded-sm outline-none"
-            style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }} />
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
         </div>
         <select value={type} onChange={(e) => setType(e.target.value)}
           className="text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-          style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}>
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
           <option value="">Tous les types</option>
           <option value="photo">Photo</option>
           <option value="video">Vidéo</option>
@@ -124,7 +124,7 @@ export default function MarketPage() {
             {filtered.map((template) => {
               const TypeIcon = TYPE_ICONS[template.type] || Layout;
               return (
-                <div key={template.id} className="rounded-sm overflow-hidden group" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+                <div key={template.id} className="rounded-sm overflow-hidden group" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
                   <div className="relative aspect-[4/5] flex items-center justify-center overflow-hidden" style={{ background: "rgba(0,0,0,0.3)" }}>
                     {template.preview_url ? (
                       <img src={template.preview_url} alt={template.name} className="w-full h-full object-cover" />
@@ -134,7 +134,7 @@ export default function MarketPage() {
                     <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "rgba(0,0,0,0.6)" }}>
                       <button onClick={() => handleUse(template)}
                         className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-medium rounded-sm transition-opacity hover:opacity-80"
-                        style={{ background: "#C75B39", color: "#FFFFFF" }}>
+                        style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                         <Play size={10} /> Utiliser
                       </button>
                     </div>
@@ -145,13 +145,13 @@ export default function MarketPage() {
                     <button onClick={(e) => { e.stopPropagation(); handleLike(template); }}
                       className="absolute top-1.5 right-1.5 p-1.5 rounded-sm transition-colors hover:bg-white/10"
                       style={{ background: "rgba(0,0,0,0.4)" }}>
-                      <Heart size={10} style={{ color: template.liked_by_me ? "#E5484D" : "rgba(255,255,255,0.3)", fill: template.liked_by_me ? "#E5484D" : "transparent" }} />
+                      <Heart size={10} style={{ color: template.liked_by_me ? "var(--danger)" : "rgba(255,255,255,0.3)", fill: template.liked_by_me ? "var(--danger)" : "transparent" }} />
                     </button>
                   </div>
                   <div className="p-2.5">
                     <div className="flex items-center justify-between">
-                      <h3 className="text-[11px] font-medium truncate flex-1" style={{ color: "#F5F0EB" }}>{template.name}</h3>
-                      {template.uses_count > 0 && <TrendingUp size={10} style={{ color: "#C75B39" }} />}
+                      <h3 className="text-[11px] font-medium truncate flex-1" style={{ color: "var(--text-primary)" }}>{template.name}</h3>
+                      {template.uses_count > 0 && <TrendingUp size={10} style={{ color: "var(--accent)" }} />}
                     </div>
                     <p className="text-[9px] mt-0.5 line-clamp-2" style={{ color: "rgba(255,255,255,0.3)" }}>
                       {template.description}

@@ -150,7 +150,7 @@ export function EditorTimeline({
       className="shrink-0 flex flex-col"
       style={{
         height: 220,
-        background: "#0A0908",
+        background: "var(--bg-primary)",
         borderTop: "1px solid rgba(255,255,255,0.06)",
       }}
     >
@@ -194,7 +194,7 @@ export function EditorTimeline({
               style={{
                 left: `${((currentFrame / FPS)) * PIXELS_PER_SECOND * zoom}px`,
                 height: 220,
-                background: "#C75B39",
+                background: "var(--accent)",
                 boxShadow: "0 0 4px rgba(199,91,57,0.5)",
               }}
             />
@@ -221,7 +221,7 @@ export function EditorTimeline({
                 className="flex"
                 style={{
                   height: TRACK_HEIGHT,
-                  borderBottom: "1px solid rgba(255,255,255,0.04)",
+                  borderBottom: "1px solid var(--border-default)",
                   opacity: track.visible ? 1 : 0.3,
                 }}
               >
@@ -235,7 +235,7 @@ export function EditorTimeline({
                 >
                   <GripVertical size={10} style={{ color: "rgba(255,255,255,0.15)", cursor: "grab" }} />
                   <div className="flex-1 min-w-0">
-                    <div className="text-[10px] truncate flex items-center gap-1" style={{ color: "#F5F0EB" }}>
+                    <div className="text-[10px] truncate flex items-center gap-1" style={{ color: "var(--text-primary)" }}>
                       <span
                         className="w-2 h-2 rounded-sm inline-block shrink-0"
                         style={{ background: TRACK_COLORS[track.type] }}
@@ -256,7 +256,7 @@ export function EditorTimeline({
                   <button
                     onClick={() => onToggleLock(track.id)}
                     className="p-0.5 transition-colors hover:bg-white/10 rounded-sm"
-                    style={{ color: track.locked ? "#C75B39" : "rgba(255,255,255,0.15)" }}
+                    style={{ color: track.locked ? "var(--accent)" : "rgba(255,255,255,0.15)" }}
                   >
                     {track.locked ? <Lock size={10} /> : <Unlock size={10} />}
                   </button>
@@ -290,7 +290,7 @@ export function EditorTimeline({
                             />
                           )}
                           <div className="flex-1 min-w-0">
-                            <div className="text-[9px] truncate" style={{ color: "#F5F0EB" }}>
+                            <div className="text-[9px] truncate" style={{ color: "var(--text-primary)" }}>
                               {clip.name}
                             </div>
                             <div className="text-[8px]" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -304,7 +304,7 @@ export function EditorTimeline({
                               onDeleteClip(clip.id, track.id);
                             }}
                             className="p-0.5 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white/10 rounded-sm"
-                            style={{ color: "#E5484D" }}
+                            style={{ color: "var(--danger)" }}
                           >
                             <Trash2 size={9} />
                           </button>

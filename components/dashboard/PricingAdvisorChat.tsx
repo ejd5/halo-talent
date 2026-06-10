@@ -130,14 +130,14 @@ function PriceSimulator() {
   return (
     <div className="space-y-4">
       <div className="flex items-center gap-2 mb-2">
-        <Calculator size={14} style={{ color: "#C75B39" }} />
-        <span className="text-xs uppercase tracking-wider font-semibold" style={{ color: "#FFFFFF" }}>
+        <Calculator size={14} style={{ color: "var(--accent)" }} />
+        <span className="text-xs uppercase tracking-wider font-semibold" style={{ color: "var(--text-primary)" }}>
           Simulateur de prix
         </span>
       </div>
 
       <div>
-        <label className="block text-[10px] uppercase tracking-wider mb-1.5" style={{ color: "#FFFFFF80" }}>
+        <label className="block text-[10px] uppercase tracking-wider mb-1.5" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
           Prix actuel (€)
         </label>
         <input
@@ -145,12 +145,12 @@ function PriceSimulator() {
           value={currentPrice}
           onChange={(e) => setCurrentPrice(e.target.value)}
           className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[#C75B39] transition-colors"
-          style={{ color: "#FFFFFF" }}
+          style={{ color: "var(--text-primary)" }}
         />
       </div>
 
       <div>
-        <label className="block text-[10px] uppercase tracking-wider mb-1.5" style={{ color: "#FFFFFF80" }}>
+        <label className="block text-[10px] uppercase tracking-wider mb-1.5" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
           Nouveau prix (€)
         </label>
         <input
@@ -158,12 +158,12 @@ function PriceSimulator() {
           value={newPrice}
           onChange={(e) => setNewPrice(e.target.value)}
           className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[#C75B39] transition-colors"
-          style={{ color: "#FFFFFF" }}
+          style={{ color: "var(--text-primary)" }}
         />
       </div>
 
       <div>
-        <label className="block text-[10px] uppercase tracking-wider mb-1.5" style={{ color: "#FFFFFF80" }}>
+        <label className="block text-[10px] uppercase tracking-wider mb-1.5" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
           Abonnés actuels
         </label>
         <input
@@ -171,7 +171,7 @@ function PriceSimulator() {
           value={subscribers}
           onChange={(e) => setSubscribers(e.target.value)}
           className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[#C75B39] transition-colors"
-          style={{ color: "#FFFFFF" }}
+          style={{ color: "var(--text-primary)" }}
         />
       </div>
 
@@ -179,7 +179,7 @@ function PriceSimulator() {
         onClick={handleSimulate}
         disabled={simulating}
         className="w-full py-2.5 text-xs uppercase tracking-wider font-semibold transition-opacity hover:opacity-80 disabled:opacity-40"
-        style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+        style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
       >
         {simulating ? "Simulation..." : "Simuler"}
       </button>
@@ -187,36 +187,36 @@ function PriceSimulator() {
       {result && (
         <div className="p-3 border border-[var(--color-border)] space-y-2 text-sm" style={{ backgroundColor: "var(--color-base)" }}>
           <div className="flex justify-between">
-            <span style={{ color: "#FFFFFF80" }}>Revenu actuel</span>
-            <span className="font-mono font-semibold" style={{ color: "#FFFFFF" }}>
+            <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>Revenu actuel</span>
+            <span className="font-mono font-semibold" style={{ color: "var(--text-primary)" }}>
               {result.current_monthly_revenue.toLocaleString("fr-FR")}€
             </span>
           </div>
           <div className="flex justify-between">
-            <span style={{ color: "#FFFFFF80" }}>Revenu estimé</span>
-            <span className="font-mono font-semibold" style={{ color: "#FFFFFF" }}>
+            <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>Revenu estimé</span>
+            <span className="font-mono font-semibold" style={{ color: "var(--text-primary)" }}>
               {result.estimated_new_revenue.toLocaleString("fr-FR")}€
             </span>
           </div>
           <div className="flex justify-between border-t border-[var(--color-border)] pt-2">
-            <span style={{ color: "#FFFFFF80" }}>Impact</span>
+            <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>Impact</span>
             <span
               className={cn(
                 "font-mono font-bold",
-                delta && delta > 0 ? "#10B981" : delta && delta < 0 ? "#EF4444" : "#FFFFFF"
+                delta && delta > 0 ? "var(--success)" : delta && delta < 0 ? "#EF4444" : "var(--text-primary)"
               )}
-              style={{ color: delta && delta > 0 ? "#10B981" : delta && delta < 0 ? "#EF4444" : "#FFFFFF" }}
+              style={{ color: delta && delta > 0 ? "var(--success)" : delta && delta < 0 ? "#EF4444" : "var(--text-primary)" }}
             >
               {delta && delta > 0 ? "+" : ""}{delta?.toLocaleString("fr-FR")}€/mois
             </span>
           </div>
           <div className="flex justify-between">
-            <span style={{ color: "#FFFFFF80" }}>Perte estimée</span>
+            <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>Perte estimée</span>
             <span className="font-mono" style={{ color: "#EF4444" }}>
               -{result.estimated_lost_subs} abonnés
             </span>
           </div>
-          <p className="text-[10px] pt-1" style={{ color: "#FFFFFF60" }}>
+          <p className="text-[10px] pt-1" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
             Simulation basée sur un modèle d&apos;élasticité standard. Les résultats réels peuvent varier.
           </p>
         </div>
@@ -303,8 +303,8 @@ export function PricingAdvisorChat() {
               const Icon = toolIcons[tc.tool] ?? Sparkles;
               return (
                 <span key={j} className="inline-flex items-center gap-1 px-1.5 py-0.5 text-[9px] font-medium border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-                  <Icon size={8} style={{ color: "#C75B3980" }} />
-                  <span style={{ color: "#FFFFFF80" }}>{toolLabels[tc.tool] ?? tc.tool}</span>
+                  <Icon size={8} style={{ color: "rgba(199, 91, 57, 0.5)" }} />
+                  <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>{toolLabels[tc.tool] ?? tc.tool}</span>
                 </span>
               );
             })}
@@ -313,7 +313,7 @@ export function PricingAdvisorChat() {
         <div className={`px-4 py-3 text-base leading-relaxed whitespace-pre-wrap ${msg.role === "user" ? "text-white" : "border border-[var(--color-border)]"}`}
           style={msg.role === "user" ? { backgroundColor: "var(--color-accent)" } : { backgroundColor: "var(--color-card)" }}
         >
-          <span style={{ color: "#FFFFFF" }}>{msg.content}</span>
+          <span style={{ color: "var(--text-primary)" }}>{msg.content}</span>
         </div>
       </div>
     </div>
@@ -329,13 +329,13 @@ export function PricingAdvisorChat() {
               <div className="p-4 border border-[var(--color-border)] mb-4" style={{ backgroundColor: "var(--color-card)" }}>
                 <span className="text-4xl">💰</span>
               </div>
-              <p className="text-base font-semibold mb-2" style={{ color: "#FFFFFF" }}>
+              <p className="text-base font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
                 Pricing Advisor
               </p>
-              <p className="text-sm mb-1" style={{ color: "#FFFFFF" }}>
+              <p className="text-sm mb-1" style={{ color: "var(--text-primary)" }}>
                 J&apos;optimise ta stratégie de prix pour maximiser tes revenus
               </p>
-              <p className="text-sm mb-8" style={{ color: "#FFFFFF60" }}>
+              <p className="text-sm mb-8" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Pose une question ou utilise le simulateur →
               </p>
             </div>
@@ -353,8 +353,8 @@ export function PricingAdvisorChat() {
                   const Icon = toolIcons[tool] ?? Sparkles;
                   return (
                     <div key={i} className="flex items-center gap-1.5 px-2 py-1 text-sm font-medium border border-[var(--color-border)] animate-pulse" style={{ backgroundColor: "var(--color-card)" }}>
-                      <Icon size={10} style={{ color: "#C75B3980" }} />
-                      <span style={{ color: "#FFFFFF80" }}>{toolLabels[tool] ?? tool}</span>
+                      <Icon size={10} style={{ color: "rgba(199, 91, 57, 0.5)" }} />
+                      <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>{toolLabels[tool] ?? tool}</span>
                     </div>
                   );
                 })}
@@ -369,16 +369,16 @@ export function PricingAdvisorChat() {
               </div>
               <div className="border border-[var(--color-border)] px-4 py-3" style={{ backgroundColor: "var(--color-card)" }}>
                 <div className="flex gap-1.5">
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full" style={{ backgroundColor: "#C75B39" }} />
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:150ms]" style={{ backgroundColor: "#C75B39" }} />
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:300ms]" style={{ backgroundColor: "#C75B39" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full" style={{ backgroundColor: "var(--accent)" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:150ms]" style={{ backgroundColor: "var(--accent)" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:300ms]" style={{ backgroundColor: "var(--accent)" }} />
                 </div>
               </div>
             </div>
           )}
 
           {error && (
-            <div className="p-3 border border-[#C44536]/30 text-sm" style={{ backgroundColor: "#C4453610", color: "#C44536" }}>
+            <div className="p-3 border border-[#C44536]/30 text-sm" style={{ backgroundColor: "#C4453610", color: "var(--danger)" }}>
               {error}
             </div>
           )}
@@ -397,13 +397,13 @@ export function PricingAdvisorChat() {
               placeholder="Pose ta question pricing..."
               disabled={loading}
               className="flex-1 bg-transparent border-b border-[var(--color-border)] py-3 text-lg placeholder:opacity-30 focus:outline-none focus:border-[#C75B39] transition-colors disabled:opacity-40"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "var(--text-primary)" }}
             />
             <button
               onClick={() => handleSend()}
               disabled={!input.trim() || loading}
               className="opacity-40 hover:opacity-100 transition-opacity disabled:opacity-20"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             >
               <Send size={16} />
             </button>
@@ -418,7 +418,7 @@ export function PricingAdvisorChat() {
         style={{ backgroundColor: "var(--color-card)" }}
         title={sidebarOpen ? "Fermer" : "Simulateur"}
       >
-        {sidebarOpen ? <PanelRightClose size={14} style={{ color: "#FFFFFF60" }} /> : <Calculator size={14} style={{ color: "#FFFFFF60" }} />}
+        {sidebarOpen ? <PanelRightClose size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} /> : <Calculator size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} />}
       </button>
 
       {/* Right sidebar */}
@@ -430,7 +430,7 @@ export function PricingAdvisorChat() {
 
             {/* Quick actions */}
             <div className="pt-4 border-t border-[var(--color-border)]">
-              <p className="text-[10px] uppercase tracking-wider mb-3" style={{ color: "#FFFFFF60" }}>
+              <p className="text-[10px] uppercase tracking-wider mb-3" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Actions rapides
               </p>
               <div className="space-y-2">
@@ -444,10 +444,10 @@ export function PricingAdvisorChat() {
                       className="flex items-center gap-2 w-full p-3 text-left text-sm border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50 hover:bg-[#C75B39]/05 disabled:opacity-40"
                       style={{ backgroundColor: "var(--color-base)" }}
                     >
-                      <div className="w-7 h-7 flex items-center justify-center shrink-0" style={{ backgroundColor: "#C75B3915" }}>
-                        <Icon size={13} style={{ color: "#C75B39" }} />
+                      <div className="w-7 h-7 flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)" }}>
+                        <Icon size={13} style={{ color: "var(--accent)" }} />
                       </div>
-                      <span style={{ color: "#FFFFFF" }}>{skill.label}</span>
+                      <span style={{ color: "var(--text-primary)" }}>{skill.label}</span>
                     </button>
                   );
                 })}

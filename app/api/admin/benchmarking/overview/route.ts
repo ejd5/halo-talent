@@ -64,7 +64,7 @@ export async function GET() {
         .select("id", { count: "exact", head: true })
         .eq("creator_id", c.id);
 
-      const perfScore = this.calcPerfScore(currentRevenue, growth, activeFans || 0);
+      const perfScore = calcPerfScore(currentRevenue, growth, activeFans || 0);
 
       return {
         id: c.id,

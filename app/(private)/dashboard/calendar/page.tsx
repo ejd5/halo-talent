@@ -79,10 +79,10 @@ export default function CalendarPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Mon calendrier</h1>
-          <p className="text-sm mt-1" style={{ color: "#FFFFFF" }}>Planifie et suis tes publications</p>
+          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Mon calendrier</h1>
+          <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>Planifie et suis tes publications</p>
         </div>
-        <button className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80" style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}>
+        <button className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80" style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
           <Plus size={11} /> Nouveau contenu
         </button>
       </div>
@@ -91,17 +91,17 @@ export default function CalendarPage() {
       <div className="flex items-center justify-between" style={{ backgroundColor: "var(--color-card)", border: "1px solid var(--color-border)" }}>
         <div className="flex items-center gap-3">
           <button onClick={prevMonth} className="p-3 hover:opacity-70 transition-opacity">
-            <ChevronLeft size={16} style={{ color: "#FFFFFF60" }} />
+            <ChevronLeft size={16} style={{ color: "rgba(255, 255, 255, 0.375)" }} />
           </button>
-          <h2 className="text-base font-semibold" style={{ color: "#FFFFFF" }}>
+          <h2 className="text-base font-semibold" style={{ color: "var(--text-primary)" }}>
             {MONTHS[month]} {year}
           </h2>
           <button onClick={nextMonth} className="p-3 hover:opacity-70 transition-opacity">
-            <ChevronRight size={16} style={{ color: "#FFFFFF60" }} />
+            <ChevronRight size={16} style={{ color: "rgba(255, 255, 255, 0.375)" }} />
           </button>
           {!isCurrentMonth && (
             <button onClick={() => { setYear(now.getFullYear()); setMonth(now.getMonth()); }}
-              className="text-[10px] px-2 py-1" style={{ color: "#C75B39" }}>
+              className="text-[10px] px-2 py-1" style={{ color: "var(--accent)" }}>
               Aujourd&apos;hui
             </button>
           )}
@@ -111,7 +111,7 @@ export default function CalendarPage() {
             <button key={v} onClick={() => setView(v)}
               className={cn("px-2.5 py-1 text-[10px] uppercase tracking-wider font-medium transition-all",
                 view === v ? "border-b-2" : "opacity-40 hover:opacity-70")}
-              style={{ borderColor: view === v ? "#C75B39" : "transparent", color: "#FFFFFF" }}>
+              style={{ borderColor: view === v ? "var(--accent)" : "transparent", color: "var(--text-primary)" }}>
               {v === "month" ? "Mois" : "Semaine"}
             </button>
           ))}
@@ -123,7 +123,7 @@ export default function CalendarPage() {
         {/* Day headers */}
         <div className="grid grid-cols-7 border-b border-[var(--color-border)]">
           {DAYS.map((d) => (
-            <div key={d} className="py-2 text-center text-[10px] uppercase tracking-wider font-medium" style={{ color: "#FFFFFF60", borderRight: "1px solid var(--color-border)" }}>
+            <div key={d} className="py-2 text-center text-[10px] uppercase tracking-wider font-medium" style={{ color: "rgba(255, 255, 255, 0.375)", borderRight: "1px solid var(--color-border)" }}>
               {d}
             </div>
           ))}
@@ -138,7 +138,7 @@ export default function CalendarPage() {
             return (
               <div key={i} className={cn(
                 "min-h-[100px] p-1.5 border-b border-r border-[var(--color-border)] transition-all",
-                isToday && "bg-[#C75B39]/05",
+                isToday && "bg-[var(--accent)]/05",
                 !day && "opacity-20"
               )}>
                 {day && (
@@ -147,7 +147,7 @@ export default function CalendarPage() {
                       "text-[10px] font-mono mb-1 w-5 h-5 flex items-center justify-center",
                       isToday && "font-bold rounded-full"
                     )}
-                      style={isToday ? { backgroundColor: "#C75B39", color: "#FFFFFF" } : { color: "#FFFFFF80" }}>
+                      style={isToday ? { backgroundColor: "var(--accent)", color: "var(--text-primary)" } : { color: "rgba(255, 255, 255, 0.5)" }}>
                       {day}
                     </div>
                     <div className="space-y-0.5">
@@ -155,12 +155,12 @@ export default function CalendarPage() {
                         <div key={post.id} className={cn(
                           "px-1 py-0.5 text-[8px] font-medium truncate rounded-sm cursor-pointer hover:opacity-80 transition-opacity"
                         )}
-                          style={{ backgroundColor: `${PLATFORM_COLORS[post.platform] ?? "#FFFFFF"}20`, color: PLATFORM_COLORS[post.platform] ?? "#FFFFFF" }}>
+                          style={{ backgroundColor: `${PLATFORM_COLORS[post.platform] ?? "var(--text-primary)"}20`, color: PLATFORM_COLORS[post.platform] ?? "var(--text-primary)" }}>
                           {post.time} {post.title}
                         </div>
                       ))}
                       {posts.length > 3 && (
-                        <div className="text-[8px] text-center" style={{ color: "#FFFFFF40" }}>
+                        <div className="text-[8px] text-center" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
                           +{posts.length - 3}
                         </div>
                       )}
@@ -175,14 +175,14 @@ export default function CalendarPage() {
 
       {/* Upcoming posts list */}
       <div className="border border-[var(--color-border)] p-4" style={{ backgroundColor: "var(--color-card)" }}>
-        <h3 className="text-xs font-semibold mb-3" style={{ color: "#FFFFFF" }}>Publications à venir</h3>
+        <h3 className="text-xs font-semibold mb-3" style={{ color: "var(--text-primary)" }}>Publications à venir</h3>
         <div className="space-y-2">
           {MOCK_POSTS.filter((p) => p.status !== "published").slice(0, 5).map((post) => (
             <div key={post.id} className="flex items-center gap-3 p-2 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }}>
-              <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: PLATFORM_COLORS[post.platform] ?? "#FFFFFF" }} />
+              <div className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: PLATFORM_COLORS[post.platform] ?? "var(--text-primary)" }} />
               <div className="flex-1 min-w-0">
-                <p className="text-xs font-medium truncate" style={{ color: "#FFFFFF" }}>{post.title}</p>
-                <p className="text-[9px]" style={{ color: "#FFFFFF60" }}>
+                <p className="text-xs font-medium truncate" style={{ color: "var(--text-primary)" }}>{post.title}</p>
+                <p className="text-[9px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                   {MONTHS[month]} {post.day} à {post.time} · {post.platform}
                 </p>
               </div>
@@ -190,7 +190,7 @@ export default function CalendarPage() {
                 "text-[8px] px-1.5 py-0.5 font-mono uppercase",
                 post.status === "draft" ? "text-[#F59E0B] bg-[#F59E0B]/10"
                   : post.status === "scheduled" ? "text-[#3B82F6] bg-[#3B82F6]/10"
-                  : "text-[#10B981] bg-[#10B981]/10"
+                  : "text-[var(--success)] bg-[var(--success)]/10"
               )}>
                 {STATUS_LABELS[post.status]}
               </span>
@@ -201,13 +201,13 @@ export default function CalendarPage() {
 
       {/* Integration buttons */}
       <div className="flex gap-3">
-        <button className="flex items-center gap-2 px-4 py-2.5 text-[10px] uppercase tracking-wider font-medium border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50"
-          style={{ color: "#FFFFFF" }}>
-          <CalendarIcon size={13} style={{ color: "#C75B39" }} />
+        <button className="flex items-center gap-2 px-4 py-2.5 text-[10px] uppercase tracking-wider font-medium border border-[var(--color-border)] transition-all hover:border-[var(--accent)]/50"
+          style={{ color: "var(--text-primary)" }}>
+          <CalendarIcon size={13} style={{ color: "var(--accent)" }} />
           Demander à Content Strategist un plan
         </button>
-        <button className="flex items-center gap-2 px-4 py-2.5 text-[10px] uppercase tracking-wider font-medium border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50"
-          style={{ color: "#FFFFFF" }}>
+        <button className="flex items-center gap-2 px-4 py-2.5 text-[10px] uppercase tracking-wider font-medium border border-[var(--color-border)] transition-all hover:border-[var(--accent)]/50"
+          style={{ color: "var(--text-primary)" }}>
           <span className="text-[13px]">📊</span>
           Meilleurs créneaux selon mes analytics
         </button>

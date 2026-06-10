@@ -64,7 +64,7 @@ export default function RulesPage() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Moteur de règles
           </h1>
           <p className="text-sm mt-1" style={{ color: "var(--color-ink-secondary)" }}>
@@ -74,7 +74,7 @@ export default function RulesPage() {
         <button
           onClick={() => { setEditingRule(null); setBuilderOpen(true); }}
           className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium transition-opacity hover:opacity-80"
-          style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+          style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={14} /> Créer une règle
         </button>
@@ -93,8 +93,8 @@ export default function RulesPage() {
             onClick={() => setTab(t.id)}
             className="flex items-center gap-2 px-4 py-3 text-xs font-medium transition-all"
             style={{
-              color: tab === t.id ? "#C75B39" : "var(--color-ink-tertiary)",
-              borderBottom: tab === t.id ? "1px solid #C75B39" : "1px solid transparent",
+              color: tab === t.id ? "var(--accent)" : "var(--color-ink-tertiary)",
+              borderBottom: tab === t.id ? "1px solid var(--accent)" : "1px solid transparent",
               marginBottom: -1,
             }}
           >
@@ -112,7 +112,7 @@ export default function RulesPage() {
               onChange={(e) => setFilter(e.target.value)}
               placeholder="Rechercher une règle..."
               className="flex-1 px-3 py-2 text-sm"
-              style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }}
+              style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }}
             />
             <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>
               {filteredRules.length} / {rules.length} règles
@@ -128,12 +128,12 @@ export default function RulesPage() {
                 <div
                   key={rule.id}
                   className="p-4 transition-colors"
-                  style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}
+                  style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2 flex-wrap">
-                        <span className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>{rule.name}</span>
+                        <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{rule.name}</span>
                         <Badge text={TRIGGER_LABELS[rule.trigger_event] ?? rule.trigger_event} />
                         {rule.test_mode && <Badge text="TEST" color="#5B8FA8" />}
                       </div>
@@ -145,7 +145,7 @@ export default function RulesPage() {
                       <div className="flex items-center gap-3 mt-2 text-[10px]" style={{ color: "var(--color-ink-tertiary)" }}>
                         <span className="flex items-center gap-1"><Play size={10} /> {rule.total_executions ?? 0} exécutions</span>
                         {rule.total_errors > 0 && (
-                          <span className="flex items-center gap-1" style={{ color: "#C44536" }}><XCircle size={10} /> {rule.total_errors} erreurs</span>
+                          <span className="flex items-center gap-1" style={{ color: "var(--danger)" }}><XCircle size={10} /> {rule.total_errors} erreurs</span>
                         )}
                         {rule.last_executed_at && (
                           <span className="flex items-center gap-1"><Clock size={10} /> {timeAgo(rule.last_executed_at)}</span>
@@ -164,7 +164,7 @@ export default function RulesPage() {
                     </div>
                     <div className="flex items-center gap-1 ml-3">
                       <button onClick={() => toggleRule(rule.id, rule.is_active)} className="p-1.5 transition-colors hover:opacity-70"
-                        style={{ color: rule.is_active ? "#7A9A65" : "var(--color-ink-tertiary)" }}>
+                        style={{ color: rule.is_active ? "var(--success)" : "var(--color-ink-tertiary)" }}>
                         {rule.is_active ? <ToggleRight size={18} /> : <ToggleLeft size={18} />}
                       </button>
                       <button onClick={() => deleteRule(rule.id)} className="p-1.5 transition-colors hover:opacity-70"
@@ -181,16 +181,16 @@ export default function RulesPage() {
           {/* Stats summary */}
           {!loading && rules.length > 0 && (
             <div className="grid grid-cols-3 gap-3 text-center text-xs" style={{ color: "var(--color-ink-tertiary)" }}>
-              <div className="p-3" style={{ backgroundColor: "#2A2420" }}>
-                <p className="text-lg font-bold" style={{ color: "#7A9A65" }}>{rules.filter((r) => r.is_active).length}</p>
+              <div className="p-3" style={{ backgroundColor: "var(--bg-card)" }}>
+                <p className="text-lg font-bold" style={{ color: "var(--success)" }}>{rules.filter((r) => r.is_active).length}</p>
                 <p>Actives</p>
               </div>
-              <div className="p-3" style={{ backgroundColor: "#2A2420" }}>
-                <p className="text-lg font-bold" style={{ color: "#F5F0EB" }}>{rules.reduce((s, r) => s + (r.total_executions ?? 0), 0)}</p>
+              <div className="p-3" style={{ backgroundColor: "var(--bg-card)" }}>
+                <p className="text-lg font-bold" style={{ color: "var(--text-primary)" }}>{rules.reduce((s, r) => s + (r.total_executions ?? 0), 0)}</p>
                 <p>Exécutions totales</p>
               </div>
-              <div className="p-3" style={{ backgroundColor: "#2A2420" }}>
-                <p className="text-lg font-bold" style={{ color: ruleHasErrors(rules) ? "#C44536" : "#7A9A65" }}>
+              <div className="p-3" style={{ backgroundColor: "var(--bg-card)" }}>
+                <p className="text-lg font-bold" style={{ color: ruleHasErrors(rules) ? "var(--danger)" : "var(--success)" }}>
                   {rules.reduce((s, r) => s + (r.total_errors ?? 0), 0)}
                 </p>
                 <p>Erreurs</p>
@@ -235,14 +235,14 @@ function TemplatesTab({ onSelect }: { onSelect: (template: any) => void }) {
             className="p-4 cursor-pointer transition-colors"
             style={{
               backgroundColor: selected === String(i) ? "rgba(199,91,57,0.08)" : "#2A2420",
-              border: selected === String(i) ? "1px solid #C75B39" : "1px solid rgba(245,240,235,0.06)",
+              border: selected === String(i) ? "1px solid var(--accent)" : "1px solid rgba(245,240,235,0.06)",
             }}
             onClick={() => setSelected(String(i))}
           >
             <div className="flex items-center gap-2 mb-1">
               <Badge text={TRIGGER_LABELS[t.trigger_event] ?? t.trigger_event} />
             </div>
-            <p className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>{t.name}</p>
+            <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{t.name}</p>
             <p className="text-xs mt-1" style={{ color: "var(--color-ink-tertiary)" }}>{t.description}</p>
             <div className="flex items-center gap-1 mt-2 flex-wrap">
               {t.actions.map((a, ai) => (
@@ -258,7 +258,7 @@ function TemplatesTab({ onSelect }: { onSelect: (template: any) => void }) {
         onClick={() => onSelect(selected)}
         disabled={selected === null}
         className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium disabled:opacity-40"
-        style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+        style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
       >
         <Plus size={14} /> Utiliser le template
       </button>
@@ -304,8 +304,8 @@ function ApiKeysTab() {
       <div className="flex gap-2">
         <input value={newName} onChange={(e) => setNewName(e.target.value)} placeholder="Nom de la clé (ex: Stripe)"
           className="flex-1 px-3 py-2 text-sm"
-          style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }} />
-        <button onClick={create} className="px-3 py-2 text-xs font-medium" style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}>
+          style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }} />
+        <button onClick={create} className="px-3 py-2 text-xs font-medium" style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
           <Plus size={14} className="inline mr-1" />Créer
         </button>
       </div>
@@ -315,9 +315,9 @@ function ApiKeysTab() {
       ) : (
         <div className="space-y-2">
           {keys.map((k) => (
-            <div key={k.id} className="flex items-center justify-between p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <div key={k.id} className="flex items-center justify-between p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
               <div>
-                <p className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{k.name}</p>
+                <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{k.name}</p>
                 <code className="text-xs font-mono" style={{ color: "var(--color-ink-tertiary)" }}>{k.key.slice(0, 16)}...</code>
                 <p className="text-[10px] mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>
                   Webhook URL: <code className="font-mono">/api/atlas/webhooks/{k.key}/hook-name</code>
@@ -372,17 +372,17 @@ function OutgoingWebhooksTab() {
         <p className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>
           Envoie des événements Atlas vers des services externes (Zapier, Make, N8n...)
         </p>
-        <button onClick={() => setShowForm(!showForm)} className="flex items-center gap-1 px-3 py-1.5 text-xs" style={{ backgroundColor: "rgba(199,91,57,0.12)", color: "#C75B39" }}>
+        <button onClick={() => setShowForm(!showForm)} className="flex items-center gap-1 px-3 py-1.5 text-xs" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>
           <Plus size={12} /> {showForm ? "Annuler" : "Ajouter"}
         </button>
       </div>
 
       {showForm && (
-        <div className="p-4" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+        <div className="p-4" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
           <Input label="Nom" value={name} onChange={setName} placeholder="Zapier CRM Sync" />
           <Input label="URL" value={url} onChange={setUrl} placeholder="https://hooks.zapier.com/..." />
           <Input label="Événements (séparés par des virgules)" value={events} onChange={setEvents} placeholder="fan.created, campaign.sent, draft.generated" />
-          <button onClick={create} className="px-3 py-2 text-xs font-medium mt-2" style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}>
+          <button onClick={create} className="px-3 py-2 text-xs font-medium mt-2" style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
             Créer le webhook
           </button>
         </div>
@@ -393,9 +393,9 @@ function OutgoingWebhooksTab() {
       ) : (
         <div className="space-y-2">
           {webhooks.map((w) => (
-            <div key={w.id} className="flex items-center justify-between p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <div key={w.id} className="flex items-center justify-between p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
               <div>
-                <p className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{w.name}</p>
+                <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{w.name}</p>
                 <code className="text-xs font-mono" style={{ color: "var(--color-ink-tertiary)" }}>{w.url}</code>
                 <div className="flex gap-1 mt-1">
                   {(w.events ?? []).map((e: string, i: number) => (
@@ -603,21 +603,21 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
             <div className="flex items-center gap-2 mb-2">
               <span className="text-xs" style={{ color: "var(--color-ink-secondary)" }}>Logique :</span>
               <button onClick={() => setConditionsLogic("all")} className="text-xs px-2 py-1"
-                style={{ backgroundColor: conditionsLogic === "all" ? "rgba(199,91,57,0.12)" : "transparent", color: conditionsLogic === "all" ? "#C75B39" : "var(--color-ink-tertiary)" }}>
+                style={{ backgroundColor: conditionsLogic === "all" ? "rgba(199,91,57,0.12)" : "transparent", color: conditionsLogic === "all" ? "var(--accent)" : "var(--color-ink-tertiary)" }}>
                 TOUTES les conditions
               </button>
               <button onClick={() => setConditionsLogic("any")} className="text-xs px-2 py-1"
-                style={{ backgroundColor: conditionsLogic === "any" ? "rgba(199,91,57,0.12)" : "transparent", color: conditionsLogic === "any" ? "#C75B39" : "var(--color-ink-tertiary)" }}>
+                style={{ backgroundColor: conditionsLogic === "any" ? "rgba(199,91,57,0.12)" : "transparent", color: conditionsLogic === "any" ? "var(--accent)" : "var(--color-ink-tertiary)" }}>
                 N'IMPORTE QUELLE condition
               </button>
             </div>
           )}
 
           {conditions.map((cond, i) => (
-            <div key={i} className="flex items-start gap-2 p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <div key={i} className="flex items-start gap-2 p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
               <div className="flex-1 grid grid-cols-3 gap-2">
                 <select value={cond.field} onChange={(e) => updateCondition(i, { field: e.target.value })}
-                  className="px-2 py-1.5 text-xs" style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }}>
+                  className="px-2 py-1.5 text-xs" style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }}>
                   <option value="">Champ</option>
                   <option value="lifetime_value">LTV</option>
                   <option value="total_spent">Total dépensé</option>
@@ -627,7 +627,7 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
                   <option value="days_since_last_interaction">Inactivité (jours)</option>
                 </select>
                 <select value={cond.operator} onChange={(e) => updateCondition(i, { operator: e.target.value as any })}
-                  className="px-2 py-1.5 text-xs" style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }}>
+                  className="px-2 py-1.5 text-xs" style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }}>
                   <option value="eq">=</option>
                   <option value="neq">≠</option>
                   <option value="gt">&gt;</option>
@@ -638,14 +638,14 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
                 </select>
                 <input value={String(cond.value)} onChange={(e) => updateCondition(i, { value: e.target.value })}
                   placeholder="Valeur"
-                  className="px-2 py-1.5 text-xs" style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }} />
+                  className="px-2 py-1.5 text-xs" style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }} />
               </div>
-              <button onClick={() => removeCondition(i)} className="p-1" style={{ color: "#C44536" }}>✕</button>
+              <button onClick={() => removeCondition(i)} className="p-1" style={{ color: "var(--danger)" }}>✕</button>
             </div>
           ))}
 
           <button onClick={addCondition} className="flex items-center gap-1 px-3 py-1.5 text-xs"
-            style={{ color: "#C75B39" }}>
+            style={{ color: "var(--accent)" }}>
             <Plus size={12} /> Ajouter une condition
           </button>
         </div>
@@ -655,10 +655,10 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
       {step === 2 && (
         <div className="space-y-4">
           {actions.map((action, i) => (
-            <div key={i} className="p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <div key={i} className="p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
               <div className="flex items-center justify-between mb-2">
                 <span className="text-xs font-medium" style={{ color: "#5B8FA8" }}>Action #{i + 1}</span>
-                <button onClick={() => removeAction(i)} className="p-0.5" style={{ color: "#C44536" }}>✕</button>
+                <button onClick={() => removeAction(i)} className="p-0.5" style={{ color: "var(--danger)" }}>✕</button>
               </div>
               <SelectOption label="Type d'action"
                 options={Object.entries(ACTION_LABELS).map(([v, l]) => ({ value: v, label: l }))}
@@ -720,13 +720,13 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
               type="button" role="switch" aria-checked={isActive}
               onClick={() => setIsActive(!isActive)}
               className="relative w-9 h-5 shrink-0 transition-colors"
-              style={{ backgroundColor: isActive ? "#C75B39" : "rgba(245,240,235,0.1)" }}
+              style={{ backgroundColor: isActive ? "var(--accent)" : "rgba(245,240,235,0.1)" }}
             >
               <span className="absolute top-0.5 left-0.5 w-4 h-4 transition-transform"
-                style={{ backgroundColor: "#F5F0EB", transform: isActive ? "translateX(16px)" : "translateX(0)" }} />
+                style={{ backgroundColor: "var(--text-primary)", transform: isActive ? "translateX(16px)" : "translateX(0)" }} />
             </button>
             <div>
-              <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>Activer immédiatement</span>
+              <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Activer immédiatement</span>
               <p className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>La règle commence à s'exécuter dès sa création</p>
             </div>
           </label>
@@ -739,10 +739,10 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
               style={{ backgroundColor: testMode ? "#5B8FA8" : "rgba(245,240,235,0.1)" }}
             >
               <span className="absolute top-0.5 left-0.5 w-4 h-4 transition-transform"
-                style={{ backgroundColor: "#F5F0EB", transform: testMode ? "translateX(16px)" : "translateX(0)" }} />
+                style={{ backgroundColor: "var(--text-primary)", transform: testMode ? "translateX(16px)" : "translateX(0)" }} />
             </button>
             <div>
-              <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>Mode test (dry-run)</span>
+              <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Mode test (dry-run)</span>
               <p className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>Les actions ne sont pas réellement exécutées, seulement loggées</p>
             </div>
           </label>
@@ -762,13 +762,13 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
                 backgroundColor: testResults.will_execute ? "rgba(122,154,101,0.04)" : "rgba(199,91,57,0.04)",
                 border: `1px solid ${testResults.will_execute ? "rgba(122,154,101,0.1)" : "rgba(199,91,57,0.1)"}`,
               }}>
-                <p style={{ color: testResults.will_execute ? "#7A9A65" : "#C75B39" }}>
+                <p style={{ color: testResults.will_execute ? "var(--success)" : "var(--accent)" }}>
                   <strong>{testResults.will_execute ? "✓ La règle s'exécutera" : "✗ La règle ne s'exécutera pas"}</strong>
                 </p>
                 {testResults.conditions?.length > 0 && (
                   <div className="mt-2 space-y-1">
                     {testResults.conditions.map((c: any, i: number) => (
-                      <p key={i} style={{ color: c.passed ? "#7A9A65" : "#C44536" }}>
+                      <p key={i} style={{ color: c.passed ? "var(--success)" : "var(--danger)" }}>
                         {c.field} {c.operator} {c.value} → actuel: {c.actual} ({c.passed ? "✓" : "✗"})
                       </p>
                     ))}
@@ -807,7 +807,7 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
               onClick={() => setStep(step + 1)}
               disabled={!canProceed}
               className="flex items-center gap-1 px-4 py-2 text-xs font-medium disabled:opacity-40"
-              style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+              style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
             >
               Suivant <ChevronRight size={12} />
             </button>
@@ -816,7 +816,7 @@ function RuleBuilderModal({ open, onClose, initialRule, onSaved }: {
               onClick={handleSave}
               disabled={saving || !canProceed}
               className="px-4 py-2 text-xs font-medium disabled:opacity-40"
-              style={{ backgroundColor: "#7A9A65", color: "#F5F0EB" }}
+              style={{ backgroundColor: "var(--success)", color: "var(--text-primary)" }}
             >
               {saving ? "Sauvegarde..." : initialRule ? "Mettre à jour" : "Créer la règle"}
             </button>

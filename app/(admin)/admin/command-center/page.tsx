@@ -54,9 +54,9 @@ type SortKey = "alpha" | "revenue_day" | "revenue_month" | "growth" | "joined";
 
 function StatusDot({ color }: { color: string }) {
   const colors: Record<string, string> = {
-    green: "#7A9A65",
-    yellow: "#C75B39",
-    red: "#C44536",
+    green: "var(--success)",
+    yellow: "var(--accent)",
+    red: "var(--danger)",
     black: "rgba(245,240,235,0.2)",
   };
   return (
@@ -78,7 +78,7 @@ function MiniSparkline({ data, color }: { data: number[]; color?: string }) {
           className="w-full transition-all"
           style={{
             height: `${(v / max) * h}px`,
-            backgroundColor: color || "#C75B39",
+            backgroundColor: color || "var(--accent)",
             opacity: 0.6,
           }}
         />
@@ -113,7 +113,7 @@ function FilterSidebar({
     <div className="fixed inset-0 z-50 flex" onClick={onClose}>
       <div
         className="w-64 h-full overflow-y-auto p-4 space-y-4"
-        style={{ backgroundColor: "#1A1614", borderRight: "1px solid rgba(245,240,235,0.06)" }}
+        style={{ backgroundColor: "var(--bg-primary)", borderRight: "1px solid rgba(245,240,235,0.06)" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between">
@@ -126,7 +126,7 @@ function FilterSidebar({
           <p className="text-[10px] font-medium mb-1.5" style={{ color: "rgba(245,240,235,0.4)" }}>Département</p>
           <div className="space-y-1">
             {departments.map((d) => (
-              <label key={d} className="flex items-center gap-2 text-[10px] cursor-pointer" style={{ color: "#F5F0EB" }}>
+              <label key={d} className="flex items-center gap-2 text-[10px] cursor-pointer" style={{ color: "var(--text-primary)" }}>
                 <input
                   type="checkbox"
                   checked={filters.departments.includes(d)}
@@ -136,7 +136,7 @@ function FilterSidebar({
                       : [...filters.departments, d];
                     onFilter({ ...filters, departments: next });
                   }}
-                  className="accent-[#C75B39]"
+                  className="accent-[var(--accent)]"
                 />
                 {d}
               </label>
@@ -154,7 +154,7 @@ function FilterSidebar({
               className="block w-full text-left text-[10px] py-1 px-2"
               style={{
                 backgroundColor: filters.status === s ? "rgba(199,91,57,0.1)" : "transparent",
-                color: filters.status === s ? "#C75B39" : "rgba(245,240,235,0.5)",
+                color: filters.status === s ? "var(--accent)" : "rgba(245,240,235,0.5)",
               }}
             >
               {s === "all" ? "Tous" : s === "active" ? "Actif" : s === "paused" ? "En pause" : "Archivé"}
@@ -177,7 +177,7 @@ function FilterSidebar({
               className="block w-full text-left text-[10px] py-1 px-2"
               style={{
                 backgroundColor: filters.performance === p.key ? "rgba(199,91,57,0.1)" : "transparent",
-                color: filters.performance === p.key ? "#C75B39" : "rgba(245,240,235,0.5)",
+                color: filters.performance === p.key ? "var(--accent)" : "rgba(245,240,235,0.5)",
               }}
             >
               {p.label}
@@ -186,12 +186,12 @@ function FilterSidebar({
         </div>
 
         {/* Alerts only toggle */}
-        <label className="flex items-center gap-2 text-[10px] cursor-pointer" style={{ color: "#F5F0EB" }}>
+        <label className="flex items-center gap-2 text-[10px] cursor-pointer" style={{ color: "var(--text-primary)" }}>
           <input
             type="checkbox"
             checked={filters.alertsOnly}
             onChange={() => onFilter({ ...filters, alertsOnly: !filters.alertsOnly })}
-            className="accent-[#C75B39]"
+            className="accent-[var(--accent)]"
           />
           Alertes uniquement
         </label>
@@ -205,7 +205,7 @@ function FilterSidebar({
 function CreatorCard({ creator, onSelect }: { creator: CreatorData; onSelect: (c: CreatorData) => void }) {
   const name = creator.display_name || creator.full_name || creator.email;
   const initials = name.slice(0, 2).toUpperCase();
-  const changeColor = creator.period_change > 0 ? "#7A9A65" : creator.period_change < 0 ? "#C44536" : "rgba(245,240,235,0.3)";
+  const changeColor = creator.period_change > 0 ? "var(--success)" : creator.period_change < 0 ? "var(--danger)" : "rgba(245,240,235,0.3)";
 
   return (
     <div
@@ -216,11 +216,11 @@ function CreatorCard({ creator, onSelect }: { creator: CreatorData; onSelect: (c
       {/* Header */}
       <div className="flex items-start justify-between gap-2 mb-2">
         <div className="flex items-center gap-2 min-w-0">
-          <div className="w-7 h-7 flex items-center justify-center text-[9px] font-semibold shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+          <div className="w-7 h-7 flex items-center justify-center text-[9px] font-semibold shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
             {initials}
           </div>
           <div className="min-w-0">
-            <p className="text-[10px] font-medium truncate" style={{ color: "#F5F0EB" }}>{name}</p>
+            <p className="text-[10px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{name}</p>
             <p className="text-[8px] truncate" style={{ color: "rgba(245,240,235,0.3)" }}>
               {creator.department || "—"}
             </p>
@@ -232,30 +232,30 @@ function CreatorCard({ creator, onSelect }: { creator: CreatorData; onSelect: (c
       {/* Stats */}
       <div className="grid grid-cols-2 gap-x-3 gap-y-1 text-[9px] mb-2">
         <span style={{ color: "rgba(245,240,235,0.4)" }}>
-          Revenus jour <strong style={{ color: "#C75B39" }}>{creator.today_revenue}€</strong>
+          Revenus jour <strong style={{ color: "var(--accent)" }}>{creator.today_revenue}€</strong>
         </span>
         <span style={{ color: "rgba(245,240,235,0.4)" }}>
           Croissance <strong style={{ color: changeColor }}>{creator.period_change > 0 ? "+" : ""}{creator.period_change}%</strong>
         </span>
         <span style={{ color: "rgba(245,240,235,0.4)" }}>
-          Revenus mois <strong style={{ color: "#F5F0EB" }}>{creator.period_revenue}€</strong>
+          Revenus mois <strong style={{ color: "var(--text-primary)" }}>{creator.period_revenue}€</strong>
         </span>
         <span style={{ color: "rgba(245,240,235,0.4)" }}>
-          Drafts <strong style={{ color: creator.pending_drafts > 5 ? "#C75B39" : "rgba(245,240,235,0.5)" }}>{creator.pending_drafts}</strong>
+          Drafts <strong style={{ color: creator.pending_drafts > 5 ? "var(--accent)" : "rgba(245,240,235,0.5)" }}>{creator.pending_drafts}</strong>
         </span>
         <span style={{ color: "rgba(245,240,235,0.4)" }}>
-          Fans actifs <strong style={{ color: "#F5F0EB" }}>{creator.active_fans}</strong>
+          Fans actifs <strong style={{ color: "var(--text-primary)" }}>{creator.active_fans}</strong>
         </span>
       </div>
 
       {/* Sparkline */}
-      <MiniSparkline data={creator.sparkline} color="#C75B39" />
+      <MiniSparkline data={creator.sparkline} color="var(--accent)" />
 
       {/* Alerts */}
       {creator.alerts.length > 0 && (
         <div className="mt-1.5 space-y-0.5">
           {creator.alerts.slice(0, 1).map((a, i) => (
-            <p key={i} className="text-[7px]" style={{ color: a.severity === "critical" ? "#C44536" : "#C75B39" }}>
+            <p key={i} className="text-[7px]" style={{ color: a.severity === "critical" ? "var(--danger)" : "var(--accent)" }}>
               • {a.label}: {a.message}
             </p>
           ))}
@@ -269,7 +269,7 @@ function CreatorCard({ creator, onSelect }: { creator: CreatorData; onSelect: (c
 
 function CreatorRow({ creator, onSelect }: { creator: CreatorData; onSelect: (c: CreatorData) => void }) {
   const name = creator.display_name || creator.full_name || creator.email;
-  const changeColor = creator.period_change > 0 ? "#7A9A65" : creator.period_change < 0 ? "#C44536" : "rgba(245,240,235,0.3)";
+  const changeColor = creator.period_change > 0 ? "var(--success)" : creator.period_change < 0 ? "var(--danger)" : "rgba(245,240,235,0.3)";
 
   return (
     <tr
@@ -279,18 +279,18 @@ function CreatorRow({ creator, onSelect }: { creator: CreatorData; onSelect: (c:
     >
       <td className="py-2.5 px-2">
         <div className="flex items-center gap-2">
-          <div className="w-6 h-6 flex items-center justify-center text-[8px] font-medium shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+          <div className="w-6 h-6 flex items-center justify-center text-[8px] font-medium shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
             {name.slice(0, 2).toUpperCase()}
           </div>
-          <span className="text-[10px] font-medium truncate" style={{ color: "#F5F0EB" }}>{name}</span>
+          <span className="text-[10px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{name}</span>
         </div>
       </td>
       <td className="py-2.5 px-2 text-[10px]" style={{ color: "rgba(245,240,235,0.4)" }}>{creator.department || "—"}</td>
-      <td className="py-2.5 px-2 text-[10px]" style={{ color: "#F5F0EB" }}>{creator.today_revenue}€</td>
-      <td className="py-2.5 px-2 text-[10px]" style={{ color: "#C75B39" }}>{creator.period_revenue}€</td>
+      <td className="py-2.5 px-2 text-[10px]" style={{ color: "var(--text-primary)" }}>{creator.today_revenue}€</td>
+      <td className="py-2.5 px-2 text-[10px]" style={{ color: "var(--accent)" }}>{creator.period_revenue}€</td>
       <td className="py-2.5 px-2 text-[10px]" style={{ color: changeColor }}>{creator.period_change > 0 ? "+" : ""}{creator.period_change}%</td>
       <td className="py-2.5 px-2 text-[10px]" style={{ color: "rgba(245,240,235,0.5)" }}>{creator.active_fans}</td>
-      <td className="py-2.5 px-2 text-[10px]" style={{ color: creator.pending_drafts > 5 ? "#C75B39" : "rgba(245,240,235,0.5)" }}>{creator.pending_drafts}</td>
+      <td className="py-2.5 px-2 text-[10px]" style={{ color: creator.pending_drafts > 5 ? "var(--accent)" : "rgba(245,240,235,0.5)" }}>{creator.pending_drafts}</td>
       <td className="py-2.5 px-2">
         <div className="flex items-center gap-1.5">
           <StatusDot color={creator.status_color} />
@@ -307,23 +307,23 @@ function CreatorRow({ creator, onSelect }: { creator: CreatorData; onSelect: (c:
 
 function DetailedCard({ creator, onClose }: { creator: CreatorData; onClose: () => void }) {
   const name = creator.display_name || creator.full_name || creator.email;
-  const changeColor = creator.period_change > 0 ? "#7A9A65" : creator.period_change < 0 ? "#C44536" : "rgba(245,240,235,0.3)";
+  const changeColor = creator.period_change > 0 ? "var(--success)" : creator.period_change < 0 ? "var(--danger)" : "rgba(245,240,235,0.3)";
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
       <div
         className="w-full max-w-lg mx-4 max-h-[80vh] overflow-y-auto border"
-        style={{ backgroundColor: "#1A1614", borderColor: "rgba(245,240,235,0.06)" }}
+        style={{ backgroundColor: "var(--bg-primary)", borderColor: "rgba(245,240,235,0.06)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-4" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 flex items-center justify-center text-xs font-semibold" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+            <div className="w-10 h-10 flex items-center justify-center text-xs font-semibold" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
               {name.slice(0, 2).toUpperCase()}
             </div>
             <div>
-              <h3 className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{name}</h3>
+              <h3 className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{name}</h3>
               <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
                 {creator.department || "—"} · {creator.commission_tier || "N/A"}
               </p>
@@ -336,12 +336,12 @@ function DetailedCard({ creator, onClose }: { creator: CreatorData; onClose: () 
           {/* KPIs */}
           <div className="grid grid-cols-3 gap-2">
             {[
-              { label: "Revenus jour", value: `${creator.today_revenue}€`, color: "#C75B39" },
-              { label: "Revenus mois", value: `${creator.period_revenue}€`, color: "#F5F0EB" },
+              { label: "Revenus jour", value: `${creator.today_revenue}€`, color: "var(--accent)" },
+              { label: "Revenus mois", value: `${creator.period_revenue}€`, color: "var(--text-primary)" },
               { label: "Croissance", value: `${creator.period_change > 0 ? "+" : ""}${creator.period_change}%`, color: changeColor },
-              { label: "Commission", value: `${creator.total_commission}€`, color: "#C75B39" },
-              { label: "Fans actifs", value: String(creator.active_fans), color: "#7A9A65" },
-              { label: "Drafts", value: String(creator.pending_drafts), color: creator.pending_drafts > 5 ? "#C75B39" : "rgba(245,240,235,0.5)" },
+              { label: "Commission", value: `${creator.total_commission}€`, color: "var(--accent)" },
+              { label: "Fans actifs", value: String(creator.active_fans), color: "var(--success)" },
+              { label: "Drafts", value: String(creator.pending_drafts), color: creator.pending_drafts > 5 ? "var(--accent)" : "rgba(245,240,235,0.5)" },
             ].map((k, i) => (
               <div key={i} className="p-2 text-center" style={{ backgroundColor: "rgba(245,240,235,0.02)" }}>
                 <p className="text-xs font-semibold" style={{ color: k.color }}>{k.value}</p>
@@ -353,7 +353,7 @@ function DetailedCard({ creator, onClose }: { creator: CreatorData; onClose: () 
           {/* Sparkline */}
           <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.02)" }}>
             <p className="text-[9px] mb-2" style={{ color: "rgba(245,240,235,0.3)" }}>Tendance 30 jours</p>
-            <MiniSparkline data={creator.sparkline} color="#C75B39" />
+            <MiniSparkline data={creator.sparkline} color="var(--accent)" />
           </div>
 
           {/* Alertes */}
@@ -364,9 +364,9 @@ function DetailedCard({ creator, onClose }: { creator: CreatorData; onClose: () 
                 {creator.alerts.map((a, i) => (
                   <div key={i} className="p-2 text-[10px]" style={{
                     backgroundColor: a.severity === "critical" ? "rgba(196,69,54,0.04)" : a.severity === "warning" ? "rgba(199,91,57,0.04)" : "rgba(245,240,235,0.02)",
-                    borderLeft: `2px solid ${a.severity === "critical" ? "#C44536" : a.severity === "warning" ? "#C75B39" : "rgba(245,240,235,0.1)"}`,
+                    borderLeft: `2px solid ${a.severity === "critical" ? "var(--danger)" : a.severity === "warning" ? "var(--accent)" : "rgba(245,240,235,0.1)"}`,
                   }}>
-                    <p className="font-medium" style={{ color: "#F5F0EB" }}>{a.label}</p>
+                    <p className="font-medium" style={{ color: "var(--text-primary)" }}>{a.label}</p>
                     <p style={{ color: "rgba(245,240,235,0.4)" }}>{a.message}</p>
                   </div>
                 ))}
@@ -386,7 +386,7 @@ function DetailedCard({ creator, onClose }: { creator: CreatorData; onClose: () 
                 key={btn.label}
                 href={btn.href}
                 className="flex items-center gap-1 text-[9px] py-1.5 px-2.5 transition-opacity hover:opacity-80"
-                style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}
+                style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}
               >
                 <btn.icon size={10} /> {btn.label}
               </a>
@@ -414,9 +414,9 @@ function BulkActionBar({
   return (
     <div
       className="flex items-center gap-3 px-4 py-2"
-      style={{ backgroundColor: "rgba(199,91,57,0.08)", border: "1px solid rgba(199,91,57,0.15)" }}
+      style={{ backgroundColor: "var(--accent-soft)", border: "1px solid var(--accent-border)" }}
     >
-      <span className="text-[10px] font-medium" style={{ color: "#C75B39" }}>{selectedCount} sélectionné(s)</span>
+      <span className="text-[10px] font-medium" style={{ color: "var(--accent)" }}>{selectedCount} sélectionné(s)</span>
       <div className="flex gap-1.5">
         {[
           { key: "message", label: "Message aux managers", icon: Send },
@@ -428,7 +428,7 @@ function BulkActionBar({
             key={btn.key}
             onClick={() => onAction(btn.key)}
             className="flex items-center gap-1 text-[9px] py-1 px-2 transition-all hover:opacity-80"
-            style={{ backgroundColor: "rgba(245,240,235,0.06)", color: "#F5F0EB" }}
+            style={{ backgroundColor: "rgba(245,240,235,0.06)", color: "var(--text-primary)" }}
           >
             <btn.icon size={10} /> {btn.label}
           </button>
@@ -451,16 +451,16 @@ function KpiBand({ totals, creators }: { totals: CommandCenterData["totals"]; cr
   return (
     <div className="grid grid-cols-5 gap-2">
       {[
-        { label: "Créateurs actifs", value: String(totals.creators_count), icon: Users, color: "#F5F0EB" },
-        { label: "Revenus consolidés", value: `${totals.total_revenue}€`, icon: DollarSign, color: "#C75B39" },
-        { label: "Commission agence", value: `${totals.total_commission}€`, icon: TrendingUp, color: "#7A9A65" },
+        { label: "Créateurs actifs", value: String(totals.creators_count), icon: Users, color: "var(--text-primary)" },
+        { label: "Revenus consolidés", value: `${totals.total_revenue}€`, icon: DollarSign, color: "var(--accent)" },
+        { label: "Commission agence", value: `${totals.total_commission}€`, icon: TrendingUp, color: "var(--success)" },
         {
           label: "Top performer",
           value: topPerformer ? (topPerformer.display_name || topPerformer.full_name || "—") : "—",
           icon: Star,
-          color: "#C75B39",
+          color: "var(--accent)",
         },
-        { label: "Alertes", value: String(totals.total_alerts), icon: AlertTriangle, color: totals.total_alerts > 0 ? "#C44536" : "#7A9A65" },
+        { label: "Alertes", value: String(totals.total_alerts), icon: AlertTriangle, color: totals.total_alerts > 0 ? "var(--danger)" : "var(--success)" },
       ].map((k, i) => (
         <div key={i} className="p-2.5" style={{ backgroundColor: "rgba(245,240,235,0.02)", border: "1px solid rgba(245,240,235,0.04)" }}>
           <k.icon size={10} className="mb-1" style={{ color: k.color }} />
@@ -613,7 +613,7 @@ export default function CommandCenterPage() {
 
   const sortIcon = (key: SortKey) => {
     if (sortKey !== key) return <ArrowUpDown size={10} style={{ color: "rgba(245,240,235,0.15)" }} />;
-    return sortAsc ? <ArrowUp size={10} style={{ color: "#C75B39" }} /> : <ArrowDown size={10} style={{ color: "#C75B39" }} />;
+    return sortAsc ? <ArrowUp size={10} style={{ color: "var(--accent)" }} /> : <ArrowDown size={10} style={{ color: "var(--accent)" }} />;
   };
 
   return (
@@ -621,7 +621,7 @@ export default function CommandCenterPage() {
       {/* ── Header ── */}
       <div className="flex items-start justify-between gap-4">
         <div>
-          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Command Center
           </h1>
           <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -639,7 +639,7 @@ export default function CommandCenterPage() {
                 className="py-1.5 px-2.5 font-medium"
                 style={{
                   backgroundColor: period === p ? "rgba(199,91,57,0.1)" : "transparent",
-                  color: period === p ? "#C75B39" : "rgba(245,240,235,0.3)",
+                  color: period === p ? "var(--accent)" : "rgba(245,240,235,0.3)",
                 }}
               >
                 {p === "today" ? "Aujourd'hui" : p}
@@ -660,7 +660,7 @@ export default function CommandCenterPage() {
                 className="p-1.5"
                 style={{
                   backgroundColor: viewMode === v.key ? "rgba(199,91,57,0.1)" : "transparent",
-                  color: viewMode === v.key ? "#C75B39" : "rgba(245,240,235,0.3)",
+                  color: viewMode === v.key ? "var(--accent)" : "rgba(245,240,235,0.3)",
                 }}
               >
                 <v.icon size={14} />
@@ -692,13 +692,13 @@ export default function CommandCenterPage() {
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Rechercher un créateur..."
             className="w-full pl-7 pr-2 py-1.5 text-[10px] bg-transparent"
-            style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.06)" }}
+            style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.06)" }}
           />
         </div>
         <button
           onClick={() => setShowFilters(!showFilters)}
           className="flex items-center gap-1 text-[10px] py-1.5 px-2.5"
-          style={{ backgroundColor: "rgba(199,91,57,0.08)", color: "#C75B39" }}
+          style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}
         >
           <Filter size={10} /> Filtres
         </button>
@@ -717,7 +717,7 @@ export default function CommandCenterPage() {
 
       {/* ── Content ── */}
       {error && (
-        <div className="p-4 text-xs" style={{ backgroundColor: "rgba(196,69,54,0.04)", color: "#C44536", border: "1px solid rgba(196,69,54,0.1)" }}>
+        <div className="p-4 text-xs" style={{ backgroundColor: "rgba(196,69,54,0.04)", color: "var(--danger)", border: "1px solid rgba(196,69,54,0.1)" }}>
           {error}
         </div>
       )}
@@ -746,7 +746,7 @@ export default function CommandCenterPage() {
                 setSearchTerm("");
               }}
               className="mt-3 text-[10px] py-1.5 px-3"
-              style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+              style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
             >
               Réinitialiser les filtres
             </button>
@@ -766,7 +766,7 @@ export default function CommandCenterPage() {
                       if (selectedIds.size === filteredCreators.length) setSelectedIds(new Set());
                       else setSelectedIds(new Set(filteredCreators.map((c) => c.id)));
                     }}
-                    className="accent-[#C75B39]"
+                    className="accent-[var(--accent)]"
                   />
                 </th>
                 {[
@@ -801,27 +801,27 @@ export default function CommandCenterPage() {
                       type="checkbox"
                       checked={selectedIds.has(c.id)}
                       onChange={() => toggleSelect(c.id)}
-                      className="accent-[#C75B39]"
+                      className="accent-[var(--accent)]"
                     />
                   </td>
                   <td className="py-2.5 px-2">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 flex items-center justify-center text-[8px] font-medium shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+                      <div className="w-6 h-6 flex items-center justify-center text-[8px] font-medium shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                         {(c.display_name || c.full_name || c.email).slice(0, 2).toUpperCase()}
                       </div>
-                      <span className="text-[10px] font-medium truncate" style={{ color: "#F5F0EB" }}>
+                      <span className="text-[10px] font-medium truncate" style={{ color: "var(--text-primary)" }}>
                         {c.display_name || c.full_name || c.email}
                       </span>
                     </div>
                   </td>
                   <td className="py-2.5 px-2 text-[10px]" style={{ color: "rgba(245,240,235,0.4)" }}>{c.department || "—"}</td>
-                  <td className="py-2.5 px-2 text-[10px]" style={{ color: "#F5F0EB" }}>{c.today_revenue}€</td>
-                  <td className="py-2.5 px-2 text-[10px]" style={{ color: "#C75B39" }}>{c.period_revenue}€</td>
-                  <td className="py-2.5 px-2 text-[10px]" style={{ color: c.period_change > 0 ? "#7A9A65" : "#C44536" }}>
+                  <td className="py-2.5 px-2 text-[10px]" style={{ color: "var(--text-primary)" }}>{c.today_revenue}€</td>
+                  <td className="py-2.5 px-2 text-[10px]" style={{ color: "var(--accent)" }}>{c.period_revenue}€</td>
+                  <td className="py-2.5 px-2 text-[10px]" style={{ color: c.period_change > 0 ? "var(--success)" : "var(--danger)" }}>
                     {c.period_change > 0 ? "+" : ""}{c.period_change}%
                   </td>
                   <td className="py-2.5 px-2 text-[10px]" style={{ color: "rgba(245,240,235,0.5)" }}>{c.active_fans}</td>
-                  <td className="py-2.5 px-2 text-[10px]" style={{ color: c.pending_drafts > 5 ? "#C75B39" : "rgba(245,240,235,0.5)" }}>
+                  <td className="py-2.5 px-2 text-[10px]" style={{ color: c.pending_drafts > 5 ? "var(--accent)" : "rgba(245,240,235,0.5)" }}>
                     {c.pending_drafts}
                   </td>
                   <td className="py-2.5 px-2">
@@ -850,11 +850,11 @@ export default function CommandCenterPage() {
                   {/* Left */}
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2 mb-2">
-                      <div className="w-8 h-8 flex items-center justify-center text-[10px] font-semibold shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+                      <div className="w-8 h-8 flex items-center justify-center text-[10px] font-semibold shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                         {name.slice(0, 2).toUpperCase()}
                       </div>
                       <div>
-                        <p className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{name}</p>
+                        <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{name}</p>
                         <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
                           {c.department || "—"} · {c.commission_tier || "N/A"}
                         </p>
@@ -865,21 +865,21 @@ export default function CommandCenterPage() {
                     <div className="grid grid-cols-4 gap-3 mb-2">
                       <div>
                         <p className="text-[8px]" style={{ color: "rgba(245,240,235,0.2)" }}>Revenus mois</p>
-                        <p className="text-xs font-semibold" style={{ color: "#C75B39" }}>{c.period_revenue}€</p>
+                        <p className="text-xs font-semibold" style={{ color: "var(--accent)" }}>{c.period_revenue}€</p>
                       </div>
                       <div>
                         <p className="text-[8px]" style={{ color: "rgba(245,240,235,0.2)" }}>Croissance</p>
-                        <p className="text-xs font-semibold" style={{ color: c.period_change > 0 ? "#7A9A65" : "#C44536" }}>
+                        <p className="text-xs font-semibold" style={{ color: c.period_change > 0 ? "var(--success)" : "var(--danger)" }}>
                           {c.period_change > 0 ? "+" : ""}{c.period_change}%
                         </p>
                       </div>
                       <div>
                         <p className="text-[8px]" style={{ color: "rgba(245,240,235,0.2)" }}>Fans actifs</p>
-                        <p className="text-xs font-semibold" style={{ color: "#F5F0EB" }}>{c.active_fans}</p>
+                        <p className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{c.active_fans}</p>
                       </div>
                       <div>
                         <p className="text-[8px]" style={{ color: "rgba(245,240,235,0.2)" }}>Drafts</p>
-                        <p className="text-xs font-semibold" style={{ color: c.pending_drafts > 5 ? "#C75B39" : "rgba(245,240,235,0.5)" }}>
+                        <p className="text-xs font-semibold" style={{ color: c.pending_drafts > 5 ? "var(--accent)" : "rgba(245,240,235,0.5)" }}>
                           {c.pending_drafts}
                         </p>
                       </div>
@@ -894,7 +894,7 @@ export default function CommandCenterPage() {
                             className="text-[8px] px-1 py-px"
                             style={{
                               backgroundColor: a.severity === "critical" ? "rgba(196,69,54,0.08)" : "rgba(199,91,57,0.06)",
-                              color: a.severity === "critical" ? "#C44536" : "#C75B39",
+                              color: a.severity === "critical" ? "var(--danger)" : "var(--accent)",
                             }}
                           >
                             {a.label}
@@ -905,13 +905,13 @@ export default function CommandCenterPage() {
 
                     {/* Sparkline */}
                     <div className="mt-2 max-w-[240px]">
-                      <MiniSparkline data={c.sparkline} color="#C75B39" />
+                      <MiniSparkline data={c.sparkline} color="var(--accent)" />
                     </div>
                   </div>
 
                   {/* Right: actions */}
                   <div className="flex flex-col gap-1 shrink-0">
-                    <button className="text-[9px] py-1 px-2" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+                    <button className="text-[9px] py-1 px-2" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                       <FileText size={10} className="inline mr-1" /> Drafts
                     </button>
                     <button className="text-[9px] py-1 px-2" style={{ backgroundColor: "rgba(245,240,235,0.04)", color: "rgba(245,240,235,0.5)" }}>

@@ -12,12 +12,12 @@ export function PlatformDonutChart({ data }: Props) {
     name: p.name,
     value: p.total_revenue,
     share: p.share_pct,
-    color: PLATFORM_COLORS[p.name] || "#E0D8D0",
+    color: PLATFORM_COLORS[p.name] || "var(--text-secondary)",
   }));
 
   return (
-    <div className="p-5 card-accent" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "#F5F0EB" }}>
+    <div className="p-5 card-accent" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-4" style={{ color: "var(--text-primary)" }}>
         Répartition par plateforme
       </p>
       <div className="flex items-center gap-4">
@@ -40,7 +40,7 @@ export function PlatformDonutChart({ data }: Props) {
               <Tooltip
                 contentStyle={{
                   background: "#0F0D0B",
-                  border: "1px solid rgba(255,255,255,0.08)",
+                  border: "1px solid var(--border-default)",
                   borderRadius: 0,
                   fontSize: 12,
                   fontFamily: "Plus Jakarta Sans",
@@ -58,7 +58,7 @@ export function PlatformDonutChart({ data }: Props) {
             <div key={entry.name} className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2" style={{ background: entry.color }} />
-                <span className="text-[11px] font-sans" style={{ color: "#E0D8D0" }}>
+                <span className="text-[11px] font-sans" style={{ color: "var(--text-secondary)" }}>
                   {entry.name}
                 </span>
               </div>

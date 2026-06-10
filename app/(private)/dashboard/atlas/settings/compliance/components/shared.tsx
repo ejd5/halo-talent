@@ -8,8 +8,8 @@ export function Section({ title, icon: Icon, children }: {
   return (
     <div className="border" style={{ borderColor: "rgba(245,240,235,0.06)" }}>
       <div className="flex items-center gap-2 px-4 py-3 border-b" style={{ borderColor: "rgba(245,240,235,0.04)" }}>
-        <Icon size={16} style={{ color: "#C75B39" }} />
-        <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>{title}</h2>
+        <Icon size={16} style={{ color: "var(--accent)" }} />
+        <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>{title}</h2>
       </div>
       <div className="p-4">{children}</div>
     </div>
@@ -26,9 +26,9 @@ export function Spinner() {
 
 export function StatusBadge({ status }: { status: "ok" | "warning" | "error" }) {
   const config = {
-    ok: { icon: CheckCircle, bg: "rgba(122,154,101,0.08)", color: "#7A9A65", label: "Conforme" },
-    warning: { icon: AlertTriangle, bg: "rgba(199,91,57,0.08)", color: "#C75B39", label: "Attention" },
-    error: { icon: XCircle, bg: "rgba(196,69,54,0.08)", color: "#C44536", label: "Non conforme" },
+    ok: { icon: CheckCircle, bg: "rgba(122,154,101,0.08)", color: "var(--success)", label: "Conforme" },
+    warning: { icon: AlertTriangle, bg: "rgba(199,91,57,0.08)", color: "var(--accent)", label: "Attention" },
+    error: { icon: XCircle, bg: "rgba(196,69,54,0.08)", color: "var(--danger)", label: "Non conforme" },
   };
   const c = config[status];
   const Icon = c.icon;
@@ -50,15 +50,15 @@ export function Toggle({ label, checked, onChange, desc }: {
         aria-checked={checked}
         onClick={() => onChange(!checked)}
         className="relative w-9 h-5 shrink-0 mt-0.5 transition-colors"
-        style={{ backgroundColor: checked ? "#C75B39" : "rgba(245,240,235,0.1)" }}
+        style={{ backgroundColor: checked ? "var(--accent)" : "rgba(245,240,235,0.1)" }}
       >
         <span
           className="absolute top-0.5 left-0.5 w-4 h-4 transition-transform"
-          style={{ backgroundColor: "#F5F0EB", transform: checked ? "translateX(16px)" : "translateX(0)" }}
+          style={{ backgroundColor: "var(--text-primary)", transform: checked ? "translateX(16px)" : "translateX(0)" }}
         />
       </button>
       <div>
-        <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{label}</span>
+        <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{label}</span>
         {desc && <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>{desc}</p>}
       </div>
     </label>
@@ -70,12 +70,12 @@ export function CopyBlock({ content }: { content: string }) {
     <div className="relative group">
       <pre
         className="text-xs p-4 overflow-x-auto whitespace-pre-wrap"
-        style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.06)", color: "#B0A89E", fontFamily: "var(--font-mono)" }}
+        style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.06)", color: "#B0A89E", fontFamily: "var(--font-mono)" }}
       >{content}</pre>
       <button
         onClick={() => navigator.clipboard.writeText(content)}
         className="absolute top-2 right-2 text-xs px-2 py-1 opacity-0 group-hover:opacity-100 transition-opacity"
-        style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+        style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
       >
         Copier
       </button>

@@ -10,9 +10,10 @@ import {
   User, Link2, Settings, ChevronDown, LogOut, X, Globe,
   Inbox, Mail, Phone, Bell, Megaphone, Filter, Shuffle,
   MessageCircle, Zap, Database, Package, AlertTriangle,
-  ShieldCheck,
+  ShieldCheck, DollarSign,
 } from "lucide-react";
 import { mockCreator } from "./data";
+import { ThemeToggle } from "@/components/theme/ThemeToggle";
 
 const iconMap: Record<string, React.ElementType> = {
   LayoutDashboard, TrendingUp, Target, Calendar, FileText, Image,
@@ -20,7 +21,7 @@ const iconMap: Record<string, React.ElementType> = {
   MessageSquare, Users, FileSignature, GraduationCap, Heart,
   User, Link2, Settings, Globe, Inbox, Mail, Phone, Bell,
   Megaphone, Filter, Shuffle, MessageCircle, Zap, Database,
-  Package, AlertTriangle, ShieldCheck,
+  Package, AlertTriangle, ShieldCheck, DollarSign,
 };
 
 type NavItem = { label: string; href: string; icon: string };
@@ -37,6 +38,7 @@ const navSections: NavSection[] = [
     { label: "Mes 6 agents IA", href: "/dashboard/agents", icon: "Bot" },
   ]},
   { title: "Création", items: [
+    { label: "Onboarding ADN", href: "/onboarding/dna", icon: "Lightbulb" },
     { label: "Composer", href: "/dashboard/composer", icon: "Calendar" },
     { label: "Génération IA", href: "/dashboard/ai-generation", icon: "Sparkles" },
     { label: "Brouillons", href: "/dashboard/drafts", icon: "FileText" },
@@ -52,6 +54,7 @@ const navSections: NavSection[] = [
     { label: "PPV Analytics", href: "/dashboard/sovereign-chat/ppv", icon: "BarChart3" },
     { label: "Vault", href: "/dashboard/sovereign-chat/vault", icon: "Package" },
     { label: "Fans à risque", href: "/dashboard/sovereign-chat/at-risk", icon: "AlertTriangle" },
+    { label: "Chat Copilot", href: "/dashboard/sovereign-chat/copilot", icon: "Bot" },
   ]},
   { title: "Insights", items: [
     { label: "LTV & Churn", href: "/dashboard/sovereign-chat/predictions", icon: "TrendingUp" },
@@ -87,6 +90,8 @@ const atlasNavSections: NavSection[] = [
   ]},
   { title: "Inbox & Messages", items: [
     { label: "Inbox unifié", href: "/dashboard/atlas/inbox", icon: "Inbox" },
+    { label: "Revenue Inbox", href: "/dashboard/atlas/revenue-inbox", icon: "TrendingUp" },
+    { label: "Revenue Radar", href: "/dashboard/atlas/revenue-radar", icon: "Target" },
     { label: "Brouillons IA", href: "/dashboard/atlas/inbox/drafts", icon: "MessageCircle" },
   ]},
   { title: "Campagnes", items: [
@@ -106,9 +111,14 @@ const atlasNavSections: NavSection[] = [
   ]},
   { title: "Analytics", items: [
     { label: "Vue d'ensemble", href: "/dashboard/atlas/analytics", icon: "BarChart3" },
+    { label: "Chat Analytics", href: "/dashboard/atlas/chat-analytics", icon: "MessageCircle" },
+  ]},
+  { title: "Monétisation", items: [
+    { label: "Dynamic PPV Pricing", href: "/dashboard/atlas/ppv-pricing", icon: "DollarSign" },
   ]},
   { title: "PROTECTION", items: [
     { label: "Bouclier Légal", href: "/dashboard/atlas/legal", icon: "ShieldCheck" },
+    { label: "Centre de conformité", href: "/dashboard/atlas/compliance", icon: "AlertTriangle" },
   ]},
   { title: "Paramètres", items: [
     { label: "Configuration", href: "/dashboard/atlas/settings", icon: "Settings" },
@@ -127,41 +137,47 @@ export function Sidebar({ mobileOpen, onClose }: { mobileOpen: boolean; onClose:
   const sections = isAtlas ? atlasNavSections : navSections;
 
   const sidebarContent = (
-    <div className="flex flex-col h-full" style={{ backgroundColor: "#1A1614" }}>
+    <div className="flex flex-col h-full" style={{ backgroundColor: "var(--bg-surface)" }}>
       {/* Logo */}
-      <div className="px-5 py-4" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
-        <Link href="/dashboard" className="font-semibold text-sm" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+      <div className="px-5 py-4" style={{ borderBottom: "1px solid var(--border-default)" }}>
+        <Link href="/dashboard" className="font-semibold text-sm" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           Halo Talent
         </Link>
       </div>
 
       {/* Profile card */}
-      <div className="mx-3 mt-3 p-3" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+      <div className="mx-3 mt-3 p-3" style={{ border: "1px solid var(--border-default)", backgroundColor: "var(--bg-card)" }}>
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 flex items-center justify-center text-xs font-semibold shrink-0" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#1A1614", color: "#F5F0EB" }}>
+          <div className="w-10 h-10 flex items-center justify-center text-xs font-semibold shrink-0" style={{ border: "1px solid var(--border-default)", backgroundColor: "var(--bg-surface)", color: "var(--text-primary)" }}>
             {mockCreator.full_name.split(" ").map((n) => n[0]).join("")}
           </div>
           <div className="min-w-0 flex-1">
-            <div className="text-sm font-medium truncate" style={{ color: "#F5F0EB" }}>{mockCreator.full_name}</div>
-            <div className="text-xs truncate" style={{ color: "var(--color-ink-tertiary)" }}>{mockCreator.department}</div>
+            <div className="text-sm font-medium truncate" style={{ color: "var(--text-primary)" }}>{mockCreator.full_name}</div>
+            <div className="text-xs truncate" style={{ color: "var(--text-secondary)" }}>{mockCreator.department}</div>
           </div>
         </div>
         {/* Commission badge */}
-        <div className="mt-2 flex items-center justify-between px-2 py-1.5 text-xs font-medium" style={{ backgroundColor: "#1A1614" }}>
-          <span style={{ color: "var(--color-ink-tertiary)" }}>{mockCreator.commission_tier}</span>
-          <span style={{ color: "#C75B39" }}>{mockCreator.commission_rate}%</span>
+        <div className="mt-2 flex items-center justify-between px-2 py-1.5 text-xs font-medium" style={{ backgroundColor: "var(--bg-surface)" }}>
+          <span style={{ color: "var(--text-secondary)" }}>{mockCreator.commission_tier}</span>
+          <span style={{ color: "var(--accent)" }}>{mockCreator.commission_rate}%</span>
         </div>
         {/* Workspace badge (Atlas seulement) */}
         {isAtlas && (
           <div className="mt-2 flex items-center gap-1.5">
-            <span className="text-[9px]" style={{ color: "var(--color-ink-tertiary)" }}>Digital Creators</span>
-            <span className="text-[8px] px-1 py-px" style={{ backgroundColor: "rgba(199,91,57,0.12)", color: "#C75B39" }}>Atlas</span>
+            <span className="text-[9px]" style={{ color: "var(--text-secondary)" }}>Digital Creators</span>
+            <span className="text-[8px] px-1 py-px" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>Atlas</span>
           </div>
         )}
       </div>
 
+      {/* Theme toggle */}
+      <div className="flex items-center justify-between px-4 py-2" style={{ borderBottom: "1px solid var(--border-default)" }}>
+        <span className="text-[9px] font-semibold uppercase tracking-[0.12em]" style={{ color: "var(--text-tertiary)" }}>Affichage</span>
+        <ThemeToggle />
+      </div>
+
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1 scrollbar-thin">
+      <nav className="flex-1 overflow-y-auto px-3 py-4 space-y-1 custom-scrollbar">
         {sections.map((section) => {
           const isCollapsed = collapsed[section.title];
           const visibleItems = isCollapsed ? section.items.slice(0, 2) : section.items;
@@ -177,7 +193,7 @@ export function Sidebar({ mobileOpen, onClose }: { mobileOpen: boolean; onClose:
                   }
                 }}
               >
-                <p className="text-[9px] font-semibold uppercase tracking-[0.12em]" style={{ color: "var(--color-ink-tertiary)" }}>
+                <p className="text-[9px] font-semibold uppercase tracking-[0.12em]" style={{ color: "var(--text-tertiary)" }}>
                   {section.title}
                 </p>
                 {hasMore && (
@@ -185,7 +201,7 @@ export function Sidebar({ mobileOpen, onClose }: { mobileOpen: boolean; onClose:
                     size={10}
                     className="transition-transform"
                     style={{
-                      color: "var(--color-ink-tertiary)",
+                      color: "var(--text-tertiary)",
                       transform: isCollapsed ? "rotate(0deg)" : "rotate(180deg)",
                     }}
                   />
@@ -199,10 +215,11 @@ export function Sidebar({ mobileOpen, onClose }: { mobileOpen: boolean; onClose:
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="flex items-center gap-2.5 px-2 py-1.5 text-xs transition-all"
+                      className="flex items-center gap-2.5 px-2 py-1.5 text-xs transition-all rounded-md"
+                      onClick={onClose}
                       style={{
-                        color: active ? "#C75B39" : "var(--color-ink-secondary)",
-                        backgroundColor: active ? "rgba(199,91,57,0.08)" : "transparent",
+                        color: active ? "var(--accent)" : "var(--text-secondary)",
+                        backgroundColor: active ? "var(--accent-soft)" : "transparent",
                       }}
                     >
                       <Icon size={14} strokeWidth={1.5} />
@@ -223,15 +240,18 @@ export function Sidebar({ mobileOpen, onClose }: { mobileOpen: boolean; onClose:
       {/* Mobile */}
       {mobileOpen && (
         <div className="fixed inset-0 z-50 md:hidden">
-          <div className="absolute inset-0 bg-black/60" onClick={onClose} />
-          <div className="absolute left-0 top-0 bottom-0 w-72 overflow-y-auto" style={{ backgroundColor: "#1A1614" }}>
+          <div className="absolute inset-0 bg-overlay" onClick={onClose} />
+          <div className="absolute left-0 top-0 bottom-0 w-72 overflow-y-auto" style={{ backgroundColor: "var(--bg-surface)" }}>
             {sidebarContent}
           </div>
         </div>
       )}
 
       {/* Desktop */}
-      <div className="hidden md:block w-56 shrink-0 h-screen sticky top-0 overflow-y-auto" style={{ backgroundColor: "#1A1614", borderRight: "1px solid rgba(245,240,235,0.04)" }}>
+      <div
+        className="hidden md:block fixed left-0 top-0 w-56 h-screen overflow-y-auto z-10"
+        style={{ backgroundColor: "var(--bg-surface)", borderRight: "1px solid var(--border-default)" }}
+      >
         {sidebarContent}
       </div>
     </>

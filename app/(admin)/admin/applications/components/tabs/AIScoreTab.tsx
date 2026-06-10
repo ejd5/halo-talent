@@ -15,10 +15,10 @@ const criteriaLabels: Record<string, string> = {
 };
 
 function scoreColor(score: number): string {
-  if (score >= 80) return "#7A9A65";
-  if (score >= 60) return "#C75B39";
-  if (score >= 40) return "#E0D8D0";
-  return "#C44536";
+  if (score >= 80) return "var(--success)";
+  if (score >= 60) return "var(--accent)";
+  if (score >= 40) return "var(--text-secondary)";
+  return "var(--danger)";
 }
 
 function scoreLabel(score: number): string {
@@ -31,11 +31,11 @@ function scoreLabel(score: number): string {
 function recIcon(rec: string) {
   switch (rec) {
     case "approve":
-      return <ThumbsUp size={14} strokeWidth={1.5} style={{ color: "#7A9A65" }} />;
+      return <ThumbsUp size={14} strokeWidth={1.5} style={{ color: "var(--success)" }} />;
     case "reject":
-      return <ThumbsDown size={14} strokeWidth={1.5} style={{ color: "#C44536" }} />;
+      return <ThumbsDown size={14} strokeWidth={1.5} style={{ color: "var(--danger)" }} />;
     default:
-      return <Minus size={14} strokeWidth={1.5} style={{ color: "#C75B39" }} />;
+      return <Minus size={14} strokeWidth={1.5} style={{ color: "var(--accent)" }} />;
   }
 }
 
@@ -54,7 +54,7 @@ export function AIScoreTab({ application }: Props) {
     <div className="space-y-6 card-accent">
       {/* Score total */}
       {analysis && (
-        <div className="text-center py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="text-center py-4" style={{ borderBottom: "1px solid var(--border-default)" }}>
           <div
             className="w-20 h-20 flex items-center justify-center mx-auto mb-2"
             style={{
@@ -80,7 +80,7 @@ export function AIScoreTab({ application }: Props) {
       {/* Scores détaillés */}
       {analysis && (
         <div>
-          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-3" style={{ color: "#F5F0EB" }}>
+          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-3" style={{ color: "var(--text-primary)" }}>
             Scores détaillés
           </p>
           <div className="space-y-2.5">
@@ -114,10 +114,10 @@ export function AIScoreTab({ application }: Props) {
 
       {/* Recommandation */}
       {analysis && (
-        <div className="flex items-center gap-2 p-3" style={{ background: "rgba(255,255,255,0.02)", borderLeft: `2px solid ${analysis.recommendation === "approve" ? "#7A9A65" : analysis.recommendation === "reject" ? "#C44536" : "#C75B39"}` }}>
+        <div className="flex items-center gap-2 p-3" style={{ background: "var(--bg-card)", borderLeft: `2px solid ${analysis.recommendation === "approve" ? "var(--success)" : analysis.recommendation === "reject" ? "var(--danger)" : "var(--accent)"}` }}>
           {recIcon(analysis.recommendation)}
           <span className="text-xs font-sans" style={{ color: "#D0CCC6" }}>
-            Recommandation : <strong style={{ color: "#F5F0EB" }}>
+            Recommandation : <strong style={{ color: "var(--text-primary)" }}>
               {analysis.recommendation === "approve" ? "Approuver" : analysis.recommendation === "reject" ? "Refuser" : "Examiner"}
             </strong>
           </span>
@@ -127,10 +127,10 @@ export function AIScoreTab({ application }: Props) {
       {/* Reasoning */}
       {analysis && (
         <div>
-          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "#F5F0EB" }}>
+          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "var(--text-primary)" }}>
             Analyse
           </p>
-          <p className="text-sm font-sans leading-relaxed" style={{ color: "#E0D8D0" }}>
+          <p className="text-sm font-sans leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             {analysis.reasoning}
           </p>
         </div>
@@ -139,13 +139,13 @@ export function AIScoreTab({ application }: Props) {
       {/* Forces */}
       {analysis && analysis.strengths.length > 0 && (
         <div>
-          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "#7A9A65" }}>
+          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "var(--success)" }}>
             Forces
           </p>
           <ul className="space-y-1.5">
             {analysis.strengths.map((s, i) => (
               <li key={i} className="flex items-start gap-2 text-xs font-sans" style={{ color: "#D0CCC6" }}>
-                <span style={{ color: "#7A9A65" }}>+</span>
+                <span style={{ color: "var(--success)" }}>+</span>
                 {s}
               </li>
             ))}
@@ -156,13 +156,13 @@ export function AIScoreTab({ application }: Props) {
       {/* Faiblesses */}
       {analysis && analysis.weaknesses.length > 0 && (
         <div>
-          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "#C44536" }}>
+          <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: "var(--danger)" }}>
             Points d'attention
           </p>
           <ul className="space-y-1.5">
             {analysis.weaknesses.map((w, i) => (
               <li key={i} className="flex items-start gap-2 text-xs font-sans" style={{ color: "#D0CCC6" }}>
-                <span style={{ color: "#C44536" }}>−</span>
+                <span style={{ color: "var(--danger)" }}>−</span>
                 {w}
               </li>
             ))}
@@ -175,7 +175,7 @@ export function AIScoreTab({ application }: Props) {
         onClick={handleRegenerate}
         disabled={regenerating}
         className="flex items-center gap-2 w-full justify-center py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5 disabled:opacity-50"
-        style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
       >
         <RefreshCw
           size={14}

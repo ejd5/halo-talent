@@ -35,7 +35,7 @@ export default function InsightsPage() {
           <Link href="/studio" className="p-1 transition-opacity hover:opacity-70" style={{ color: "rgba(255,255,255,0.4)" }}>
             <ArrowLeft size={14} />
           </Link>
-          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Insights & Performance</h1>
+          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Insights & Performance</h1>
         </div>
         <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
           Analyse tes contenus, apprends de tes données, optimise ta stratégie
@@ -51,8 +51,8 @@ export default function InsightsPage() {
             <button key={t.id} onClick={() => setTab(t.id)}
               className="flex items-center gap-1.5 px-3 py-2.5 text-[11px] whitespace-nowrap transition-colors"
               style={{
-                color: isActive ? "#C75B39" : "rgba(255,255,255,0.4)",
-                borderBottom: isActive ? "1px solid #C75B39" : "1px solid transparent",
+                color: isActive ? "var(--accent)" : "rgba(255,255,255,0.4)",
+                borderBottom: isActive ? "1px solid var(--accent)" : "1px solid transparent",
               }}>
               <Icon size={12} />
               {t.label}
@@ -181,8 +181,8 @@ function PerformanceTab() {
 
       {/* 30-Day Chart */}
       {chart.length > 0 && (
-        <div className="rounded-sm p-4" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
-          <h3 className="text-[11px] font-medium mb-3 flex items-center gap-1.5" style={{ color: "#F5F0EB" }}>
+        <div className="rounded-sm p-4" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
+          <h3 className="text-[11px] font-medium mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
             <BarChart3 size={12} /> 30 derniers jours
           </h3>
           <div className="flex items-end gap-[2px] h-24">
@@ -192,7 +192,7 @@ function PerformanceTab() {
                   className="w-full rounded-sm transition-all hover:opacity-80 cursor-pointer relative group"
                   style={{
                     height: `${Math.max((c.impressions / maxChartVal) * 100, 3)}%`,
-                    background: c.engagement_rate > 2 ? "#10B981" : "#C75B39",
+                    background: c.engagement_rate > 2 ? "var(--success)" : "var(--accent)",
                     opacity: 0.6 + (c.impressions / maxChartVal) * 0.4,
                   }}
                   title={`${c.date}: ${c.impressions} impressions, ${(c.engagement_rate ?? 0).toFixed(1)}% eng.`}
@@ -208,8 +208,8 @@ function PerformanceTab() {
       )}
 
       {/* Content Metrics Table */}
-      <div className="rounded-sm overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="px-3 py-2 text-[11px] font-medium flex items-center justify-between" style={{ color: "#F5F0EB", borderBottom: "1px solid rgba(255,255,255,0.06) " }}>
+      <div className="rounded-sm overflow-hidden" style={{ border: "1px solid var(--border-default)" }}>
+        <div className="px-3 py-2 text-[11px] font-medium flex items-center justify-between" style={{ color: "var(--text-primary)", borderBottom: "1px solid rgba(255,255,255,0.06) " }}>
           <span>Contenus récents</span>
           {metricsLoading && <Loader size={10} className="animate-spin" style={{ color: "rgba(255,255,255,0.2)" }} />}
         </div>
@@ -225,7 +225,7 @@ function PerformanceTab() {
           <div className="overflow-x-auto">
             <table className="w-full text-[10px]">
               <thead>
-                <tr style={{ color: "rgba(255,255,255,0.3)", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                <tr style={{ color: "rgba(255,255,255,0.3)", borderBottom: "1px solid var(--border-default)" }}>
                   {["Date", "Platforme", "Type", "Impressions", "Engagement", "Likes", "Comments", "Partages"].map((h) => (
                     <th key={h} className="text-left px-2 py-2 font-medium cursor-pointer hover:text-white transition-colors"
                       onClick={() => toggleSort(h.toLowerCase())}>
@@ -249,9 +249,9 @@ function PerformanceTab() {
                       </span>
                     </td>
                     <td className="px-2 py-2" style={{ color: "rgba(255,255,255,0.5)" }}>{m.content_type}</td>
-                    <td className="px-2 py-2" style={{ color: "#F5F0EB" }}>{m.impressions.toLocaleString()}</td>
+                    <td className="px-2 py-2" style={{ color: "var(--text-primary)" }}>{m.impressions.toLocaleString()}</td>
                     <td className="px-2 py-2">
-                      <span style={{ color: (m.engagement_rate ?? 0) > 3 ? "#10B981" : (m.engagement_rate ?? 0) > 1 ? "#F5F0EB" : "#E5484D" }}>
+                      <span style={{ color: (m.engagement_rate ?? 0) > 3 ? "var(--success)" : (m.engagement_rate ?? 0) > 1 ? "var(--text-primary)" : "var(--danger)" }}>
                         {(m.engagement_rate ?? 0).toFixed(2)}%
                       </span>
                     </td>
@@ -280,11 +280,11 @@ function MetricCard({ label, current, previous, format, change }: {
   const isUp = (change ?? 0) >= 0;
 
   return (
-    <div className="rounded-sm p-3" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+    <div className="rounded-sm p-3" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
       <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.3)" }}>{label}</p>
-      <p className="text-lg font-medium mt-0.5" style={{ color: "#F5F0EB" }}>{displayVal}</p>
+      <p className="text-lg font-medium mt-0.5" style={{ color: "var(--text-primary)" }}>{displayVal}</p>
       {change !== undefined && (
-        <p className="text-[8px] mt-0.5 flex items-center gap-0.5" style={{ color: isUp ? "#10B981" : "#E5484D" }}>
+        <p className="text-[8px] mt-0.5 flex items-center gap-0.5" style={{ color: isUp ? "var(--success)" : "var(--danger)" }}>
           {isUp ? <TrendingUp size={8} /> : <TrendingDown size={8} />}
           {isUp ? "+" : ""}{change}% vs période précédente
         </p>
@@ -342,12 +342,12 @@ function ApprentissageTab() {
   return (
     <div className="p-4 md:p-6 space-y-6">
       {/* Insights Feed */}
-      <div className="rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
-        <div className="px-3 py-2 text-[11px] font-medium flex items-center justify-between" style={{ color: "#F5F0EB", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="rounded-sm" style={{ border: "1px solid var(--border-default)" }}>
+        <div className="px-3 py-2 text-[11px] font-medium flex items-center justify-between" style={{ color: "var(--text-primary)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <span className="flex items-center gap-1.5"><Lightbulb size={12} /> Insights générés</span>
           <button onClick={runAnalysis} disabled={feedbackLoading}
             className="flex items-center gap-1 px-2 py-1 text-[9px] rounded-sm transition-opacity hover:opacity-80 disabled:opacity-40"
-            style={{ background: "rgba(199,91,57,0.2)", color: "#C75B39" }}>
+            style={{ background: "rgba(199,91,57,0.2)", color: "var(--accent)" }}>
             {feedbackLoading ? <Loader size={8} className="animate-spin" /> : <RefreshCw size={8} />}
             Analyser
           </button>
@@ -361,12 +361,12 @@ function ApprentissageTab() {
             </p>
             <button onClick={runAnalysis} disabled={feedbackLoading}
               className="flex items-center gap-1.5 mt-4 px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80"
-              style={{ background: "#C75B39", color: "#FFF" }}>
+              style={{ background: "var(--accent)", color: "#FFF" }}>
               <Zap size={10} /> Lancer l&apos;analyse
             </button>
           </div>
         ) : (
-          <div className="divide-y" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
+          <div className="divide-y" style={{ borderColor: "var(--border-default)" }}>
             {insights.map((insight) => (
               <div key={insight.id} className="px-3 py-2.5">
                 <div className="flex items-center gap-1.5 mb-1">
@@ -377,15 +377,15 @@ function ApprentissageTab() {
                     {INSIGHT_CATEGORY_LABELS[insight.category] || insight.category}
                   </span>
                   {insight.is_positive ? (
-                    <TrendingUp size={10} style={{ color: "#10B981" }} />
+                    <TrendingUp size={10} style={{ color: "var(--success)" }} />
                   ) : (
-                    <AlertTriangle size={10} style={{ color: "#E5484D" }} />
+                    <AlertTriangle size={10} style={{ color: "var(--danger)" }} />
                   )}
                 </div>
-                <h4 className="text-[11px] font-medium" style={{ color: "#F5F0EB" }}>{insight.title}</h4>
+                <h4 className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{insight.title}</h4>
                 <p className="text-[9px] mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>{insight.description}</p>
                 {insight.change_percent != null && (
-                  <p className="text-[8px] mt-1 flex items-center gap-0.5" style={{ color: insight.is_positive ? "#10B981" : "#E5484D" }}>
+                  <p className="text-[8px] mt-1 flex items-center gap-0.5" style={{ color: insight.is_positive ? "var(--success)" : "var(--danger)" }}>
                     {insight.is_positive ? "+" : ""}{insight.change_percent}%
                   </p>
                 )}
@@ -397,15 +397,15 @@ function ApprentissageTab() {
 
       {/* Feedback Loop Results */}
       {lastFeedback && (
-        <div className="rounded-sm p-4" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
-          <h3 className="text-[11px] font-medium mb-3 flex items-center gap-1.5" style={{ color: "#F5F0EB" }}>
+        <div className="rounded-sm p-4" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
+          <h3 className="text-[11px] font-medium mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
             <Brain size={12} /> Feedback Loop · {lastFeedback.period_start} → {lastFeedback.period_end}
           </h3>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Top Performers */}
             <div className="rounded-sm p-3" style={{ border: "1px solid rgba(16,185,129,0.2)", background: "rgba(16,185,129,0.04)" }}>
-              <h4 className="text-[10px] font-medium flex items-center gap-1 mb-2" style={{ color: "#10B981" }}>
+              <h4 className="text-[10px] font-medium flex items-center gap-1 mb-2" style={{ color: "var(--success)" }}>
                 <TrendingUp size={10} /> Top 20% · {(lastFeedback.top_avg_engagement ?? 0).toFixed(2)}% engagement
               </h4>
               {lastFeedback.top_performers.length > 0 ? (
@@ -415,7 +415,7 @@ function ApprentissageTab() {
                       <span style={{ color: "rgba(255,255,255,0.6)" }}>
                         {p.platform} · {p.content_type}
                       </span>
-                      <span style={{ color: "#10B981" }}>{(p.engagement_rate ?? 0).toFixed(2)}%</span>
+                      <span style={{ color: "var(--success)" }}>{(p.engagement_rate ?? 0).toFixed(2)}%</span>
                     </div>
                   ))}
                 </div>
@@ -425,7 +425,7 @@ function ApprentissageTab() {
               {lastFeedback.top_common_tags.length > 0 && (
                 <div className="flex gap-1 mt-2">
                   {lastFeedback.top_common_tags.map((tag: string) => (
-                    <span key={tag} className="text-[7px] px-1 py-0.5 rounded-sm" style={{ background: "rgba(16,185,129,0.1)", color: "#10B981" }}>{tag}</span>
+                    <span key={tag} className="text-[7px] px-1 py-0.5 rounded-sm" style={{ background: "rgba(16,185,129,0.1)", color: "var(--success)" }}>{tag}</span>
                   ))}
                 </div>
               )}
@@ -433,7 +433,7 @@ function ApprentissageTab() {
 
             {/* Bottom Performers */}
             <div className="rounded-sm p-3" style={{ border: "1px solid rgba(229,72,77,0.2)", background: "rgba(229,72,77,0.04)" }}>
-              <h4 className="text-[10px] font-medium flex items-center gap-1 mb-2" style={{ color: "#E5484D" }}>
+              <h4 className="text-[10px] font-medium flex items-center gap-1 mb-2" style={{ color: "var(--danger)" }}>
                 <TrendingDown size={10} /> Bottom 20% · {(lastFeedback.bottom_avg_engagement ?? 0).toFixed(2)}% engagement
               </h4>
               {lastFeedback.bottom_performers.length > 0 ? (
@@ -443,7 +443,7 @@ function ApprentissageTab() {
                       <span style={{ color: "rgba(255,255,255,0.6)" }}>
                         {p.platform} · {p.content_type}
                       </span>
-                      <span style={{ color: "#E5484D" }}>{(p.engagement_rate ?? 0).toFixed(2)}%</span>
+                      <span style={{ color: "var(--danger)" }}>{(p.engagement_rate ?? 0).toFixed(2)}%</span>
                     </div>
                   ))}
                 </div>
@@ -453,7 +453,7 @@ function ApprentissageTab() {
               {lastFeedback.bottom_common_tags.length > 0 && (
                 <div className="flex gap-1 mt-2">
                   {lastFeedback.bottom_common_tags.map((tag: string) => (
-                    <span key={tag} className="text-[7px] px-1 py-0.5 rounded-sm" style={{ background: "rgba(229,72,77,0.1)", color: "#E5484D" }}>{tag}</span>
+                    <span key={tag} className="text-[7px] px-1 py-0.5 rounded-sm" style={{ background: "rgba(229,72,77,0.1)", color: "var(--danger)" }}>{tag}</span>
                   ))}
                 </div>
               )}
@@ -465,7 +465,7 @@ function ApprentissageTab() {
             <div className="mt-3 space-y-1">
               {lastFeedback.insights_generated.map((insight: string, i: number) => (
                 <p key={i} className="text-[9px] flex items-start gap-1.5" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  <Sparkles size={8} className="mt-0.5 shrink-0" style={{ color: "#C75B39" }} />
+                  <Sparkles size={8} className="mt-0.5 shrink-0" style={{ color: "var(--accent)" }} />
                   {insight}
                 </p>
               ))}
@@ -476,11 +476,11 @@ function ApprentissageTab() {
 
       {/* Previous analyses */}
       {feedbacks.length > 1 && (
-        <details className="rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+        <details className="rounded-sm" style={{ border: "1px solid var(--border-default)" }}>
           <summary className="px-3 py-2 text-[10px] font-medium cursor-pointer flex items-center gap-1.5" style={{ color: "rgba(255,255,255,0.4)" }}>
             <Clock size={10} /> Analyses précédentes ({feedbacks.length - 1})
           </summary>
-          <div className="divide-y" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
+          <div className="divide-y" style={{ borderColor: "var(--border-default)" }}>
             {feedbacks.slice(1).map((fb) => (
               <div key={fb.id} className="px-3 py-2 flex items-center justify-between text-[9px]">
                 <span style={{ color: "rgba(255,255,255,0.5)" }}>
@@ -528,7 +528,7 @@ function AbTestsTab() {
         </p>
         <button onClick={() => setShowCreate(!showCreate)}
           className="flex items-center gap-1 px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80"
-          style={{ background: "#C75B39", color: "#FFF" }}>
+          style={{ background: "var(--accent)", color: "#FFF" }}>
           <Plus size={10} /> Nouveau test
         </button>
       </div>
@@ -587,22 +587,22 @@ function CreateAbTestForm({ onClose }: { onClose: () => void }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="rounded-sm p-4 space-y-3" style={{ border: "1px solid rgba(199,91,57,0.3)", background: "rgba(199,91,57,0.04)" }}>
-      <h4 className="text-[11px] font-medium" style={{ color: "#F5F0EB" }}>Nouveau test A/B</h4>
+    <form onSubmit={handleSubmit} className="rounded-sm p-4 space-y-3" style={{ border: "1px solid var(--accent-border)", background: "rgba(199,91,57,0.04)" }}>
+      <h4 className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>Nouveau test A/B</h4>
       <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Nom du test"
         className="w-full text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-        style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }} />
+        style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
       <div className="flex gap-2">
         <select value={platform} onChange={(e) => setPlatform(e.target.value)}
           className="flex-1 text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-          style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}>
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
           {["instagram","tiktok","youtube","twitter","threads","linkedin","bluesky"].map((p) => (
             <option key={p} value={p}>{p}</option>
           ))}
         </select>
         <select value={contentType} onChange={(e) => setContentType(e.target.value)}
           className="flex-1 text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-          style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}>
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
           {["post","story","reel","carousel","short","video"].map((t) => (
             <option key={t} value={t}>{t}</option>
           ))}
@@ -610,19 +610,19 @@ function CreateAbTestForm({ onClose }: { onClose: () => void }) {
       </div>
       <textarea value={variantAData} onChange={(e) => setVariantAData(e.target.value)} placeholder="Variante A — caption / description"
         rows={2} className="w-full text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none resize-none"
-        style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }} />
+        style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
       <textarea value={variantBData} onChange={(e) => setVariantBData(e.target.value)} placeholder="Variante B — caption / description"
         rows={2} className="w-full text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none resize-none"
-        style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }} />
+        style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
       <div className="flex gap-2 justify-end">
         <button type="button" onClick={onClose}
           className="px-3 py-1.5 text-[10px] rounded-sm transition-colors hover:bg-white/5"
-          style={{ border: "1px solid rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.4)" }}>
+          style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.4)" }}>
           Annuler
         </button>
         <button type="submit" disabled={saving || !name.trim()}
           className="px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80 disabled:opacity-40"
-          style={{ background: "#C75B39", color: "#FFF" }}>
+          style={{ background: "var(--accent)", color: "#FFF" }}>
           {saving ? "..." : "Créer le test"}
         </button>
       </div>
@@ -634,15 +634,15 @@ function AbTestCard({ test, onUpdate }: { test: AbTest; onUpdate: () => void }) 
   const statusColors: Record<string, string> = {
     draft: "rgba(255,255,255,0.3)",
     running: "#3B82F6",
-    completed: "#10B981",
-    cancelled: "#E5484D",
+    completed: "var(--success)",
+    cancelled: "var(--danger)",
   };
   const winnerLabel = test.winner === "a" ? "A" : test.winner === "b" ? "B" : test.winner === "draw" ? "Égalité" : "—";
 
   return (
-    <div className="rounded-sm p-3" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+    <div className="rounded-sm p-3" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
       <div className="flex items-center justify-between mb-2">
-        <h4 className="text-[11px] font-medium" style={{ color: "#F5F0EB" }}>{test.name}</h4>
+        <h4 className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{test.name}</h4>
         <span className="text-[8px] px-1.5 py-0.5 rounded-sm" style={{
           background: `${statusColors[test.status] || "#666"}20`,
           color: statusColors[test.status] || "#999",
@@ -658,19 +658,19 @@ function AbTestCard({ test, onUpdate }: { test: AbTest; onUpdate: () => void }) 
       <div className="grid grid-cols-2 gap-3 mb-2">
         <div className="text-center p-2 rounded-sm" style={{ background: test.winner === "a" ? "rgba(16,185,129,0.06)" : "rgba(255,255,255,0.02)" }}>
           <p className="text-[8px]" style={{ color: "rgba(255,255,255,0.3)" }}>Variante A</p>
-          <p className="text-xs font-medium mt-0.5" style={{ color: "#F5F0EB" }}>{(test.variant_a_conversion ?? 0).toFixed(2)}%</p>
+          <p className="text-xs font-medium mt-0.5" style={{ color: "var(--text-primary)" }}>{(test.variant_a_conversion ?? 0).toFixed(2)}%</p>
           <p className="text-[7px]" style={{ color: "rgba(255,255,255,0.2)" }}>{test.variant_a_impressions} impressions</p>
         </div>
         <div className="text-center p-2 rounded-sm" style={{ background: test.winner === "b" ? "rgba(16,185,129,0.06)" : "rgba(255,255,255,0.02)" }}>
           <p className="text-[8px]" style={{ color: "rgba(255,255,255,0.3)" }}>Variante B</p>
-          <p className="text-xs font-medium mt-0.5" style={{ color: "#F5F0EB" }}>{(test.variant_b_conversion ?? 0).toFixed(2)}%</p>
+          <p className="text-xs font-medium mt-0.5" style={{ color: "var(--text-primary)" }}>{(test.variant_b_conversion ?? 0).toFixed(2)}%</p>
           <p className="text-[7px]" style={{ color: "rgba(255,255,255,0.2)" }}>{test.variant_b_impressions} impressions</p>
         </div>
       </div>
 
       {test.status === "completed" && test.winner && test.winner !== "pending" && (
-        <div className="flex items-center justify-between mt-2 pt-2" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-          <span className="text-[9px] flex items-center gap-1" style={{ color: "#10B981" }}>
+        <div className="flex items-center justify-between mt-2 pt-2" style={{ borderTop: "1px solid var(--border-default)" }}>
+          <span className="text-[9px] flex items-center gap-1" style={{ color: "var(--success)" }}>
             <CheckCircle size={8} /> Gagnant : Variante {winnerLabel}
           </span>
           {test.confidence > 0 && (
@@ -738,15 +738,15 @@ function RecommandationsTab() {
   return (
     <div className="p-4 md:p-6 space-y-6">
       {/* Coach CTA */}
-      <div className="rounded-sm p-4 text-center" style={{ border: "1px solid rgba(199,91,57,0.2)", background: "rgba(199,91,57,0.04)" }}>
-        <Sparkles size={20} className="mx-auto mb-2" style={{ color: "#C75B39" }} />
-        <h3 className="text-sm font-medium" style={{ color: "#F5F0EB" }}>Analytics Coach</h3>
+      <div className="rounded-sm p-4 text-center" style={{ border: "1px solid var(--accent-border)", background: "rgba(199,91,57,0.04)" }}>
+        <Sparkles size={20} className="mx-auto mb-2" style={{ color: "var(--accent)" }} />
+        <h3 className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Analytics Coach</h3>
         <p className="text-[10px] mt-1 mb-3" style={{ color: "rgba(255,255,255,0.4)" }}>
           Analyse tes performances et reçois des recommandations personnalisées
         </p>
         <button onClick={runCoach} disabled={coaching}
           className="flex items-center gap-1.5 mx-auto px-4 py-2 text-[11px] rounded-sm transition-opacity hover:opacity-80 disabled:opacity-40"
-          style={{ background: "#C75B39", color: "#FFF" }}>
+          style={{ background: "var(--accent)", color: "#FFF" }}>
           {coaching ? <Loader size={10} className="animate-spin" /> : <Brain size={10} />}
           {coaching ? "Analyse en cours..." : "Lancer le coaching"}
         </button>
@@ -754,11 +754,11 @@ function RecommandationsTab() {
 
       {/* Recommendations */}
       {recommendationInsights.length > 0 && (
-        <div className="rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
-          <div className="px-3 py-2 text-[11px] font-medium" style={{ color: "#F5F0EB", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="rounded-sm" style={{ border: "1px solid var(--border-default)" }}>
+          <div className="px-3 py-2 text-[11px] font-medium" style={{ color: "var(--text-primary)", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
             <span className="flex items-center gap-1.5"><Target size={12} /> Recommandations</span>
           </div>
-          <div className="divide-y" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
+          <div className="divide-y" style={{ borderColor: "var(--border-default)" }}>
             {recommendationInsights.map((r) => (
               <div key={r.id} className="px-3 py-2.5">
                 <div className="flex items-center gap-1.5 mb-1">
@@ -767,7 +767,7 @@ function RecommandationsTab() {
                     color: INSIGHT_CATEGORY_COLORS["recommendation"],
                   }}>Recommandation</span>
                 </div>
-                <h4 className="text-[11px] font-medium" style={{ color: "#F5F0EB" }}>{r.title}</h4>
+                <h4 className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{r.title}</h4>
                 <p className="text-[9px] mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>{r.description}</p>
               </div>
             ))}
@@ -779,7 +779,7 @@ function RecommandationsTab() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {positiveInsights.length > 0 && (
           <div className="rounded-sm p-3" style={{ border: "1px solid rgba(16,185,129,0.2)", background: "rgba(16,185,129,0.04)" }}>
-            <h4 className="text-[10px] font-medium mb-2 flex items-center gap-1" style={{ color: "#10B981" }}>
+            <h4 className="text-[10px] font-medium mb-2 flex items-center gap-1" style={{ color: "var(--success)" }}>
               <TrendingUp size={10} /> Patterns gagnants ({positiveInsights.length})
             </h4>
             <div className="space-y-1.5">
@@ -792,7 +792,7 @@ function RecommandationsTab() {
 
         {warnings.length > 0 && (
           <div className="rounded-sm p-3" style={{ border: "1px solid rgba(229,72,77,0.2)", background: "rgba(229,72,77,0.04)" }}>
-            <h4 className="text-[10px] font-medium mb-2 flex items-center gap-1" style={{ color: "#E5484D" }}>
+            <h4 className="text-[10px] font-medium mb-2 flex items-center gap-1" style={{ color: "var(--danger)" }}>
               <AlertTriangle size={10} /> Points d&apos;attention ({warnings.length})
             </h4>
             <div className="space-y-1.5">
@@ -806,8 +806,8 @@ function RecommandationsTab() {
 
       {/* Feedback DNA */}
       {feedback && (
-        <div className="rounded-sm p-3" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
-          <h4 className="text-[10px] font-medium mb-1 flex items-center gap-1" style={{ color: "#F5F0EB" }}>
+        <div className="rounded-sm p-3" style={{ border: "1px solid var(--border-default)" }}>
+          <h4 className="text-[10px] font-medium mb-1 flex items-center gap-1" style={{ color: "var(--text-primary)" }}>
             <Brain size={10} /> Mise à jour DNA suggérée
           </h4>
           <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -817,7 +817,7 @@ function RecommandationsTab() {
             <div className="mt-2 space-y-1">
               {feedback.insights_generated.map((insight, i) => (
                 <p key={i} className="text-[9px] flex items-start gap-1" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  <Sparkles size={8} className="mt-0.5 shrink-0" style={{ color: "#C75B39" }} />
+                  <Sparkles size={8} className="mt-0.5 shrink-0" style={{ color: "var(--accent)" }} />
                   {insight}
                 </p>
               ))}

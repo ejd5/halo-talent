@@ -70,8 +70,8 @@ const MOCK_CONVERSATIONS: Record<string, Message[]> = {
 
 const CATEGORY_CONFIG: Record<string, { label: string; color: string; icon: React.ElementType }> = {
   question: { label: "Question", color: "#3B82F6", icon: MessageCircle },
-  compliment: { label: "Compliment", color: "#10B981", icon: ThumbsUp },
-  ppv_request: { label: "Demande PPV", color: "#C75B39", icon: DollarSign },
+  compliment: { label: "Compliment", color: "var(--success)", icon: ThumbsUp },
+  ppv_request: { label: "Demande PPV", color: "var(--accent)", icon: DollarSign },
   suspicious: { label: "Suspect", color: "#EF4444", icon: AlertTriangle },
   regular: { label: "Habitué", color: "#8B5CF6", icon: Users },
 };
@@ -253,7 +253,7 @@ export function EngagementHelperChat() {
         onClick={() => selectDm(dm.id)}
         className={cn(
           "w-full text-left p-3 border-b border-[var(--color-border)] transition-all hover:bg-[#C75B39]/05",
-          isSelected && "bg-[#C75B39]/10"
+          isSelected && "bg-[var(--accent)/10]"
         )}
       >
         <div className="flex items-start gap-3">
@@ -266,19 +266,19 @@ export function EngagementHelperChat() {
           <div className="flex-1 min-w-0">
             {/* Header */}
             <div className="flex items-center justify-between gap-2">
-              <span className="text-sm font-medium truncate" style={{ color: "#FFFFFF" }}>
+              <span className="text-sm font-medium truncate" style={{ color: "var(--text-primary)" }}>
                 {dm.sender}
               </span>
               <div className="flex items-center gap-1.5 shrink-0">
-                {!dm.read && <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#C75B39" }} />}
-                <span className="text-[9px] font-mono" style={{ color: dm.priority && dm.priority >= 70 ? "#EF4444" : "#FFFFFF60" }}>
+                {!dm.read && <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--accent)" }} />}
+                <span className="text-[9px] font-mono" style={{ color: dm.priority && dm.priority >= 70 ? "#EF4444" : "rgba(255, 255, 255, 0.375)" }}>
                   P{dm.priority ?? 30}
                 </span>
               </div>
             </div>
 
             {/* Message preview */}
-            <p className="text-xs mt-0.5 truncate" style={{ color: "#FFFFFF80" }}>
+            <p className="text-xs mt-0.5 truncate" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
               {dm.content}
             </p>
 
@@ -293,11 +293,11 @@ export function EngagementHelperChat() {
                 </span>
               )}
               {/* Platform */}
-              <span className="text-[8px] uppercase font-mono" style={{ color: "#FFFFFF40" }}>
+              <span className="text-[8px] uppercase font-mono" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
                 {dm.platform}
               </span>
               {/* Status */}
-              <span className="text-[8px] ml-auto" style={{ color: "#FFFFFF40" }}>
+              <span className="text-[8px] ml-auto" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
                 {STATUS_LABELS[dm.status ?? "unread"]}
               </span>
             </div>
@@ -313,14 +313,14 @@ export function EngagementHelperChat() {
     const isEditing = editingDraft === draft.id;
 
     return (
-      <div className="border border-[#C75B39]/20" style={{ backgroundColor: "#C75B3908" }}>
-        <div className="flex items-center justify-between px-3 py-2 border-b border-[#C75B39]/10">
+      <div className="border border-[var(--accent)/20]" style={{ backgroundColor: "rgba(199, 91, 57, 0.03)" }}>
+        <div className="flex items-center justify-between px-3 py-2 border-b border-[var(--accent)/10]">
           <div className="flex items-center gap-2">
-            <Sparkles size={11} style={{ color: "#C75B39" }} />
-            <span className="text-[9px] uppercase tracking-wider font-semibold" style={{ color: "#C75B39" }}>
+            <Sparkles size={11} style={{ color: "var(--accent)" }} />
+            <span className="text-[9px] uppercase tracking-wider font-semibold" style={{ color: "var(--accent)" }}>
               Suggestion IA
             </span>
-            <span className="text-[8px] px-1 py-0.5 font-mono" style={{ backgroundColor: "#C75B3915", color: "#C75B39" }}>
+            <span className="text-[8px] px-1 py-0.5 font-mono" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)", color: "var(--accent)" }}>
               {draft.tone}
             </span>
           </div>
@@ -333,10 +333,10 @@ export function EngagementHelperChat() {
               onChange={(e) => setEditText(e.target.value)}
               className="w-full bg-transparent border border-[var(--color-border)] p-2 text-sm resize-none focus:outline-none focus:border-[#C75B39]"
               rows={4}
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "var(--text-primary)" }}
             />
           ) : (
-            <p className="text-sm leading-relaxed" style={{ color: "#FFFFFF" }}>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--text-primary)" }}>
               {draft.content}
             </p>
           )}
@@ -346,12 +346,12 @@ export function EngagementHelperChat() {
               <>
                 <button onClick={() => saveEdit(draft.id)}
                   className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium"
-                  style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}>
+                  style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
                   <Check size={10} /> Sauver
                 </button>
                 <button onClick={() => setEditingDraft(null)}
                   className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium border border-[var(--color-border)]"
-                  style={{ color: "#FFFFFF80" }}>
+                  style={{ color: "rgba(255, 255, 255, 0.5)" }}>
                   <X size={10} /> Annuler
                 </button>
               </>
@@ -359,13 +359,13 @@ export function EngagementHelperChat() {
               <>
                 <button onClick={() => copyDraft(draft.content, draft.id)}
                   className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium"
-                  style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}>
+                  style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
                   {copiedId === draft.id ? <Check size={10} /> : <Copy size={10} />}
                   {copiedId === draft.id ? "Copié !" : "Utiliser"}
                 </button>
                 <button onClick={() => startEdit(draft)}
                   className="flex items-center gap-1 px-2.5 py-1 text-[10px] font-medium border border-[var(--color-border)]"
-                  style={{ color: "#FFFFFF80" }}>
+                  style={{ color: "rgba(255, 255, 255, 0.5)" }}>
                   <Edit3 size={10} /> Modifier
                 </button>
                 <button onClick={() => setDrafts((prev) => prev.filter((d) => d.id !== draft.id))}
@@ -378,7 +378,7 @@ export function EngagementHelperChat() {
           </div>
 
           {!isEditing && (
-            <p className="text-[8px] mt-2" style={{ color: "#FFFFFF40" }}>
+            <p className="text-[8px] mt-2" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
               Suggestion IA — À valider avant envoi · Copiez-collez dans votre messagerie
             </p>
           )}
@@ -396,22 +396,22 @@ export function EngagementHelperChat() {
         {/* Header */}
         <div className="p-3 border-b border-[var(--color-border)]">
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>Messagerie</h2>
-            <button onClick={loadDMs} className="text-[10px]" style={{ color: "#C75B39" }}>
+            <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Messagerie</h2>
+            <button onClick={loadDMs} className="text-[10px]" style={{ color: "var(--accent)" }}>
               <Clock size={12} />
             </button>
           </div>
 
           {/* Search */}
           <div className="relative mb-2">
-            <Search size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2" style={{ color: "#FFFFFF40" }} />
+            <Search size={12} className="absolute left-2.5 top-1/2 -translate-y-1/2" style={{ color: "rgba(255, 255, 255, 0.25)" }} />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Rechercher..."
               className="w-full bg-transparent border border-[var(--color-border)] pl-8 pr-3 py-1.5 text-xs focus:outline-none focus:border-[#C75B39] transition-colors"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "var(--text-primary)" }}
             />
           </div>
 
@@ -430,7 +430,7 @@ export function EngagementHelperChat() {
                   "px-2 py-1 text-[9px] uppercase tracking-wider font-medium whitespace-nowrap transition-colors",
                   filter === f.id ? "border-b-2" : "opacity-50 hover:opacity-80"
                 )}
-                style={{ borderColor: filter === f.id ? "#C75B39" : "transparent", color: "#FFFFFF" }}
+                style={{ borderColor: filter === f.id ? "var(--accent)" : "transparent", color: "var(--text-primary)" }}
               >
                 {f.label}
               </button>
@@ -442,7 +442,7 @@ export function EngagementHelperChat() {
         <div className="flex-1 overflow-y-auto">
           {filteredDms.length === 0 ? (
             <div className="p-6 text-center">
-              <p className="text-xs" style={{ color: "#FFFFFF60" }}>Aucun message trouvé</p>
+              <p className="text-xs" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Aucun message trouvé</p>
             </div>
           ) : (
             filteredDms.map((dm) => <DmItem key={dm.id} dm={dm} />)
@@ -463,10 +463,10 @@ export function EngagementHelperChat() {
                     {dms.find((d) => d.id === selectedDmId)!.sender.charAt(0).toUpperCase()}
                   </div>
                   <div>
-                    <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>
+                    <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
                       {dms.find((d) => d.id === selectedDmId)!.sender}
                     </p>
-                    <p className="text-[10px]" style={{ color: "#FFFFFF60" }}>
+                    <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                       {dms.find((d) => d.id === selectedDmId)!.platform}
                     </p>
                   </div>
@@ -496,13 +496,13 @@ export function EngagementHelperChat() {
                     }
                   >
                     {msg.role === "fan" && (
-                      <p className="text-[10px] font-medium mb-1" style={{ color: "#FFFFFF80" }}>
+                      <p className="text-[10px] font-medium mb-1" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
                         {msg.sender}
                       </p>
                     )}
-                    <p style={{ color: msg.role === "fan" ? "#FFFFFF" : "#FFFFFF" }}>{msg.content}</p>
+                    <p style={{ color: msg.role === "fan" ? "var(--text-primary)" : "var(--text-primary)" }}>{msg.content}</p>
                     {msg.created_at && (
-                      <p className="text-[9px] mt-1" style={{ color: "#FFFFFF40" }}>
+                      <p className="text-[9px] mt-1" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
                         {new Date(msg.created_at).toLocaleString("fr-FR", { hour: "2-digit", minute: "2-digit" })}
                       </p>
                     )}
@@ -519,7 +519,7 @@ export function EngagementHelperChat() {
                   onClick={generateDrafts}
                   disabled={generating}
                   className="w-full py-2.5 text-xs uppercase tracking-wider font-semibold transition-opacity hover:opacity-80 disabled:opacity-40"
-                  style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+                  style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
                 >
                   {generating ? (
                     <span className="flex items-center justify-center gap-2">
@@ -536,13 +536,13 @@ export function EngagementHelperChat() {
               ) : (
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
-                    <p className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: "#C75B39" }}>
+                    <p className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: "var(--accent)" }}>
                       3 brouillons générés
                     </p>
                     <button
                       onClick={() => setDrafts([])}
                       className="text-[9px] opacity-50 hover:opacity-100"
-                      style={{ color: "#FFFFFF" }}
+                      style={{ color: "var(--text-primary)" }}
                     >
                       × Effacer
                     </button>
@@ -554,7 +554,7 @@ export function EngagementHelperChat() {
               )}
 
               {/* Legal notice */}
-              <p className="text-[8px] text-center" style={{ color: "#FFFFFF30" }}>
+              <p className="text-[8px] text-center" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
                 Aucun message n&apos;est envoyé automatiquement. Vous copiez-collez manuellement dans votre messagerie.
               </p>
             </div>
@@ -562,14 +562,14 @@ export function EngagementHelperChat() {
         ) : (
           <div className="flex-1 flex items-center justify-center">
             <div className="text-center p-8">
-              <MessageCircle size={32} className="mx-auto mb-3" style={{ color: "#FFFFFF20" }} />
-              <p className="text-sm font-medium mb-1" style={{ color: "#FFFFFF" }}>
+              <MessageCircle size={32} className="mx-auto mb-3" style={{ color: "rgba(255, 255, 255, 0.125)" }} />
+              <p className="text-sm font-medium mb-1" style={{ color: "var(--text-primary)" }}>
                 Sélectionnez une conversation
               </p>
-              <p className="text-xs" style={{ color: "#FFFFFF60" }}>
+              <p className="text-xs" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Choisissez un message à gauche pour voir la conversation
               </p>
-              <p className="text-[9px] mt-4" style={{ color: "#FFFFFF30" }}>
+              <p className="text-[9px] mt-4" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
                 L&apos;agent catégorise et priorise automatiquement vos DMs
               </p>
             </div>
@@ -583,7 +583,7 @@ export function EngagementHelperChat() {
         className="border-l border-[var(--color-border)] px-2 flex items-center hover:opacity-70 transition-opacity"
         style={{ backgroundColor: "var(--color-card)" }}
       >
-        {sidebarOpen ? <PanelRightClose size={14} style={{ color: "#FFFFFF60" }} /> : <PanelRightOpen size={14} style={{ color: "#FFFFFF60" }} />}
+        {sidebarOpen ? <PanelRightClose size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} /> : <PanelRightOpen size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} />}
       </button>
     </div>
   );

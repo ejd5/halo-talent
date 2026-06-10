@@ -5,9 +5,9 @@ import { analyticsData } from "../data";
 import { StatCard, SimpleBarChart } from "./SharedCharts";
 
 const TREND_ICONS: Record<string, React.ReactNode> = {
-  up: <TrendingUp size={10} className="text-[#7A9A65]" />,
-  down: <TrendingDown size={10} className="text-[#C44536]" />,
-  stable: <span className="w-2 h-0.5 bg-[#E0D8D0] inline-block" />,
+  up: <TrendingUp size={10} className="text-[var(--success)]" />,
+  down: <TrendingDown size={10} className="text-[var(--danger)]" />,
+  stable: <span className="w-2 h-0.5 bg-[var(--text-secondary)] inline-block" />,
 };
 
 const DEVICE_ICONS: Record<string, React.ReactNode> = {
@@ -42,7 +42,7 @@ export function WebTab() {
                   <div className="w-24 h-2 border border-[var(--color-border)]">
                     <div
                       className="h-full transition-all"
-                      style={{ width: `${src.percentage}%`, backgroundColor: "#C75B39" }}
+                      style={{ width: `${src.percentage}%`, backgroundColor: "var(--accent)" }}
                     />
                   </div>
                   <span className="text-[11px] font-medium w-12 text-right">{src.percentage}%</span>
@@ -62,7 +62,7 @@ export function WebTab() {
                 <span className="opacity-40">{DEVICE_ICONS[d.device]}</span>
                 <span className="text-xs flex-1">{d.device}</span>
                 <div className="w-32 h-3 border border-[var(--color-border)]">
-                  <div className="h-full transition-all" style={{ width: `${d.percentage}%`, backgroundColor: d.device === "Mobile" ? "#C75B39" : d.device === "Desktop" ? "#7A9A65" : "#E0D8D0" }} />
+                  <div className="h-full transition-all" style={{ width: `${d.percentage}%`, backgroundColor: d.device === "Mobile" ? "var(--accent)" : d.device === "Desktop" ? "var(--success)" : "var(--text-secondary)" }} />
                 </div>
                 <span className="text-[11px] font-medium w-10 text-right">{d.percentage}%</span>
               </div>
@@ -95,7 +95,7 @@ export function WebTab() {
                   <td className="px-5 py-2.5 text-right opacity-60">{p.unique_visitors.toLocaleString("fr-FR")}</td>
                   <td className="px-5 py-2.5 text-right opacity-60">{Math.floor(p.avg_time_seconds / 60)}m {p.avg_time_seconds % 60}s</td>
                   <td className="px-5 py-2.5 text-right">
-                    <span style={{ color: p.bounce_rate > 30 ? "#C44536" : "#7A9A65" }}>{p.bounce_rate}%</span>
+                    <span style={{ color: p.bounce_rate > 30 ? "var(--danger)" : "var(--success)" }}>{p.bounce_rate}%</span>
                   </td>
                 </tr>
               ))}

@@ -101,7 +101,7 @@ export default function ManualPublishPage() {
     return (
       <div className="flex flex-col items-center justify-center py-24 px-4 animate-fade-in">
         <p className="text-sm mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>{error || "Introuvable"}</p>
-        <Link href="/studio" className="flex items-center gap-1.5 text-xs" style={{ color: "#C75B39" }}>
+        <Link href="/studio" className="flex items-center gap-1.5 text-xs" style={{ color: "var(--accent)" }}>
           <ArrowLeft size={14} /> Retour au Studio
         </Link>
       </div>
@@ -121,7 +121,7 @@ export default function ManualPublishPage() {
 
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>
+          <h1 className="text-2xl italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>
             Publier sur {platformLabel}
           </h1>
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -133,7 +133,7 @@ export default function ManualPublishPage() {
           className="text-[10px] px-2 py-1 rounded-sm"
           style={{
             background: isDone ? "rgba(34,197,94,0.1)" : "rgba(199,91,57,0.1)",
-            color: isDone ? "#22C55E" : "#C75B39",
+            color: isDone ? "var(--success)" : "var(--accent)",
             border: `1px solid ${isDone ? "rgba(34,197,94,0.2)" : "rgba(199,91,57,0.2)"}`,
           }}
         >
@@ -143,7 +143,7 @@ export default function ManualPublishPage() {
 
       <div className="space-y-4">
         {/* Caption */}
-        <div className="p-4 rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+        <div className="p-4 rounded-sm" style={{ border: "1px solid var(--border-default)" }}>
           <div className="flex items-center justify-between mb-2">
             <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>
               <FileText size={10} /> Caption
@@ -152,35 +152,35 @@ export default function ManualPublishPage() {
               onClick={handleCopyCaption}
               className="flex items-center gap-1 px-2 py-1 text-[10px] transition-all rounded-sm"
               style={{
-                border: "1px solid rgba(199,91,57,0.2)",
-                color: captionCopied ? "#22C55E" : "#C75B39",
+                border: "1px solid var(--accent-border)",
+                color: captionCopied ? "var(--success)" : "var(--accent)",
               }}
             >
               {captionCopied ? <Check size={10} /> : <Copy size={10} />}
               {captionCopied ? "Copié !" : "Copier"}
             </button>
           </div>
-          <p className="text-sm whitespace-pre-wrap" style={{ color: "#F5F0EB" }}>
+          <p className="text-sm whitespace-pre-wrap" style={{ color: "var(--text-primary)" }}>
             {publication.content.caption}
           </p>
         </div>
 
         {/* Media */}
         {publication.content.media_urls.length > 0 && (
-          <div className="p-4 rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+          <div className="p-4 rounded-sm" style={{ border: "1px solid var(--border-default)" }}>
             <span className="flex items-center gap-1.5 text-[10px] uppercase tracking-wider mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>
               <Image size={10} /> Médias ({publication.content.media_urls.length})
             </span>
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
               {publication.content.media_urls.map((url, i) => (
-                <div key={i} className="relative group rounded-sm overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+                <div key={i} className="relative group rounded-sm overflow-hidden" style={{ border: "1px solid var(--border-default)" }}>
                   <img src={url} alt={`Media ${i + 1}`} className="w-full aspect-square object-cover" />
                   <button
                     onClick={() => handleCopyMedia(i)}
                     className="absolute top-1 right-1 p-1 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity"
                     style={{ background: "rgba(0,0,0,0.7)" }}
                   >
-                    {mediaCopied[i] ? <Check size={10} style={{ color: "#22C55E" }} /> : <Copy size={10} style={{ color: "#F5F0EB" }} />}
+                    {mediaCopied[i] ? <Check size={10} style={{ color: "var(--success)" }} /> : <Copy size={10} style={{ color: "var(--text-primary)" }} />}
                   </button>
                 </div>
               ))}
@@ -192,7 +192,7 @@ export default function ManualPublishPage() {
         {publication.content.ppv_price && (
           <div
             className="flex items-center gap-2 px-3 py-2 text-xs rounded-sm"
-            style={{ background: "rgba(212,175,55,0.06)", border: "1px solid rgba(212,175,55,0.15)", color: "#C75B39" }}
+            style={{ background: "rgba(212,175,55,0.06)", border: "1px solid rgba(212,175,55,0.15)", color: "var(--accent)" }}
           >
             PPV · {publication.content.ppv_price}€
             {publication.content.ppv_message && ` — ${publication.content.ppv_message}`}
@@ -207,7 +207,7 @@ export default function ManualPublishPage() {
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1.5 px-3 py-2 text-xs transition-opacity hover:opacity-80 rounded-sm"
-              style={{ background: "#C75B39", color: "#FFFFFF" }}
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
             >
               <ExternalLink size={12} />
               Ouvrir {platformLabel}
@@ -216,7 +216,7 @@ export default function ManualPublishPage() {
               onClick={handleMarkPublished}
               disabled={publishing}
               className="flex items-center gap-1.5 px-3 py-2 text-xs transition-opacity hover:opacity-80 rounded-sm disabled:opacity-30"
-              style={{ border: "1px solid rgba(34,197,94,0.2)", color: "#22C55E" }}
+              style={{ border: "1px solid rgba(34,197,94,0.2)", color: "var(--success)" }}
             >
               {publishing ? <Loader size={12} className="animate-spin" /> : <Check size={12} />}
               J'ai publié

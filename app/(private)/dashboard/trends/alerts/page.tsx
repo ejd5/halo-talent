@@ -16,16 +16,16 @@ const ALERT_ICONS: Record<string, any> = {
 };
 
 const ALERT_COLORS: Record<string, string> = {
-  spike: "#C75B39",
-  crash: "#C44536",
-  pre_viral: "#7A9A65",
+  spike: "var(--accent)",
+  crash: "var(--danger)",
+  pre_viral: "var(--success)",
   new_trend: "#5B8FA8",
 };
 
 const SEVERITY_COLORS: Record<string, string> = {
-  critical: "#C44536",
-  high: "#C75B39",
-  medium: "#C75B39",
+  critical: "var(--danger)",
+  high: "var(--accent)",
+  medium: "var(--accent)",
   low: "rgba(245,240,235,0.3)",
 };
 
@@ -101,7 +101,7 @@ export default function AlertsPage() {
       {/* Header */}
       <div className="flex items-start justify-between mb-6 flex-wrap gap-4">
         <div>
-          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Alertes tendances
           </h1>
           <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -112,7 +112,7 @@ export default function AlertsPage() {
           <button
             onClick={() => markAsRead(Array.from(selected))}
             className="flex items-center gap-1.5 text-xs px-3 py-1.5 font-medium transition-all"
-            style={{ backgroundColor: "rgba(122,154,101,0.1)", color: "#7A9A65", border: "1px solid rgba(122,154,101,0.2)" }}
+            style={{ backgroundColor: "rgba(122,154,101,0.1)", color: "var(--success)", border: "1px solid rgba(122,154,101,0.2)" }}
           >
             <CheckCheck size={12} />
             Marquer {selected.size} lue{selected.size > 1 ? "s" : ""}
@@ -128,7 +128,7 @@ export default function AlertsPage() {
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
           className="px-2.5 py-1.5 text-[10px] border bg-transparent"
-          style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+          style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
         >
           {ALERT_TYPES.map((t) => (
             <option key={t.value} value={t.value}>{t.label}</option>
@@ -139,7 +139,7 @@ export default function AlertsPage() {
           value={severityFilter}
           onChange={(e) => setSeverityFilter(e.target.value)}
           className="px-2.5 py-1.5 text-[10px] border bg-transparent"
-          style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+          style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
         >
           {SEVERITY_LEVELS.map((s) => (
             <option key={s.value} value={s.value}>{s.label}</option>
@@ -151,7 +151,7 @@ export default function AlertsPage() {
             type="checkbox"
             checked={unreadOnly}
             onChange={(e) => setUnreadOnly(e.target.checked)}
-            className="accent-[#C75B39]"
+            className="accent-[var(--accent)]"
           />
           <span className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
             Non lues {unreadCount > 0 && `(${unreadCount})`}
@@ -180,7 +180,7 @@ export default function AlertsPage() {
         <div className="space-y-2">
           {alerts.map((alert) => {
             const Icon = ALERT_ICONS[alert.alert_type] ?? Bell;
-            const color = ALERT_COLORS[alert.alert_type] ?? "#F5F0EB";
+            const color = ALERT_COLORS[alert.alert_type] ?? "var(--text-primary)";
             const severityColor = SEVERITY_COLORS[alert.severity] ?? "rgba(245,240,235,0.3)";
             const isSelected = selected.has(alert.id);
             const trendData = alert.trend_data as any;
@@ -202,7 +202,7 @@ export default function AlertsPage() {
                     type="checkbox"
                     checked={isSelected}
                     onChange={() => toggleSelect(alert.id)}
-                    className="accent-[#C75B39]"
+                    className="accent-[var(--accent)]"
                   />
                 </div>
 
@@ -214,7 +214,7 @@ export default function AlertsPage() {
                 {/* Content */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-0.5 flex-wrap">
-                    <span className="text-sm font-medium capitalize" style={{ color: "#F5F0EB" }}>
+                    <span className="text-sm font-medium capitalize" style={{ color: "var(--text-primary)" }}>
                       {alert.keyword ?? "Tendance"}
                     </span>
                     <span

@@ -70,14 +70,14 @@ function FilterBar({
           onChange={(e) => onFilter({ ...filters, search: e.target.value })}
           placeholder="Rechercher..."
           className="w-full pl-7 pr-2 py-1.5 text-[10px] bg-transparent"
-          style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.06)" }}
+          style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.06)" }}
         />
       </div>
       <select
         value={filters.category}
         onChange={(e) => onFilter({ ...filters, category: e.target.value })}
         className="text-[10px] py-1.5 px-2 bg-transparent"
-        style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.06)" }}
+        style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.06)" }}
       >
         <option value="">Toutes catégories</option>
         {categories.map((c) => <option key={c} value={c!}>{c}</option>)}
@@ -170,13 +170,13 @@ function RecommendModal({
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
       <div
         className="w-full max-w-lg mx-4 border flex flex-col max-h-[80vh]"
-        style={{ backgroundColor: "#1A1614", borderColor: "rgba(245,240,235,0.06)" }}
+        style={{ backgroundColor: "var(--bg-primary)", borderColor: "rgba(245,240,235,0.06)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3 shrink-0" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
           <div>
-            <h3 className="text-sm font-medium" style={{ color: "#F5F0EB" }}>Cibler pour &quot;{product.name}&quot;</h3>
+            <h3 className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Cibler pour &quot;{product.name}&quot;</h3>
             <p className="text-[9px] mt-0.5" style={{ color: "rgba(245,240,235,0.3)" }}>
               {product.price}€ · {loading ? "..." : `${activeCount} fans disponibles`}
             </p>
@@ -188,12 +188,12 @@ function RecommendModal({
         <div className="flex items-center gap-1.5 px-4 py-2 shrink-0" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
           <button onClick={handleSendAll} disabled={sending || activeCount === 0}
             className="flex items-center gap-1 text-[10px] font-medium py-1 px-2 disabled:opacity-30"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}>
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
             <Send size={10} /> Envoyer aux {activeCount} fans
           </button>
           <button onClick={handleSendTop10} disabled={sending || activeCount === 0}
             className="flex items-center gap-1 text-[10px] font-medium py-1 px-2 disabled:opacity-30"
-            style={{ backgroundColor: "rgba(245,240,235,0.06)", color: "#F5F0EB" }}>
+            style={{ backgroundColor: "rgba(245,240,235,0.06)", color: "var(--text-primary)" }}>
             Top 10 uniquement
           </button>
           <button onClick={exportCSV}
@@ -215,20 +215,20 @@ function RecommendModal({
                 <div className="flex items-start justify-between gap-2">
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-1.5">
-                      <span className="text-xs font-medium truncate" style={{ color: "#F5F0EB" }}>
+                      <span className="text-xs font-medium truncate" style={{ color: "var(--text-primary)" }}>
                         {r.fan.display_name || r.fan.email}
                       </span>
-                      {r.cooldown?.blocked && <AlertTriangle size={10} style={{ color: "#C44536", minWidth: 10 }} />}
+                      {r.cooldown?.blocked && <AlertTriangle size={10} style={{ color: "var(--danger)", minWidth: 10 }} />}
                     </div>
                     <p className="text-[9px] mt-0.5" style={{ color: "rgba(245,240,235,0.3)" }}>{r.reason}</p>
                     {r.cooldown?.blocked && (
-                      <p className="text-[8px] mt-0.5" style={{ color: "#C44536" }}>
+                      <p className="text-[8px] mt-0.5" style={{ color: "var(--danger)" }}>
                         ⚠ {r.cooldown.blockReasons.join(", ")}
                       </p>
                     )}
                   </div>
                   <div className="text-right shrink-0">
-                    <p className="text-xs font-semibold" style={{ color: r.probability > 60 ? "#7A9A65" : r.probability > 30 ? "#F5F0EB" : "rgba(245,240,235,0.3)" }}>
+                    <p className="text-xs font-semibold" style={{ color: r.probability > 60 ? "var(--success)" : r.probability > 30 ? "var(--text-primary)" : "rgba(245,240,235,0.3)" }}>
                       {r.probability}%
                     </p>
                     <p className="text-[7px]" style={{ color: "rgba(245,240,235,0.15)" }}>probabilité</p>
@@ -300,11 +300,11 @@ export default function VaultPage() {
       <div className="flex items-center justify-between">
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <Package size={16} style={{ color: "#C75B39" }} />
-            <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+            <Package size={16} style={{ color: "var(--accent)" }} />
+            <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
               Vault PPV
             </h1>
-            {!loading && <span className="text-[10px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>{products.length} produits</span>}
+            {!loading && <span className="text-[10px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>{products.length} produits</span>}
           </div>
           <p className="text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
             Recommandations intelligentes — quel contenu envoyer à quel fan
@@ -312,7 +312,7 @@ export default function VaultPage() {
         </div>
         <button onClick={() => setShowForm(!showForm)}
           className="flex items-center gap-1.5 text-[10px] font-medium py-2 px-3"
-          style={{ backgroundColor: showForm ? "rgba(245,240,235,0.04)" : "#C75B39", color: "#F5F0EB" }}>
+          style={{ backgroundColor: showForm ? "rgba(245,240,235,0.04)" : "var(--accent)", color: "var(--text-primary)" }}>
           <Plus size={12} /> {showForm ? "Annuler" : "Nouveau produit"}
         </button>
       </div>
@@ -321,18 +321,18 @@ export default function VaultPage() {
       {showForm && (
         <div className="p-3 space-y-2" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
           <input placeholder="Nom du produit" value={form.name} onChange={(e) => setForm((p) => ({ ...p, name: e.target.value }))}
-            className="w-full p-2 text-xs bg-transparent" style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
+            className="w-full p-2 text-xs bg-transparent" style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
           <input placeholder="Description" value={form.description} onChange={(e) => setForm((p) => ({ ...p, description: e.target.value }))}
-            className="w-full p-2 text-xs bg-transparent" style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
+            className="w-full p-2 text-xs bg-transparent" style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
           <div className="flex gap-2">
             <input type="number" step="0.01" placeholder="Prix (€)" value={form.price} onChange={(e) => setForm((p) => ({ ...p, price: e.target.value }))}
-              className="flex-1 p-2 text-xs bg-transparent" style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
+              className="flex-1 p-2 text-xs bg-transparent" style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
             <input placeholder="Catégorie" value={form.category} onChange={(e) => setForm((p) => ({ ...p, category: e.target.value }))}
-              className="flex-1 p-2 text-xs bg-transparent" style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
+              className="flex-1 p-2 text-xs bg-transparent" style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
           </div>
           <input placeholder="Tags (séparés par des virgules)" value={form.tags} onChange={(e) => setForm((p) => ({ ...p, tags: e.target.value }))}
-            className="w-full p-2 text-xs bg-transparent" style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
-          <button onClick={handleCreate} className="text-[10px] font-semibold py-1.5 px-3" style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}>
+            className="w-full p-2 text-xs bg-transparent" style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
+          <button onClick={handleCreate} className="text-[10px] font-semibold py-1.5 px-3" style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
             Créer
           </button>
         </div>
@@ -360,8 +360,8 @@ export default function VaultPage() {
                   {/* Info */}
                   <div className="min-w-0 flex-1">
                     <div className="flex items-center gap-2">
-                      <h3 className="text-xs font-medium truncate" style={{ color: "#F5F0EB" }}>{p.name}</h3>
-                      <span className="text-[10px] font-semibold" style={{ color: "#C75B39" }}>{p.price}€</span>
+                      <h3 className="text-xs font-medium truncate" style={{ color: "var(--text-primary)" }}>{p.name}</h3>
+                      <span className="text-[10px] font-semibold" style={{ color: "var(--accent)" }}>{p.price}€</span>
                       {p.category && (
                         <span className="text-[8px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(245,240,235,0.04)", color: "rgba(245,240,235,0.3)" }}>
                           {p.category}
@@ -389,17 +389,17 @@ export default function VaultPage() {
                   <div className="flex flex-col gap-1 shrink-0">
                     <button onClick={() => setRecommendFor(p)}
                       className="flex items-center gap-1 text-[9px] font-medium py-1.5 px-2.5 whitespace-nowrap"
-                      style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+                      style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                       <Users size={10} /> Pour qui&nbsp;?
                     </button>
                     <div className="flex gap-1">
                       <span className="text-[10px] font-semibold px-2 py-1 text-center" style={{
                         backgroundColor: rate > 50 ? "rgba(122,154,101,0.1)" : "rgba(245,240,235,0.04)",
-                        color: rate > 50 ? "#7A9A65" : "rgba(245,240,235,0.3)",
+                        color: rate > 50 ? "var(--success)" : "rgba(245,240,235,0.3)",
                       }}>
                         {rate}%
                       </span>
-                      <span className="text-[10px] font-semibold px-2 py-1" style={{ backgroundColor: "rgba(199,91,57,0.06)", color: "#C75B39" }}>
+                      <span className="text-[10px] font-semibold px-2 py-1" style={{ backgroundColor: "rgba(199,91,57,0.06)", color: "var(--accent)" }}>
                         {p.total_revenue}€
                       </span>
                     </div>

@@ -1017,34 +1017,34 @@ export function getLocale(): Locale {
   return currentLocale;
 }
 
-export function t(key: string, locale?: Locale): string {
-  const l = locale ?? currentLocale;
+export function t(key: string, locale?: string): string {
+  const l = (locale as Locale) ?? currentLocale;
   return (translations as Record<string, Record<Locale, string>>)[key]?.[l] ?? key;
 }
 
-export function translateClauseLabel(label: string, locale?: Locale): string {
-  const l = locale ?? currentLocale;
+export function translateClauseLabel(label: string, locale?: string): string {
+  const l = (locale as Locale) ?? currentLocale;
   return CLAUSE_LABEL_TRANSLATIONS[label]?.[l] ?? label;
 }
 
-export function translateCategory(key: string, locale?: Locale): { icon: string; label: string } {
-  const l = locale ?? currentLocale;
+export function translateCategory(key: string, locale?: string): { icon: string; label: string } {
+  const l = (locale as Locale) ?? currentLocale;
   const cat = CATEGORIES[key];
   if (!cat) return { icon: "📋", label: key };
   return { icon: cat.icon, label: cat[l] };
 }
 
-export function translatePlatform(id: string, locale?: Locale): string {
-  const l = locale ?? currentLocale;
+export function translatePlatform(id: string, locale?: string): string {
+  const l = (locale as Locale) ?? currentLocale;
   return PLATFORM_LABELS[id]?.[l] ?? id;
 }
 
-export function riskLabel(level: string, locale?: Locale): string {
-  const l = locale ?? currentLocale;
+export function riskLabel(level: string, locale?: string): string {
+  const l = (locale as Locale) ?? currentLocale;
   return (translations as Record<string, Record<Locale, string>>)[`risk.${level}`]?.[l] ?? level;
 }
 
-export function cguQuotes(locale?: Locale): { text: string; source: string }[] {
-  const l = locale ?? currentLocale;
+export function cguQuotes(locale?: string): { text: string; source: string }[] {
+  const l = (locale as Locale) ?? currentLocale;
   return CGU_QUOTES[l] ?? CGU_QUOTES.fr;
 }

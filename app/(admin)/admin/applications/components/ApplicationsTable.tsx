@@ -37,17 +37,17 @@ const platformIcon: Record<string, React.ElementType> = {
 };
 
 const statusStyles: Record<string, { bg: string; fg: string; label: string }> = {
-  pending: { bg: "rgba(199,91,57,0.12)", fg: "#C75B39", label: "En attente" },
-  review: { bg: "rgba(122,154,101,0.12)", fg: "#7A9A65", label: "En review" },
-  approved: { bg: "rgba(122,154,101,0.15)", fg: "#7A9A65", label: "Approuvée" },
-  rejected: { bg: "rgba(196,69,54,0.12)", fg: "#C44536", label: "Refusée" },
+  pending: { bg: "rgba(199,91,57,0.12)", fg: "var(--accent)", label: "En attente" },
+  review: { bg: "rgba(122,154,101,0.12)", fg: "var(--success)", label: "En review" },
+  approved: { bg: "rgba(122,154,101,0.15)", fg: "var(--success)", label: "Approuvée" },
+  rejected: { bg: "rgba(196,69,54,0.12)", fg: "var(--danger)", label: "Refusée" },
 };
 
 function scoreColor(score: number): string {
-  if (score >= 80) return "#7A9A65";
-  if (score >= 60) return "#C75B39";
-  if (score >= 40) return "#E0D8D0";
-  return "#C44536";
+  if (score >= 80) return "var(--success)";
+  if (score >= 60) return "var(--accent)";
+  if (score >= 40) return "var(--text-secondary)";
+  return "var(--danger)";
 }
 
 export function ApplicationsTable({
@@ -74,23 +74,23 @@ export function ApplicationsTable({
       <div
         className="flex items-center gap-3 px-4 mb-4 card-accent"
         style={{
-          background: "#1A1614",
-          border: "1px solid rgba(255,255,255,0.06)",
+          background: "var(--bg-primary)",
+          border: "1px solid var(--border-default)",
         }}
       >
-        <Search size={15} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
+        <Search size={15} strokeWidth={1.5} style={{ color: "var(--text-secondary)" }} />
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Rechercher par nom, email ou département..."
           className="flex-1 bg-transparent text-sm font-sans py-3 outline-none"
-          style={{ color: "#F5F0EB" }}
+          style={{ color: "var(--text-primary)" }}
         />
         <button
           onClick={onToggleFilters}
           className="p-1.5 transition-colors hover:bg-white/5"
-          style={{ color: "#F5F0EB" }}
+          style={{ color: "var(--text-primary)" }}
         >
           <SlidersHorizontal size={14} strokeWidth={1.5} />
         </button>
@@ -100,7 +100,7 @@ export function ApplicationsTable({
       <div
         className="overflow-x-auto card-accent"
         style={{
-          border: "1px solid rgba(255,255,255,0.04)",
+          border: "1px solid var(--border-default)",
         }}
       >
         <table className="w-full text-left">
@@ -108,8 +108,8 @@ export function ApplicationsTable({
             <tr
               className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]"
               style={{
-                color: "#E0D8D0",
-                borderBottom: "1px solid rgba(255,255,255,0.04)",
+                color: "var(--text-secondary)",
+                borderBottom: "1px solid var(--border-default)",
               }}
             >
               <th className="py-3 px-4 font-medium">Date</th>
@@ -128,7 +128,7 @@ export function ApplicationsTable({
                 <td
                   colSpan={8}
                   className="py-12 text-center text-sm font-sans"
-                  style={{ color: "#E0D8D0" }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   Aucune candidature trouvée
                 </td>
@@ -161,8 +161,8 @@ export function ApplicationsTable({
                     {/* Date */}
                     <td className="py-3.5 px-4 whitespace-nowrap">
                       <div className="flex items-center gap-1.5">
-                        <Clock size={11} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
-                        <span className="text-xs font-sans" style={{ color: "#F5F0EB" }}>
+                        <Clock size={11} strokeWidth={1.5} style={{ color: "var(--text-secondary)" }} />
+                        <span className="text-xs font-sans" style={{ color: "var(--text-primary)" }}>
                           {relativeTime(app.created_at)}
                         </span>
                       </div>
@@ -175,16 +175,16 @@ export function ApplicationsTable({
                           className="w-8 h-8 flex items-center justify-center text-xs font-sans font-semibold shrink-0"
                           style={{
                             background: "rgba(199,91,57,0.15)",
-                            color: "#C75B39",
+                            color: "var(--accent)",
                           }}
                         >
                           {app.full_name.charAt(0)}
                         </div>
                         <div>
-                          <p className="text-sm font-sans font-medium" style={{ color: "#F5F0EB" }}>
+                          <p className="text-sm font-sans font-medium" style={{ color: "var(--text-primary)" }}>
                             {app.full_name}
                           </p>
-                          <p className="text-[11px] font-sans" style={{ color: "#E0D8D0" }}>
+                          <p className="text-[11px] font-sans" style={{ color: "var(--text-secondary)" }}>
                             {app.email}
                           </p>
                         </div>
@@ -196,8 +196,8 @@ export function ApplicationsTable({
                       <span
                         className="text-[11px] font-sans px-2 py-1"
                         style={{
-                          background: "rgba(199,91,57,0.08)",
-                          color: "#C75B39",
+                          background: "var(--accent-soft)",
+                          color: "var(--accent)",
                         }}
                       >
                         {app.department}
@@ -213,7 +213,7 @@ export function ApplicationsTable({
                             <span
                               key={p}
                               className="flex items-center gap-1 text-[10px] font-sans"
-                              style={{ color: "#F5F0EB" }}
+                              style={{ color: "var(--text-primary)" }}
                               title={p}
                             >
                               <Icon size={12} strokeWidth={1.5} />
@@ -275,7 +275,7 @@ export function ApplicationsTable({
                           setMenuOpen(menuOpen === app.id ? null : app.id);
                         }}
                         className="p-1 transition-colors hover:bg-white/5"
-                        style={{ color: "#E0D8D0" }}
+                        style={{ color: "var(--text-secondary)" }}
                       >
                         <MoreHorizontal size={14} strokeWidth={1.5} />
                       </button>
@@ -288,8 +288,8 @@ export function ApplicationsTable({
                           <div
                             className="absolute right-0 top-full mt-1 w-40 py-1 z-50"
                             style={{
-                              background: "#1A1614",
-                              border: "1px solid rgba(255,255,255,0.08)",
+                              background: "var(--bg-primary)",
+                              border: "1px solid var(--border-default)",
                             }}
                           >
                             <button
@@ -304,7 +304,7 @@ export function ApplicationsTable({
                             </button>
                             <button
                               className="block w-full text-left px-4 py-2 text-xs font-sans transition-colors hover:bg-white/5"
-                              style={{ color: "#C44536" }}
+                              style={{ color: "var(--danger)" }}
                             >
                               Refuser
                             </button>

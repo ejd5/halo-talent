@@ -74,7 +74,7 @@ function ImageCard({
   const [copied, setCopied] = useState(false);
 
   return (
-    <div className="relative group rounded-sm overflow-hidden" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+    <div className="relative group rounded-sm overflow-hidden" style={{ border: "1px solid var(--border-default)" }}>
       <img src={image.url} alt="" className="w-full aspect-square object-cover" />
       {/* Actions overlay */}
       <div className="absolute inset-0 flex items-center justify-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "rgba(0,0,0,0.5)" }}>
@@ -95,7 +95,7 @@ function ActionButton({ icon: Icon, label, onClick }: { icon: any; label: string
     <button
       onClick={onClick}
       className="flex items-center gap-1 px-2 py-1 text-[9px] rounded-sm transition-colors hover:bg-white/20"
-      style={{ background: "rgba(0,0,0,0.5)", color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.1)" }}
+      style={{ background: "rgba(0,0,0,0.5)", color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
     >
       <Icon size={10} />
       {label}
@@ -284,7 +284,7 @@ export default function GenerateImagePage() {
       {/* ─── LEFT — Prompt Builder ─── */}
       <div className="w-80 shrink-0 overflow-y-auto p-4 space-y-4" style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}>
         <div>
-          <h1 className="text-lg italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Images</h1>
+          <h1 className="text-lg italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Images</h1>
           <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
             {credits !== null ? (credits === -1 ? "∞ crédits" : `${credits} crédits`) : ""}{creditsTotal && creditsTotal > 0 && credits !== -1 ? ` / ${creditsTotal}` : ""}
           </p>
@@ -299,13 +299,13 @@ export default function GenerateImagePage() {
             placeholder="Décris l'image que tu veux générer..."
             className="w-full text-xs bg-transparent outline-none resize-none px-2.5 py-2 rounded-sm"
             rows={4}
-            style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           />
           <div className="flex gap-1 mt-1.5">
-            <button onClick={handleSuggestPrompt} disabled={enhancing} className="flex items-center gap-1 px-2 py-1 text-[9px] transition-colors hover:bg-white/5 rounded-sm" style={{ border: "1px solid rgba(199,91,57,0.15)", color: "#C75B39" }}>
+            <button onClick={handleSuggestPrompt} disabled={enhancing} className="flex items-center gap-1 px-2 py-1 text-[9px] transition-colors hover:bg-white/5 rounded-sm" style={{ border: "1px solid var(--accent-border)", color: "var(--accent)" }}>
               <Lightbulb size={10} /> Suggérer
             </button>
-            <button onClick={handleEnhancePrompt} disabled={enhancing || !prompt.trim()} className="flex items-center gap-1 px-2 py-1 text-[9px] transition-colors hover:bg-white/5 rounded-sm disabled:opacity-30" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }}>
+            <button onClick={handleEnhancePrompt} disabled={enhancing || !prompt.trim()} className="flex items-center gap-1 px-2 py-1 text-[9px] transition-colors hover:bg-white/5 rounded-sm disabled:opacity-30" style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.5)" }}>
               {enhancing ? <Loader size={10} className="animate-spin" /> : <Wand2 size={10} />} Améliorer
             </button>
           </div>
@@ -323,7 +323,7 @@ export default function GenerateImagePage() {
                 style={{
                   border: `1px solid ${style === s.key ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                   background: style === s.key ? "rgba(199,91,57,0.06)" : "transparent",
-                  color: style === s.key ? "#C75B39" : "rgba(255,255,255,0.5)",
+                  color: style === s.key ? "var(--accent)" : "rgba(255,255,255,0.5)",
                 }}
               >
                 <span>{s.emoji}</span>
@@ -345,7 +345,7 @@ export default function GenerateImagePage() {
                 style={{
                   border: `1px solid ${aspectRatio === a.value ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                   background: aspectRatio === a.value ? "rgba(199,91,57,0.06)" : "transparent",
-                  color: aspectRatio === a.value ? "#C75B39" : "rgba(255,255,255,0.4)",
+                  color: aspectRatio === a.value ? "var(--accent)" : "rgba(255,255,255,0.4)",
                 }}
               >
                 {a.value}
@@ -368,7 +368,7 @@ export default function GenerateImagePage() {
                 style={{
                   border: `1px solid ${count === n ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                   background: count === n ? "rgba(199,91,57,0.06)" : "transparent",
-                  color: count === n ? "#C75B39" : "rgba(255,255,255,0.4)",
+                  color: count === n ? "var(--accent)" : "rgba(255,255,255,0.4)",
                 }}
               >
                 {n}
@@ -379,7 +379,7 @@ export default function GenerateImagePage() {
 
         {/* DNA toggle */}
         <div>
-          <button onClick={() => setUseDna(!useDna)} className="flex items-center gap-2 px-2.5 py-2 w-full text-[10px] rounded-sm transition-all" style={{ border: `1px solid ${useDna ? "rgba(199,91,57,0.2)" : "rgba(255,255,255,0.06)"}`, color: useDna ? "#C75B39" : "rgba(255,255,255,0.4)" }}>
+          <button onClick={() => setUseDna(!useDna)} className="flex items-center gap-2 px-2.5 py-2 w-full text-[10px] rounded-sm transition-all" style={{ border: `1px solid ${useDna ? "rgba(199,91,57,0.2)" : "rgba(255,255,255,0.06)"}`, color: useDna ? "var(--accent)" : "rgba(255,255,255,0.4)" }}>
             {useDna ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
             Utiliser mon style ADN
           </button>
@@ -391,7 +391,7 @@ export default function GenerateImagePage() {
             onClick={handleGenerate}
             disabled={generating || !prompt.trim()}
             className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 text-xs font-medium transition-opacity hover:opacity-80 disabled:opacity-30 rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             {generating ? <Loader size={12} className="animate-spin" /> : <Sparkles size={12} />}
             {generating ? "Génération..." : "Générer"}
@@ -408,14 +408,14 @@ export default function GenerateImagePage() {
           {/* Final prompt */}
           {finalPrompt && (
             <div className="mb-3 px-3 py-2 text-[10px] rounded-sm flex items-start gap-2" style={{ background: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)", color: "rgba(255,255,255,0.5)" }}>
-              <Sparkles size={10} className="shrink-0 mt-0.5" style={{ color: "#C75B39" }} />
+              <Sparkles size={10} className="shrink-0 mt-0.5" style={{ color: "var(--accent)" }} />
               <span className="flex-1">{finalPrompt}</span>
             </div>
           )}
 
           {/* Error */}
           {error && (
-            <div className="mb-3 px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}>
+            <div className="mb-3 px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}>
               {error}
             </div>
           )}
@@ -458,7 +458,7 @@ export default function GenerateImagePage() {
           {/* Loading state */}
           {generating && (
             <div className="flex flex-col items-center justify-center py-24 gap-3">
-              <Loader size={24} className="animate-spin" style={{ color: "#C75B39" }} />
+              <Loader size={24} className="animate-spin" style={{ color: "var(--accent)" }} />
               <div className="flex flex-col items-center gap-1">
                 <div className="flex gap-1.5">
                   {[0, 1, 2, 3].map((i) => (
@@ -511,7 +511,7 @@ export default function GenerateImagePage() {
                 key={i}
                 onClick={() => setPrompt(insp.label)}
                 className="text-[9px] px-2 py-3 rounded-sm text-left transition-colors hover:bg-white/5"
-                style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.3)" }}
+                style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.3)" }}
               >
                 {insp.label}
               </button>

@@ -87,12 +87,12 @@ export default function LegalUpdatesPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <div className="flex items-center gap-3 mb-1">
-            <Clock size={24} style={{ color: "#C75B39" }} />
-            <h1 className="text-2xl font-display font-semibold" style={{ color: "#F5F0EB" }}>
+            <Clock size={24} style={{ color: "var(--accent)" }} />
+            <h1 className="text-2xl font-display font-semibold" style={{ color: "var(--text-primary)" }}>
               Journal des mises à jour
             </h1>
           </div>
-          <p className="text-sm" style={{ color: "#E0D8D0" }}>
+          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
             Suivi des scans CGU et mises à jour juridiques
           </p>
         </div>
@@ -101,7 +101,7 @@ export default function LegalUpdatesPage() {
             onClick={handleScan}
             disabled={scanning}
             className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-40"
-            style={{ background: "rgba(255,255,255,0.06)", color: "#E0D8D0", border: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-secondary)", border: "1px solid var(--border-default)" }}
           >
             {scanning ? <Loader2 size={14} className="animate-spin" /> : <Scan size={14} />}
             Lancer un scan
@@ -109,7 +109,7 @@ export default function LegalUpdatesPage() {
           <button
             onClick={fetchUpdates}
             className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90"
-            style={{ background: "#C75B39", color: "#F5F0EB" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             <RefreshCw size={14} /> Actualiser
           </button>
@@ -120,14 +120,14 @@ export default function LegalUpdatesPage() {
       <div className="grid grid-cols-4 gap-4 mb-8">
         <SummaryCard label="Total entrées" value={updates.length} />
         <SummaryCard label="En attente de révision" value={updates.filter((u) => !u.reviewed_by_admin).length} color="#D4A24C" />
-        <SummaryCard label="Approuvées" value={updates.filter((u) => u.reviewed_by_admin).length} color="#7A9A65" />
-        <SummaryCard label="Scans CGU" value={updates.filter((u) => u.action === "cgu_scraped" || u.action === "scan").length} color="#C75B39" />
+        <SummaryCard label="Approuvées" value={updates.filter((u) => u.reviewed_by_admin).length} color="var(--success)" />
+        <SummaryCard label="Scans CGU" value={updates.filter((u) => u.action === "cgu_scraped" || u.action === "scan").length} color="var(--accent)" />
       </div>
 
       {/* Timeline */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+          <Loader2 size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
         </div>
       ) : (
         <div className="space-y-2">
@@ -137,14 +137,14 @@ export default function LegalUpdatesPage() {
               <div
                 key={update.id}
                 className="flex items-start gap-4 p-4"
-                style={{ border: "1px solid rgba(255,255,255,0.06)" }}
+                style={{ border: "1px solid var(--border-default)" }}
               >
                 <div className="p-2 shrink-0" style={{ background: "rgba(255,255,255,0.04)" }}>
-                  <Icon size={16} style={{ color: update.reviewed_by_admin ? "#7A9A65" : "#D4A24C" }} />
+                  <Icon size={16} style={{ color: update.reviewed_by_admin ? "var(--success)" : "#D4A24C" }} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>
+                    <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
                       {ACTION_LABELS[update.action] || update.action}
                     </span>
                     {!update.reviewed_by_admin && (
@@ -153,7 +153,7 @@ export default function LegalUpdatesPage() {
                       </span>
                     )}
                     {update.reviewed_by_admin && (
-                      <span className="text-[10x] px-1.5 py-0.5 font-medium" style={{ background: "rgba(122,154,101,0.12)", color: "#7A9A65" }}>
+                      <span className="text-[10x] px-1.5 py-0.5 font-medium" style={{ background: "rgba(122,154,101,0.12)", color: "var(--success)" }}>
                         approuvé
                       </span>
                     )}
@@ -174,7 +174,7 @@ export default function LegalUpdatesPage() {
                     <button
                       onClick={() => handleApprove(update.id)}
                       className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium transition-opacity hover:opacity-90"
-                      style={{ background: "rgba(122,154,101,0.12)", color: "#7A9A65" }}
+                      style={{ background: "rgba(122,154,101,0.12)", color: "var(--success)" }}
                     >
                       <CheckCircle size={12} /> Approuver
                     </button>
@@ -182,7 +182,7 @@ export default function LegalUpdatesPage() {
                   <button
                     onClick={() => handleDelete(update.id)}
                     className="p-1.5 transition-colors hover:bg-white/5"
-                    style={{ color: "#C44536" }}
+                    style={{ color: "var(--danger)" }}
                   >
                     <Trash2 size={14} />
                   </button>
@@ -203,9 +203,9 @@ export default function LegalUpdatesPage() {
 
 function SummaryCard({ label, value, color }: { label: string; value: number; color?: string }) {
   return (
-    <div className="p-4" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
-      <div className="text-xs mb-1" style={{ color: "#E0D8D0" }}>{label}</div>
-      <div className="text-2xl font-semibold" style={{ color: color || "#F5F0EB" }}>{value}</div>
+    <div className="p-4" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
+      <div className="text-xs mb-1" style={{ color: "var(--text-secondary)" }}>{label}</div>
+      <div className="text-2xl font-semibold" style={{ color: color || "var(--text-primary)" }}>{value}</div>
     </div>
   );
 }

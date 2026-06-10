@@ -45,12 +45,12 @@ export default function DraftsPage() {
   return (
     <div className="space-y-4 animate-fade-in">
       <div className="flex items-center gap-3">
-        <Link href="/dashboard/atlas/inbox" className="p-1 transition-opacity hover:opacity-70" style={{ color: "#FFFFFF" }}>
+        <Link href="/dashboard/atlas/inbox" className="p-1 transition-opacity hover:opacity-70" style={{ color: "var(--text-primary)" }}>
           <ArrowLeft size={18} />
         </Link>
         <div>
-          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Brouillons IA</h1>
-          <p className="text-sm mt-1" style={{ color: "#FFFFFF" }}>{drafts.length} brouillon{drafts.length > 1 ? "s" : ""} en attente de validation</p>
+          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Brouillons IA</h1>
+          <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>{drafts.length} brouillon{drafts.length > 1 ? "s" : ""} en attente de validation</p>
         </div>
       </div>
 
@@ -72,28 +72,28 @@ export default function DraftsPage() {
                     {(draft.atlas_fans?.display_name || "?").charAt(0).toUpperCase()}
                   </div>
                   <div>
-                    <span className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{draft.atlas_fans?.display_name || "Fan inconnu"}</span>
-                    <span className="text-xs ml-2 px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+                    <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{draft.atlas_fans?.display_name || "Fan inconnu"}</span>
+                    <span className="text-xs ml-2 px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                       {draft.channel}
                     </span>
                   </div>
                 </div>
-                <div className="flex items-center gap-1 text-xs" style={{ color: "#FFFFFF" }}>
+                <div className="flex items-center gap-1 text-xs" style={{ color: "var(--text-primary)" }}>
                   <Clock size={10} /> {new Date(draft.created_at).toLocaleDateString("fr-FR")}
                 </div>
               </div>
-              <div className="p-3 mb-3 text-sm italic" style={{ background: "rgba(199,91,57,0.04)", borderLeft: "2px solid #C75B39", color: "#FFFFFF" }}>
+              <div className="p-3 mb-3 text-sm italic" style={{ background: "rgba(199,91,57,0.04)", borderLeft: "2px solid var(--accent)", color: "var(--text-primary)" }}>
                 {draft.content}
               </div>
               <div className="flex items-center gap-2">
                 <button onClick={() => handleAction(draft.id, "approve")}
                   className="flex items-center gap-1 px-3 py-1.5 text-xs rounded-sm transition-opacity hover:opacity-80"
-                  style={{ background: "rgba(16,185,129,0.15)", color: "#10B981" }}>
+                  style={{ background: "rgba(16,185,129,0.15)", color: "var(--success)" }}>
                   <CheckCircle size={12} /> Approuver
                 </button>
                 <button onClick={() => handleAction(draft.id, "reject")}
                   className="flex items-center gap-1 px-3 py-1.5 text-xs rounded-sm transition-opacity hover:opacity-80"
-                  style={{ background: "rgba(229,72,77,0.15)", color: "#E5484D" }}>
+                  style={{ background: "rgba(229,72,77,0.15)", color: "var(--danger)" }}>
                   <XCircle size={12} /> Rejeter
                 </button>
               </div>

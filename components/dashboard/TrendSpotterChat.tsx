@@ -77,7 +77,7 @@ const PLATFORM_CONFIG: Record<string, { label: string; color: string; icon: Reac
 const URGENCY_CONFIG = {
   high: { label: "Haute", color: "#EF4444", icon: Flame },
   medium: { label: "Moyenne", color: "#F59E0B", icon: Clock },
-  low: { label: "Basse", color: "#10B981", icon: AlertTriangle },
+  low: { label: "Basse", color: "var(--success)", icon: AlertTriangle },
 };
 
 // ─── Component ──────────────────────────────────────────────
@@ -155,37 +155,37 @@ export function TrendSpotterChat() {
         {/* Header */}
         <div className="flex items-start gap-3 p-4">
           {/* Platform icon */}
-          <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: `${platform?.color ?? "#FFFFFF"}15` }}>
-            <PlatformIcon size={18} style={{ color: platform?.color ?? "#FFFFFF80" }} />
+          <div className="w-10 h-10 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: `${platform?.color ?? "var(--text-primary)"}15` }}>
+            <PlatformIcon size={18} style={{ color: platform?.color ?? "rgba(255, 255, 255, 0.5)" }} />
           </div>
 
           <div className="flex-1 min-w-0">
             {/* Meta row */}
             <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-[10px] font-medium uppercase tracking-wider" style={{ color: platform?.color ?? "#FFFFFF60" }}>
+              <span className="text-[10px] font-medium uppercase tracking-wider" style={{ color: platform?.color ?? "rgba(255, 255, 255, 0.375)" }}>
                 {platform?.label ?? trend.source}
               </span>
               <span className={cn(
                 "inline-flex items-center gap-1 px-1.5 py-0.5 text-[8px] font-semibold uppercase tracking-wider",
               )}
-                style={{ backgroundColor: `${urgency?.color ?? "#FFFFFF"}15`, color: urgency?.color ?? "#FFFFFF60" }}
+                style={{ backgroundColor: `${urgency?.color ?? "var(--text-primary)"}15`, color: urgency?.color ?? "rgba(255, 255, 255, 0.375)" }}
               >
                 <UrgencyIcon size={8} />
                 {urgency?.label ?? "Basse"}
               </span>
-              <span className="text-[9px] font-mono ml-auto" style={{ color: trend.relevance_score >= 80 ? "#10B981" : trend.relevance_score >= 60 ? "#F59E0B" : "#FFFFFF60" }}>
+              <span className="text-[9px] font-mono ml-auto" style={{ color: trend.relevance_score >= 80 ? "var(--success)" : trend.relevance_score >= 60 ? "#F59E0B" : "rgba(255, 255, 255, 0.375)" }}>
                 {trend.relevance_score}/100
               </span>
             </div>
 
             {/* Title */}
-            <h3 className="text-sm font-semibold leading-snug mb-1" style={{ color: "#FFFFFF" }}>
+            <h3 className="text-sm font-semibold leading-snug mb-1" style={{ color: "var(--text-primary)" }}>
               {trend.title}
             </h3>
 
             {/* Description */}
             {trend.description && (
-              <p className="text-xs leading-relaxed mb-3" style={{ color: "#FFFFFFCC" }}>
+              <p className="text-xs leading-relaxed mb-3" style={{ color: "rgba(255, 255, 255, 0.8)" }}>
                 {trend.description}
               </p>
             )}
@@ -195,8 +195,8 @@ export function TrendSpotterChat() {
               <div className="flex flex-wrap gap-3 mb-3">
                 {trend.metrics.map((m, i) => (
                   <div key={i} className="flex items-center gap-1">
-                    <span className="text-[9px] uppercase" style={{ color: "#FFFFFF60" }}>{m.label}</span>
-                    <span className="text-xs font-semibold font-mono" style={{ color: "#FFFFFF" }}>{m.value}</span>
+                    <span className="text-[9px] uppercase" style={{ color: "rgba(255, 255, 255, 0.375)" }}>{m.label}</span>
+                    <span className="text-xs font-semibold font-mono" style={{ color: "var(--text-primary)" }}>{m.value}</span>
                   </div>
                 ))}
               </div>
@@ -207,7 +207,7 @@ export function TrendSpotterChat() {
               <div className="flex flex-wrap gap-1 mb-3">
                 {trend.tags.map((tag) => (
                   <span key={tag} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[8px] font-mono uppercase tracking-wider"
-                    style={{ backgroundColor: "#FFFFFF08", color: "#FFFFFF80" }}>
+                    style={{ backgroundColor: "rgba(255, 255, 255, 0.03)", color: "rgba(255, 255, 255, 0.5)" }}>
                     <Tag size={7} /> {tag}
                   </span>
                 ))}
@@ -222,7 +222,7 @@ export function TrendSpotterChat() {
                   "flex items-center gap-1 px-2 py-1 text-[9px] font-medium uppercase tracking-wider transition-all",
                   trend.saved ? "border-0" : "border border-[var(--color-border)]"
                 )}
-                style={trend.saved ? { backgroundColor: "#C75B3915", color: "#C75B39" } : { color: "#FFFFFF80" }}
+                style={trend.saved ? { backgroundColor: "rgba(199, 91, 57, 0.08)", color: "var(--accent)" } : { color: "rgba(255, 255, 255, 0.5)" }}
               >
                 <Bookmark size={10} />
                 {trend.saved ? "Sauvegardé" : "Sauvegarder"}
@@ -237,7 +237,7 @@ export function TrendSpotterChat() {
                   }
                 }}
                 className="flex items-center gap-1 px-2 py-1 text-[9px] font-medium uppercase tracking-wider border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50"
-                style={{ color: "#FFFFFF80" }}
+                style={{ color: "rgba(255, 255, 255, 0.5)" }}
               >
                 <Zap size={10} />
                 Créer un contenu
@@ -245,7 +245,7 @@ export function TrendSpotterChat() {
               <button
                 onClick={() => dismiss(trend.id)}
                 className="flex items-center gap-1 px-2 py-1 text-[9px] font-medium uppercase tracking-wider ml-auto hover:opacity-70 transition-opacity"
-                style={{ color: "#FFFFFF40" }}
+                style={{ color: "rgba(255, 255, 255, 0.25)" }}
               >
                 <X size={10} />
                 Ignorer
@@ -255,12 +255,12 @@ export function TrendSpotterChat() {
         </div>
 
         {/* Score bar */}
-        <div className="h-0.5 w-full" style={{ backgroundColor: "#FFFFFF08" }}>
+        <div className="h-0.5 w-full" style={{ backgroundColor: "rgba(255, 255, 255, 0.03)" }}>
           <div
             className="h-full transition-all duration-500"
             style={{
               width: `${trend.relevance_score}%`,
-              backgroundColor: trend.relevance_score >= 80 ? "#10B981" : trend.relevance_score >= 60 ? "#F59E0B" : "#FFFFFF20",
+              backgroundColor: trend.relevance_score >= 80 ? "var(--success)" : trend.relevance_score >= 60 ? "#F59E0B" : "rgba(255, 255, 255, 0.125)",
             }}
           />
         </div>
@@ -275,24 +275,24 @@ export function TrendSpotterChat() {
       <div className="border border-[var(--color-border)] w-full max-w-lg mx-4" style={{ backgroundColor: "var(--color-card)" }}>
         <div className="flex items-center justify-between p-4 border-b border-[var(--color-border)]">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 flex items-center justify-center" style={{ backgroundColor: "#C75B3915" }}>
-              <Bell size={15} style={{ color: "#C75B39" }} />
+            <div className="w-8 h-8 flex items-center justify-center" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)" }}>
+              <Bell size={15} style={{ color: "var(--accent)" }} />
             </div>
             <div>
-              <h3 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>Daily Digest</h3>
-              <p className="text-[10px]" style={{ color: "#FFFFFF60" }}>{new Date().toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })}</p>
+              <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Daily Digest</h3>
+              <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>{new Date().toLocaleDateString("fr-FR", { weekday: "long", day: "numeric", month: "long" })}</p>
             </div>
           </div>
-          <button onClick={() => setShowDigest(false)} className="text-lg" style={{ color: "#FFFFFF60" }}>&times;</button>
+          <button onClick={() => setShowDigest(false)} className="text-lg" style={{ color: "rgba(255, 255, 255, 0.375)" }}>&times;</button>
         </div>
         <div className="p-4 space-y-3 max-h-[60vh] overflow-y-auto">
-          <p className="text-xs font-medium" style={{ color: "#FFFFFF" }}>Voici ce qui marche en ce moment dans ta niche :</p>
+          <p className="text-xs font-medium" style={{ color: "var(--text-primary)" }}>Voici ce qui marche en ce moment dans ta niche :</p>
           {dailyDigest.map((trend) => (
             <div key={trend.id} className="flex items-start gap-3 p-3 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }}>
               <Flame size={14} style={{ color: "#EF4444" }} className="mt-0.5 shrink-0" />
               <div>
-                <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{trend.title}</p>
-                <p className="text-[10px] mt-1" style={{ color: "#FFFFFF60" }}>{trend.description?.slice(0, 100)}</p>
+                <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{trend.title}</p>
+                <p className="text-[10px] mt-1" style={{ color: "rgba(255, 255, 255, 0.375)" }}>{trend.description?.slice(0, 100)}</p>
               </div>
             </div>
           ))}
@@ -310,8 +310,8 @@ export function TrendSpotterChat() {
         {/* Header */}
         <div className="flex items-center justify-between mb-4">
           <div>
-            <h2 className="text-lg font-semibold" style={{ color: "#FFFFFF" }}>Tendances détectées</h2>
-            <p className="text-xs mt-0.5" style={{ color: "#FFFFFF60" }}>
+            <h2 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>Tendances détectées</h2>
+            <p className="text-xs mt-0.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
               {highCount} alertes haute priorité · {savedCount} sauvegardées
             </p>
           </div>
@@ -319,7 +319,7 @@ export function TrendSpotterChat() {
             <button
               onClick={() => setShowDigest(true)}
               className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
-              style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+              style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
             >
               <Bell size={11} /> Daily Digest
             </button>
@@ -338,14 +338,14 @@ export function TrendSpotterChat() {
                   "px-2.5 py-1 text-[9px] uppercase tracking-wider font-medium transition-all",
                   filter === f.id ? "border-b-2" : "opacity-50 hover:opacity-80"
                 )}
-                style={{ borderColor: filter === f.id ? "#C75B39" : "transparent", color: "#FFFFFF" }}
+                style={{ borderColor: filter === f.id ? "var(--accent)" : "transparent", color: "var(--text-primary)" }}
               >
                 {f.label}
               </button>
             ))}
           </div>
 
-          <div className="w-px h-4" style={{ backgroundColor: "#FFFFFF20" }} />
+          <div className="w-px h-4" style={{ backgroundColor: "rgba(255, 255, 255, 0.125)" }} />
 
           {/* Platform filter */}
           <div className="flex gap-1">
@@ -357,7 +357,7 @@ export function TrendSpotterChat() {
                   "px-2 py-1 text-[9px] uppercase tracking-wider font-medium transition-all",
                   platformFilter === p.id ? "border-b-2" : "opacity-40 hover:opacity-70"
                 )}
-                style={{ borderColor: platformFilter === p.id ? "#C75B39" : "transparent", color: "#FFFFFF" }}
+                style={{ borderColor: platformFilter === p.id ? "var(--accent)" : "transparent", color: "var(--text-primary)" }}
               >
                 {p.label}
               </button>
@@ -366,14 +366,14 @@ export function TrendSpotterChat() {
 
           {/* Search */}
           <div className="relative ml-auto">
-            <Search size={11} className="absolute left-2 top-1/2 -translate-y-1/2" style={{ color: "#FFFFFF40" }} />
+            <Search size={11} className="absolute left-2 top-1/2 -translate-y-1/2" style={{ color: "rgba(255, 255, 255, 0.25)" }} />
             <input
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Rechercher..."
               className="w-32 bg-transparent border border-[var(--color-border)] pl-6 pr-2 py-1 text-[10px] focus:outline-none focus:border-[#C75B39] transition-colors"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "var(--text-primary)" }}
             />
           </div>
         </div>
@@ -382,9 +382,9 @@ export function TrendSpotterChat() {
         <div className="flex-1 overflow-y-auto space-y-3 pr-1">
           {filteredTrends.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-64 text-center">
-              <Radio size={32} style={{ color: "#FFFFFF15" }} />
-              <p className="text-sm mt-3" style={{ color: "#FFFFFF60" }}>Aucune tendance trouvée</p>
-              <p className="text-[10px] mt-1" style={{ color: "#FFFFFF30" }}>Reviens plus tard ou ajuste les filtres</p>
+              <Radio size={32} style={{ color: "rgba(255, 255, 255, 0.08)" }} />
+              <p className="text-sm mt-3" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Aucune tendance trouvée</p>
+              <p className="text-[10px] mt-1" style={{ color: "rgba(255, 255, 255, 0.19)" }}>Reviens plus tard ou ajuste les filtres</p>
             </div>
           ) : (
             filteredTrends.map((trend) => <TrendCard key={trend.id} trend={trend} />)
@@ -397,27 +397,27 @@ export function TrendSpotterChat() {
         {/* Mini chat */}
         <div className="border border-[var(--color-border)] flex flex-col flex-1" style={{ backgroundColor: "var(--color-card)" }}>
           <div className="p-3 border-b border-[var(--color-border)]">
-            <p className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: "#FFFFFF" }}>Pose une question</p>
-            <p className="text-[9px] mt-0.5" style={{ color: "#FFFFFF60" }}>Analyse une tendance spécifique</p>
+            <p className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: "var(--text-primary)" }}>Pose une question</p>
+            <p className="text-[9px] mt-0.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Analyse une tendance spécifique</p>
           </div>
           <div className="flex-1 overflow-y-auto p-3 space-y-2">
             {messages.length === 0 && (
               <div className="text-center py-6">
-                <Search size={20} className="mx-auto mb-2" style={{ color: "#FFFFFF15" }} />
-                <p className="text-[10px]" style={{ color: "#FFFFFF40" }}>Demande-moi d&apos;analyser une tendance ou un sujet</p>
+                <Search size={20} className="mx-auto mb-2" style={{ color: "rgba(255, 255, 255, 0.08)" }} />
+                <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>Demande-moi d&apos;analyser une tendance ou un sujet</p>
               </div>
             )}
             {messages.map((msg, i) => (
               <div key={i} className={cn("text-xs leading-relaxed", msg.role === "user" ? "font-medium" : "")}
-                style={{ color: msg.role === "user" ? "#FFFFFF" : "#FFFFFFCC" }}>
+                style={{ color: msg.role === "user" ? "var(--text-primary)" : "rgba(255, 255, 255, 0.8)" }}>
                 {msg.content}
               </div>
             ))}
             {loading && (
               <div className="flex gap-1">
-                <span className="w-1.5 h-1.5 animate-pulse rounded-full" style={{ backgroundColor: "#C75B39" }} />
-                <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:150ms]" style={{ backgroundColor: "#C75B39" }} />
-                <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:300ms]" style={{ backgroundColor: "#C75B39" }} />
+                <span className="w-1.5 h-1.5 animate-pulse rounded-full" style={{ backgroundColor: "var(--accent)" }} />
+                <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:150ms]" style={{ backgroundColor: "var(--accent)" }} />
+                <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:300ms]" style={{ backgroundColor: "var(--accent)" }} />
               </div>
             )}
             <div ref={chatEndRef} />
@@ -431,9 +431,9 @@ export function TrendSpotterChat() {
                 onKeyDown={(e) => e.key === "Enter" && handleChat()}
                 placeholder="Ta question..."
                 className="flex-1 bg-transparent border-b border-[var(--color-border)] py-1.5 text-xs focus:outline-none focus:border-[#C75B39] transition-colors"
-                style={{ color: "#FFFFFF" }}
+                style={{ color: "var(--text-primary)" }}
               />
-              <button onClick={handleChat} disabled={!chatInput.trim() || loading} className="opacity-40 hover:opacity-100 disabled:opacity-20 transition-opacity" style={{ color: "#C75B39" }}>
+              <button onClick={handleChat} disabled={!chatInput.trim() || loading} className="opacity-40 hover:opacity-100 disabled:opacity-20 transition-opacity" style={{ color: "var(--accent)" }}>
                 <Search size={13} />
               </button>
             </div>
@@ -442,22 +442,22 @@ export function TrendSpotterChat() {
 
         {/* Stat card */}
         <div className="border border-[var(--color-border)] p-3" style={{ backgroundColor: "var(--color-card)" }}>
-          <p className="text-[10px] uppercase tracking-wider mb-2" style={{ color: "#FFFFFF60" }}>Quota API aujourd&apos;hui</p>
+          <p className="text-[10px] uppercase tracking-wider mb-2" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Quota API aujourd&apos;hui</p>
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-[10px]">
-              <span style={{ color: "#FFFFFF80" }}>YouTube</span>
-              <span className="font-mono" style={{ color: "#FFFFFF" }}>1/2 runs</span>
+              <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>YouTube</span>
+              <span className="font-mono" style={{ color: "var(--text-primary)" }}>1/2 runs</span>
             </div>
             <div className="flex items-center justify-between text-[10px]">
-              <span style={{ color: "#FFFFFF80" }}>Reddit</span>
-              <span className="font-mono" style={{ color: "#FFFFFF" }}>2/2 runs</span>
+              <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>Reddit</span>
+              <span className="font-mono" style={{ color: "var(--text-primary)" }}>2/2 runs</span>
             </div>
             <div className="flex items-center justify-between text-[10px]">
-              <span style={{ color: "#FFFFFF80" }}>TikTok</span>
-              <span className="font-mono" style={{ color: "#FFFFFF" }}>Apify</span>
+              <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>TikTok</span>
+              <span className="font-mono" style={{ color: "var(--text-primary)" }}>Apify</span>
             </div>
           </div>
-          <p className="text-[8px] mt-2" style={{ color: "#FFFFFF30" }}>Limite free : 2 runs/jour. Passe Elite pour illimité.</p>
+          <p className="text-[8px] mt-2" style={{ color: "rgba(255, 255, 255, 0.19)" }}>Limite free : 2 runs/jour. Passe Elite pour plus de crédits.</p>
         </div>
       </div>
 

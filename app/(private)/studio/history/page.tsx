@@ -32,7 +32,7 @@ export default function HistoryPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-24">
-        <Loader size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+        <Loader size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
       </div>
     );
   }
@@ -43,7 +43,7 @@ export default function HistoryPage() {
       <div className="flex-1 overflow-y-auto p-6">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>
+            <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>
               Mes images
             </h1>
             <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -53,7 +53,7 @@ export default function HistoryPage() {
           <Link
             href="/studio/generate/image"
             className="flex items-center gap-1.5 px-3 py-1.5 text-[9px] transition-opacity hover:opacity-80 rounded-sm"
-            style={{ background: "#C75B39", color: "#FFF" }}
+            style={{ background: "var(--accent)", color: "#FFF" }}
           >
             <Sparkles size={10} /> Générer
           </Link>
@@ -68,7 +68,7 @@ export default function HistoryPage() {
             <Link
               href="/studio/generate/image"
               className="flex items-center gap-1.5 text-xs mt-4 transition-opacity hover:opacity-70"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             >
               <Sparkles size={12} /> Générer ma première image
             </Link>
@@ -79,7 +79,7 @@ export default function HistoryPage() {
               <div
                 key={img.id}
                 className="relative group rounded-sm overflow-hidden cursor-pointer"
-                style={{ border: "1px solid rgba(255,255,255,0.06)", background: "#0A0908" }}
+                style={{ border: "1px solid var(--border-default)", background: "var(--bg-primary)" }}
                 onClick={() => setSelected(img.id === selected ? null : img.id)}
               >
                 <img
@@ -93,14 +93,14 @@ export default function HistoryPage() {
                   className="absolute inset-0 flex flex-col justify-end p-2 opacity-0 group-hover:opacity-100 transition-opacity"
                   style={{ background: "linear-gradient(transparent 60%, rgba(0,0,0,0.8))" }}
                 >
-                  <p className="text-[9px] leading-tight line-clamp-2" style={{ color: "#F5F0EB" }}>
+                  <p className="text-[9px] leading-tight line-clamp-2" style={{ color: "var(--text-primary)" }}>
                     {img.prompt || "Sans prompt"}
                   </p>
                   <div className="flex items-center gap-2 mt-1">
                     <span className="text-[8px]" style={{ color: "rgba(255,255,255,0.3)" }}>
                       {new Date(img.created_at).toLocaleDateString("fr-FR")}
                     </span>
-                    <span className="text-[8px]" style={{ color: "#C75B39" }}>
+                    <span className="text-[8px]" style={{ color: "var(--accent)" }}>
                       {img.credits_used} crédit{img.credits_used > 1 ? "s" : ""}
                     </span>
                   </div>
@@ -120,7 +120,7 @@ export default function HistoryPage() {
                       style={{ background: "rgba(0,0,0,0.6)" }}
                       title="Ouvrir"
                     >
-                      <ExternalLink size={10} style={{ color: "#F5F0EB" }} />
+                      <ExternalLink size={10} style={{ color: "var(--text-primary)" }} />
                     </button>
                     <button
                       onClick={(e) => {
@@ -134,7 +134,7 @@ export default function HistoryPage() {
                       style={{ background: "rgba(0,0,0,0.6)" }}
                       title="Télécharger"
                     >
-                      <Download size={10} style={{ color: "#F5F0EB" }} />
+                      <Download size={10} style={{ color: "var(--text-primary)" }} />
                     </button>
                   </div>
                 )}
@@ -151,28 +151,28 @@ export default function HistoryPage() {
         return (
           <div className="w-72 shrink-0 overflow-y-auto p-4" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
             <div className="mb-3">
-              <img src={img.image_url || ""} alt="" className="w-full aspect-square object-cover rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.06)" }} />
+              <img src={img.image_url || ""} alt="" className="w-full aspect-square object-cover rounded-sm" style={{ border: "1px solid var(--border-default)" }} />
             </div>
             <div className="space-y-2 text-[10px]">
               <div>
                 <span className="block text-[9px] uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>Prompt</span>
-                <p style={{ color: "#F5F0EB" }}>{img.prompt || "—"}</p>
+                <p style={{ color: "var(--text-primary)" }}>{img.prompt || "—"}</p>
               </div>
               <div className="flex justify-between">
                 <span className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Date</span>
-                <span style={{ color: "#F5F0EB" }}>{new Date(img.created_at).toLocaleString("fr-FR")}</span>
+                <span style={{ color: "var(--text-primary)" }}>{new Date(img.created_at).toLocaleString("fr-FR")}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Provider</span>
-                <span style={{ color: "#F5F0EB" }}>{img.provider || "—"}</span>
+                <span style={{ color: "var(--text-primary)" }}>{img.provider || "—"}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Modèle</span>
-                <span style={{ color: "#F5F0EB" }}>{img.model || "—"}</span>
+                <span style={{ color: "var(--text-primary)" }}>{img.model || "—"}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Crédits</span>
-                <span style={{ color: "#C75B39" }}>{img.credits_used}</span>
+                <span style={{ color: "var(--accent)" }}>{img.credits_used}</span>
               </div>
             </div>
             <div className="flex gap-2 mt-4">
@@ -184,7 +184,7 @@ export default function HistoryPage() {
                   a.click();
                 }}
                 className="flex-1 flex items-center justify-center gap-1 px-3 py-1.5 text-[10px] transition-opacity hover:opacity-80 rounded-sm"
-                style={{ background: "#C75B39", color: "#FFF" }}
+                style={{ background: "var(--accent)", color: "#FFF" }}
               >
                 <Download size={10} /> Télécharger
               </button>

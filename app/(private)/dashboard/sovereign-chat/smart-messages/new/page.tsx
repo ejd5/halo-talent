@@ -177,7 +177,7 @@ export default function NewSmartMessageCampaignPage() {
           <ArrowLeft size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
         </Link>
         <div>
-          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Nouvelle campagne Smart Messages
           </h1>
           <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
@@ -202,7 +202,7 @@ export default function NewSmartMessageCampaignPage() {
               }`}
               style={{
                 backgroundColor: i <= step ? "rgba(199,91,57,0.15)" : "rgba(245,240,235,0.04)",
-                color: i <= step ? "#C75B39" : "rgba(245,240,235,0.15)",
+                color: i <= step ? "var(--accent)" : "rgba(245,240,235,0.15)",
               }}
             >
               <s.icon size={12} />
@@ -217,7 +217,7 @@ export default function NewSmartMessageCampaignPage() {
       {/* Step 1: Segment selection */}
       {step === 0 && (
         <div className="space-y-3">
-          <h3 className="text-xs font-semibold" style={{ color: "#F5F0EB" }}>
+          <h3 className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>
             Sélectionne un segment de fans
           </h3>
           {loadingSegments ? (
@@ -234,7 +234,7 @@ export default function NewSmartMessageCampaignPage() {
               <Link
                 href="/dashboard/sovereign-chat/segments/new"
                 className="inline-block mt-2 text-[10px] font-medium py-2 px-3"
-                style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+                style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
               >
                 Créer un segment
               </Link>
@@ -257,12 +257,12 @@ export default function NewSmartMessageCampaignPage() {
                 >
                   <div className="min-w-0">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-medium" style={{ color: selectedSegment?.id === seg.id ? "#F5F0EB" : "rgba(245,240,235,0.6)" }}>
+                      <span className="text-xs font-medium" style={{ color: selectedSegment?.id === seg.id ? "var(--text-primary)" : "rgba(245,240,235,0.6)" }}>
                         {seg.name}
                       </span>
                       <span className="text-[8px] px-1 py-0.5" style={{
                         backgroundColor: seg.type === "smart" ? "rgba(122,154,101,0.1)" : "rgba(199,91,57,0.1)",
-                        color: seg.type === "smart" ? "#7A9A65" : "#C75B39",
+                        color: seg.type === "smart" ? "var(--success)" : "var(--accent)",
                       }}>
                         {seg.type}
                       </span>
@@ -274,7 +274,7 @@ export default function NewSmartMessageCampaignPage() {
                     )}
                   </div>
                   <div className="text-right shrink-0 ml-3">
-                    <p className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>{seg.member_count}</p>
+                    <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{seg.member_count}</p>
                     <p className="text-[8px]" style={{ color: "rgba(245,240,235,0.2)" }}>membres</p>
                   </div>
                 </button>
@@ -285,7 +285,7 @@ export default function NewSmartMessageCampaignPage() {
             <div className="p-3 text-[10px]" style={{ backgroundColor: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)" }}>
               <p style={{ color: "rgba(245,240,235,0.5)" }}>
                 Cette campagne créera{" "}
-                <strong style={{ color: "#C75B39" }}>{effectiveCount} drafts personnalisés</strong>
+                <strong style={{ color: "var(--accent)" }}>{effectiveCount} drafts personnalisés</strong>
                 {" "}· Coût estimé : ~{effectiveCount} crédits IA
               </p>
             </div>
@@ -296,7 +296,7 @@ export default function NewSmartMessageCampaignPage() {
       {/* Step 2: Configuration */}
       {step === 1 && (
         <div className="space-y-4">
-          <h3 className="text-xs font-semibold" style={{ color: "#F5F0EB" }}>
+          <h3 className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>
             Configure ta campagne
           </h3>
 
@@ -312,7 +312,7 @@ export default function NewSmartMessageCampaignPage() {
                     border: platform === p.id ? "1px solid rgba(199,91,57,0.2)" : "1px solid rgba(245,240,235,0.06)",
                   }}
                 >
-                  <p className="text-[10px] font-medium" style={{ color: platform === p.id ? "#F5F0EB" : "rgba(245,240,235,0.5)" }}>{p.label}</p>
+                  <p className="text-[10px] font-medium" style={{ color: platform === p.id ? "var(--text-primary)" : "rgba(245,240,235,0.5)" }}>{p.label}</p>
                   <p className="text-[7px] mt-0.5" style={{ color: "rgba(245,240,235,0.15)" }}>{p.note}</p>
                 </button>
               ))}
@@ -331,7 +331,7 @@ export default function NewSmartMessageCampaignPage() {
                     border: tone === t.id ? "1px solid rgba(199,91,57,0.2)" : "1px solid rgba(245,240,235,0.06)",
                   }}
                 >
-                  <p className="text-[10px] font-medium" style={{ color: tone === t.id ? "#F5F0EB" : "rgba(245,240,235,0.5)" }}>{t.label}</p>
+                  <p className="text-[10px] font-medium" style={{ color: tone === t.id ? "var(--text-primary)" : "rgba(245,240,235,0.5)" }}>{t.label}</p>
                   <p className="text-[7px] mt-0.5" style={{ color: "rgba(245,240,235,0.15)" }}>{t.desc}</p>
                 </button>
               ))}
@@ -350,7 +350,7 @@ export default function NewSmartMessageCampaignPage() {
                     border: goal === g.id ? "1px solid rgba(199,91,57,0.2)" : "1px solid rgba(245,240,235,0.06)",
                   }}
                 >
-                  <p className="text-[10px] font-medium" style={{ color: goal === g.id ? "#F5F0EB" : "rgba(245,240,235,0.5)" }}>{g.label}</p>
+                  <p className="text-[10px] font-medium" style={{ color: goal === g.id ? "var(--text-primary)" : "rgba(245,240,235,0.5)" }}>{g.label}</p>
                   <p className="text-[7px] mt-0.5" style={{ color: "rgba(245,240,235,0.15)" }}>{g.desc}</p>
                 </button>
               ))}
@@ -367,9 +367,9 @@ export default function NewSmartMessageCampaignPage() {
                     type="checkbox"
                     checked={variables.includes(v.id)}
                     onChange={() => toggleVariable(v.id)}
-                    className="accent-[#C75B39]"
+                    className="accent-[var(--accent)]"
                   />
-                  <span className="text-[10px]" style={{ color: variables.includes(v.id) ? "#F5F0EB" : "rgba(245,240,235,0.3)" }}>
+                  <span className="text-[10px]" style={{ color: variables.includes(v.id) ? "var(--text-primary)" : "rgba(245,240,235,0.3)" }}>
                     {v.label}
                   </span>
                 </label>
@@ -386,7 +386,7 @@ export default function NewSmartMessageCampaignPage() {
               placeholder="Décris ce que tu veux dire en quelques phrases..."
               rows={3}
               className="w-full p-2.5 text-xs mt-1 bg-transparent transition-all resize-none"
-              style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }}
+              style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }}
             />
           </div>
         </div>
@@ -397,7 +397,7 @@ export default function NewSmartMessageCampaignPage() {
         <div className="space-y-4 text-center py-8">
           {generatingSample ? (
             <>
-              <div className="animate-spin w-8 h-8 mx-auto" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "#C75B39", borderRadius: "50%" }} />
+              <div className="animate-spin w-8 h-8 mx-auto" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "var(--accent)", borderRadius: "50%" }} />
               <p className="text-xs" style={{ color: "rgba(245,240,235,0.5)" }}>Génération de l&apos;échantillon test...</p>
             </>
           ) : (
@@ -416,14 +416,14 @@ export default function NewSmartMessageCampaignPage() {
       {/* Step 3 (after generation): Sample review */}
       {step === 3 && sampleDrafts.length > 0 && (
         <div className="space-y-4">
-          <h3 className="text-xs font-semibold" style={{ color: "#F5F0EB" }}>
+          <h3 className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>
             Échantillon test — Vérifie la direction
           </h3>
           <div className="space-y-2">
             {sampleDrafts.map((draft: any, i: number) => (
               <div key={i} className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.02)", border: "1px solid rgba(245,240,235,0.04)" }}>
                 <div className="flex items-center gap-2 mb-1.5">
-                  <span className="text-[9px] font-medium px-1.5 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+                  <span className="text-[9px] font-medium px-1.5 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                     {draft.approach || "Draft"}
                   </span>
                   <span className="text-[8px]" style={{ color: "rgba(245,240,235,0.2)" }}>
@@ -434,7 +434,7 @@ export default function NewSmartMessageCampaignPage() {
                   {draft.text}
                 </p>
                 {draft.warnings?.length > 0 && (
-                  <p className="text-[9px] mt-1" style={{ color: "#C75B39" }}>
+                  <p className="text-[9px] mt-1" style={{ color: "var(--accent)" }}>
                     ⚠ {draft.warnings.join(", ")}
                   </p>
                 )}
@@ -449,7 +449,7 @@ export default function NewSmartMessageCampaignPage() {
         <div className="text-center py-8">
           {generating ? (
             <>
-              <div className="animate-spin w-8 h-8 mx-auto mb-3" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "#C75B39", borderRadius: "50%" }} />
+              <div className="animate-spin w-8 h-8 mx-auto mb-3" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "var(--accent)", borderRadius: "50%" }} />
               <p className="text-xs" style={{ color: "rgba(245,240,235,0.5)" }}>
                 Génération de {effectiveCount} drafts en arrière-plan...
               </p>
@@ -465,10 +465,10 @@ export default function NewSmartMessageCampaignPage() {
       {step === 4 && campaignId && (
         <div className="space-y-4 text-center py-8">
           <div className="w-12 h-12 mx-auto flex items-center justify-center" style={{ backgroundColor: "rgba(122,154,101,0.1)" }}>
-            <Check size={20} style={{ color: "#7A9A65" }} />
+            <Check size={20} style={{ color: "var(--success)" }} />
           </div>
           <div>
-            <h3 className="text-base font-semibold" style={{ color: "#F5F0EB" }}>Campagne lancée !</h3>
+            <h3 className="text-base font-semibold" style={{ color: "var(--text-primary)" }}>Campagne lancée !</h3>
             <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
               {effectiveCount} drafts sont en cours de génération en arrière-plan
             </p>
@@ -487,7 +487,7 @@ export default function NewSmartMessageCampaignPage() {
             <Link
               href={`/dashboard/sovereign-chat/smart-messages/${campaignId}/validate`}
               className="text-[10px] font-semibold py-2 px-4"
-              style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+              style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
             >
               Voir la progression
               <ArrowRight size={10} className="inline ml-1" />
@@ -498,7 +498,7 @@ export default function NewSmartMessageCampaignPage() {
 
       {/* Error */}
       {error && (
-        <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "#C44536" }}>
+        <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "var(--danger)" }}>
           {error}
         </div>
       )}
@@ -524,8 +524,8 @@ export default function NewSmartMessageCampaignPage() {
               }
               className="text-[10px] font-semibold py-2 px-4 transition-all flex items-center gap-1 disabled:opacity-30"
               style={{
-                backgroundColor: canProceedStep1 || step > 0 ? "#C75B39" : "rgba(245,240,235,0.06)",
-                color: canProceedStep1 || step > 0 ? "#F5F0EB" : "rgba(245,240,235,0.2)",
+                backgroundColor: canProceedStep1 || step > 0 ? "var(--accent)" : "rgba(245,240,235,0.06)",
+                color: canProceedStep1 || step > 0 ? "var(--text-primary)" : "rgba(245,240,235,0.2)",
               }}
             >
               {step === 0 ? "Configurer" : step === 1 ? "Tester" : step === 3 ? "Lancer la campagne" : "Suivant"}
@@ -536,7 +536,7 @@ export default function NewSmartMessageCampaignPage() {
             <button
               onClick={generateSampleDrafts}
               className="text-[10px] font-semibold py-2 px-4 transition-all"
-              style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+              style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
             >
               Générer l&apos;échantillon
               <ArrowRight size={10} className="inline ml-1" />

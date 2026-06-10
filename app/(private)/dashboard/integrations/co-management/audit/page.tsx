@@ -25,9 +25,9 @@ const ACTION_LABELS: Record<string, string> = {
 };
 
 const ACTION_COLORS: Record<string, string> = {
-  created: "#7A9A65",
-  revoked: "#C44536",
-  activated: "#C75B39",
+  created: "var(--success)",
+  revoked: "var(--danger)",
+  activated: "var(--accent)",
 };
 
 export default function CoManagementAuditPage() {
@@ -54,10 +54,10 @@ export default function CoManagementAuditPage() {
         </Link>
         <div>
           <div className="flex items-center gap-2 mb-0.5">
-            <Clock size={14} style={{ color: "#C75B39" }} />
+            <Clock size={14} style={{ color: "var(--accent)" }} />
             <h1
               className="text-lg font-semibold"
-              style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+              style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
             >
               Journal d&apos;audit
             </h1>
@@ -78,7 +78,7 @@ export default function CoManagementAuditPage() {
           <Link
             href="/dashboard/integrations/co-management"
             className="inline-block mt-3 text-[10px] font-medium py-2 px-3"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             Configurer un accès
           </Link>

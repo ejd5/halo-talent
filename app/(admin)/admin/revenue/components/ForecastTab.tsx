@@ -59,18 +59,18 @@ export function ForecastTab() {
 
   if (!forecast && !loading && !error) {
     return (
-      <div className="text-center py-16" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <Brain size={40} strokeWidth={1.5} style={{ color: "#E0D8D0" }} className="mx-auto mb-4" />
-        <p className="font-display text-lg font-bold mb-2" style={{ color: "#F5F0EB" }}>
+      <div className="text-center py-16" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+        <Brain size={40} strokeWidth={1.5} style={{ color: "var(--text-secondary)" }} className="mx-auto mb-4" />
+        <p className="font-display text-lg font-bold mb-2" style={{ color: "var(--text-primary)" }}>
           Prévisions IA
         </p>
-        <p className="text-sm font-sans mb-6" style={{ color: "#F5F0EB" }}>
+        <p className="text-sm font-sans mb-6" style={{ color: "var(--text-primary)" }}>
           Analyse prédictive basée sur les 12 derniers mois de données
         </p>
         <button
           onClick={handleGenerate}
           className="flex items-center gap-2 px-5 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mx-auto transition-colors hover:opacity-90"
-          style={{ background: "#C75B39", color: "#F5F0EB" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Brain size={14} strokeWidth={1.5} />
           Générer les prévisions
@@ -83,7 +83,7 @@ export function ForecastTab() {
     return (
       <div className="space-y-4">
         {[1, 2, 3].map((i) => (
-          <div key={i} className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
+          <div key={i} className="p-5" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
             <div className="animate-pulse">
               <div className="h-3 w-24 mb-3" style={{ background: "rgba(255,255,255,0.06)" }} />
               <div className="h-8 w-40 mb-2" style={{ background: "rgba(255,255,255,0.06)" }} />
@@ -97,13 +97,13 @@ export function ForecastTab() {
 
   if (error) {
     return (
-      <div className="text-center py-12" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <AlertTriangle size={32} strokeWidth={1.5} style={{ color: "#C44536" }} className="mx-auto mb-3" />
+      <div className="text-center py-12" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+        <AlertTriangle size={32} strokeWidth={1.5} style={{ color: "var(--danger)" }} className="mx-auto mb-3" />
         <p className="text-sm font-sans mb-4" style={{ color: "#D0CCC6" }}>{error}</p>
         <button
           onClick={handleGenerate}
           className="flex items-center gap-2 px-4 py-2 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mx-auto transition-colors"
-          style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.3)" }}
+          style={{ color: "var(--accent)", border: "1px solid var(--accent-border)" }}
         >
           <RefreshCw size={12} strokeWidth={1.5} />
           Réessayer
@@ -119,9 +119,9 @@ export function ForecastTab() {
   ];
 
   const confidenceColors: Record<string, string> = {
-    high: "#7A9A65",
-    medium: "#C75B39",
-    low: "#C44536",
+    high: "var(--success)",
+    medium: "var(--accent)",
+    low: "var(--danger)",
   };
 
   return (
@@ -129,8 +129,8 @@ export function ForecastTab() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <TrendingUp size={16} strokeWidth={1.5} style={{ color: "#C75B39" }} />
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
+          <TrendingUp size={16} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "var(--text-primary)" }}>
             Prévisions générées par IA
           </p>
         </div>
@@ -138,7 +138,7 @@ export function ForecastTab() {
           onClick={handleGenerate}
           disabled={loading}
           className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-          style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.3)" }}
+          style={{ color: "var(--accent)", border: "1px solid var(--accent-border)" }}
         >
           <RefreshCw size={11} strokeWidth={1.5} className={loading ? "animate-spin" : ""} />
           Régénérer
@@ -148,15 +148,15 @@ export function ForecastTab() {
       {/* Period cards */}
       <div className="grid grid-cols-3 gap-4">
         {periods.map(({ key, label, period }) => (
-          <div key={key} className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-            <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "#F5F0EB" }}>
+          <div key={key} className="p-5" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+            <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "var(--text-primary)" }}>
               {label}
             </p>
-            <p className="font-display text-2xl font-bold mb-1" style={{ color: "#F5F0EB" }}>
+            <p className="font-display text-2xl font-bold mb-1" style={{ color: "var(--text-primary)" }}>
               {formatEuro(period.estimate)}
             </p>
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
+              <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
                 {formatEuro(period.lower_bound)} – {formatEuro(period.upper_bound)}
               </span>
             </div>
@@ -171,44 +171,44 @@ export function ForecastTab() {
       </div>
 
       {/* Summary */}
-      <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <p className="font-display text-base font-bold mb-2" style={{ color: "#F5F0EB" }}>
+      <div className="p-5" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+        <p className="font-display text-base font-bold mb-2" style={{ color: "var(--text-primary)" }}>
           Résumé
         </p>
-        <p className="text-sm font-sans leading-relaxed" style={{ color: "#E0D8D0" }}>
+        <p className="text-sm font-sans leading-relaxed" style={{ color: "var(--text-secondary)" }}>
           {forecast!.summary}
         </p>
       </div>
 
       {/* Risks & Opportunities */}
       <div className="grid grid-cols-2 gap-4">
-        <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="p-5" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
           <div className="flex items-center gap-2 mb-3">
-            <AlertTriangle size={12} strokeWidth={1.5} style={{ color: "#C44536" }} />
-            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
+            <AlertTriangle size={12} strokeWidth={1.5} style={{ color: "var(--danger)" }} />
+            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "var(--text-primary)" }}>
               Risques
             </p>
           </div>
           <ul className="space-y-2">
             {forecast!.risk_factors.map((r, i) => (
               <li key={i} className="flex items-start gap-2 text-xs font-sans" style={{ color: "#D0CCC6" }}>
-                <span className="text-[10px] font-semibold shrink-0" style={{ color: "#C44536" }}>!</span>
+                <span className="text-[10px] font-semibold shrink-0" style={{ color: "var(--danger)" }}>!</span>
                 {r}
               </li>
             ))}
           </ul>
         </div>
-        <div className="p-5" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
+        <div className="p-5" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
           <div className="flex items-center gap-2 mb-3">
-            <Lightbulb size={12} strokeWidth={1.5} style={{ color: "#7A9A65" }} />
-            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "#F5F0EB" }}>
+            <Lightbulb size={12} strokeWidth={1.5} style={{ color: "var(--success)" }} />
+            <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em]" style={{ color: "var(--text-primary)" }}>
               Opportunités
             </p>
           </div>
           <ul className="space-y-2">
             {forecast!.opportunities.map((o, i) => (
               <li key={i} className="flex items-start gap-2 text-xs font-sans" style={{ color: "#D0CCC6" }}>
-                <span className="text-[10px] font-semibold shrink-0" style={{ color: "#7A9A65" }}>+</span>
+                <span className="text-[10px] font-semibold shrink-0" style={{ color: "var(--success)" }}>+</span>
                 {o}
               </li>
             ))}

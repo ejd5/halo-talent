@@ -43,19 +43,19 @@ export default function OverviewTab() {
               <AreaChart data={data.revenue12m}>
                 <defs>
                   <linearGradient id="revGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#C75B39" stopOpacity={0.3} />
-                    <stop offset="100%" stopColor="#C75B39" stopOpacity={0} />
+                    <stop offset="0%" stopColor="var(--accent)" stopOpacity={0.3} />
+                    <stop offset="100%" stopColor="var(--accent)" stopOpacity={0} />
                   </linearGradient>
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="rgba(245,240,235,0.04)" />
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} />
                 <YAxis tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} tickFormatter={(v: number) => `${v}€`} />
                 <Tooltip
-                  contentStyle={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
-                  labelStyle={{ color: "#F5F0EB" }}
+                  contentStyle={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
+                  labelStyle={{ color: "var(--text-primary)" }}
                   formatter={(v: any) => [eur(Number(v)), "Revenus Atlas"]}
                 />
-                <Area type="monotone" dataKey="revenue" stroke="#C75B39" fill="url(#revGrad)" strokeWidth={2} />
+                <Area type="monotone" dataKey="revenue" stroke="var(--accent)" fill="url(#revGrad)" strokeWidth={2} />
               </AreaChart>
             </ResponsiveContainer>
           </div>
@@ -69,11 +69,11 @@ export default function OverviewTab() {
       {/* AI Insight */}
       <div className="p-4" style={{ border: "1px solid rgba(199,91,57,0.1)", backgroundColor: "rgba(199,91,57,0.04)" }}>
         <div className="flex items-start gap-3">
-          <Sparkles size={16} style={{ color: "#C75B39", marginTop: 2, flexShrink: 0 }} />
+          <Sparkles size={16} style={{ color: "var(--accent)", marginTop: 2, flexShrink: 0 }} />
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#C75B39" }}>Insight IA</p>
+            <p className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--accent)" }}>Insight IA</p>
             {data.aiInsight ? (
-              <p className="text-sm mt-1" style={{ color: "#F5F0EB" }}>{data.aiInsight}</p>
+              <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>{data.aiInsight}</p>
             ) : (
               <p className="text-sm mt-1" style={{ color: "var(--color-ink-tertiary)" }}>
                 {data.totalRevenue > 0

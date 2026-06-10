@@ -106,7 +106,7 @@ function ComposerContent() {
           {/* TikTok source banner */}
           {state.sourceMetadata && (
             <div className="flex items-center gap-2 px-4 pt-3 pb-1" style={{ borderBottom: "1px solid rgba(199,91,57,0.15)" }}>
-              <div className="flex items-center gap-1.5 text-[10px] font-medium px-2 py-1" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+              <div className="flex items-center gap-1.5 text-[10px] font-medium px-2 py-1" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                 <Sparkles size={10} />
                 TikTok Creative Lab
               </div>
@@ -139,14 +139,14 @@ function ComposerContent() {
                   onClick={() => dispatch({ type: "SET_ACTIVE_TAB", activeTab: tab })}
                   className="px-4 py-2 text-[11px] uppercase tracking-wider transition-all relative"
                   style={{
-                    color: isActive ? "#C75B39" : "rgba(255,255,255,0.3)",
+                    color: isActive ? "var(--accent)" : "rgba(255,255,255,0.3)",
                   }}
                 >
                   {labels[tab]}
                   {isActive && (
                     <div
                       className="absolute bottom-0 left-0 right-0 h-0.5"
-                      style={{ background: "#C75B39" }}
+                      style={{ background: "var(--accent)" }}
                     />
                   )}
                 </button>

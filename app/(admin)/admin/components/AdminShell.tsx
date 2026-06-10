@@ -1,6 +1,7 @@
 "use client";
 
 import { type ReactNode, useState, useEffect, useCallback } from "react";
+import { Menu } from "lucide-react";
 import { Sidebar } from "./Sidebar";
 import { Topbar } from "./Topbar";
 import { CommandPalette } from "./CommandPalette";
@@ -19,26 +20,13 @@ export function AdminShell({
   userRole,
   userAvatar,
 }: Props) {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [commandOpen, setCommandOpen] = useState(false);
-  const [mounted, setMounted] = useState(false);
-
-  // Hydrate sidebar state from localStorage
-  useEffect(() => {
-    setMounted(true);
-    const saved = localStorage.getItem("admin_sidebar_collapsed");
-    if (saved === "true") setSidebarCollapsed(true);
-  }, []);
-
-  // Persist sidebar state
-  useEffect(() => {
-    if (!mounted) return;
-    localStorage.setItem("admin_sidebar_collapsed", String(sidebarCollapsed));
-  }, [sidebarCollapsed, mounted]);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   // Cmd+K / Ctrl+K global shortcut
   const toggleCommand = useCallback(() => setCommandOpen((o) => !o), []);
 
+  // Global keyboard shortcut listener
   useEffect(() => {
     function handler(e: KeyboardEvent) {
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
@@ -50,25 +38,31 @@ export function AdminShell({
     return () => window.removeEventListener("keydown", handler);
   }, [toggleCommand]);
 
-  const sidebarWidth = sidebarCollapsed ? 64 : 240;
-
   return (
     <div
       className="min-h-screen"
-      style={{ background: "#4D2D17", color: "#F5F0EB" }}
+      style={{ backgroundColor: "var(--bg-primary)", color: "var(--text-primary)" }}
     >
       {/* Sidebar */}
       <Sidebar
-        collapsed={sidebarCollapsed}
-        onToggle={() => setSidebarCollapsed((c) => !c)}
-        width={sidebarWidth}
+        mobileOpen={mobileOpen}
+        onClose={() => setMobileOpen(false)}
       />
 
       {/* Topbar + Main */}
       <div
-        className="flex flex-col min-h-screen transition-all duration-200"
-        style={{ marginLeft: sidebarWidth }}
+        className="flex flex-col min-h-screen ml-0 lg:ml-[240px]"
       >
+        {/* Mobile hamburger */}
+        <button
+          onClick={() => setMobileOpen(true)}
+          className="md:hidden fixed top-3 left-3 z-20 min-touch rounded-md"
+          style={{ color: "var(--text-secondary)", backgroundColor: "var(--bg-surface)" }}
+          aria-label="Open menu"
+        >
+          <Menu size={20} />
+        </button>
+
         <Topbar
           userName={userName}
           userRole={userRole}
@@ -76,7 +70,7 @@ export function AdminShell({
           onCommandOpen={() => setCommandOpen(true)}
         />
 
-        <main className="flex-1" style={{ padding: "40px" }}>
+        <main className="flex-1 p-4 md:p-6 lg:p-10">
           {children}
         </main>
       </div>

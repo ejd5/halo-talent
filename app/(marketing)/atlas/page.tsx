@@ -43,17 +43,13 @@ const features = [
   },
   {
     icon: ShieldCheck,
-    title: "100% Conforme",
-    desc: "RGPD, anti-spam, règles des plateformes. Atlas est audité en continu pour vous protéger.",
+    title: "Conforme RGPD",
+    desc: "RGPD, anti-spam, respect des règles plateformes. Conçu pour réduire les risques, sans garantie absolue.",
   },
 ];
 
-/* ─── Mock stats ─── */
-const stats = [
-  { value: "150K+", label: "Fans gérés" },
-  { value: "2,4M", label: "Campagnes envoyées" },
-  { value: "12M€", label: "Économisés en conformité" },
-];
+/* ─── Stats ─── */
+const stats: { value: string; label: string }[] = [];
 
 /* ─── Count-up hook ─── */
 function useCountUp(value: string, active: boolean, delay: number): string {
@@ -243,7 +239,7 @@ export default function AtlasLandingPage() {
             }}
           >
             <CheckCircle2 size={12} />
-            Zero ban garanti
+            Protection anti-ban
           </div>
 
           <h1
@@ -366,104 +362,24 @@ export default function AtlasLandingPage() {
       </section>
 
       {/* ════════════════════════════════════════ */}
-      {/* STATS BAR                                */}
+      {/* WHAT ATLAS DOES                          */}
       {/* ════════════════════════════════════════ */}
       <section ref={statsRef} className="py-16 md:py-20" style={{ background: "#2A2420" }}>
-        <div className="mx-auto w-full max-w-5xl px-6 md:px-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16">
-            {stats.map((stat, i) => {
-              const count = useCountUp(stat.value, statsVisible, 300 * i);
-              return (
-                <div
-                  key={stat.label}
-                  className="text-center"
-                  style={{
-                    opacity: statsVisible ? 1 : 0,
-                    transform: statsVisible ? "translateY(0)" : "translateY(24px)",
-                    transition: `opacity 0.7s ease-out ${300 * i}ms, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) ${300 * i}ms`,
-                  }}
-                >
-                  <p
-                    className="font-display text-[2.5rem] md:text-[3.2rem] font-bold leading-none tabular-nums"
-                    style={{ color: "var(--color-accent)" }}
-                  >
-                    {count}
-                  </p>
-                  <p
-                    className="text-[0.7rem] font-sans font-semibold uppercase tracking-[0.1em] mt-3"
-                    style={{ color: "rgba(245, 240, 235, 0.4)" }}
-                  >
-                    {stat.label}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════ */}
-      {/* TESTIMONIAL                              */}
-      {/* ════════════════════════════════════════ */}
-      <section ref={testimonialRef} className="py-24 md:py-32">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
-          <div
-            className="relative max-w-3xl mx-auto"
+        <div className="mx-auto w-full max-w-3xl px-6 md:px-12 text-center">
+          <p
+            className="text-sm md:text-base leading-relaxed"
             style={{
-              opacity: testimonialVisible ? 1 : 0,
-              transform: testimonialVisible ? "translateY(0)" : "translateY(20px)",
-              transition: "opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.77, 0, 0.18, 1)",
+              color: "rgba(245, 240, 235, 0.65)",
+              opacity: statsVisible ? 1 : 0,
+              transform: statsVisible ? "translateY(0)" : "translateY(16px)",
+              transition: "opacity 0.7s ease-out, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)",
             }}
           >
-            {/* Big decorative quote */}
-            <span
-              className="absolute -top-10 -left-4 leading-none pointer-events-none select-none"
-              style={{
-                fontFamily: "var(--font-display)",
-                fontSize: "120px",
-                fontWeight: 700,
-                color: "var(--color-accent)",
-                opacity: 0.1,
-              }}
-            >
-              &ldquo;
-            </span>
-
-            <div className="relative pl-8 md:pl-16">
-              <blockquote
-                className="text-lg md:text-xl italic leading-relaxed"
-                style={{ color: "var(--color-dark-text)" }}
-              >
-                &ldquo;Atlas nous a permis de multiplier par 3 notre engagement
-                sans jamais toucher à notre conformité. Le moteur de règles
-                &quot;Si-Alors&quot; est un game-changer pour les createurs.&rdquo;
-              </blockquote>
-              <div className="mt-6 flex items-center gap-4">
-                <div
-                  className="w-12 h-12 rounded-full flex items-center justify-center font-display font-bold text-sm"
-                  style={{
-                    background: "var(--color-accent-muted)",
-                    color: "var(--color-accent)",
-                  }}
-                >
-                  ML
-                </div>
-                <div>
-                  <p className="font-sans text-sm font-semibold" style={{ color: "var(--color-dark-text)" }}>
-                    Marine L.
-                  </p>
-                  <p className="text-xs" style={{ color: "rgba(245, 240, 235, 0.4)" }}>
-                    Creatrice lifestyle · 245K abonnés
-                  </p>
-                </div>
-                <div className="flex gap-0.5 ml-auto">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={14} fill="var(--color-accent)" color="var(--color-accent)" />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
+            Atlas est en phase de lancement. Les premiers créateurs nous rejoignent
+            pour construire l&apos;outil le plus sûr et le plus transparent du marché.
+            Chaque fonctionnalité est testée en conditions réelles avant d&apos;être
+            déployée.
+          </p>
         </div>
       </section>
 
@@ -483,7 +399,7 @@ export default function AtlasLandingPage() {
             }}
           >
             <ShieldCheck size={12} />
-            Zero ban garanti
+            Protection anti-ban
           </div>
 
           <h2

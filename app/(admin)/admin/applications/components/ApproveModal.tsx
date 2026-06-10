@@ -46,16 +46,16 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
       >
         <div
           className="w-full max-w-[520px] shadow-2xl card-accent"
-          style={{ background: "#0F0D0B", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ background: "#0F0D0B", border: "1px solid var(--border-default)" }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-            <h2 className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
+            <h2 className="font-display text-lg font-bold" style={{ color: "var(--text-primary)" }}>
               {step === "done" ? "Candidature approuvée" : "Approuver la candidature"}
             </h2>
             {step !== "processing" && (
-              <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#E0D8D0" }}>
+              <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "var(--text-secondary)" }}>
                 <X size={16} strokeWidth={1.5} />
               </button>
             )}
@@ -65,12 +65,12 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
             {step === "confirm" && (
               <div className="space-y-5">
                 <p className="text-sm font-sans" style={{ color: "#D0CCC6" }}>
-                  Vous allez approuver <strong style={{ color: "#F5F0EB" }}>{application.full_name}</strong> pour le département <strong style={{ color: "#C75B39" }}>{application.department}</strong>.
+                  Vous allez approuver <strong style={{ color: "var(--text-primary)" }}>{application.full_name}</strong> pour le département <strong style={{ color: "var(--accent)" }}>{application.department}</strong>.
                 </p>
 
                 {/* Commission tier */}
                 <div>
-                  <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#E0D8D0" }}>
+                  <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "var(--text-secondary)" }}>
                     Palier de commission initial
                   </label>
                   <div className="space-y-1.5">
@@ -88,7 +88,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                           value={t.value}
                           checked={commission === t.value}
                           onChange={() => setCommission(t.value)}
-                          className="accent-[#C75B39]"
+                          className="accent-[var(--accent)]"
                         />
                         <span className="text-xs font-sans" style={{ color: "#D0CCC6" }}>
                           {t.label}
@@ -100,7 +100,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
 
                 {/* Manager */}
                 <div>
-                  <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#E0D8D0" }}>
+                  <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "var(--text-secondary)" }}>
                     Manager dédié
                   </label>
                   <select
@@ -109,13 +109,13 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                     className="w-full px-3 py-2.5 text-xs font-sans outline-none"
                     style={{
                       background: "transparent",
-                      color: manager ? "#F5F0EB" : "#E0D8D0",
-                      border: "1px solid rgba(255,255,255,0.08)",
+                      color: manager ? "var(--text-primary)" : "var(--text-secondary)",
+                      border: "1px solid var(--border-default)",
                     }}
                   >
                     <option value="">Sélectionner un manager...</option>
                     {managers.map((m) => (
-                      <option key={m.id} value={m.id} style={{ background: "#1A1614", color: "#F5F0EB" }}>
+                      <option key={m.id} value={m.id} style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}>
                         {m.name}
                       </option>
                     ))}
@@ -126,7 +126,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                   <button
                     onClick={onClose}
                     className="flex-1 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-                    style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.08)" }}
+                    style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
                   >
                     Annuler
                   </button>
@@ -134,7 +134,7 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                     onClick={handleApprove}
                     disabled={!manager}
                     className="flex-1 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-90 disabled:opacity-30"
-                    style={{ background: "#C75B39", color: "#F5F0EB" }}
+                    style={{ background: "var(--accent)", color: "var(--text-primary)" }}
                   >
                     <CheckCircle size={14} strokeWidth={1.5} className="inline mr-1.5" />
                     Approuver
@@ -149,9 +149,9 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                   className="w-12 h-12 flex items-center justify-center mx-auto mb-4"
                   style={{ background: "rgba(199,91,57,0.1)" }}
                 >
-                  <FileText size={24} strokeWidth={1.5} style={{ color: "#C75B39" }} />
+                  <FileText size={24} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
                 </div>
-                <p className="text-sm font-sans font-medium" style={{ color: "#F5F0EB" }}>
+                <p className="text-sm font-sans font-medium" style={{ color: "var(--text-primary)" }}>
                   Traitement en cours...
                 </p>
                 <ul className="mt-4 space-y-2 text-left max-w-[320px] mx-auto">
@@ -163,9 +163,9 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                   ].map((step, i) => (
                     <li key={i} className="flex items-center gap-2 text-xs font-sans">
                       <span className="w-4 h-4 rounded-full flex items-center justify-center" style={{ background: "rgba(199,91,57,0.15)" }}>
-                        <span className="w-1.5 h-1.5 rounded-full" style={{ background: "#C75B39" }} />
+                        <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--accent)" }} />
                       </span>
-                      <span style={{ color: "#E0D8D0" }}>{step}</span>
+                      <span style={{ color: "var(--text-secondary)" }}>{step}</span>
                     </li>
                   ))}
                 </ul>
@@ -178,18 +178,18 @@ export function ApproveModal({ application, onClose, onApproved }: Props) {
                   className="w-14 h-14 flex items-center justify-center mx-auto mb-4"
                   style={{ background: "rgba(122,154,101,0.1)" }}
                 >
-                  <CheckCircle size={28} strokeWidth={1.5} style={{ color: "#7A9A65" }} />
+                  <CheckCircle size={28} strokeWidth={1.5} style={{ color: "var(--success)" }} />
                 </div>
-                <p className="font-display text-xl font-bold mb-2" style={{ color: "#F5F0EB" }}>
+                <p className="font-display text-xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
                   Candidature approuvée
                 </p>
-                <p className="text-sm font-sans" style={{ color: "#E0D8D0" }}>
+                <p className="text-sm font-sans" style={{ color: "var(--text-secondary)" }}>
                   Contrat envoyé à {application.email}
                 </p>
                 <button
                   onClick={onApproved}
                   className="mt-6 px-6 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-90"
-                  style={{ background: "#C75B39", color: "#F5F0EB" }}
+                  style={{ background: "var(--accent)", color: "var(--text-primary)" }}
                 >
                   <Send size={14} strokeWidth={1.5} className="inline mr-1.5" />
                   Retour aux candidatures

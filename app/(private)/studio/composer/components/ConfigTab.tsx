@@ -46,7 +46,7 @@ export function ConfigTab({
               value={dateStr}
               onChange={(e) => onSetScheduledAt(e.target.value ? new Date(e.target.value) : null)}
               className="w-full text-xs px-2.5 py-2 pl-7 rounded-sm bg-transparent outline-none"
-              style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+              style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
             />
           </div>
           <button
@@ -57,8 +57,8 @@ export function ConfigTab({
             }}
             className="flex items-center gap-1 px-2 py-2 text-[10px] rounded-sm shrink-0 transition-colors"
             style={{
-              border: "1px solid rgba(199,91,57,0.2)",
-              color: "#C75B39",
+              border: "1px solid var(--accent-border)",
+              color: "var(--accent)",
             }}
           >
             <Zap size={10} />
@@ -85,7 +85,7 @@ export function ConfigTab({
                     ? "1px solid rgba(199,91,57,0.3)"
                     : "1px solid rgba(255,255,255,0.08)",
                   background: isActive ? "rgba(199,91,57,0.06)" : "transparent",
-                  color: isActive ? "#C75B39" : "rgba(255,255,255,0.4)",
+                  color: isActive ? "var(--accent)" : "rgba(255,255,255,0.4)",
                 }}
               >
                 {opt.label}
@@ -114,7 +114,7 @@ export function ConfigTab({
             }}
             placeholder="Ajouter un lieu..."
             className="w-full text-xs px-2.5 py-2 pl-7 rounded-sm bg-transparent outline-none"
-            style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           />
         </div>
       </section>
@@ -135,7 +135,7 @@ export function ConfigTab({
           <input
             type="checkbox"
             className="w-3.5 h-3.5 rounded-sm"
-            style={{ accentColor: "#C75B39" }}
+            style={{ accentColor: "var(--accent)" }}
           />
           <span className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
             Cross-poster sur toutes les plateformes sélectionnées

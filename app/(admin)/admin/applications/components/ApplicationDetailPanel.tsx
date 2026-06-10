@@ -29,10 +29,10 @@ const tabs = [
 ];
 
 const statusStyles: Record<string, { bg: string; fg: string; label: string }> = {
-  pending: { bg: "rgba(199,91,57,0.12)", fg: "#C75B39", label: "En attente" },
-  review: { bg: "rgba(122,154,101,0.12)", fg: "#7A9A65", label: "En review" },
-  approved: { bg: "rgba(122,154,101,0.15)", fg: "#7A9A65", label: "Approuvée" },
-  rejected: { bg: "rgba(196,69,54,0.12)", fg: "#C44536", label: "Refusée" },
+  pending: { bg: "rgba(199,91,57,0.12)", fg: "var(--accent)", label: "En attente" },
+  review: { bg: "rgba(122,154,101,0.12)", fg: "var(--success)", label: "En review" },
+  approved: { bg: "rgba(122,154,101,0.15)", fg: "var(--success)", label: "Approuvée" },
+  rejected: { bg: "rgba(196,69,54,0.12)", fg: "var(--danger)", label: "Refusée" },
 };
 
 export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }: Props) {
@@ -70,15 +70,15 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
           <div className="flex items-center gap-3">
             <div
               className="w-12 h-12 flex items-center justify-center text-base font-sans font-bold shrink-0"
-              style={{ background: "rgba(199,91,57,0.15)", color: "#C75B39" }}
+              style={{ background: "rgba(199,91,57,0.15)", color: "var(--accent)" }}
             >
               {app.full_name.charAt(0)}
             </div>
             <div>
-              <h2 className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
+              <h2 className="font-display text-lg font-bold" style={{ color: "var(--text-primary)" }}>
                 {app.full_name}
               </h2>
-              <p className="text-xs font-sans mt-0.5" style={{ color: "#F5F0EB" }}>
+              <p className="text-xs font-sans mt-0.5" style={{ color: "var(--text-primary)" }}>
                 {app.email}
                 {app.phone && ` · ${app.phone}`}
               </p>
@@ -89,7 +89,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
                 >
                   {st.label}
                 </span>
-                <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
+                <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
                   <Clock size={10} strokeWidth={1.5} className="inline mr-1" />
                   {relativeTime(app.created_at)}
                 </span>
@@ -99,7 +99,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
           <button
             onClick={onClose}
             className="p-1.5 transition-colors hover:bg-white/5"
-            style={{ color: "#E0D8D0" }}
+            style={{ color: "var(--text-secondary)" }}
           >
             <X size={16} strokeWidth={1.5} />
           </button>
@@ -116,8 +116,8 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
               onClick={() => setActiveTab(t.key)}
               className="px-4 py-3 text-[11px] font-sans font-medium uppercase tracking-[0.08em] whitespace-nowrap transition-colors"
               style={{
-                color: activeTab === t.key ? "#C75B39" : "#F5F0EB",
-                borderBottom: activeTab === t.key ? "2px solid #C75B39" : "2px solid transparent",
+                color: activeTab === t.key ? "var(--accent)" : "var(--text-primary)",
+                borderBottom: activeTab === t.key ? "2px solid var(--accent)" : "2px solid transparent",
                 marginBottom: -1,
               }}
             >
@@ -145,7 +145,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
             <button
               onClick={() => onStatusUpdate(app.id, "review")}
               className="flex items-center gap-2 px-4 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-              style={{ color: "#E0D8D0", border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ color: "var(--text-secondary)", border: "1px solid var(--border-default)" }}
             >
               <Clock size={14} strokeWidth={1.5} />
               Mettre en review
@@ -154,7 +154,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
             <button
               onClick={() => setShowApprove(true)}
               className="flex items-center gap-2 px-5 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-90"
-              style={{ background: "#C75B39", color: "#F5F0EB" }}
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
             >
               <CheckCircle size={14} strokeWidth={1.5} />
               Approuver
@@ -163,7 +163,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
             <button
               onClick={() => setShowReject(true)}
               className="flex items-center gap-2 px-4 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-              style={{ color: "#C44536", border: "1px solid rgba(196,69,54,0.3)" }}
+              style={{ color: "var(--danger)", border: "1px solid rgba(196,69,54,0.3)" }}
             >
               <XCircle size={14} strokeWidth={1.5} />
               Refuser
@@ -176,8 +176,8 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
             className="flex items-center gap-2 shrink-0 px-6 py-4"
             style={{ borderTop: "1px solid rgba(255,255,255,0.06)", background: "rgba(122,154,101,0.05)" }}
           >
-            <CheckCircle size={14} strokeWidth={1.5} style={{ color: "#7A9A65" }} />
-            <span className="text-xs font-sans" style={{ color: "#7A9A65" }}>
+            <CheckCircle size={14} strokeWidth={1.5} style={{ color: "var(--success)" }} />
+            <span className="text-xs font-sans" style={{ color: "var(--success)" }}>
               Approuvée — Contrat envoyé le {formatDate(app.created_at)}
             </span>
           </div>

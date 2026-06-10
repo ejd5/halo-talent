@@ -28,9 +28,9 @@ const tabs = [
 ];
 
 const statusLabels: Record<string, { label: string; color: string }> = {
-  active: { label: "Actif", color: "#7A9A65" },
-  pause: { label: "Pause", color: "#C75B39" },
-  alert: { label: "Alerte", color: "#C44536" },
+  active: { label: "Actif", color: "var(--success)" },
+  pause: { label: "Pause", color: "var(--accent)" },
+  alert: { label: "Alerte", color: "var(--danger)" },
 };
 
 export function CreatorDetailPage({ creator }: Props) {
@@ -46,7 +46,7 @@ export function CreatorDetailPage({ creator }: Props) {
       <Link
         href="/admin/creators"
         className="inline-flex items-center gap-1.5 text-[11px] font-sans font-medium uppercase tracking-[0.1em] mb-4 transition-colors hover:opacity-70"
-        style={{ color: "#F5F0EB" }}
+        style={{ color: "var(--text-primary)" }}
       >
         <ArrowLeft size={14} strokeWidth={1.5} />
         Retour au roster
@@ -57,13 +57,13 @@ export function CreatorDetailPage({ creator }: Props) {
         <div className="flex items-center gap-5">
           <div
             className="w-16 h-16 flex items-center justify-center text-2xl font-display font-bold shrink-0"
-            style={{ background: "rgba(199,91,57,0.15)", color: "#C75B39" }}
+            style={{ background: "rgba(199,91,57,0.15)", color: "var(--accent)" }}
           >
             {creator.full_name.charAt(0)}
           </div>
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="font-display text-[28px] font-bold" style={{ color: "#F5F0EB" }}>
+              <h1 className="font-display text-[28px] font-bold" style={{ color: "var(--text-primary)" }}>
                 {creator.full_name}
               </h1>
               <span
@@ -79,7 +79,7 @@ export function CreatorDetailPage({ creator }: Props) {
                 {tier.label}
               </span>
             </div>
-            <p className="text-sm font-sans mt-1" style={{ color: "#F5F0EB" }}>
+            <p className="text-sm font-sans mt-1" style={{ color: "var(--text-primary)" }}>
               {creator.department} · Manager : {creator.manager_name}
             </p>
           </div>
@@ -90,7 +90,7 @@ export function CreatorDetailPage({ creator }: Props) {
           <button
             onClick={() => setShowActions(!showActions)}
             className="px-4 py-2 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-            style={{ color: "#E0D8D0", border: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ color: "var(--text-secondary)", border: "1px solid var(--border-default)" }}
           >
             Actions
           </button>
@@ -99,7 +99,7 @@ export function CreatorDetailPage({ creator }: Props) {
               <div className="fixed inset-0 z-40" onClick={() => setShowActions(false)} />
               <div
                 className="absolute right-0 top-full mt-1 w-48 py-1 z-50"
-                style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}
+                style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}
               >
                 {[
                   { icon: Settings, label: "Éditer le profil" },
@@ -113,7 +113,7 @@ export function CreatorDetailPage({ creator }: Props) {
                     key={action.label}
                     onClick={() => setShowActions(false)}
                     className={`flex items-center gap-2.5 w-full text-left px-4 py-2.5 text-xs font-sans transition-colors hover:bg-white/5 ${action.danger ? "" : ""}`}
-                    style={{ color: action.danger ? "#C44536" : "#D0CCC6" }}
+                    style={{ color: action.danger ? "var(--danger)" : "#D0CCC6" }}
                   >
                     <action.icon size={14} strokeWidth={1.5} />
                     {action.label}
@@ -136,8 +136,8 @@ export function CreatorDetailPage({ creator }: Props) {
             onClick={() => setActiveTab(t.key)}
             className="px-4 py-3.5 text-[11px] font-sans font-medium uppercase tracking-[0.08em] whitespace-nowrap transition-colors"
             style={{
-              color: activeTab === t.key ? "#C75B39" : "#F5F0EB",
-              borderBottom: activeTab === t.key ? "2px solid #C75B39" : "2px solid transparent",
+              color: activeTab === t.key ? "var(--accent)" : "var(--text-primary)",
+              borderBottom: activeTab === t.key ? "2px solid var(--accent)" : "2px solid transparent",
               marginBottom: -1,
             }}
           >

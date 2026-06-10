@@ -89,11 +89,11 @@ function ExpressModal({ open, onClose }: { open: boolean; onClose: () => void })
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.6)" }}>
-      <div className="w-full max-w-lg mx-4 animate-fade-in" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
+      <div className="w-full max-w-lg mx-4 animate-fade-in" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
         <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
           <div className="flex items-center gap-2">
-            <Zap size={14} style={{ color: "#C75B39" }} />
-            <span className="text-xs font-medium" style={{ color: "#F5F0EB" }}>Génération express</span>
+            <Zap size={14} style={{ color: "var(--accent)" }} />
+            <span className="text-xs font-medium" style={{ color: "var(--text-primary)" }}>Génération express</span>
             <span className="text-[9px] px-1.5 py-0.5" style={{ background: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.3)" }}>1 crédit</span>
           </div>
           <button onClick={onClose} className="p-1 hover:bg-white/5 rounded-sm transition-colors">
@@ -107,7 +107,7 @@ function ExpressModal({ open, onClose }: { open: boolean; onClose: () => void })
             placeholder="Décris en 1 phrase ce que tu veux dire..."
             className="w-full text-sm bg-transparent outline-none resize-none mb-3"
             rows={3}
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
             onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); handleGenerate(); } }}
           />
           <div className="flex items-center gap-2">
@@ -115,20 +115,20 @@ function ExpressModal({ open, onClose }: { open: boolean; onClose: () => void })
               onClick={handleGenerate}
               disabled={generating || !brief.trim()}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs transition-opacity hover:opacity-80 disabled:opacity-30 rounded-sm"
-              style={{ background: "#C75B39", color: "#FFFFFF" }}
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
             >
               {generating ? <Loader size={12} className="animate-spin" /> : <Zap size={12} />}
               {generating ? "Génération..." : "Générer"}
             </button>
             {result && (
-              <span className="flex items-center gap-1 text-[10px]" style={{ color: copied ? "#22C55E" : "rgba(255,255,255,0.3)" }}>
+              <span className="flex items-center gap-1 text-[10px]" style={{ color: copied ? "var(--success)" : "rgba(255,255,255,0.3)" }}>
                 {copied ? <Check size={10} /> : <Copy size={10} />}
                 {copied ? "Copié !" : "Copié automatiquement"}
               </span>
             )}
           </div>
           {result && (
-            <div className="mt-3 p-3 text-xs leading-relaxed rounded-sm" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}>
+            <div className="mt-3 p-3 text-xs leading-relaxed rounded-sm" style={{ background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
               {result}
             </div>
           )}
@@ -164,19 +164,19 @@ function VariationCard({
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const scoreColor = variation.estimated_engagement_score >= 70 ? "#22C55E" : variation.estimated_engagement_score >= 40 ? "#D4AF37" : "#E5484D";
+  const scoreColor = variation.estimated_engagement_score >= 70 ? "var(--success)" : variation.estimated_engagement_score >= 40 ? "var(--warning)" : "var(--danger)";
 
   return (
     <div
       className="flex flex-col rounded-sm overflow-hidden transition-all"
       style={{
         border: "1px solid rgba(199,91,57,0.08)",
-        background: "rgba(255,255,255,0.02)",
+        background: "var(--bg-card)",
       }}
     >
       {/* Header */}
-      <div className="flex items-center justify-between px-3 py-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-        <span className="text-[10px] font-medium" style={{ color: "#C75B39" }}>
+      <div className="flex items-center justify-between px-3 py-2" style={{ borderBottom: "1px solid var(--border-default)" }}>
+        <span className="text-[10px] font-medium" style={{ color: "var(--accent)" }}>
           {variation.angle}
         </span>
         <div className="flex items-center gap-1.5">
@@ -194,10 +194,10 @@ function VariationCard({
             onChange={(e) => setEditText(e.target.value)}
             className="w-full text-xs leading-relaxed bg-transparent outline-none resize-none"
             rows={6}
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           />
         ) : (
-          <p className="text-xs leading-relaxed whitespace-pre-wrap" style={{ color: "#F5F0EB" }}>
+          <p className="text-xs leading-relaxed whitespace-pre-wrap" style={{ color: "var(--text-primary)" }}>
             {variation.text}
           </p>
         )}
@@ -210,7 +210,7 @@ function VariationCard({
                 key={tag}
                 onClick={async () => { await navigator.clipboard.writeText(tag); }}
                 className="text-[9px] px-1.5 py-0.5 rounded-sm transition-colors hover:opacity-70"
-                style={{ background: "rgba(199,91,57,0.08)", color: "#C75B39" }}
+                style={{ background: "var(--accent-soft)", color: "var(--accent)" }}
               >
                 {tag}
               </button>
@@ -220,12 +220,12 @@ function VariationCard({
       </div>
 
       {/* Actions */}
-      <div className="flex items-center gap-1 px-3 py-2" style={{ borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="flex items-center gap-1 px-3 py-2" style={{ borderTop: "1px solid var(--border-default)" }}>
         <button onClick={handleCopy} className="p-1.5 rounded-sm hover:bg-white/5 transition-colors" title="Copier">
-          {copied ? <Check size={11} style={{ color: "#22C55E" }} /> : <Copy size={11} style={{ color: "rgba(255,255,255,0.3)" }} />}
+          {copied ? <Check size={11} style={{ color: "var(--success)" }} /> : <Copy size={11} style={{ color: "rgba(255,255,255,0.3)" }} />}
         </button>
         <button onClick={() => setEditing(!editing)} className="p-1.5 rounded-sm hover:bg-white/5 transition-colors" title="Modifier">
-          <Edit3 size={11} style={{ color: editing ? "#C75B39" : "rgba(255,255,255,0.3)" }} />
+          <Edit3 size={11} style={{ color: editing ? "var(--accent)" : "rgba(255,255,255,0.3)" }} />
         </button>
         <button onClick={onRegenerate} className="p-1.5 rounded-sm hover:bg-white/5 transition-colors" title="Reformuler">
           <RefreshCw size={11} style={{ color: "rgba(255,255,255,0.3)" }} />
@@ -234,15 +234,15 @@ function VariationCard({
         <button onClick={onSaveTemplate} className="flex items-center gap-1 px-1.5 py-1 text-[9px] rounded-sm hover:bg-white/5 transition-colors" style={{ color: "rgba(255,255,255,0.3)" }}>
           <BookTemplate size={10} /> Template
         </button>
-        <button onClick={onUse} className="flex items-center gap-1 px-1.5 py-1 text-[9px] rounded-sm transition-colors ml-auto" style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.15)" }}>
+        <button onClick={onUse} className="flex items-center gap-1 px-1.5 py-1 text-[9px] rounded-sm transition-colors ml-auto" style={{ color: "var(--accent)", border: "1px solid var(--accent-border)" }}>
           <Send size={10} /> Utiliser
         </button>
         <span className="w-px h-3 mx-0.5" style={{ background: "rgba(255,255,255,0.06)" }} />
         <button onClick={() => setLiked(true)} className="p-1.5 rounded-sm hover:bg-white/5 transition-colors" title="J'aime">
-          <ThumbsUp size={11} style={{ color: liked === true ? "#22C55E" : "rgba(255,255,255,0.2)" }} />
+          <ThumbsUp size={11} style={{ color: liked === true ? "var(--success)" : "rgba(255,255,255,0.2)" }} />
         </button>
         <button onClick={() => setLiked(false)} className="p-1.5 rounded-sm hover:bg-white/5 transition-colors" title="Je n'aime pas">
-          <ThumbsDown size={11} style={{ color: liked === false ? "#E5484D" : "rgba(255,255,255,0.2)" }} />
+          <ThumbsDown size={11} style={{ color: liked === false ? "var(--danger)" : "rgba(255,255,255,0.2)" }} />
         </button>
       </div>
     </div>
@@ -323,7 +323,7 @@ export default function GenerateTextPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="text-2xl italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>
+          <h1 className="text-2xl italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>
             Texte & Captions
           </h1>
           <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -333,7 +333,7 @@ export default function GenerateTextPage() {
         <button
           onClick={() => setExpressOpen(true)}
           className="flex items-center gap-1.5 px-2.5 py-1.5 text-[10px] transition-colors hover:bg-white/5 rounded-sm shrink-0"
-          style={{ border: "1px solid rgba(199,91,57,0.2)", color: "#C75B39" }}
+          style={{ border: "1px solid var(--accent-border)", color: "var(--accent)" }}
         >
           <Zap size={10} />
           Express
@@ -342,7 +342,7 @@ export default function GenerateTextPage() {
       </div>
 
       {/* Form */}
-      <div className="space-y-3 mb-6 p-4 rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="space-y-3 mb-6 p-4 rounded-sm" style={{ border: "1px solid var(--border-default)" }}>
         {/* Content type selector */}
         <div className="relative">
           <label className="text-[10px] uppercase tracking-wider mb-1.5 block" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -351,14 +351,14 @@ export default function GenerateTextPage() {
           <button
             onClick={() => setTypeOpen(!typeOpen)}
             className="flex items-center gap-2 w-full px-2.5 py-2 text-xs rounded-sm"
-            style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           >
-            {selectedType && <selectedType.icon size={14} style={{ color: "#C75B39" }} />}
+            {selectedType && <selectedType.icon size={14} style={{ color: "var(--accent)" }} />}
             <span className="flex-1 text-left">{selectedType?.label}</span>
             <ChevronDown size={10} className={typeOpen ? "rotate-180" : ""} style={{ transition: "transform 0.2s", color: "rgba(255,255,255,0.3)" }} />
           </button>
           {typeOpen && (
-            <div className="absolute left-0 right-0 top-full mt-1 z-10 py-1 shadow-xl" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <div className="absolute left-0 right-0 top-full mt-1 z-10 py-1 shadow-xl" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
               {CONTENT_TYPES.map((ct) => {
                 const Icon = ct.icon;
                 return (
@@ -366,9 +366,9 @@ export default function GenerateTextPage() {
                     key={ct.value}
                     onClick={() => { setContentType(ct.value); setTypeOpen(false); }}
                     className="flex items-center gap-2.5 w-full text-left px-3 py-2 text-xs transition-colors hover:bg-white/5"
-                    style={{ color: contentType === ct.value ? "#C75B39" : "#F5F0EB" }}
+                    style={{ color: contentType === ct.value ? "var(--accent)" : "var(--text-primary)" }}
                   >
-                    <Icon size={12} style={{ color: contentType === ct.value ? "#C75B39" : "rgba(255,255,255,0.3)" }} />
+                    <Icon size={12} style={{ color: contentType === ct.value ? "var(--accent)" : "rgba(255,255,255,0.3)" }} />
                     <span className="flex-1">{ct.label}</span>
                     <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>{ct.platforms}</span>
                   </button>
@@ -389,7 +389,7 @@ export default function GenerateTextPage() {
             placeholder="Ex: nouveau produit qui sort cette semaine, ambiance été, promo early-bird..."
             className="w-full text-sm bg-transparent outline-none resize-none px-2.5 py-2 rounded-sm"
             rows={3}
-            style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           />
         </div>
 
@@ -400,19 +400,19 @@ export default function GenerateTextPage() {
             <button
               onClick={() => setToneOpen(!toneOpen)}
               className="flex items-center gap-2 w-full px-2.5 py-2 text-xs rounded-sm"
-              style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+              style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
             >
               <span className="flex-1 text-left">{tone}</span>
               <ChevronDown size={10} className={toneOpen ? "rotate-180" : ""} style={{ transition: "transform 0.2s", color: "rgba(255,255,255,0.3)" }} />
             </button>
             {toneOpen && (
-              <div className="absolute left-0 right-0 top-full mt-1 z-10 py-1 shadow-xl" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
+              <div className="absolute left-0 right-0 top-full mt-1 z-10 py-1 shadow-xl" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
                 {TONES.map((t) => (
                   <button
                     key={t}
                     onClick={() => { setTone(t); setToneOpen(false); }}
                     className="flex items-center w-full text-left px-3 py-2 text-xs transition-colors hover:bg-white/5 capitalize"
-                    style={{ color: tone === t ? "#C75B39" : "#F5F0EB" }}
+                    style={{ color: tone === t ? "var(--accent)" : "var(--text-primary)" }}
                   >
                     {t}
                   </button>
@@ -431,7 +431,7 @@ export default function GenerateTextPage() {
                   style={{
                     border: `1px solid ${length === l.value ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.08)"}`,
                     background: length === l.value ? "rgba(199,91,57,0.06)" : "transparent",
-                    color: length === l.value ? "#C75B39" : "rgba(255,255,255,0.4)",
+                    color: length === l.value ? "var(--accent)" : "rgba(255,255,255,0.4)",
                   }}
                 >
                   {l.label}
@@ -444,13 +444,13 @@ export default function GenerateTextPage() {
         {/* Generate button */}
         <div className="flex items-center justify-between pt-1">
           <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>
-            Coût : <span style={{ color: "#C75B39" }}>3 crédits</span> · 3 variations
+            Coût : <span style={{ color: "var(--accent)" }}>3 crédits</span> · 3 variations
           </span>
           <button
             onClick={handleGenerate}
             disabled={generating || !brief.trim()}
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium transition-opacity hover:opacity-80 disabled:opacity-30 rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             {generating ? <Loader size={12} className="animate-spin" /> : <Sparkles size={12} />}
             {generating ? "Génération en cours..." : "Générer 3 variations"}
@@ -460,7 +460,7 @@ export default function GenerateTextPage() {
 
       {/* Error */}
       {error && (
-        <div className="mb-4 px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}>
+        <div className="mb-4 px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}>
           {error}
         </div>
       )}

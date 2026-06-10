@@ -15,7 +15,7 @@ export default function PlatformsPage() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Mes plateformes</h1>
-        <p className="text-base mt-1" style={{ color: "#FFFFFF" }}>Gérez vos comptes connectés</p>
+        <p className="text-base mt-1" style={{ color: "var(--text-primary)" }}>Gérez vos comptes connectés</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
         {platforms.map((p) => {
@@ -27,11 +27,11 @@ export default function PlatformsPage() {
               </div>
               <div className="flex-1">
                 <div className="text-lg font-medium">{p.name}</div>
-                <div className="text-base" style={{ color: "#FFFFFF" }}>{p.handle}</div>
+                <div className="text-base" style={{ color: "var(--text-primary)" }}>{p.handle}</div>
               </div>
               <div className="text-right">
                 <div className="text-base">{p.followers}</div>
-                <div className="text-sm" style={{ color: "#FFFFFF" }}>followers</div>
+                <div className="text-sm" style={{ color: "var(--text-primary)" }}>followers</div>
               </div>
             </div>
           );

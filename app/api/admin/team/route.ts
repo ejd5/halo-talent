@@ -39,7 +39,7 @@ export async function GET(request: NextRequest) {
   const enriched = (members || []).map((m: any) => ({
     ...m,
     current_load: m.assignments?.length || 0,
-    max_capacity: { senior_manager: 20, manager: 12 }[m.role] || null,
+    max_capacity: { senior_manager: 20, manager: 12 }[m.role as string] || null,
   }));
 
   return NextResponse.json({ members: enriched });

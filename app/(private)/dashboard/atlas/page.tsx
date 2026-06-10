@@ -73,7 +73,7 @@ function AtlasPage() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Atlas
           </h1>
           <p className="text-sm mt-1" style={{ color: "var(--color-ink-secondary)" }}>
@@ -84,7 +84,7 @@ function AtlasPage() {
           <Link
             href="/dashboard/atlas/onboarding"
             className="flex items-center gap-1.5 text-xs px-3 py-1.5 font-medium transition-all hover:opacity-80"
-            style={{ backgroundColor: "rgba(245,240,235,0.06)", color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }}
+            style={{ backgroundColor: "rgba(245,240,235,0.06)", color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }}
           >
             <Sparkles size={12} />
             Onboarding
@@ -108,7 +108,7 @@ function AtlasPage() {
         {/* Activité récente */}
         <div className="lg:col-span-2" style={{ border: "1px solid rgba(245,240,235,0.06)" }}>
           <div className="px-4 py-3" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
-            <h3 className="text-sm font-semibold flex items-center gap-2" style={{ color: "#F5F0EB" }}>
+            <h3 className="text-sm font-semibold flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
               <Activity size={14} /> Activité récente
             </h3>
           </div>
@@ -131,10 +131,10 @@ function AtlasPage() {
                   style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}
                 >
                   <div className="w-7 h-7 flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)" }}>
-                    <Activity size={12} style={{ color: "#C75B39" }} />
+                    <Activity size={12} style={{ color: "var(--accent)" }} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm" style={{ color: "#F5F0EB" }}>{act.text}</p>
+                    <p className="text-sm" style={{ color: "var(--text-primary)" }}>{act.text}</p>
                     <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>{timeAgo(act.occurred_at)}</p>
                   </div>
                 </div>
@@ -147,7 +147,7 @@ function AtlasPage() {
         <div className="space-y-4">
           {/* Actions rapides — liste verticale */}
           <div>
-            <h3 className="text-sm font-semibold mb-3" style={{ color: "#F5F0EB" }}>
+            <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
               Actions rapides
             </h3>
             <div className="space-y-0.5">
@@ -160,8 +160,8 @@ function AtlasPage() {
 
           {/* Insights du jour */}
           <div className="p-4" style={{ border: "1px solid rgba(199,91,57,0.1)", backgroundColor: "rgba(199,91,57,0.04)" }}>
-            <h3 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: "#F5F0EB" }}>
-              <Sparkles size={14} style={{ color: "#C75B39" }} /> Insights du jour
+            <h3 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
+              <Sparkles size={14} style={{ color: "var(--accent)" }} /> Insights du jour
             </h3>
             <p className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>
               Connecte des plateformes et interagis avec tes fans pour débloquer des insights personnalisés.
@@ -169,7 +169,7 @@ function AtlasPage() {
             <Link
               href="/dashboard/atlas/settings"
               className="flex items-center gap-1 text-xs font-medium mt-3 transition-opacity hover:opacity-70"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             >
               Configurer mes canaux <ArrowRight size={12} />
             </Link>
@@ -195,7 +195,7 @@ function KpiCard({ label, value, icon: Icon, isCurrency }: {
       : value.toLocaleString("fr-FR");
 
   return (
-    <div className="p-4" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+    <div className="p-4" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
       <div className="flex items-center justify-between mb-2">
         <span className="font-sans text-[0.6rem] uppercase tracking-[0.1em]" style={{ color: "var(--color-ink-tertiary)" }}>
           {label}
@@ -206,7 +206,7 @@ function KpiCard({ label, value, icon: Icon, isCurrency }: {
         className="text-[2rem] font-bold leading-none"
         style={{
           fontFamily: "var(--font-display)",
-          color: (value === null || value === 0) ? "var(--color-ink-tertiary)" : "#F5F0EB",
+          color: (value === null || value === 0) ? "var(--color-ink-tertiary)" : "var(--text-primary)",
         }}
       >
         {displayValue}
@@ -224,14 +224,14 @@ function QuickAction({ icon: Icon, label, href, badge }: {
     <Link
       href={href}
       className="group flex items-center gap-3 px-3 py-2 transition-colors"
-      style={{ color: "#F5F0EB" }}
-      onMouseEnter={(e) => { e.currentTarget.style.color = "#C75B39"; }}
-      onMouseLeave={(e) => { e.currentTarget.style.color = "#F5F0EB"; }}
+      style={{ color: "var(--text-primary)" }}
+      onMouseEnter={(e) => { e.currentTarget.style.color = "var(--accent)"; }}
+      onMouseLeave={(e) => { e.currentTarget.style.color = "var(--text-primary)"; }}
     >
-      <Icon size={18} style={{ color: "#C75B39" }} />
+      <Icon size={18} style={{ color: "var(--accent)" }} />
       <span className="flex-1 text-sm">{label}</span>
       {badge !== undefined && badge > 0 && (
-        <span className="text-[10px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "#C75B39" }}>
+        <span className="text-[10px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>
           {badge}
         </span>
       )}

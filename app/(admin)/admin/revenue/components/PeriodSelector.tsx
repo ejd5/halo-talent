@@ -13,7 +13,7 @@ const OPTIONS = [
 
 export function PeriodSelector({ value, onChange }: Props) {
   return (
-    <div className="flex items-center gap-1" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+    <div className="flex items-center gap-1" style={{ border: "1px solid var(--border-default)" }}>
       {OPTIONS.map((opt) => {
         const isActive = opt.value === value;
         return (
@@ -22,8 +22,8 @@ export function PeriodSelector({ value, onChange }: Props) {
             onClick={() => onChange(opt.value)}
             className="px-3 py-1.5 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors"
             style={{
-              background: isActive ? "#C75B39" : "transparent",
-              color: isActive ? "#F5F0EB" : "#F5F0EB",
+              background: isActive ? "var(--accent)" : "transparent",
+              color: isActive ? "var(--text-primary)" : "var(--text-primary)",
             }}
           >
             {opt.label}

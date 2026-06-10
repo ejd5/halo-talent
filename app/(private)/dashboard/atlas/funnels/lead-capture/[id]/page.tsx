@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { Suspense, useState, useEffect, useRef } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import {
@@ -14,12 +14,20 @@ import type { LeadCapturePage, LeadCaptureLink, PageType, LinkType, BackgroundTy
 import { PAGE_TEMPLATES, LINK_PRESETS, SOCIAL_ICONS, SOCIAL_BRAND_COLORS, generateQRUrl } from "@/lib/atlas/lead-capture/types";
 
 const STATUS_STYLES: Record<string, { label: string; color: string; bg: string }> = {
-  active:  { label: "Actif",    color: "#10B981", bg: "rgba(16,185,129,0.1)" },
+  active:  { label: "Actif",    color: "var(--success)", bg: "rgba(16,185,129,0.1)" },
   paused:  { label: "En pause", color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
   draft:   { label: "Brouillon", color: "rgba(255,255,255,0.4)", bg: "rgba(255,255,255,0.05)" },
 };
 
 export default function LeadCaptureEditorPage({ params }: { params: Promise<{ id: string }> }) {
+  return (
+    <Suspense fallback={<div className="min-h-screen" style={{ background: "var(--bg-primary)" }} />}>
+      <LeadCaptureEditorPageInner params={params} />
+    </Suspense>
+  );
+}
+
+function LeadCaptureEditorPageInner({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();
   const searchParams = useSearchParams();
   const [id, setId] = useState<string | null>(null);
@@ -47,7 +55,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
   const [form, setForm] = useState({
     title: "", slug: "", display_name: "", bio: "", avatar_url: "",
     background_type: "color" as BackgroundType, background_value: "#1A1614",
-    accent_color: "#C75B39", text_color: "#F5F0EB",
+    accent_color: "var(--accent)", text_color: "var(--text-primary)",
     headline: "", subtitle: "", cta_text: "Je m'abonne",
     confirmation_message: "Vérifiez votre boîte mail",
     collect_first_name: true, consent_text: "J'accepte de recevoir des communications",
@@ -67,8 +75,8 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
           bio: p.bio || "", avatar_url: p.avatar_url || "",
           background_type: p.background_type || "color",
           background_value: p.background_value || "#1A1614",
-          accent_color: p.accent_color || "#C75B39",
-          text_color: p.text_color || "#F5F0EB",
+          accent_color: p.accent_color || "var(--accent)",
+          text_color: p.text_color || "var(--text-primary)",
           headline: p.headline || "", subtitle: p.subtitle || "",
           cta_text: p.cta_text || "Je m'abonne",
           confirmation_message: p.confirmation_message || "Vérifiez votre boîte mail",
@@ -186,7 +194,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
       <div className="flex-1 flex flex-col items-center justify-center py-20 text-center gap-3">
         <AlertTriangle size={28} style={{ color: "rgba(255,255,255,0.1)" }} />
         <p style={{ color: "rgba(255,255,255,0.3)" }}>Page introuvable</p>
-        <Link href="/dashboard/atlas/funnels/lead-capture" className="text-xs px-3 py-1.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+        <Link href="/dashboard/atlas/funnels/lead-capture" className="text-xs px-3 py-1.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
           Retour
         </Link>
       </div>
@@ -199,19 +207,19 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
   return (
     <div className="flex flex-col h-[calc(100vh-8rem)] animate-fade-in">
       {/* ═══ Top bar ═══ */}
-      <div className="flex items-center justify-between px-4 py-2 shrink-0 border-b" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#1A1614" }}>
+      <div className="flex items-center justify-between px-4 py-2 shrink-0 border-b" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-primary)" }}>
         <div className="flex items-center gap-3 min-w-0">
           <Link href="/dashboard/atlas/funnels/lead-capture" className="p-1 transition-opacity hover:opacity-70 shrink-0">
             <ArrowLeft size={16} style={{ color: "var(--color-ink-tertiary)" }} />
           </Link>
-          <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{page.title}</span>
+          <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{page.title}</span>
           <span className="text-[9px] px-1.5 py-0.5 rounded-sm font-medium" style={{ background: st.bg, color: st.color }}>{st.label}</span>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={toggleStatus}
             className="flex items-center gap-1 px-2 py-1 text-[10px] rounded-sm transition-colors hover:bg-white/5"
-            style={{ border: "1px solid rgba(245,240,235,0.08)", color: page.status === "active" ? "#F59E0B" : "#10B981" }}
+            style={{ border: "1px solid rgba(245,240,235,0.08)", color: page.status === "active" ? "#F59E0B" : "var(--success)" }}
           >
             {page.status === "active" ? <ToggleLeft size={12} /> : <ToggleRight size={12} />}
             {page.status === "active" ? "Pause" : "Activer"}
@@ -220,7 +228,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
             href={`/${page.slug}`}
             target="_blank"
             className="flex items-center gap-1 px-2 py-1 text-[10px] rounded-sm transition-colors hover:bg-white/5"
-            style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
           >
             <ExternalLink size={12} /> Voir
           </Link>
@@ -228,19 +236,19 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
             onClick={handleSave}
             disabled={saving}
             className="flex items-center gap-1 px-3 py-1.5 text-[10px] font-medium rounded-sm transition-opacity hover:opacity-80 disabled:opacity-30"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             {saving ? <Loader size={12} className="animate-spin" /> : <Save size={12} />}
             {saving ? "..." : "Sauvegarder"}
           </button>
           {saveMsg && (
-            <span className="text-[10px]" style={{ color: saveMsg.type === "success" ? "#10B981" : "#C44536" }}>{saveMsg.text}</span>
+            <span className="text-[10px]" style={{ color: saveMsg.type === "success" ? "var(--success)" : "var(--danger)" }}>{saveMsg.text}</span>
           )}
         </div>
       </div>
 
       {/* ═══ Tabs ═══ */}
-      <div className="flex gap-0 px-4 border-b shrink-0" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#1A1614" }}>
+      <div className="flex gap-0 px-4 border-b shrink-0" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-primary)" }}>
         {[
           { id: "editor", label: "Éditeur", icon: Palette },
           { id: "links", label: "Liens", icon: LinkIcon, hide: !isLib },
@@ -254,8 +262,8 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
               onClick={() => setActiveTab(tab.id)}
               className="flex items-center gap-1.5 px-3 py-2 text-[10px] font-medium border-b-2 transition-colors"
               style={{
-                borderColor: activeTab === tab.id ? "#C75B39" : "transparent",
-                color: activeTab === tab.id ? "#C75B39" : "var(--color-ink-tertiary)",
+                borderColor: activeTab === tab.id ? "var(--accent)" : "transparent",
+                color: activeTab === tab.id ? "var(--accent)" : "var(--color-ink-tertiary)",
               }}
             >
               <Icon size={12} /> {tab.label}
@@ -267,7 +275,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
       {/* ═══ Body ═══ */}
       <div className="flex flex-1 min-h-0">
         {/* ─── Editor panel ─── */}
-        <div className="flex-1 overflow-y-auto custom-scrollbar p-4" style={{ backgroundColor: "#1A1614" }}>
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-4" style={{ backgroundColor: "var(--bg-primary)" }}>
           {activeTab === "editor" && (
             <div className="max-w-lg mx-auto space-y-3">
               <h3 className="text-[10px] uppercase tracking-wider" style={{ color: "var(--color-ink-tertiary)" }}>Contenu</h3>
@@ -301,7 +309,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
                 <button
                   onClick={() => setShowLinkPresets(!showLinkPresets)}
                   className="flex items-center gap-1 px-2 py-1 text-[10px] rounded-sm transition-colors hover:bg-white/5"
-                  style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#C75B39" }}
+                  style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--accent)" }}
                 >
                   <Plus size={10} /> Ajouter
                 </button>
@@ -315,7 +323,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
                         key={i}
                         onClick={() => addLink(preset)}
                         className="flex items-center gap-1.5 px-2 py-1.5 text-[10px] rounded-sm hover:bg-white/5 text-left"
-                        style={{ color: "#F5F0EB" }}
+                        style={{ color: "var(--text-primary)" }}
                       >
                         <Plus size={10} /> {preset.label}
                       </button>
@@ -350,7 +358,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
                         value={link.label}
                         onChange={(e) => updateLink(link.id, { label: e.target.value } as any)}
                         className="w-full bg-transparent text-[11px] outline-none"
-                        style={{ color: "#F5F0EB" }}
+                        style={{ color: "var(--text-primary)" }}
                         placeholder="Label"
                       />
                       <input
@@ -364,11 +372,11 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
                     <button
                       onClick={() => updateLink(link.id, { is_active: !link.is_active } as any)}
                       className="p-1"
-                      style={{ color: link.is_active ? "#10B981" : "var(--color-ink-tertiary)" }}
+                      style={{ color: link.is_active ? "var(--success)" : "var(--color-ink-tertiary)" }}
                     >
                       {link.is_active ? <Eye size={12} /> : <EyeOff size={12} />}
                     </button>
-                    <button onClick={() => deleteLink(link.id)} className="p-1" style={{ color: "#C44536" }}>
+                    <button onClick={() => deleteLink(link.id)} className="p-1" style={{ color: "var(--danger)" }}>
                       <Trash2 size={12} />
                     </button>
                   </div>
@@ -410,7 +418,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
                     <button
                       onClick={() => navigator.clipboard.writeText(qrCode.url)}
                       className="flex items-center gap-1 px-3 py-1.5 text-[10px] rounded-sm transition-colors hover:bg-white/5"
-                      style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+                      style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
                     >
                       <Copy size={10} /> Copier l'URL
                     </button>
@@ -418,7 +426,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
                       href={qrCode.qr_image.replace("size=240x240", "size=1024x1024")}
                       download={`qr-${page.slug}.png`}
                       className="flex items-center gap-1 px-3 py-1.5 text-[10px] font-medium rounded-sm transition-opacity hover:opacity-80"
-                      style={{ background: "#C75B39", color: "#FFFFFF" }}
+                      style={{ background: "var(--accent)", color: "var(--text-primary)" }}
                     >
                       <Download size={10} /> Télécharger
                     </a>
@@ -437,7 +445,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
         </div>
 
         {/* ─── Preview panel ─── */}
-        <div className="w-[420px] shrink-0 overflow-y-auto border-l custom-scrollbar" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#1A1614" }}>
+        <div className="w-[420px] shrink-0 overflow-y-auto border-l custom-scrollbar" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-primary)" }}>
           {/* Preview mode toggle */}
           <div className="flex items-center justify-between px-3 py-2 border-b" style={{ borderColor: "rgba(245,240,235,0.06)" }}>
             <span className="text-[9px] uppercase tracking-wider" style={{ color: "var(--color-ink-tertiary)" }}>Aperçu</span>
@@ -445,14 +453,14 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
               <button
                 onClick={() => setPreviewMode("mobile")}
                 className="p-1 rounded-sm transition-colors"
-                style={{ color: previewMode === "mobile" ? "#C75B39" : "var(--color-ink-tertiary)" }}
+                style={{ color: previewMode === "mobile" ? "var(--accent)" : "var(--color-ink-tertiary)" }}
               >
                 <Smartphone size={13} />
               </button>
               <button
                 onClick={() => setPreviewMode("desktop")}
                 className="p-1 rounded-sm transition-colors"
-                style={{ color: previewMode === "desktop" ? "#C75B39" : "var(--color-ink-tertiary)" }}
+                style={{ color: previewMode === "desktop" ? "var(--accent)" : "var(--color-ink-tertiary)" }}
               >
                 <Monitor size={13} />
               </button>
@@ -460,7 +468,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
           </div>
 
           {/* Live preview */}
-          <div className="flex justify-center p-4" style={{ backgroundColor: "#2A2420", minHeight: 400 }}>
+          <div className="flex justify-center p-4" style={{ backgroundColor: "var(--bg-card)", minHeight: 400 }}>
             <LivePreview
               form={form}
               links={links}
@@ -489,7 +497,7 @@ function LivePreview({ form, links, pageType, mode }: {
   const bgStyle: React.CSSProperties = form.background_type === "image"
     ? { backgroundImage: `url(${form.background_value})`, backgroundSize: "cover", backgroundPosition: "center" }
     : form.background_type === "video"
-    ? { background: "#1A1614" }
+    ? { background: "var(--bg-primary)" }
     : { backgroundColor: form.background_value };
 
   return (
@@ -575,7 +583,7 @@ function LivePreview({ form, links, pageType, mode }: {
               <button
                 disabled
                 className="w-full py-2 text-[11px] font-medium rounded-sm opacity-80"
-                style={{ backgroundColor: form.accent_color, color: "#FFFFFF" }}
+                style={{ backgroundColor: form.accent_color, color: "var(--text-primary)" }}
               >
                 {form.cta_text || "Je m'abonne"}
               </button>
@@ -602,7 +610,7 @@ function Field({ label, value, onChange, hint }: { label: string; value: string;
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full px-2 py-1.5 text-[11px] bg-transparent rounded-sm outline-none"
-        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
       />
       {hint && <p className="text-[8px] mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>{hint}</p>}
     </div>
@@ -618,7 +626,7 @@ function TextArea({ label, value, onChange, rows }: { label: string; value: stri
         onChange={(e) => onChange(e.target.value)}
         rows={rows || 2}
         className="w-full px-2 py-1.5 text-[11px] bg-transparent rounded-sm outline-none resize-none"
-        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
       />
     </div>
   );
@@ -640,7 +648,7 @@ function ColorField({ label, value, onChange }: { label: string; value: string; 
           value={value}
           onChange={(e) => onChange(e.target.value)}
           className="flex-1 px-2 py-1.5 text-[11px] bg-transparent rounded-sm outline-none"
-          style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+          style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
         />
       </div>
     </div>
@@ -655,9 +663,9 @@ function SelectField({ label, value, onChange, options }: { label: string; value
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full px-2 py-1.5 text-[11px] bg-transparent rounded-sm outline-none appearance-none cursor-pointer"
-        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
       >
-        {options.map((o) => (<option key={o.value} value={o.value} style={{ backgroundColor: "#1A1614" }}>{o.label}</option>))}
+        {options.map((o) => (<option key={o.value} value={o.value} style={{ backgroundColor: "var(--bg-primary)" }}>{o.label}</option>))}
       </select>
     </div>
   );
@@ -666,11 +674,11 @@ function SelectField({ label, value, onChange, options }: { label: string; value
 function ToggleField({ label, value, onChange }: { label: string; value: boolean; onChange: (v: boolean) => void }) {
   return (
     <div className="flex items-center justify-between">
-      <span className="text-[10px]" style={{ color: "#F5F0EB" }}>{label}</span>
+      <span className="text-[10px]" style={{ color: "var(--text-primary)" }}>{label}</span>
       <button
         onClick={() => onChange(!value)}
         className="transition-colors"
-        style={{ color: value ? "#C75B39" : "var(--color-ink-tertiary)" }}
+        style={{ color: value ? "var(--accent)" : "var(--color-ink-tertiary)" }}
       >
         {value ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}
       </button>

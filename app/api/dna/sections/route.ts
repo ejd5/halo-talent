@@ -32,7 +32,9 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    const { data: dna, error } = await supabase
+    // Utiliser l'admin client pour lire (cohérent avec le PUT qui écrit via admin)
+    const adminDb = createAdminClient();
+    const { data: dna, error } = await adminDb
       .from("creator_dna")
       .select("*")
       .eq("creator_id", creatorId)
@@ -130,7 +132,7 @@ export async function PUT(request: NextRequest) {
       updates.completion_pct = computeCompletionPct(filled);
 
       if (updates.completion_pct === 100) {
-        updates.is_complete = false;
+        updates.is_complete = true;
       }
 
       const { error: updateError } = await adminDb

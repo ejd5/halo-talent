@@ -12,10 +12,10 @@ export default function ContractsPage() {
     <div className="flex flex-col gap-6">
       <div>
         <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Mes contrats</h1>
-        <p className="text-base mt-1" style={{ color: "#FFFFFF" }}>Consultez et gérez vos documents contractuels</p>
+        <p className="text-base mt-1" style={{ color: "var(--text-primary)" }}>Consultez et gérez vos documents contractuels</p>
       </div>
       <div className="border border-[var(--color-border)]">
-        <div className="grid grid-cols-[1fr_100px_120px_100px] gap-4 px-5 py-3 text-sm font-semibold uppercase tracking-wider border-b border-[var(--color-border)]" style={{ color: "#FFFFFF" }}>
+        <div className="grid grid-cols-[1fr_100px_120px_100px] gap-4 px-5 py-3 text-sm font-semibold uppercase tracking-wider border-b border-[var(--color-border)]" style={{ color: "var(--text-primary)" }}>
           <div>Contrat</div><div>Type</div><div>Date</div><div>Actions</div>
         </div>
         {contracts.map((c) => (
@@ -24,8 +24,8 @@ export default function ContractsPage() {
               <div className="font-medium">{c.name}</div>
               <span className={`text-sm font-medium ${c.status === "Signé" ? "text-[#A8D08D]" : "text-[#C7A254]"}`}>{c.status}</span>
             </div>
-            <div className="text-base" style={{ color: "#FFFFFF" }}>{c.type}</div>
-            <div className="text-base" style={{ color: "#FFFFFF" }}>{c.date}</div>
+            <div className="text-base" style={{ color: "var(--text-primary)" }}>{c.type}</div>
+            <div className="text-base" style={{ color: "var(--text-primary)" }}>{c.date}</div>
             <div className="flex items-center gap-1">
               <button className="p-1.5 hover:opacity-60"><Eye size={16} /></button>
               <button className="p-1.5 hover:opacity-60"><Download size={16} /></button>

@@ -18,10 +18,10 @@ interface AtRiskFan {
 }
 
 const LEVEL_CONFIG: Record<string, { label: string; color: string; bg: string }> = {
-  critical: { label: "Critique", color: "#C44536", bg: "rgba(196,69,54,0.1)" },
-  high: { label: "Élevé", color: "#C75B39", bg: "rgba(199,91,57,0.1)" },
-  medium: { label: "Modéré", color: "#F5F0EB", bg: "rgba(245,240,235,0.04)" },
-  low: { label: "Faible", color: "#7A9A65", bg: "rgba(122,154,101,0.1)" },
+  critical: { label: "Critique", color: "var(--danger)", bg: "rgba(196,69,54,0.1)" },
+  high: { label: "Élevé", color: "var(--accent)", bg: "rgba(199,91,57,0.1)" },
+  medium: { label: "Modéré", color: "var(--text-primary)", bg: "rgba(245,240,235,0.04)" },
+  low: { label: "Faible", color: "var(--success)", bg: "rgba(122,154,101,0.1)" },
 };
 
 const ACTION_LABELS: Record<string, string> = {
@@ -61,12 +61,12 @@ export default function AtRiskPage() {
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-1">
-          <AlertTriangle size={16} style={{ color: "#C44536" }} />
-          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <AlertTriangle size={16} style={{ color: "var(--danger)" }} />
+          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Fans à risque
           </h1>
           {data && (
-            <span className="text-[10px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(196,69,54,0.1)", color: "#C44536" }}>
+            <span className="text-[10px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(196,69,54,0.1)", color: "var(--danger)" }}>
               {data.total} at-risk
             </span>
           )}
@@ -80,17 +80,17 @@ export default function AtRiskPage() {
       {data && (
         <div className="grid grid-cols-3 gap-3">
           <div className="p-3" style={{ backgroundColor: "rgba(196,69,54,0.04)", border: "1px solid rgba(196,69,54,0.1)" }}>
-            <p className="text-lg font-semibold" style={{ color: "#C44536" }}>{data.total}</p>
+            <p className="text-lg font-semibold" style={{ color: "var(--danger)" }}>{data.total}</p>
             <p className="text-[9px]" style={{ color: "rgba(245,240,235,0.3)" }}>Fans à risque</p>
           </div>
           <div className="p-3" style={{ backgroundColor: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)" }}>
-            <p className="text-lg font-semibold" style={{ color: "#C75B39" }}>
+            <p className="text-lg font-semibold" style={{ color: "var(--accent)" }}>
               {Math.round((data.total / Math.max(data.total_fans, 1)) * 100)}%
             </p>
             <p className="text-[9px]" style={{ color: "rgba(245,240,235,0.3)" }}>Taux d&apos;attrition potentiel</p>
           </div>
           <div className="p-3" style={{ backgroundColor: "rgba(122,154,101,0.04)", border: "1px solid rgba(122,154,101,0.1)" }}>
-            <p className="text-lg font-semibold" style={{ color: "#7A9A65" }}>{totalPotentialLoss}€</p>
+            <p className="text-lg font-semibold" style={{ color: "var(--success)" }}>{totalPotentialLoss}€</p>
             <p className="text-[9px]" style={{ color: "rgba(245,240,235,0.3)" }}>Perte potentielle estimée</p>
           </div>
         </div>
@@ -100,7 +100,7 @@ export default function AtRiskPage() {
       <div className="flex items-center gap-2">
         <select value={levelFilter} onChange={(e) => setLevelFilter(e.target.value)}
           className="text-[10px] py-1.5 px-2 bg-transparent"
-          style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.06)" }}>
+          style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.06)" }}>
           <option value="">Tous les niveaux</option>
           <option value="critical">Critique</option>
           <option value="high">Élevé</option>
@@ -135,7 +135,7 @@ export default function AtRiskPage() {
                       <div className="w-6 h-6 flex items-center justify-center text-[8px] font-medium shrink-0" style={{ backgroundColor: lvl.bg, color: lvl.color }}>
                         {(item.fan.display_name || item.fan.email || "?").charAt(0).toUpperCase()}
                       </div>
-                      <span className="text-xs font-medium truncate" style={{ color: "#F5F0EB" }}>
+                      <span className="text-xs font-medium truncate" style={{ color: "var(--text-primary)" }}>
                         {item.fan.display_name || item.fan.email}
                       </span>
                       <span className="text-[8px] px-1 py-px" style={{ backgroundColor: lvl.bg, color: lvl.color }}>
@@ -158,7 +158,7 @@ export default function AtRiskPage() {
                   {/* Loss value + actions */}
                   <div className="flex items-center gap-2 shrink-0">
                     <div className="text-right">
-                      <p className="text-xs font-semibold" style={{ color: "#C44536" }}>
+                      <p className="text-xs font-semibold" style={{ color: "var(--danger)" }}>
                         {item.churn.potential_loss || 0}€
                       </p>
                       <p className="text-[7px]" style={{ color: "rgba(245,240,235,0.15)" }}>perte potentielle</p>
@@ -166,7 +166,7 @@ export default function AtRiskPage() {
                     <div className="flex flex-col gap-1">
                       <button
                         className="flex items-center gap-1 text-[9px] py-1 px-2 whitespace-nowrap"
-                        style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+                        style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
                         onClick={() => window.location.href = `/dashboard/atlas/fans/${item.fan.id}`}>
                         <MessageSquare size={9} /> Contacter
                       </button>

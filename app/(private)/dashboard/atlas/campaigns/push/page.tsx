@@ -20,12 +20,12 @@ export default function PushPage() {
     <div className="space-y-4 animate-fade-in">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Push notifications</h1>
-          <p className="text-sm mt-1" style={{ color: "#FFFFFF" }}>{campaigns.length} campagne{campaigns.length > 1 ? "s" : ""}</p>
+          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Push notifications</h1>
+          <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>{campaigns.length} campagne{campaigns.length > 1 ? "s" : ""}</p>
         </div>
         <Link href="/dashboard/atlas/campaigns/new?channel=push"
           className="flex items-center gap-1.5 px-3 py-2 text-sm rounded-sm transition-opacity hover:opacity-80"
-          style={{ background: "#C75B39", color: "#FFFFFF" }}>
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
           <Plus size={14} /> Nouvelle campagne
         </Link>
       </div>
@@ -42,10 +42,10 @@ export default function PushPage() {
           {campaigns.map((c) => (
             <div key={c.id} className="flex items-center justify-between p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
               <div>
-                <span className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{c.name}</span>
-                <div className="text-xs mt-1" style={{ color: "#FFFFFF" }}><Send size={10} className="inline mr-1" />{c.sent_count} envoyés</div>
+                <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{c.name}</span>
+                <div className="text-xs mt-1" style={{ color: "var(--text-primary)" }}><Send size={10} className="inline mr-1" />{c.sent_count} envoyés</div>
               </div>
-              <div className="text-xs" style={{ color: "#FFFFFF" }}>{new Date(c.created_at).toLocaleDateString("fr-FR")}</div>
+              <div className="text-xs" style={{ color: "var(--text-primary)" }}>{new Date(c.created_at).toLocaleDateString("fr-FR")}</div>
             </div>
           ))}
         </div>

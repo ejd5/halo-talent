@@ -55,16 +55,16 @@ export function CommissionsPage() {
     <div className="card-accent">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="font-display text-2xl font-bold" style={{ color: "#F5F0EB" }}>
+          <h1 className="font-display text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
             Commissions
           </h1>
-          <p className="text-xs font-sans mt-1" style={{ color: "#F5F0EB" }}>
+          <p className="text-xs font-sans mt-1" style={{ color: "var(--text-primary)" }}>
             Calcul détaillé des commissions par créateur
           </p>
         </div>
         {totalPendingValidation > 0 && (
           <div className="flex items-center gap-2 px-3 py-2 text-[10px] font-sans font-semibold"
-            style={{ background: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+            style={{ background: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
             <span className="w-1.5 h-1.5 bg-current" />
             {totalPendingValidation} ajustement{totalPendingValidation > 1 ? "s" : ""} &gt;1000€ à valider
           </div>

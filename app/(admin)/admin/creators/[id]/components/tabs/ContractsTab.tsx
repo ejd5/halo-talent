@@ -7,9 +7,9 @@ import { FileText, Download, Plus, CheckCircle, XCircle, Clock } from "lucide-re
 type Props = { creatorId: string };
 
 const statusStyles: Record<string, { icon: React.ElementType; label: string; color: string }> = {
-  active: { icon: CheckCircle, label: "Actif", color: "#7A9A65" },
-  expired: { icon: Clock, label: "Expiré", color: "#E0D8D0" },
-  terminated: { icon: XCircle, label: "Résilié", color: "#C44536" },
+  active: { icon: CheckCircle, label: "Actif", color: "var(--success)" },
+  expired: { icon: Clock, label: "Expiré", color: "var(--text-secondary)" },
+  terminated: { icon: XCircle, label: "Résilié", color: "var(--danger)" },
 };
 
 export function ContractsTab({ creatorId }: Props) {
@@ -18,7 +18,7 @@ export function ContractsTab({ creatorId }: Props) {
   return (
     <div className="space-y-4 card-accent">
       {list.length === 0 ? (
-        <p className="text-sm font-sans text-center py-8" style={{ color: "#E0D8D0" }}>
+        <p className="text-sm font-sans text-center py-8" style={{ color: "var(--text-secondary)" }}>
           Aucun contrat pour ce créateur.
         </p>
       ) : (
@@ -29,13 +29,13 @@ export function ContractsTab({ creatorId }: Props) {
             <div
               key={contract.id}
               className="p-5"
-              style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}
+              style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}
             >
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="flex items-center gap-2">
-                    <FileText size={14} strokeWidth={1.5} style={{ color: "#C75B39" }} />
-                    <h3 className="font-display text-base font-bold" style={{ color: "#F5F0EB" }}>
+                    <FileText size={14} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
+                    <h3 className="font-display text-base font-bold" style={{ color: "var(--text-primary)" }}>
                       {contract.title}
                     </h3>
                   </div>
@@ -44,25 +44,25 @@ export function ContractsTab({ creatorId }: Props) {
                       <Icon size={10} strokeWidth={1.5} />
                       {st.label}
                     </span>
-                    <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
+                    <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
                       Commission : {contract.commission_rate}%
                     </span>
                   </div>
                 </div>
                 <button
                   className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-                  style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.3)" }}
+                  style={{ color: "var(--accent)", border: "1px solid var(--accent-border)" }}
                 >
                   <Download size={11} strokeWidth={1.5} />
                   PDF
                 </button>
               </div>
-              <div className="grid grid-cols-2 gap-4 text-xs font-sans" style={{ color: "#F5F0EB" }}>
+              <div className="grid grid-cols-2 gap-4 text-xs font-sans" style={{ color: "var(--text-primary)" }}>
                 <div>
-                  <span style={{ color: "#E0D8D0" }}>Signé le :</span> {formatDate(contract.signed_date)}
+                  <span style={{ color: "var(--text-secondary)" }}>Signé le :</span> {formatDate(contract.signed_date)}
                 </div>
                 <div>
-                  <span style={{ color: "#E0D8D0" }}>Expire le :</span> {contract.end_date ? formatDate(contract.end_date) : "—"}
+                  <span style={{ color: "var(--text-secondary)" }}>Expire le :</span> {contract.end_date ? formatDate(contract.end_date) : "—"}
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export function ContractsTab({ creatorId }: Props) {
 
       <button
         className="flex items-center gap-2 w-full justify-center py-3 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-        style={{ color: "#F5F0EB", border: "1px dashed rgba(255,255,255,0.1)" }}
+        style={{ color: "var(--text-primary)", border: "1px dashed rgba(255,255,255,0.1)" }}
       >
         <Plus size={14} strokeWidth={1.5} />
         Créer un avenant

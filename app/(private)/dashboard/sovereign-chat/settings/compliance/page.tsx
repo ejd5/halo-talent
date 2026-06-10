@@ -85,10 +85,10 @@ export default function ComplianceSettingsPage() {
       {/* Header */}
       <div>
         <div className="flex items-center gap-2 mb-1">
-          <Shield size={16} style={{ color: "#C75B39" }} />
+          <Shield size={16} style={{ color: "var(--accent)" }} />
           <h1
             className="text-xl font-semibold"
-            style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
             Conformité IA
           </h1>
@@ -108,12 +108,12 @@ export default function ComplianceSettingsPage() {
           color: "rgba(245,240,235,0.5)",
         }}
       >
-        <Info size={12} className="shrink-0 mt-0.5" style={{ color: "#C75B39" }} />
+        <Info size={12} className="shrink-0 mt-0.5" style={{ color: "var(--accent)" }} />
         <div>
-          <strong style={{ color: "#C75B39" }}>Souveraineté du créateur</strong> — Ces
+          <strong style={{ color: "var(--accent)" }}>Souveraineté du créateur</strong> — Ces
           paramètres contrôlent comment l&apos;IA assiste sans jamais remplacer la validation
           humaine. Le drafter ne s&apos;envoie jamais automatiquement : c&apos;est
-          strictement <strong style={{ color: "#F5F0EB" }}>DRAFT → VALIDATION → ENVOI</strong>.
+          strictement <strong style={{ color: "var(--text-primary)" }}>DRAFT → VALIDATION → ENVOI</strong>.
           Tous les drafts conservent un audit trail complet (7 ans).
         </div>
       </div>
@@ -135,7 +135,7 @@ export default function ComplianceSettingsPage() {
       {error && !loading && (
         <div
           className="text-[10px] p-2"
-          style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "#C44536" }}
+          style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "var(--danger)" }}
         >
           {error}
         </div>
@@ -164,15 +164,15 @@ export default function ComplianceSettingsPage() {
                     <div className="flex items-center gap-2 mb-0.5">
                       <span
                         className="text-xs font-medium"
-                        style={{ color: "#F5F0EB" }}
+                        style={{ color: "var(--text-primary)" }}
                       >
                         {t.title}
                       </span>
                       <span
                         className="text-[8px] px-1 py-0.5 uppercase tracking-wider"
                         style={{
-                          backgroundColor: "rgba(199,91,57,0.08)",
-                          color: "#C75B39",
+                          backgroundColor: "var(--accent-soft)",
+                          color: "var(--accent)",
                         }}
                       >
                         {t.legal}
@@ -191,7 +191,7 @@ export default function ComplianceSettingsPage() {
                         className="text-[9px] px-2 py-1"
                         style={{
                           backgroundColor: "rgba(122,154,101,0.1)",
-                          color: "#7A9A65",
+                          color: "var(--success)",
                         }}
                       >
                         Toujours actif
@@ -203,14 +203,14 @@ export default function ComplianceSettingsPage() {
                         className="w-9 h-5 rounded-full transition-all relative disabled:opacity-50"
                         style={{
                           backgroundColor: isOn
-                            ? "#7A9A65"
+                            ? "var(--success)"
                             : "rgba(245,240,235,0.1)",
                         }}
                       >
                         <div
                           className="w-3.5 h-3.5 rounded-full absolute top-0.5 transition-all"
                           style={{
-                            backgroundColor: "#F5F0EB",
+                            backgroundColor: "var(--text-primary)",
                             left: isOn ? "18px" : "2px",
                           }}
                         />
@@ -230,7 +230,7 @@ export default function ComplianceSettingsPage() {
           className="flex items-center gap-1.5 text-[10px] px-3 py-2"
           style={{
             backgroundColor: "rgba(122,154,101,0.08)",
-            color: "#7A9A65",
+            color: "var(--success)",
           }}
         >
           <Check size={10} />
@@ -248,8 +248,8 @@ export default function ComplianceSettingsPage() {
         }}
       >
         <div className="flex items-center gap-1.5">
-          <AlertTriangle size={10} style={{ color: "#C75B39" }} />
-          <span style={{ color: "#C75B39" }}>
+          <AlertTriangle size={10} style={{ color: "var(--accent)" }} />
+          <span style={{ color: "var(--accent)" }}>
             Important — Conservation légale 7 ans
           </span>
         </div>

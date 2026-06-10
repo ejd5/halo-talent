@@ -23,12 +23,12 @@ export function KpiRow() {
         <div
           key={kpi.label}
           className="card-accent p-4"
-          style={{ backgroundColor: "#2A2420" }}
+          style={{ backgroundColor: "var(--bg-card)" }}
         >
           <p className="font-sans text-[0.6rem] uppercase tracking-[0.1em] mb-2" style={{ color: "var(--color-ink-tertiary)" }}>
             {kpi.label}
           </p>
-          <p className="text-[2rem] font-bold leading-none" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <p className="text-[2rem] font-bold leading-none" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             {kpi.value}
           </p>
           <p className="text-[0.7rem] mt-2" style={{ color: trendColor(kpi.positive) }}>

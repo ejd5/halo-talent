@@ -31,10 +31,10 @@ export function DraftsRow() {
   return (
     <div>
       <div className="flex items-center justify-between mb-3">
-        <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           Mes derniers brouillons
         </h2>
-        <Link href="/studio/history" className="text-[11px] hover:opacity-70 transition-opacity" style={{ color: "#C75B39" }}>
+        <Link href="/studio/history" className="text-[11px] hover:opacity-70 transition-opacity" style={{ color: "var(--accent)" }}>
           Voir tout
         </Link>
       </div>
@@ -46,15 +46,15 @@ export function DraftsRow() {
               key={draft.id}
               href={draft.href}
               className="group shrink-0 w-48 p-3 border transition-all duration-200 hover:translate-y-[-2px]"
-              style={{ borderColor: "rgba(255,255,255,0.08)", backgroundColor: "#0A0908" }}
+              style={{ borderColor: "rgba(255,255,255,0.08)", backgroundColor: "var(--bg-primary)" }}
             >
               <div
                 className="w-7 h-7 flex items-center justify-center mb-2"
                 style={{ background: "rgba(199,91,57,0.1)" }}
               >
-                <Icon size={14} style={{ color: "#C75B39" }} />
+                <Icon size={14} style={{ color: "var(--accent)" }} />
               </div>
-              <p className="text-xs font-medium leading-snug mb-2 line-clamp-2" style={{ color: "#F5F0EB" }}>
+              <p className="text-xs font-medium leading-snug mb-2 line-clamp-2" style={{ color: "var(--text-primary)" }}>
                 {draft.title}
               </p>
               <div className="flex items-center justify-between">

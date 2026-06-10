@@ -60,7 +60,7 @@ export default function CampaignResultsPage({ params }: { params: Promise<{ camp
           <ArrowLeft size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
         </Link>
         <div>
-          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Résultats
           </h1>
           <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
@@ -73,22 +73,22 @@ export default function CampaignResultsPage({ params }: { params: Promise<{ camp
       <div className="grid grid-cols-4 gap-3">
         <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
           <BarChart3 size={12} className="mb-1" style={{ color: "rgba(245,240,235,0.2)" }} />
-          <p className="text-lg font-semibold" style={{ color: "#F5F0EB" }}>{analytics.total}</p>
+          <p className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>{analytics.total}</p>
           <p className="text-[8px]" style={{ color: "rgba(245,240,235,0.2)" }}>Total drafts</p>
         </div>
         <div className="p-3" style={{ backgroundColor: "rgba(122,154,101,0.06)", border: "1px solid rgba(122,154,101,0.1)" }}>
-          <Send size={12} className="mb-1" style={{ color: "#7A9A65" }} />
-          <p className="text-lg font-semibold" style={{ color: "#7A9A65" }}>{analytics.sent}</p>
+          <Send size={12} className="mb-1" style={{ color: "var(--success)" }} />
+          <p className="text-lg font-semibold" style={{ color: "var(--success)" }}>{analytics.sent}</p>
           <p className="text-[8px]" style={{ color: "rgba(122,154,101,0.5)" }}>Envoyés</p>
         </div>
         <div className="p-3" style={{ backgroundColor: "rgba(196,69,54,0.06)", border: "1px solid rgba(196,69,54,0.1)" }}>
-          <XCircle size={12} className="mb-1" style={{ color: "#C44536" }} />
-          <p className="text-lg font-semibold" style={{ color: "#C44536" }}>{analytics.rejected}</p>
+          <XCircle size={12} className="mb-1" style={{ color: "var(--danger)" }} />
+          <p className="text-lg font-semibold" style={{ color: "var(--danger)" }}>{analytics.rejected}</p>
           <p className="text-[8px]" style={{ color: "rgba(196,69,54,0.5)" }}>Rejetés</p>
         </div>
         <div className="p-3" style={{ backgroundColor: "rgba(199,91,57,0.06)", border: "1px solid rgba(199,91,57,0.1)" }}>
-          <TrendingUp size={12} className="mb-1" style={{ color: "#C75B39" }} />
-          <p className="text-lg font-semibold" style={{ color: "#C75B39" }}>{analytics.completion_pct}%</p>
+          <TrendingUp size={12} className="mb-1" style={{ color: "var(--accent)" }} />
+          <p className="text-lg font-semibold" style={{ color: "var(--accent)" }}>{analytics.completion_pct}%</p>
           <p className="text-[8px]" style={{ color: "rgba(199,91,57,0.5)" }}>Complétion</p>
         </div>
       </div>
@@ -101,7 +101,7 @@ export default function CampaignResultsPage({ params }: { params: Promise<{ camp
             className="h-full"
             style={{
               width: `${analytics.total > 0 ? (analytics.sent / analytics.total) * 100 : 0}%`,
-              backgroundColor: "#7A9A65",
+              backgroundColor: "var(--success)",
             }}
           />
         </div>
@@ -125,23 +125,23 @@ export default function CampaignResultsPage({ params }: { params: Promise<{ camp
                   className="flex items-center justify-between p-2.5"
                   style={{ backgroundColor: "rgba(245,240,235,0.02)", border: "1px solid rgba(245,240,235,0.04)" }}
                 >
-                  <span className="text-[10px] font-medium" style={{ color: "#F5F0EB" }}>
+                  <span className="text-[10px] font-medium" style={{ color: "var(--text-primary)" }}>
                     {approach}
                   </span>
                   <div className="flex items-center gap-3">
                     <span className="text-[9px]" style={{ color: "rgba(245,240,235,0.2)" }}>
                       {data.total} drafts
                     </span>
-                    <span className="text-[9px]" style={{ color: "#7A9A65" }}>
+                    <span className="text-[9px]" style={{ color: "var(--success)" }}>
                       {sentRate}% envoyé
                     </span>
                     {sentRate >= 70 && (
-                      <span className="text-[8px] px-1 py-0.5" style={{ backgroundColor: "rgba(122,154,101,0.1)", color: "#7A9A65" }}>
+                      <span className="text-[8px] px-1 py-0.5" style={{ backgroundColor: "rgba(122,154,101,0.1)", color: "var(--success)" }}>
                         Top performer
                       </span>
                     )}
                     {sentRate <= 30 && data.total > 0 && (
-                      <span className="text-[8px] px-1 py-0.5" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "#C44536" }}>
+                      <span className="text-[8px] px-1 py-0.5" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "var(--danger)" }}>
                         À améliorer
                       </span>
                     )}

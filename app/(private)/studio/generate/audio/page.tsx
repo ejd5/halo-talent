@@ -70,7 +70,7 @@ export default function GenerateAudioPage() {
   return (
     <div className="flex flex-col h-full animate-fade-in">
       {/* ─── Tab Navigation ─── */}
-      <div className="flex shrink-0 px-4 gap-0" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#0A0908" }}>
+      <div className="flex shrink-0 px-4 gap-0" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "var(--bg-primary)" }}>
         <TabBtn active={tab === "music"} onClick={() => setTab("music")} icon={Music} label="Musique IA" />
         <TabBtn active={tab === "voice"} onClick={() => setTab("voice")} icon={Mic} label="Clonage vocal" premium />
         <TabBtn active={tab === "transcribe"} onClick={() => setTab("transcribe")} icon={FileText} label="Sous-titres" />
@@ -95,11 +95,11 @@ export default function GenerateAudioPage() {
 
 function TabBtn({ active, onClick, icon: Icon, label, premium }: { active: boolean; onClick: () => void; icon: any; label: string; premium?: boolean }) {
   return (
-    <button onClick={onClick} className="flex items-center gap-1.5 px-3 py-2.5 text-[11px] transition-all relative" style={{ color: active ? "#C75B39" : "rgba(255,255,255,0.4)", borderBottom: active ? "1px solid #C75B39" : "1px solid transparent" }}>
+    <button onClick={onClick} className="flex items-center gap-1.5 px-3 py-2.5 text-[11px] transition-all relative" style={{ color: active ? "var(--accent)" : "rgba(255,255,255,0.4)", borderBottom: active ? "1px solid var(--accent)" : "1px solid transparent" }}>
       <Icon size={13} />
       {label}
       {premium && (
-        <span className="text-[7px] uppercase tracking-wider px-1 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "#C75B39" }}>Premium</span>
+        <span className="text-[7px] uppercase tracking-wider px-1 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>Premium</span>
       )}
     </button>
   );
@@ -160,7 +160,7 @@ function MusicSection({ credits }: { credits: number | null }) {
   return (
     <div className="p-4 md:p-6 max-w-5xl mx-auto space-y-6">
       <div className="mb-2">
-        <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Génération de musique</h1>
+        <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Génération de musique</h1>
         <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Crée de la musique libre de droits pour tes vidéos — Suno, Mubert, Stability Audio</p>
       </div>
 
@@ -172,7 +172,7 @@ function MusicSection({ credits }: { credits: number | null }) {
             <textarea value={prompt} onChange={(e) => setPrompt(e.target.value)}
               placeholder="musique chill cinematic pour vidéo lifestyle..."
               className="w-full text-xs bg-transparent outline-none resize-none px-2.5 py-2 rounded-sm" rows={4}
-              style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+              style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
           </div>
 
           <div>
@@ -183,7 +183,7 @@ function MusicSection({ credits }: { credits: number | null }) {
                   className="px-2 py-1 text-[9px] rounded-sm transition-all"
                   style={{ border: `1px solid ${style === s ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                     background: style === s ? "rgba(199,91,57,0.06)" : "transparent",
-                    color: style === s ? "#C75B39" : "rgba(255,255,255,0.4)" }}>{s}</button>
+                    color: style === s ? "var(--accent)" : "rgba(255,255,255,0.4)" }}>{s}</button>
               ))}
             </div>
           </div>
@@ -196,14 +196,14 @@ function MusicSection({ credits }: { credits: number | null }) {
                   className="flex-1 px-2 py-1.5 text-[9px] rounded-sm transition-all"
                   style={{ border: `1px solid ${duration === d ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                     background: duration === d ? "rgba(199,91,57,0.06)" : "transparent",
-                    color: duration === d ? "#C75B39" : "rgba(255,255,255,0.4)" }}>{d}s</button>
+                    color: duration === d ? "var(--accent)" : "rgba(255,255,255,0.4)" }}>{d}s</button>
               ))}
             </div>
           </div>
 
           <button onClick={handleGenerate} disabled={generating || !prompt.trim()}
             className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 text-xs font-medium transition-opacity hover:opacity-80 disabled:opacity-30 rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}>
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
             {generating ? <Loader size={12} className="animate-spin" /> : <Sparkles size={12} />}
             {generating ? "Génération..." : "Générer 3 variations"}
           </button>
@@ -216,12 +216,12 @@ function MusicSection({ credits }: { credits: number | null }) {
         {/* Right: results */}
         <div className="md:col-span-2 space-y-3">
           {error && (
-            <div className="px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}>{error}</div>
+            <div className="px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}>{error}</div>
           )}
 
           {generating && (
             <div className="flex flex-col items-center justify-center py-16 gap-3">
-              <Loader size={24} className="animate-spin" style={{ color: "#C75B39" }} />
+              <Loader size={24} className="animate-spin" style={{ color: "var(--accent)" }} />
               <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>Génération de musique en cours...</p>
             </div>
           )}
@@ -229,18 +229,18 @@ function MusicSection({ credits }: { credits: number | null }) {
           {tracks.length > 0 && !generating && (
             <div className="space-y-2">
               <div className="flex items-center gap-2 mb-3">
-                <Music size={14} style={{ color: "#10B981" }} />
-                <span className="text-[11px]" style={{ color: "#F5F0EB" }}>3 variations générées</span>
+                <Music size={14} style={{ color: "var(--success)" }} />
+                <span className="text-[11px]" style={{ color: "var(--text-primary)" }}>3 variations générées</span>
               </div>
               {tracks.map((track, i) => (
-                <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-sm" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+                <div key={i} className="flex items-center gap-3 px-3 py-2.5 rounded-sm" style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)" }}>
                   <button onClick={() => handlePlay(track.url, `track-${i}`)}
                     className="flex items-center justify-center w-8 h-8 rounded-full transition-colors hover:bg-white/10"
-                    style={{ background: playingId === `track-${i}` ? "#C75B39" : "rgba(255,255,255,0.06)" }}>
+                    style={{ background: playingId === `track-${i}` ? "var(--accent)" : "rgba(255,255,255,0.06)" }}>
                     {playingId === `track-${i}` ? <Pause size={12} /> : <Play size={12} />}
                   </button>
                   <div className="flex-1 min-w-0">
-                    <div className="text-[11px] truncate" style={{ color: "#F5F0EB" }}>{track.title}</div>
+                    <div className="text-[11px] truncate" style={{ color: "var(--text-primary)" }}>{track.title}</div>
                     <div className="text-[9px]" style={{ color: "rgba(255,255,255,0.3)" }}>
                       <Clock size={8} className="inline mr-1" />{formatDuration(track.duration)} · {style}
                     </div>
@@ -367,7 +367,7 @@ function VoiceSection({ credits }: { credits: number | null }) {
   return (
     <div className="p-4 md:p-6 max-w-3xl mx-auto space-y-6">
       <div className="mb-2">
-        <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Clonage vocal</h1>
+        <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Clonage vocal</h1>
         <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
           Crée un modèle de ta voix avec ElevenLabs — voice-over, podcasts, narration
         </p>
@@ -375,7 +375,7 @@ function VoiceSection({ credits }: { credits: number | null }) {
 
       {!acceptedTerms && (
         <div className="px-4 py-3 rounded-sm space-y-2" style={{ background: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)" }}>
-          <p className="text-[11px]" style={{ color: "#C75B39" }}>
+          <p className="text-[11px]" style={{ color: "var(--accent)" }}>
             🔒 Usage exclusivement personnel
           </p>
           <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -386,7 +386,7 @@ function VoiceSection({ credits }: { credits: number | null }) {
           </p>
           <button onClick={() => setAcceptedTerms(true)}
             className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}>
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
             <Check size={10} /> J&apos;accepte ces conditions
           </button>
         </div>
@@ -411,16 +411,16 @@ function VoiceSection({ credits }: { credits: number | null }) {
                   className="flex flex-col items-center gap-2 flex-1 px-4 py-6 rounded-sm transition-colors hover:bg-white/5"
                   style={{ border: `1px solid ${recording ? "rgba(229,72,77,0.3)" : "rgba(255,255,255,0.1)"}`,
                     background: recording ? "rgba(229,72,77,0.06)" : "transparent" }}>
-                  <span className={`text-xl ${recording ? "animate-pulse" : ""}`} style={{ color: recording ? "#E5484D" : "rgba(255,255,255,0.2)" }}>
+                  <span className={`text-xl ${recording ? "animate-pulse" : ""}`} style={{ color: recording ? "var(--danger)" : "rgba(255,255,255,0.2)" }}>
                     {recording ? "🔴" : "🎤"}
                   </span>
-                  <span className="text-[10px]" style={{ color: recording ? "#E5484D" : "rgba(255,255,255,0.3)" }}>
+                  <span className="text-[10px]" style={{ color: recording ? "var(--danger)" : "rgba(255,255,255,0.3)" }}>
                     {recording ? "Arrêter l'enregistrement" : "Enregistrer"}
                   </span>
                 </button>
               </div>
               {sampleUrl && (
-                <div className="flex items-center gap-2 px-3 py-2 rounded-sm text-[10px]" style={{ background: "rgba(16,185,129,0.06)", color: "#10B981" }}>
+                <div className="flex items-center gap-2 px-3 py-2 rounded-sm text-[10px]" style={{ background: "rgba(16,185,129,0.06)", color: "var(--success)" }}>
                   <Check size={10} /> Échantillon prêt
                 </div>
               )}
@@ -430,10 +430,10 @@ function VoiceSection({ credits }: { credits: number | null }) {
           {/* Step 2: Setup progress */}
           {step === "setup" && (
             <div className="flex flex-col items-center gap-4 py-8">
-              <Loader size={24} className="animate-spin" style={{ color: "#C75B39" }} />
+              <Loader size={24} className="animate-spin" style={{ color: "var(--accent)" }} />
               <div className="w-full max-w-sm space-y-2">
                 <div className="relative h-1 w-full rounded-sm" style={{ background: "rgba(255,255,255,0.06)" }}>
-                  <div className="absolute left-0 top-0 h-full rounded-sm transition-all" style={{ width: `${setupProgress}%`, background: "#C75B39" }} />
+                  <div className="absolute left-0 top-0 h-full rounded-sm transition-all" style={{ width: `${setupProgress}%`, background: "var(--accent)" }} />
                 </div>
                 <p className="text-[10px] text-center" style={{ color: "rgba(255,255,255,0.3)" }}>
                   Création du modèle vocal... ~5-10 min
@@ -441,7 +441,7 @@ function VoiceSection({ credits }: { credits: number | null }) {
               </div>
               <button onClick={handleSetup} disabled={setupProgress > 0}
                 className="flex items-center gap-1.5 px-4 py-2 text-[10px] rounded-sm transition-opacity hover:opacity-80 disabled:opacity-30"
-                style={{ background: "#C75B39", color: "#FFFFFF" }}>
+                style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                 Démarrer la création du modèle (10 crédits)
               </button>
             </div>
@@ -450,7 +450,7 @@ function VoiceSection({ credits }: { credits: number | null }) {
           {/* Step 3: Ready - Generate */}
           {step === "ready" && (
             <div className="space-y-4">
-              <div className="flex items-center gap-2 px-3 py-2 rounded-sm text-[10px]" style={{ background: "rgba(16,185,129,0.06)", color: "#10B981" }}>
+              <div className="flex items-center gap-2 px-3 py-2 rounded-sm text-[10px]" style={{ background: "rgba(16,185,129,0.06)", color: "var(--success)" }}>
                 <Check size={10} /> Modèle vocal prêt
               </div>
 
@@ -459,7 +459,7 @@ function VoiceSection({ credits }: { credits: number | null }) {
                 <textarea value={text} onChange={(e) => setText(e.target.value)}
                   placeholder="Écris le texte que ta voix va prononcer..."
                   className="w-full text-xs bg-transparent outline-none resize-none px-2.5 py-2 rounded-sm" rows={4}
-                  style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                  style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
@@ -471,7 +471,7 @@ function VoiceSection({ credits }: { credits: number | null }) {
                         className="px-2 py-1 text-[9px] rounded-sm transition-all"
                         style={{ border: `1px solid ${emotion === e.value ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                           background: emotion === e.value ? "rgba(199,91,57,0.06)" : "transparent",
-                          color: emotion === e.value ? "#C75B39" : "rgba(255,255,255,0.4)" }}>{e.label}</button>
+                          color: emotion === e.value ? "var(--accent)" : "rgba(255,255,255,0.4)" }}>{e.label}</button>
                     ))}
                   </div>
                 </div>
@@ -482,19 +482,19 @@ function VoiceSection({ credits }: { credits: number | null }) {
               </div>
 
               {error && (
-                <div className="px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}>{error}</div>
+                <div className="px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}>{error}</div>
               )}
 
               <button onClick={handleGenerate} disabled={generating || !text.trim()}
                 className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 text-xs font-medium transition-opacity hover:opacity-80 disabled:opacity-30 rounded-sm"
-                style={{ background: "#C75B39", color: "#FFFFFF" }}>
+                style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                 {generating ? <Loader size={12} className="animate-spin" /> : <Mic size={12} />}
                 {generating ? "Génération..." : "Générer l'audio (2 crédits)"}
               </button>
 
               {resultUrl && (
-                <div className="flex items-center gap-3 px-3 py-2.5 rounded-sm" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-                  <Volume2 size={16} style={{ color: "#10B981" }} />
+                <div className="flex items-center gap-3 px-3 py-2.5 rounded-sm" style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)" }}>
+                  <Volume2 size={16} style={{ color: "var(--success)" }} />
                   <audio src={resultUrl} controls className="flex-1 h-8" />
                   <a href={resultUrl} download="voice-over.wav" className="p-1.5 transition-colors hover:bg-white/10 rounded-sm" style={{ color: "rgba(255,255,255,0.3)" }}>
                     <Download size={12} />
@@ -557,7 +557,7 @@ function TranscribeSection({ credits }: { credits: number | null }) {
   return (
     <div className="p-4 md:p-6 max-w-3xl mx-auto space-y-6">
       <div className="mb-2">
-        <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Transcription & Sous-titres</h1>
+        <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Transcription & Sous-titres</h1>
         <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Transcris l&apos;audio d&apos;une vidéo et génère des sous-titres SRT — Whisper API</p>
       </div>
 
@@ -579,7 +579,7 @@ function TranscribeSection({ credits }: { credits: number | null }) {
         <div className="flex items-center gap-2">
           <select value={language} onChange={(e) => setLanguage(e.target.value)}
             className="text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-            style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
             <option value="fr">Français</option>
             <option value="en">English</option>
             <option value="es">Español</option>
@@ -589,19 +589,19 @@ function TranscribeSection({ credits }: { credits: number | null }) {
           </select>
           <button onClick={handleTranscribe} disabled={processing || !file}
             className="flex items-center gap-1.5 px-4 py-1.5 text-[10px] transition-opacity hover:opacity-80 disabled:opacity-30 rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}>
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
             {processing ? <Loader size={10} className="animate-spin" /> : <Sparkles size={10} />}
             {processing ? "Transcription..." : "Transcrire (1 crédit)"}
           </button>
         </div>
 
         {error && (
-          <div className="px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}>{error}</div>
+          <div className="px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}>{error}</div>
         )}
 
         {processing && (
           <div className="flex items-center justify-center py-8">
-            <Loader size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+            <Loader size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
             <span className="text-[10px] ml-2" style={{ color: "rgba(255,255,255,0.2)" }}>Transcription en cours...</span>
           </div>
         )}
@@ -614,18 +614,18 @@ function TranscribeSection({ credits }: { credits: number | null }) {
               </span>
               <button onClick={downloadSrt}
                 className="flex items-center gap-1 px-2 py-1 text-[9px] rounded-sm transition-colors hover:bg-white/5"
-                style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                 <Download size={10} /> Télécharger SRT
               </button>
             </div>
 
-            <div className="px-3 py-2 text-[11px] rounded-sm max-h-48 overflow-y-auto" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.6)" }}>
+            <div className="px-3 py-2 text-[11px] rounded-sm max-h-48 overflow-y-auto" style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.6)" }}>
               {result.text}
             </div>
 
             <div className="max-h-48 overflow-y-auto space-y-0.5">
               {result.segments.map((seg, i) => (
-                <div key={i} className="flex items-start gap-2 px-2 py-1 rounded-sm text-[9px]" style={{ background: "rgba(255,255,255,0.02)", color: "rgba(255,255,255,0.4)" }}>
+                <div key={i} className="flex items-start gap-2 px-2 py-1 rounded-sm text-[9px]" style={{ background: "var(--bg-card)", color: "rgba(255,255,255,0.4)" }}>
                   <span className="shrink-0 font-mono" style={{ color: "rgba(255,255,255,0.15)" }}>
                     {formatMs(seg.start)} → {formatMs(seg.end)}
                   </span>
@@ -698,7 +698,7 @@ function LibrarySection() {
   return (
     <div className="p-4 md:p-6 max-w-5xl mx-auto space-y-6">
       <div className="mb-2">
-        <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Bibliothèque musique libre</h1>
+        <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Bibliothèque musique libre</h1>
         <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Musiques libres de droits curées depuis Pixabay, FMA, Mixkit</p>
       </div>
 
@@ -706,18 +706,18 @@ function LibrarySection() {
       <div className="flex flex-wrap gap-2 items-center">
         <input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Rechercher..."
           className="text-[10px] bg-transparent px-2.5 py-1.5 rounded-sm outline-none w-40"
-          style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
 
         <select value={mood} onChange={(e) => setMood(e.target.value)}
           className="text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-          style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
           <option value="">Toutes les ambiances</option>
           {LIBRARY_MOODS.map(m => <option key={m} value={m}>{m}</option>)}
         </select>
 
         <select value={genre} onChange={(e) => setGenre(e.target.value)}
           className="text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-          style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
           <option value="">Tous les genres</option>
           {LIBRARY_GENRES.map(g => <option key={g} value={g}>{g}</option>)}
         </select>
@@ -725,7 +725,7 @@ function LibrarySection() {
         {(mood || genre || search) && (
           <button onClick={() => { setMood(""); setGenre(""); setSearch(""); }}
             className="text-[9px] px-2 py-1 rounded-sm transition-colors hover:bg-white/5"
-            style={{ border: "1px solid rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.3)" }}>
+            style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.3)" }}>
             Réinitialiser
           </button>
         )}
@@ -737,16 +737,16 @@ function LibrarySection() {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
           {tracks.map((track) => (
-            <div key={track.id} className="flex items-center gap-3 px-3 py-2.5 rounded-sm" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
+            <div key={track.id} className="flex items-center gap-3 px-3 py-2.5 rounded-sm" style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)" }}>
               <button onClick={() => handlePlay(track.id)}
                 className="flex items-center justify-center w-8 h-8 rounded-full transition-colors hover:bg-white/10"
-                style={{ background: playingId === track.id ? "#C75B39" : "rgba(255,255,255,0.06)" }}>
+                style={{ background: playingId === track.id ? "var(--accent)" : "rgba(255,255,255,0.06)" }}>
                 {playingId === track.id ? <Pause size={12} /> : <Play size={12} />}
               </button>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-[11px] truncate" style={{ color: "#F5F0EB" }}>{track.title}</span>
-                  {track.trending && <TrendingUp size={10} style={{ color: "#C75B39" }} />}
+                  <span className="text-[11px] truncate" style={{ color: "var(--text-primary)" }}>{track.title}</span>
+                  {track.trending && <TrendingUp size={10} style={{ color: "var(--accent)" }} />}
                 </div>
                 <div className="text-[9px]" style={{ color: "rgba(255,255,255,0.3)" }}>
                   {track.artist} · {track.genre} · {formatDuration(track.duration)}

@@ -30,7 +30,7 @@ export function EditorSidebar({
       <Section title="Projet">
         <input value={projectName} onChange={(e) => onChangeProjectName(e.target.value)}
           className="w-full text-[11px] bg-transparent outline-none px-2 py-1 rounded-sm"
-          style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
         <div className="text-[10px] space-y-1 mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
           <Row label="Durée" value={`${framesToSecs(totalFrames)}s`} />
           <Row label="Pistes" value={`${tracks.length}`} />
@@ -46,7 +46,7 @@ export function EditorSidebar({
               className="flex-1 px-2 py-1.5 text-[9px] rounded-sm transition-all"
               style={{ border: `1px solid ${aspectRatio === ar.value ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                 background: aspectRatio === ar.value ? "rgba(199,91,57,0.06)" : "transparent",
-                color: aspectRatio === ar.value ? "#C75B39" : "rgba(255,255,255,0.4)" }}>
+                color: aspectRatio === ar.value ? "var(--accent)" : "rgba(255,255,255,0.4)" }}>
               {ar.label}
             </button>
           ))}
@@ -62,7 +62,7 @@ export function EditorSidebar({
               <Field label="Texte">
                 <textarea value={selectedClip.props.text || ""} onChange={(e) => onUpdateClip({ props: { ...selectedClip.props, text: e.target.value } })}
                   className="w-full text-[11px] bg-transparent outline-none resize-none px-2 py-1 rounded-sm" rows={3}
-                  style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                  style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
               </Field>
             )}
 
@@ -72,7 +72,7 @@ export function EditorSidebar({
                 <Field label="Police">
                   <select value={selectedClip.props.fontFamily || "sans-serif"} onChange={(e) => onUpdateClip({ props: { ...selectedClip.props, fontFamily: e.target.value } })}
                     className="w-full text-[10px] bg-transparent px-2 py-1 rounded-sm outline-none"
-                    style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                    style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                     <option value="sans-serif">Sans-serif</option>
                     <option value="serif">Serif</option>
                     <option value="monospace">Mono</option>
@@ -80,7 +80,7 @@ export function EditorSidebar({
                   </select>
                 </Field>
                 <Field label="Couleur">
-                  <input type="color" value={selectedClip.props.color || "#FFFFFF"} onChange={(e) => onUpdateClip({ props: { ...selectedClip.props, color: e.target.value } })}
+                  <input type="color" value={selectedClip.props.color || "var(--text-primary)"} onChange={(e) => onUpdateClip({ props: { ...selectedClip.props, color: e.target.value } })}
                     className="w-full h-7 rounded-sm cursor-pointer" style={{ background: "transparent", border: "none" }} />
                 </Field>
               </div>
@@ -90,7 +90,7 @@ export function EditorSidebar({
             <Field label="Animation">
               <select value={selectedClip.props.animation || "none"} onChange={(e) => onUpdateClip({ props: { ...selectedClip.props, animation: e.target.value as any } })}
                 className="w-full text-[10px] bg-transparent px-2 py-1 rounded-sm outline-none"
-                style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                 <option value="none">Aucune</option>
                 <option value="fadeIn">Fade in</option>
                 <option value="slideUp">Slide up</option>
@@ -104,7 +104,7 @@ export function EditorSidebar({
               <Field label="Transition">
                 <select value={selectedClip.props.transition || "none"} onChange={(e) => onUpdateClip({ props: { ...selectedClip.props, transition: e.target.value as any } })}
                   className="w-full text-[10px] bg-transparent px-2 py-1 rounded-sm outline-none"
-                  style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                  style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                   <option value="none">Aucune</option>
                   <option value="fade">Fondu</option>
                   <option value="dissolve">Dissoudre</option>

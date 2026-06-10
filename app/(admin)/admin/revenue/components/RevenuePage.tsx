@@ -64,10 +64,10 @@ export function RevenuePage() {
   const creatorRows = useMemo(() => buildCreatorRevenueRows(creators), []);
 
   return (
-    <div className="card-accent" style={{ background: "#0A0908" }}>
+    <div className="card-accent" style={{ background: "var(--bg-primary)" }}>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <p className="text-xs font-sans mt-1" style={{ color: "#F5F0EB" }}>
+          <p className="text-xs font-sans mt-1" style={{ color: "var(--text-primary)" }}>
             Analyse financière & prévisions
           </p>
         </div>

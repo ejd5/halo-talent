@@ -180,7 +180,7 @@ export default function DocsPage() {
           <Search
             size={14}
             className="absolute left-2.5 top-1/2 -translate-y-1/2"
-            style={{ color: "#E0D8D0" }}
+            style={{ color: "var(--text-secondary)" }}
           />
           <input
             type="text"
@@ -189,7 +189,7 @@ export default function DocsPage() {
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full bg-transparent text-xs py-2 pl-8 pr-3 outline-none border"
             style={{
-              color: "#F5F0EB",
+              color: "var(--text-primary)",
               borderColor: "rgba(255,255,255,0.08)",
             }}
           />
@@ -204,7 +204,7 @@ export default function DocsPage() {
               onClick={() => setActiveSection(section.id)}
               className="flex items-center gap-2.5 w-full text-left px-3 py-2 text-xs transition-colors"
               style={{
-                color: isActive ? "#C75B39" : "#E0D8D0",
+                color: isActive ? "var(--accent)" : "var(--text-secondary)",
                 background: isActive
                   ? "rgba(199,91,57,0.08)"
                   : "transparent",
@@ -224,13 +224,13 @@ export default function DocsPage() {
             <activeDoc.icon
               size={16}
               strokeWidth={1.5}
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             />
             <h1
               className="text-lg font-semibold"
               style={{
                 fontFamily: "var(--font-display)",
-                color: "#F5F0EB",
+                color: "var(--text-primary)",
               }}
             >
               {activeDoc.title}
@@ -243,7 +243,7 @@ export default function DocsPage() {
             <p
               key={i}
               className="text-sm leading-relaxed"
-              style={{ color: "#E0D8D0" }}
+              style={{ color: "var(--text-secondary)" }}
             >
               {paragraph}
             </p>

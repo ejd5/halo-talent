@@ -185,7 +185,7 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
         <Link href={`/dashboard/sovereign-chat/segments/${id}`} className="transition-all hover:opacity-70">
           <ArrowLeft size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
         </Link>
-        <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           Éditer : {name}
         </h1>
       </div>
@@ -195,12 +195,12 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
         <div>
           <label className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.3)" }}>Nom</label>
           <input value={name} onChange={(e) => setName(e.target.value)} className="w-full p-2.5 text-sm mt-1 bg-transparent transition-all"
-            style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
+            style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
         </div>
         <div>
           <label className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.3)" }}>Description</label>
           <input value={description} onChange={(e) => setDescription(e.target.value)} className="w-full p-2.5 text-sm mt-1 bg-transparent transition-all"
-            style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
+            style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
         </div>
       </div>
 
@@ -224,7 +224,7 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
                   style={{
                     backgroundColor: rule.field ? "rgba(199,91,57,0.08)" : "rgba(245,240,235,0.04)",
                     border: "1px solid rgba(245,240,235,0.06)",
-                    color: rule.field ? "#F5F0EB" : "rgba(245,240,235,0.2)",
+                    color: rule.field ? "var(--text-primary)" : "rgba(245,240,235,0.2)",
                   }}
                 >
                   <span className="truncate">{rule.field ? AVAILABLE_FIELDS.find((f) => f.id === rule.field)?.label || rule.field : "Champ..."}</span>
@@ -234,11 +234,11 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
                   <>
                     <div className="fixed inset-0 z-10" onClick={() => setShowFieldPicker(null)} />
                     <div className="absolute top-full left-0 right-0 z-20 mt-1 max-h-48 overflow-y-auto py-1"
-                      style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}>
+                      style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}>
                       {AVAILABLE_FIELDS.map((f) => (
                         <button key={f.id} onClick={() => { updateRule(rule.id, { field: f.id }); setShowFieldPicker(null); }}
                           className="w-full flex items-center justify-between px-3 py-1.5 text-[10px] transition-all hover:opacity-70"
-                          style={{ color: rule.field === f.id ? "#C75B39" : "rgba(245,240,235,0.5)", backgroundColor: rule.field === f.id ? "rgba(199,91,57,0.06)" : "transparent" }}>
+                          style={{ color: rule.field === f.id ? "var(--accent)" : "rgba(245,240,235,0.5)", backgroundColor: rule.field === f.id ? "rgba(199,91,57,0.06)" : "transparent" }}>
                           <span>{f.label}</span>
                           <span className="text-[7px]" style={{ color: "rgba(245,240,235,0.15)" }}>{f.category}</span>
                         </button>
@@ -257,11 +257,11 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
                   {showOperatorPicker === rule.id && (
                     <>
                       <div className="fixed inset-0 z-10" onClick={() => setShowOperatorPicker(null)} />
-                      <div className="absolute top-full left-0 right-0 z-20 mt-1 py-1" style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}>
+                      <div className="absolute top-full left-0 right-0 z-20 mt-1 py-1" style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}>
                         {getFieldOperators(rule.field).map((op) => (
                           <button key={op.id} onClick={() => { updateRule(rule.id, { operator: op.id, value: ["is_null", "not_null"].includes(op.id) ? "true" : rule.value }); setShowOperatorPicker(null); }}
                             className="w-full px-3 py-1 text-[10px] text-left transition-all hover:opacity-70"
-                            style={{ color: rule.operator === op.id ? "#C75B39" : "rgba(245,240,235,0.5)" }}>
+                            style={{ color: rule.operator === op.id ? "var(--accent)" : "rgba(245,240,235,0.5)" }}>
                             {op.label}
                           </button>
                         ))}
@@ -282,7 +282,7 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
                       {editingCount === rule.id && (
                         <>
                           <div className="fixed inset-0 z-10" onClick={() => setEditingCount(null)} />
-                          <div className="absolute top-full left-0 right-0 z-20 mt-1 py-1" style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}>
+                          <div className="absolute top-full left-0 right-0 z-20 mt-1 py-1" style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}>
                             {getFieldOptions(rule.field).map((opt: string) => (
                               <button key={opt} onClick={() => { updateRule(rule.id, { value: rule.operator === "in" ? [opt] : opt }); setEditingCount(null); }}
                                 className="w-full px-3 py-1 text-[10px] text-left transition-all hover:opacity-70"
@@ -297,14 +297,14 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
                       <input type="number" value={typeof rule.value === "string" ? rule.value.replace(/[^0-9]/g, "") : rule.value}
                         onChange={(e) => updateRule(rule.id, { value: `now-${e.target.value}d` })}
                         className="w-12 p-2 text-[10px] bg-transparent text-center"
-                        style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
+                        style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
                       <span className="text-[9px]" style={{ color: "rgba(245,240,235,0.2)" }}>jours</span>
                     </div>
                   ) : (
                     <input type={getFieldType(rule.field) === "number" ? "number" : "text"} value={rule.value}
                       onChange={(e) => updateRule(rule.id, { value: e.target.value })}
                       className="w-full p-2 text-[10px] bg-transparent"
-                      style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }} />
+                      style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }} />
                   )}
                 </div>
               )}
@@ -328,12 +328,12 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
         <div className="flex gap-2 mt-1">
           <button onClick={() => setType("smart")}
             className="flex-1 p-2 text-[10px] font-medium transition-all"
-            style={{ backgroundColor: type === "smart" ? "rgba(122,154,101,0.1)" : "rgba(245,240,235,0.03)", border: type === "smart" ? "1px solid rgba(122,154,101,0.2)" : "1px solid rgba(245,240,235,0.06)", color: type === "smart" ? "#7A9A65" : "rgba(245,240,235,0.3)" }}>
+            style={{ backgroundColor: type === "smart" ? "rgba(122,154,101,0.1)" : "rgba(245,240,235,0.03)", border: type === "smart" ? "1px solid rgba(122,154,101,0.2)" : "1px solid rgba(245,240,235,0.06)", color: type === "smart" ? "var(--success)" : "rgba(245,240,235,0.3)" }}>
             Auto (Smart)
           </button>
           <button onClick={() => setType("static")}
             className="flex-1 p-2 text-[10px] font-medium transition-all"
-            style={{ backgroundColor: type === "static" ? "rgba(199,91,57,0.1)" : "rgba(245,240,235,0.03)", border: type === "static" ? "1px solid rgba(199,91,57,0.2)" : "1px solid rgba(245,240,235,0.06)", color: type === "static" ? "#C75B39" : "rgba(245,240,235,0.3)" }}>
+            style={{ backgroundColor: type === "static" ? "rgba(199,91,57,0.1)" : "rgba(245,240,235,0.03)", border: type === "static" ? "1px solid rgba(199,91,57,0.2)" : "1px solid rgba(245,240,235,0.06)", color: type === "static" ? "var(--accent)" : "rgba(245,240,235,0.3)" }}>
             Manuel (Static)
           </button>
         </div>
@@ -343,11 +343,11 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
       <div className="p-3 text-xs flex items-center justify-between"
         style={{ backgroundColor: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)" }}>
         <span style={{ color: "rgba(245,240,235,0.5)" }}>
-          Aperçu : {previewCount !== null ? <strong style={{ color: "#C75B39" }}>{previewCount} membres</strong> : <span style={{ color: "rgba(245,240,235,0.2)" }}>Ajoute des conditions</span>}
+          Aperçu : {previewCount !== null ? <strong style={{ color: "var(--accent)" }}>{previewCount} membres</strong> : <span style={{ color: "rgba(245,240,235,0.2)" }}>Ajoute des conditions</span>}
         </span>
       </div>
 
-      {error && <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "#C44536" }}>{error}</div>}
+      {error && <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "var(--danger)" }}>{error}</div>}
 
       <div className="flex gap-2">
         <Link href={`/dashboard/sovereign-chat/segments/${id}`}
@@ -357,7 +357,7 @@ export default function EditSegmentPage({ params }: { params: Promise<{ id: stri
         </Link>
         <button onClick={handleSave} disabled={saving || saved}
           className="flex-1 text-[10px] font-semibold py-2.5 transition-all flex items-center justify-center gap-1.5 disabled:opacity-30"
-          style={{ backgroundColor: saved ? "rgba(122,154,101,0.1)" : "#C75B39", color: saved ? "#7A9A65" : "#F5F0EB" }}>
+          style={{ backgroundColor: saved ? "rgba(122,154,101,0.1)" : "var(--accent)", color: saved ? "var(--success)" : "var(--text-primary)" }}>
           {saved ? <><Check size={10} /> Sauvegardé !</> : saving ? "Sauvegarde..." : "Sauvegarder"}
         </button>
       </div>

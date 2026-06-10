@@ -2,98 +2,62 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { useState, useEffect } from "react";
 import {
-  LayoutDashboard,
-  BarChart3,
-  FileText,
-  GitPullRequest,
-  Users,
-  TrendingUp,
-  FileSignature,
-  DollarSign,
-  Percent,
-  Banknote,
-  CreditCard,
-  CalendarDays,
-  Library,
-  MessageSquare,
-  Globe,
-  BookOpen,
-  UserCheck,
-  FileCode,
-  AtSign,
-  Clock,
-  PieChart,
-  Settings,
-  Shield,
-  Puzzle,
-  KeyRound,
-  ScrollText,
-  Cpu,
-  ChevronLeft,
-  ChevronRight,
-  Book,
-  Zap,
+  LayoutDashboard, BarChart3, TrendingUp, Users, FileText,
+  GitPullRequest, FileSignature, CalendarDays, DollarSign,
+  Percent, Banknote, CreditCard, Library, AtSign, Clock,
+  Globe, BookOpen, UserCheck, FileCode, Shield, Puzzle,
+  KeyRound, ScrollText, Settings, Book, ChevronDown,
+  PanelRightClose, ArrowLeft,
 } from "lucide-react";
 
-type NavItem = {
+/* ─── Types ─── */
+
+type SubMenuItem = {
   label: string;
   href: string;
   icon: React.ElementType;
-  badge?: number;
 };
 
-type NavSection = {
+type SidebarItem = {
+  label: string;
+  href?: string;
+  icon: React.ElementType;
+  submenu?: SubMenuItem[];
+  badge?: { label: string; color: string };
+};
+
+type SidebarSection = {
   title: string;
-  items: NavItem[];
+  items: SidebarItem[];
 };
 
-const navSections: NavSection[] = [
+/* ─── Nav Data ─── */
+
+const MAIN_SECTIONS: SidebarSection[] = [
   {
     title: "Pilotage",
     items: [
-      { label: "Vue d'ensemble", href: "/admin", icon: LayoutDashboard },
+      { label: "Command Center", href: "/admin", icon: LayoutDashboard },
       { label: "Analytics", href: "/admin/analytics", icon: BarChart3 },
-    ],
-  },
-  {
-    title: "Acquisition",
-    items: [
-      {
-        label: "Candidatures",
-        href: "/admin/applications",
-        icon: FileText,
-        badge: 12,
-      },
-      { label: "Pipeline", href: "/admin/pipeline", icon: GitPullRequest },
+      { label: "Benchmark marché", href: "/admin/benchmarking", icon: TrendingUp },
     ],
   },
   {
     title: "Créateurs",
     items: [
       { label: "Roster", href: "/admin/creators", icon: Users },
+      { label: "Performances", href: "/admin/creators/performance", icon: TrendingUp },
       {
-        label: "Performances",
-        href: "/admin/creators/performance",
-        icon: TrendingUp,
+        label: "Candidatures",
+        href: "/admin/applications",
+        icon: FileText,
+        badge: { label: "12", color: "var(--accent)" },
       },
+      { label: "Pipeline", href: "/admin/pipeline", icon: GitPullRequest },
       { label: "Contrats", href: "/admin/contracts", icon: FileSignature },
-      { label: "Benchmarking", href: "/admin/benchmarking", icon: BarChart3 },
       { label: "Calendrier multi-créateur", href: "/admin/content-calendar", icon: CalendarDays },
-    ],
-  },
-  {
-    title: "Équipe",
-    items: [
-      { label: "Membres", href: "/admin/team", icon: UserCheck },
-    ],
-  },
-  {
-    title: "Monitoring",
-    items: [
-      { label: "Système", href: "/admin/monitoring", icon: Cpu },
-      { label: "Audit logs", href: "/admin/settings/logs", icon: ScrollText },
     ],
   },
   {
@@ -106,47 +70,31 @@ const navSections: NavSection[] = [
     ],
   },
   {
-    title: "Contenu",
+    title: "Contenu & Réseaux",
     items: [
-      { label: "Calendrier", href: "/admin/calendar", icon: CalendarDays },
+      { label: "Calendrier éditorial", href: "/admin/calendar", icon: CalendarDays },
       { label: "Bibliothèque", href: "/admin/library", icon: Library },
-      { label: "Messages", href: "/admin/messages", icon: MessageSquare },
-    ],
-  },
-  {
-    title: "Site web",
-    items: [
-      { label: "Pages", href: "/admin/site/pages", icon: Globe },
-      { label: "Blog", href: "/admin/site/blog", icon: BookOpen },
-      { label: "Talents", href: "/admin/site/roster", icon: UserCheck },
-      { label: "Manifeste", href: "/admin/site/manifesto", icon: FileCode },
-    ],
-  },
-  {
-    title: "Réseaux sociaux",
-    items: [
+      { label: "Comptes connectés", href: "/admin/social/accounts", icon: AtSign },
+      { label: "Planificateur", href: "/admin/social/scheduler", icon: Clock },
       {
-        label: "Comptes connectés",
-        href: "/admin/social/accounts",
-        icon: AtSign,
+        label: "Site web",
+        icon: Globe,
+        submenu: [
+          { label: "Pages", href: "/admin/site/pages", icon: Globe },
+          { label: "Blog", href: "/admin/site/blog", icon: BookOpen },
+          { label: "Talents", href: "/admin/site/roster", icon: UserCheck },
+          { label: "Manifeste", href: "/admin/site/manifesto", icon: FileCode },
+        ],
       },
-      {
-        label: "Planificateur",
-        href: "/admin/social/scheduler",
-        icon: Clock,
-      },
-      { label: "Insights", href: "/admin/social/insights", icon: PieChart },
     ],
   },
+];
+
+const BOTTOM_ITEMS: SidebarItem[] = [
   {
-    title: "Atlas",
-    items: [
-      { label: "Monitoring Atlas", href: "/admin/atlas/monitoring", icon: Zap },
-    ],
-  },
-  {
-    title: "Juridique & Protection",
-    items: [
+    label: "Juridique & Protection",
+    icon: Shield,
+    submenu: [
       { label: "Base juridique", href: "/admin/legal/knowledge", icon: BookOpen },
       { label: "Clauses abusives", href: "/admin/legal/clauses", icon: FileSignature },
       { label: "Analyses contrats", href: "/admin/legal/analyses", icon: BarChart3 },
@@ -154,148 +102,413 @@ const navSections: NavSection[] = [
     ],
   },
   {
-    title: "Paramètres",
-    items: [
-      { label: "Équipe", href: "/admin/settings/team", icon: Settings },
-      {
-        label: "Permissions",
-        href: "/admin/settings/permissions",
-        icon: Shield,
-      },
-      {
-        label: "Intégrations",
-        href: "/admin/settings/integrations",
-        icon: Puzzle,
-      },
-      { label: "API & Webhooks", href: "/admin/settings/api", icon: KeyRound },
-      { label: "Audit logs", href: "/admin/settings/logs", icon: ScrollText },
-      { label: "Système", href: "/admin/settings/system", icon: Cpu },
+    label: "Équipe & Permissions",
+    icon: Shield,
+    submenu: [
+      { label: "Équipe", href: "/admin/settings/team", icon: Users },
+      { label: "Permissions", href: "/admin/settings/permissions", icon: Shield },
     ],
   },
   {
-    title: "Ressources",
-    items: [
-      { label: "Documentation", href: "/admin/docs", icon: Book },
+    label: "Paramètres",
+    icon: Settings,
+    submenu: [
+      { label: "Intégrations", href: "/admin/settings/integrations", icon: Puzzle },
+      { label: "API & Webhooks", href: "/admin/settings/api", icon: KeyRound },
+      { label: "Audit logs", href: "/admin/settings/logs", icon: ScrollText },
+      { label: "Système", href: "/admin/settings/system", icon: Settings },
     ],
   },
+  { label: "Documentation", href: "/admin/docs", icon: Book },
 ];
 
-type Props = {
-  collapsed: boolean;
-  onToggle: () => void;
-  width: number;
-};
+/* ─── Contextual Creator Menu ─── */
 
-export function Sidebar({ collapsed, onToggle, width }: Props) {
-  const pathname = usePathname();
+const CREATOR_TOOLS: SidebarItem[] = [
+  { label: "Stats", href: "/admin/creators/performance", icon: TrendingUp },
+  { label: "Contrat", href: "/admin/contracts", icon: FileSignature },
+  { label: "Calendrier", href: "/admin/content-calendar", icon: CalendarDays },
+];
+
+/* ─── Active check helper ─── */
+
+function isItemActive(pathname: string, href?: string): boolean {
+  if (!href) return false;
+  if (href === "/admin") return pathname === "/admin";
+  return pathname.startsWith(href);
+}
+
+function isSectionActive(pathname: string, item: SidebarItem): boolean {
+  if (item.href && isItemActive(pathname, item.href)) return true;
+  if (item.submenu) return item.submenu.some((s) => isItemActive(pathname, s.href));
+  return false;
+}
+
+function isCreatorDetailRoute(pathname: string): boolean {
+  return /^\/admin\/creators\/[^/]+$/.test(pathname) && pathname !== "/admin/creators";
+}
+
+/* ─── SubMenu Component ─── */
+
+function SubMenuItem({ item, collapsed, pathname }: { item: SubMenuItem; collapsed: boolean; pathname: string }) {
+  const active = isItemActive(pathname, item.href);
+  const Icon = item.icon;
 
   return (
-    <aside
-      className="fixed left-0 top-0 h-screen flex flex-col border-r z-30 transition-all duration-200 overflow-hidden"
+    <Link
+      href={item.href}
+      className="flex items-center gap-3 transition-all rounded-md"
       style={{
-        width,
-        background: "#0A0908",
-        borderColor: "rgba(255,255,255,0.06)",
+        color: active ? "var(--accent)" : "var(--text-secondary)",
+        backgroundColor: active ? "var(--accent-soft)" : "transparent",
+        padding: collapsed ? "8px 0" : "6px 12px 6px 32px",
+        justifyContent: collapsed ? "center" : "flex-start",
+      }}
+      title={collapsed ? item.label : undefined}
+    >
+      <Icon size={14} strokeWidth={1.5} className="shrink-0" />
+      {!collapsed && <span className="text-xs truncate">{item.label}</span>}
+    </Link>
+  );
+}
+
+/* ─── NavItem Component ─── */
+
+function NavItemComponent({
+  item,
+  collapsed,
+  pathname,
+  expanded,
+  onToggle,
+}: {
+  item: SidebarItem;
+  collapsed: boolean;
+  pathname: string;
+  expanded: boolean;
+  onToggle: () => void;
+}) {
+  const hasSubmenu = !!item.submenu && item.submenu.length > 0;
+  const active = isSectionActive(pathname, item);
+  const Icon = item.icon;
+
+  // Collapsed mode
+  if (collapsed) {
+    if (hasSubmenu) {
+      return (
+        <div className="relative group">
+          <div
+            className="flex items-center justify-center py-3 cursor-pointer transition-colors rounded-md"
+            style={{ color: active ? "var(--accent)" : "var(--text-secondary)" }}
+            onClick={onToggle}
+            title={item.label}
+          >
+            <Icon size={18} strokeWidth={1.5} />
+          </div>
+          <div
+            className="absolute left-full ml-2 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md text-xs whitespace-nowrap z-50 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+            style={{ backgroundColor: "var(--text-primary)", color: "var(--bg-primary)" }}
+          >
+            {item.label}
+          </div>
+        </div>
+      );
+    }
+
+    return (
+      <Link
+        href={item.href!}
+        className="relative group flex items-center justify-center py-3 transition-colors rounded-md"
+        style={{ color: active ? "var(--accent)" : "var(--text-secondary)" }}
+        title={item.label}
+      >
+        <Icon size={18} strokeWidth={1.5} />
+        {item.badge && (
+          <span
+            className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full"
+            style={{ backgroundColor: item.badge.color }}
+          />
+        )}
+        <div
+          className="absolute left-full ml-2 top-1/2 -translate-y-1/2 px-2 py-1 rounded-md text-xs whitespace-nowrap z-50 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity"
+          style={{ backgroundColor: "var(--text-primary)", color: "var(--bg-primary)" }}
+        >
+          {item.label}
+        </div>
+      </Link>
+    );
+  }
+
+  // Expanded mode
+  return (
+    <div>
+      {hasSubmenu ? (
+        <button
+          onClick={onToggle}
+          className="flex items-center gap-3 w-full transition-all rounded-md"
+          style={{
+            color: active ? "var(--accent)" : "var(--text-secondary)",
+            backgroundColor: active ? "var(--accent-soft)" : "transparent",
+            padding: "8px 12px",
+          }}
+        >
+          <Icon size={18} strokeWidth={1.5} className="shrink-0" />
+          <span className="text-sm flex-1 text-left truncate">{item.label}</span>
+          <ChevronDown
+            size={14}
+            className="shrink-0 transition-transform duration-150"
+            style={{ transform: expanded ? "rotate(180deg)" : "rotate(0deg)" }}
+          />
+        </button>
+      ) : (
+        <Link
+          href={item.href!}
+          className="flex items-center gap-3 transition-all rounded-md"
+          style={{
+            color: active ? "var(--accent)" : "var(--text-secondary)",
+            backgroundColor: active ? "var(--accent-soft)" : "transparent",
+            padding: "8px 12px",
+          }}
+        >
+          <Icon size={18} strokeWidth={1.5} className="shrink-0" />
+          <span className="text-sm flex-1 truncate">{item.label}</span>
+          {item.badge && (
+            <span
+              className="text-[9px] font-medium px-1.5 py-0.5 rounded-full"
+              style={{ backgroundColor: `${item.badge.color}20`, color: item.badge.color }}
+            >
+              {item.badge.label}
+            </span>
+          )}
+        </Link>
+      )}
+
+      {hasSubmenu && expanded && (
+        <div className="mt-0.5 space-y-0.5 overflow-hidden animate-slide-down">
+          {item.submenu!.map((sub) => (
+            <SubMenuItem key={sub.href} item={sub} collapsed={collapsed} pathname={pathname} />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+/* ─── Main Component ─── */
+
+export function Sidebar({ mobileOpen, onClose }: { mobileOpen: boolean; onClose: () => void }) {
+  const pathname = usePathname();
+  const [collapsed, setCollapsed] = useState(false);
+  const [mounted, setMounted] = useState(false);
+  const [expandedMenus, setExpandedMenus] = useState<Set<string>>(new Set());
+  const [bottomExpanded, setBottomExpanded] = useState<Set<string>>(new Set());
+
+  const isCreatorContext = isCreatorDetailRoute(pathname);
+
+  // Hydrate collapsed state from localStorage
+  useEffect(() => {
+    setMounted(true);
+    const saved = localStorage.getItem("admin_sidebar_collapsed");
+    if (saved === "true") setCollapsed(true);
+  }, []);
+
+  // Persist collapsed state
+  useEffect(() => {
+    if (!mounted) return;
+    localStorage.setItem("admin_sidebar_collapsed", String(collapsed));
+  }, [collapsed, mounted]);
+
+  // Auto-open submenu containing active page
+  useEffect(() => {
+    const toOpen = new Set<string>();
+    for (const section of MAIN_SECTIONS) {
+      for (const item of section.items) {
+        if (item.submenu && item.submenu.some((s) => isItemActive(pathname, s.href))) {
+          toOpen.add(item.label);
+        }
+      }
+    }
+    for (const item of BOTTOM_ITEMS) {
+      if (item.submenu && item.submenu.some((s) => isItemActive(pathname, s.href))) {
+        toOpen.add(item.label);
+      }
+    }
+    if (toOpen.size > 0) {
+      setExpandedMenus((prev) => new Set([...prev, ...toOpen]));
+      setBottomExpanded((prev) => new Set([...prev, ...toOpen]));
+    }
+  }, [pathname]);
+
+  const toggleMenu = (label: string, isBottom: boolean) => {
+    if (isBottom) {
+      setBottomExpanded((prev) => {
+        const next = new Set(prev);
+        if (next.has(label)) next.delete(label);
+        else next.add(label);
+        return next;
+      });
+    } else {
+      setExpandedMenus((prev) => {
+        const next = new Set(prev);
+        if (next.has(label)) next.delete(label);
+        else next.add(label);
+        return next;
+      });
+    }
+  };
+
+  const sidebarWidth = collapsed ? 64 : 240;
+
+  const sidebarContent = (
+    <div
+      className="flex flex-col h-full transition-all duration-150"
+      style={{
+        width: sidebarWidth,
+        backgroundColor: "var(--bg-surface)",
+        borderRight: "1px solid var(--border-default)",
       }}
     >
       {/* Logo */}
       <div
-        className="flex items-center gap-3 shrink-0"
+        className="flex items-center shrink-0 gap-3 transition-all duration-150"
         style={{
           padding: collapsed ? "16px 12px" : "16px 20px",
           height: 64,
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: "1px solid var(--border-default)",
         }}
       >
         <div
-          className="w-7 h-7 rounded-none flex items-center justify-center text-xs font-bold shrink-0"
-          style={{ background: "#C75B39", color: "#F5F0EB" }}
+          className="w-8 h-8 flex items-center justify-center text-sm font-bold shrink-0 rounded-lg"
+          style={{ backgroundColor: "var(--accent)", color: "var(--accent-text)" }}
         >
           H
         </div>
         {!collapsed && (
           <span
-            className="font-display text-base whitespace-nowrap"
-            style={{ color: "#F5F0EB" }}
+            className="text-lg font-semibold tracking-[-0.02em]"
+            style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
-            Halo<span style={{ color: "#C75B39" }}> · </span>Admin
+            Admin
           </span>
         )}
       </div>
 
       {/* Navigation */}
-      <nav className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-4 scrollbar-thin">
-        {navSections.map((section) => (
-          <div key={section.title} className="mb-5">
-            {!collapsed && (
-              <p
-                className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] px-2 mb-2"
-                style={{ color: "#E0D8D0" }}
-              >
-                {section.title}
-              </p>
-            )}
+      <nav className="flex-1 overflow-y-auto overflow-x-hidden px-2 py-3 space-y-1 custom-scrollbar">
+        {/* Creator Context Mode */}
+        {isCreatorContext && !collapsed && (
+          <div className="mb-2">
+            <Link
+              href="/admin/creators"
+              className="flex items-center gap-2 px-2 py-2 text-xs rounded-md mb-3"
+              style={{ color: "var(--accent)" }}
+            >
+              <ArrowLeft size={14} />
+              <span>Roster</span>
+            </Link>
+            <p
+              className="text-caption px-2 pt-1 pb-1"
+              style={{ color: "var(--text-tertiary)" }}
+            >
+              Créateur
+            </p>
             <div className="space-y-0.5">
-              {section.items.map((item) => {
-                const isActive =
-                  pathname === item.href ||
-                  (item.href !== "/admin" &&
-                    pathname.startsWith(item.href));
-                const Icon = item.icon;
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={cn(
-                      "flex items-center gap-3 rounded-none text-sm font-sans transition-colors",
-                      collapsed ? "justify-center px-0 py-2" : "px-3 py-2"
-                    )}
-                    style={{
-                      color: isActive ? "#C75B39" : "#F5F0EB",
-                      background: isActive
-                        ? "rgba(199,91,57,0.08)"
-                        : "transparent",
-                    }}
-                    title={collapsed ? item.label : undefined}
-                  >
-                    <Icon size={collapsed ? 20 : 18} strokeWidth={1.5} />
-                    {!collapsed && (
-                      <span className="flex-1 truncate text-[13px]">
-                        {item.label}
-                      </span>
-                    )}
-                    {!collapsed && item.badge !== undefined && (
-                      <span
-                        className="text-[10px] font-sans font-semibold px-1.5 py-0.5"
-                        style={{
-                          background: "rgba(199,91,57,0.15)",
-                          color: "#C75B39",
-                        }}
-                      >
-                        {item.badge}
-                      </span>
-                    )}
-                  </Link>
-                );
-              })}
+              {CREATOR_TOOLS.map((item) => (
+                <NavItemComponent
+                  key={item.label}
+                  item={item}
+                  collapsed={collapsed}
+                  pathname={pathname}
+                  expanded={false}
+                  onToggle={() => {}}
+                />
+              ))}
             </div>
           </div>
-        ))}
+        )}
+
+        {/* Normal mode */}
+        {!isCreatorContext &&
+          MAIN_SECTIONS.map((section) => (
+            <div key={section.title} className="mb-1">
+              {!collapsed && (
+                <p
+                  className="text-caption px-2 pt-4 pb-1"
+                  style={{ color: "var(--text-tertiary)" }}
+                >
+                  {section.title}
+                </p>
+              )}
+              <div className="space-y-0.5">
+                {section.items.map((item) => (
+                  <NavItemComponent
+                    key={item.label}
+                    item={item}
+                    collapsed={collapsed}
+                    pathname={pathname}
+                    expanded={expandedMenus.has(item.label)}
+                    onToggle={() => toggleMenu(item.label, false)}
+                  />
+                ))}
+              </div>
+            </div>
+          ))}
       </nav>
 
-      {/* Collapse button */}
-      <button
-        onClick={onToggle}
-        className="flex items-center justify-center shrink-0 transition-colors hover:bg-white/5"
-        style={{
-          height: 44,
-          borderTop: "1px solid rgba(255,255,255,0.06)",
-          color: "#E0D8D0",
-        }}
-        aria-label={collapsed ? "Ouvrir le menu" : "Réduire le menu"}
+      {/* Bottom section */}
+      <div
+        className="shrink-0 px-2 py-2 space-y-0.5"
+        style={{ borderTop: "1px solid var(--border-default)" }}
       >
-        {collapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
-      </button>
-    </aside>
+        {BOTTOM_ITEMS.map((item) => (
+          <NavItemComponent
+            key={item.label}
+            item={item}
+            collapsed={collapsed}
+            pathname={pathname}
+            expanded={bottomExpanded.has(item.label)}
+            onToggle={() => toggleMenu(item.label, true)}
+          />
+        ))}
+
+        {/* Collapse toggle */}
+        <button
+          onClick={() => setCollapsed((c) => !c)}
+          className="flex items-center gap-3 w-full transition-all rounded-md mt-2"
+          style={{ padding: "8px 12px", color: "var(--text-tertiary)" }}
+        >
+          <PanelRightClose size={18} strokeWidth={1.5} className="shrink-0" />
+          {!collapsed && <span className="text-xs">Réduire</span>}
+        </button>
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      {/* Desktop */}
+      <aside className="hidden md:block fixed left-0 top-0 h-screen z-30">
+        {sidebarContent}
+      </aside>
+
+      {/* Mobile drawer */}
+      {mobileOpen && (
+        <div
+          className="fixed inset-0 z-50 md:hidden"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation Admin"
+        >
+          <div
+            className="absolute inset-0 animate-fade-in-overlay"
+            style={{ backgroundColor: "var(--bg-overlay)" }}
+            onClick={onClose}
+            aria-hidden="true"
+          />
+          <div className="absolute left-0 top-0 bottom-0 overflow-y-auto animate-slide-in-left">
+            {sidebarContent}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

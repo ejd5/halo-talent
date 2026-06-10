@@ -1,4 +1,16 @@
-export type Role = "owner" | "admin" | "manager" | "assistant" | "custom";
+export type Role = "owner" | "admin" | "manager" | "assistant" | "chatter" | "comptable" | "viewer" | "custom";
+
+// Seven permission modules
+export type PermissionModule =
+  | "pilotage"
+  | "createurs"
+  | "finances"
+  | "contenu"
+  | "juridique"
+  | "chat"
+  | "parametres";
+
+export type AssignedCreator = { id: string; name: string };
 
 export type Permission = {
   action: string;
@@ -12,7 +24,7 @@ export type TeamMember = {
   full_name: string;
   role: Role;
   avatar_url: string | null;
-  assigned_creators: { id: string; name: string }[];
+  assigned_creators: AssignedCreator[];
   last_login: string | null;
   active: boolean;
   custom_permissions: Record<string, boolean>;

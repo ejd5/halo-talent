@@ -108,9 +108,9 @@ const CHANNEL_ICONS: Record<string, any> = {
 };
 
 const APPROACH_COLORS: Record<string, string> = {
-  chaleureuse: "#10B981",
+  chaleureuse: "var(--success)",
   joueuse: "#F59E0B",
-  directe: "#C75B39",
+  directe: "var(--accent)",
 };
 
 const APPROACH_LABELS: Record<string, string> = {
@@ -309,7 +309,7 @@ export default function InboxPage() {
         {/* Header */}
         <div className="p-4 border-b shrink-0" style={{ borderColor: "var(--color-border)" }}>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>Messages</h2>
+            <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Messages</h2>
             <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>
               {conversations.length} conversations
             </span>
@@ -323,7 +323,7 @@ export default function InboxPage() {
               onChange={(e) => handleSearchChange(e.target.value)}
               placeholder="Rechercher un fan..."
               className="w-full pl-9 pr-3 py-2 text-sm rounded-sm outline-none transition-colors placeholder:text-[rgba(255,255,255,0.15)]"
-              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
               onFocus={(e) => e.target.style.borderColor = "rgba(199,91,57,0.3)"}
               onBlur={(e) => e.target.style.borderColor = "transparent"}
             />
@@ -333,7 +333,7 @@ export default function InboxPage() {
           <div className="flex items-center gap-2 mt-3">
             <button
               onClick={() => setUnreadOnly(!unreadOnly)}
-              className={`flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] rounded-sm transition-colors ${unreadOnly ? "bg-[#C75B39]/20 text-[#C75B39]" : "text-[rgba(255,255,255,0.3)] hover:text-[rgba(255,255,255,0.6)]"}`}
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] rounded-sm transition-colors ${unreadOnly ? "bg-[var(--accent)]/20 text-[var(--accent)]" : "text-[rgba(255,255,255,0.3)] hover:text-[rgba(255,255,255,0.6)]"}`}
               style={{ backgroundColor: unreadOnly ? "rgba(199,91,57,0.15)" : "rgba(255,255,255,0.04)" }}
             >
               <Mail size={12} /> Non lus
@@ -343,7 +343,7 @@ export default function InboxPage() {
               value={channelFilter}
               onChange={(e) => setChannelFilter(e.target.value)}
               className="flex-1 min-w-0 px-2.5 py-1.5 text-[11px] rounded-sm outline-none cursor-pointer"
-              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: channelFilter ? "#FFFFFF" : "rgba(255,255,255,0.3)", border: "1px solid transparent" }}
+              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: channelFilter ? "var(--text-primary)" : "rgba(255,255,255,0.3)", border: "1px solid transparent" }}
             >
               <option value="">Tous les canaux</option>
               <option value="email">Email</option>
@@ -357,7 +357,7 @@ export default function InboxPage() {
               value={tierFilter}
               onChange={(e) => setTierFilter(e.target.value)}
               className="min-w-0 px-2.5 py-1.5 text-[11px] rounded-sm outline-none cursor-pointer"
-              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: tierFilter ? "#FFFFFF" : "rgba(255,255,255,0.3)", border: "1px solid transparent" }}
+              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: tierFilter ? "var(--text-primary)" : "rgba(255,255,255,0.3)", border: "1px solid transparent" }}
             >
               <option value="">Tous</option>
               {Object.entries(TIER_LABELS).map(([key, label]) => (
@@ -377,7 +377,7 @@ export default function InboxPage() {
             <div className="flex flex-col items-center py-16 px-4 text-center">
               <AlertCircle size={24} style={{ color: "rgba(239,68,68,0.3)" }} />
               <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.3)" }}>{error}</p>
-              <button onClick={() => fetchConversations()} className="mt-3 text-xs px-3 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "#C75B39" }}>
+              <button onClick={() => fetchConversations()} className="mt-3 text-xs px-3 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>
                 Réessayer
               </button>
             </div>
@@ -431,7 +431,7 @@ export default function InboxPage() {
           <div className="flex-1 flex flex-col items-center justify-center">
             <AlertCircle size={24} style={{ color: "rgba(239,68,68,0.3)" }} />
             <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.3)" }}>{messagesError}</p>
-            <button onClick={() => selectedFanId && selectConversation({ fan: activeFan, last_message: null, unread_count: 0, has_pending_draft: false, is_pinned: false, is_unread: false })} className="mt-3 text-xs px-3 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "#C75B39" }}>
+            <button onClick={() => selectedFanId && selectConversation({ fan: activeFan, last_message: null, unread_count: 0, has_pending_draft: false, is_pinned: false, is_unread: false })} className="mt-3 text-xs px-3 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>
               Réessayer
             </button>
           </div>
@@ -452,7 +452,7 @@ export default function InboxPage() {
 
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium truncate" style={{ color: "#FFFFFF" }}>{activeFan.display_name}</span>
+                  <span className="text-sm font-medium truncate" style={{ color: "var(--text-primary)" }}>{activeFan.display_name}</span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded-sm font-medium" style={{ backgroundColor: tierColor(activeFan.fan_tier) || "rgba(255,255,255,0.05)", color: "#000", opacity: 0.8 }}>
                     {tierLabel(activeFan.fan_tier) || activeFan.fan_tier}
                   </span>
@@ -511,7 +511,7 @@ export default function InboxPage() {
                         className={`max-w-[75%] min-w-[120px] rounded-sm px-3.5 py-2.5 text-sm leading-relaxed ${msg.direction === "inbound" ? "rounded-bl-sm" : "rounded-br-sm"}`}
                         style={{
                           backgroundColor: msg.direction === "inbound" ? "rgba(255,255,255,0.06)" : "rgba(199,91,57,0.2)",
-                          color: "#FFFFFF",
+                          color: "var(--text-primary)",
                           borderBottomLeftRadius: msg.direction === "inbound" ? 0 : undefined,
                           borderBottomRightRadius: msg.direction === "outbound" ? 0 : undefined,
                         }}
@@ -524,7 +524,7 @@ export default function InboxPage() {
                             {new Date(msg.occurred_at).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}
                           </span>
                           {msg.ai_generated && (
-                            <span className="text-[9px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "#C75B39" }}>IA</span>
+                            <span className="text-[9px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>IA</span>
                           )}
                         </div>
                       </div>
@@ -547,7 +547,7 @@ export default function InboxPage() {
                               </span>
                             </div>
                           </div>
-                          <p className="text-[13px] leading-relaxed" style={{ color: "#FFFFFF" }}>
+                          <p className="text-[13px] leading-relaxed" style={{ color: "var(--text-primary)" }}>
                             {draft.draft_text || draft.content}
                           </p>
                           {draft.ai_warning && (
@@ -559,7 +559,7 @@ export default function InboxPage() {
                             <button
                               onClick={() => approveDraft(draft.id)}
                               className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm transition-colors"
-                              style={{ backgroundColor: "rgba(16,185,129,0.1)", color: "#10B981" }}
+                              style={{ backgroundColor: "rgba(16,185,129,0.1)", color: "var(--success)" }}
                             >
                               <CheckCircle size={12} /> Approuver
                             </button>
@@ -590,14 +590,14 @@ export default function InboxPage() {
                     onChange={(e) => setDraftGoal(e.target.value)}
                     placeholder="Objectif du message (optionnel)..."
                     className="flex-1 px-3 py-1.5 text-xs rounded-sm outline-none"
-                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
                     onKeyDown={(e) => { if (e.key === "Enter") { generateDrafts(); setShowDraftInput(false); } }}
                   />
                   <button
                     onClick={() => { generateDrafts(); setShowDraftInput(false); }}
                     disabled={generatingDrafts}
                     className="text-xs px-2.5 py-1.5 rounded-sm transition-colors disabled:opacity-50"
-                    style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "#C75B39" }}
+                    style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "var(--accent)" }}
                   >
                     OK
                   </button>
@@ -615,7 +615,7 @@ export default function InboxPage() {
                   onClick={() => { setShowDraftInput(!showDraftInput); generatingDrafts ? null : generateDrafts(); }}
                   disabled={generatingDrafts}
                   className="flex items-center gap-1.5 text-xs px-3 py-2 rounded-sm shrink-0 transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:opacity-80"
-                  style={{ backgroundColor: generatingDrafts ? "rgba(199,91,57,0.1)" : "rgba(199,91,57,0.15)", color: "#C75B39" }}
+                  style={{ backgroundColor: generatingDrafts ? "rgba(199,91,57,0.1)" : "rgba(199,91,57,0.15)", color: "var(--accent)" }}
                 >
                   {generatingDrafts ? (
                     <><Loader size={14} className="animate-spin" /> Génération...</>
@@ -674,7 +674,7 @@ function ConversationCard({ conversation, isActive, onSelect }: {
       className="w-full text-left px-4 py-3 transition-colors relative"
       style={{
         backgroundColor: isActive ? "rgba(199,91,57,0.08)" : "transparent",
-        borderLeft: isActive ? "2px solid #C75B39" : "2px solid transparent",
+        borderLeft: isActive ? "2px solid var(--accent)" : "2px solid transparent",
       }}
     >
       <div className="flex items-start gap-3">
@@ -694,8 +694,8 @@ function ConversationCard({ conversation, isActive, onSelect }: {
           {/* Name + time */}
           <div className="flex items-center justify-between gap-2 mb-0.5">
             <div className="flex items-center gap-1.5 min-w-0">
-              {is_pinned && <Pin size={10} style={{ color: "#C75B39" }} />}
-              <span className="text-sm font-medium truncate" style={{ color: "#FFFFFF" }}>
+              {is_pinned && <Pin size={10} style={{ color: "var(--accent)" }} />}
+              <span className="text-sm font-medium truncate" style={{ color: "var(--text-primary)" }}>
                 {fan.display_name}
               </span>
               {fan.fan_tier && (
@@ -721,7 +721,7 @@ function ConversationCard({ conversation, isActive, onSelect }: {
 
           {/* Last message */}
           {last_message && (
-            <p className="text-xs leading-relaxed line-clamp-1" style={{ color: unread_count > 0 || is_unread ? "#FFFFFF" : "rgba(255,255,255,0.3)" }}>
+            <p className="text-xs leading-relaxed line-clamp-1" style={{ color: unread_count > 0 || is_unread ? "var(--text-primary)" : "rgba(255,255,255,0.3)" }}>
               {last_message.content || "(pièce jointe)"}
             </p>
           )}
@@ -729,7 +729,7 @@ function ConversationCard({ conversation, isActive, onSelect }: {
           {/* Badges row */}
           <div className="flex items-center gap-2 mt-1.5">
             {(unread_count > 0 || is_unread) && (
-              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}>
+              <span className="text-[10px] font-medium px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
                 {unread_count > 0 ? `${unread_count} nouveau${unread_count > 1 ? "x" : ""}` : "Non lu"}
               </span>
             )}
@@ -767,7 +767,7 @@ function FanContextPanel({ fan, messageCount, onClose }: {
         <div className="w-14 h-14 rounded-sm flex items-center justify-center text-lg font-semibold mx-auto mb-3 border" style={{ backgroundColor: tierColor(fan.fan_tier) ? `${tierColor(fan.fan_tier)}20` : "var(--color-card)", color: tierColor(fan.fan_tier) || "rgba(255,255,255,0.4)", borderColor: "var(--color-border)" }}>
           {(fan.display_name || "?").charAt(0).toUpperCase()}
         </div>
-        <h3 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>{fan.display_name}</h3>
+        <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{fan.display_name}</h3>
         {(fan.email || fan.country) && (
           <p className="text-[11px] mt-0.5" style={{ color: "rgba(255,255,255,0.25)" }}>
             {fan.email}{fan.email && fan.country ? " · " : ""}{fan.country}
@@ -789,11 +789,11 @@ function FanContextPanel({ fan, messageCount, onClose }: {
       <div className="grid grid-cols-2 gap-2">
         <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
           <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>Dépenses</p>
-          <p className="text-sm font-semibold mt-1" style={{ color: "#FFFFFF" }}>{formatAmount(fan.total_spent)}</p>
+          <p className="text-sm font-semibold mt-1" style={{ color: "var(--text-primary)" }}>{formatAmount(fan.total_spent)}</p>
         </div>
         <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
           <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>Messages</p>
-          <p className="text-sm font-semibold mt-1" style={{ color: "#FFFFFF" }}>{fan.total_interactions}</p>
+          <p className="text-sm font-semibold mt-1" style={{ color: "var(--text-primary)" }}>{fan.total_interactions}</p>
         </div>
       </div>
 

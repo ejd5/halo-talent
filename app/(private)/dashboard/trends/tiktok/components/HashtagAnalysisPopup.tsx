@@ -98,12 +98,12 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
     >
       <div
         className="w-full max-w-2xl max-h-[85vh] overflow-y-auto"
-        style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}
+        style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="sticky top-0 z-10 flex items-center justify-between p-4" style={{ backgroundColor: "#1A1614", borderBottom: "1px solid rgba(245,240,235,0.06)" }}>
-          <h2 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <div className="sticky top-0 z-10 flex items-center justify-between p-4" style={{ backgroundColor: "var(--bg-primary)", borderBottom: "1px solid rgba(245,240,235,0.06)" }}>
+          <h2 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             #{hashtag}
           </h2>
           <button onClick={onClose} className="p-1 hover:opacity-70" style={{ color: "rgba(245,240,235,0.2)" }}>
@@ -120,7 +120,7 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
               className="flex items-center gap-1 text-[9px] px-2 py-1.5 font-medium transition-all whitespace-nowrap"
               style={{
                 backgroundColor: activeSection === i ? "rgba(199,91,57,0.1)" : "transparent",
-                color: activeSection === i ? "#C75B39" : "rgba(245,240,235,0.2)",
+                color: activeSection === i ? "var(--accent)" : "rgba(245,240,235,0.2)",
               }}
             >
               <s.icon size={10} />
@@ -152,8 +152,8 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                       Croissance
                     </p>
                     <div className="flex items-center gap-3 text-xs">
-                      <span style={{ color: "#7A9A65" }}>7j: +{data.metrics.growth_7d}%</span>
-                      <span style={{ color: "#C75B39" }}>30j: +{data.metrics.growth_30d}%</span>
+                      <span style={{ color: "var(--success)" }}>7j: +{data.metrics.growth_7d}%</span>
+                      <span style={{ color: "var(--accent)" }}>30j: +{data.metrics.growth_30d}%</span>
                       <span style={{ color: "rgba(245,240,235,0.5)" }}>120j: +{data.metrics.growth_120d}%</span>
                     </div>
                     {/* Rank sparkline */}
@@ -164,7 +164,7 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                           className="flex-1"
                           style={{
                             height: `${(10 - v) / 10 * 100}%`,
-                            backgroundColor: i === data.metrics.rank_history.length - 1 ? "#C75B39" : "rgba(245,240,235,0.06)",
+                            backgroundColor: i === data.metrics.rank_history.length - 1 ? "var(--accent)" : "rgba(245,240,235,0.06)",
                           }}
                         />
                       ))}
@@ -206,7 +206,7 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                     <div className="grid grid-cols-2 gap-1">
                       {data.audience.top_countries.map((c: any) => (
                         <div key={c.country} className="flex items-center justify-between py-1 px-2" style={{ backgroundColor: "rgba(245,240,235,0.03)" }}>
-                          <span className="text-xs" style={{ color: "#F5F0EB" }}>{c.country}</span>
+                          <span className="text-xs" style={{ color: "var(--text-primary)" }}>{c.country}</span>
                           <span className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>{c.pct}%</span>
                         </div>
                       ))}
@@ -222,7 +222,7 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                     <div key={v.id} className="flex items-center justify-between p-2" style={{ backgroundColor: "rgba(245,240,235,0.03)" }}>
                       <div className="flex items-center gap-2">
                         <span className="text-[10px] font-medium" style={{ color: "rgba(245,240,235,0.2)" }}>#{i + 1}</span>
-                        <span className="text-xs truncate max-w-[300px]" style={{ color: "#F5F0EB" }}>{v.title}</span>
+                        <span className="text-xs truncate max-w-[300px]" style={{ color: "var(--text-primary)" }}>{v.title}</span>
                       </div>
                       <span className="text-[10px] tabular-nums" style={{ color: "rgba(245,240,235,0.3)" }}>
                         {formatCount(v.views)} vues
@@ -245,7 +245,7 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                         className="text-xs px-2 py-1"
                         style={{
                           backgroundColor: c.frequency === "100%" ? "rgba(199,91,57,0.1)" : "rgba(245,240,235,0.04)",
-                          color: c.frequency === "100%" ? "#C75B39" : "rgba(245,240,235,0.4)",
+                          color: c.frequency === "100%" ? "var(--accent)" : "rgba(245,240,235,0.4)",
                         }}
                       >
                         {c.hashtag}
@@ -262,7 +262,7 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-[9px] px-2 py-0.5 font-medium" style={{
                       backgroundColor: "rgba(122,154,101,0.1)",
-                      color: "#7A9A65",
+                      color: "var(--success)",
                       border: "1px solid rgba(122,154,101,0.2)",
                     }}>
                       {data.recommendation.stage === "growing" ? "En croissance" : data.recommendation.stage}
@@ -280,10 +280,10 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                       <div
                         key={i}
                         className="flex items-start gap-2 p-2.5"
-                        style={{ backgroundColor: "rgba(245,240,235,0.03)", borderLeft: "2px solid #C75B39" }}
+                        style={{ backgroundColor: "rgba(245,240,235,0.03)", borderLeft: "2px solid var(--accent)" }}
                       >
-                        <span className="text-[9px] font-medium mt-0.5" style={{ color: "#C75B39" }}>{i + 1}.</span>
-                        <p className="text-xs" style={{ color: "#F5F0EB" }}>{idea}</p>
+                        <span className="text-[9px] font-medium mt-0.5" style={{ color: "var(--accent)" }}>{i + 1}.</span>
+                        <p className="text-xs" style={{ color: "var(--text-primary)" }}>{idea}</p>
                       </div>
                     ))}
                   </div>
@@ -291,7 +291,7 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                   <button
                     onClick={() => router.push(`/studio/composer?source=tiktok&hashtag=${encodeURIComponent(hashtag)}`)}
                     className="w-full text-xs font-semibold py-2.5 transition-all hover:opacity-80"
-                    style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+                    style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
                   >
                     Créer maintenant
                   </button>
@@ -311,7 +311,7 @@ function MetricCard({ label, value, up }: { label: string; value: string; up?: b
       <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.2)" }}>
         {label}
       </p>
-      <p className="text-lg font-semibold mt-1 tabular-nums" style={{ color: up ? "#7A9A65" : "#F5F0EB" }}>
+      <p className="text-lg font-semibold mt-1 tabular-nums" style={{ color: up ? "var(--success)" : "var(--text-primary)" }}>
         {value}
       </p>
     </div>

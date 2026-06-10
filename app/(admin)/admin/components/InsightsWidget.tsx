@@ -49,10 +49,10 @@ export function InsightsWidget({ title, type }: Props) {
   };
 
   const colorMap = {
-    "top-creators": "#7A9A65",
-    "at-risk": "#C44536",
-    deadlines: "#C75B39",
-    "ai-suggestions": "#F5F0EB",
+    "top-creators": "var(--success)",
+    "at-risk": "var(--danger)",
+    deadlines: "var(--accent)",
+    "ai-suggestions": "var(--text-primary)",
   };
 
   const Icon = iconMap[type];
@@ -62,15 +62,15 @@ export function InsightsWidget({ title, type }: Props) {
     <div
       className="flex flex-col card-accent"
       style={{
-        background: "#1A1614",
-        border: "1px solid rgba(255,255,255,0.04)",
+        background: "var(--bg-primary)",
+        border: "1px solid var(--border-default)",
       }}
     >
       {/* Header */}
       <div
         className="flex items-center justify-between px-5 py-4"
         style={{
-          borderBottom: "1px solid rgba(255,255,255,0.04)",
+          borderBottom: "1px solid var(--border-default)",
         }}
       >
         <div className="flex items-center gap-2.5">
@@ -82,7 +82,7 @@ export function InsightsWidget({ title, type }: Props) {
           </div>
           <h3
             className="font-display text-sm font-bold"
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           >
             {title}
           </h3>
@@ -90,7 +90,7 @@ export function InsightsWidget({ title, type }: Props) {
         {type !== "ai-suggestions" && (
           <button
             className="flex items-center gap-1 text-[10px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-70"
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           >
             Voir tout <ArrowUpRight size={12} strokeWidth={1.5} />
           </button>
@@ -106,7 +106,7 @@ export function InsightsWidget({ title, type }: Props) {
                 <div className="flex items-center gap-3">
                   <span
                     className="text-[10px] font-sans font-semibold w-4"
-                    style={{ color: "#E0D8D0" }}
+                    style={{ color: "var(--text-secondary)" }}
                   >
                     {String(i + 1).padStart(2, "0")}
                   </span>
@@ -119,7 +119,7 @@ export function InsightsWidget({ title, type }: Props) {
                     </p>
                     <p
                       className="text-[10px] font-sans"
-                      style={{ color: "#E0D8D0" }}
+                      style={{ color: "var(--text-secondary)" }}
                     >
                       {c.platform}
                     </p>
@@ -127,7 +127,7 @@ export function InsightsWidget({ title, type }: Props) {
                 </div>
                 <span
                   className="text-sm font-display font-bold"
-                  style={{ color: "#C75B39" }}
+                  style={{ color: "var(--accent)" }}
                 >
                   {c.revenue}
                 </span>
@@ -149,14 +149,14 @@ export function InsightsWidget({ title, type }: Props) {
                   </p>
                   <span
                     className="text-[11px] font-sans font-semibold"
-                    style={{ color: "#C44536" }}
+                    style={{ color: "var(--danger)" }}
                   >
                     {c.drop}
                   </span>
                 </div>
                 <p
                   className="text-[11px] font-sans mt-0.5"
-                  style={{ color: "#E0D8D0" }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   {c.reason}
                 </p>
@@ -178,14 +178,14 @@ export function InsightsWidget({ title, type }: Props) {
                   </p>
                   <span
                     className="text-[10px] font-sans"
-                    style={{ color: "#C75B39" }}
+                    style={{ color: "var(--accent)" }}
                   >
                     {d.date}
                   </span>
                 </div>
                 <p
                   className="text-[11px] font-sans mt-0.5"
-                  style={{ color: "#E0D8D0" }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   {d.creator}
                 </p>
@@ -200,13 +200,13 @@ export function InsightsWidget({ title, type }: Props) {
               <div key={i} className="flex gap-2.5">
                 <span
                   className="text-[10px] font-sans font-semibold mt-0.5 shrink-0"
-                  style={{ color: "#E0D8D0" }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
                 <p
                   className="text-[12px] font-sans leading-relaxed"
-                  style={{ color: "#E0D8D0" }}
+                  style={{ color: "var(--text-secondary)" }}
                 >
                   {s}
                 </p>

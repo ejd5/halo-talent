@@ -160,7 +160,7 @@ export default function CompliancePage() {
     <div className="space-y-6 animate-fade-in max-w-4xl">
       {/* Header */}
       <div>
-        <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           Centre de Conformité
         </h1>
         <p className="text-sm mt-1" style={{ color: "var(--color-ink-secondary)" }}>
@@ -175,13 +175,13 @@ export default function CompliancePage() {
             {/* Score */}
             <div className="flex items-center gap-4 mb-4 p-4" style={{ backgroundColor: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)" }}>
               <div className="text-center">
-                <p className="text-3xl font-bold" style={{ fontFamily: "var(--font-display)", color: statusData.score >= 80 ? "#7A9A65" : statusData.score >= 50 ? "#C75B39" : "#C44536" }}>
+                <p className="text-3xl font-bold" style={{ fontFamily: "var(--font-display)", color: statusData.score >= 80 ? "var(--success)" : statusData.score >= 50 ? "var(--accent)" : "var(--danger)" }}>
                   {statusData.score}%
                 </p>
                 <p className="text-xs mt-1" style={{ color: "var(--color-ink-tertiary)" }}>Score conformité</p>
               </div>
               <div className="flex-1">
-                <p className="text-sm" style={{ color: "#F5F0EB" }}>
+                <p className="text-sm" style={{ color: "var(--text-primary)" }}>
                   {statusData.score === 100
                     ? "Tout est conforme. Aucune action requise."
                     : statusData.score >= 80
@@ -197,7 +197,7 @@ export default function CompliancePage() {
                 <div key={ch.channel} className="flex items-center justify-between py-2" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
                   <div className="flex items-center gap-3">
                     <StatusBadge status={ch.status} />
-                    <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{ch.label}</span>
+                    <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{ch.label}</span>
                   </div>
                   <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>{ch.details}</span>
                 </div>
@@ -239,7 +239,7 @@ export default function CompliancePage() {
               onChange={(v) => saveSettings({ detailed_audit_logging: v })}
             />
             {saving && <p className="text-xs mt-2" style={{ color: "var(--color-ink-tertiary)" }}>Sauvegarde...</p>}
-            {savedMessage && <p className="text-xs mt-2" style={{ color: "#7A9A65" }}>{savedMessage}</p>}
+            {savedMessage && <p className="text-xs mt-2" style={{ color: "var(--success)" }}>{savedMessage}</p>}
           </>
         )}
       </Section>
@@ -248,8 +248,8 @@ export default function CompliancePage() {
       <Section title="Consents Registry" icon={Users}>
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
           {consentCounts.map((ct) => (
-            <div key={ct.id} className="p-3 text-center" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
-              <p className="text-xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>{ct.count}</p>
+            <div key={ct.id} className="p-3 text-center" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
+              <p className="text-xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>{ct.count}</p>
               <p className="text-xs mt-1" style={{ color: "var(--color-ink-tertiary)" }}>{ct.label}</p>
             </div>
           ))}
@@ -259,12 +259,12 @@ export default function CompliancePage() {
         {/* Filter */}
         <div className="flex gap-2 mb-3 flex-wrap">
           <button onClick={() => { setSelectedConsentType(""); }} className="text-xs px-3 py-1"
-            style={{ backgroundColor: !selectedConsentType ? "rgba(199,91,57,0.12)" : "transparent", color: !selectedConsentType ? "#C75B39" : "var(--color-ink-tertiary)", border: "1px solid rgba(245,240,235,0.06)" }}>
+            style={{ backgroundColor: !selectedConsentType ? "rgba(199,91,57,0.12)" : "transparent", color: !selectedConsentType ? "var(--accent)" : "var(--color-ink-tertiary)", border: "1px solid rgba(245,240,235,0.06)" }}>
             Tous
           </button>
           {CONSENT_TYPES.map((ct) => (
             <button key={ct.id} onClick={() => setSelectedConsentType(ct.id)} className="text-xs px-3 py-1"
-              style={{ backgroundColor: selectedConsentType === ct.id ? "rgba(199,91,57,0.12)" : "transparent", color: selectedConsentType === ct.id ? "#C75B39" : "var(--color-ink-tertiary)", border: "1px solid rgba(245,240,235,0.06)" }}>
+              style={{ backgroundColor: selectedConsentType === ct.id ? "rgba(199,91,57,0.12)" : "transparent", color: selectedConsentType === ct.id ? "var(--accent)" : "var(--color-ink-tertiary)", border: "1px solid rgba(245,240,235,0.06)" }}>
               {ct.label}
             </button>
           ))}
@@ -280,7 +280,7 @@ export default function CompliancePage() {
               <tbody>
                 {consents.filter((c) => !selectedConsentType || c.consent_type === selectedConsentType).slice(0, 30).map((c) => (
                   <tr key={c.id} className="table-row">
-                    <td className="px-3 py-2" style={{ color: "#F5F0EB" }}>{c.fan?.display_name ?? "Inconnu"}</td>
+                    <td className="px-3 py-2" style={{ color: "var(--text-primary)" }}>{c.fan?.display_name ?? "Inconnu"}</td>
                     <td className="px-3 py-2"><span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>{c.consent_type}</span></td>
                     <td className="px-3 py-2"><span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>{c.source}</span></td>
                     <td className="px-3 py-2"><span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>{new Date(c.created_at).toLocaleDateString("fr-FR")}</span></td>
@@ -299,12 +299,12 @@ export default function CompliancePage() {
       <Section title="Audit Logs" icon={ScrollText}>
         <div className="flex gap-2 mb-3 flex-wrap">
           <button onClick={() => setAuditFilter("")} className="text-xs px-3 py-1"
-            style={{ backgroundColor: !auditFilter ? "rgba(199,91,57,0.12)" : "transparent", color: !auditFilter ? "#C75B39" : "var(--color-ink-tertiary)", border: "1px solid rgba(245,240,235,0.06)" }}>
+            style={{ backgroundColor: !auditFilter ? "rgba(199,91,57,0.12)" : "transparent", color: !auditFilter ? "var(--accent)" : "var(--color-ink-tertiary)", border: "1px solid rgba(245,240,235,0.06)" }}>
             Tous
           </button>
           {["fan", "campaign", "draft", "rule", "compliance"].map((t) => (
             <button key={t} onClick={() => setAuditFilter(t)} className="text-xs px-3 py-1"
-              style={{ backgroundColor: auditFilter === t ? "rgba(199,91,57,0.12)" : "transparent", color: auditFilter === t ? "#C75B39" : "var(--color-ink-tertiary)", border: "1px solid rgba(245,240,235,0.06)" }}>
+              style={{ backgroundColor: auditFilter === t ? "rgba(199,91,57,0.12)" : "transparent", color: auditFilter === t ? "var(--accent)" : "var(--color-ink-tertiary)", border: "1px solid rgba(245,240,235,0.06)" }}>
               {t}
             </button>
           ))}
@@ -315,8 +315,8 @@ export default function CompliancePage() {
             {auditLogs.filter((l) => !auditFilter || l.entity_type === auditFilter).map((log) => (
               <div key={log.id} className="flex items-center justify-between px-3 py-2 text-sm" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs px-1.5 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.08)", color: "#C75B39" }}>{log.entity_type}</span>
-                  <span style={{ color: "#F5F0EB" }}>{log.description}</span>
+                  <span className="text-xs px-1.5 py-0.5" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>{log.entity_type}</span>
+                  <span style={{ color: "var(--text-primary)" }}>{log.description}</span>
                 </div>
                 <span className="text-xs font-mono" style={{ color: "var(--color-ink-tertiary)" }}>
                   {new Date(log.created_at).toLocaleString("fr-FR")}
@@ -333,57 +333,57 @@ export default function CompliancePage() {
       <Section title="RGPD Compliance" icon={Scale}>
         <div className="space-y-4">
           {/* Export data */}
-          <div className="p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
-            <p className="text-sm font-medium mb-2" style={{ color: "#F5F0EB" }}>Export des données fan (Art. 15)</p>
+          <div className="p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <p className="text-sm font-medium mb-2" style={{ color: "var(--text-primary)" }}>Export des données fan (Art. 15)</p>
             <div className="flex gap-2">
               <input
                 value={exportFanId}
                 onChange={(e) => setExportFanId(e.target.value)}
                 placeholder="ID du fan"
                 className="flex-1 px-3 py-2 text-sm"
-                style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }}
+                style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }}
               />
-              <button onClick={handleExport} className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium" style={{ backgroundColor: "rgba(199,91,57,0.12)", color: "#C75B39" }}>
+              <button onClick={handleExport} className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>
                 <Download size={12} /> Exporter
               </button>
             </div>
             {exportResult && (
-              <pre className="text-xs mt-2 p-2 max-h-32 overflow-y-auto" style={{ backgroundColor: "#1A1614", color: "#7A9A65", fontFamily: "var(--font-mono)" }}>
+              <pre className="text-xs mt-2 p-2 max-h-32 overflow-y-auto" style={{ backgroundColor: "var(--bg-primary)", color: "var(--success)", fontFamily: "var(--font-mono)" }}>
                 {JSON.stringify(exportResult.fan, null, 2).slice(0, 500)}
               </pre>
             )}
           </div>
 
           {/* Delete fan */}
-          <div className="p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
-            <p className="text-sm font-medium mb-2" style={{ color: "#F5F0EB" }}>Anonymisation fan (Art. 17)</p>
+          <div className="p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <p className="text-sm font-medium mb-2" style={{ color: "var(--text-primary)" }}>Anonymisation fan (Art. 17)</p>
             <div className="flex gap-2">
               <input
                 value={deleteFanId}
                 onChange={(e) => setDeleteFanId(e.target.value)}
                 placeholder="ID du fan à anonymiser"
                 className="flex-1 px-3 py-2 text-sm"
-                style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.06)", color: "#F5F0EB", outline: "none" }}
+                style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.06)", color: "var(--text-primary)", outline: "none" }}
               />
-              <button onClick={handleDelete} className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium" style={{ backgroundColor: "rgba(196,69,54,0.12)", color: "#C44536" }}>
+              <button onClick={handleDelete} className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium" style={{ backgroundColor: "rgba(196,69,54,0.12)", color: "var(--danger)" }}>
                 <Trash2 size={12} /> Anonymiser
               </button>
             </div>
           </div>
 
           {/* Generate privacy policy */}
-          <div className="p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
-            <p className="text-sm font-medium mb-2" style={{ color: "#F5F0EB" }}>Politique de confidentialité (Art. 30)</p>
-            <button onClick={generatePrivacy} className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium mb-2" style={{ backgroundColor: "rgba(199,91,57,0.12)", color: "#C75B39" }}>
+          <div className="p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <p className="text-sm font-medium mb-2" style={{ color: "var(--text-primary)" }}>Politique de confidentialité (Art. 30)</p>
+            <button onClick={generatePrivacy} className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium mb-2" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>
               <RefreshCw size={12} /> Générer le template
             </button>
             {privacyTemplate && <CopyBlock content={privacyTemplate} />}
           </div>
 
           {/* DPA */}
-          <div className="p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
-            <p className="text-sm font-medium mb-2" style={{ color: "#F5F0EB" }}>Data Processing Agreement (DPA)</p>
-            <button onClick={generateDpa} className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium mb-2" style={{ backgroundColor: "rgba(199,91,57,0.12)", color: "#C75B39" }}>
+          <div className="p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <p className="text-sm font-medium mb-2" style={{ color: "var(--text-primary)" }}>Data Processing Agreement (DPA)</p>
+            <button onClick={generateDpa} className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium mb-2" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>
               <FileSignature size={12} /> Générer le DPA
             </button>
             {dpaTemplate && <CopyBlock content={dpaTemplate} />}
@@ -395,10 +395,10 @@ export default function CompliancePage() {
       <Section title="Templates de contrats" icon={FileSignature}>
         <div className="space-y-4">
           {templates.map((t: any) => (
-            <div key={t.id} className="p-3" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <div key={t.id} className="p-3" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
               <div className="flex items-center justify-between mb-2">
                 <div>
-                  <p className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{t.title}</p>
+                  <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{t.title}</p>
                   <p className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>{t.subtitle}</p>
                 </div>
               </div>
@@ -412,48 +412,48 @@ export default function CompliancePage() {
       <Section title="Protections automatiques" icon={Shield}>
         <div className="space-y-3 text-sm">
           <div className="flex items-start gap-3 p-3" style={{ backgroundColor: "rgba(122,154,101,0.04)", border: "1px solid rgba(122,154,101,0.1)" }}>
-            <CheckCircle size={16} style={{ color: "#7A9A65", marginTop: 2 }} />
+            <CheckCircle size={16} style={{ color: "var(--success)", marginTop: 2 }} />
             <div>
-              <p className="font-medium" style={{ color: "#F5F0EB" }}>Anti-spam check automatique</p>
+              <p className="font-medium" style={{ color: "var(--text-primary)" }}>Anti-spam check automatique</p>
               <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>Avant chaque campagne, le contenu est analysé pour détecter les déclencheurs de spam. Score {'>'} 60% = blocage.</p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-3" style={{ backgroundColor: "rgba(91,143,168,0.04)", border: "1px solid rgba(91,143,168,0.1)" }}>
             <CheckCircle size={16} style={{ color: "#5B8FA8", marginTop: 2 }} />
             <div>
-              <p className="font-medium" style={{ color: "#F5F0EB" }}>Rate limiting intelligent</p>
+              <p className="font-medium" style={{ color: "var(--text-primary)" }}>Rate limiting intelligent</p>
               <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>
                 Max {settings?.max_emails_per_day_per_fan ?? 3} emails/jour/personne · Max {settings?.max_dms_per_day_per_fan ?? 1} DM/jour/personne · Fenêtre {settings?.quiet_hours_start ?? "21:00"}-{settings?.quiet_hours_end ?? "08:00"}
               </p>
             </div>
           </div>
           <div className="flex items-start gap-3 p-3" style={{ backgroundColor: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)" }}>
-            <CheckCircle size={16} style={{ color: "#C75B39", marginTop: 2 }} />
+            <CheckCircle size={16} style={{ color: "var(--accent)", marginTop: 2 }} />
             <div>
-              <p className="font-medium" style={{ color: "#F5F0EB" }}>Unsubscribe automatique</p>
+              <p className="font-medium" style={{ color: "var(--text-primary)" }}>Unsubscribe automatique</p>
               <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>Tout fan qui clique unsubscribe est retiré de toutes les futures campagnes. Effectif sous 24h max.</p>
             </div>
           </div>
 
           {/* Retention config */}
           <div className="mt-4">
-            <p className="text-sm font-medium mb-2" style={{ color: "#F5F0EB" }}>Rétention des données</p>
+            <p className="text-sm font-medium mb-2" style={{ color: "var(--text-primary)" }}>Rétention des données</p>
             <div className="grid grid-cols-2 gap-2 text-xs">
-              <div className="p-2" style={{ backgroundColor: "#2A2420" }}>
+              <div className="p-2" style={{ backgroundColor: "var(--bg-card)" }}>
                 <span style={{ color: "var(--color-ink-tertiary)" }}>Drafts IA</span>
-                <p className="font-medium" style={{ color: "#F5F0EB" }}>{settings?.retention_drafts ?? 90} jours</p>
+                <p className="font-medium" style={{ color: "var(--text-primary)" }}>{settings?.retention_drafts ?? 90} jours</p>
               </div>
-              <div className="p-2" style={{ backgroundColor: "#2A2420" }}>
+              <div className="p-2" style={{ backgroundColor: "var(--bg-card)" }}>
                 <span style={{ color: "var(--color-ink-tertiary)" }}>Logs d'audit</span>
-                <p className="font-medium" style={{ color: "#F5F0EB" }}>{(settings?.retention_audit_logs ?? 2555) / 365} ans</p>
+                <p className="font-medium" style={{ color: "var(--text-primary)" }}>{(settings?.retention_audit_logs ?? 2555) / 365} ans</p>
               </div>
-              <div className="p-2" style={{ backgroundColor: "#2A2420" }}>
+              <div className="p-2" style={{ backgroundColor: "var(--bg-card)" }}>
                 <span style={{ color: "var(--color-ink-tertiary)" }}>Fans inactifs</span>
-                <p className="font-medium" style={{ color: "#F5F0EB" }}>{(settings?.retention_inactive_fans ?? 730)} jours puis archivage</p>
+                <p className="font-medium" style={{ color: "var(--text-primary)" }}>{(settings?.retention_inactive_fans ?? 730)} jours puis archivage</p>
               </div>
-              <div className="p-2" style={{ backgroundColor: "#2A2420" }}>
+              <div className="p-2" style={{ backgroundColor: "var(--bg-card)" }}>
                 <span style={{ color: "var(--color-ink-tertiary)" }}>Conversations</span>
-                <p className="font-medium" style={{ color: "#F5F0EB" }}>{settings?.retention_conversations === -1 ? "Indéfini" : settings?.retention_conversations + " jours"}</p>
+                <p className="font-medium" style={{ color: "var(--text-primary)" }}>{settings?.retention_conversations === -1 ? "Indéfini" : settings?.retention_conversations + " jours"}</p>
               </div>
             </div>
           </div>

@@ -96,7 +96,7 @@ const PALETTE_LOGIC: PaletteEntry[] = [
 
 /* ─── Status styles ─── */
 const STATUS_STYLES: Record<string, { label: string; color: string; bg: string }> = {
-  active:    { label: "Actif",     color: "#10B981", bg: "rgba(16,185,129,0.1)" },
+  active:    { label: "Actif",     color: "var(--success)", bg: "rgba(16,185,129,0.1)" },
   paused:    { label: "En pause",  color: "#F59E0B", bg: "rgba(245,158,11,0.1)" },
   draft:     { label: "Brouillon", color: "rgba(255,255,255,0.4)", bg: "rgba(255,255,255,0.05)" },
   completed: { label: "Terminé",   color: "#5B8FA8", bg: "rgba(91,143,168,0.1)" },
@@ -361,7 +361,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
       <div className="flex-1 flex flex-col items-center justify-center py-20 text-center gap-3">
         <AlertTriangle size={28} style={{ color: "rgba(255,255,255,0.1)" }} />
         <p style={{ color: "rgba(255,255,255,0.3)" }}>{error || "Funnel introuvable"}</p>
-        <Link href="/dashboard/atlas/funnels" className="text-xs px-3 py-1.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+        <Link href="/dashboard/atlas/funnels" className="text-xs px-3 py-1.5 rounded-sm" style={{ background: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
           Retour aux funnels
         </Link>
       </div>
@@ -373,7 +373,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
   return (
     <div className="flex flex-col h-[calc(100vh-8rem)] animate-fade-in">
       {/* ═══ Top bar ═══ */}
-      <div className="flex items-center justify-between px-4 py-2 shrink-0 border-b" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#1A1614" }}>
+      <div className="flex items-center justify-between px-4 py-2 shrink-0 border-b" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-primary)" }}>
         <div className="flex items-center gap-3 min-w-0">
           <Link href="/dashboard/atlas/funnels" className="p-1 transition-opacity hover:opacity-70 shrink-0">
             <ArrowLeft size={16} style={{ color: "var(--color-ink-tertiary)" }} />
@@ -387,11 +387,11 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
               onBlur={() => setEditingName(false)}
               onKeyDown={(e) => { if (e.key === "Enter") setEditingName(false); }}
               className="bg-transparent text-sm font-medium outline-none px-1 py-0.5 rounded-sm"
-              style={{ color: "#F5F0EB", border: "1px solid rgba(199,91,57,0.3)" }}
+              style={{ color: "var(--text-primary)", border: "1px solid var(--accent-border)" }}
             />
           ) : (
             <button onClick={() => setEditingName(true)} className="hover:opacity-70 transition-opacity text-left">
-              <h1 className="text-sm font-medium truncate max-w-[300px]" style={{ color: "#F5F0EB" }}>{funnel.name}</h1>
+              <h1 className="text-sm font-medium truncate max-w-[300px]" style={{ color: "var(--text-primary)" }}>{funnel.name}</h1>
             </button>
           )}
 
@@ -410,7 +410,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
           <button
             onClick={handleToggleStatus}
             className="flex items-center gap-1 px-2 py-1 text-[10px] rounded-sm transition-colors hover:bg-white/5"
-            style={{ border: "1px solid rgba(245,240,235,0.08)", color: funnel.status === "active" ? "#F59E0B" : "#10B981" }}
+            style={{ border: "1px solid rgba(245,240,235,0.08)", color: funnel.status === "active" ? "#F59E0B" : "var(--success)" }}
           >
             {funnel.status === "active" ? <ToggleLeft size={12} /> : <ToggleRight size={12} />}
             {funnel.status === "active" ? "Pause" : "Activer"}
@@ -420,14 +420,14 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
             onClick={handleSave}
             disabled={saving}
             className="flex items-center gap-1 px-3 py-1.5 text-[10px] font-medium rounded-sm transition-opacity hover:opacity-80 disabled:opacity-30"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             {saving ? <Loader size={12} className="animate-spin" /> : <Save size={12} />}
             {saving ? "Sauvegarde..." : "Sauvegarder"}
           </button>
 
           {saveMsg && (
-            <span className="text-[10px] flex items-center gap-1" style={{ color: saveMsg.type === "success" ? "#10B981" : "#C44536" }}>
+            <span className="text-[10px] flex items-center gap-1" style={{ color: saveMsg.type === "success" ? "var(--success)" : "var(--danger)" }}>
               {saveMsg.text}
             </span>
           )}
@@ -439,7 +439,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
         {/* ─── Left palette ─── */}
         <div
           className="w-52 shrink-0 overflow-y-auto border-r custom-scrollbar transition-all"
-          style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#1A1614" }}
+          style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-primary)" }}
         >
           <div className="p-3 space-y-4">
             {/* Triggers */}
@@ -476,7 +476,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
         <div
           ref={canvasRef}
           className="flex-1 relative overflow-auto custom-scrollbar canvas-bg"
-          style={{ backgroundColor: "#1A1614", backgroundImage: "radial-gradient(rgba(245,240,235,0.03) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
+          style={{ backgroundColor: "var(--bg-primary)", backgroundImage: "radial-gradient(rgba(245,240,235,0.03) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
           onClick={handleCanvasClick}
         >
           {/* Empty drop zone hint */}
@@ -496,7 +496,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
                 <polygon points="0 0, 8 3, 0 6" fill="rgba(245,240,235,0.2)" />
               </marker>
               <marker id="arrowhead-active" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
-                <polygon points="0 0, 8 3, 0 6" fill="#C75B39" />
+                <polygon points="0 0, 8 3, 0 6" fill="var(--accent)" />
               </marker>
             </defs>
             {edges.map((edge) => {
@@ -511,7 +511,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
                   <path
                     d={svgPath(from.x, from.y, to.x, to.y)}
                     fill="none"
-                    stroke={isSelected ? "#C75B39" : "rgba(245,240,235,0.15)"}
+                    stroke={isSelected ? "var(--accent)" : "rgba(245,240,235,0.15)"}
                     strokeWidth={isSelected ? 2.5 : 1.5}
                     markerEnd={isSelected ? "url(#arrowhead-active)" : "url(#arrowhead)"}
                     style={{ transition: "stroke 0.15s" }}
@@ -562,7 +562,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
                   top: node.position.y,
                   width: NODE_W,
                   zIndex: isSelected || dragging?.nodeId === node.id ? 20 : 10,
-                  border: `1.5px solid ${isSelected ? "#C75B39" : colors.border}`,
+                  border: `1.5px solid ${isSelected ? "var(--accent)" : colors.border}`,
                   backgroundColor: colors.bg,
                   boxShadow: isSelected ? "0 0 0 2px rgba(199,91,57,0.15)" : "none",
                   transition: dragging?.nodeId === node.id ? "none" : "box-shadow 0.15s",
@@ -576,7 +576,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
                   style={{
                     top: 0, width: PORT_SIZE, height: PORT_SIZE,
                     backgroundColor: connecting && connecting.sourceId !== node.id ? "rgba(199,91,57,0.6)" : "rgba(245,240,235,0.1)",
-                    border: `2px solid ${connecting && connecting.sourceId !== node.id ? "#C75B39" : "rgba(245,240,235,0.2)"}`,
+                    border: `2px solid ${connecting && connecting.sourceId !== node.id ? "var(--accent)" : "rgba(245,240,235,0.2)"}`,
                   }}
                   onMouseEnter={() => setHoveredPort(node.id)}
                   onMouseLeave={() => setHoveredPort(null)}
@@ -589,7 +589,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
                     <Icon size={13} style={{ color: colors.text }} />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <span className="text-[10px] font-medium block leading-tight truncate" style={{ color: "#F5F0EB" }}>
+                    <span className="text-[10px] font-medium block leading-tight truncate" style={{ color: "var(--text-primary)" }}>
                       {node.label}
                     </span>
                     <span className="text-[8px] uppercase tracking-wider" style={{ color: colors.text }}>
@@ -608,11 +608,11 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
 
                 {/* Output port */}
                 <div
-                  className={`absolute left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full z-10 transition-all ${connecting?.sourceId === node.id ? "bg-[#C75B39] scale-125" : ""} ${!connecting ? "cursor-crosshair hover:scale-125" : "cursor-pointer"}`}
+                  className={`absolute left-1/2 -translate-x-1/2 translate-y-1/2 rounded-full z-10 transition-all ${connecting?.sourceId === node.id ? "bg-[var(--accent)] scale-125" : ""} ${!connecting ? "cursor-crosshair hover:scale-125" : "cursor-pointer"}`}
                   style={{
                     bottom: 0, width: PORT_SIZE, height: PORT_SIZE,
-                    backgroundColor: connecting?.sourceId === node.id ? "#C75B39" : "rgba(245,240,235,0.15)",
-                    border: `2px solid ${connecting?.sourceId === node.id ? "#C75B39" : "rgba(245,240,235,0.3)"}`,
+                    backgroundColor: connecting?.sourceId === node.id ? "var(--accent)" : "rgba(245,240,235,0.15)",
+                    border: `2px solid ${connecting?.sourceId === node.id ? "var(--accent)" : "rgba(245,240,235,0.3)"}`,
                   }}
                   onMouseEnter={() => setHoveredPort(node.id)}
                   onMouseLeave={() => setHoveredPort(null)}
@@ -627,7 +627,7 @@ function FunnelEditor({ funnelId, router }: { funnelId: string; router: ReturnTy
         {configOpen && selectedNode && (
           <div
             className="w-72 shrink-0 overflow-y-auto border-l custom-scrollbar"
-            style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#1A1614" }}
+            style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-primary)" }}
           >
             <NodeConfigPanel
               node={selectedNode}
@@ -657,7 +657,7 @@ function PaletteItem({ entry, onClick }: { entry: PaletteEntry; onClick: () => v
         <Plus size={10} style={{ color: colors.text }} />
       </div>
       <div className="min-w-0">
-        <span className="text-[10px] font-medium block leading-tight truncate" style={{ color: "#F5F0EB" }}>{entry.label}</span>
+        <span className="text-[10px] font-medium block leading-tight truncate" style={{ color: "var(--text-primary)" }}>{entry.label}</span>
         <span className="text-[8px]" style={{ color: "var(--color-ink-tertiary)" }}>{entry.type === "trigger" ? "DÉCLENCHEUR" : entry.type === "action" ? "ACTION" : "LOGIGUE"}</span>
       </div>
     </button>
@@ -689,13 +689,13 @@ function NodeConfigPanel({
             <Icon size={13} style={{ color: colors.text }} />
           </div>
           <div>
-            <span className="text-[10px] font-medium block" style={{ color: "#F5F0EB" }}>{node.label}</span>
+            <span className="text-[10px] font-medium block" style={{ color: "var(--text-primary)" }}>{node.label}</span>
             <span className="text-[8px] uppercase" style={{ color: colors.text }}>
               {node.type === "trigger" ? "DÉCLENCHEUR" : node.type === "action" ? "ACTION" : "LOGIGUE"}
             </span>
           </div>
         </div>
-        <button onClick={onDelete} className="p-1 rounded-sm hover:bg-white/5" style={{ color: "#C44536" }}>
+        <button onClick={onDelete} className="p-1 rounded-sm hover:bg-white/5" style={{ color: "var(--danger)" }}>
           <Trash2 size={12} />
         </button>
       </div>
@@ -707,7 +707,7 @@ function NodeConfigPanel({
           value={node.label}
           onChange={(e) => onUpdateLabel(e.target.value)}
           className="w-full px-2 py-1 text-[10px] bg-transparent rounded-sm outline-none"
-          style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+          style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
         />
       </div>
 
@@ -812,7 +812,7 @@ function TextField({ label, value, onChange, placeholder }: { label: string; val
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         className="w-full px-2 py-1 text-[10px] bg-transparent rounded-sm outline-none"
-        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
       />
     </div>
   );
@@ -828,7 +828,7 @@ function TextAreaField({ label, value, onChange, placeholder }: { label: string;
         placeholder={placeholder}
         rows={3}
         className="w-full px-2 py-1 text-[10px] bg-transparent rounded-sm outline-none resize-none"
-        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
       />
     </div>
   );
@@ -846,7 +846,7 @@ function NumberField({ label, value, onChange, min, max, suffix }: { label: stri
           min={min}
           max={max}
           className="w-full px-2 py-1 text-[10px] bg-transparent rounded-sm outline-none"
-          style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+          style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
         />
         {suffix && <span className="text-[9px]" style={{ color: "var(--color-ink-tertiary)" }}>{suffix}</span>}
       </div>
@@ -862,10 +862,10 @@ function SelectField({ label, value, onChange, options }: { label: string; value
         value={value}
         onChange={(e) => onChange(e.target.value)}
         className="w-full px-2 py-1 text-[10px] bg-transparent rounded-sm outline-none appearance-none cursor-pointer"
-        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+        style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
       >
         {options.map((opt) => (
-          <option key={opt.value} value={opt.value} style={{ backgroundColor: "#1A1614" }}>{opt.label}</option>
+          <option key={opt.value} value={opt.value} style={{ backgroundColor: "var(--bg-primary)" }}>{opt.label}</option>
         ))}
       </select>
     </div>

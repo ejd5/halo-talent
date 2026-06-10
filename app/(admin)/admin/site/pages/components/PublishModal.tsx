@@ -90,7 +90,7 @@ function PublishNoteInput({
         <button
           onClick={() => onConfirm(note)}
           className="flex items-center gap-1.5 px-4 py-1.5 text-xs font-medium text-white transition-opacity rounded-[0px]"
-          style={{ backgroundColor: mode === "publish" ? "#7A9A65" : "var(--color-accent)" }}
+          style={{ backgroundColor: mode === "publish" ? "var(--success)" : "var(--color-accent)" }}
         >
           <Send size={12} />
           {mode === "publish" ? "Publier" : "Sauvegarder"}

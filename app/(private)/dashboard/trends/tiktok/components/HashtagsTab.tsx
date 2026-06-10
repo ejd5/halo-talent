@@ -24,14 +24,14 @@ function formatCount(n: number): string {
 function VelocityBadge({ diff }: { diff: number }) {
   if (diff > 0) {
     return (
-      <span className="flex items-center gap-1 text-[10px] font-medium" style={{ color: "#C44536" }}>
+      <span className="flex items-center gap-1 text-[10px] font-medium" style={{ color: "var(--danger)" }}>
         <TrendingDown size={10} /> -{diff}
       </span>
     );
   }
   if (diff < 0) {
     return (
-      <span className="flex items-center gap-1 text-[10px] font-medium" style={{ color: "#7A9A65" }}>
+      <span className="flex items-center gap-1 text-[10px] font-medium" style={{ color: "var(--success)" }}>
         <TrendingUp size={10} /> +{Math.abs(diff)}
       </span>
     );
@@ -84,12 +84,12 @@ export function HashtagsTab({ hashtags, onAnalyse, onAddToWatchlist }: Props) {
       <table className="w-full text-xs" style={{ borderCollapse: "separate", borderSpacing: 0 }}>
         <thead>
           <tr style={{ color: "rgba(245,240,235,0.3)", borderBottom: "1px solid rgba(245,240,235,0.06)" }}>
-            <th className="text-left font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "#1A1614" }}>Rank</th>
-            <th className="text-left font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "#1A1614" }}>Hashtag</th>
-            <th className="text-right font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "#1A1614" }}>Vidéos</th>
-            <th className="text-left font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "#1A1614" }}>Industrie</th>
-            <th className="text-center font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "#1A1614" }}>Vélocité</th>
-            <th className="text-right font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "#1A1614" }}>Actions</th>
+            <th className="text-left font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "var(--bg-primary)" }}>Rank</th>
+            <th className="text-left font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "var(--bg-primary)" }}>Hashtag</th>
+            <th className="text-right font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "var(--bg-primary)" }}>Vidéos</th>
+            <th className="text-left font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "var(--bg-primary)" }}>Industrie</th>
+            <th className="text-center font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "var(--bg-primary)" }}>Vélocité</th>
+            <th className="text-right font-medium py-2.5 px-3 sticky top-0" style={{ backgroundColor: "var(--bg-primary)" }}>Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -110,14 +110,14 @@ export function HashtagsTab({ hashtags, onAnalyse, onAddToWatchlist }: Props) {
             >
               <td className="py-2.5 px-3">
                 <div className="flex items-center gap-1">
-                  <span className="font-medium tabular-nums" style={{ color: "#F5F0EB" }}>
+                  <span className="font-medium tabular-nums" style={{ color: "var(--text-primary)" }}>
                     #{h.rank}
                   </span>
                   <VelocityBadge diff={h.rank_diff} />
                 </div>
               </td>
               <td className="py-2.5 px-3">
-                <span className="font-medium" style={{ color: "#F5F0EB" }}>
+                <span className="font-medium" style={{ color: "var(--text-primary)" }}>
                   #{h.name}
                 </span>
               </td>
@@ -143,7 +143,7 @@ export function HashtagsTab({ hashtags, onAnalyse, onAddToWatchlist }: Props) {
                       router.push(`/studio/composer?source=tiktok&hashtag=${encodeURIComponent(h.name)}`)
                     }
                     className="text-[9px] px-2 py-1 font-medium transition-all hover:opacity-70"
-                    style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39", border: "1px solid rgba(199,91,57,0.15)" }}
+                    style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
                   >
                     Utiliser
                   </button>
@@ -157,7 +157,7 @@ export function HashtagsTab({ hashtags, onAnalyse, onAddToWatchlist }: Props) {
                   <button
                     onClick={() => addToWatchlist(h.name, i)}
                     className="text-[9px] px-2 py-1 transition-all hover:opacity-70"
-                    style={{ color: copiedIndex === i ? "#7A9A65" : "rgba(245,240,235,0.2)" }}
+                    style={{ color: copiedIndex === i ? "var(--success)" : "rgba(245,240,235,0.2)" }}
                   >
                     {copiedIndex === i ? "✓" : "+ Watchlist"}
                   </button>

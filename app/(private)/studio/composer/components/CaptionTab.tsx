@@ -43,7 +43,7 @@ export function CaptionTab({
         placeholder="Écris ton caption ici..."
         className="w-full resize-none text-sm leading-relaxed bg-transparent outline-none"
         rows={8}
-        style={{ color: "#F5F0EB" }}
+        style={{ color: "var(--text-primary)" }}
       />
 
       {/* Character counters per platform */}
@@ -71,13 +71,13 @@ export function CaptionTab({
                     className="h-full rounded-full transition-all"
                     style={{
                       width: `${pct}%`,
-                      background: isOver ? "#E5484D" : "#C75B39",
+                      background: isOver ? "var(--danger)" : "var(--accent)",
                     }}
                   />
                 </div>
                 <span
                   className="text-[10px] w-16 text-right shrink-0 tabular-nums"
-                  style={{ color: isOver ? "#E5484D" : "rgba(255,255,255,0.4)" }}
+                  style={{ color: isOver ? "var(--danger)" : "rgba(255,255,255,0.4)" }}
                 >
                   {used}/{limit}
                 </span>
@@ -97,7 +97,7 @@ export function CaptionTab({
           onChange={(e) => onHashtagsChange(e.target.value.split(" ").filter(Boolean))}
           placeholder="#hashtag #tags"
           className="w-full text-xs px-2.5 py-1.5 rounded-sm bg-transparent outline-none"
-          style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
         />
       </div>
 
@@ -111,7 +111,7 @@ export function CaptionTab({
           onChange={(e) => onMentionsChange(e.target.value.split(" ").filter(Boolean))}
           placeholder="@compte @createur"
           className="w-full text-xs px-2.5 py-1.5 rounded-sm bg-transparent outline-none"
-          style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+          style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
         />
       </div>
 
@@ -121,8 +121,8 @@ export function CaptionTab({
           onClick={() => setAiOpen(!aiOpen)}
           className="flex items-center gap-1.5 px-2.5 py-1.5 text-xs w-full transition-all rounded-sm"
           style={{
-            border: "1px solid rgba(199,91,57,0.2)",
-            color: "#C75B39",
+            border: "1px solid var(--accent-border)",
+            color: "var(--accent)",
           }}
         >
           <Sparkles size={12} />
@@ -134,8 +134,8 @@ export function CaptionTab({
           <div
             className="absolute left-0 right-0 top-full mt-1 z-10 py-1 shadow-xl"
             style={{
-              background: "#1A1614",
-              border: "1px solid rgba(255,255,255,0.08)",
+              background: "var(--bg-primary)",
+              border: "1px solid var(--border-default)",
             }}
           >
             {[
@@ -149,9 +149,9 @@ export function CaptionTab({
                 <button
                   key={action.label}
                   className="flex items-center gap-2 w-full text-left px-3 py-2 text-xs transition-colors hover:bg-white/5"
-                  style={{ color: "#F5F0EB" }}
+                  style={{ color: "var(--text-primary)" }}
                 >
-                  <Icon size={12} style={{ color: "#C75B39" }} />
+                  <Icon size={12} style={{ color: "var(--accent)" }} />
                   {action.label}
                 </button>
               );

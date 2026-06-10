@@ -77,11 +77,11 @@ export function CardSkeleton() {
 // ─── Empty States ────────────────────────────────────────────────
 
 const EMPTY_ILLUSTRATIONS: Record<string, { icon: any; color: string }> = {
-  fans: { icon: Users, color: "#C75B39" },
+  fans: { icon: Users, color: "var(--accent)" },
   inbox: { icon: Inbox, color: "#5B8FA8" },
-  campaigns: { icon: Mail, color: "#C75B39" },
-  analytics: { icon: BarChart3, color: "#7A9A65" },
-  rules: { icon: Zap, color: "#C75B39" },
+  campaigns: { icon: Mail, color: "var(--accent)" },
+  analytics: { icon: BarChart3, color: "var(--success)" },
+  rules: { icon: Zap, color: "var(--accent)" },
   activity: { icon: Activity, color: "rgba(245,240,235,0.2)" },
 };
 
@@ -128,7 +128,7 @@ export function AtlasEmptyState({
         <button
           onClick={onCta}
           className="mt-4 px-4 py-2 text-sm font-medium transition-all hover:opacity-90"
-          style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+          style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
         >
           {cta}
         </button>

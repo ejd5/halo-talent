@@ -90,8 +90,8 @@ const ROLE_LABELS: Record<string, string> = {
 };
 
 const ROLE_COLORS: Record<string, string> = {
-  owner: "#C75B39",
-  senior_manager: "#7A9A65",
+  owner: "var(--accent)",
+  senior_manager: "var(--success)",
   manager: "#4A8FE7",
   drafter_assistant: "#E8A838",
   analyst: "#9B59B6",
@@ -105,7 +105,7 @@ const STATUS_LABELS: Record<string, string> = {
 };
 
 const STATUS_COLORS: Record<string, string> = {
-  active: "#7A9A65",
+  active: "var(--success)",
   on_leave: "#E8A838",
   archived: "rgba(255,255,255,0.2)",
 };
@@ -145,7 +145,7 @@ export default function TeamMemberDetail() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader2 size={24} className="animate-spin" style={{ color: "#C75B39" }} />
+        <Loader2 size={24} className="animate-spin" style={{ color: "var(--accent)" }} />
       </div>
     );
   }
@@ -155,7 +155,7 @@ export default function TeamMemberDetail() {
       <div className="p-8">
         <div
           className="flex items-center gap-2 px-4 py-3 text-sm"
-          style={{ background: "rgba(196,69,54,0.1)", color: "#C44536" }}
+          style={{ background: "rgba(196,69,54,0.1)", color: "var(--danger)" }}
         >
           <AlertTriangle size={14} />
           {error || "Membre introuvable"}
@@ -163,7 +163,7 @@ export default function TeamMemberDetail() {
         <button
           onClick={() => router.push("/admin/team")}
           className="mt-4 px-4 py-2 text-sm"
-          style={{ color: "#C75B39" }}
+          style={{ color: "var(--accent)" }}
         >
           ← Retour à l'équipe
         </button>
@@ -197,7 +197,7 @@ export default function TeamMemberDetail() {
       <Link
         href="/admin/team"
         className="inline-flex items-center gap-1 text-sm mb-6 transition-colors"
-        style={{ color: "#E0D8D0" }}
+        style={{ color: "var(--text-secondary)" }}
       >
         <ArrowLeft size={14} />
         Retour à l'équipe
@@ -207,8 +207,8 @@ export default function TeamMemberDetail() {
       <div
         className="p-6 mb-8 flex items-start gap-5"
         style={{
-          background: "rgba(255,255,255,0.02)",
-          border: "1px solid rgba(255,255,255,0.06)",
+          background: "var(--bg-card)",
+          border: "1px solid var(--border-default)",
         }}
       >
         <div
@@ -217,7 +217,7 @@ export default function TeamMemberDetail() {
             background: member.avatar_url
               ? `url(${member.avatar_url}) center/cover`
               : "rgba(255,255,255,0.08)",
-            color: "#E0D8D0",
+            color: "var(--text-secondary)",
           }}
         >
           {!member.avatar_url &&
@@ -225,7 +225,7 @@ export default function TeamMemberDetail() {
         </div>
         <div className="flex-1">
           <div className="flex items-center gap-3 mb-2">
-            <h1 className="text-xl font-semibold" style={{ color: "#F5F0EB" }}>
+            <h1 className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>
               {member.full_name || member.email.split("@")[0]}
             </h1>
             <RoleBadge role={member.role} />
@@ -240,7 +240,7 @@ export default function TeamMemberDetail() {
               {STATUS_LABELS[member.status]}
             </span>
           </div>
-          <div className="flex items-center gap-4 text-sm" style={{ color: "#E0D8D0" }}>
+          <div className="flex items-center gap-4 text-sm" style={{ color: "var(--text-secondary)" }}>
             <span className="flex items-center gap-1.5">
               <Mail size={12} />
               {member.email}
@@ -271,8 +271,8 @@ export default function TeamMemberDetail() {
               onClick={() => setActiveTab(tab.id)}
               className="flex items-center gap-2 px-4 py-3 text-sm transition-colors"
               style={{
-                color: isActive ? "#C75B39" : "#E0D8D0",
-                borderBottom: isActive ? "2px solid #C75B39" : "2px solid transparent",
+                color: isActive ? "var(--accent)" : "var(--text-secondary)",
+                borderBottom: isActive ? "2px solid var(--accent)" : "2px solid transparent",
                 marginBottom: -1,
               }}
             >
@@ -349,13 +349,13 @@ function AssignmentsTab({
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>
+        <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
           Créateurs assignés ({assignments.length})
         </h2>
         <button
           onClick={openAssign}
           className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
-          style={{ background: "#C75B39", color: "#F5F0EB" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           <UserPlus size={12} />
           Assigner un créateur
@@ -371,7 +371,7 @@ function AssignmentsTab({
       {/* Primary */}
       {primary.length > 0 && (
         <div className="mb-6">
-          <h3 className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: "#7A9A65" }}>
+          <h3 className="text-[11px] font-semibold uppercase tracking-wider mb-2" style={{ color: "var(--success)" }}>
             Principal
           </h3>
           <CreatorAssignmentList creators={primary} onUnassign={unassignCreator} />
@@ -396,36 +396,36 @@ function AssignmentsTab({
         >
           <div
             className="w-full max-w-lg p-6"
-            style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}
           >
             <div className="flex items-center justify-between mb-4">
-              <h3 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>
+              <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
                 Assigner un créateur
               </h3>
-              <button onClick={() => setShowAssignModal(false)} style={{ color: "#E0D8D0" }}>
+              <button onClick={() => setShowAssignModal(false)} style={{ color: "var(--text-secondary)" }}>
                 <X size={16} />
               </button>
             </div>
 
             <div
               className="flex items-center gap-2 px-3 py-2 mb-4"
-              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
+              style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)" }}
             >
-              <SearchIcon size={14} style={{ color: "#E0D8D0" }} />
+              <SearchIcon size={14} style={{ color: "var(--text-secondary)" }} />
               <input
                 type="text"
                 placeholder="Rechercher un créateur..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 className="bg-transparent border-none outline-none text-sm flex-1"
-                style={{ color: "#F5F0EB" }}
+                style={{ color: "var(--text-primary)" }}
               />
             </div>
 
             <div className="max-h-80 overflow-y-auto space-y-1">
               {loadingCreators && (
                 <div className="py-8 text-center">
-                  <Loader2 size={20} className="animate-spin mx-auto" style={{ color: "#C75B39" }} />
+                  <Loader2 size={20} className="animate-spin mx-auto" style={{ color: "var(--accent)" }} />
                 </div>
               )}
               {!loadingCreators &&
@@ -443,7 +443,7 @@ function AssignmentsTab({
                       key={c.id}
                       onClick={() => assignCreator(c.id)}
                       className="flex items-center justify-between w-full px-3 py-2 text-sm text-left transition-colors hover:bg-white/[0.04]"
-                      style={{ color: "#F5F0EB" }}
+                      style={{ color: "var(--text-primary)" }}
                     >
                       <span>
                         {c.display_name || c.full_name || c.email}
@@ -453,7 +453,7 @@ function AssignmentsTab({
                           </span>
                         )}
                       </span>
-                      <Plus size={14} style={{ color: "#C75B39" }} />
+                      <Plus size={14} style={{ color: "var(--accent)" }} />
                     </button>
                   ))}
               {!loadingCreators &&
@@ -479,12 +479,12 @@ function CreatorAssignmentList({
   onUnassign: (id: string) => void;
 }) {
   return (
-    <div style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+    <div style={{ border: "1px solid var(--border-default)" }}>
       {creators.map((a) => (
         <div
           key={a.id}
           className="flex items-center justify-between px-4 py-3"
-          style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+          style={{ borderBottom: "1px solid var(--border-default)" }}
         >
           <div className="flex items-center gap-3">
             <div
@@ -493,7 +493,7 @@ function CreatorAssignmentList({
                 background: a.creator?.avatar_url
                   ? `url(${a.creator.avatar_url}) center/cover`
                   : "rgba(255,255,255,0.06)",
-                color: "#E0D8D0",
+                color: "var(--text-secondary)",
               }}
             >
               {!a.creator?.avatar_url &&
@@ -505,7 +505,7 @@ function CreatorAssignmentList({
               <Link
                 href={`/admin/creators/${a.creator?.id}`}
                 className="text-sm font-medium transition-colors"
-                style={{ color: "#F5F0EB" }}
+                style={{ color: "var(--text-primary)" }}
               >
                 {a.creator?.display_name || a.creator?.full_name || a.creator?.email || "Inconnu"}
               </Link>
@@ -525,14 +525,14 @@ function CreatorAssignmentList({
             <Link
               href={`/admin/creators/${a.creator?.id}`}
               className="text-xs px-2 py-1"
-              style={{ background: "rgba(255,255,255,0.06)", color: "#E0D8D0" }}
+              style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-secondary)" }}
             >
               Voir
             </Link>
             <button
               onClick={() => onUnassign(a.id)}
               className="text-xs px-2 py-1 transition-colors"
-              style={{ background: "rgba(196,69,54,0.15)", color: "#C44536" }}
+              style={{ background: "rgba(196,69,54,0.15)", color: "var(--danger)" }}
             >
               Retirer
             </button>
@@ -555,7 +555,7 @@ function PerformanceTab({ performance }: { performance: Performance }) {
     {
       label: "Croissance",
       value: `${performance.revenue_growth > 0 ? "+" : ""}${performance.revenue_growth}%`,
-      color: performance.revenue_growth >= 0 ? "#7A9A65" : "#C44536",
+      color: performance.revenue_growth >= 0 ? "var(--success)" : "var(--danger)",
       icon: null,
     },
     {
@@ -572,7 +572,7 @@ function PerformanceTab({ performance }: { performance: Performance }) {
 
   return (
     <div>
-      <h2 className="text-sm font-semibold mb-4" style={{ color: "#F5F0EB" }}>
+      <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
         Performance 30 jours
       </h2>
       <div className="grid grid-cols-5 gap-4">
@@ -581,16 +581,16 @@ function PerformanceTab({ performance }: { performance: Performance }) {
             key={i}
             className="p-4"
             style={{
-              background: "rgba(255,255,255,0.02)",
-              border: "1px solid rgba(255,255,255,0.06)",
+              background: "var(--bg-card)",
+              border: "1px solid var(--border-default)",
             }}
           >
-            <div className="text-[11px] font-medium uppercase tracking-wider mb-1" style={{ color: "#E0D8D0" }}>
+            <div className="text-[11px] font-medium uppercase tracking-wider mb-1" style={{ color: "var(--text-secondary)" }}>
               {card.label}
             </div>
             <div
               className="text-lg font-semibold"
-              style={{ color: card.color || "#F5F0EB" }}
+              style={{ color: card.color || "var(--text-primary)" }}
             >
               {card.value}
             </div>
@@ -645,19 +645,19 @@ function AvailabilityTab({
   const typeColors: Record<string, string> = {
     vacation: "#4A8FE7",
     sick: "#E8A838",
-    training: "#7A9A65",
+    training: "var(--success)",
   };
 
   return (
     <div>
       <div className="flex items-center justify-between mb-4">
-        <h2 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>
+        <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
           Disponibilités ({availability.length})
         </h2>
         <button
           onClick={() => setShowForm(!showForm)}
           className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium transition-colors"
-          style={{ background: "#C75B39", color: "#F5F0EB" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={12} />
           Ajouter
@@ -668,10 +668,10 @@ function AvailabilityTab({
         <form
           onSubmit={addAvailability}
           className="p-4 mb-4 flex items-end gap-3"
-          style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)" }}
         >
           <div>
-            <label className="block text-[11px] font-medium mb-1" style={{ color: "#E0D8D0" }}>
+            <label className="block text-[11px] font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
               Du
             </label>
             <input
@@ -682,13 +682,13 @@ function AvailabilityTab({
               className="px-3 py-2 text-sm outline-none"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#F5F0EB",
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
               }}
             />
           </div>
           <div>
-            <label className="block text-[11px] font-medium mb-1" style={{ color: "#E0D8D0" }}>
+            <label className="block text-[11px] font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
               Au
             </label>
             <input
@@ -699,13 +699,13 @@ function AvailabilityTab({
               className="px-3 py-2 text-sm outline-none"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#F5F0EB",
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
               }}
             />
           </div>
           <div>
-            <label className="block text-[11px] font-medium mb-1" style={{ color: "#E0D8D0" }}>
+            <label className="block text-[11px] font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
               Type
             </label>
             <select
@@ -714,8 +714,8 @@ function AvailabilityTab({
               className="px-3 py-2 text-sm outline-none"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#F5F0EB",
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
               }}
             >
               <option value="vacation">Congés</option>
@@ -724,7 +724,7 @@ function AvailabilityTab({
             </select>
           </div>
           <div>
-            <label className="block text-[11px] font-medium mb-1" style={{ color: "#E0D8D0" }}>
+            <label className="block text-[11px] font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
               Notes
             </label>
             <input
@@ -734,15 +734,15 @@ function AvailabilityTab({
               className="px-3 py-2 text-sm outline-none"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#F5F0EB",
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
               }}
             />
           </div>
           <button
             type="submit"
             className="px-4 py-2 text-sm font-medium"
-            style={{ background: "#C75B39", color: "#F5F0EB" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             Ajouter
           </button>
@@ -760,17 +760,17 @@ function AvailabilityTab({
           <div
             key={a.id}
             className="flex items-center justify-between px-4 py-3"
-            style={{ border: "1px solid rgba(255,255,255,0.06)" }}
+            style={{ border: "1px solid var(--border-default)" }}
           >
             <div className="flex items-center gap-3">
               <span
                 className="inline-block w-2 h-2 rounded-full"
                 style={{ background: typeColors[a.type] || "rgba(255,255,255,0.2)" }}
               />
-              <span className="text-sm" style={{ color: "#F5F0EB" }}>
+              <span className="text-sm" style={{ color: "var(--text-primary)" }}>
                 {typeLabels[a.type] || a.type}
               </span>
-              <span className="text-sm" style={{ color: "#E0D8D0" }}>
+              <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
                 {new Date(a.date_from).toLocaleDateString("fr-FR")} —{" "}
                 {new Date(a.date_to).toLocaleDateString("fr-FR")}
               </span>
@@ -841,7 +841,7 @@ function PermissionsTab({
 
   return (
     <div>
-      <h2 className="text-sm font-semibold mb-1" style={{ color: "#F5F0EB" }}>
+      <h2 className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>
         Permissions granulaires
       </h2>
       <p className="text-xs mb-4" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -856,10 +856,10 @@ function PermissionsTab({
             <div
               key={perm.id}
               className="flex items-center justify-between px-4 py-2.5"
-              style={{ border: "1px solid rgba(255,255,255,0.04)" }}
+              style={{ border: "1px solid var(--border-default)" }}
             >
               <div>
-                <span className="text-sm" style={{ color: active ? "#F5F0EB" : "rgba(255,255,255,0.3)" }}>
+                <span className="text-sm" style={{ color: active ? "var(--text-primary)" : "rgba(255,255,255,0.3)" }}>
                   {perm.label}
                 </span>
                 {grantInfo && (
@@ -873,16 +873,16 @@ function PermissionsTab({
                 disabled={toggling === perm.id}
                 className="relative w-10 h-5 rounded-full transition-colors"
                 style={{
-                  background: active ? "#7A9A65" : "rgba(255,255,255,0.1)",
+                  background: active ? "var(--success)" : "rgba(255,255,255,0.1)",
                 }}
               >
                 {toggling === perm.id ? (
-                  <Loader2 size={12} className="animate-spin mx-auto" style={{ color: "#F5F0EB" }} />
+                  <Loader2 size={12} className="animate-spin mx-auto" style={{ color: "var(--text-primary)" }} />
                 ) : (
                   <span
                     className="absolute top-0.5 w-4 h-4 rounded-full transition-all"
                     style={{
-                      background: "#F5F0EB",
+                      background: "var(--text-primary)",
                       left: active ? 22 : 2,
                     }}
                   />
@@ -936,7 +936,7 @@ function AuditLogTab({ memberId }: { memberId: string }) {
   return (
     <div>
       <div className="flex items-center gap-3 mb-4">
-        <h2 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>
+        <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
           Journal d'audit
         </h2>
         <select
@@ -948,8 +948,8 @@ function AuditLogTab({ memberId }: { memberId: string }) {
           className="px-2 py-1 text-xs outline-none"
           style={{
             background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            color: "#E0D8D0",
+            border: "1px solid var(--border-default)",
+            color: "var(--text-secondary)",
           }}
         >
           <option value="">Toutes les actions</option>
@@ -961,7 +961,7 @@ function AuditLogTab({ memberId }: { memberId: string }) {
 
       {loading && (
         <div className="py-8 text-center">
-          <Loader2 size={20} className="animate-spin mx-auto" style={{ color: "#C75B39" }} />
+          <Loader2 size={20} className="animate-spin mx-auto" style={{ color: "var(--accent)" }} />
         </div>
       )}
 
@@ -973,19 +973,19 @@ function AuditLogTab({ memberId }: { memberId: string }) {
 
       {!loading && logs.length > 0 && (
         <>
-          <div style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+          <div style={{ border: "1px solid var(--border-default)" }}>
             {logs.map((log) => (
               <div
                 key={log.id}
                 className="flex items-center justify-between px-4 py-2.5"
-                style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+                style={{ borderBottom: "1px solid var(--border-default)" }}
               >
                 <div className="flex items-center gap-3">
                   <span
                     className="inline-block w-1.5 h-1.5 rounded-full"
-                    style={{ background: "#C75B39" }}
+                    style={{ background: "var(--accent)" }}
                   />
-                  <span className="text-sm" style={{ color: "#F5F0EB" }}>
+                  <span className="text-sm" style={{ color: "var(--text-primary)" }}>
                     {actionLabels[log.action] || log.action}
                   </span>
                   {log.metadata?.permission && (
@@ -1009,7 +1009,7 @@ function AuditLogTab({ memberId }: { memberId: string }) {
                 className="px-3 py-1 text-xs"
                 style={{
                   background: "rgba(255,255,255,0.06)",
-                  color: page === 1 ? "rgba(255,255,255,0.2)" : "#E0D8D0",
+                  color: page === 1 ? "rgba(255,255,255,0.2)" : "var(--text-secondary)",
                 }}
               >
                 Précédent
@@ -1023,7 +1023,7 @@ function AuditLogTab({ memberId }: { memberId: string }) {
                 className="px-3 py-1 text-xs"
                 style={{
                   background: "rgba(255,255,255,0.06)",
-                  color: page === totalPages ? "rgba(255,255,255,0.2)" : "#E0D8D0",
+                  color: page === totalPages ? "rgba(255,255,255,0.2)" : "var(--text-secondary)",
                 }}
               >
                 Suivant

@@ -29,7 +29,7 @@ const sections = [
       "Scoring automatique basé sur l'engagement réel (likes, partages, comments, temps passé)",
       "Segmentation dynamique : fans chauds, dormants, VIP, whale detection",
       "Historique complet des interactions : messages, emails, dons, achats",
-      "Tags et champs personnalisés illimités",
+      "Tags et champs personnalisés (fair use)",
       "Export et sync avec vos outils existants",
     ],
   },

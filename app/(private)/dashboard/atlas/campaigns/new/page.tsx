@@ -273,11 +273,11 @@ function NewCampaignWizard() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="flex items-center gap-3">
-        <Link href="/dashboard/atlas/campaigns/email" className="p-1 transition-opacity hover:opacity-70" style={{ color: "#FFFFFF" }}>
+        <Link href="/dashboard/atlas/campaigns/email" className="p-1 transition-opacity hover:opacity-70" style={{ color: "var(--text-primary)" }}>
           <ArrowLeft size={18} />
         </Link>
         <div>
-          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>
+          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Nouvelle campagne email
           </h1>
           <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -293,8 +293,8 @@ function NewCampaignWizard() {
             <button
               onClick={() => setStep(s.num)}
               className={`flex items-center gap-1.5 px-3 py-2 text-xs font-medium transition-colors ${
-                s.num === step ? "bg-[#C75B39] text-white" :
-                s.num < step ? "text-white bg-[#C75B39]/30" :
+                s.num === step ? "bg-[var(--accent)] text-white" :
+                s.num < step ? "text-white bg-[var(--accent)]/30" :
                 "text-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.03)]"
               }`}
             >
@@ -302,7 +302,7 @@ function NewCampaignWizard() {
               <span className="hidden sm:inline">{s.label}</span>
             </button>
             {i < STEPS.length - 1 && (
-              <div className="flex-1 h-[1px]" style={{ backgroundColor: s.num <= step ? "#C75B39" : "rgba(255,255,255,0.06)" }} />
+              <div className="flex-1 h-[1px]" style={{ backgroundColor: s.num <= step ? "var(--accent)" : "rgba(255,255,255,0.06)" }} />
             )}
           </div>
         ))}
@@ -312,7 +312,7 @@ function NewCampaignWizard() {
       {step === 1 && (
         <div className="space-y-5 max-w-2xl">
           <p className="text-sm" style={{ color: "rgba(255,255,255,0.5)" }}>
-            Seuls les fans avec <strong style={{ color: "#FFFFFF" }}>email_consent = true</strong> et <strong style={{ color: "#FFFFFF" }}>status = active</strong> recevront cette campagne.
+            Seuls les fans avec <strong style={{ color: "var(--text-primary)" }}>email_consent = true</strong> et <strong style={{ color: "var(--text-primary)" }}>status = active</strong> recevront cette campagne.
           </p>
 
           {/* Existing segments */}
@@ -322,7 +322,7 @@ function NewCampaignWizard() {
               value={selectedSegment}
               onChange={(e) => setSelectedSegment(e.target.value)}
               className="w-full text-sm px-3 py-2 rounded-sm outline-none"
-              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
             >
               <option value="">Filtres personnalisés</option>
               {segments.map((s) => (
@@ -341,7 +341,7 @@ function NewCampaignWizard() {
                     value={customTier[0] || ""}
                     onChange={(e) => setCustomTier(e.target.value ? [e.target.value] : [])}
                     className="w-full text-xs px-3 py-2 rounded-sm outline-none"
-                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
                   >
                     <option value="">Tous les tiers</option>
                     <option value="vip">VIP</option>
@@ -358,28 +358,28 @@ function NewCampaignWizard() {
                     onChange={(e) => setCustomCountry(e.target.value)}
                     placeholder="FR, US, ..."
                     className="w-full text-xs px-3 py-2 rounded-sm outline-none"
-                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
                   />
                 </div>
                 <div>
                   <label className="text-xs mb-1 block" style={{ color: "rgba(255,255,255,0.3)" }}>Dépenses min (€)</label>
                   <input type="number" value={customMinSpent} onChange={(e) => setCustomMinSpent(e.target.value)}
                     className="w-full text-xs px-3 py-2 rounded-sm outline-none"
-                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
                 </div>
                 <div>
                   <label className="text-xs mb-1 block" style={{ color: "rgba(255,255,255,0.3)" }}>Score min</label>
                   <input type="number" value={customMinScore} onChange={(e) => setCustomMinScore(e.target.value)}
                     className="w-full text-xs px-3 py-2 rounded-sm outline-none"
-                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+                    style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
                 </div>
               </div>
             </div>
           )}
 
           {/* Estimated count */}
-          <div className="p-4 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.08)", border: "1px solid rgba(199,91,57,0.15)" }}>
-            <p className="text-sm" style={{ color: "#FFFFFF" }}>
+          <div className="p-4 rounded-sm" style={{ backgroundColor: "var(--accent-soft)", border: "1px solid var(--accent-border)" }}>
+            <p className="text-sm" style={{ color: "var(--text-primary)" }}>
               {estimatedRecipients === null ? "Estimation en cours..." :
                 estimatedRecipients === 0 ? "⚠️ Aucun fan ne correspond à ces critères" :
                 `🎯 Cette campagne sera envoyée à ${estimatedRecipients} fans`
@@ -395,7 +395,7 @@ function NewCampaignWizard() {
       {step === 2 && (
         <div className="space-y-6 max-w-2xl">
           <div>
-            <label className="text-sm font-medium mb-3 block" style={{ color: "#FFFFFF" }}>Type d&apos;email</label>
+            <label className="text-sm font-medium mb-3 block" style={{ color: "var(--text-primary)" }}>Type d&apos;email</label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {TYPE_OPTIONS.map((opt) => (
                 <button
@@ -407,7 +407,7 @@ function NewCampaignWizard() {
                     border: campaignType === opt.value ? "1px solid rgba(199,91,57,0.3)" : "1px solid transparent",
                   }}
                 >
-                  <p className="text-sm font-medium" style={{ color: campaignType === opt.value ? "#C75B39" : "#FFFFFF" }}>{opt.label}</p>
+                  <p className="text-sm font-medium" style={{ color: campaignType === opt.value ? "var(--accent)" : "var(--text-primary)" }}>{opt.label}</p>
                   <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>{opt.desc}</p>
                 </button>
               ))}
@@ -415,7 +415,7 @@ function NewCampaignWizard() {
           </div>
 
           <div>
-            <label className="text-sm font-medium mb-3 block" style={{ color: "#FFFFFF" }}>Objectif principal</label>
+            <label className="text-sm font-medium mb-3 block" style={{ color: "var(--text-primary)" }}>Objectif principal</label>
             <div className="flex gap-2">
               {GOAL_OPTIONS.map((opt) => (
                 <button
@@ -428,7 +428,7 @@ function NewCampaignWizard() {
                   }}
                 >
                   <opt.icon size={14} />
-                  <span className="text-sm" style={{ color: campaignGoal === opt.value ? "#C75B39" : "#FFFFFF" }}>{opt.label}</span>
+                  <span className="text-sm" style={{ color: campaignGoal === opt.value ? "var(--accent)" : "var(--text-primary)" }}>{opt.label}</span>
                 </button>
               ))}
             </div>
@@ -448,10 +448,10 @@ function NewCampaignWizard() {
               <div className="grid grid-cols-2 gap-2">
                 <input value={fromName} onChange={(e) => setFromName(e.target.value)} placeholder="Nom"
                   className="text-sm px-3 py-2 rounded-sm outline-none"
-                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
                 <input value={fromEmail} onChange={(e) => setFromEmail(e.target.value)} placeholder="Email"
                   className="text-sm px-3 py-2 rounded-sm outline-none"
-                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
               </div>
             </div>
 
@@ -459,14 +459,14 @@ function NewCampaignWizard() {
               <label className="text-xs font-medium mb-1 block" style={{ color: "rgba(255,255,255,0.4)" }}>Objet</label>
               <input value={subject} onChange={(e) => setSubject(e.target.value)} placeholder="Ligne d'objet"
                 className="w-full text-sm px-3 py-2 rounded-sm outline-none"
-                style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+                style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
             </div>
 
             <div>
               <label className="text-xs font-medium mb-1 block" style={{ color: "rgba(255,255,255,0.4)" }}>Preheader</label>
               <input value={preheader} onChange={(e) => setPreheader(e.target.value)} placeholder="Texte de prévisualisation"
                 className="w-full text-sm px-3 py-2 rounded-sm outline-none"
-                style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+                style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
             </div>
 
             {/* Blocks */}
@@ -532,7 +532,7 @@ function NewCampaignWizard() {
           <div className="p-5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", border: "1px solid var(--color-border)" }}>
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>Personnalisation IA</h3>
+                <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Personnalisation IA</h3>
                 <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
                   Chaque destinataire reçoit une variante personnalisée selon son tier, ses préférences, son historique d&apos;achats et sa langue.
                 </p>
@@ -540,7 +540,7 @@ function NewCampaignWizard() {
               <button
                 onClick={() => setPersonalizeAI(!personalizeAI)}
                 className="relative w-10 h-5 rounded-full transition-colors"
-                style={{ backgroundColor: personalizeAI ? "#C75B39" : "rgba(255,255,255,0.1)" }}
+                style={{ backgroundColor: personalizeAI ? "var(--accent)" : "rgba(255,255,255,0.1)" }}
               >
                 <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform ${personalizeAI ? "translate-x-5" : "translate-x-0.5"}`} />
               </button>
@@ -551,7 +551,7 @@ function NewCampaignWizard() {
             <div className="space-y-3">
               <div className="p-4 rounded-sm" style={{ backgroundColor: "rgba(16,185,129,0.06)", border: "1px solid rgba(16,185,129,0.12)" }}>
                 <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  ✨ Les variables comme <code style={{ color: "#10B981" }}>{`{{first_name}}`}</code>, <code style={{ color: "#10B981" }}>{`{{greeting}}`}</code> seront automatiquement remplacées par le contenu personnalisé.
+                  ✨ Les variables comme <code style={{ color: "var(--success)" }}>{`{{first_name}}`}</code>, <code style={{ color: "var(--success)" }}>{`{{greeting}}`}</code> seront automatiquement remplacées par le contenu personnalisé.
                 </p>
               </div>
               <div className="p-4 rounded-sm" style={{ backgroundColor: "rgba(245,158,11,0.06)", border: "1px solid rgba(245,158,11,0.12)" }}>
@@ -571,7 +571,7 @@ function NewCampaignWizard() {
         <div className="space-y-5 max-w-2xl">
           {/* Schedule */}
           <div className="space-y-3">
-            <label className="text-sm font-medium" style={{ color: "#FFFFFF" }}>Envoi</label>
+            <label className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Envoi</label>
             <div className="flex gap-2">
               <button
                 onClick={() => setScheduleType("now")}
@@ -579,7 +579,7 @@ function NewCampaignWizard() {
                 style={{
                   backgroundColor: scheduleType === "now" ? "rgba(199,91,57,0.12)" : "rgba(255,255,255,0.03)",
                   border: scheduleType === "now" ? "1px solid rgba(199,91,57,0.3)" : "1px solid transparent",
-                  color: scheduleType === "now" ? "#C75B39" : "#FFFFFF",
+                  color: scheduleType === "now" ? "var(--accent)" : "var(--text-primary)",
                 }}
               >
                 Envoyer maintenant
@@ -590,7 +590,7 @@ function NewCampaignWizard() {
                 style={{
                   backgroundColor: scheduleType === "later" ? "rgba(199,91,57,0.12)" : "rgba(255,255,255,0.03)",
                   border: scheduleType === "later" ? "1px solid rgba(199,91,57,0.3)" : "1px solid transparent",
-                  color: scheduleType === "later" ? "#C75B39" : "#FFFFFF",
+                  color: scheduleType === "later" ? "var(--accent)" : "var(--text-primary)",
                 }}
               >
                 Programmer
@@ -600,21 +600,21 @@ function NewCampaignWizard() {
               <div className="grid grid-cols-2 gap-2">
                 <input type="date" value={scheduleDate} onChange={(e) => setScheduleDate(e.target.value)}
                   className="text-sm px-3 py-2 rounded-sm outline-none"
-                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
                 <input type="time" value={scheduleTime} onChange={(e) => setScheduleTime(e.target.value)}
                   className="text-sm px-3 py-2 rounded-sm outline-none"
-                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+                  style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
               </div>
             )}
           </div>
 
           {/* Throttling */}
           <div>
-            <label className="text-sm font-medium mb-1 block" style={{ color: "#FFFFFF" }}>Throttling</label>
+            <label className="text-sm font-medium mb-1 block" style={{ color: "var(--text-primary)" }}>Throttling</label>
             <p className="text-xs mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>Étaler l&apos;envoi sur plusieurs heures pour éviter le spam flag</p>
             <select value={throttleHours} onChange={(e) => setThrottleHours(parseInt(e.target.value))}
               className="text-sm px-3 py-2 rounded-sm outline-none"
-              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}>
+              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}>
               <option value={1}>1 heure</option>
               <option value={2}>2 heures</option>
               <option value={4}>4 heures (recommandé)</option>
@@ -627,7 +627,7 @@ function NewCampaignWizard() {
           <div className="p-4 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", border: "1px solid var(--color-border)" }}>
             <div className="flex items-start justify-between">
               <div>
-                <h3 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>A/B Test</h3>
+                <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>A/B Test</h3>
                 <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
                   2 versions sur 20% de l&apos;audience, la gagnante envoyée aux 80% restants
                 </p>
@@ -635,7 +635,7 @@ function NewCampaignWizard() {
               <button
                 onClick={() => setAbTestEnabled(!abTestEnabled)}
                 className="relative w-10 h-5 rounded-full transition-colors"
-                style={{ backgroundColor: abTestEnabled ? "#C75B39" : "rgba(255,255,255,0.1)" }}
+                style={{ backgroundColor: abTestEnabled ? "var(--accent)" : "rgba(255,255,255,0.1)" }}
               >
                 <div className={`absolute top-0.5 w-4 h-4 rounded-full bg-white transition-transform ${abTestEnabled ? "translate-x-5" : "translate-x-0.5"}`} />
               </button>
@@ -644,7 +644,7 @@ function NewCampaignWizard() {
 
           {/* Summary */}
           <div className="p-4 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", border: "1px solid var(--color-border)" }}>
-            <h3 className="text-sm font-semibold mb-2" style={{ color: "#FFFFFF" }}>Récapitulatif</h3>
+            <h3 className="text-sm font-semibold mb-2" style={{ color: "var(--text-primary)" }}>Récapitulatif</h3>
             <div className="space-y-1.5 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
               <p>Type : {TYPE_OPTIONS.find((o) => o.value === campaignType)?.label || campaignType}</p>
               <p>Objectif : {GOAL_OPTIONS.find((o) => o.value === campaignGoal)?.label || campaignGoal}</p>
@@ -665,7 +665,7 @@ function NewCampaignWizard() {
                 onClick={handleCreate}
                 disabled={saving || !subject.trim()}
                 className="flex items-center gap-1.5 px-6 py-2.5 text-sm rounded-sm transition-all hover:opacity-80 disabled:opacity-40"
-                style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+                style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
               >
                 {saving ? <><Loader size={14} className="animate-spin" /> Création...</> : scheduleType === "later" ? "Programmer" : "Créer & envoyer"}
               </button>
@@ -688,7 +688,7 @@ function StepNav({ step, setStep }: { step: number; setStep: (s: number) => void
         </button>
       )}
       {step < 5 && (
-        <button onClick={() => setStep(step + 1)} className="flex items-center gap-1.5 px-5 py-2.5 text-sm rounded-sm transition-all hover:opacity-80" style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}>
+        <button onClick={() => setStep(step + 1)} className="flex items-center gap-1.5 px-5 py-2.5 text-sm rounded-sm transition-all hover:opacity-80" style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
           Suivant <ChevronRight size={14} />
         </button>
       )}
@@ -730,7 +730,7 @@ function BlockEditor({ block, index, total, onUpdate, onRemove, onMoveUp, onMove
           onChange={(e) => onUpdate({ content: e.target.value })}
           rows={block.type === "header" ? 1 : 3}
           className="w-full text-xs px-2 py-1.5 rounded-sm outline-none resize-none"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
           placeholder={block.type === "header" ? "Titre..." : "Texte..."}
         />
       )}
@@ -739,7 +739,7 @@ function BlockEditor({ block, index, total, onUpdate, onRemove, onMoveUp, onMove
         <input value={block.src || ""} onChange={(e) => onUpdate({ src: e.target.value })}
           placeholder="URL de l'image"
           className="w-full text-xs px-2 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
       )}
 
       {block.type === "button" && (
@@ -747,11 +747,11 @@ function BlockEditor({ block, index, total, onUpdate, onRemove, onMoveUp, onMove
           <input value={block.label || ""} onChange={(e) => onUpdate({ label: e.target.value })}
             placeholder="Label"
             className="text-xs px-2 py-1.5 rounded-sm outline-none"
-            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
           <input value={block.url || ""} onChange={(e) => onUpdate({ url: e.target.value })}
             placeholder="URL"
             className="text-xs px-2 py-1.5 rounded-sm outline-none"
-            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }} />
+            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }} />
         </div>
       )}
 
@@ -759,7 +759,7 @@ function BlockEditor({ block, index, total, onUpdate, onRemove, onMoveUp, onMove
         <textarea value={block.content || ""} onChange={(e) => onUpdate({ content: e.target.value })}
           rows={2}
           className="w-full text-xs px-2 py-1.5 rounded-sm outline-none resize-none"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#FFFFFF", border: "1px solid transparent" }}
+          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}
           placeholder="Texte du footer..." />
       )}
     </div>
@@ -779,7 +779,7 @@ function EmailPreview({ blocks, subject, preheader, mode }: {
         return <div style={{ margin: "12px 0", padding: "20px", backgroundColor: "#f5f5f5", textAlign: "center", borderRadius: "4px", fontSize: "12px", color: "#999" }}>🖼 {block.src || "Image"}</div>;
       case "button":
         return <div style={{ textAlign: block.align || "center", margin: "16px 0" }}>
-          <span style={{ display: "inline-block", backgroundColor: "#C75B39", color: "#fff", padding: "10px 24px", borderRadius: "4px", fontSize: "14px", fontWeight: 600 }}>{block.label || "Cliquez ici"}</span>
+          <span style={{ display: "inline-block", backgroundColor: "var(--accent)", color: "#fff", padding: "10px 24px", borderRadius: "4px", fontSize: "14px", fontWeight: 600 }}>{block.label || "Cliquez ici"}</span>
         </div>;
       case "divider":
         return <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "16px 0" }} />;

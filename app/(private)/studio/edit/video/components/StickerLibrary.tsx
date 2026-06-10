@@ -26,12 +26,12 @@ export function StickerLibrary({ onSelect, onClose }: Props) {
     >
       <div
         className="w-[420px] max-h-[560px] flex flex-col rounded-sm"
-        style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-          <h3 className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Stickers</h3>
+          <h3 className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Stickers</h3>
           <button onClick={onClose} className="p-1 transition-colors hover:bg-white/10 rounded-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
             <X size={14} />
           </button>
@@ -39,14 +39,14 @@ export function StickerLibrary({ onSelect, onClose }: Props) {
 
         {/* Search */}
         <div className="px-4 py-2">
-          <div className="flex items-center gap-1.5 px-2 py-1 rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.08)" }}>
+          <div className="flex items-center gap-1.5 px-2 py-1 rounded-sm" style={{ border: "1px solid var(--border-default)" }}>
             <Search size={12} style={{ color: "rgba(255,255,255,0.3)" }} />
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Rechercher..."
               className="flex-1 text-[11px] bg-transparent outline-none"
-              style={{ color: "#F5F0EB" }}
+              style={{ color: "var(--text-primary)" }}
             />
           </div>
         </div>
@@ -61,7 +61,7 @@ export function StickerLibrary({ onSelect, onClose }: Props) {
               style={{
                 background: category === cat.id ? "rgba(199,91,57,0.1)" : "rgba(255,255,255,0.03)",
                 border: `1px solid ${category === cat.id ? "rgba(199,91,57,0.2)" : "rgba(255,255,255,0.06)"}`,
-                color: category === cat.id ? "#C75B39" : "rgba(255,255,255,0.5)",
+                color: category === cat.id ? "var(--accent)" : "rgba(255,255,255,0.5)",
               }}
             >
               <span>{cat.icon}</span>
@@ -78,7 +78,7 @@ export function StickerLibrary({ onSelect, onClose }: Props) {
                 key={sticker.id}
                 onClick={() => onSelect(sticker)}
                 className="flex items-center justify-center aspect-square text-2xl rounded-sm transition-all hover:bg-white/10"
-                style={{ border: "1px solid rgba(255,255,255,0.06)" }}
+                style={{ border: "1px solid var(--border-default)" }}
                 title={sticker.label}
               >
                 {sticker.emoji}

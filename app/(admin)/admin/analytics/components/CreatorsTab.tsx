@@ -5,9 +5,9 @@ import { analyticsData } from "../data";
 import { StatCard, SimpleBarChart } from "./SharedCharts";
 
 const ALERT_COLORS: Record<string, string> = {
-  disengaged: "#C75B39",
-  upsell: "#7A9A65",
-  burnout: "#C44536",
+  disengaged: "var(--accent)",
+  upsell: "var(--success)",
+  burnout: "var(--danger)",
 };
 const ALERT_ICONS: Record<string, React.ReactNode> = {
   disengaged: <TrendingUp size={12} />,
@@ -40,7 +40,7 @@ export function CreatorsTab() {
             data={analyticsData.revenueDistribution.map((r) => ({ ...r }))}
             xKey="range"
             barKey="count"
-            color="#C75B39"
+            color="var(--accent)"
             height={200}
           />
         </div>
@@ -52,7 +52,7 @@ export function CreatorsTab() {
             data={analyticsData.commissionTiers.map((t) => ({ ...t, count: t.count }))}
             xKey="tier"
             barKey="count"
-            color="#7A9A65"
+            color="var(--success)"
             height={200}
           />
         </div>
@@ -67,7 +67,7 @@ export function CreatorsTab() {
             data={analyticsData.departmentDist.map((d) => ({ ...d }))}
             xKey="department"
             barKey="count"
-            color="#E0D8D0"
+            color="var(--text-secondary)"
             height={200}
           />
         </div>
@@ -79,7 +79,7 @@ export function CreatorsTab() {
             data={analyticsData.seniorityDist.map((s) => ({ ...s }))}
             xKey="range"
             barKey="count"
-            color="#C75B39"
+            color="var(--accent)"
             height={200}
           />
         </div>
@@ -147,8 +147,8 @@ export function CreatorsTab() {
                   <span
                     className="text-[9px] px-1.5 py-[1px]"
                     style={{
-                      backgroundColor: alert.severity === "high" ? "#C4453620" : alert.severity === "medium" ? "#C75B3920" : "#E0D8D020",
-                      color: alert.severity === "high" ? "#C44536" : alert.severity === "medium" ? "#C75B39" : "#E0D8D0",
+                      backgroundColor: alert.severity === "high" ? "rgba(196, 69, 54, 0.125)" : alert.severity === "medium" ? "rgba(199, 91, 57, 0.125)" : "rgba(224, 216, 208, 0.125)",
+                      color: alert.severity === "high" ? "var(--danger)" : alert.severity === "medium" ? "var(--accent)" : "var(--text-secondary)",
                     }}
                   >
                     {alert.severity === "high" ? "Haute" : alert.severity === "medium" ? "Moyenne" : "Basse"}

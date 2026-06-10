@@ -75,88 +75,88 @@ export function CreatorsGridPage() {
       {/* Header */}
       <div className="flex items-center justify-between mb-6">
         <div>
-          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "#F5F0EB" }}>
+          <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em]" style={{ color: "var(--text-primary)" }}>
             Créateurs
           </p>
-          <h1 className="font-display text-[32px] font-bold mt-1" style={{ color: "#F5F0EB" }}>
+          <h1 className="font-display text-[32px] font-bold mt-1" style={{ color: "var(--text-primary)" }}>
             Roster — {filtered.length} créateurs
           </h1>
         </div>
         <button
           className="px-4 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-90"
-          style={{ background: "#C75B39", color: "#F5F0EB" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           + Ajouter un créateur
         </button>
       </div>
 
       {/* Filters bar */}
-      <div className="flex items-center gap-3 flex-wrap mb-6 p-3" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="flex items-center gap-3 flex-wrap mb-6 p-3" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
         <input
           type="text"
           placeholder="Rechercher..."
           value={filters.search}
           onChange={(e) => updateFilter("search", e.target.value)}
           className="bg-transparent text-xs font-sans px-3 py-2 outline-none min-w-[180px]"
-          style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
         />
         <select
           value={filters.department}
           onChange={(e) => updateFilter("department", e.target.value)}
           className="bg-transparent text-xs font-sans px-3 py-2 outline-none"
-          style={{ color: "#D0CCC6", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "#D0CCC6", border: "1px solid var(--border-default)" }}
         >
-          <option value="all" style={{ background: "#1A1614" }}>Département</option>
+          <option value="all" style={{ background: "var(--bg-primary)" }}>Département</option>
           {departments.map((d) => (
-            <option key={d} value={d} style={{ background: "#1A1614" }}>{d}</option>
+            <option key={d} value={d} style={{ background: "var(--bg-primary)" }}>{d}</option>
           ))}
         </select>
         <select
           value={filters.tier}
           onChange={(e) => updateFilter("tier", e.target.value as Tier | "all")}
           className="bg-transparent text-xs font-sans px-3 py-2 outline-none"
-          style={{ color: "#D0CCC6", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "#D0CCC6", border: "1px solid var(--border-default)" }}
         >
-          <option value="all" style={{ background: "#1A1614" }}>Palier</option>
+          <option value="all" style={{ background: "var(--bg-primary)" }}>Palier</option>
           {tiers.map((t) => (
-            <option key={t} value={t} style={{ background: "#1A1614" }}>{t}</option>
+            <option key={t} value={t} style={{ background: "var(--bg-primary)" }}>{t}</option>
           ))}
         </select>
         <select
           value={filters.manager}
           onChange={(e) => updateFilter("manager", e.target.value)}
           className="bg-transparent text-xs font-sans px-3 py-2 outline-none"
-          style={{ color: "#D0CCC6", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "#D0CCC6", border: "1px solid var(--border-default)" }}
         >
-          <option value="all" style={{ background: "#1A1614" }}>Manager</option>
+          <option value="all" style={{ background: "var(--bg-primary)" }}>Manager</option>
           {managers.map((m) => (
-            <option key={m} value={m} style={{ background: "#1A1614" }}>{m}</option>
+            <option key={m} value={m} style={{ background: "var(--bg-primary)" }}>{m}</option>
           ))}
         </select>
         <select
           value={filters.status}
           onChange={(e) => updateFilter("status", e.target.value as CreatorStatus | "all")}
           className="bg-transparent text-xs font-sans px-3 py-2 outline-none"
-          style={{ color: "#D0CCC6", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ color: "#D0CCC6", border: "1px solid var(--border-default)" }}
         >
-          <option value="all" style={{ background: "#1A1614" }}>Statut</option>
-          <option value="active" style={{ background: "#1A1614" }}>Actif</option>
-          <option value="pause" style={{ background: "#1A1614" }}>Pause</option>
-          <option value="alert" style={{ background: "#1A1614" }}>Alarme</option>
+          <option value="all" style={{ background: "var(--bg-primary)" }}>Statut</option>
+          <option value="active" style={{ background: "var(--bg-primary)" }}>Actif</option>
+          <option value="pause" style={{ background: "var(--bg-primary)" }}>Pause</option>
+          <option value="alert" style={{ background: "var(--bg-primary)" }}>Alarme</option>
         </select>
 
         <div className="ml-auto flex items-center gap-1">
           <button
             onClick={() => setView("grid")}
             className="p-1.5 transition-colors"
-            style={{ color: view === "grid" ? "#C75B39" : "#E0D8D0", background: view === "grid" ? "rgba(199,91,57,0.1)" : "transparent" }}
+            style={{ color: view === "grid" ? "var(--accent)" : "var(--text-secondary)", background: view === "grid" ? "rgba(199,91,57,0.1)" : "transparent" }}
           >
             <Grid3x3 size={15} strokeWidth={1.5} />
           </button>
           <button
             onClick={() => setView("list")}
             className="p-1.5 transition-colors"
-            style={{ color: view === "list" ? "#C75B39" : "#E0D8D0", background: view === "list" ? "rgba(199,91,57,0.1)" : "transparent" }}
+            style={{ color: view === "list" ? "var(--accent)" : "var(--text-secondary)", background: view === "list" ? "rgba(199,91,57,0.1)" : "transparent" }}
           >
             <List size={15} strokeWidth={1.5} />
           </button>
@@ -164,12 +164,12 @@ export function CreatorsGridPage() {
             value={filters.sort}
             onChange={(e) => updateFilter("sort", e.target.value as Filters["sort"])}
             className="bg-transparent text-[10px] font-sans font-semibold uppercase tracking-[0.1em] px-2 py-1.5 outline-none ml-2"
-            style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
+            style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
           >
-            <option value="revenue" style={{ background: "#1A1614" }}>Revenus</option>
-            <option value="date" style={{ background: "#1A1614" }}>Date d'arrivée</option>
-            <option value="growth" style={{ background: "#1A1614" }}>Croissance</option>
-            <option value="engagement" style={{ background: "#1A1614" }}>Engagement</option>
+            <option value="revenue" style={{ background: "var(--bg-primary)" }}>Revenus</option>
+            <option value="date" style={{ background: "var(--bg-primary)" }}>Date d'arrivée</option>
+            <option value="growth" style={{ background: "var(--bg-primary)" }}>Croissance</option>
+            <option value="engagement" style={{ background: "var(--bg-primary)" }}>Engagement</option>
           </select>
         </div>
       </div>
@@ -194,15 +194,15 @@ export function CreatorsGridPage() {
               className="flex items-center gap-4 px-4 py-3 cursor-pointer transition-colors hover:bg-white/[0.02]"
               style={{ borderBottom: "1px solid rgba(255,255,255,0.03)" }}
             >
-              <div className="w-10 h-10 flex items-center justify-center text-sm font-sans font-semibold shrink-0" style={{ background: "rgba(199,91,57,0.15)", color: "#C75B39" }}>
+              <div className="w-10 h-10 flex items-center justify-center text-sm font-sans font-semibold shrink-0" style={{ background: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>
                 {creator.full_name.charAt(0)}
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-sans font-medium" style={{ color: "#F5F0EB" }}>{creator.full_name}</p>
-                <p className="text-[11px] font-sans" style={{ color: "#E0D8D0" }}>{creator.department}</p>
+                <p className="text-sm font-sans font-medium" style={{ color: "var(--text-primary)" }}>{creator.full_name}</p>
+                <p className="text-[11px] font-sans" style={{ color: "var(--text-secondary)" }}>{creator.department}</p>
               </div>
-              <span className="text-xs font-sans font-medium" style={{ color: "#E0D8D0" }}>{creator.tier}</span>
-              <span className="text-sm font-display font-bold" style={{ color: "#C75B39" }}>
+              <span className="text-xs font-sans font-medium" style={{ color: "var(--text-secondary)" }}>{creator.tier}</span>
+              <span className="text-sm font-display font-bold" style={{ color: "var(--accent)" }}>
                 {new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", notation: "compact" }).format(creator.current_month_revenue)}
               </span>
             </div>
@@ -211,7 +211,7 @@ export function CreatorsGridPage() {
       )}
 
       {filtered.length === 0 && (
-        <p className="text-sm font-sans text-center py-12" style={{ color: "#E0D8D0" }}>
+        <p className="text-sm font-sans text-center py-12" style={{ color: "var(--text-secondary)" }}>
           Aucun créateur trouvé
         </p>
       )}

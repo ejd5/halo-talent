@@ -27,9 +27,9 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
     <div
       className="group relative transition-all"
       style={{
-        backgroundColor: "#2A2420",
+        backgroundColor: "var(--bg-card)",
         border: "1px solid rgba(245,240,235,0.06)",
-        borderLeft: `3px solid ${relevanceScore > 75 ? "#C75B39" : relevanceScore > 50 ? "rgba(199,91,57,0.4)" : "rgba(245,240,235,0.1)"}`,
+        borderLeft: `3px solid ${relevanceScore > 75 ? "var(--accent)" : relevanceScore > 50 ? "rgba(199,91,57,0.4)" : "rgba(245,240,235,0.1)"}`,
       }}
     >
       <div className="p-3">
@@ -39,13 +39,13 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
             className="text-[9px] font-semibold uppercase tracking-wider px-1.5 py-0.5"
             style={{
               backgroundColor: t.momentum > 30 ? "rgba(199,91,57,0.15)" : "rgba(245,240,235,0.06)",
-              color: t.momentum > 30 ? "#C75B39" : "rgba(245,240,235,0.3)",
+              color: t.momentum > 30 ? "var(--accent)" : "rgba(245,240,235,0.3)",
             }}
           >
             {t.momentum > 0 ? `+${t.momentum}%` : `${t.momentum}%`}
           </span>
           {t.momentum > 30 && (
-            <span className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: "#C75B39" }}>
+            <span className="text-[9px] font-semibold uppercase tracking-wider" style={{ color: "var(--accent)" }}>
               MONTANT
             </span>
           )}
@@ -54,7 +54,7 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
         {/* Title */}
         <h3
           className="text-sm font-semibold mb-2 line-clamp-2"
-          style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+          style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
         >
           {t.title}
         </h3>
@@ -85,7 +85,7 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
             <div className="mb-2">
               <div className="flex items-center justify-between text-[9px] mb-1">
                 <span style={{ color: "rgba(245,240,235,0.3)" }}>Pertinence ADN</span>
-                <span className="font-medium" style={{ color: relevanceScore > 70 ? "#C75B39" : "rgba(245,240,235,0.3)" }}>
+                <span className="font-medium" style={{ color: relevanceScore > 70 ? "var(--accent)" : "rgba(245,240,235,0.3)" }}>
                   {relevanceScore}/100
                 </span>
               </div>
@@ -94,7 +94,7 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
                   className="h-full transition-all"
                   style={{
                     width: `${relevanceScore}%`,
-                    backgroundColor: relevanceScore > 70 ? "#C75B39" : "rgba(245,240,235,0.15)",
+                    backgroundColor: relevanceScore > 70 ? "var(--accent)" : "rgba(245,240,235,0.15)",
                   }}
                 />
               </div>
@@ -104,7 +104,7 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
             <div className="mb-3">
               <div className="flex items-center justify-between text-[9px] mb-1">
                 <span style={{ color: "rgba(245,240,235,0.3)" }}>Viralité prédite</span>
-                <span className="font-medium" style={{ color: viralityScore > 70 ? "#C75B39" : "rgba(245,240,235,0.3)" }}>
+                <span className="font-medium" style={{ color: viralityScore > 70 ? "var(--accent)" : "rgba(245,240,235,0.3)" }}>
                   {viralityScore}/100
                 </span>
               </div>
@@ -113,7 +113,7 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
                   className="h-full transition-all"
                   style={{
                     width: `${viralityScore}%`,
-                    backgroundColor: viralityScore > 70 ? "#C75B39" : "rgba(245,240,235,0.15)",
+                    backgroundColor: viralityScore > 70 ? "var(--accent)" : "rgba(245,240,235,0.15)",
                   }}
                 />
               </div>
@@ -131,7 +131,7 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
           <button
             onClick={() => router.push(`/studio/composer?trend=${encodeURIComponent(t.query)}`)}
             className="flex-1 text-[10px] font-semibold uppercase tracking-wider py-1.5 transition-all"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             Créer un contenu
           </button>
@@ -163,7 +163,7 @@ function Sparkline({ data }: { data: number[] }) {
       <polyline
         points={points}
         fill="none"
-        stroke="#C75B39"
+        stroke="var(--accent)"
         strokeWidth="1.5"
         vectorEffect="non-scaling-stroke"
       />

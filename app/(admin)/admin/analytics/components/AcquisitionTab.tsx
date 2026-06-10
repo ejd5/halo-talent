@@ -11,7 +11,7 @@ export function AcquisitionTab() {
   const overallConversion = ((totalApps / totalVisits) * 100);
 
   return (
-    <div className="space-y-6 card-accent" style={{ background: "#0A0908" }}>
+    <div className="space-y-6 card-accent" style={{ background: "var(--bg-primary)" }}>
       {/* KPI */}
       <div className="grid grid-cols-4 gap-3">
         <StatCard title="Visites / mois" value={totalVisits.toLocaleString("fr-FR")} icon={<Users size={14} />} />
@@ -59,7 +59,7 @@ export function AcquisitionTab() {
                 {/* Conversion */}
                 <div className="w-24 text-[11px]">
                   {i > 0 && (
-                    <span className={stage.conversion_pct > 50 ? "text-[#7A9A65]" : "text-[#C44536]"}>
+                    <span className={stage.conversion_pct > 50 ? "text-[var(--success)]" : "text-[var(--danger)]"}>
                       {stage.conversion_pct}%
                     </span>
                   )}
@@ -83,7 +83,7 @@ export function AcquisitionTab() {
             const drop = stage.count - next.count;
             return (
               <div key={stage.stage} className="p-3 border border-[var(--color-border)]">
-                <div className="flex items-center gap-1.5 text-[#C44536] mb-1">
+                <div className="flex items-center gap-1.5 text-[var(--danger)] mb-1">
                   <ArrowDown size={12} />
                   <span className="text-[10px] font-semibold">{drop} abandons</span>
                 </div>

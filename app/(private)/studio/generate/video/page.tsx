@@ -39,7 +39,7 @@ interface HistoryJob {
 // ─── Helpers ───
 
 function getModelColor(modelId: string): string {
-  return VIDEO_MODELS.find((m) => m.id === modelId)?.color ?? "#C75B39";
+  return VIDEO_MODELS.find((m) => m.id === modelId)?.color ?? "var(--accent)";
 }
 
 function getModelName(modelId: string): string {
@@ -322,7 +322,7 @@ export default function GenerateVideoPage() {
       <div className="w-80 shrink-0 overflow-y-auto p-4 space-y-4" style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}>
         {/* Header */}
         <div>
-          <h1 className="text-lg italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Vidéo IA</h1>
+          <h1 className="text-lg italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Vidéo IA</h1>
           <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
             {credits
               ? credits.is_admin || credits.is_unlimited
@@ -348,7 +348,7 @@ export default function GenerateVideoPage() {
                 style={{
                   border: `1px solid ${mode === m.value ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                   background: mode === m.value ? "rgba(199,91,57,0.06)" : "transparent",
-                  color: mode === m.value ? "#C75B39" : "rgba(255,255,255,0.4)",
+                  color: mode === m.value ? "var(--accent)" : "rgba(255,255,255,0.4)",
                 }}
               >
                 <m.icon size={14} />
@@ -370,14 +370,14 @@ export default function GenerateVideoPage() {
             }
             className="w-full text-xs bg-transparent outline-none resize-none px-2.5 py-2 rounded-sm"
             rows={4}
-            style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           />
           <div className="flex gap-1 mt-1.5">
             <button
               onClick={handleEnhancePrompt}
               disabled={enhancing || !prompt.trim()}
               className="flex items-center gap-1 px-2 py-1 text-[9px] transition-colors hover:bg-white/5 disabled:opacity-30 rounded-sm"
-              style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }}
+              style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.5)" }}
             >
               {enhancing ? <Loader size={10} className="animate-spin" /> : <Wand2 size={10} />}
               Améliorer
@@ -397,7 +397,7 @@ export default function GenerateVideoPage() {
                 <button
                   onClick={() => setReferenceImage(null)}
                   className="absolute top-1 right-1 w-5 h-5 flex items-center justify-center rounded-full text-[9px]"
-                  style={{ background: "rgba(0,0,0,0.7)", color: "#F5F0EB" }}
+                  style={{ background: "rgba(0,0,0,0.7)", color: "var(--text-primary)" }}
                 >
                   ✕
                 </button>
@@ -430,7 +430,7 @@ export default function GenerateVideoPage() {
                   }}
                 >
                   <div className="flex items-center justify-between mb-0.5">
-                    <span className="text-[11px] font-medium" style={{ color: isSelected ? m.color : "#F5F0EB" }}>{m.name}</span>
+                    <span className="text-[11px] font-medium" style={{ color: isSelected ? m.color : "var(--text-primary)" }}>{m.name}</span>
                     <span
                       className="text-[8px] uppercase tracking-wider px-1 py-0.5 rounded-sm"
                       style={{
@@ -466,7 +466,7 @@ export default function GenerateVideoPage() {
                 style={{
                   border: `1px solid ${duration === d ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                   background: duration === d ? "rgba(199,91,57,0.06)" : "transparent",
-                  color: duration === d ? "#C75B39" : "rgba(255,255,255,0.4)",
+                  color: duration === d ? "var(--accent)" : "rgba(255,255,255,0.4)",
                 }}
               >
                 {d}s
@@ -487,7 +487,7 @@ export default function GenerateVideoPage() {
                 style={{
                   border: `1px solid ${aspectRatio === a.value ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                   background: aspectRatio === a.value ? "rgba(199,91,57,0.06)" : "transparent",
-                  color: aspectRatio === a.value ? "#C75B39" : "rgba(255,255,255,0.4)",
+                  color: aspectRatio === a.value ? "var(--accent)" : "rgba(255,255,255,0.4)",
                 }}
               >
                 <span>{a.icon}</span>
@@ -509,7 +509,7 @@ export default function GenerateVideoPage() {
                 style={{
                   border: `1px solid ${videoStyle === s.id ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                   background: videoStyle === s.id ? "rgba(199,91,57,0.06)" : "transparent",
-                  color: videoStyle === s.id ? "#C75B39" : "rgba(255,255,255,0.5)",
+                  color: videoStyle === s.id ? "var(--accent)" : "rgba(255,255,255,0.5)",
                 }}
               >
                 <span>{s.emoji}</span>
@@ -526,7 +526,7 @@ export default function GenerateVideoPage() {
             className="flex items-center gap-2 px-2.5 py-2 w-full text-[10px] rounded-sm transition-all"
             style={{
               border: `1px solid ${useDna ? "rgba(199,91,57,0.2)" : "rgba(255,255,255,0.06)"}`,
-              color: useDna ? "#C75B39" : "rgba(255,255,255,0.4)",
+              color: useDna ? "var(--accent)" : "rgba(255,255,255,0.4)",
             }}
           >
             {useDna ? <ToggleRight size={14} /> : <ToggleLeft size={14} />}
@@ -540,7 +540,7 @@ export default function GenerateVideoPage() {
             onClick={handleGenerate}
             disabled={generating || !prompt.trim() || (mode !== "text-to-video" && !referenceImage) || jobStatus === "processing"}
             className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 text-xs font-medium transition-opacity hover:opacity-80 disabled:opacity-30 rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             {generating || jobStatus === "processing" ? (
               <Loader size={12} className="animate-spin" />
@@ -553,7 +553,7 @@ export default function GenerateVideoPage() {
               ? "Génération en cours..."
               : "Générer la vidéo"}
           </button>
-          <p className="text-[9px] text-center mt-1.5" style={{ color: hasEnoughCredits ? "rgba(255,255,255,0.2)" : "#E5484D" }}>
+          <p className="text-[9px] text-center mt-1.5" style={{ color: hasEnoughCredits ? "rgba(255,255,255,0.2)" : "var(--danger)" }}>
             Coût : {totalCost} crédits · {selectedModel.name} · {formatDuration(duration)}
           </p>
         </div>
@@ -565,7 +565,7 @@ export default function GenerateVideoPage() {
 
           {/* Error state */}
           {error && (
-            <div className="mb-3 px-3 py-2 text-xs rounded-sm flex items-center justify-between" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}>
+            <div className="mb-3 px-3 py-2 text-xs rounded-sm flex items-center justify-between" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}>
               <span>{error}</span>
               <button onClick={handleRetry} className="flex items-center gap-1 text-[9px] underline">
                 <RefreshCw size={10} /> Réessayer
@@ -579,14 +579,14 @@ export default function GenerateVideoPage() {
               <div className="w-16 h-16 flex items-center justify-center rounded-sm mb-4" style={{ background: "rgba(199,91,57,0.06)" }}>
                 <Sparkles size={32} style={{ color: "rgba(199,91,57,0.2)" }} />
               </div>
-              <p className="text-sm mb-2" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Génération Vidéo IA</p>
+              <p className="text-sm mb-2" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Génération Vidéo IA</p>
               <p className="text-[10px] text-center max-w-sm" style={{ color: "rgba(255,255,255,0.25)" }}>
                 Configure ta vidéo à gauche, choisis un modèle et un prompt, puis génère.
                 <br />
                 La génération prend 30s à 3min selon le modèle et la durée.
               </p>
               {!credits?.is_admin && !credits?.is_unlimited && credits && (
-                <div className="mt-4 px-3 py-1.5 text-[9px] rounded-sm" style={{ background: "rgba(212,175,55,0.06)", border: "1px solid rgba(212,175,55,0.1)", color: "#C75B39" }}>
+                <div className="mt-4 px-3 py-1.5 text-[9px] rounded-sm" style={{ background: "rgba(212,175,55,0.06)", border: "1px solid rgba(212,175,55,0.1)", color: "var(--accent)" }}>
                   {credits.balance} crédits disponibles · ~{totalCost} crédits par génération
                 </div>
               )}
@@ -597,12 +597,12 @@ export default function GenerateVideoPage() {
           {jobStatus === "processing" && (
             <div className="flex flex-col items-center justify-center py-16 gap-6">
               {/* Shimmer animation */}
-              <div className="relative w-full max-w-lg aspect-video rounded-sm overflow-hidden" style={{ background: "rgba(255,255,255,0.02)" }}>
+              <div className="relative w-full max-w-lg aspect-video rounded-sm overflow-hidden" style={{ background: "var(--bg-card)" }}>
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent shimmer" />
                 <div className="absolute inset-0 flex flex-col items-center justify-center gap-2">
                   <div className="flex items-center gap-2">
                     <Loader size={20} className="animate-spin" style={{ color: getModelColor(selectedModel.id) }} />
-                    <span className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Génération en cours</span>
+                    <span className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Génération en cours</span>
                   </div>
                   <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
                     {selectedModel.name} · {formatDuration(duration)} · {mode === "text-to-video" ? "Texte → Vidéo" : mode === "image-to-video" ? "Image → Vidéo" : "Extension"}
@@ -637,7 +637,7 @@ export default function GenerateVideoPage() {
               <div
                 ref={playerRef}
                 className="relative w-full max-w-3xl aspect-video rounded-sm overflow-hidden group"
-                style={{ background: "#000", border: "1px solid rgba(255,255,255,0.08)" }}
+                style={{ background: "#000", border: "1px solid var(--border-default)" }}
               >
                 <video
                   ref={videoRef}
@@ -660,7 +660,7 @@ export default function GenerateVideoPage() {
                     {isPlaying ? <Pause size={14} /> : <Play size={14} />}
                   </button>
                   <div className="flex-1" />
-                  <button onClick={handleDownload} className="flex items-center gap-1 px-2 py-1 text-[10px] transition-colors hover:bg-white/20 rounded-sm" style={{ background: "rgba(255,255,255,0.1)", color: "#F5F0EB" }}>
+                  <button onClick={handleDownload} className="flex items-center gap-1 px-2 py-1 text-[10px] transition-colors hover:bg-white/20 rounded-sm" style={{ background: "rgba(255,255,255,0.1)", color: "var(--text-primary)" }}>
                     <Download size={10} /> Télécharger
                   </button>
                   <button onClick={handleToggleFullscreen} className="flex items-center justify-center w-7 h-7 transition-colors hover:bg-white/20 rounded-sm" style={{ background: "rgba(255,255,255,0.1)" }}>
@@ -685,7 +685,7 @@ export default function GenerateVideoPage() {
                 <button
                   onClick={handleRetry}
                   className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] transition-opacity hover:opacity-80 rounded-sm"
-                  style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#F5F0EB" }}
+                  style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
                 >
                   <RefreshCw size={10} />
                   Nouvelle génération
@@ -693,7 +693,7 @@ export default function GenerateVideoPage() {
                 <button
                   onClick={handleDownload}
                   className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] transition-opacity hover:opacity-80 rounded-sm"
-                  style={{ background: "#C75B39", color: "#FFFFFF" }}
+                  style={{ background: "var(--accent)", color: "var(--text-primary)" }}
                 >
                   <Download size={10} />
                   Télécharger la vidéo
@@ -706,11 +706,11 @@ export default function GenerateVideoPage() {
           {jobStatus === "failed" && !error && (
             <div className="flex flex-col items-center justify-center py-24 gap-3">
               <div className="w-14 h-14 flex items-center justify-center" style={{ background: "rgba(229,72,77,0.1)" }}>
-                <AlertTriangle size={24} style={{ color: "#E5484D" }} />
+                <AlertTriangle size={24} style={{ color: "var(--danger)" }} />
               </div>
-              <p className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Échec de la génération</p>
+              <p className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Échec de la génération</p>
               <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>Réessaie avec un prompt différent ou un autre modèle</p>
-              <button onClick={handleRetry} className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80" style={{ background: "#C75B39", color: "#FFFFFF" }}>
+              <button onClick={handleRetry} className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80" style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                 <RefreshCw size={10} /> Réessayer
               </button>
             </div>
@@ -758,10 +758,10 @@ export default function GenerateVideoPage() {
               {/* Status indicator */}
               <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{
                 background: job.status === "completed"
-                  ? "#10B981"
+                  ? "var(--success)"
                   : job.status === "failed"
-                  ? "#E5484D"
-                  : "#C75B39",
+                  ? "var(--danger)"
+                  : "var(--accent)",
               }} />
               <span className="flex-1 truncate">
                 {job.prompt?.slice(0, 50) || "Sans prompt"}
@@ -811,7 +811,7 @@ export default function GenerateVideoPage() {
                 key={i}
                 onClick={() => setPrompt(idea)}
                 className="text-[9px] px-2 py-2 rounded-sm text-left transition-colors hover:bg-white/5 block w-full"
-                style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.3)" }}
+                style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.3)" }}
               >
                 "{idea}"
               </button>

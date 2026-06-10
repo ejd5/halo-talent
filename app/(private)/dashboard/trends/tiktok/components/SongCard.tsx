@@ -62,7 +62,7 @@ export function SongCard({ song, onAnalyse }: Props) {
     <div
       className="group relative transition-all"
       style={{
-        backgroundColor: "#2A2420",
+        backgroundColor: "var(--bg-card)",
         border: "1px solid rgba(245,240,235,0.06)",
       }}
     >
@@ -86,9 +86,9 @@ export function SongCard({ song, onAnalyse }: Props) {
 
         {/* Rank badge */}
         <div className="absolute top-2 left-2 flex items-center gap-1 px-1.5 py-0.5" style={{ backgroundColor: "rgba(26,22,20,0.85)" }}>
-          <span className="text-[9px] font-medium" style={{ color: "#F5F0EB" }}>#{song.rank}</span>
+          <span className="text-[9px] font-medium" style={{ color: "var(--text-primary)" }}>#{song.rank}</span>
           {song.rank_diff !== undefined && song.rank_diff !== 0 && (
-            <span style={{ color: song.rank_diff < 0 ? "#7A9A65" : "#C44536" }}>
+            <span style={{ color: song.rank_diff < 0 ? "var(--success)" : "var(--danger)" }}>
               {song.rank_diff < 0 ? <TrendingUp size={8} /> : <TrendingDown size={8} />}
             </span>
           )}
@@ -103,7 +103,7 @@ export function SongCard({ song, onAnalyse }: Props) {
           >
             <div
               className="w-10 h-10 flex items-center justify-center"
-              style={{ backgroundColor: "#C75B39" }}
+              style={{ backgroundColor: "var(--accent)" }}
             >
               {playing ? (
                 <div className="flex items-end gap-0.5 h-4">
@@ -112,7 +112,7 @@ export function SongCard({ song, onAnalyse }: Props) {
                   <span className="w-0.5 bg-white animate-pulse" style={{ height: "40%", animationDelay: "0.4s" }} />
                 </div>
               ) : (
-                <Play size={14} style={{ color: "#F5F0EB" }} />
+                <Play size={14} style={{ color: "var(--text-primary)" }} />
               )}
             </div>
           </button>
@@ -125,7 +125,7 @@ export function SongCard({ song, onAnalyse }: Props) {
               className="text-[8px] font-medium uppercase px-1 py-0.5"
               style={{
                 backgroundColor: song.is_commercial ? "rgba(122,154,101,0.15)" : "rgba(199,91,57,0.15)",
-                color: song.is_commercial ? "#7A9A65" : "#C75B39",
+                color: song.is_commercial ? "var(--success)" : "var(--accent)",
               }}
             >
               {song.is_commercial ? "Commercial-safe" : "Organique"}
@@ -136,7 +136,7 @@ export function SongCard({ song, onAnalyse }: Props) {
 
       {/* Info */}
       <div className="p-3">
-        <h3 className="text-sm font-medium truncate" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <h3 className="text-sm font-medium truncate" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           {song.title}
         </h3>
         <p className="text-[10px] mt-0.5" style={{ color: "rgba(245,240,235,0.3)" }}>
@@ -180,14 +180,14 @@ export function SongCard({ song, onAnalyse }: Props) {
           <button
             onClick={() => router.push(`/studio/composer?source=tiktok&type=video&song_id=${encodeURIComponent(song.tiktok_song_id || "")}&hashtag=${encodeURIComponent(song.title)}&artist=${encodeURIComponent(song.author)}`)}
             className="flex-1 text-[9px] font-semibold uppercase tracking-wider py-1.5 transition-all hover:opacity-80"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             Créer
           </button>
           <button
             onClick={() => setSaved(!saved)}
             className="p-1.5 transition-all hover:opacity-70"
-            style={{ color: saved ? "#C75B39" : "rgba(245,240,235,0.15)" }}
+            style={{ color: saved ? "var(--accent)" : "rgba(245,240,235,0.15)" }}
             title={saved ? "Sauvegardé" : "Sauvegarder"}
           >
             <Save size={12} />

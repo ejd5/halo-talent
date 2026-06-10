@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Sparkles, Bell, ChevronDown, Camera, Video, Music2, MessageCircle, Globe } from "lucide-react";
+import { Sparkles, ChevronDown, Camera, Video, Music2, MessageCircle, Globe } from "lucide-react";
+import { NotifBell } from "@/components/notifications/NotifPanel";
 import type { WalletBalance } from "@/lib/studio/types";
 
 const PLATFORMS = [
@@ -63,7 +64,7 @@ export function StudioTopbar() {
         {pathname !== "/studio" && (
           <>
             <span style={{ color: "var(--color-ink-tertiary)" }}>›</span>
-            <span className="truncate" style={{ color: "#C75B39" }}>
+            <span className="truncate" style={{ color: "var(--accent)" }}>
               {pathname.replace("/studio/", "").replace(/\//g, " · ")}
             </span>
           </>
@@ -86,7 +87,7 @@ export function StudioTopbar() {
         </button>
 
         {platformOpen && (
-          <div className="absolute right-0 top-full mt-1 w-44 py-1 shadow-xl z-50" style={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.08)" }}>
+          <div className="absolute right-0 top-full mt-1 w-44 py-1 shadow-xl z-50" style={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.08)" }}>
             {PLATFORMS.map((p) => {
               const Icon = p.icon;
               const isSelected = p.id === selectedPlatform.id;
@@ -96,7 +97,7 @@ export function StudioTopbar() {
                   onClick={() => { setSelectedPlatform(p); setPlatformOpen(false); }}
                   className="flex items-center gap-2.5 w-full text-left px-3 py-2 text-xs transition-colors"
                   style={{
-                    color: isSelected ? "#C75B39" : "var(--color-ink-secondary)",
+                    color: isSelected ? "var(--accent)" : "var(--color-ink-secondary)",
                     background: isSelected ? "rgba(199,91,57,0.08)" : "transparent",
                   }}
                 >
@@ -113,8 +114,8 @@ export function StudioTopbar() {
       <button
         className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] transition-colors"
         style={{
-          color: "#C75B39",
-          border: "1px solid rgba(199,91,57,0.15)",
+          color: "var(--accent)",
+          border: "1px solid var(--accent-border)",
         }}
       >
         <Sparkles size={12} />
@@ -125,17 +126,14 @@ export function StudioTopbar() {
       <Link
         href="/studio/credits"
         className="flex items-center gap-1.5 text-[12px] transition-colors hover:opacity-70"
-        style={{ color: "#C75B39" }}
+        style={{ color: "var(--accent)" }}
       >
         <span>✦</span>
         <span className="hidden sm:inline tabular-nums">{creditsData?.is_unlimited ? "∞" : creditsData?.balance?.toLocaleString("fr-FR") || "..."}</span>
       </Link>
 
       {/* Notification bell */}
-      <button className="relative p-1.5 transition-colors" style={{ color: "var(--color-ink-tertiary)" }}>
-        <Bell size={16} />
-        <span className="absolute top-1 right-1 w-1.5 h-1.5" style={{ background: "#C75B39" }} />
-      </button>
+      <NotifBell />
     </header>
   );
 }

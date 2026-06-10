@@ -38,6 +38,9 @@ mobile/node_modules/
 mobile/.expo/
 mobile/dist/
 
+# graphify cache
+.graphify/
+
 # vercel
 .vercel
 

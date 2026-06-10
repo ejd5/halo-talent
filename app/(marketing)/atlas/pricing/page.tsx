@@ -103,8 +103,8 @@ const faqs = [
     a: "Oui. Vous pouvez passer du plan Free au plan Pro (ou Enterprise) quand vous voulez. Le passage est immédiat et vous ne perdez aucune donnée. Si vous décidez de réduire votre plan, les fonctionnalités non incluses seront simplement désactivées.",
   },
   {
-    q: "Que signifie &quot;Zero ban garanti&quot; ?",
-    a: "Si votre compte est suspendu ou banni à cause d'une action initiée par Atlas, nous vous remboursons les 12 derniers mois d'abonnement. Cette garantie couvre tous les plans, sans conditions cachées. Consultez notre page conformité pour plus de détails.",
+    q: "Comment Atlas protège-t-il contre les bans ?",
+    a: "Atlas intègre des limites de taux, une vérification de contenu et un suivi de conformité pour réduire les risques. Si une action initiée par Atlas cause la suspension de votre compte, nous remboursons les 12 derniers mois d'abonnement.",
   },
   {
     q: "Les prix sont-ils TTC ?",

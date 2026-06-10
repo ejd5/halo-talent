@@ -138,9 +138,9 @@ export default function LegalKnowledgePage() {
   };
 
   const severityColor = (s: number) => {
-    if (s <= 2) return "#7A9A65";
+    if (s <= 2) return "var(--success)";
     if (s <= 4) return "#D4A24C";
-    return "#C44536";
+    return "var(--danger)";
   };
 
   return (
@@ -149,19 +149,19 @@ export default function LegalKnowledgePage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <div className="flex items-center gap-3 mb-1">
-            <BookOpen size={24} style={{ color: "#C75B39" }} />
-            <h1 className="text-2xl font-display font-semibold" style={{ color: "#F5F0EB" }}>
+            <BookOpen size={24} style={{ color: "var(--accent)" }} />
+            <h1 className="text-2xl font-display font-semibold" style={{ color: "var(--text-primary)" }}>
               Base juridique
             </h1>
           </div>
-          <p className="text-sm" style={{ color: "#E0D8D0" }}>
+          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
             {entries.length} entrées — Références légales, CGU plateformes, jurisprudence
           </p>
         </div>
         <button
           onClick={openCreate}
           className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90"
-          style={{ background: "#C75B39", color: "#F5F0EB" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={16} /> Ajouter
         </button>
@@ -176,14 +176,14 @@ export default function LegalKnowledgePage() {
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Rechercher..."
             className="w-full text-sm pl-9 pr-3 py-2 outline-none"
-            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+            style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           />
         </div>
         <select
           value={filterCat}
           onChange={(e) => setFilterCat(e.target.value)}
           className="text-sm px-3 py-2 outline-none"
-          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#E0D8D0" }}
+          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-secondary)" }}
         >
           <option value="">Toutes catégories</option>
           {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
@@ -192,7 +192,7 @@ export default function LegalKnowledgePage() {
           value={filterPlat}
           onChange={(e) => setFilterPlat(e.target.value)}
           className="text-sm px-3 py-2 outline-none"
-          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#E0D8D0" }}
+          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-secondary)" }}
         >
           <option value="">Toutes plateformes</option>
           {PLATFORMS.map((p) => <option key={p} value={p}>{p}</option>)}
@@ -201,7 +201,7 @@ export default function LegalKnowledgePage() {
           value={filterJur}
           onChange={(e) => setFilterJur(e.target.value)}
           className="text-sm px-3 py-2 outline-none"
-          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#E0D8D0" }}
+          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-secondary)" }}
         >
           <option value="">Toutes juridictions</option>
           {JURISDICTIONS.map((j) => <option key={j} value={j}>{j}</option>)}
@@ -210,7 +210,7 @@ export default function LegalKnowledgePage() {
           <button
             onClick={() => { setFilterCat(""); setFilterPlat(""); setFilterJur(""); }}
             className="text-xs px-2 py-1"
-            style={{ color: "#C75B39" }}
+            style={{ color: "var(--accent)" }}
           >
             Réinitialiser
           </button>
@@ -220,15 +220,15 @@ export default function LegalKnowledgePage() {
       {/* Table */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+          <Loader2 size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
         </div>
       ) : (
-        <div style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ border: "1px solid var(--border-default)" }}>
           <table className="w-full" style={{ borderCollapse: "collapse" }}>
             <thead>
-              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "var(--bg-card)" }}>
                 {["Titre", "Catégorie", "Plateforme", "Juridiction", "Sévérité", "Tags", "Source", "Actions"].map((h) => (
-                  <th key={h} className="text-left text-xs font-semibold uppercase tracking-wider px-4 py-3" style={{ color: "#E0D8D0" }}>{h}</th>
+                  <th key={h} className="text-left text-xs font-semibold uppercase tracking-wider px-4 py-3" style={{ color: "var(--text-secondary)" }}>{h}</th>
                 ))}
               </tr>
             </thead>
@@ -237,7 +237,7 @@ export default function LegalKnowledgePage() {
                 <tr key={entry.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{entry.title}</span>
+                      <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{entry.title}</span>
                       {entry.auto_generated && (
                         <span className="text-[10px] px-1.5 py-0.5 font-medium" style={{ background: "rgba(212,162,76,0.12)", color: "#D4A24C" }}>
                           auto
@@ -246,12 +246,12 @@ export default function LegalKnowledgePage() {
                     </div>
                   </td>
                   <td className="px-4 py-3">
-                    <span className="text-xs px-2 py-0.5" style={{ background: "rgba(255,255,255,0.06)", color: "#E0D8D0" }}>
+                    <span className="text-xs px-2 py-0.5" style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-secondary)" }}>
                       {entry.category}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: "#E0D8D0" }}>{entry.platform || "—"}</td>
-                  <td className="px-4 py-3 text-sm" style={{ color: "#E0D8D0" }}>{entry.jurisdiction}</td>
+                  <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{entry.platform || "—"}</td>
+                  <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{entry.jurisdiction}</td>
                   <td className="px-4 py-3">
                     <span className="text-xs font-medium px-2 py-0.5" style={{ background: `${severityColor(entry.severity_score)}20`, color: severityColor(entry.severity_score) }}>
                       {entry.severity_score}/10
@@ -270,17 +270,17 @@ export default function LegalKnowledgePage() {
                       {entry.source_name && <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>{entry.source_name}</span>}
                       {entry.source_url && (
                         <a href={entry.source_url} target="_blank" rel="noopener noreferrer">
-                          <ExternalLink size={12} style={{ color: "#C75B39" }} />
+                          <ExternalLink size={12} style={{ color: "var(--accent)" }} />
                         </a>
                       )}
                     </div>
                   </td>
                   <td className="px-4 py-3">
                     <div className="flex items-center gap-1">
-                      <button onClick={() => openEdit(entry)} className="p-1.5 transition-colors hover:bg-white/5" style={{ color: "#E0D8D0" }}>
+                      <button onClick={() => openEdit(entry)} className="p-1.5 transition-colors hover:bg-white/5" style={{ color: "var(--text-secondary)" }}>
                         <Edit3 size={14} />
                       </button>
-                      <button onClick={() => handleDelete(entry.id)} className="p-1.5 transition-colors hover:bg-white/5" style={{ color: "#C44536" }}>
+                      <button onClick={() => handleDelete(entry.id)} className="p-1.5 transition-colors hover:bg-white/5" style={{ color: "var(--danger)" }}>
                         <Trash2 size={14} />
                       </button>
                     </div>
@@ -298,75 +298,75 @@ export default function LegalKnowledgePage() {
       {/* Modal */}
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.6)" }}>
-          <div className="w-full max-w-2xl max-h-[85vh] overflow-y-auto" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
+          <div className="w-full max-w-2xl max-h-[85vh] overflow-y-auto" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
             <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-              <h2 className="text-lg font-semibold" style={{ color: "#F5F0EB" }}>
+              <h2 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>
                 {editing ? "Modifier l'entrée" : "Nouvelle entrée"}
               </h2>
-              <button onClick={() => setShowModal(false)} style={{ color: "#E0D8D0" }}><X size={18} /></button>
+              <button onClick={() => setShowModal(false)} style={{ color: "var(--text-secondary)" }}><X size={18} /></button>
             </div>
             <div className="p-6 space-y-4">
               <div className="grid grid-cols-3 gap-4">
                 <div>
-                  <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Catégorie</label>
-                  <select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                  <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Catégorie</label>
+                  <select value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                     {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Plateforme</label>
-                  <select value={form.platform} onChange={(e) => setForm({ ...form, platform: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                  <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Plateforme</label>
+                  <select value={form.platform} onChange={(e) => setForm({ ...form, platform: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                     <option value="">—</option>
                     {PLATFORMS.map((p) => <option key={p} value={p}>{p}</option>)}
                   </select>
                 </div>
                 <div>
-                  <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Juridiction</label>
-                  <select value={form.jurisdiction} onChange={(e) => setForm({ ...form, jurisdiction: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>
+                  <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Juridiction</label>
+                  <select value={form.jurisdiction} onChange={(e) => setForm({ ...form, jurisdiction: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                     {JURISDICTIONS.map((j) => <option key={j} value={j}>{j}</option>)}
                   </select>
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Titre *</label>
-                <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Titre *</label>
+                <input value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
               </div>
               <div>
-                <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Contenu *</label>
-                <textarea value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} rows={5} className="w-full text-sm px-3 py-2 outline-none resize-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Contenu *</label>
+                <textarea value={form.content} onChange={(e) => setForm({ ...form, content: e.target.value })} rows={5} className="w-full text-sm px-3 py-2 outline-none resize-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Résumé</label>
-                  <textarea value={form.summary} onChange={(e) => setForm({ ...form, summary: e.target.value })} rows={3} className="w-full text-sm px-3 py-2 outline-none resize-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                  <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Résumé</label>
+                  <textarea value={form.summary} onChange={(e) => setForm({ ...form, summary: e.target.value })} rows={3} className="w-full text-sm px-3 py-2 outline-none resize-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
                 </div>
                 <div className="space-y-4">
                   <div>
-                    <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Tags (séparés par virgules)</label>
-                    <input value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                    <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Tags (séparés par virgules)</label>
+                    <input value={form.tags} onChange={(e) => setForm({ ...form, tags: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Sévérité (1-10)</label>
-                    <input type="number" min={1} max={10} value={form.severity_score} onChange={(e) => setForm({ ...form, severity_score: parseInt(e.target.value) || 3 })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                    <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Sévérité (1-10)</label>
+                    <input type="number" min={1} max={10} value={form.severity_score} onChange={(e) => setForm({ ...form, severity_score: parseInt(e.target.value) || 3 })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
                   </div>
                   <div>
-                    <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>Nom de la source</label>
-                    <input value={form.source_name} onChange={(e) => setForm({ ...form, source_name: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                    <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Nom de la source</label>
+                    <input value={form.source_name} onChange={(e) => setForm({ ...form, source_name: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
                   </div>
                 </div>
               </div>
               <div>
-                <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>URL source</label>
-                <input value={form.source_url} onChange={(e) => setForm({ ...form, source_url: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }} />
+                <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>URL source</label>
+                <input value={form.source_url} onChange={(e) => setForm({ ...form, source_url: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
               </div>
               <label className="flex items-center gap-2">
                 <input type="checkbox" checked={form.auto_generated} onChange={(e) => setForm({ ...form, auto_generated: e.target.checked })} />
-                <span className="text-sm" style={{ color: "#E0D8D0" }}>Généré automatiquement</span>
+                <span className="text-sm" style={{ color: "var(--text-secondary)" }}>Généré automatiquement</span>
               </label>
             </div>
             <div className="flex justify-end gap-3 px-6 py-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-              <button onClick={() => setShowModal(false)} className="px-4 py-2 text-sm" style={{ color: "#E0D8D0" }}>Annuler</button>
-              <button onClick={handleSave} disabled={saving || !form.title || !form.content} className="px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-40" style={{ background: "#C75B39", color: "#F5F0EB" }}>
+              <button onClick={() => setShowModal(false)} className="px-4 py-2 text-sm" style={{ color: "var(--text-secondary)" }}>Annuler</button>
+              <button onClick={handleSave} disabled={saving || !form.title || !form.content} className="px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-40" style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                 {saving ? "Enregistrement..." : editing ? "Mettre à jour" : "Créer"}
               </button>
             </div>

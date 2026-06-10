@@ -46,13 +46,13 @@ export default function ROITab() {
             <div className="space-y-2">
               {Object.entries(month.revenueBySource).map(([source, rev]) => (
                 <div key={source} className="flex items-center justify-between py-2 text-sm" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
-                  <span style={{ color: "#F5F0EB" }}>{source}</span>
-                  <span className="font-semibold" style={{ color: "#7A9A65" }}>{eur(rev as number)}</span>
+                  <span style={{ color: "var(--text-primary)" }}>{source}</span>
+                  <span className="font-semibold" style={{ color: "var(--success)" }}>{eur(rev as number)}</span>
                 </div>
               ))}
-              <div className="flex items-center justify-between pt-2 text-sm font-bold" style={{ color: "#F5F0EB" }}>
+              <div className="flex items-center justify-between pt-2 text-sm font-bold" style={{ color: "var(--text-primary)" }}>
                 <span>TOTAL</span>
-                <span style={{ color: "#7A9A65" }}>{eur(month.totalRevenue)}</span>
+                <span style={{ color: "var(--success)" }}>{eur(month.totalRevenue)}</span>
               </div>
             </div>
           ) : (
@@ -68,13 +68,13 @@ export default function ROITab() {
             <div className="space-y-2">
               {Object.entries(month.costBreakdown).map(([key, cost]) => (
                 <div key={key} className="flex items-center justify-between py-2 text-sm" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
-                  <span style={{ color: "#F5F0EB" }}>{COST_LABELS[key] ?? key}</span>
-                  <span className="font-semibold" style={{ color: "#C44536" }}>{eur(cost as number)}</span>
+                  <span style={{ color: "var(--text-primary)" }}>{COST_LABELS[key] ?? key}</span>
+                  <span className="font-semibold" style={{ color: "var(--danger)" }}>{eur(cost as number)}</span>
                 </div>
               ))}
-              <div className="flex items-center justify-between pt-2 text-sm font-bold" style={{ color: "#F5F0EB" }}>
+              <div className="flex items-center justify-between pt-2 text-sm font-bold" style={{ color: "var(--text-primary)" }}>
                 <span>TOTAL</span>
-                <span style={{ color: "#C44536" }}>{eur(month.totalCost)}</span>
+                <span style={{ color: "var(--danger)" }}>{eur(month.totalCost)}</span>
               </div>
             </div>
           ) : (
@@ -95,14 +95,14 @@ export default function ROITab() {
                 <XAxis dataKey="month" tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} />
                 <YAxis tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} tickFormatter={(v: number) => `${v}%`} />
                 <Tooltip
-                  contentStyle={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
-                  labelStyle={{ color: "#F5F0EB" }}
+                  contentStyle={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
+                  labelStyle={{ color: "var(--text-primary)" }}
                   formatter={(v: any) => [pct(Number(v)), "ROI"]}
                 />
                 <Legend />
-                <Line type="monotone" dataKey="roi" name="ROI %" stroke="#C75B39" strokeWidth={2} dot={false} />
-                <Line type="monotone" dataKey="revenue" name="Revenus (€)" stroke="#7A9A65" strokeWidth={2} dot={false} />
-                <Line type="monotone" dataKey="cost" name="Coûts (€)" stroke="#C44536" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="roi" name="ROI %" stroke="var(--accent)" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="revenue" name="Revenus (€)" stroke="var(--success)" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="cost" name="Coûts (€)" stroke="var(--danger)" strokeWidth={2} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -115,13 +115,13 @@ export default function ROITab() {
           <Table
             headers={["Mois", "Abonnement", "IA API", "Twilio", "Resend", "Autres", "Total"]}
             rows={data.costEntries.map((c: any) => [
-              <span key="month" style={{ color: "#F5F0EB" }}>{c.month?.slice(0, 7)}</span>,
+              <span key="month" style={{ color: "var(--text-primary)" }}>{c.month?.slice(0, 7)}</span>,
               eur(c.subscription ?? 0),
               eur(c.ai_api_costs ?? 0),
               eur(c.twilio_sms ?? 0),
               eur(c.resend_email ?? 0),
               eur(c.other_costs ?? 0),
-              <span key="total" className="font-semibold" style={{ color: "#C44536" }}>{eur(c.total)}</span>,
+              <span key="total" className="font-semibold" style={{ color: "var(--danger)" }}>{eur(c.total)}</span>,
             ])}
           />
         </Card>

@@ -52,7 +52,7 @@ const ANTI_DETECT_TOOLS = [
     name: "Dolphin Anty",
     pricing: "Free / $10 / $19 / $89 / mois",
     origin: "Russie",
-    strengths: ["Plan gratuit très généreux", "Profils illimités en free", "Proxy intégré"],
+    strengths: ["Plan gratuit très généreux", "Profils multiples en version gratuite", "Proxy intégré"],
     limit: "Maintenance moins active récemment",
     affiliateUrl: "https://dolphinanty.com/?utm_source=halo&utm_medium=pro_mode&utm_campaign=affiliate",
     rating: "4.0/5",
@@ -163,7 +163,7 @@ function ToolCard({
       <div className="flex items-start justify-between mb-3">
         <div>
           <div className="flex items-center gap-2">
-            <h3 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>
+            <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
               {tool.name}
             </h3>
             {"tag" in tool && tool.tag && (
@@ -171,8 +171,8 @@ function ToolCard({
                 className="text-[9px] font-medium px-1.5 py-0.5 flex items-center gap-1"
                 style={{
                   backgroundColor: "rgba(199,91,57,0.1)",
-                  color: "#C75B39",
-                  border: "1px solid rgba(199,91,57,0.2)",
+                  color: "var(--accent)",
+                  border: "1px solid var(--accent-border)",
                 }}
               >
                 <Star size={8} />
@@ -205,7 +205,7 @@ function ToolCard({
       <div className="space-y-1 mb-3">
         {tool.strengths.map((s, i) => (
           <div key={i} className="flex items-start gap-1.5">
-            <Check size={10} className="shrink-0 mt-0.5" style={{ color: "#7A9A65" }} />
+            <Check size={10} className="shrink-0 mt-0.5" style={{ color: "var(--success)" }} />
             <span className="text-[10px]" style={{ color: "rgba(245,240,235,0.5)" }}>
               {s}
             </span>
@@ -216,7 +216,7 @@ function ToolCard({
       {/* Limitation */}
       {"limit" in tool && tool.limit && (
         <div className="flex items-start gap-1.5 mb-3">
-          <AlertTriangle size={10} className="shrink-0 mt-0.5" style={{ color: "#C75B39" }} />
+          <AlertTriangle size={10} className="shrink-0 mt-0.5" style={{ color: "var(--accent)" }} />
           <span className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
             {tool.limit}
           </span>
@@ -232,7 +232,7 @@ function ToolCard({
             ? "rgba(199,91,57,0.08)"
             : "rgba(245,240,235,0.03)",
           color: showDisclaimer
-            ? "#C75B39"
+            ? "var(--accent)"
             : "rgba(245,240,235,0.2)",
         }}
       >
@@ -260,7 +260,7 @@ function ToolCard({
         target="_blank"
         rel="noopener noreferrer sponsored"
         className="w-full text-[10px] font-semibold py-2 mt-2 transition-all flex items-center justify-center gap-1.5 hover:opacity-80"
-        style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+        style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
       >
         Voir le site
         <ExternalLink size={9} />
@@ -287,7 +287,7 @@ function EngagementToolRow({
             ? "rgba(196,69,54,0.06)"
             : "rgba(199,91,57,0.04)",
         borderLeft: `3px solid ${
-          tool.severity === "critical" ? "#C44536" : "#C75B39"
+          tool.severity === "critical" ? "var(--danger)" : "var(--accent)"
         }`,
       }}
     >
@@ -296,11 +296,11 @@ function EngagementToolRow({
           size={12}
           className="shrink-0 mt-0.5"
           style={{
-            color: tool.severity === "critical" ? "#C44536" : "#C75B39",
+            color: tool.severity === "critical" ? "var(--danger)" : "var(--accent)",
           }}
         />
         <div>
-          <span className="text-xs font-semibold" style={{ color: "#F5F0EB" }}>
+          <span className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>
             {tool.name}
           </span>
           <p className="text-[10px] mt-0.5" style={{ color: "rgba(245,240,235,0.3)" }}>
@@ -316,7 +316,7 @@ function EngagementToolRow({
               ? "rgba(196,69,54,0.1)"
               : "rgba(199,91,57,0.1)",
           color:
-            tool.severity === "critical" ? "#C44536" : "#C75B39",
+            tool.severity === "critical" ? "var(--danger)" : "var(--accent)",
         }}
       >
         {tool.severity === "critical" ? "Éviter" : "Risqué"}
@@ -351,13 +351,13 @@ export default function ProModePage() {
       <div className="flex items-start justify-between">
         <div>
           <div className="flex items-center gap-2 mb-2">
-            <Shield size={14} style={{ color: "#C75B39" }} />
+            <Shield size={14} style={{ color: "var(--accent)" }} />
             <span
               className="text-[10px] font-semibold uppercase tracking-widest px-2 py-0.5"
               style={{
                 backgroundColor: "rgba(199,91,57,0.1)",
-                color: "#C75B39",
-                border: "1px solid rgba(199,91,57,0.2)",
+                color: "var(--accent)",
+                border: "1px solid var(--accent-border)",
               }}
             >
               Pro Mode
@@ -365,7 +365,7 @@ export default function ProModePage() {
           </div>
           <h1
             className="text-2xl font-semibold"
-            style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
             Outils avancés
           </h1>
@@ -390,7 +390,7 @@ export default function ProModePage() {
           <Globe size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
           <h2
             className="text-base font-semibold"
-            style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
             Anti-detect Browsers
           </h2>
@@ -418,7 +418,7 @@ export default function ProModePage() {
           gestion de comptes pour différents clients par une agence, tests
           cross-browser pour QA, recherche académique.
           <br />
-          <strong style={{ color: "#C75B39" }}>Risques :</strong> violation
+          <strong style={{ color: "var(--accent)" }}>Risques :</strong> violation
           potentielle des CGU de Meta/TikTok/OnlyFans selon votre usage.
         </p>
 
@@ -435,7 +435,7 @@ export default function ProModePage() {
           <Shield size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
           <h2
             className="text-base font-semibold"
-            style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
             Proxies Résidentiels
           </h2>
@@ -460,10 +460,10 @@ export default function ProModePage() {
       {/* ═══ Category 3 — Engagement Automation (warning) ═══ */}
       <section>
         <div className="flex items-center gap-2 mb-1">
-          <Zap size={14} style={{ color: "#C44536" }} />
+          <Zap size={14} style={{ color: "var(--danger)" }} />
           <h2
             className="text-base font-semibold"
-            style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
             Outils d&apos;engagement automatisé
           </h2>
@@ -476,10 +476,10 @@ export default function ProModePage() {
             color: "rgba(245,240,235,0.5)",
           }}
         >
-          <AlertTriangle size={14} className="shrink-0 mt-0.5" style={{ color: "#C44536" }} />
+          <AlertTriangle size={14} className="shrink-0 mt-0.5" style={{ color: "var(--danger)" }} />
           <span>
             Cette catégorie a historiquement causé des bans massifs. Utilisez
-            avec <strong style={{ color: "#C44536" }}>extrême précaution</strong>{" "}
+            avec <strong style={{ color: "var(--danger)" }}>extrême précaution</strong>{" "}
             ou évitez.
           </span>
         </div>
@@ -495,7 +495,7 @@ export default function ProModePage() {
       <section>
         <h2
           className="text-base font-semibold mb-4"
-          style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+          style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
         >
           Questions fréquentes
         </h2>
@@ -513,7 +513,7 @@ export default function ProModePage() {
                 onClick={() => setOpenFaq(openFaq === i ? null : i)}
                 className="w-full flex items-center justify-between p-3 text-left"
               >
-                <span className="text-xs font-medium pr-4" style={{ color: "#F5F0EB" }}>
+                <span className="text-xs font-medium pr-4" style={{ color: "var(--text-primary)" }}>
                   {item.q}
                 </span>
                 <ChevronDown
@@ -564,7 +564,7 @@ export default function ProModePage() {
             className="flex-1 text-[10px] font-medium py-2.5 transition-all hover:opacity-70"
             style={{
               backgroundColor: "rgba(196,69,54,0.08)",
-              color: "#C44536",
+              color: "var(--danger)",
               border: "1px solid rgba(196,69,54,0.15)",
             }}
           >
@@ -573,7 +573,7 @@ export default function ProModePage() {
           <Link
             href="/dashboard/integrations"
             className="flex-1 text-[10px] font-medium py-2.5 text-center transition-all hover:opacity-80 flex items-center justify-center gap-1.5"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             <Shield size={10} />
             Voir Co-management (alternative légale)

@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Bell, Search, ChevronRight, Menu } from "lucide-react";
+import { Search, ChevronRight, Menu } from "lucide-react";
+import { NotifBell } from "@/components/notifications/NotifPanel";
 import { useState } from "react";
 import { mockCreator } from "./data";
 
@@ -50,27 +51,27 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
   const isRoot = pathname === "/dashboard";
 
   return (
-    <header className="fixed top-0 left-0 md:left-60 right-0 h-16 border-b border-[var(--color-border)] z-20 flex items-center justify-between px-4 md:px-8" style={{ backgroundColor: "var(--color-base-alt)" }}>
+    <header className="fixed top-0 left-0 md:left-56 right-0 h-16 border-b border-[var(--color-border)] z-20 flex items-center justify-between px-4 md:px-8" style={{ backgroundColor: "var(--color-base-alt)" }}>
       {/* Mobile menu toggle */}
-      <button onClick={onMenuToggle} className="md:hidden p-2 mr-2 -ml-2 hover:bg-[var(--color-card)]">
+      <button onClick={onMenuToggle} className="md:hidden min-touch mr-2 -ml-2 hover:bg-[var(--color-card)]">
         <Menu size={18} />
       </button>
 
       {/* Breadcrumb */}
       <div>
         <div className="flex items-center gap-2 text-xs">
-          <Link href="/dashboard" className="transition-colors" style={{ color: "#FFFFFF" }}>
+          <Link href="/dashboard" className="transition-colors" style={{ color: "var(--text-primary)" }}>
             Accueil
           </Link>
           {!isRoot && (
             <>
-              <ChevronRight size={12} style={{ color: "#FFFFFF" }} />
+              <ChevronRight size={12} style={{ color: "var(--text-primary)" }} />
               <span className="font-medium">{pageTitle}</span>
             </>
           )}
         </div>
         {isRoot && (
-          <p className="text-xs mt-0.5" style={{ color: "#FFFFFF" }}>
+          <p className="text-xs mt-0.5" style={{ color: "var(--text-primary)" }}>
             Bienvenue dans votre espace créateur
           </p>
         )}
@@ -79,7 +80,7 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
       {/* Search */}
       <div className="hidden md:block">
         <div className="relative">
-          <Search size={13} className="absolute left-0 top-1/2 -translate-y-1/2" style={{ color: "#FFFFFF" }} />
+          <Search size={13} className="absolute left-0 top-1/2 -translate-y-1/2" style={{ color: "var(--text-primary)" }} />
           <input
             type="text"
             placeholder="Rechercher..."
@@ -92,10 +93,7 @@ export function Header({ onMenuToggle }: { onMenuToggle: () => void }) {
 
       {/* Right */}
       <div className="flex items-center gap-3">
-        <button className="relative transition-colors" style={{ color: "#FFFFFF" }}>
-          <Bell size={18} />
-          <span className="absolute -top-0.5 -right-0.5 w-2 h-2" style={{ backgroundColor: "var(--color-accent)" }} />
-        </button>
+        <NotifBell />
         <div className="w-8 h-8 border border-[var(--color-border)] flex items-center justify-center text-[10px] font-semibold" style={{ backgroundColor: "var(--color-card)" }}>
           {mockCreator.full_name.split(" ").map((n) => n[0]).join("")}
         </div>

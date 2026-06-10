@@ -11,9 +11,9 @@ type Props = {
 };
 
 const statusConfig: Record<string, { label: string; color: string }> = {
-  active: { label: "Actif", color: "#7A9A65" },
-  pause: { label: "Pause", color: "#C75B39" },
-  alert: { label: "Alerte", color: "#C44536" },
+  active: { label: "Actif", color: "var(--success)" },
+  pause: { label: "Pause", color: "var(--accent)" },
+  alert: { label: "Alerte", color: "var(--danger)" },
 };
 
 export function CreatorCard({ creator, onClick }: Props) {
@@ -27,8 +27,8 @@ export function CreatorCard({ creator, onClick }: Props) {
       onClick={onClick}
       className="group text-left w-full transition-all duration-200 hover:-translate-y-1"
       style={{
-        background: "#1A1614",
-        border: "1px solid rgba(255,255,255,0.04)",
+        background: "var(--bg-primary)",
+        border: "1px solid var(--border-default)",
       }}
     >
       {/* Avatar placeholder */}
@@ -66,10 +66,10 @@ export function CreatorCard({ creator, onClick }: Props) {
       <div className="p-4 space-y-3">
         {/* Name + Department */}
         <div>
-          <h3 className="font-display text-base font-bold" style={{ color: "#F5F0EB" }}>
+          <h3 className="font-display text-base font-bold" style={{ color: "var(--text-primary)" }}>
             {creator.full_name}
           </h3>
-          <p className="text-[11px] font-sans mt-0.5" style={{ color: "#F5F0EB" }}>
+          <p className="text-[11px] font-sans mt-0.5" style={{ color: "var(--text-primary)" }}>
             {creator.department}
           </p>
         </div>
@@ -77,10 +77,10 @@ export function CreatorCard({ creator, onClick }: Props) {
         {/* Revenue + Sparkline */}
         <div className="flex items-end justify-between">
           <div>
-            <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#E0D8D0" }}>
+            <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-secondary)" }}>
               Revenus du mois
             </p>
-            <p className="font-display text-lg font-bold mt-0.5" style={{ color: "#C75B39" }}>
+            <p className="font-display text-lg font-bold mt-0.5" style={{ color: "var(--accent)" }}>
               {formatEuro(creator.current_month_revenue)}
             </p>
           </div>
@@ -93,16 +93,16 @@ export function CreatorCard({ creator, onClick }: Props) {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1.5">
             {creator.growth_rate > 0 ? (
-              <TrendingUp size={12} strokeWidth={2} style={{ color: "#7A9A65" }} />
+              <TrendingUp size={12} strokeWidth={2} style={{ color: "var(--success)" }} />
             ) : creator.growth_rate < 0 ? (
-              <TrendingDown size={12} strokeWidth={2} style={{ color: "#C44536" }} />
+              <TrendingDown size={12} strokeWidth={2} style={{ color: "var(--danger)" }} />
             ) : (
-              <Minus size={12} strokeWidth={2} style={{ color: "#E0D8D0" }} />
+              <Minus size={12} strokeWidth={2} style={{ color: "var(--text-secondary)" }} />
             )}
             <span
               className="text-[11px] font-sans font-semibold"
               style={{
-                color: creator.growth_rate > 0 ? "#7A9A65" : creator.growth_rate < 0 ? "#C44536" : "#E0D8D0",
+                color: creator.growth_rate > 0 ? "var(--success)" : creator.growth_rate < 0 ? "var(--danger)" : "var(--text-secondary)",
               }}
             >
               {creator.growth_rate > 0 ? "+" : ""}
@@ -114,11 +114,11 @@ export function CreatorCard({ creator, onClick }: Props) {
           <div className="flex items-center gap-1.5">
             <div
               className="w-5 h-5 flex items-center justify-center text-[8px] font-sans font-semibold"
-              style={{ background: "rgba(255,255,255,0.06)", color: "#F5F0EB" }}
+              style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-primary)" }}
             >
               {creator.manager_name.charAt(0)}
             </div>
-            <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
+            <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
               {creator.manager_name}
             </span>
           </div>

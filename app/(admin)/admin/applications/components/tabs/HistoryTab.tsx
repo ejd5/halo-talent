@@ -23,12 +23,12 @@ const actionIcons: Record<string, React.ElementType> = {
 };
 
 const actionColors: Record<string, string> = {
-  Soumise: "#E0D8D0",
-  "Analyse IA": "#F5F0EB",
-  "Mise en review": "#C75B39",
-  Approuvée: "#7A9A65",
-  "Note ajoutée": "#E0D8D0",
-  Vu: "#E0D8D0",
+  Soumise: "var(--text-secondary)",
+  "Analyse IA": "var(--text-primary)",
+  "Mise en review": "var(--accent)",
+  Approuvée: "var(--success)",
+  "Note ajoutée": "var(--text-secondary)",
+  Vu: "var(--text-secondary)",
 };
 
 export function HistoryTab({ applicationId }: Props) {
@@ -36,14 +36,14 @@ export function HistoryTab({ applicationId }: Props) {
 
   if (!logs || logs.length === 0) {
     return (
-      <p className="text-sm font-sans text-center py-8" style={{ color: "#E0D8D0" }}>
+      <p className="text-sm font-sans text-center py-8" style={{ color: "var(--text-secondary)" }}>
         Aucun historique pour cette candidature.
       </p>
     );
   }
 
   return (
-    <div className="relative card-accent" style={{ background: "#0A0908" }}>
+    <div className="relative card-accent" style={{ background: "var(--bg-primary)" }}>
       {/* Timeline line */}
       <div
         className="absolute left-[11px] top-2 bottom-2 w-px"
@@ -62,7 +62,7 @@ export function HistoryTab({ applicationId }: Props) {
               log.action.startsWith(k)
             );
             const Icon = prefix ? actionIcons[prefix] : Clock;
-            const color = prefix ? actionColors[prefix] : "#E0D8D0";
+            const color = prefix ? actionColors[prefix] : "var(--text-secondary)";
 
             return (
               <div key={log.id} className="flex gap-4 pb-5 relative">
@@ -79,10 +79,10 @@ export function HistoryTab({ applicationId }: Props) {
                     {log.action}
                   </p>
                   <div className="flex items-center gap-2 mt-0.5">
-                    <span className="text-[11px] font-sans" style={{ color: "#E0D8D0" }}>
+                    <span className="text-[11px] font-sans" style={{ color: "var(--text-secondary)" }}>
                       par {log.actor}
                     </span>
-                    <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
+                    <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
                       {relativeTime(log.created_at)}
                     </span>
                   </div>
@@ -90,8 +90,8 @@ export function HistoryTab({ applicationId }: Props) {
                     <p
                       className="mt-1.5 text-xs font-sans p-2 leading-relaxed"
                       style={{
-                        color: "#E0D8D0",
-                        background: "rgba(255,255,255,0.02)",
+                        color: "var(--text-secondary)",
+                        background: "var(--bg-card)",
                         borderLeft: "2px solid rgba(255,255,255,0.06)",
                       }}
                     >

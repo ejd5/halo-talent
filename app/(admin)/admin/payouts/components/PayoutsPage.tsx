@@ -40,21 +40,21 @@ export function PayoutsPage() {
   };
 
   return (
-    <div className="card-accent" style={{ background: "#0A0908" }}>
+    <div className="card-accent" style={{ background: "var(--bg-primary)" }}>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="font-display text-2xl font-bold" style={{ color: "#F5F0EB" }}>
+          <h1 className="font-display text-2xl font-bold" style={{ color: "var(--text-primary)" }}>
             Payouts
           </h1>
-          <p className="text-xs font-sans mt-1" style={{ color: "#F5F0EB" }}>
+          <p className="text-xs font-sans mt-1" style={{ color: "var(--text-primary)" }}>
             Paiements aux créateurs
           </p>
         </div>
         <div className="text-right">
-          <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>
+          <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-primary)" }}>
             Total en attente
           </p>
-          <p className="font-display text-xl font-bold tabular-nums" style={{ color: "#C75B39" }}>
+          <p className="font-display text-xl font-bold tabular-nums" style={{ color: "var(--accent)" }}>
             {new Intl.NumberFormat("fr-FR", { style: "currency", currency: "EUR", notation: "compact" }).format(totalPending)}
           </p>
         </div>

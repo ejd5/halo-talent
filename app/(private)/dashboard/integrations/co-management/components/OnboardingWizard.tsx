@@ -84,12 +84,12 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.7)" }}>
-      <div className="w-full max-w-lg" style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}>
+      <div className="w-full max-w-lg" style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}>
         {/* Header */}
         <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: "rgba(245,240,235,0.06)" }}>
           <div className="flex items-center gap-2">
-            <Shield size={14} style={{ color: "#C75B39" }} />
-            <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>Assistant configuration</span>
+            <Shield size={14} style={{ color: "var(--accent)" }} />
+            <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Assistant configuration</span>
           </div>
           <button onClick={onClose} className="transition-all hover:opacity-60">
             <X size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
@@ -102,7 +102,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
             <div
               key={i}
               className="flex-1 h-0.5 transition-all"
-              style={{ backgroundColor: i <= step ? "#C75B39" : "rgba(245,240,235,0.06)" }}
+              style={{ backgroundColor: i <= step ? "var(--accent)" : "rgba(245,240,235,0.06)" }}
             />
           ))}
         </div>
@@ -112,7 +112,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
           {/* Step 0: Platform selection */}
           {step === 0 && (
             <div>
-              <h3 className="text-xs font-semibold mb-3" style={{ color: "#F5F0EB" }}>Choisis une plateforme</h3>
+              <h3 className="text-xs font-semibold mb-3" style={{ color: "var(--text-primary)" }}>Choisis une plateforme</h3>
               <div className="space-y-1.5">
                 {PLATFORMS.map((p) => (
                   <button
@@ -125,14 +125,14 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
                     }}
                   >
                     <div>
-                      <span className="font-medium" style={{ color: platform === p.id ? "#F5F0EB" : "rgba(245,240,235,0.6)" }}>
+                      <span className="font-medium" style={{ color: platform === p.id ? "var(--text-primary)" : "rgba(245,240,235,0.6)" }}>
                         {p.label}
                       </span>
                       <p className="text-[9px] mt-0.5" style={{ color: "rgba(245,240,235,0.2)" }}>
                         Via {p.via}
                       </p>
                     </div>
-                    {platform === p.id && <Check size={10} style={{ color: "#C75B39" }} />}
+                    {platform === p.id && <Check size={10} style={{ color: "var(--accent)" }} />}
                   </button>
                 ))}
               </div>
@@ -142,7 +142,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
           {/* Step 1: Access level */}
           {step === 1 && (
             <div>
-              <h3 className="text-xs font-semibold mb-3" style={{ color: "#F5F0EB" }}>Niveau d&apos;accès du manager</h3>
+              <h3 className="text-xs font-semibold mb-3" style={{ color: "var(--text-primary)" }}>Niveau d&apos;accès du manager</h3>
               <div className="space-y-1.5">
                 {ACCESS_LEVELS.map((al) => (
                   <button
@@ -156,19 +156,19 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
                   >
                     <div className="flex-1">
                       <div className="flex items-center gap-2">
-                        <span className="font-medium" style={{ color: accessLevel === al.id ? "#F5F0EB" : "rgba(245,240,235,0.6)" }}>
+                        <span className="font-medium" style={{ color: accessLevel === al.id ? "var(--text-primary)" : "rgba(245,240,235,0.6)" }}>
                           {al.label}
                         </span>
                         <span className="text-[8px] px-1" style={{
                           backgroundColor: al.risk === "Élevé" ? "rgba(196,69,54,0.1)" : al.risk === "Modéré" ? "rgba(199,91,57,0.1)" : "rgba(122,154,101,0.1)",
-                          color: al.risk === "Élevé" ? "#C44536" : al.risk === "Modéré" ? "#C75B39" : "#7A9A65",
+                          color: al.risk === "Élevé" ? "var(--danger)" : al.risk === "Modéré" ? "var(--accent)" : "var(--success)",
                         }}>
                           {al.risk}
                         </span>
                       </div>
                       <p className="text-[9px] mt-0.5" style={{ color: "rgba(245,240,235,0.2)" }}>{al.desc}</p>
                     </div>
-                    {accessLevel === al.id && <Check size={10} style={{ color: "#C75B39" }} />}
+                    {accessLevel === al.id && <Check size={10} style={{ color: "var(--accent)" }} />}
                   </button>
                 ))}
               </div>
@@ -178,37 +178,37 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
           {/* Step 2: Instructions */}
           {step === 2 && (
             <div>
-              <h3 className="text-xs font-semibold mb-3" style={{ color: "#F5F0EB" }}>Configure sur la plateforme</h3>
+              <h3 className="text-xs font-semibold mb-3" style={{ color: "var(--text-primary)" }}>Configure sur la plateforme</h3>
               <div className="p-3 text-[10px] leading-relaxed" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
                 {platform === "instagram" && (
                   <ol className="space-y-2" style={{ color: "rgba(245,240,235,0.5)" }}>
-                    <li><strong style={{ color: "#F5F0EB" }}>1.</strong> Settings → Account → Switch to Professional → Business</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>2.</strong> Lie ton compte à une Page Facebook (Settings → Sharing)</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>3.</strong> Va sur business.facebook.com → Settings → People → Add People</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>4.</strong> Entre l&apos;email du manager, choisis Editor (recommandé)</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>5.</strong> Le manager reçoit une invitation par email</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>1.</strong> Settings → Account → Switch to Professional → Business</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>2.</strong> Lie ton compte à une Page Facebook (Settings → Sharing)</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>3.</strong> Va sur business.facebook.com → Settings → People → Add People</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>4.</strong> Entre l&apos;email du manager, choisis Editor (recommandé)</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>5.</strong> Le manager reçoit une invitation par email</li>
                   </ol>
                 )}
                 {platform === "tiktok" && (
                   <ol className="space-y-2" style={{ color: "rgba(245,240,235,0.5)" }}>
-                    <li><strong style={{ color: "#F5F0EB" }}>1.</strong> Va sur ads.tiktok.com → crée un compte Business Center</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>2.</strong> Business Center → Assets → TikTok Accounts → Add</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>3.</strong> Business Center → User Management → Members → Invite</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>4.</strong> Entre l&apos;email, choisis Operator (recommandé)</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>1.</strong> Va sur ads.tiktok.com → crée un compte Business Center</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>2.</strong> Business Center → Assets → TikTok Accounts → Add</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>3.</strong> Business Center → User Management → Members → Invite</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>4.</strong> Entre l&apos;email, choisis Operator (recommandé)</li>
                   </ol>
                 )}
                 {platform === "youtube" && (
                   <ol className="space-y-2" style={{ color: "rgba(245,240,235,0.5)" }}>
-                    <li><strong style={{ color: "#F5F0EB" }}>1.</strong> Assure-toi que ta chaîne est un Brand Account</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>2.</strong> Settings → Permissions → Manage permissions</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>3.</strong> Add permissions → entre l&apos;email du manager</li>
-                    <li><strong style={{ color: "#F5F0EB" }}>4.</strong> Choisis Manager (recommandé)</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>1.</strong> Assure-toi que ta chaîne est un Brand Account</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>2.</strong> Settings → Permissions → Manage permissions</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>3.</strong> Add permissions → entre l&apos;email du manager</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>4.</strong> Choisis Manager (recommandé)</li>
                   </ol>
                 )}
                 {platform === "onlyfans" && (
                   <div className="space-y-2" style={{ color: "rgba(245,240,235,0.5)" }}>
                     <p>Pas de co-management officiel. Utilise un gestionnaire de mots de passe (Bitwarden Teams, 1Password Teams) pour partager l&apos;accès en toute sécurité.</p>
-                    <p className="text-[9px]" style={{ color: "#C75B39" }}>⚠ Active la 2FA et change le mot de passe à chaque départ.</p>
+                    <p className="text-[9px]" style={{ color: "var(--accent)" }}>⚠ Active la 2FA et change le mot de passe à chaque départ.</p>
                   </div>
                 )}
               </div>
@@ -218,7 +218,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
           {/* Step 3: Verification & Details */}
           {step === 3 && (
             <div className="space-y-3">
-              <h3 className="text-xs font-semibold" style={{ color: "#F5F0EB" }}>Détails du manager</h3>
+              <h3 className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>Détails du manager</h3>
               <div className="space-y-2">
                 <div>
                   <label className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.3)" }}>Email *</label>
@@ -229,7 +229,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
                     placeholder="manager@example.com"
                     className="w-full p-2 text-xs mt-1 bg-transparent transition-all"
                     style={{
-                      color: "#F5F0EB",
+                      color: "var(--text-primary)",
                       border: "1px solid rgba(245,240,235,0.1)",
                     }}
                   />
@@ -243,7 +243,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
                     placeholder="Prénom Nom"
                     className="w-full p-2 text-xs mt-1 bg-transparent transition-all"
                     style={{
-                      color: "#F5F0EB",
+                      color: "var(--text-primary)",
                       border: "1px solid rgba(245,240,235,0.1)",
                     }}
                   />
@@ -258,9 +258,9 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
                         type="checkbox"
                         checked={!!verified[i]}
                         onChange={() => setVerified((v) => ({ ...v, [i]: !v[i] }))}
-                        className="mt-0.5 accent-[#C75B39] shrink-0"
+                        className="mt-0.5 accent-[var(--accent)] shrink-0"
                       />
-                      <span className="text-[10px]" style={{ color: verified[i] ? "#F5F0EB" : "rgba(245,240,235,0.3)" }}>
+                      <span className="text-[10px]" style={{ color: verified[i] ? "var(--text-primary)" : "rgba(245,240,235,0.3)" }}>
                         {item}
                       </span>
                     </label>
@@ -276,7 +276,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
                   rows={2}
                   className="w-full p-2 text-xs mt-1 bg-transparent transition-all resize-none"
                   style={{
-                    color: "#F5F0EB",
+                    color: "var(--text-primary)",
                     border: "1px solid rgba(245,240,235,0.1)",
                   }}
                 />
@@ -288,31 +288,31 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
           {step === 4 && (
             <div className="space-y-3">
               <div className="flex items-center gap-2">
-                <Check size={14} style={{ color: "#7A9A65" }} />
-                <h3 className="text-xs font-semibold" style={{ color: "#F5F0EB" }}>Récapitulatif</h3>
+                <Check size={14} style={{ color: "var(--success)" }} />
+                <h3 className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>Récapitulatif</h3>
               </div>
               <div className="p-3 space-y-2 text-xs" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
                 <div className="flex justify-between">
                   <span style={{ color: "rgba(245,240,235,0.3)" }}>Plateforme</span>
-                  <span style={{ color: "#F5F0EB" }}>{PLATFORMS.find((p) => p.id === platform)?.label}</span>
+                  <span style={{ color: "var(--text-primary)" }}>{PLATFORMS.find((p) => p.id === platform)?.label}</span>
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: "rgba(245,240,235,0.3)" }}>Accès</span>
-                  <span style={{ color: "#F5F0EB" }}>{ACCESS_LEVELS.find((a) => a.id === accessLevel)?.label}</span>
+                  <span style={{ color: "var(--text-primary)" }}>{ACCESS_LEVELS.find((a) => a.id === accessLevel)?.label}</span>
                 </div>
                 <div className="flex justify-between">
                   <span style={{ color: "rgba(245,240,235,0.3)" }}>Manager</span>
-                  <span style={{ color: "#F5F0EB" }}>{managerEmail}</span>
+                  <span style={{ color: "var(--text-primary)" }}>{managerEmail}</span>
                 </div>
                 {managerName && (
                   <div className="flex justify-between">
                     <span style={{ color: "rgba(245,240,235,0.3)" }}>Nom</span>
-                    <span style={{ color: "#F5F0EB" }}>{managerName}</span>
+                    <span style={{ color: "var(--text-primary)" }}>{managerName}</span>
                   </div>
                 )}
               </div>
               {error && (
-                <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "#C44536" }}>
+                <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "var(--danger)" }}>
                   {error}
                 </div>
               )}
@@ -336,8 +336,8 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
               disabled={!canProceed()}
               className="text-[10px] font-semibold py-2 px-4 transition-all flex items-center gap-1 disabled:opacity-30"
               style={{
-                backgroundColor: canProceed() ? "#C75B39" : "rgba(245,240,235,0.06)",
-                color: canProceed() ? "#F5F0EB" : "rgba(245,240,235,0.2)",
+                backgroundColor: canProceed() ? "var(--accent)" : "rgba(245,240,235,0.06)",
+                color: canProceed() ? "var(--text-primary)" : "rgba(245,240,235,0.2)",
               }}
             >
               Suivant
@@ -349,8 +349,8 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
               disabled={loading}
               className="text-[10px] font-semibold py-2 px-4 transition-all flex items-center gap-1 disabled:opacity-30"
               style={{
-                backgroundColor: loading ? "rgba(245,240,235,0.06)" : "#C75B39",
-                color: loading ? "rgba(245,240,235,0.2)" : "#F5F0EB",
+                backgroundColor: loading ? "rgba(245,240,235,0.06)" : "var(--accent)",
+                color: loading ? "rgba(245,240,235,0.2)" : "var(--text-primary)",
               }}
             >
               {loading ? "Création..." : "Confirmer et créer"}

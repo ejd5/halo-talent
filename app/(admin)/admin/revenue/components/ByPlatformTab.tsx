@@ -22,7 +22,7 @@ export function ByPlatformTab({ summaries }: Props) {
   if (summaries.length === 0) {
     return (
       <div className="text-center py-12">
-        <p className="text-sm font-sans" style={{ color: "#E0D8D0" }}>
+        <p className="text-sm font-sans" style={{ color: "var(--text-secondary)" }}>
           Aucune donnée plateforme pour cette période.
         </p>
       </div>
@@ -32,7 +32,7 @@ export function ByPlatformTab({ summaries }: Props) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 card-accent">
       {summaries.map((platform) => {
-        const color = PLATFORM_COLORS[platform.name] || "#E0D8D0";
+        const color = PLATFORM_COLORS[platform.name] || "var(--text-secondary)";
         const path = sparklinePath(platform.monthly_history, 120, 32);
         const maxRevenue = Math.max(...platform.monthly_history, 1);
 
@@ -40,7 +40,7 @@ export function ByPlatformTab({ summaries }: Props) {
           <div
             key={platform.name}
             className="p-5 transition-colors hover:bg-white/[0.02] cursor-pointer"
-            style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}
+            style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}
           >
             {/* Header */}
             <div className="flex items-center justify-between mb-4">
@@ -50,15 +50,15 @@ export function ByPlatformTab({ summaries }: Props) {
                   {platformLogos[platform.name] || platform.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="text-sm font-sans font-semibold" style={{ color: "#F5F0EB" }}>
+                  <p className="text-sm font-sans font-semibold" style={{ color: "var(--text-primary)" }}>
                     {platform.name}
                   </p>
-                  <p className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
+                  <p className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
                     {platform.active_creators} créateur{platform.active_creators > 1 ? "s" : ""} actif{platform.active_creators > 1 ? "s" : ""}
                   </p>
                 </div>
               </div>
-              <span className="text-[10px] font-sans font-semibold" style={{ color: platform.growth_rate >= 0 ? "#7A9A65" : "#C44536" }}>
+              <span className="text-[10px] font-sans font-semibold" style={{ color: platform.growth_rate >= 0 ? "var(--success)" : "var(--danger)" }}>
                 {platform.growth_rate >= 0 ? "+" : ""}{platform.growth_rate}%
               </span>
             </div>
@@ -66,18 +66,18 @@ export function ByPlatformTab({ summaries }: Props) {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div>
-                <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>
+                <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-primary)" }}>
                   Revenus totaux
                 </p>
-                <p className="font-display text-lg font-bold tabular-nums" style={{ color: "#F5F0EB" }}>
+                <p className="font-display text-lg font-bold tabular-nums" style={{ color: "var(--text-primary)" }}>
                   {formatEuro(platform.total_revenue)}
                 </p>
               </div>
               <div>
-                <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>
+                <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-primary)" }}>
                   Moy. par créateur
                 </p>
-                <p className="font-display text-lg font-bold tabular-nums" style={{ color: "#F5F0EB" }}>
+                <p className="font-display text-lg font-bold tabular-nums" style={{ color: "var(--text-primary)" }}>
                   {formatEuro(platform.avg_revenue_per_creator)}
                 </p>
               </div>

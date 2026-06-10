@@ -77,27 +77,27 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
     >
       <div
         className="w-full max-w-[520px] shadow-2xl card-accent"
-        style={{ background: "#0F0D0B", border: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ background: "#0F0D0B", border: "1px solid var(--border-default)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-          <h2 className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
+          <h2 className="font-display text-lg font-bold" style={{ color: "var(--text-primary)" }}>
             Refuser avec message
           </h2>
-          <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#E0D8D0" }}>
+          <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "var(--text-secondary)" }}>
             <X size={16} strokeWidth={1.5} />
           </button>
         </div>
 
         <div className="px-6 py-5 space-y-4">
           <p className="text-sm font-sans" style={{ color: "#D0CCC6" }}>
-            Refuser <strong style={{ color: "#F5F0EB" }}>{application.full_name}</strong>. Un email de refus lui sera envoyé.
+            Refuser <strong style={{ color: "var(--text-primary)" }}>{application.full_name}</strong>. Un email de refus lui sera envoyé.
           </p>
 
           {/* Templates */}
           <div>
-            <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#E0D8D0" }}>
+            <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "var(--text-secondary)" }}>
               Template de refus
             </label>
             <select
@@ -106,12 +106,12 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
               className="w-full px-3 py-2.5 text-xs font-sans outline-none"
               style={{
                 background: "transparent",
-                color: "#F5F0EB",
-                border: "1px solid rgba(255,255,255,0.08)",
+                color: "var(--text-primary)",
+                border: "1px solid var(--border-default)",
               }}
             >
               {rejectionTemplates.map((t, i) => (
-                <option key={i} value={i} style={{ background: "#1A1614", color: "#F5F0EB" }}>
+                <option key={i} value={i} style={{ background: "var(--bg-primary)", color: "var(--text-primary)" }}>
                   {t.label}
                 </option>
               ))}
@@ -120,7 +120,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
 
           {/* Message preview / edit */}
           <div>
-            <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "#E0D8D0" }}>
+            <label className="text-[11px] font-sans font-medium mb-2 block" style={{ color: "var(--text-secondary)" }}>
               Message personnalisé
             </label>
             <textarea
@@ -130,7 +130,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
               className="w-full bg-transparent text-xs font-sans outline-none resize-none p-3 leading-relaxed"
               style={{
                 color: "#D0CCC6",
-                border: "1px solid rgba(255,255,255,0.06)",
+                border: "1px solid var(--border-default)",
               }}
             />
           </div>
@@ -139,7 +139,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
             <button
               onClick={onClose}
               className="flex-1 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-              style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
             >
               Annuler
             </button>
@@ -147,7 +147,7 @@ export function RejectModal({ application, onClose, onRejected }: Props) {
               onClick={handleReject}
               disabled={sending}
               className="flex-1 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-90 disabled:opacity-30"
-              style={{ background: "#C44536", color: "#F5F0EB" }}
+              style={{ background: "var(--danger)", color: "var(--text-primary)" }}
             >
               {sending ? (
                 "Envoi en cours..."

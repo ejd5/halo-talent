@@ -37,16 +37,16 @@ type Meetup = {
 // ─── Mock data ─────────────────────────────────────────
 
 const CATEGORIES: { key: PostCategory | "all"; label: string; color: string }[] = [
-  { key: "all", label: "Tous", color: "#FFFFFF" },
-  { key: "strategie", label: "Stratégie", color: "#C75B39" },
-  { key: "wellness", label: "Wellness", color: "#10B981" },
+  { key: "all", label: "Tous", color: "var(--text-primary)" },
+  { key: "strategie", label: "Stratégie", color: "var(--accent)" },
+  { key: "wellness", label: "Wellness", color: "var(--success)" },
   { key: "business", label: "Business", color: "#3B82F6" },
   { key: "qa", label: "Q&A", color: "#F59E0B" },
 ];
 
 const CATEGORY_BADGE: Record<PostCategory, { label: string; color: string; bg: string }> = {
-  strategie: { label: "Stratégie", color: "#C75B39", bg: "#C75B3915" },
-  wellness: { label: "Wellness", color: "#10B981", bg: "#10B98115" },
+  strategie: { label: "Stratégie", color: "var(--accent)", bg: "rgba(199, 91, 57, 0.08)" },
+  wellness: { label: "Wellness", color: "var(--success)", bg: "#10B98115" },
   business: { label: "Business", color: "#3B82F6", bg: "#3B82F615" },
   qa: { label: "Q&A", color: "#F59E0B", bg: "#F59E0B15" },
 };
@@ -156,21 +156,21 @@ export default function CommunityPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Communauté</h1>
-          <p className="text-sm mt-1" style={{ color: "#FFFFFF" }}>Échange avec les autres créateurs de la maison</p>
+          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Communauté</h1>
+          <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>Échange avec les autres créateurs de la maison</p>
         </div>
         <div className="flex items-center gap-2">
           <button
             onClick={() => setShowMeetups(!showMeetups)}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] uppercase tracking-wider font-medium border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50"
-            style={{ color: "#FFFFFF" }}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] uppercase tracking-wider font-medium border border-[var(--color-border)] transition-all hover:border-[var(--accent)]/50"
+            style={{ color: "var(--text-primary)" }}
           >
             <Calendar size={11} /> Meet-ups
           </button>
           <button
             onClick={() => setShowNewPost(true)}
             className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
-            style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             <Plus size={11} /> Nouveau post
           </button>
@@ -179,14 +179,14 @@ export default function CommunityPage() {
 
       {/* Search */}
       <div className="relative">
-        <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "#FFFFFF30" }} />
+        <Search size={13} className="absolute left-3 top-1/2 -translate-y-1/2" style={{ color: "rgba(255, 255, 255, 0.19)" }} />
         <input
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Rechercher dans la communauté..."
           className="w-full bg-transparent border border-[var(--color-border)] py-2.5 pl-9 pr-3 text-sm placeholder:opacity-30 focus:outline-none focus:border-[var(--color-accent)] transition-colors"
-          style={{ color: "#FFFFFF" }}
+          style={{ color: "var(--text-primary)" }}
         />
       </div>
 
@@ -202,7 +202,7 @@ export default function CommunityPage() {
             )}
             style={{
               borderColor: category === cat.key ? cat.color : "transparent",
-              color: "#FFFFFF",
+              color: "var(--text-primary)",
             }}
           >
             {cat.label}
@@ -219,8 +219,8 @@ export default function CommunityPage() {
       {showMeetups && (
         <div className="border border-[var(--color-border)] p-4" style={{ backgroundColor: "var(--color-card)" }}>
           <div className="flex items-center justify-between mb-3">
-            <h3 className="text-xs font-semibold flex items-center gap-2" style={{ color: "#FFFFFF" }}>
-              <Calendar size={13} style={{ color: "#C75B39" }} />
+            <h3 className="text-xs font-semibold flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
+              <Calendar size={13} style={{ color: "var(--accent)" }} />
               Meet-ups à venir
             </h3>
             <button onClick={() => setShowMeetups(false)} className="opacity-40 hover:opacity-100">
@@ -231,15 +231,15 @@ export default function CommunityPage() {
             {MOCK_MEETUPS.map((m) => (
               <div key={m.id} className="p-3 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-base)" }}>
                 <div className="flex items-start justify-between mb-2">
-                  <h4 className="text-xs font-semibold" style={{ color: "#FFFFFF" }}>{m.title}</h4>
+                  <h4 className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{m.title}</h4>
                   <span className={cn(
                     "text-[8px] px-1.5 py-0.5 font-mono",
-                    m.spotsLeft <= 5 ? "text-[#EF4444] bg-[#EF4444]/10" : "text-[#10B981] bg-[#10B981]/10"
+                    m.spotsLeft <= 5 ? "text-[var(--danger)] bg-[var(--danger)]/10" : "text-[var(--success)] bg-[var(--success)]/10"
                   )}>
                     {m.spotsLeft}/{m.spots} places
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-[10px] mb-2" style={{ color: "#FFFFFF60" }}>
+                <div className="flex items-center gap-3 text-[10px] mb-2" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                   <span className="flex items-center gap-1">
                     <Calendar size={10} />
                     {new Date(m.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long", hour: "2-digit", minute: "2-digit" })}
@@ -249,10 +249,10 @@ export default function CommunityPage() {
                     {m.location}
                   </span>
                 </div>
-                <p className="text-[10px] mb-3" style={{ color: "#FFFFFF80" }}>{m.description}</p>
+                <p className="text-[10px] mb-3" style={{ color: "rgba(255, 255, 255, 0.5)" }}>{m.description}</p>
                 <button
                   className="text-[9px] px-3 py-1.5 font-medium uppercase tracking-wider"
-                  style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+                  style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
                 >
                   <Users size={10} className="inline mr-1" />
                   S&apos;inscrire
@@ -277,7 +277,7 @@ export default function CommunityPage() {
         ))}
         {filtered.length === 0 && (
           <div className="p-12 border border-[var(--color-border)] flex items-center justify-center" style={{ backgroundColor: "var(--color-card)" }}>
-            <p className="text-sm" style={{ color: "#FFFFFF60" }}>Aucun post trouvé dans cette catégorie.</p>
+            <p className="text-sm" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Aucun post trouvé dans cette catégorie.</p>
           </div>
         )}
       </div>
@@ -287,7 +287,7 @@ export default function CommunityPage() {
         <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ backgroundColor: "#00000080" }}>
           <div className="w-full max-w-lg border border-[var(--color-border)] p-6" style={{ backgroundColor: "var(--color-card)" }}>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>Nouvelle discussion</h2>
+              <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Nouvelle discussion</h2>
               <button onClick={() => { setShowNewPost(false); setAnonymous(false); setNewTitle(""); setNewContent(""); }}
                 className="opacity-40 hover:opacity-100 transition-opacity">
                 <X size={14} />
@@ -297,7 +297,7 @@ export default function CommunityPage() {
             <div className="space-y-4">
               {/* Category select */}
               <div>
-                <p className="text-[10px] uppercase tracking-wider font-medium mb-1.5" style={{ color: "#FFFFFF60" }}>Catégorie</p>
+                <p className="text-[10px] uppercase tracking-wider font-medium mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Catégorie</p>
                 <div className="flex gap-2">
                   {(["strategie", "wellness", "business", "qa"] as PostCategory[]).map((c) => (
                     <button
@@ -308,7 +308,7 @@ export default function CommunityPage() {
                         newCategory === c ? "border-current" : "border-[var(--color-border)]"
                       )}
                       style={{
-                        color: newCategory === c ? CATEGORY_BADGE[c].color : "#FFFFFF",
+                        color: newCategory === c ? CATEGORY_BADGE[c].color : "var(--text-primary)",
                         backgroundColor: newCategory === c ? CATEGORY_BADGE[c].bg : "transparent",
                       }}
                     >
@@ -325,7 +325,7 @@ export default function CommunityPage() {
                 onChange={(e) => setNewTitle(e.target.value)}
                 placeholder="Titre de votre discussion..."
                 className="w-full bg-transparent border-b border-[var(--color-border)] py-2 text-sm focus:outline-none focus:border-[var(--color-accent)] transition-colors placeholder:opacity-30"
-                style={{ color: "#FFFFFF" }}
+                style={{ color: "var(--text-primary)" }}
               />
 
               {/* Content */}
@@ -335,7 +335,7 @@ export default function CommunityPage() {
                 placeholder="Écrivez votre message..."
                 rows={4}
                 className="w-full bg-transparent border border-[var(--color-border)] p-3 text-sm focus:outline-none focus:border-[var(--color-accent)] transition-colors placeholder:opacity-30 resize-none"
-                style={{ color: "#FFFFFF" }}
+                style={{ color: "var(--text-primary)" }}
               />
 
               {/* Anonymous toggle */}
@@ -345,11 +345,11 @@ export default function CommunityPage() {
                   "flex items-center gap-2 text-[10px] font-medium transition-all",
                   anonymous ? "opacity-100" : "opacity-40 hover:opacity-70"
                 )}
-                style={{ color: anonymous ? "#10B981" : "#FFFFFF" }}
+                style={{ color: anonymous ? "var(--success)" : "var(--text-primary)" }}
               >
                 <div className={cn(
                   "w-4 h-4 border flex items-center justify-center transition-all",
-                  anonymous && "border-[#10B981] bg-[#10B981]"
+                  anonymous && "border-[#10B981] bg-[var(--success)]"
                 )}>
                   {anonymous && <X size={9} className="text-white" />}
                 </div>
@@ -361,7 +361,7 @@ export default function CommunityPage() {
                 <button
                   onClick={() => { setShowNewPost(false); setAnonymous(false); setNewTitle(""); setNewContent(""); }}
                   className="px-4 py-2 text-[10px] font-medium uppercase tracking-wider border border-[var(--color-border)] hover:opacity-70 transition-opacity"
-                  style={{ color: "#FFFFFF" }}
+                  style={{ color: "var(--text-primary)" }}
                 >
                   Annuler
                 </button>
@@ -369,7 +369,7 @@ export default function CommunityPage() {
                   onClick={() => { setShowNewPost(false); setAnonymous(false); setNewTitle(""); setNewContent(""); }}
                   disabled={!newTitle.trim() || !newContent.trim()}
                   className="flex items-center gap-1.5 px-4 py-2 text-[10px] font-medium uppercase tracking-wider disabled:opacity-40 transition-opacity"
-                  style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+                  style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
                 >
                   <Send size={11} />
                   Publier
@@ -392,7 +392,7 @@ function PostCard({ post }: { post: ForumPost }) {
   return (
     <div className={cn(
       "p-4 border border-[var(--color-border)] transition-all hover:border-[var(--color-border)]/60 card-accent",
-      post.pinned && "border-l-[#C75B39]"
+      post.pinned && "border-l-[var(--accent)]"
     )} style={{ backgroundColor: "var(--color-card)" }}>
       <div className="flex items-start gap-3">
         {/* Avatar */}
@@ -401,7 +401,7 @@ function PostCard({ post }: { post: ForumPost }) {
           post.anonymous ? "border-dashed border-[#10B981]/40" : "border-[var(--color-border)]"
         )} style={{
           backgroundColor: post.anonymous ? "#10B98110" : "var(--color-base)",
-          color: post.anonymous ? "#10B981" : "#FFFFFF",
+          color: post.anonymous ? "var(--success)" : "var(--text-primary)",
         }}>
           {post.anonymous ? "?" : post.author.charAt(0)}
         </div>
@@ -409,34 +409,34 @@ function PostCard({ post }: { post: ForumPost }) {
         <div className="flex-1 min-w-0">
           {/* Meta row */}
           <div className="flex items-center gap-2 mb-1 flex-wrap">
-            <span className="text-xs font-medium" style={{ color: post.anonymous ? "#10B981" : "#FFFFFF" }}>
+            <span className="text-xs font-medium" style={{ color: post.anonymous ? "var(--success)" : "var(--text-primary)" }}>
               {post.author}
               {post.anonymous && <span className="text-[8px] ml-1 italic opacity-60">(anonyme)</span>}
             </span>
             {post.isManager && (
               <span className="inline-flex items-center gap-0.5 px-1 py-0.5 text-[7px] font-mono uppercase tracking-wider"
-                style={{ backgroundColor: "#C75B3915", color: "#C75B39" }}>
+                style={{ backgroundColor: "rgba(199, 91, 57, 0.08)", color: "var(--accent)" }}>
                 <Shield size={7} /> Manager
               </span>
             )}
-            <span className="text-[9px]" style={{ color: "#FFFFFF40" }}>·</span>
-            <span className="text-[9px]" style={{ color: "#FFFFFF40" }}>{timeAgo(post.timestamp)}</span>
+            <span className="text-[9px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>·</span>
+            <span className="text-[9px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>{timeAgo(post.timestamp)}</span>
           </div>
 
           {/* Title + excerpt */}
-          <h3 className="text-sm font-semibold mb-0.5" style={{ color: "#FFFFFF" }}>
-            {post.pinned && <span className="mr-1 text-[#C75B39]">📌</span>}
+          <h3 className="text-sm font-semibold mb-0.5" style={{ color: "var(--text-primary)" }}>
+            {post.pinned && <span className="mr-1 text-[var(--accent)]">📌</span>}
             {post.title}
           </h3>
-          <p className="text-xs leading-relaxed mb-2" style={{ color: "#FFFFFF80" }}>{post.excerpt}</p>
+          <p className="text-xs leading-relaxed mb-2" style={{ color: "rgba(255, 255, 255, 0.5)" }}>{post.excerpt}</p>
 
           {/* Footer */}
-          <div className="flex items-center gap-3 text-[10px]" style={{ color: "#FFFFFF60" }}>
+          <div className="flex items-center gap-3 text-[10px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
             <span className={cn("px-1.5 py-0.5 font-medium")} style={{ backgroundColor: badge.bg, color: badge.color }}>
               {badge.label}
             </span>
             <button className="flex items-center gap-1 hover:opacity-70 transition-opacity">
-              <Heart size={11} className={liked ? "fill-current" : ""} style={{ color: liked ? "#EF4444" : undefined }} />
+              <Heart size={11} className={liked ? "fill-current" : ""} style={{ color: liked ? "var(--danger)" : undefined }} />
               <span onClick={() => setLiked(!liked)}>{post.likes + (liked ? 1 : 0)}</span>
             </button>
             <span className="flex items-center gap-1">

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { Suspense, useState, useEffect } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { Plus, X, ArrowLeft, Check, Copy, ChevronDown } from "lucide-react";
@@ -60,6 +60,14 @@ const OPERATORS: Record<string, { id: string; label: string }[]> = {
 };
 
 export default function NewSegmentPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen" style={{ background: "var(--bg-primary)" }} />}>
+      <NewSegmentPageInner />
+    </Suspense>
+  );
+}
+
+function NewSegmentPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const showTemplates = searchParams.get("template") === "true";
@@ -150,7 +158,7 @@ export default function NewSegmentPage() {
             <ArrowLeft size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
           </Link>
           <div>
-            <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+            <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
               Cloner un template
             </h1>
             <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
@@ -183,12 +191,12 @@ export default function NewSegmentPage() {
             >
               <div className="flex items-center gap-2 mb-1">
                 <span className="text-sm">{tpl.icon}</span>
-                <span className="text-xs font-medium" style={{ color: "#F5F0EB" }}>{tpl.name}</span>
+                <span className="text-xs font-medium" style={{ color: "var(--text-primary)" }}>{tpl.name}</span>
               </div>
               <p className="text-[9px]" style={{ color: "rgba(245,240,235,0.3)" }}>{tpl.description}</p>
               <div className="flex gap-1 mt-1.5">
                 {(tpl.rules || []).slice(0, 3).map((rule, i) => (
-                  <span key={i} className="text-[7px] px-1 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.08)", color: "#C75B39" }}>
+                  <span key={i} className="text-[7px] px-1 py-0.5" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>
                     {rule.field} {rule.operator}
                   </span>
                 ))}
@@ -239,7 +247,7 @@ export default function NewSegmentPage() {
         <Link href="/dashboard/sovereign-chat/segments" className="transition-all hover:opacity-70">
           <ArrowLeft size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
         </Link>
-        <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           Nouveau segment
         </h1>
       </div>
@@ -253,7 +261,7 @@ export default function NewSegmentPage() {
             onChange={(e) => setName(e.target.value)}
             placeholder="Mes whales actifs"
             className="w-full p-2.5 text-sm mt-1 bg-transparent transition-all"
-            style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }}
+            style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }}
           />
         </div>
         <div>
@@ -263,7 +271,7 @@ export default function NewSegmentPage() {
             onChange={(e) => setDescription(e.target.value)}
             placeholder="Fans à forte valeur avec interaction récente"
             className="w-full p-2.5 text-sm mt-1 bg-transparent transition-all"
-            style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }}
+            style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }}
           />
         </div>
       </div>
@@ -295,7 +303,7 @@ export default function NewSegmentPage() {
                   style={{
                     backgroundColor: rule.field ? "rgba(199,91,57,0.08)" : "rgba(245,240,235,0.04)",
                     border: "1px solid rgba(245,240,235,0.06)",
-                    color: rule.field ? "#F5F0EB" : "rgba(245,240,235,0.2)",
+                    color: rule.field ? "var(--text-primary)" : "rgba(245,240,235,0.2)",
                   }}
                 >
                   <span className="truncate">
@@ -310,7 +318,7 @@ export default function NewSegmentPage() {
                     <div className="fixed inset-0 z-10" onClick={() => setShowFieldPicker(null)} />
                     <div
                       className="absolute top-full left-0 right-0 z-20 mt-1 max-h-48 overflow-y-auto py-1"
-                      style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}
+                      style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}
                     >
                       {AVAILABLE_FIELDS.map((field) => (
                         <button
@@ -321,7 +329,7 @@ export default function NewSegmentPage() {
                           }}
                           className="w-full flex items-center justify-between px-3 py-1.5 text-[10px] transition-all hover:opacity-70"
                           style={{
-                            color: rule.field === field.id ? "#C75B39" : "rgba(245,240,235,0.5)",
+                            color: rule.field === field.id ? "var(--accent)" : "rgba(245,240,235,0.5)",
                             backgroundColor: rule.field === field.id ? "rgba(199,91,57,0.06)" : "transparent",
                           }}
                         >
@@ -349,7 +357,7 @@ export default function NewSegmentPage() {
                       <div className="fixed inset-0 z-10" onClick={() => setShowOperatorPicker(null)} />
                       <div
                         className="absolute top-full left-0 right-0 z-20 mt-1 py-1"
-                        style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}
+                        style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}
                       >
                         {getFieldOperators(rule.field).map((op) => (
                           <button
@@ -359,7 +367,7 @@ export default function NewSegmentPage() {
                               setShowOperatorPicker(null);
                             }}
                             className="w-full px-3 py-1 text-[10px] text-left transition-all hover:opacity-70"
-                            style={{ color: rule.operator === op.id ? "#C75B39" : "rgba(245,240,235,0.5)" }}
+                            style={{ color: rule.operator === op.id ? "var(--accent)" : "rgba(245,240,235,0.5)" }}
                           >
                             {op.label}
                           </button>
@@ -391,7 +399,7 @@ export default function NewSegmentPage() {
                           <div className="fixed inset-0 z-10" onClick={() => setEditingCount(null)} />
                           <div
                             className="absolute top-full left-0 right-0 z-20 mt-1 py-1"
-                            style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}
+                            style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}
                           >
                             {getFieldOptions(rule.field).map((opt: string) => (
                               <button
@@ -418,7 +426,7 @@ export default function NewSegmentPage() {
                         onChange={(e) => updateRule(rule.id, { value: `now-${e.target.value}d` })}
                         placeholder="30"
                         className="w-12 p-2 text-[10px] bg-transparent transition-all text-center"
-                        style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }}
+                        style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }}
                       />
                       <span className="text-[9px]" style={{ color: "rgba(245,240,235,0.2)" }}>jours</span>
                     </div>
@@ -429,7 +437,7 @@ export default function NewSegmentPage() {
                       onChange={(e) => updateRule(rule.id, { value: e.target.value })}
                       placeholder="Valeur..."
                       className="w-full p-2 text-[10px] bg-transparent transition-all"
-                      style={{ color: "#F5F0EB", border: "1px solid rgba(245,240,235,0.1)" }}
+                      style={{ color: "var(--text-primary)", border: "1px solid rgba(245,240,235,0.1)" }}
                     />
                   )}
                 </div>
@@ -470,7 +478,7 @@ export default function NewSegmentPage() {
               style={{
                 backgroundColor: type === "smart" ? "rgba(122,154,101,0.1)" : "rgba(245,240,235,0.03)",
                 border: type === "smart" ? "1px solid rgba(122,154,101,0.2)" : "1px solid rgba(245,240,235,0.06)",
-                color: type === "smart" ? "#7A9A65" : "rgba(245,240,235,0.3)",
+                color: type === "smart" ? "var(--success)" : "rgba(245,240,235,0.3)",
               }}
             >
               Auto (Smart) — Recalcul temps réel
@@ -481,7 +489,7 @@ export default function NewSegmentPage() {
               style={{
                 backgroundColor: type === "static" ? "rgba(199,91,57,0.1)" : "rgba(245,240,235,0.03)",
                 border: type === "static" ? "1px solid rgba(199,91,57,0.2)" : "1px solid rgba(245,240,235,0.06)",
-                color: type === "static" ? "#C75B39" : "rgba(245,240,235,0.3)",
+                color: type === "static" ? "var(--accent)" : "rgba(245,240,235,0.3)",
               }}
             >
               Manuel (Static) — Recalcul sur demande
@@ -514,7 +522,7 @@ export default function NewSegmentPage() {
         <span style={{ color: "rgba(245,240,235,0.5)" }}>
           Aperçu :{" "}
           {previewCount !== null ? (
-            <strong style={{ color: "#C75B39" }}>{previewCount} membres</strong>
+            <strong style={{ color: "var(--accent)" }}>{previewCount} membres</strong>
           ) : (
             <span style={{ color: "rgba(245,240,235,0.2)" }}>Ajoute des conditions pour voir l'estimation</span>
           )}
@@ -524,7 +532,7 @@ export default function NewSegmentPage() {
 
       {/* Error */}
       {error && (
-        <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "#C44536" }}>
+        <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "var(--danger)" }}>
           {error}
         </div>
       )}
@@ -543,8 +551,8 @@ export default function NewSegmentPage() {
           disabled={saving || saved}
           className="flex-1 text-[10px] font-semibold py-2.5 transition-all flex items-center justify-center gap-1.5 disabled:opacity-30"
           style={{
-            backgroundColor: saved ? "rgba(122,154,101,0.1)" : "#C75B39",
-            color: saved ? "#7A9A65" : "#F5F0EB",
+            backgroundColor: saved ? "rgba(122,154,101,0.1)" : "var(--accent)",
+            color: saved ? "var(--success)" : "var(--text-primary)",
           }}
         >
           {saved ? (

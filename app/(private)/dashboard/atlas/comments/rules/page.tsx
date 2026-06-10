@@ -103,7 +103,7 @@ export default function CommentRulesPage() {
             <ArrowLeft size={16} />
           </Link>
           <div>
-            <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+            <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
               Règles d&apos;auto-réponse
             </h1>
             <p className="text-sm mt-0.5" style={{ color: "var(--color-ink-secondary)" }}>
@@ -114,7 +114,7 @@ export default function CommentRulesPage() {
         <button
           onClick={() => setShowPresets(!showPresets)}
           className="flex items-center gap-1.5 px-3 py-2 text-xs font-medium rounded-sm transition-opacity hover:opacity-80"
-          style={{ background: "#C75B39", color: "#FFFFFF" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={14} /> Nouvelle règle
         </button>
@@ -122,7 +122,7 @@ export default function CommentRulesPage() {
 
       {/* ─── Presets ─── */}
       {showPresets && (
-        <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+        <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--color-ink-tertiary)" }}>
               Templates de règles
@@ -137,11 +137,11 @@ export default function CommentRulesPage() {
                 className="p-3 text-left rounded-sm transition-all hover:bg-white/5"
                 style={{ border: "1px solid rgba(245,240,235,0.06)" }}
               >
-                <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{preset.name}</span>
+                <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{preset.name}</span>
                 <p className="text-[10px] mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>{preset.description}</p>
                 <div className="flex gap-1 mt-2">
                   {preset.actions.map((action, ai) => (
-                    <span key={ai} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.08)", color: "#C75B39" }}>
+                    <span key={ai} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ background: "var(--accent-soft)", color: "var(--accent)" }}>
                       {ACTION_LABELS[action.type] || action.type}
                     </span>
                   ))}
@@ -153,7 +153,7 @@ export default function CommentRulesPage() {
       )}
 
       {/* ─── Templates section ─── */}
-      <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+      <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
         <div className="flex items-center justify-between mb-3">
           <h3 className="text-[10px] uppercase tracking-wider" style={{ color: "var(--color-ink-tertiary)" }}>
             Templates de réponses ({templates.length})
@@ -164,7 +164,7 @@ export default function CommentRulesPage() {
                 key={i}
                 onClick={() => addTemplate(tpl.name, tpl.responses)}
                 className="text-[8px] px-1.5 py-0.5 rounded-sm transition-colors hover:bg-white/5"
-                style={{ border: "1px solid rgba(245,240,235,0.08)", color: "#C75B39" }}
+                style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--accent)" }}
               >
                 + {tpl.name}
               </button>
@@ -176,7 +176,7 @@ export default function CommentRulesPage() {
             {templates.map((tpl) => (
               <div key={tpl.id} className="flex items-center justify-between p-2 rounded-sm" style={{ border: "1px solid rgba(245,240,235,0.04)" }}>
                 <div>
-                  <span className="text-[10px] font-medium" style={{ color: "#F5F0EB" }}>{tpl.name}</span>
+                  <span className="text-[10px] font-medium" style={{ color: "var(--text-primary)" }}>{tpl.name}</span>
                   <span className="text-[8px] ml-2" style={{ color: "var(--color-ink-tertiary)" }}>
                     {tpl.responses?.length || 0} variations
                   </span>
@@ -211,7 +211,7 @@ export default function CommentRulesPage() {
           <button
             onClick={() => setShowPresets(true)}
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium rounded-sm mt-4 transition-opacity hover:opacity-80"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             <Plus size={14} /> Ajouter une règle
           </button>
@@ -219,13 +219,13 @@ export default function CommentRulesPage() {
       ) : (
         <div className="space-y-2">
           {rules.map((rule) => (
-            <div key={rule.id} className="p-3 border transition-colors" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+            <div key={rule.id} className="p-3 border transition-colors" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
               <div className="flex items-center justify-between">
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{rule.name}</span>
+                    <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{rule.name}</span>
                     {rule.is_active ? (
-                      <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(16,185,129,0.1)", color: "#10B981" }}>Active</span>
+                      <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(16,185,129,0.1)", color: "var(--success)" }}>Active</span>
                     ) : (
                       <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.05)", color: "var(--color-ink-tertiary)" }}>Inactive</span>
                     )}
@@ -258,8 +258,8 @@ export default function CommentRulesPage() {
                           {rule.actions.map((action, ai) => {
                             const AIcon = ACTION_ICONS[action.type] || Zap;
                             return (
-                              <div key={ai} className="flex items-center gap-1 px-2 py-1 rounded-sm text-[9px]" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "#F5F0EB" }}>
-                                <AIcon size={10} style={{ color: "#C75B39" }} />
+                              <div key={ai} className="flex items-center gap-1 px-2 py-1 rounded-sm text-[9px]" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)" }}>
+                                <AIcon size={10} style={{ color: "var(--accent)" }} />
                                 <span>{ACTION_LABELS[action.type] || action.type}</span>
                                 {action.probability && action.probability < 100 && (
                                   <span className="text-[8px]" style={{ color: "var(--color-ink-tertiary)" }}>({action.probability}%)</span>
@@ -275,7 +275,7 @@ export default function CommentRulesPage() {
                         <div className="space-y-0.5 mt-1">
                           {rule.conditions?.conditions?.map((cond, ci) => (
                             <div key={ci} className="flex items-center gap-1 text-[9px]" style={{ color: "var(--color-ink-tertiary)" }}>
-                              <span className="px-1 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.08)", color: "#C75B39" }}>{cond.field}</span>
+                              <span className="px-1 rounded-sm" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>{cond.field}</span>
                               <span>{cond.operator}</span>
                               <span className="px-1 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)" }}>{Array.isArray(cond.value) ? cond.value.join(", ") : String(cond.value)}</span>
                             </div>
@@ -296,11 +296,11 @@ export default function CommentRulesPage() {
                   <button
                     onClick={() => toggleRule(rule.id, rule.is_active)}
                     className="p-1.5 rounded-sm transition-colors hover:bg-white/5"
-                    style={{ color: rule.is_active ? "#10B981" : "var(--color-ink-tertiary)" }}
+                    style={{ color: rule.is_active ? "var(--success)" : "var(--color-ink-tertiary)" }}
                   >
                     {rule.is_active ? <ToggleRight size={16} /> : <ToggleLeft size={16} />}
                   </button>
-                  <button onClick={() => deleteRule(rule.id)} className="p-1.5 rounded-sm transition-colors hover:bg-white/5" style={{ color: "#C44536" }}>
+                  <button onClick={() => deleteRule(rule.id)} className="p-1.5 rounded-sm transition-colors hover:bg-white/5" style={{ color: "var(--danger)" }}>
                     <Trash2 size={13} />
                   </button>
                 </div>
@@ -311,7 +311,7 @@ export default function CommentRulesPage() {
       )}
 
       <div className="text-[9px] p-3 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)", color: "var(--color-ink-tertiary)" }}>
-        <strong style={{ color: "#C75B39" }}>Important :</strong> Les réponses automatiques via API officielle sont autorisées par les plateformes (Meta, TikTok, YouTube). Les DMs privés restent en brouillon. Une variabilité est appliquée pour éviter la détection de bot.
+        <strong style={{ color: "var(--accent)" }}>Important :</strong> Les réponses automatiques via API officielle sont autorisées par les plateformes (Meta, TikTok, YouTube). Les DMs privés restent en brouillon. Une variabilité est appliquée pour éviter la détection de bot.
       </div>
     </div>
   );

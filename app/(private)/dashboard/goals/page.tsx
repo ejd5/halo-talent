@@ -61,10 +61,10 @@ export default function GoalsPage() {
     <div className="flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Mes objectifs</h1>
-          <p className="text-sm mt-1" style={{ color: "#FFFFFF" }}>Suis ta progression et ajuste ta stratégie</p>
+          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Mes objectifs</h1>
+          <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>Suis ta progression et ajuste ta stratégie</p>
         </div>
-        <button className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80" style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}>
+        <button className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80" style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
           <Plus size={11} /> Nouvel objectif
         </button>
       </div>
@@ -82,8 +82,8 @@ export default function GoalsPage() {
               <div className="p-5">
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
-                    <h3 className="text-base font-semibold" style={{ color: "#FFFFFF" }}>{goal.label}</h3>
-                    <span className="text-[9px] px-1.5 py-0.5 font-mono" style={{ backgroundColor: daysLeft <= 7 ? "#EF444415" : "#FFFFFF08", color: daysLeft <= 7 ? "#EF4444" : "#FFFFFF60" }}>
+                    <h3 className="text-base font-semibold" style={{ color: "var(--text-primary)" }}>{goal.label}</h3>
+                    <span className="text-[9px] px-1.5 py-0.5 font-mono" style={{ backgroundColor: daysLeft <= 7 ? "rgba(239, 68, 68, 0.08)" : "rgba(255, 255, 255, 0.03)", color: daysLeft <= 7 ? "var(--danger)" : "rgba(255, 255, 255, 0.375)" }}>
                       {daysLeft > 0 ? `J-${daysLeft}` : "Échéance dépassée"}
                     </span>
                   </div>
@@ -92,14 +92,14 @@ export default function GoalsPage() {
                       <span className="text-lg font-bold font-mono" style={{ color: "var(--color-accent)" }}>
                         {goal.current.toLocaleString("fr-FR")}{goal.unit}
                       </span>
-                      <span className="text-sm mx-1" style={{ color: "#FFFFFF60" }}>/</span>
-                      <span className="text-sm" style={{ color: "#FFFFFF80" }}>
+                      <span className="text-sm mx-1" style={{ color: "rgba(255, 255, 255, 0.375)" }}>/</span>
+                      <span className="text-sm" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
                         {goal.target.toLocaleString("fr-FR")}{goal.unit}
                       </span>
                     </div>
                     <button onClick={() => setExpanded(isExpanded ? null : goal.id)}
                       className="p-1 hover:opacity-70 transition-opacity">
-                      <ChevronDown size={14} className={cn("transition-transform", isExpanded && "rotate-180")} style={{ color: "#FFFFFF60" }} />
+                      <ChevronDown size={14} className={cn("transition-transform", isExpanded && "rotate-180")} style={{ color: "rgba(255, 255, 255, 0.375)" }} />
                     </button>
                   </div>
                 </div>
@@ -109,7 +109,7 @@ export default function GoalsPage() {
                   <div className="h-full transition-all duration-700 relative overflow-hidden" style={{
                     width: `${pct}%`,
                     background: pct >= 100
-                      ? "linear-gradient(90deg, #10B981, #34D399)"
+                      ? "linear-gradient(90deg, var(--success), #34D399)"
                       : "linear-gradient(90deg, var(--color-accent), rgba(199,91,57,0.6))",
                   }}>
                     {pct > 15 && (
@@ -121,11 +121,11 @@ export default function GoalsPage() {
                 </div>
 
                 <div className="flex items-center gap-4 mt-2">
-                  <span className="text-xs font-medium" style={{ color: pct >= 100 ? "#10B981" : "var(--color-accent)" }}>
+                  <span className="text-xs font-medium" style={{ color: pct >= 100 ? "var(--success)" : "var(--color-accent)" }}>
                     {pct >= 100 ? "✓ Atteint" : `${pct}% atteint`}
                   </span>
                   {goal.subTasks.length > 0 && (
-                    <span className="text-[10px]" style={{ color: "#FFFFFF60" }}>
+                    <span className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                       {doneTasks}/{goal.subTasks.length} sous-tâches
                     </span>
                   )}
@@ -135,7 +135,7 @@ export default function GoalsPage() {
               {/* Expanded: sub-tasks */}
               {isExpanded && (
                 <div className="border-t border-[var(--color-border)] px-5 py-3 space-y-2" style={{ backgroundColor: "var(--color-base)" }}>
-                  <p className="text-[10px] uppercase tracking-wider font-medium mb-2" style={{ color: "#FFFFFF60" }}>Sous-tâches</p>
+                  <p className="text-[10px] uppercase tracking-wider font-medium mb-2" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Sous-tâches</p>
                   {goal.subTasks.map((task) => (
                     <button
                       key={task.id}
@@ -144,11 +144,11 @@ export default function GoalsPage() {
                     >
                       <div className={cn(
                         "w-4 h-4 border flex items-center justify-center transition-all shrink-0",
-                        task.done ? "border-[#10B981] bg-[#10B981]" : "border-[var(--color-border)] group-hover:border-[#C75B39]/50"
+                        task.done ? "border-[#10B981] bg-[var(--success)]" : "border-[var(--color-border)] group-hover:border-[var(--accent)]/50"
                       )}>
                         {task.done && <Check size={10} className="text-white" />}
                       </div>
-                      <span className={cn("text-xs", task.done && "line-through")} style={{ color: task.done ? "#FFFFFF60" : "#FFFFFF" }}>
+                      <span className={cn("text-xs", task.done && "line-through")} style={{ color: task.done ? "rgba(255, 255, 255, 0.375)" : "var(--text-primary)" }}>
                         {task.label}
                       </span>
                     </button>

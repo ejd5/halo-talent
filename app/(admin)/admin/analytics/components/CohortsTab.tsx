@@ -13,7 +13,7 @@ export function CohortsTab() {
   const lastRetention = lastCohort.retention[lastCohort.retention.length - 1] ?? 0;
 
   return (
-    <div className="space-y-6 card-accent" style={{ background: "#0A0908" }}>
+    <div className="space-y-6 card-accent" style={{ background: "var(--bg-primary)" }}>
       {/* KPI */}
       <div className="grid grid-cols-4 gap-3">
         <StatCard title="Cohortes analysées" value={cohorts.length.toString()} subtitle="Depuis juillet 2024" icon={<Calendar size={14} />} />
@@ -51,7 +51,7 @@ export function CohortsTab() {
                         <span
                           className="font-medium"
                           style={{
-                            color: val >= 80 ? "#7A9A65" : val >= 60 ? "#C75B39" : "#C44536",
+                            color: val >= 80 ? "var(--success)" : val >= 60 ? "var(--accent)" : "var(--danger)",
                           }}
                         >
                           {val}%
@@ -73,19 +73,19 @@ export function CohortsTab() {
         <h4 className="text-[10px] font-semibold uppercase tracking-wider opacity-40 mb-3">Insights cohortes</h4>
         <div className="space-y-2">
           <div className="flex items-start gap-2 text-sm">
-            <span className="text-[#7A9A65] mt-0.5">📈</span>
+            <span className="text-[var(--success)] mt-0.5">📈</span>
             <p className="opacity-70">Les cohortes récentes (2026) montrent une rétention à 3 mois de <strong>{lastCohort.retention[lastCohort.months.indexOf(3)] ?? "N/A"}%</strong>, en amélioration constante depuis 2024.</p>
           </div>
           <div className="flex items-start gap-2 text-sm">
-            <span className="text-[#C75B39] mt-0.5">💡</span>
+            <span className="text-[var(--accent)] mt-0.5">💡</span>
             <p className="opacity-70">La cohorte 2025-07 est la plus performante avec <strong>{cohorts.find((c) => c.cohort === "2025-07")?.retention.slice(-1)[0]}%</strong> de rétention à 12 mois. Facteurs clés : onboarding structuré + suivi hebdomadaire.</p>
           </div>
           <div className="flex items-start gap-2 text-sm">
-            <span className="text-[#C44536] mt-0.5">⚠️</span>
+            <span className="text-[var(--danger)] mt-0.5">⚠️</span>
             <p className="opacity-70">La première cohorte (2024-07) a la rétention la plus basse : <strong>{cohorts[0].retention.slice(-1)[0]}%</strong>. Les premiers mois étaient expérimentaux, le processus d&apos;onboarding n&apos;était pas encore rodé.</p>
           </div>
           <div className="flex items-start gap-2 text-sm">
-            <span className="text-[#E0D8D0] mt-0.5">📊</span>
+            <span className="text-[var(--text-secondary)] mt-0.5">📊</span>
             <p className="opacity-70">Tendance générale : le taux de rétention s&apos;améliore de <strong>~5% par cohorte</strong> grâce aux processus mis en place et à la sélection plus rigoureuse des candidatures.</p>
           </div>
         </div>

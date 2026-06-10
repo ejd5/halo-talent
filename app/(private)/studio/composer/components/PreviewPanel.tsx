@@ -97,7 +97,7 @@ export function PreviewPanel({ platforms, media, caption, config }: PreviewPanel
               className="text-[10px] px-2 py-1 rounded-sm whitespace-nowrap transition-all"
               style={{
                 background: i === activePreview ? "rgba(199,91,57,0.1)" : "transparent",
-                color: i === activePreview ? "#C75B39" : "rgba(255,255,255,0.3)",
+                color: i === activePreview ? "var(--accent)" : "rgba(255,255,255,0.3)",
                 border: i === activePreview
                   ? "1px solid rgba(199,91,57,0.2)"
                   : "1px solid transparent",
@@ -118,7 +118,7 @@ export function PreviewPanel({ platforms, media, caption, config }: PreviewPanel
               aspectRatio: previewStyle.aspectRatio,
               maxWidth: previewStyle.maxWidth,
               background: "rgba(255,255,255,0.03)",
-              border: "1px solid rgba(255,255,255,0.06)",
+              border: "1px solid var(--border-default)",
             }}
           >
             {media.length > 0 ? (
@@ -165,8 +165,8 @@ export function PreviewPanel({ platforms, media, caption, config }: PreviewPanel
           <div
             className="flex items-center justify-center w-10 h-10 rounded-full text-xs font-semibold"
             style={{
-              background: `conic-gradient(#C75B39 ${overall}%, rgba(255,255,255,0.06) ${overall}%)`,
-              color: "#F5F0EB",
+              background: `conic-gradient(var(--accent) ${overall}%, rgba(255,255,255,0.06) ${overall}%)`,
+              color: "var(--text-primary)",
             }}
           >
             {overall}%
@@ -185,7 +185,7 @@ export function PreviewPanel({ platforms, media, caption, config }: PreviewPanel
                 <div className="flex-1 h-1 rounded-full" style={{ background: "rgba(255,255,255,0.06)" }}>
                   <div
                     className="h-full rounded-full transition-all"
-                    style={{ width: `${c.score}%`, background: c.score < 50 ? "#E5484D" : c.score < 80 ? "#D4AF37" : "#C75B39" }}
+                    style={{ width: `${c.score}%`, background: c.score < 50 ? "var(--danger)" : c.score < 80 ? "var(--warning)" : "var(--accent)" }}
                   />
                 </div>
                 {c.score < 100 && (

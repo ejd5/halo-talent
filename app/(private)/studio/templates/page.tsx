@@ -80,7 +80,7 @@ export default function TemplatesPage() {
           <Link href="/studio" className="p-1 transition-opacity hover:opacity-70" style={{ color: "rgba(255,255,255,0.4)" }}>
             <Layout size={14} />
           </Link>
-          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Templates</h1>
+          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Templates</h1>
         </div>
         <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
           {templates.length} templates officiels · {templates.filter((t) => t.uses_count > 0).length} testés par les créateurs
@@ -89,7 +89,7 @@ export default function TemplatesPage() {
 
       {/* ─── Subnav ─── */}
       <div className="flex items-center gap-0 px-4 md:px-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-        <Link href="/studio/templates" className="px-3 py-2.5 text-[11px] font-medium" style={{ color: "#C75B39", borderBottom: "1px solid #C75B39" }}>
+        <Link href="/studio/templates" className="px-3 py-2.5 text-[11px] font-medium" style={{ color: "var(--accent)", borderBottom: "1px solid var(--accent)" }}>
           Officiels
         </Link>
         <Link href="/studio/templates/mine" className="px-3 py-2.5 text-[11px] transition-colors hover:text-white" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -101,7 +101,7 @@ export default function TemplatesPage() {
       </div>
 
       {/* ─── Filters ─── */}
-      <div className="px-4 md:px-6 py-3 space-y-2" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="px-4 md:px-6 py-3 space-y-2" style={{ borderBottom: "1px solid var(--border-default)" }}>
         {/* Search + platforms */}
         <div className="flex items-center gap-2 flex-wrap">
           <div className="relative flex-1 min-w-[200px] max-w-xs">
@@ -110,12 +110,12 @@ export default function TemplatesPage() {
               value={search} onChange={(e) => setSearch(e.target.value)}
               placeholder="Rechercher un template..."
               className="w-full text-[10px] bg-transparent pl-7 pr-2.5 py-1.5 rounded-sm outline-none"
-              style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}
+              style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
             />
           </div>
           <select value={platform} onChange={(e) => setPlatform(e.target.value)}
             className="text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none"
-            style={{ border: "1px solid rgba(255,255,255,0.06)", color: "#F5F0EB" }}>
+            style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
             <option value="">Toutes plateformes</option>
             <option value="instagram">Instagram</option>
             <option value="tiktok">TikTok</option>
@@ -125,7 +125,7 @@ export default function TemplatesPage() {
           {(style || mood || platform || search) && (
             <button onClick={() => { setStyle(""); setMood(""); setPlatform(""); setSearch(""); }}
               className="text-[9px] px-2 py-1 rounded-sm flex items-center gap-1 transition-colors hover:bg-white/5"
-              style={{ border: "1px solid rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.3)" }}>
+              style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.3)" }}>
               <X size={10} /> Réinitialiser
             </button>
           )}
@@ -139,7 +139,7 @@ export default function TemplatesPage() {
               style={{
                 border: `1px solid ${category === cat ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                 background: category === cat ? "rgba(199,91,57,0.06)" : "transparent",
-                color: category === cat ? "#C75B39" : "rgba(255,255,255,0.4)",
+                color: category === cat ? "var(--accent)" : "rgba(255,255,255,0.4)",
               }}>
               {cat}
             </button>
@@ -155,7 +155,7 @@ export default function TemplatesPage() {
                 className="px-1.5 py-0.5 text-[8px] rounded-sm transition-all"
                 style={{
                   background: style === s ? "rgba(199,91,57,0.08)" : "transparent",
-                  color: style === s ? "#C75B39" : "rgba(255,255,255,0.2)",
+                  color: style === s ? "var(--accent)" : "rgba(255,255,255,0.2)",
                 }}>
                 {s}
               </button>
@@ -168,7 +168,7 @@ export default function TemplatesPage() {
                 className="px-1.5 py-0.5 text-[8px] rounded-sm transition-all"
                 style={{
                   background: mood === m ? "rgba(199,91,57,0.08)" : "transparent",
-                  color: mood === m ? "#C75B39" : "rgba(255,255,255,0.2)",
+                  color: mood === m ? "var(--accent)" : "rgba(255,255,255,0.2)",
                 }}>
                 {m}
               </button>
@@ -198,7 +198,7 @@ export default function TemplatesPage() {
                 <div
                   key={template.id}
                   className="group rounded-sm overflow-hidden cursor-pointer transition-all hover:bg-white/5"
-                  style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}
+                  style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}
                   onClick={() => setSelectedTemplate(template)}
                 >
                   {/* Preview */}
@@ -214,7 +214,7 @@ export default function TemplatesPage() {
                     <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: "rgba(0,0,0,0.6)" }}>
                       <button onClick={(e) => { e.stopPropagation(); handleUse(template); }}
                         className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] font-medium rounded-sm transition-opacity hover:opacity-80"
-                        style={{ background: "#C75B39", color: "#FFFFFF" }}>
+                        style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                         <Play size={10} /> Utiliser
                       </button>
                     </div>
@@ -226,7 +226,7 @@ export default function TemplatesPage() {
 
                   {/* Info */}
                   <div className="p-2.5">
-                    <h3 className="text-[11px] font-medium truncate" style={{ color: "#F5F0EB" }}>{template.name}</h3>
+                    <h3 className="text-[11px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{template.name}</h3>
                     <p className="text-[9px] mt-0.5 line-clamp-2" style={{ color: "rgba(255,255,255,0.3)" }}>
                       {template.description}
                     </p>
@@ -252,7 +252,7 @@ export default function TemplatesPage() {
       {/* ─── Preview Modal ─── */}
       {selectedTemplate && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" onClick={() => setSelectedTemplate(null)} style={{ background: "rgba(0,0,0,0.7)" }}>
-          <div className="max-w-lg w-full rounded-sm overflow-hidden" onClick={(e) => e.stopPropagation()} style={{ background: "#0A0908", border: "1px solid rgba(255,255,255,0.08)" }}>
+          <div className="max-w-lg w-full rounded-sm overflow-hidden" onClick={(e) => e.stopPropagation()} style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
             {/* Preview */}
             <div className="aspect-[4/5] max-h-[50vh] flex items-center justify-center overflow-hidden" style={{ background: "rgba(0,0,0,0.4)" }}>
               {selectedTemplate.preview_url ? (
@@ -264,14 +264,14 @@ export default function TemplatesPage() {
             {/* Details */}
             <div className="p-4 space-y-3">
               <div>
-                <h2 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>{selectedTemplate.name}</h2>
+                <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{selectedTemplate.name}</h2>
                 <p className="text-[10px] mt-1 leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
                   {selectedTemplate.description}
                 </p>
               </div>
               <div className="flex flex-wrap gap-2 text-[9px]">
                 {selectedTemplate.style && (
-                  <span className="px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.06)", color: "#C75B39" }}>{selectedTemplate.style}</span>
+                  <span className="px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(199,91,57,0.06)", color: "var(--accent)" }}>{selectedTemplate.style}</span>
                 )}
                 {selectedTemplate.mood && (
                   <span className="px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.3)" }}>{selectedTemplate.mood}</span>
@@ -282,11 +282,11 @@ export default function TemplatesPage() {
               </div>
               <div className="flex items-center gap-3 text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>
                 <span className="flex items-center gap-1"><TrendingUp size={10} /> {selectedTemplate.uses_count} utilisations</span>
-                {selectedTemplate.is_official && <span className="flex items-center gap-1" style={{ color: "#C75B39" }}>Par Halo Talent</span>}
+                {selectedTemplate.is_official && <span className="flex items-center gap-1" style={{ color: "var(--accent)" }}>Par Halo Talent</span>}
               </div>
               <button onClick={() => handleUse(selectedTemplate)}
                 className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 text-xs font-medium rounded-sm transition-opacity hover:opacity-80"
-                style={{ background: "#C75B39", color: "#FFFFFF" }}>
+                style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                 <Play size={12} /> Utiliser ce template
               </button>
             </div>

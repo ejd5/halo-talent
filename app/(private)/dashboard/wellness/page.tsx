@@ -80,8 +80,8 @@ export default function WellnessPage() {
   }).length : 0;
 
   const moodColor = score !== null
-    ? score >= 70 ? "#10B981" : score >= 50 ? "#F59E0B" : "#EF4444"
-    : "#FFFFFF40";
+    ? score >= 70 ? "var(--success)" : score >= 50 ? "#F59E0B" : "var(--danger)"
+    : "rgba(255, 255, 255, 0.25)";
 
   const recommendations = score !== null && score < 50
     ? [
@@ -104,22 +104,22 @@ export default function WellnessPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Bien-être</h1>
-          <p className="text-sm mt-1" style={{ color: "#FFFFFF" }}>Prends soin de toi — c&apos;est la clé d&apos;une carrière durable</p>
+          <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Bien-être</h1>
+          <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>Prends soin de toi — c&apos;est la clé d&apos;une carrière durable</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {/* Score card */}
         <div className="p-6 border border-[var(--color-border)] card-accent flex flex-col items-center justify-center" style={{ backgroundColor: "var(--color-card)" }}>
-          <p className="text-xs uppercase tracking-wider mb-3" style={{ color: "#FFFFFF60" }}>Score bien-être</p>
+          <p className="text-xs uppercase tracking-wider mb-3" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Score bien-être</p>
           <div className="w-24 h-24 rounded-full border-4 flex items-center justify-center mb-2" style={{ borderColor: moodColor }}>
-            <span className="text-3xl font-bold font-mono" style={{ color: "#FFFFFF" }}>{score ?? "—"}</span>
+            <span className="text-3xl font-bold font-mono" style={{ color: "var(--text-primary)" }}>{score ?? "—"}</span>
           </div>
-          <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>
+          <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
             {score !== null ? (score >= 70 ? "Équilibre 🌟" : score >= 50 ? "En progression 💪" : "À surveiller 🌱") : "Pas encore de données"}
           </p>
-          <div className="flex items-center gap-4 mt-3 text-[10px]" style={{ color: "#FFFFFF60" }}>
+          <div className="flex items-center gap-4 mt-3 text-[10px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
             <span>Moy. humeur : {avgMood ? `${avgMood.toFixed(1)}/10` : "—"}</span>
             <span>Sommeil : {avgSleep !== null ? `${Math.round(avgSleep)}%` : "—"}</span>
           </div>
@@ -128,12 +128,12 @@ export default function WellnessPage() {
         {/* Check-in card */}
         <div className="p-6 border border-[var(--color-border)] card-accent md:col-span-2" style={{ backgroundColor: "var(--color-card)" }}>
           <div className="flex items-center gap-2 mb-4">
-            <Heart size={16} style={{ color: "#10B981" }} />
-            <h2 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>
+            <Heart size={16} style={{ color: "var(--success)" }} />
+            <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
               {checkedIn ? "Check-in du jour ✓" : "Daily check-in"}
             </h2>
             {streak > 1 && (
-              <span className="px-1.5 py-0.5 text-[8px] font-mono" style={{ backgroundColor: "#10B98115", color: "#10B981" }}>
+              <span className="px-1.5 py-0.5 text-[8px] font-mono" style={{ backgroundColor: "#10B98115", color: "var(--success)" }}>
                 🔥 {streak} jours
               </span>
             )}
@@ -141,14 +141,14 @@ export default function WellnessPage() {
 
           {checkedIn ? (
             <div className="space-y-3">
-              <div className="flex items-center gap-4 text-sm" style={{ color: "#FFFFFF" }}>
+              <div className="flex items-center gap-4 text-sm" style={{ color: "var(--text-primary)" }}>
                 <span>Humeur : {mood}/10</span>
                 <span>Sommeil : {sleepGood ? "Bien" : "Difficile"}</span>
-                {note && <span className="text-xs italic" style={{ color: "#FFFFFF80" }}>— {note}</span>}
+                {note && <span className="text-xs italic" style={{ color: "rgba(255, 255, 255, 0.5)" }}>— {note}</span>}
               </div>
               <button onClick={() => setCheckedIn(false)}
                 className="text-[10px] uppercase tracking-wider underline underline-offset-4 hover:opacity-70 transition-opacity"
-                style={{ color: "#FFFFFF60" }}>
+                style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Modifier
               </button>
             </div>
@@ -156,35 +156,35 @@ export default function WellnessPage() {
             <div className="space-y-4">
               {/* Mood slider */}
               <div>
-                <p className="text-xs mb-2" style={{ color: "#FFFFFF80" }}>Comment te sens-tu aujourd&apos;hui ?</p>
+                <p className="text-xs mb-2" style={{ color: "rgba(255, 255, 255, 0.5)" }}>Comment te sens-tu aujourd&apos;hui ?</p>
                 <div className="flex items-center gap-3">
-                  <span className="text-xs" style={{ color: "#FFFFFF40" }}>1</span>
+                  <span className="text-xs" style={{ color: "rgba(255, 255, 255, 0.25)" }}>1</span>
                   <input
                     type="range"
                     min="1" max="10" value={mood}
                     onChange={(e) => setMood(parseInt(e.target.value))}
-                    className="flex-1 accent-[#10B981]"
+                    className="flex-1 accent-[var(--success)]"
                   />
-                  <span className="text-xs" style={{ color: "#FFFFFF40" }}>10</span>
-                  <span className="text-sm font-mono w-8 text-right" style={{ color: "#10B981" }}>{mood}</span>
+                  <span className="text-xs" style={{ color: "rgba(255, 255, 255, 0.25)" }}>10</span>
+                  <span className="text-sm font-mono w-8 text-right" style={{ color: "var(--success)" }}>{mood}</span>
                 </div>
               </div>
 
               {/* Sleep toggle */}
               <div>
-                <p className="text-xs mb-2" style={{ color: "#FFFFFF80" }}>As-tu bien dormi ?</p>
+                <p className="text-xs mb-2" style={{ color: "rgba(255, 255, 255, 0.5)" }}>As-tu bien dormi ?</p>
                 <div className="flex gap-2">
                   <button
                     onClick={() => setSleepGood(true)}
-                    className={cn("px-4 py-2 text-xs font-medium border transition-all", sleepGood === true ? "border-[#10B981] bg-[#10B981]/10" : "border-[var(--color-border)]")}
-                    style={{ color: "#FFFFFF" }}
+                    className={cn("px-4 py-2 text-xs font-medium border transition-all", sleepGood === true ? "border-[#10B981] bg-[var(--success)]/10" : "border-[var(--color-border)]")}
+                    style={{ color: "var(--text-primary)" }}
                   >
                     <Moon size={13} className="inline mr-1" /> Oui
                   </button>
                   <button
                     onClick={() => setSleepGood(false)}
-                    className={cn("px-4 py-2 text-xs font-medium border transition-all", sleepGood === false ? "border-[#EF4444] bg-[#EF4444]/10" : "border-[var(--color-border)]")}
-                    style={{ color: "#FFFFFF" }}
+                    className={cn("px-4 py-2 text-xs font-medium border transition-all", sleepGood === false ? "border-[var(--danger)] bg-[var(--danger)]/10" : "border-[var(--color-border)]")}
+                    style={{ color: "var(--text-primary)" }}
                   >
                     <Sun size={13} className="inline mr-1" /> Non
                   </button>
@@ -193,14 +193,14 @@ export default function WellnessPage() {
 
               {/* Note */}
               <div>
-                <p className="text-xs mb-1" style={{ color: "#FFFFFF60" }}>Une chose qui t&apos;a fait plaisir ? (optionnel)</p>
+                <p className="text-xs mb-1" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Une chose qui t&apos;a fait plaisir ? (optionnel)</p>
                 <input
                   type="text"
                   value={note}
                   onChange={(e) => setNote(e.target.value)}
                   placeholder="Ex: une balade, un compliment, un bon café..."
                   className="w-full bg-transparent border-b border-[var(--color-border)] py-1.5 text-xs focus:outline-none focus:border-[#10B981] transition-colors"
-                  style={{ color: "#FFFFFF" }}
+                  style={{ color: "var(--text-primary)" }}
                 />
               </div>
 
@@ -208,7 +208,7 @@ export default function WellnessPage() {
                 onClick={handleCheckin}
                 disabled={sleepGood === null || checking}
                 className="px-6 py-2 text-xs uppercase tracking-wider font-semibold disabled:opacity-40 transition-opacity"
-                style={{ backgroundColor: "#10B981", color: "#FFFFFF" }}
+                style={{ backgroundColor: "var(--success)", color: "var(--text-primary)" }}
               >
                 {checking ? "Enregistrement..." : "Enregistrer mon check-in"}
               </button>
@@ -218,10 +218,10 @@ export default function WellnessPage() {
 
         {/* History graph */}
         <div className="p-6 border border-[var(--color-border)] card-accent md:col-span-2" style={{ backgroundColor: "var(--color-card)" }}>
-          <h2 className="text-sm font-semibold mb-4" style={{ color: "#FFFFFF" }}>Évolution de l&apos;humeur (14 jours)</h2>
+          <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Évolution de l&apos;humeur (14 jours)</h2>
           {logs.length === 0 ? (
             <div className="flex items-center justify-center h-24">
-              <p className="text-xs" style={{ color: "#FFFFFF60" }}>Fais ton premier check-in pour voir l&apos;évolution</p>
+              <p className="text-xs" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Fais ton premier check-in pour voir l&apos;évolution</p>
             </div>
           ) : (
             <div className="flex items-end gap-2 h-24">
@@ -231,10 +231,10 @@ export default function WellnessPage() {
                   <div key={i} className="flex-1 flex flex-col items-center gap-1">
                     <div className="w-full rounded-sm transition-all" style={{
                       height: `${h}%`,
-                      backgroundColor: (l.mood_score ?? 5) >= 7 ? "#10B981" : (l.mood_score ?? 5) >= 5 ? "#F59E0B" : "#EF4444",
+                      backgroundColor: (l.mood_score ?? 5) >= 7 ? "var(--success)" : (l.mood_score ?? 5) >= 5 ? "#F59E0B" : "var(--danger)",
                       minHeight: "4px",
                     }} />
-                    <span className="text-[7px]" style={{ color: "#FFFFFF30" }}>
+                    <span className="text-[7px]" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
                       {new Date(l.date).getDate()}
                     </span>
                   </div>
@@ -247,14 +247,14 @@ export default function WellnessPage() {
         {/* Recommendations */}
         <div className="p-6 border border-[var(--color-border)] card-accent" style={{ backgroundColor: "var(--color-card)" }}>
           <div className="flex items-center gap-2 mb-4">
-            <Sparkles size={14} style={{ color: "#10B981" }} />
-            <h2 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>Recommandations</h2>
+            <Sparkles size={14} style={{ color: "var(--success)" }} />
+            <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Recommandations</h2>
           </div>
           <div className="space-y-3">
             {recommendations.map((rec, i) => (
               <div key={i} className="flex items-start gap-2.5">
-                <rec.icon size={14} style={{ color: "#10B981" }} className="mt-0.5 shrink-0" />
-                <p className="text-xs leading-relaxed" style={{ color: "#FFFFFF" }}>{rec.text}</p>
+                <rec.icon size={14} style={{ color: "var(--success)" }} className="mt-0.5 shrink-0" />
+                <p className="text-xs leading-relaxed" style={{ color: "var(--text-primary)" }}>{rec.text}</p>
               </div>
             ))}
           </div>
@@ -263,8 +263,8 @@ export default function WellnessPage() {
         {/* Resources */}
         <div className="p-6 border border-[var(--color-border)] card-accent" style={{ backgroundColor: "var(--color-card)" }}>
           <div className="flex items-center gap-2 mb-4">
-            <AlertTriangle size={14} style={{ color: "#10B981" }} />
-            <h2 className="text-sm font-semibold" style={{ color: "#FFFFFF" }}>Ressources</h2>
+            <AlertTriangle size={14} style={{ color: "var(--success)" }} />
+            <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Ressources</h2>
           </div>
           <div className="space-y-2 text-xs">
             {[
@@ -273,14 +273,14 @@ export default function WellnessPage() {
               { label: "Psy.fr", desc: "Trouver un psy près de chez vous" },
               { label: "Petit BamBou", desc: "Appli de méditation gratuite" },
             ].map((r, i) => (
-              <div key={i} className={cn("p-2.5 border text-xs", r.urgent ? "border-[#EF4444]/30" : "border-[var(--color-border)]")}
+              <div key={i} className={cn("p-2.5 border text-xs", r.urgent ? "border-[var(--danger)]/30" : "border-[var(--color-border)]")}
                 style={{ backgroundColor: r.urgent ? "#EF444408" : "var(--color-base)" }}>
-                <p className="font-medium" style={{ color: "#FFFFFF" }}>{r.label}</p>
-                <p className="text-[10px] mt-0.5" style={{ color: "#FFFFFF60" }}>{r.desc}</p>
+                <p className="font-medium" style={{ color: "var(--text-primary)" }}>{r.label}</p>
+                <p className="text-[10px] mt-0.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>{r.desc}</p>
               </div>
             ))}
           </div>
-          <p className="text-[8px] mt-3" style={{ color: "#FFFFFF30" }}>
+          <p className="text-[8px] mt-3" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
             Tu n&apos;es pas seul·e. L&apos;équipe Halo est là pour toi.
           </p>
         </div>

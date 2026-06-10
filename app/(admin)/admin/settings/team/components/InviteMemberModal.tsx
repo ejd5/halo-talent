@@ -6,7 +6,7 @@ import { teamMembers } from "../../data";
 import { ROLE_LABELS } from "../../permissions";
 import type { Role, TeamMember } from "../../types";
 
-const ALL_ROLES: Role[] = ["admin", "manager", "assistant"];
+const ALL_ROLES: Role[] = ["admin", "manager", "assistant", "chatter", "comptable", "viewer"];
 
 const mockCreators = [
   { id: "c1", name: "Clara W." }, { id: "c2", name: "Marc T." },
@@ -119,8 +119,12 @@ export function InviteMemberModal({
             <div className="p-3 border border-[var(--color-border)] text-[11px] opacity-50 leading-relaxed">
               Une invitation sera envoyée à <strong>{email || "cet email"}</strong>.
               {role === "admin" && " Les admins doivent configurer le 2FA à leur première connexion."}
-              {role === "assistant" && " Les assistants ont un accès lecture seule + messagerie."}
               {role === "manager" && " Les managers peuvent modifier les profils et contrats de leurs créateurs assignés."}
+              {role === "assistant" && " Les assistants ont un accès lecture seule + messagerie."}
+              {role === "chatter" && " Les chatters voient et répondent aux messages des créateurs qui leur sont assignés."}
+              {role === "comptable" && " Les comptables ont accès aux finances globales et à l'export des données."}
+              {role === "viewer" && " Les viewers ont un accès en lecture seule au dashboard analytics et aux créateurs."}
+              {role === "custom" && " Les rôles personnalisés permettent de configurer chaque permission individuellement."}
             </div>
           </div>
 

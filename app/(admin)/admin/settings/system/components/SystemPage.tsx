@@ -35,7 +35,7 @@ const SERVICE_ICONS: Record<string, typeof Database> = {
 
 function ServiceCard({ service }: { service: SystemStatus }) {
   const Icon = SERVICE_ICONS[service.icon] ?? Activity;
-  const statusColor = service.status === "healthy" ? "#7A9A65" : service.status === "degraded" ? "#C7A254" : "#C44536";
+  const statusColor = service.status === "healthy" ? "var(--success)" : service.status === "degraded" ? "var(--warning)" : "var(--danger)";
   const statusLabel = service.status === "healthy" ? "Opérationnel" : service.status === "degraded" ? "Dégradé" : "Indisponible";
 
   return (
@@ -61,7 +61,7 @@ function ServiceCard({ service }: { service: SystemStatus }) {
 
 function QuotaBar({ quota }: { quota: QuotaUsage }) {
   const pct = Math.min((quota.used / quota.limit) * 100, 100);
-  const color = pct > 90 ? "#C44536" : pct > 70 ? "#C7A254" : "#7A9A65";
+  const color = pct > 90 ? "var(--danger)" : pct > 70 ? "var(--warning)" : "var(--success)";
   return (
     <div className="flex items-center gap-3 text-xs">
       <span className="w-40 shrink-0 truncate opacity-70">{quota.resource}</span>
@@ -92,9 +92,9 @@ function CronRow({ job }: { job: CronJobStatus }) {
         {job.last_success === null ? (
           <span className="text-[10px] opacity-20">—</span>
         ) : job.last_success ? (
-          <CheckCircle size={12} className="text-[#7A9A65]" />
+          <CheckCircle size={12} className="text-[var(--success)]" />
         ) : (
-          <XCircle size={12} className="text-[#C44536]" />
+          <XCircle size={12} className="text-[var(--danger)]" />
         )}
       </div>
       <div className="text-[10px] opacity-40">{timeAgo(job.next_run)}</div>
@@ -111,7 +111,7 @@ function BackupRow({ backup }: { backup: BackupEntry }) {
       <div className="text-[10px] opacity-40">{formatDate(backup.created_at)}</div>
       <div className="text-[10px]">{backup.size_mb} MB</div>
       <div className="text-[10px]">
-        <span className={`font-medium ${backup.status === "completed" ? "text-[#7A9A65]" : backup.status === "failed" ? "text-[#C44536]" : "text-[#C7A254]"}`}>
+        <span className={`font-medium ${backup.status === "completed" ? "text-[var(--success)]" : backup.status === "failed" ? "text-[var(--danger)]" : "text-[var(--warning)]"}`}>
           {backup.status === "completed" ? "Complété" : backup.status === "failed" ? "Échec" : "En cours"}
         </span>
       </div>
@@ -128,8 +128,8 @@ function BackupRow({ backup }: { backup: BackupEntry }) {
         )}
         {confirming && (
           <div className="flex items-center gap-1">
-            <span className="text-[9px] text-[#C44536]">Confirmer?</span>
-            <button onClick={() => setConfirming(false)} className="px-1.5 py-0.5 text-[9px] font-medium text-white" style={{ backgroundColor: "#C44536" }}>Oui</button>
+            <span className="text-[9px] text-[var(--danger)]">Confirmer?</span>
+            <button onClick={() => setConfirming(false)} className="px-1.5 py-0.5 text-[9px] font-medium text-white" style={{ backgroundColor: "var(--danger)" }}>Oui</button>
             <button onClick={() => setConfirming(false)} className="px-1.5 py-0.5 text-[9px] font-medium border border-[var(--color-border)]">Non</button>
           </div>
         )}
@@ -237,7 +237,7 @@ export function SystemPage() {
                 <div className="space-y-1">
                   {healthResults.map((r) => (
                     <div key={r.service} className="flex items-center gap-2 text-xs py-1">
-                      {r.status === "healthy" ? <CheckCircle size={10} className="text-[#7A9A65]" /> : <XCircle size={10} className="text-[#C44536]" />}
+                      {r.status === "healthy" ? <CheckCircle size={10} className="text-[var(--success)]" /> : <XCircle size={10} className="text-[var(--danger)]" />}
                       <span>{r.label}</span>
                       <span className="opacity-30 text-[10px]">{r.latency_ms}ms</span>
                     </div>

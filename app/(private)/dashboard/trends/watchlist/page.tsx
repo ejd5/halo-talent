@@ -59,7 +59,7 @@ export default function WatchlistPage() {
     <div className="animate-fade-in">
       <div className="flex items-start justify-between mb-6">
         <div>
-          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Ma watchlist
           </h1>
           <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -70,7 +70,7 @@ export default function WatchlistPage() {
           <button
             onClick={() => setShowAdd(true)}
             className="flex items-center gap-1.5 text-xs px-3 py-1.5 font-medium"
-            style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39", border: "1px solid rgba(199,91,57,0.2)" }}
+            style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
           >
             <Plus size={12} /> Ajouter
           </button>
@@ -89,7 +89,7 @@ export default function WatchlistPage() {
           <button
             onClick={() => setShowAdd(true)}
             className="mt-4 text-xs px-4 py-2 font-medium"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             Surveiller mon premier mot-clé
           </button>
@@ -103,10 +103,10 @@ export default function WatchlistPage() {
               style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}
             >
               <div className="w-8 h-8 flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)" }}>
-                <Globe size={14} style={{ color: "#C75B39" }} />
+                <Globe size={14} style={{ color: "var(--accent)" }} />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{entry.keyword}</p>
+                <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{entry.keyword}</p>
                 <div className="flex items-center gap-2 text-[10px] mt-0.5">
                   {entry.sources.map((s) => (
                     <span key={s} style={{ color: "rgba(245,240,235,0.25)" }}>{s}</span>
@@ -116,7 +116,7 @@ export default function WatchlistPage() {
                   {entry.last_value !== null && (
                     <>
                       <span style={{ color: "rgba(245,240,235,0.15)" }}>·</span>
-                      <span style={{ color: "#C75B39" }}>Score: {entry.last_value}</span>
+                      <span style={{ color: "var(--accent)" }}>Score: {entry.last_value}</span>
                     </>
                   )}
                 </div>
@@ -136,8 +136,8 @@ export default function WatchlistPage() {
       {/* Add modal */}
       {showAdd && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.6)" }}>
-          <div className="w-full max-w-sm p-4" style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.1)" }}>
-            <h3 className="text-sm font-semibold mb-3" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <div className="w-full max-w-sm p-4" style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.1)" }}>
+            <h3 className="text-sm font-semibold mb-3" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
               Nouveau mot-clé
             </h3>
             <input
@@ -147,14 +147,14 @@ export default function WatchlistPage() {
               onKeyDown={(e) => e.key === "Enter" && addEntry()}
               placeholder="Mot-clé à surveiller..."
               className="w-full px-3 py-2 text-sm mb-3 bg-transparent border"
-              style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+              style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
               autoFocus
             />
             <div className="flex items-center gap-2 justify-end">
               <button onClick={() => setShowAdd(false)} className="text-xs px-3 py-1.5" style={{ color: "rgba(245,240,235,0.3)" }}>
                 Annuler
               </button>
-              <button onClick={addEntry} className="text-xs px-3 py-1.5 font-medium" style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}>
+              <button onClick={addEntry} className="text-xs px-3 py-1.5 font-medium" style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
                 Ajouter
               </button>
             </div>

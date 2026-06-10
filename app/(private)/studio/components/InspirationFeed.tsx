@@ -47,11 +47,11 @@ export function InspirationFeed() {
   return (
     <div>
       <div className="flex items-center gap-2 mb-4">
-        <Sparkles size={14} style={{ color: "#C75B39" }} />
-        <h2 className="font-display text-sm font-semibold" style={{ color: "#F5F0EB" }}>
+        <Sparkles size={14} style={{ color: "var(--accent)" }} />
+        <h2 className="font-display text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
           Inspirations du jour
         </h2>
-        <span className="font-sans text-[9px] px-1.5 py-0.5" style={{ border: "1px solid rgba(199,91,57,0.2)", color: "#C75B39" }}>
+        <span className="font-sans text-[9px] px-1.5 py-0.5" style={{ border: "1px solid var(--accent-border)", color: "var(--accent)" }}>
           Trend Spotter
         </span>
       </div>
@@ -67,13 +67,13 @@ export function InspirationFeed() {
           >
             <span
               className="font-display font-bold text-sm leading-none mt-0.5 min-w-[20px]"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             >
               {String(i + 1).padStart(2, "0")}
             </span>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
-                <p className="font-sans text-sm font-medium truncate" style={{ color: "#F5F0EB" }}>
+                <p className="font-sans text-sm font-medium truncate" style={{ color: "var(--text-primary)" }}>
                   {item.title}
                 </p>
                 <span className="font-sans text-[9px] px-1.5 py-px shrink-0" style={{ border: "1px solid rgba(245,240,235,0.08)", color: "var(--color-ink-tertiary)" }}>
@@ -87,7 +87,7 @@ export function InspirationFeed() {
             <ArrowRight
               size={14}
               className="mt-1 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             />
           </Link>
         ))}

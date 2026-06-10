@@ -125,7 +125,7 @@ export default function SegmentsListPage() {
         <div>
           <h1
             className="text-xl font-semibold"
-            style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}
+            style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
             Smart Segments
           </h1>
@@ -136,7 +136,7 @@ export default function SegmentsListPage() {
         <Link
           href="/dashboard/sovereign-chat/segments/new"
           className="text-[10px] font-semibold py-2.5 px-4 transition-all hover:opacity-80 flex items-center gap-1.5"
-          style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+          style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={12} />
           Nouveau segment
@@ -147,19 +147,19 @@ export default function SegmentsListPage() {
       <div className="grid grid-cols-4 gap-3">
         <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
           <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.2)" }}>Total segments</p>
-          <p className="text-lg font-semibold mt-1" style={{ color: "#F5F0EB" }}>{segments.length}</p>
+          <p className="text-lg font-semibold mt-1" style={{ color: "var(--text-primary)" }}>{segments.length}</p>
         </div>
         <div className="p-3" style={{ backgroundColor: "rgba(122,154,101,0.06)", border: "1px solid rgba(122,154,101,0.1)" }}>
           <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(122,154,101,0.5)" }}>Smart</p>
-          <p className="text-lg font-semibold mt-1" style={{ color: "#7A9A65" }}>{smartCount}</p>
+          <p className="text-lg font-semibold mt-1" style={{ color: "var(--success)" }}>{smartCount}</p>
         </div>
         <div className="p-3" style={{ backgroundColor: "rgba(199,91,57,0.06)", border: "1px solid rgba(199,91,57,0.1)" }}>
           <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(199,91,57,0.5)" }}>Static</p>
-          <p className="text-lg font-semibold mt-1" style={{ color: "#C75B39" }}>{staticCount}</p>
+          <p className="text-lg font-semibold mt-1" style={{ color: "var(--accent)" }}>{staticCount}</p>
         </div>
         <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
           <p className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.2)" }}>Total fans</p>
-          <p className="text-lg font-semibold mt-1" style={{ color: "#F5F0EB" }}>{totalMembers}</p>
+          <p className="text-lg font-semibold mt-1" style={{ color: "var(--text-primary)" }}>{totalMembers}</p>
         </div>
       </div>
 
@@ -181,7 +181,7 @@ export default function SegmentsListPage() {
             <Link
               href="/dashboard/sovereign-chat/segments/new"
               className="text-[10px] font-medium py-2 px-3"
-              style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+              style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
             >
               Créer un segment
             </Link>
@@ -214,7 +214,7 @@ export default function SegmentsListPage() {
                   className="flex-1 min-w-0"
                 >
                   <div className="flex items-center gap-2 mb-0.5">
-                    <span className="text-sm font-medium truncate" style={{ color: "#F5F0EB" }}>
+                    <span className="text-sm font-medium truncate" style={{ color: "var(--text-primary)" }}>
                       {seg.name}
                     </span>
                     <span
@@ -223,7 +223,7 @@ export default function SegmentsListPage() {
                         backgroundColor: seg.type === "smart"
                           ? "rgba(122,154,101,0.1)"
                           : "rgba(199,91,57,0.1)",
-                        color: seg.type === "smart" ? "#7A9A65" : "#C75B39",
+                        color: seg.type === "smart" ? "var(--success)" : "var(--accent)",
                       }}
                     >
                       {seg.type === "smart" ? "Smart" : "Static"}
@@ -239,7 +239,7 @@ export default function SegmentsListPage() {
                 <div className="flex items-center gap-3 shrink-0">
                   {/* Member count */}
                   <div className="text-right">
-                    <p className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>{seg.member_count}</p>
+                    <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{seg.member_count}</p>
                     <p className="text-[8px]" style={{ color: "rgba(245,240,235,0.2)" }}>membres</p>
                   </div>
 
@@ -290,7 +290,7 @@ export default function SegmentsListPage() {
                         <div className="fixed inset-0 z-10" onClick={() => setMenuOpen(null)} />
                         <div
                           className="absolute right-0 top-8 z-20 w-40 py-1"
-                          style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}
+                          style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}
                         >
                           <Link
                             href={`/dashboard/sovereign-chat/segments/${seg.id}`}
@@ -324,7 +324,7 @@ export default function SegmentsListPage() {
                           <button
                             onClick={() => handleDelete(seg.id)}
                             className="w-full flex items-center gap-2 px-3 py-1.5 text-[10px] transition-all hover:opacity-70"
-                            style={{ color: "#C44536" }}
+                            style={{ color: "var(--danger)" }}
                           >
                             <Trash2 size={10} /> Supprimer
                           </button>
@@ -355,7 +355,7 @@ export default function SegmentsListPage() {
           <Link
             href="/dashboard/sovereign-chat/segments/new"
             className="flex-1 text-[10px] font-medium py-2.5 text-center transition-all hover:opacity-80"
-            style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+            style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
           >
             <Plus size={10} className="inline mr-1" />
             Nouveau segment

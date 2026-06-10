@@ -22,7 +22,7 @@ const ACTIONS: QuickAction[] = [
 export function QuickStartGrid() {
   return (
     <div>
-      <h2 className="font-display text-sm font-semibold mb-3" style={{ color: "#F5F0EB" }}>
+      <h2 className="font-display text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
         Démarrer rapidement
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -35,7 +35,7 @@ export function QuickStartGrid() {
               className="group relative p-4 border transition-all duration-300 hover:-translate-y-px"
               style={{
                 borderColor: "rgba(245,240,235,0.06)",
-                backgroundColor: "#2A2420",
+                backgroundColor: "var(--bg-card)",
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = "rgba(199,91,57,0.15)";
@@ -45,9 +45,9 @@ export function QuickStartGrid() {
               }}
             >
               <div className="mb-3">
-                <Icon size={24} strokeWidth={1.5} className="text-[#C75B39] transition-opacity group-hover:opacity-80" />
+                <Icon size={24} strokeWidth={1.5} className="text-[var(--accent)] transition-opacity group-hover:opacity-80" />
               </div>
-              <p className="font-sans text-[0.9rem] font-medium mb-0.5" style={{ color: "#F5F0EB" }}>
+              <p className="font-sans text-[0.9rem] font-medium mb-0.5" style={{ color: "var(--text-primary)" }}>
                 {action.label}
               </p>
               <p className="font-sans text-[0.8rem]" style={{ color: "var(--color-ink-tertiary)" }}>

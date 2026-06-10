@@ -1,39 +1,31 @@
 import { Suspense } from "react";
-import { DashboardOverview } from "./components/DashboardOverview";
+import { CommandCenter } from "@/components/admin/CommandCenter";
 
 export default function AdminPage() {
   return (
-    <Suspense fallback={<DashboardSkeleton />}>
-      <DashboardOverview />
+    <Suspense fallback={<AdminSkeleton />}>
+      <CommandCenter />
     </Suspense>
   );
 }
 
-function DashboardSkeleton() {
+function AdminSkeleton() {
   return (
-    <div>
-      <div
-        className="h-10 w-64 mb-8 animate-pulse"
-        style={{ background: "rgba(255,255,255,0.04)" }}
-      />
-      <div className="grid grid-cols-5 gap-4 mb-8">
-        {Array.from({ length: 5 }).map((_, i) => (
-          <div
-            key={i}
-            className="h-28 animate-pulse"
-            style={{ background: "rgba(255,255,255,0.04)" }}
-          />
-        ))}
-      </div>
-      <div className="flex gap-6 mb-8">
-        <div
-          className="flex-1 h-80 animate-pulse"
-          style={{ background: "rgba(255,255,255,0.04)" }}
-        />
-        <div
-          className="w-80 h-80 animate-pulse"
-          style={{ background: "rgba(255,255,255,0.04)" }}
-        />
+    <div className="flex-1 overflow-y-auto p-4 md:p-8">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-8">
+        <div className="h-10 w-72 animate-pulse" style={{ background: "rgba(255,255,255,0.04)" }} />
+        <div className="flex gap-3 overflow-x-auto">
+          {Array.from({ length: 4 }).map((_, i) => (
+            <div key={i} className="shrink-0 w-[220px] h-24 animate-pulse" style={{ background: "rgba(255,255,255,0.04)" }} />
+          ))}
+        </div>
+        <div className="grid grid-cols-5 gap-2">
+          {Array.from({ length: 10 }).map((_, i) => (
+            <div key={i} className="h-24 animate-pulse" style={{ background: "rgba(255,255,255,0.04)" }} />
+          ))}
+        </div>
+        <div className="h-64 animate-pulse" style={{ background: "rgba(255,255,255,0.04)" }} />
+        <div className="h-48 animate-pulse" style={{ background: "rgba(255,255,255,0.04)" }} />
       </div>
     </div>
   );

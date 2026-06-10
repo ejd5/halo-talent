@@ -51,7 +51,7 @@ export async function GET() {
       if (!heatmap[key]) heatmap[key] = {};
       if (!heatmap[key][hour]) heatmap[key][hour] = { sends: 0, unlocks: 0 };
       heatmap[key][hour].sends++;
-      if (s.unlocked) heatmap[key][hour].unlocks++;
+      if (s.unlocked_at) heatmap[key][hour].unlocks++;
     }
   }
 

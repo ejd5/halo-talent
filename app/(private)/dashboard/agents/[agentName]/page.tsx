@@ -185,7 +185,7 @@ export default function AgentChatPage({
       {/* Header */}
       <div className="flex items-start justify-between mb-4">
         <div>
-          <Link href="/dashboard/agents" className="text-sm flex items-center gap-1 mb-1 transition-colors" style={{ color: "#FFFFFF" }}>
+          <Link href="/dashboard/agents" className="text-sm flex items-center gap-1 mb-1 transition-colors" style={{ color: "var(--text-primary)" }}>
             <ArrowLeft size={10} /> Tous les agents
           </Link>
           <div className="flex items-center gap-3">
@@ -196,13 +196,13 @@ export default function AgentChatPage({
               <h1 className="text-lg font-semibold flex items-center gap-2" style={{ fontFamily: "var(--font-display)" }}>
                 {AGENT_LABELS[agent]}
               </h1>
-              <p className="text-base" style={{ color: "#FFFFFF" }}>{AGENT_DESCRIPTIONS[agent]}</p>
+              <p className="text-base" style={{ color: "var(--text-primary)" }}>{AGENT_DESCRIPTIONS[agent]}</p>
             </div>
           </div>
         </div>
         <button
           onClick={newConversation}
-          className="flex items-center gap-1.5 text-sm font-medium transition-colors" style={{ color: "#FFFFFF" }}
+          className="flex items-center gap-1.5 text-sm font-medium transition-colors" style={{ color: "var(--text-primary)" }}
         >
           <Plus size={12} /> Nouvelle conversation
         </button>
@@ -215,16 +215,16 @@ export default function AgentChatPage({
             <div className="p-4 border border-[var(--color-border)] mb-4" style={{ backgroundColor: "var(--color-card)" }}>
               <span className="text-3xl">{AGENT_EMOJIS[agent]}</span>
             </div>
-            <p className="text-sm mb-1 max-w-md" style={{ color: "#FFFFFF" }}>
+            <p className="text-sm mb-1 max-w-md" style={{ color: "var(--text-primary)" }}>
               {AGENT_DESCRIPTIONS[agent]}
             </p>
-            <p className="text-sm mb-6" style={{ color: "#FFFFFF" }}>Agent {AGENT_LABELS[agent]}</p>
+            <p className="text-sm mb-6" style={{ color: "var(--text-primary)" }}>Agent {AGENT_LABELS[agent]}</p>
             <div className="flex flex-wrap gap-2 justify-center max-w-lg">
               {suggestions.map((s) => (
                 <button
                   key={s}
                   onClick={() => { setInput(s); }}
-                  className="px-3 py-2 text-sm border border-[var(--color-border)] hover:border-[var(--color-accent)]/50 transition-all" style={{ color: "#FFFFFF" }}
+                  className="px-3 py-2 text-sm border border-[var(--color-border)] hover:border-[var(--color-accent)]/50 transition-all" style={{ color: "var(--text-primary)" }}
                 >{s}</button>
               ))}
             </div>
@@ -305,7 +305,7 @@ export default function AgentChatPage({
         )}
 
         {error && (
-          <div className="p-3 border border-[#C44536]/30 text-sm text-[#C44536]" style={{ backgroundColor: "#C4453610" }}>
+          <div className="p-3 border border-[var(--danger)]/30 text-sm text-[var(--danger)]" style={{ backgroundColor: "#C4453610" }}>
             {error}
           </div>
         )}

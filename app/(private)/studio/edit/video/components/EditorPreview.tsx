@@ -59,7 +59,7 @@ export function EditorPreview({
           width: previewW,
           height: previewH,
           background: "#000",
-          border: "1px solid rgba(255,255,255,0.08)",
+          border: "1px solid var(--border-default)",
         }}
       >
         <canvas
@@ -98,14 +98,14 @@ export function EditorPreview({
             className="absolute left-0 top-0 h-full rounded-sm transition-all"
             style={{
               width: `${(currentFrame / Math.max(1, totalFrames)) * 100}%`,
-              background: "#C75B39",
+              background: "var(--accent)",
             }}
           />
           <div
             className="absolute top-1/2 -translate-y-1/2 w-2.5 h-2.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"
             style={{
               left: `${(currentFrame / Math.max(1, totalFrames)) * 100}%`,
-              background: "#C75B39",
+              background: "var(--accent)",
               transform: `translate(-50%, -50%)`,
             }}
           />

@@ -38,7 +38,7 @@ export function LibraryFiltersBar({
     <div className="border border-[var(--color-border)] p-4 space-y-4" style={{ backgroundColor: "var(--color-card)" }}>
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h3 className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: "#FFFFFF" }}>Filtres avancés</h3>
+        <h3 className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: "var(--text-primary)" }}>Filtres avancés</h3>
         <button onClick={onClose} className="opacity-40 hover:opacity-100 transition-opacity">
           <X size={12} />
         </button>
@@ -47,7 +47,7 @@ export function LibraryFiltersBar({
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {/* Type */}
         <div>
-          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "#FFFFFF60" }}>Type</label>
+          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Type</label>
           <div className="flex flex-wrap gap-1">
             {TYPE_OPTIONS.map((opt) => (
               <button
@@ -55,7 +55,7 @@ export function LibraryFiltersBar({
                 onClick={() => set({ type: opt.key })}
                 className={`px-2 py-1 text-[9px] font-medium border transition-all ${
                   filters.type === opt.key
-                    ? "border-[#C75B39] bg-[#C75B39]/10 text-[#C75B39]"
+                    ? "border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)]"
                     : "border-[var(--color-border)] text-[#FFFFFF80] hover:border-[#FFFFFF30]"
                 }`}
               >
@@ -67,12 +67,12 @@ export function LibraryFiltersBar({
 
         {/* Creator */}
         <div>
-          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "#FFFFFF60" }}>Créateur</label>
+          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Créateur</label>
           <select
             value={filters.creator}
             onChange={(e) => set({ creator: e.target.value })}
             className="w-full p-1.5 text-[10px] border border-[var(--color-border)] bg-transparent focus:outline-none"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
           >
             <option value="all">Tous les créateurs</option>
             {creators.map((c) => (
@@ -83,12 +83,12 @@ export function LibraryFiltersBar({
 
         {/* Platform */}
         <div>
-          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "#FFFFFF60" }}>Plateforme cible</label>
+          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Plateforme cible</label>
           <select
             value={filters.platform}
             onChange={(e) => set({ platform: e.target.value })}
             className="w-full p-1.5 text-[10px] border border-[var(--color-border)] bg-transparent focus:outline-none"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
           >
             <option value="">Toutes les plateformes</option>
             {ALL_PLATFORMS.map((p) => (
@@ -99,12 +99,12 @@ export function LibraryFiltersBar({
 
         {/* Mood */}
         <div>
-          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "#FFFFFF60" }}>Mood IA</label>
+          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Mood IA</label>
           <select
             value={filters.mood}
             onChange={(e) => set({ mood: e.target.value })}
             className="w-full p-1.5 text-[10px] border border-[var(--color-border)] bg-transparent focus:outline-none"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
           >
             <option value="">Tous les moods</option>
             {MOOD_OPTIONS.map((m) => (
@@ -115,12 +115,12 @@ export function LibraryFiltersBar({
 
         {/* Tag */}
         <div>
-          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "#FFFFFF60" }}>Tag</label>
+          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Tag</label>
           <select
             value={filters.tag}
             onChange={(e) => set({ tag: e.target.value })}
             className="w-full p-1.5 text-[10px] border border-[var(--color-border)] bg-transparent focus:outline-none"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
           >
             <option value="">Tous les tags</option>
             {allTags.map((t) => (
@@ -131,7 +131,7 @@ export function LibraryFiltersBar({
 
         {/* Moderation */}
         <div>
-          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "#FFFFFF60" }}>Modération</label>
+          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Modération</label>
           <div className="flex flex-wrap gap-1">
             {MODERATION_OPTIONS.map((opt) => (
               <button
@@ -139,7 +139,7 @@ export function LibraryFiltersBar({
                 onClick={() => set({ moderationStatus: opt.key })}
                 className={`px-2 py-1 text-[9px] font-medium border transition-all ${
                   filters.moderationStatus === opt.key
-                    ? "border-[#C75B39] bg-[#C75B39]/10 text-[#C75B39]"
+                    ? "border-[var(--accent)] bg-[var(--accent)]/10 text-[var(--accent)]"
                     : "border-[var(--color-border)] text-[#FFFFFF80] hover:border-[#FFFFFF30]"
                 }`}
               >
@@ -151,23 +151,23 @@ export function LibraryFiltersBar({
 
         {/* Date range */}
         <div>
-          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "#FFFFFF60" }}>Du</label>
+          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Du</label>
           <input
             type="date"
             value={filters.dateFrom}
             onChange={(e) => set({ dateFrom: e.target.value })}
             className="w-full p-1.5 text-[10px] border border-[var(--color-border)] bg-transparent focus:outline-none"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
           />
         </div>
         <div>
-          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "#FFFFFF60" }}>Au</label>
+          <label className="text-[9px] uppercase tracking-wider font-medium block mb-1.5" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Au</label>
           <input
             type="date"
             value={filters.dateTo}
             onChange={(e) => set({ dateTo: e.target.value })}
             className="w-full p-1.5 text-[10px] border border-[var(--color-border)] bg-transparent focus:outline-none"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
           />
         </div>
       </div>
@@ -180,7 +180,7 @@ export function LibraryFiltersBar({
             dateFrom: "", dateTo: "", moderationStatus: "all", favoritesOnly: false,
             search: "",
           })}
-          className="text-[9px] uppercase tracking-wider text-[#C75B39] underline underline-offset-4 hover:opacity-70 transition-opacity"
+          className="text-[9px] uppercase tracking-wider text-[var(--accent)] underline underline-offset-4 hover:opacity-70 transition-opacity"
         >
           Réinitialiser les filtres
         </button>

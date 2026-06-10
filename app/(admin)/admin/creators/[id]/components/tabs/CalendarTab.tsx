@@ -14,9 +14,9 @@ const platformIcons: Record<string, React.ElementType> = {
 };
 
 const statusStyles: Record<string, { icon: React.ElementType; label: string; color: string }> = {
-  planned: { icon: Clock, label: "Planifié", color: "#C75B39" },
-  published: { icon: CheckCircle, label: "Publié", color: "#7A9A65" },
-  failed: { icon: XCircle, label: "Échec", color: "#C44536" },
+  planned: { icon: Clock, label: "Planifié", color: "var(--accent)" },
+  published: { icon: CheckCircle, label: "Publié", color: "var(--success)" },
+  failed: { icon: XCircle, label: "Échec", color: "var(--danger)" },
 };
 
 export function CalendarTab({ creatorId }: Props) {
@@ -25,17 +25,17 @@ export function CalendarTab({ creatorId }: Props) {
   return (
     <div className="space-y-4 card-accent">
       {posts.length === 0 ? (
-        <p className="text-sm font-sans text-center py-8" style={{ color: "#E0D8D0" }}>
+        <p className="text-sm font-sans text-center py-8" style={{ color: "var(--text-secondary)" }}>
           Aucun contenu planifié pour ce créateur.
         </p>
       ) : (
         <>
           {/* Mini calendar header */}
-          <div className="p-4 text-center" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-            <p className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
+          <div className="p-4 text-center" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+            <p className="font-display text-lg font-bold" style={{ color: "var(--text-primary)" }}>
               Juin 2026
             </p>
-            <p className="text-[11px] font-sans mt-1" style={{ color: "#F5F0EB" }}>
+            <p className="text-[11px] font-sans mt-1" style={{ color: "var(--text-primary)" }}>
               {posts.filter((p) => p.status === "planned").length} contenus planifiés
             </p>
           </div>
@@ -50,14 +50,14 @@ export function CalendarTab({ creatorId }: Props) {
                 <div
                   key={post.id}
                   className="flex items-center gap-4 p-4 transition-colors hover:bg-white/[0.02]"
-                  style={{ border: "1px solid rgba(255,255,255,0.04)" }}
+                  style={{ border: "1px solid var(--border-default)" }}
                 >
-                  <PlatformIcon size={16} strokeWidth={1.5} style={{ color: "#F5F0EB" }} />
+                  <PlatformIcon size={16} strokeWidth={1.5} style={{ color: "var(--text-primary)" }} />
                   <div className="flex-1 min-w-0">
                     <p className="text-sm font-sans font-medium truncate" style={{ color: "#D0CCC6" }}>
                       {post.content_preview}
                     </p>
-                    <p className="text-[10px] font-sans mt-0.5" style={{ color: "#E0D8D0" }}>
+                    <p className="text-[10px] font-sans mt-0.5" style={{ color: "var(--text-secondary)" }}>
                       {formatDate(post.scheduled_date)}
                     </p>
                   </div>

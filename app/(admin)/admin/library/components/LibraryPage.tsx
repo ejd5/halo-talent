@@ -80,7 +80,7 @@ export function LibraryPage() {
   };
 
   return (
-    <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "#0A0908" }}>
+    <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "var(--bg-primary)" }}>
       <div className="flex items-center justify-between mb-6">
         <div>
           <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>

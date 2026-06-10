@@ -34,11 +34,11 @@ export function EffectsPicker({ onSelectTransition, onSelectFilter, currentTrans
     <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.7)" }} onClick={onClose}>
       <div
         className="w-[400px] p-4 rounded-sm"
-        style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Effets & Transitions</h3>
+          <h3 className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Effets & Transitions</h3>
           <button onClick={onClose} className="p-1 hover:bg-white/10 rounded-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
             <X size={14} />
           </button>
@@ -58,7 +58,7 @@ export function EffectsPicker({ onSelectTransition, onSelectFilter, currentTrans
                   style={{
                     border: `1px solid ${currentTransition === t.value ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                     background: currentTransition === t.value ? "rgba(199,91,57,0.06)" : "transparent",
-                    color: currentTransition === t.value ? "#C75B39" : "rgba(255,255,255,0.4)",
+                    color: currentTransition === t.value ? "var(--accent)" : "rgba(255,255,255,0.4)",
                   }}
                 >
                   <span>{t.icon}</span>
@@ -81,7 +81,7 @@ export function EffectsPicker({ onSelectTransition, onSelectFilter, currentTrans
                   style={{
                     border: `1px solid ${currentFilter === f.value ? "rgba(199,91,57,0.3)" : "rgba(255,255,255,0.06)"}`,
                     background: currentFilter === f.value ? "rgba(199,91,57,0.06)" : "transparent",
-                    color: currentFilter === f.value ? "#C75B39" : "rgba(255,255,255,0.4)",
+                    color: currentFilter === f.value ? "var(--accent)" : "rgba(255,255,255,0.4)",
                   }}
                 >
                   <span>{f.icon}</span>

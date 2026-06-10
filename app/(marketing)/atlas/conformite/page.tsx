@@ -288,7 +288,7 @@ export default function ConformitePage() {
               transition: "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s",
             }}
           >
-            Atlas est le seul CRM 100% conforme aux règles 2026
+            Atlas est un CRM conçu pour la conformité aux règles 2026
           </h1>
           <p
             className="text-base md:text-lg mt-4 max-w-2xl"
@@ -351,7 +351,7 @@ export default function ConformitePage() {
                 Notre moteur de rate limiting ajuste automatiquement le volume et
                 la fréquence de vos envois en fonction des contraintes de chaque
                 plateforme, du fuseau horaire de vos contacts, et de leur
-                historique d&apos;engagement. Résultat : zero ban, zero plainte,
+                historique d&apos;engagement. Résultat : protection anti-ban, zero plainte,
                 zero stress.
               </p>
             </div>
@@ -423,7 +423,7 @@ export default function ConformitePage() {
             </div>
 
             <h2 className="font-display text-[2rem] md:text-[3rem] font-bold uppercase tracking-[-0.02em] leading-[1.1] mb-4" style={{ color: "var(--color-dark-text)" }}>
-              Zero ban garanti
+              Protection anti-ban
             </h2>
             <p className="text-base md:text-lg max-w-xl mx-auto leading-relaxed" style={{ color: "rgba(245, 240, 235, 0.6)" }}>
               Si votre compte est suspendu ou banni à cause d&apos;une action

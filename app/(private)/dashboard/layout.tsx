@@ -15,10 +15,10 @@ export default function DashboardLayout({
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <div className="min-h-screen" data-theme="dark" style={{ backgroundColor: "var(--color-base)" }}>
+    <div className="min-h-screen" data-theme="dark" style={{ backgroundColor: "var(--bg-primary)" }}>
       <Sidebar mobileOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
       <Header onMenuToggle={() => setMobileOpen(true)} />
-      <main className="md:pl-60 pt-16 min-h-screen">
+      <main className="md:pl-56 pt-16 min-h-screen">
         <div className="p-4 md:p-8 max-w-7xl mx-auto">{children}</div>
       </main>
       <CommandPalette />

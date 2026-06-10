@@ -26,12 +26,12 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
   };
 
   return (
-    <div className="card-accent" style={{ background: "#0A0908" }}>
+    <div className="card-accent" style={{ background: "var(--bg-primary)" }}>
       <div className="flex items-center justify-between mb-4">
-        <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em]" style={{ color: "#F5F0EB" }}>
+        <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em]" style={{ color: "var(--text-primary)" }}>
           Filtres
         </p>
-        <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#E0D8D0" }}>
+        <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "var(--text-secondary)" }}>
           <X size={14} strokeWidth={1.5} />
         </button>
       </div>
@@ -39,7 +39,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
       <div className="space-y-5">
         {/* Statut */}
         <div>
-          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#E0D8D0" }}>Statut</p>
+          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "var(--text-secondary)" }}>Statut</p>
           <div className="space-y-1">
             {(["all", "pending", "review", "approved", "rejected"] as const).map((s) => (
               <label key={s} className="flex items-center gap-2 py-1 cursor-pointer group">
@@ -48,7 +48,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
                   name="status"
                   checked={filters.status === s}
                   onChange={() => onChange({ ...filters, status: s })}
-                  className="accent-[#C75B39]"
+                  className="accent-[var(--accent)]"
                 />
                 <span className="text-xs font-sans group-hover:opacity-80 transition-opacity" style={{ color: "#D0CCC6" }}>
                   {s === "all" ? "Tous" : s === "pending" ? "En attente" : s === "review" ? "En review" : s === "approved" ? "Approuvées" : "Refusées"}
@@ -60,7 +60,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
 
         {/* Département */}
         <div>
-          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#E0D8D0" }}>Département</p>
+          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "var(--text-secondary)" }}>Département</p>
           <div className="space-y-1 max-h-[180px] overflow-y-auto">
             {departments.map((d) => (
               <label key={d} className="flex items-center gap-2 py-1 cursor-pointer group">
@@ -68,7 +68,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
                   type="checkbox"
                   checked={filters.departments.includes(d)}
                   onChange={() => toggleDept(d)}
-                  className="accent-[#C75B39]"
+                  className="accent-[var(--accent)]"
                 />
                 <span className="text-xs font-sans group-hover:opacity-80 transition-opacity truncate" style={{ color: "#D0CCC6" }}>
                   {d}
@@ -80,7 +80,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
 
         {/* Plateformes */}
         <div>
-          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#E0D8D0" }}>Plateformes</p>
+          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "var(--text-secondary)" }}>Plateformes</p>
           <div className="space-y-1">
             {platformOptions.map((p) => (
               <label key={p} className="flex items-center gap-2 py-1 cursor-pointer group">
@@ -88,7 +88,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
                   type="checkbox"
                   checked={filters.platforms.includes(p)}
                   onChange={() => togglePlatform(p)}
-                  className="accent-[#C75B39]"
+                  className="accent-[var(--accent)]"
                 />
                 <span className="text-xs font-sans group-hover:opacity-80 transition-opacity" style={{ color: "#D0CCC6" }}>
                   {p}
@@ -100,7 +100,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
 
         {/* Score min */}
         <div>
-          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "#E0D8D0" }}>
+          <p className="text-[11px] font-sans font-medium mb-2" style={{ color: "var(--text-secondary)" }}>
             Score IA min : {filters.scoreMin}
           </p>
           <input
@@ -109,7 +109,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
             max={100}
             value={filters.scoreMin}
             onChange={(e) => onChange({ ...filters, scoreMin: Number(e.target.value) })}
-            className="w-full accent-[#C75B39]"
+            className="w-full accent-[var(--accent)]"
           />
         </div>
 
@@ -127,7 +127,7 @@ export function ApplicationFilters({ filters, onChange, onClose }: Props) {
             })
           }
           className="w-full py-2 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-          style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
         >
           Réinitialiser
         </button>

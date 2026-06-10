@@ -102,7 +102,7 @@ export const ASPECT_RATIOS: { value: AspectRatio; label: string; w: number; h: n
 
 export const TRACK_COLORS: Record<string, string> = {
   video: "#7C3AED",
-  audio: "#10B981",
+  audio: "var(--success)",
   text: "#F59E0B",
   sticker: "#EC4899",
 };

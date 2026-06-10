@@ -7,9 +7,9 @@ import type { BlogPost } from "../../types";
 import { BlogEditor } from "./BlogEditor";
 
 const STATUS_LABELS: Record<string, { label: string; color: string }> = {
-  draft: { label: "Brouillon", color: "#E0D8D0" },
-  published: { label: "Publié", color: "#7A9A65" },
-  scheduled: { label: "Programmé", color: "#C75B39" },
+  draft: { label: "Brouillon", color: "var(--text-secondary)" },
+  published: { label: "Publié", color: "var(--success)" },
+  scheduled: { label: "Programmé", color: "var(--accent)" },
 };
 
 const ALL_TAGS = [...new Set(initialPosts.flatMap((p) => p.tags))].sort();
@@ -52,10 +52,10 @@ export function BlogListPage() {
   }
 
   return (
-    <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "#0A0908" }}>
+    <div className="flex flex-col gap-4 p-6 card-accent" style={{ background: "var(--bg-primary)" }}>
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h1 className="font-display text-2xl font-bold" style={{ color: "#F5F0EB" }}>Blog</h1>
+          <h1 className="font-display text-2xl font-bold" style={{ color: "var(--text-primary)" }}>Blog</h1>
           <p className="text-xs opacity-40 mt-0.5">{filtered.length} article{filtered.length > 1 ? "s" : ""}</p>
         </div>
         <button

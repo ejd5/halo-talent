@@ -91,7 +91,7 @@ export default function CaptureForm({
         style={{
           width: "100%", padding: "12px 16px", fontSize: 13, fontWeight: 600,
           border: "none", cursor: "pointer",
-          backgroundColor: accent_color, color: "#FFFFFF", opacity: submitting ? 0.6 : 1,
+          backgroundColor: accent_color, color: "var(--text-primary)", opacity: submitting ? 0.6 : 1,
           fontFamily: "'Syne', system-ui, sans-serif",
         }}
       >
@@ -100,7 +100,7 @@ export default function CaptureForm({
       <p style={{ margin: 0, fontSize: 10, lineHeight: 1.4, color: `${text_color}60` }}>
         {consent_text}
       </p>
-      {error && <p style={{ margin: 0, fontSize: 11, color: "#C44536" }}>{error}</p>}
+      {error && <p style={{ margin: 0, fontSize: 11, color: "var(--danger)" }}>{error}</p>}
     </form>
   );
 }

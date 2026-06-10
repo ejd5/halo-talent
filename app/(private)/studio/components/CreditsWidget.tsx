@@ -21,7 +21,7 @@ export function CreditsWidget() {
 
   if (loading) {
     return (
-      <div className="p-4 border animate-pulse" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+      <div className="p-4 border animate-pulse" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
         <div className="h-4 w-24 mb-3" style={{ background: "rgba(245,240,235,0.04)" }} />
         <div className="h-1.5 w-full mb-3" style={{ background: "rgba(245,240,235,0.04)" }} />
         <Loader size={14} className="animate-spin" style={{ color: "var(--color-ink-tertiary)" }} />
@@ -31,10 +31,10 @@ export function CreditsWidget() {
 
   if (!data) {
     return (
-      <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+      <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
         <div className="flex items-center gap-2 mb-3">
-          <Coins size={16} style={{ color: "#C75B39" }} />
-          <span className="font-sans text-xs font-medium" style={{ color: "#F5F0EB" }}>Crédits IA</span>
+          <Coins size={16} style={{ color: "var(--accent)" }} />
+          <span className="font-sans text-xs font-medium" style={{ color: "var(--text-primary)" }}>Crédits IA</span>
         </div>
         <p className="font-sans text-[10px]" style={{ color: "var(--color-ink-tertiary)" }}>Indisponible</p>
       </div>
@@ -48,17 +48,17 @@ export function CreditsWidget() {
   const isLow = pct > 80;
 
   return (
-    <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+    <div className="p-4 border" style={{ borderColor: "rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
       <div className="flex items-center justify-between mb-3">
         <div className="flex items-center gap-2">
-          <Coins size={16} style={{ color: "#C75B39" }} />
-          <span className="font-sans text-xs font-medium" style={{ color: "#F5F0EB" }}>Crédits IA</span>
+          <Coins size={16} style={{ color: "var(--accent)" }} />
+          <span className="font-sans text-xs font-medium" style={{ color: "var(--text-primary)" }}>Crédits IA</span>
         </div>
         <span
           className="font-sans text-[9px] uppercase tracking-wider px-1.5 py-0.5"
           style={{
-            border: "1px solid rgba(199,91,57,0.2)",
-            color: "#C75B39",
+            border: "1px solid var(--accent-border)",
+            color: "var(--accent)",
           }}
         >
           {data.is_admin ? "Admin" : tierName}
@@ -71,13 +71,13 @@ export function CreditsWidget() {
           className="absolute left-0 top-0 h-full transition-all duration-500"
           style={{
             width: `${Math.min(pct, 100)}%`,
-            background: isLow && !data.is_unlimited ? "#C44536" : "#C75B39",
+            background: isLow && !data.is_unlimited ? "var(--danger)" : "var(--accent)",
           }}
         />
       </div>
 
       <div className="flex items-center justify-between mb-3">
-        <span className="font-display text-xl font-semibold" style={{ color: "#F5F0EB" }}>
+        <span className="font-display text-xl font-semibold" style={{ color: "var(--text-primary)" }}>
           {data.is_unlimited ? "∞" : balance.toLocaleString("fr-FR")}
           <span className="font-sans text-xs font-normal" style={{ color: "var(--color-ink-tertiary)" }}>
             {data.is_unlimited || !monthlyQuota ? "" : ` / ${monthlyQuota.toLocaleString("fr-FR")}`}
@@ -100,7 +100,7 @@ export function CreditsWidget() {
               <Link
                 href="/studio/credits"
                 className="flex items-center gap-1 px-3 py-1.5 font-sans text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
-                style={{ background: "#C75B39", color: "#FFFFFF" }}
+                style={{ background: "var(--accent)", color: "var(--text-primary)" }}
               >
                 <ArrowUpRight size={10} />
                 Crédits
@@ -109,7 +109,7 @@ export function CreditsWidget() {
             <Link
               href="/studio/api-keys"
               className="flex items-center gap-1 px-3 py-1.5 font-sans text-[10px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
-              style={{ border: "1px solid rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+              style={{ border: "1px solid rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
             >
               <KeyRound size={10} />
               BYOK

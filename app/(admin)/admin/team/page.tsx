@@ -38,8 +38,8 @@ const ROLE_LABELS: Record<string, string> = {
 };
 
 const ROLE_COLORS: Record<string, string> = {
-  owner: "#C75B39",
-  senior_manager: "#7A9A65",
+  owner: "var(--accent)",
+  senior_manager: "var(--success)",
   manager: "#4A8FE7",
   drafter_assistant: "#E8A838",
   analyst: "#9B59B6",
@@ -93,9 +93,9 @@ export default function TeamPage() {
 
   const getLoadColor = (pct: number | null) => {
     if (pct === null) return "rgba(255,255,255,0.1)";
-    if (pct < 70) return "#7A9A65";
+    if (pct < 70) return "var(--success)";
     if (pct < 90) return "#E8A838";
-    return "#C44536";
+    return "var(--danger)";
   };
 
   const RoleBadge = ({ role }: { role: string }) => (
@@ -112,7 +112,7 @@ export default function TeamPage() {
 
   const StatusDot = ({ status }: { status: string }) => {
     const colors: Record<string, string> = {
-      active: "#7A9A65",
+      active: "var(--success)",
       on_leave: "#E8A838",
       archived: "rgba(255,255,255,0.2)",
     };
@@ -131,18 +131,18 @@ export default function TeamPage() {
         <div>
           <h1
             className="text-2xl font-display font-semibold"
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           >
             Équipe
           </h1>
-          <p style={{ color: "#E0D8D0" }} className="text-sm mt-1">
+          <p style={{ color: "var(--text-secondary)" }} className="text-sm mt-1">
             {members.length} membre{members.length !== 1 ? "s" : ""} · Gestion des rôles et assignations
           </p>
         </div>
         <button
           onClick={() => setShowAddModal(true)}
           className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors"
-          style={{ background: "#C75B39", color: "#F5F0EB" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={16} />
           Ajouter un membre
@@ -153,16 +153,16 @@ export default function TeamPage() {
       <div className="flex items-center gap-3 mb-6">
         <div
           className="flex items-center gap-2 px-3 py-2 flex-1 max-w-xs"
-          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)" }}
         >
-          <Search size={14} style={{ color: "#E0D8D0" }} />
+          <Search size={14} style={{ color: "var(--text-secondary)" }} />
           <input
             type="text"
             placeholder="Rechercher par nom ou email..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             className="bg-transparent border-none outline-none text-sm flex-1"
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           />
         </div>
         <select
@@ -171,8 +171,8 @@ export default function TeamPage() {
           className="px-3 py-2 text-sm outline-none"
           style={{
             background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            color: "#F5F0EB",
+            border: "1px solid var(--border-default)",
+            color: "var(--text-primary)",
           }}
         >
           <option value="">Tous les rôles</option>
@@ -186,8 +186,8 @@ export default function TeamPage() {
           className="px-3 py-2 text-sm outline-none"
           style={{
             background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.06)",
-            color: "#F5F0EB",
+            border: "1px solid var(--border-default)",
+            color: "var(--text-primary)",
           }}
         >
           <option value="">Tous les statuts</option>
@@ -201,7 +201,7 @@ export default function TeamPage() {
       {error && (
         <div
           className="flex items-center gap-2 px-4 py-3 mb-6 text-sm"
-          style={{ background: "rgba(196,69,54,0.1)", color: "#C44536" }}
+          style={{ background: "rgba(196,69,54,0.1)", color: "var(--danger)" }}
         >
           <AlertTriangle size={14} />
           {error}
@@ -211,20 +211,20 @@ export default function TeamPage() {
       {/* Loading */}
       {loading && (
         <div className="flex items-center justify-center py-20">
-          <Loader2 size={24} className="animate-spin" style={{ color: "#C75B39" }} />
+          <Loader2 size={24} className="animate-spin" style={{ color: "var(--accent)" }} />
         </div>
       )}
 
       {/* Table */}
       {!loading && !error && (
-        <div style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ border: "1px solid var(--border-default)" }}>
           <table className="w-full" style={{ borderCollapse: "collapse" }}>
             <thead>
               <tr
                 className="text-left text-[11px] font-semibold uppercase tracking-wider"
                 style={{
-                  color: "#E0D8D0",
-                  background: "rgba(255,255,255,0.02)",
+                  color: "var(--text-secondary)",
+                  background: "var(--bg-card)",
                   borderBottom: "1px solid rgba(255,255,255,0.06)",
                 }}
               >
@@ -242,7 +242,7 @@ export default function TeamPage() {
                   <td
                     colSpan={6}
                     className="py-12 text-center text-sm"
-                    style={{ color: "#E0D8D0" }}
+                    style={{ color: "var(--text-secondary)" }}
                   >
                     <Users size={32} className="mx-auto mb-2 opacity-30" />
                     Aucun membre trouvé
@@ -255,7 +255,7 @@ export default function TeamPage() {
                   <tr
                     key={m.id}
                     style={{
-                      borderBottom: "1px solid rgba(255,255,255,0.04)",
+                      borderBottom: "1px solid var(--border-default)",
                     }}
                     className="hover:bg-white/[0.02] transition-colors"
                   >
@@ -270,7 +270,7 @@ export default function TeamPage() {
                             background: m.avatar_url
                               ? `url(${m.avatar_url}) center/cover`
                               : "rgba(255,255,255,0.08)",
-                            color: "#E0D8D0",
+                            color: "var(--text-secondary)",
                           }}
                         >
                           {!m.avatar_url &&
@@ -280,7 +280,7 @@ export default function TeamPage() {
                         <div>
                           <div
                             className="text-sm font-medium"
-                            style={{ color: "#F5F0EB" }}
+                            style={{ color: "var(--text-primary)" }}
                           >
                             {m.full_name || m.email.split("@")[0]}
                           </div>
@@ -297,7 +297,7 @@ export default function TeamPage() {
                       <RoleBadge role={m.role} />
                     </td>
                     <td className="py-3 px-4">
-                      <span className="text-sm" style={{ color: "#F5F0EB" }}>
+                      <span className="text-sm" style={{ color: "var(--text-primary)" }}>
                         {m.current_load}
                       </span>
                       {m.max_capacity && (
@@ -344,7 +344,7 @@ export default function TeamPage() {
                     <td className="py-3 px-4">
                       <div className="flex items-center gap-2">
                         <StatusDot status={m.status} />
-                        <span className="text-sm" style={{ color: "#F5F0EB" }}>
+                        <span className="text-sm" style={{ color: "var(--text-primary)" }}>
                           {STATUS_LABELS[m.status] || m.status}
                         </span>
                       </div>
@@ -356,7 +356,7 @@ export default function TeamPage() {
                           className="text-xs px-3 py-1.5 transition-colors"
                           style={{
                             background: "rgba(255,255,255,0.06)",
-                            color: "#E0D8D0",
+                            color: "var(--text-secondary)",
                           }}
                         >
                           Profil
@@ -439,15 +439,15 @@ function AddMemberModal({
     >
       <div
         className="w-full max-w-md p-6"
-        style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}
       >
-        <h2 className="text-lg font-semibold mb-4" style={{ color: "#F5F0EB" }}>
+        <h2 className="text-lg font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
           Ajouter un membre
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
-            <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>
+            <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
               Email *
             </label>
             <input
@@ -458,14 +458,14 @@ function AddMemberModal({
               className="w-full px-3 py-2 text-sm outline-none"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#F5F0EB",
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
               }}
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>
+            <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
               Nom complet
             </label>
             <input
@@ -475,14 +475,14 @@ function AddMemberModal({
               className="w-full px-3 py-2 text-sm outline-none"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#F5F0EB",
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
               }}
             />
           </div>
 
           <div>
-            <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>
+            <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
               Rôle *
             </label>
             <select
@@ -491,8 +491,8 @@ function AddMemberModal({
               className="w-full px-3 py-2 text-sm outline-none"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#F5F0EB",
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
               }}
             >
               <option value="senior_manager">Senior Manager</option>
@@ -504,7 +504,7 @@ function AddMemberModal({
           </div>
 
           <div>
-            <label className="block text-xs font-medium mb-1" style={{ color: "#E0D8D0" }}>
+            <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
               Notes
             </label>
             <textarea
@@ -514,14 +514,14 @@ function AddMemberModal({
               className="w-full px-3 py-2 text-sm outline-none resize-none"
               style={{
                 background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#F5F0EB",
+                border: "1px solid var(--border-default)",
+                color: "var(--text-primary)",
               }}
             />
           </div>
 
           {error && (
-            <div className="flex items-center gap-2 text-sm" style={{ color: "#C44536" }}>
+            <div className="flex items-center gap-2 text-sm" style={{ color: "var(--danger)" }}>
               <AlertTriangle size={14} />
               {error}
             </div>
@@ -532,7 +532,7 @@ function AddMemberModal({
               type="button"
               onClick={onClose}
               className="px-4 py-2 text-sm"
-              style={{ color: "#E0D8D0" }}
+              style={{ color: "var(--text-secondary)" }}
             >
               Annuler
             </button>
@@ -540,7 +540,7 @@ function AddMemberModal({
               type="submit"
               disabled={saving}
               className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-colors"
-              style={{ background: "#C75B39", color: "#F5F0EB" }}
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
             >
               {saving ? <Loader2 size={14} className="animate-spin" /> : <UserPlus size={14} />}
               {saving ? "Création..." : "Ajouter"}

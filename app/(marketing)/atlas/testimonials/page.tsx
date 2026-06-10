@@ -10,75 +10,18 @@ import {
   Play,
 } from "lucide-react";
 
-/* ─── Testimonials data ─── */
-const testimonials = [
-  {
-    initials: "AC",
-    name: "Alexandre Charpentier",
-    role: "Créateur contenu tech",
-    platform: "YouTube",
-    platformIcon: Play,
-    platformColor: "#FF0000",
-    quote:
-      "Avant Atlas, je passais 15h par semaine à gérer mes emails et mes DM. Maintenant c'est automatisé, et mes fans reçoivent des réponses 10x plus rapides. Le ROI est immédiat.",
-    rating: 5,
-  },
-  {
-    initials: "SL",
-    name: "Sarah Lefèvre",
-    role: "Influenceuse lifestyle",
-    platform: "Instagram",
-    platformIcon: Camera,
-    platformColor: "#E4405F",
-    quote:
-      "Ce qui m'a convaincue, c'est la conformité. Je pouvais pas dormir à cause du risque de ban. Avec Atlas, je lance des campagnes SMS sans peur. Et mes stats ont explosé.",
-    rating: 5,
-  },
-  {
-    initials: "MK",
-    name: "Mehdi Khelifi",
-    role: "Streamer & créateur",
-    platform: "TikTok",
-    platformIcon: Music2,
-    platformColor: "#000000",
-    quote:
-      "Le moteur de règles 'Si-Alors' est une tuerie. J'ai automatisé mon welcome funnel, mes relances, et même ma modération. Je gagne 15h par mois, facile.",
-    rating: 5,
-  },
-  {
-    initials: "CB",
-    name: "Camille Bouchard",
-    role: "Créatrice mode & beauté",
-    platform: "Instagram",
-    platformIcon: Camera,
-    platformColor: "#E4405F",
-    quote:
-      "La segmentation dynamique d'Atlas m'a ouvert les yeux. Je croyais connaître mon audience, mais je n'imaginais pas à quel point mes fans chauds étaient réactifs aux SMS.",
-    rating: 4,
-  },
-  {
-    initials: "TR",
-    name: "Thomas Rivière",
-    role: "Podcasteur & auteur",
-    platform: "YouTube",
-    platformIcon: Play,
-    platformColor: "#FF0000",
-    quote:
-      "J'ai testé HubSpot, Mailchimp, et même des solutions custom. Rien n'est aussi bien pensé pour les créateurs. Atlas comprend nos contraintes, nos risques, nos objectifs.",
-    rating: 5,
-  },
-  {
-    initials: "LN",
-    name: "Léa Nguyen",
-    role: "Créatrice bien-être",
-    platform: "TikTok",
-    platformIcon: Music2,
-    platformColor: "#000000",
-    quote:
-      "La garantie 'Zero ban' m'a fait signer. Je viens d'une communauté où 3 copines se sont fait bannir à cause d'outils automatiques. Avec Atlas, je suis sereine.",
-    rating: 5,
-  },
-];
+/* ─── Témoignages à venir ─── */
+interface Testimonial {
+  initials: string;
+  name: string;
+  role: string;
+  platform: string;
+  platformIcon: React.ElementType;
+  platformColor: string;
+  quote: string;
+  rating: number;
+}
+const testimonials: Testimonial[] = [];
 
 /* ─── Platform icon mapping ─── */
 function PlatformIcon({ icon: Icon, color }: { icon: React.ElementType; color: string }) {
@@ -151,9 +94,9 @@ function TestimonialCard({
 
 /* ─── Stats ─── */
 const stats = [
-  { value: "98%", label: "Satisfaction" },
-  { value: "15K+", label: "Créateurs utilisent Atlas" },
-  { value: "0", label: "Ban causé par Atlas" },
+  { value: "", label: "Témoignages à venir" },
+  { value: "", label: "Lancement 2026" },
+  { value: "", label: "Protection anti-ban" },
 ];
 
 /* ─── Page ─── */
@@ -279,14 +222,22 @@ export default function TestimonialsPage() {
       <section ref={gridRef} className="pb-20 md:pb-28">
         <div className="mx-auto w-full max-w-6xl px-6 md:px-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, i) => (
-              <TestimonialCard
-                key={testimonial.name}
-                testimonial={testimonial}
-                index={i}
-                visible={gridVisible}
-              />
-            ))}
+            {testimonials.length === 0 ? (
+              <div className="col-span-full text-center py-16">
+                <p className="text-base" style={{ color: "rgba(245, 240, 235, 0.5)" }}>
+                  Les premiers témoignages arrivent bientôt.
+                </p>
+              </div>
+            ) : (
+              testimonials.map((testimonial, i) => (
+                <TestimonialCard
+                  key={testimonial.name}
+                  testimonial={testimonial}
+                  index={i}
+                  visible={gridVisible}
+                />
+              ))
+            )}
           </div>
         </div>
       </section>

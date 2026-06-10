@@ -36,9 +36,9 @@ const STATUS_STYLES: Record<string, { bg: string; color: string; label: string }
   draft: { bg: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.5)", label: "Brouillon" },
   scheduled: { bg: "rgba(245,158,11,0.15)", color: "#F59E0B", label: "Programmée" },
   sending: { bg: "rgba(59,130,246,0.15)", color: "#3B82F6", label: "En cours" },
-  sent: { bg: "rgba(16,185,129,0.15)", color: "#10B981", label: "Envoyée" },
-  paused: { bg: "rgba(239,68,68,0.15)", color: "#E5484D", label: "Pausée" },
-  failed: { bg: "rgba(239,68,68,0.15)", color: "#E5484D", label: "Échouée" },
+  sent: { bg: "rgba(16,185,129,0.15)", color: "var(--success)", label: "Envoyée" },
+  paused: { bg: "rgba(239,68,68,0.15)", color: "var(--danger)", label: "Pausée" },
+  failed: { bg: "rgba(239,68,68,0.15)", color: "var(--danger)", label: "Échouée" },
 };
 
 const TYPE_LABELS: Record<string, string> = {
@@ -98,7 +98,7 @@ export default function EmailCampaignsPage() {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>
+          <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Email Marketing
           </h1>
           <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -108,7 +108,7 @@ export default function EmailCampaignsPage() {
         <Link
           href="/dashboard/atlas/campaigns/new?channel=email"
           className="flex items-center gap-1.5 px-4 py-2 text-sm rounded-sm transition-opacity hover:opacity-80"
-          style={{ background: "#C75B39", color: "#FFFFFF" }}
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
         >
           <Plus size={14} /> Nouvelle campagne
         </Link>
@@ -120,7 +120,7 @@ export default function EmailCampaignsPage() {
           value={statusFilter}
           onChange={(e) => setStatusFilter(e.target.value)}
           className="text-xs px-3 py-1.5 rounded-sm outline-none cursor-pointer"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: statusFilter ? "#FFFFFF" : "rgba(255,255,255,0.3)", border: "1px solid transparent" }}
+          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: statusFilter ? "var(--text-primary)" : "rgba(255,255,255,0.3)", border: "1px solid transparent" }}
         >
           <option value="">Tous les statuts</option>
           <option value="draft">Brouillon</option>
@@ -134,7 +134,7 @@ export default function EmailCampaignsPage() {
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
           className="text-xs px-3 py-1.5 rounded-sm outline-none cursor-pointer"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: typeFilter ? "#FFFFFF" : "rgba(255,255,255,0.3)", border: "1px solid transparent" }}
+          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: typeFilter ? "var(--text-primary)" : "rgba(255,255,255,0.3)", border: "1px solid transparent" }}
         >
           <option value="">Tous les types</option>
           {Object.entries(TYPE_LABELS).map(([k, v]) => (
@@ -150,7 +150,7 @@ export default function EmailCampaignsPage() {
         <div className="flex flex-col items-center py-16 text-center">
           <AlertCircle size={24} style={{ color: "rgba(239,68,68,0.3)" }} />
           <p className="text-sm mt-3" style={{ color: "rgba(255,255,255,0.3)" }}>{error}</p>
-          <button onClick={fetchCampaigns} className="mt-3 text-xs px-3 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "#C75B39" }}>Réessayer</button>
+          <button onClick={fetchCampaigns} className="mt-3 text-xs px-3 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>Réessayer</button>
         </div>
       ) : campaigns.length === 0 ? (
         <div className="flex flex-col items-center py-16 text-center border border-dashed" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
@@ -159,7 +159,7 @@ export default function EmailCampaignsPage() {
           <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.1)" }}>Crée ta première campagne pour atteindre tes fans</p>
           <Link href="/dashboard/atlas/campaigns/new?channel=email"
             className="mt-4 flex items-center gap-1.5 px-4 py-2 text-sm rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}>
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
             <Plus size={14} /> Créer une campagne
           </Link>
         </div>
@@ -190,10 +190,10 @@ export default function EmailCampaignsPage() {
                     <td className="px-4 py-3.5">
                       <div className="flex items-center gap-2.5">
                         <div className="w-8 h-8 rounded-sm flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)" }}>
-                          <Mail size={14} style={{ color: "#C75B39" }} />
+                          <Mail size={14} style={{ color: "var(--accent)" }} />
                         </div>
                         <div>
-                          <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{c.name}</p>
+                          <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{c.name}</p>
                           <p className="text-[10px] mt-0.5" style={{ color: "rgba(255,255,255,0.2)" }}>
                             {TYPE_LABELS[c.type] || c.type}
                             {c.personalize_with_ai && " · IA personnalisée"}
@@ -211,12 +211,12 @@ export default function EmailCampaignsPage() {
                         {c.audience_segment?.name || "Custom"}
                       </span>
                     </td>
-                    <td className="px-4 py-3.5 text-right text-xs" style={{ color: "#FFFFFF" }}>
+                    <td className="px-4 py-3.5 text-right text-xs" style={{ color: "var(--text-primary)" }}>
                       {c.stats.sent || c.recipients_count || "-"}
                     </td>
                     <td className="px-4 py-3.5 text-right">
                       {c.stats.sent > 0 ? (
-                        <span className="text-xs" style={{ color: c.stats.open_rate > 30 ? "#10B981" : "rgba(255,255,255,0.5)" }}>
+                        <span className="text-xs" style={{ color: c.stats.open_rate > 30 ? "var(--success)" : "rgba(255,255,255,0.5)" }}>
                           {c.stats.open_rate}%
                         </span>
                       ) : (
@@ -225,7 +225,7 @@ export default function EmailCampaignsPage() {
                     </td>
                     <td className="px-4 py-3.5 text-right">
                       {c.stats.clicked > 0 ? (
-                        <span className="text-xs" style={{ color: c.stats.click_rate > 10 ? "#10B981" : "rgba(255,255,255,0.5)" }}>
+                        <span className="text-xs" style={{ color: c.stats.click_rate > 10 ? "var(--success)" : "rgba(255,255,255,0.5)" }}>
                           {c.stats.click_rate}%
                         </span>
                       ) : (

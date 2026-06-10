@@ -149,7 +149,7 @@ export default function YouTubeTrendsPage() {
     <div className="animate-fade-in">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           YouTube Trends
         </h1>
         <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -169,7 +169,7 @@ export default function YouTubeTrendsPage() {
             onKeyDown={handleKeyDown}
             placeholder="Chercher un mot-clé..."
             className="w-full pl-7 pr-2 py-1.5 text-xs bg-transparent border"
-            style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+            style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
           />
         </div>
 
@@ -178,7 +178,7 @@ export default function YouTubeTrendsPage() {
           value={geo}
           onChange={(e) => setGeo(e.target.value)}
           className="px-3 py-1.5 text-xs border bg-transparent"
-          style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+          style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
         >
           {GEO_OPTIONS.map((g) => (
             <option key={g.value} value={g.value}>{g.label}</option>
@@ -190,7 +190,7 @@ export default function YouTubeTrendsPage() {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
           className="px-3 py-1.5 text-xs border bg-transparent"
-          style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+          style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
         >
           {CATEGORIES.map((c) => (
             <option key={c.value} value={c.value}>{c.label}</option>
@@ -203,9 +203,9 @@ export default function YouTubeTrendsPage() {
           disabled={loading || !query.trim()}
           className="flex items-center gap-1.5 text-xs px-4 py-1.5 font-medium transition-all"
           style={{
-            backgroundColor: "rgba(199,91,57,0.12)",
-            color: "#C75B39",
-            border: "1px solid rgba(199,91,57,0.3)",
+            backgroundColor: "var(--accent-soft)",
+            color: "var(--accent)",
+            border: "1px solid var(--accent-border)",
             opacity: loading || !query.trim() ? 0.5 : 1,
           }}
         >
@@ -218,7 +218,7 @@ export default function YouTubeTrendsPage() {
       {error && (
         <div
           className="text-xs px-3 py-2 mb-4"
-          style={{ backgroundColor: "rgba(196,69,54,0.1)", color: "#C44536", border: "1px solid rgba(196,69,54,0.2)" }}
+          style={{ backgroundColor: "rgba(196,69,54,0.1)", color: "var(--danger)", border: "1px solid rgba(196,69,54,0.2)" }}
         >
           {error}
         </div>
@@ -231,7 +231,7 @@ export default function YouTubeTrendsPage() {
             <div
               key={i}
               className="flex gap-3 p-3 animate-pulse"
-              style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}
+              style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}
             >
               <div className="w-32 h-20 shrink-0" style={{ backgroundColor: "rgba(245,240,235,0.04)" }} />
               <div className="flex-1 space-y-2">
@@ -258,7 +258,7 @@ export default function YouTubeTrendsPage() {
                       ? "rgba(122,154,101,0.1)" : "rgba(245,240,235,0.06)",
                   color: data?.source === "youtube_api"
                     ? "#FF0000" : data?.source === "cache"
-                      ? "#7A9A65" : "rgba(245,240,235,0.3)",
+                      ? "var(--success)" : "rgba(245,240,235,0.3)",
                 }}
               >
                 {data?.source === "youtube_api" ? "YouTube Data API"
@@ -298,7 +298,7 @@ export default function YouTubeTrendsPage() {
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between mb-2">
-              <p className="text-sm truncate" style={{ color: "#F5F0EB" }}>
+              <p className="text-sm truncate" style={{ color: "var(--text-primary)" }}>
                 {playerVideo.title}
               </p>
               <button
@@ -324,7 +324,7 @@ export default function YouTubeTrendsPage() {
       {!hasResults && !loading && !error && (
         <div
           className="flex flex-col items-center py-16 text-center"
-          style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}
+          style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}
         >
           <PlaySquare size={32} style={{ color: "rgba(245,240,235,0.06)" }} />
           <h2 className="text-sm font-semibold mt-4" style={{ color: "rgba(245,240,235,0.15)" }}>
@@ -348,9 +348,9 @@ export default function YouTubeTrendsPage() {
                   }}
                   className="flex items-center gap-1 text-[10px] px-2.5 py-1.5 font-medium transition-all"
                   style={{
-                    backgroundColor: "rgba(199,91,57,0.08)",
-                    color: "#C75B39",
-                    border: "1px solid rgba(199,91,57,0.15)",
+                    backgroundColor: "var(--accent-soft)",
+                    color: "var(--accent)",
+                    border: "1px solid var(--accent-border)",
                   }}
                 >
                   <Sparkles size={10} />
@@ -373,7 +373,7 @@ function VideoCard({ video, onPlay }: { video: YouTubeVideo; onPlay: () => void 
   return (
     <div
       className="flex gap-3 p-3 transition-colors cursor-pointer hover:opacity-90"
-      style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}
+      style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}
       onClick={onPlay}
     >
       {/* Thumbnail */}
@@ -397,7 +397,7 @@ function VideoCard({ video, onPlay }: { video: YouTubeVideo; onPlay: () => void 
         {video.duration && (
           <span
             className="absolute bottom-1 right-1 text-[9px] px-1 py-0.5 font-medium"
-            style={{ backgroundColor: "rgba(0,0,0,0.8)", color: "#F5F0EB" }}
+            style={{ backgroundColor: "rgba(0,0,0,0.8)", color: "var(--text-primary)" }}
           >
             {formatDuration(video.duration)}
           </span>
@@ -416,7 +416,7 @@ function VideoCard({ video, onPlay }: { video: YouTubeVideo; onPlay: () => void 
         <button
           onClick={onPlay}
           className="text-sm font-semibold line-clamp-2 text-left hover:underline"
-          style={{ color: "#F5F0EB" }}
+          style={{ color: "var(--text-primary)" }}
         >
           {video.title}
         </button>

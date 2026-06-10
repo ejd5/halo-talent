@@ -32,8 +32,8 @@ export default function TrendsLayout({ children }: { children: React.ReactNode }
               href={tab.href}
               className="flex items-center gap-1.5 px-3 py-2.5 text-xs font-medium whitespace-nowrap transition-all border-b-2 -mb-px"
               style={{
-                color: active ? "#C75B39" : "rgba(245,240,235,0.3)",
-                borderBottomColor: active ? "#C75B39" : "transparent",
+                color: active ? "var(--accent)" : "rgba(245,240,235,0.3)",
+                borderBottomColor: active ? "var(--accent)" : "transparent",
               }}
             >
               <tab.icon size={14} />

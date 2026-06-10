@@ -45,8 +45,8 @@ export default function AttributionTab() {
             className="text-left p-3 transition-colors text-xs"
             style={{
               backgroundColor: model === m.id ? "rgba(199,91,57,0.12)" : "#2A2420",
-              border: model === m.id ? "1px solid #C75B39" : "1px solid rgba(245,240,235,0.06)",
-              color: model === m.id ? "#C75B39" : "#F5F0EB",
+              border: model === m.id ? "1px solid var(--accent)" : "1px solid rgba(245,240,235,0.06)",
+              color: model === m.id ? "var(--accent)" : "var(--text-primary)",
             }}
           >
             <span className="font-semibold">{m.label}</span>
@@ -69,7 +69,7 @@ export default function AttributionTab() {
                   style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}
                 >
                   <div>
-                    <p style={{ color: "#F5F0EB" }}>{c.fan_name}</p>
+                    <p style={{ color: "var(--text-primary)" }}>{c.fan_name}</p>
                     <div className="flex items-center gap-2 mt-0.5">
                       <span className="text-xs uppercase tracking-wider" style={{ color: "var(--color-ink-tertiary)" }}>
                         {c.channel}
@@ -79,7 +79,7 @@ export default function AttributionTab() {
                       </span>
                     </div>
                   </div>
-                  <span className="font-semibold" style={{ color: "#7A9A65" }}>{eur(c.revenue)}</span>
+                  <span className="font-semibold" style={{ color: "var(--success)" }}>{eur(c.revenue)}</span>
                 </div>
               ))}
             </div>
@@ -101,11 +101,11 @@ export default function AttributionTab() {
                       <XAxis dataKey="channel" tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} />
                       <YAxis tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} tickFormatter={(v: number) => `${v}€`} />
                       <Tooltip
-                        contentStyle={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
-                        labelStyle={{ color: "#F5F0EB" }}
+                        contentStyle={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
+                        labelStyle={{ color: "var(--text-primary)" }}
                         formatter={(v: any) => [eur(Number(v)), "Revenu attribué"]}
                       />
-                      <Bar dataKey="revenue" fill="#C75B39" radius={0} />
+                      <Bar dataKey="revenue" fill="var(--accent)" radius={0} />
                     </BarChart>
                   </ResponsiveContainer>
                 </div>
@@ -125,7 +125,7 @@ export default function AttributionTab() {
                   <div
                     className="w-3 h-3 rounded-full"
                     style={{
-                      backgroundColor: step.type === "conversion" ? "#7A9A65" : "var(--color-ink-tertiary)",
+                      backgroundColor: step.type === "conversion" ? "var(--success)" : "var(--color-ink-tertiary)",
                     }}
                   />
                   {i < data.fanJourney.length - 1 && (
@@ -134,7 +134,7 @@ export default function AttributionTab() {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
-                    <p className="text-sm" style={{ color: "#F5F0EB" }}>
+                    <p className="text-sm" style={{ color: "var(--text-primary)" }}>
                       {step.type === "conversion" ? "💰 Conversion" : `📧 ${step.channel}`}
                     </p>
                     <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>
@@ -142,7 +142,7 @@ export default function AttributionTab() {
                     </span>
                   </div>
                   {step.type === "conversion" && (
-                    <p className="text-xs mt-0.5" style={{ color: "#7A9A65" }}>
+                    <p className="text-xs mt-0.5" style={{ color: "var(--success)" }}>
                       {eur(step.revenue)} (poids: {step.weight})
                     </p>
                   )}

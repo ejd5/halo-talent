@@ -31,7 +31,7 @@ export default function MonitoringPage() {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <Loader2 size={24} className="animate-spin" style={{ color: "#C75B39" }} />
+        <Loader2 size={24} className="animate-spin" style={{ color: "var(--accent)" }} />
       </div>
     );
   }
@@ -40,10 +40,10 @@ export default function MonitoringPage() {
     <div style={{ padding: "32px 40px" }}>
       <div className="flex items-center justify-between mb-8">
         <div>
-          <h1 className="text-2xl font-display font-semibold" style={{ color: "#F5F0EB" }}>
+          <h1 className="text-2xl font-display font-semibold" style={{ color: "var(--text-primary)" }}>
             Monitoring
           </h1>
-          <p className="text-sm mt-1" style={{ color: "#E0D8D0" }}>
+          <p className="text-sm mt-1" style={{ color: "var(--text-secondary)" }}>
             État du système Halo Talent
           </p>
         </div>
@@ -52,7 +52,7 @@ export default function MonitoringPage() {
             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium"
             style={{
               background: data?.status === "operational" ? "rgba(122,154,101,0.12)" : "rgba(196,69,54,0.12)",
-              color: data?.status === "operational" ? "#7A9A65" : "#C44536",
+              color: data?.status === "operational" ? "var(--success)" : "var(--danger)",
             }}
           >
             {data?.status === "operational" ? <CheckCircle size={12} /> : <XCircle size={12} />}
@@ -63,7 +63,7 @@ export default function MonitoringPage() {
 
       {/* Services */}
       <div className="mb-8">
-        <h2 className="text-sm font-semibold mb-3" style={{ color: "#F5F0EB" }}>
+        <h2 className="text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
           Services
         </h2>
         <div className="grid grid-cols-4 gap-3">
@@ -71,14 +71,14 @@ export default function MonitoringPage() {
             <div
               key={name}
               className="flex items-center gap-3 p-3"
-              style={{ border: "1px solid rgba(255,255,255,0.06)" }}
+              style={{ border: "1px solid var(--border-default)" }}
             >
               {status === "operational" || status === "configured"
-                ? <CheckCircle size={16} style={{ color: "#7A9A65" }} />
-                : <XCircle size={16} style={{ color: "#C44536" }} />
+                ? <CheckCircle size={16} style={{ color: "var(--success)" }} />
+                : <XCircle size={16} style={{ color: "var(--danger)" }} />
               }
               <div>
-                <div className="text-sm" style={{ color: "#F5F0EB" }}>{name}</div>
+                <div className="text-sm" style={{ color: "var(--text-primary)" }}>{name}</div>
                 <div className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
                   {status}
                 </div>
@@ -90,7 +90,7 @@ export default function MonitoringPage() {
 
       {/* Metrics */}
       <div className="mb-8">
-        <h2 className="text-sm font-semibold mb-3" style={{ color: "#F5F0EB" }}>
+        <h2 className="text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
           Métriques
         </h2>
         <div className="grid grid-cols-3 gap-4">
@@ -128,12 +128,12 @@ export default function MonitoringPage() {
       </div>
 
       {/* Uptime */}
-      <div className="p-4" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+      <div className="p-4" style={{ border: "1px solid var(--border-default)" }}>
         <div className="flex items-center gap-2 mb-1">
-          <Cpu size={14} style={{ color: "#E0D8D0" }} />
-          <span className="text-sm" style={{ color: "#F5F0EB" }}>Uptime</span>
+          <Cpu size={14} style={{ color: "var(--text-secondary)" }} />
+          <span className="text-sm" style={{ color: "var(--text-primary)" }}>Uptime</span>
         </div>
-        <span className="text-2xl font-semibold" style={{ color: "#F5F0EB" }}>
+        <span className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>
           {formatUptime(data?.uptime || 0)}
         </span>
         <span className="text-xs ml-2" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -146,12 +146,12 @@ export default function MonitoringPage() {
 
 function MetricCard({ icon, label, value }: { icon: React.ReactNode; label: string; value: number }) {
   return (
-    <div className="p-4" style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.06)" }}>
-      <div className="flex items-center gap-2 mb-2" style={{ color: "#E0D8D0" }}>
+    <div className="p-4" style={{ background: "var(--bg-card)", border: "1px solid var(--border-default)" }}>
+      <div className="flex items-center gap-2 mb-2" style={{ color: "var(--text-secondary)" }}>
         {icon}
         <span className="text-xs">{label}</span>
       </div>
-      <div className="text-xl font-semibold" style={{ color: "#F5F0EB" }}>{value}</div>
+      <div className="text-xl font-semibold" style={{ color: "var(--text-primary)" }}>{value}</div>
     </div>
   );
 }

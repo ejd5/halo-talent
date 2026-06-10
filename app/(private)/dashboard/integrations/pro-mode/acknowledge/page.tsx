@@ -67,14 +67,14 @@ export default function ProModeAcknowledgePage() {
             className="text-4xl font-semibold mb-2"
             style={{
               fontFamily: "var(--font-display)",
-              color: "#F5F0EB",
+              color: "var(--text-primary)",
             }}
           >
             Zone Pro Mode
           </h1>
           <p
             className="text-sm tracking-wider uppercase"
-            style={{ color: "#C75B39" }}
+            style={{ color: "var(--accent)" }}
           >
             Avant d&apos;accéder à cette zone
           </p>
@@ -85,19 +85,19 @@ export default function ProModeAcknowledgePage() {
           className="p-6 mb-8 border-l-4"
           style={{
             backgroundColor: "rgba(245,240,235,0.04)",
-            borderColor: "#C75B39",
+            borderColor: "var(--accent)",
           }}
         >
           <div className="flex items-start gap-3 mb-4">
             <AlertTriangle
               size={18}
               className="shrink-0 mt-0.5"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             />
             <div>
               <h2
                 className="text-base font-semibold mb-2"
-                style={{ color: "#C75B39" }}
+                style={{ color: "var(--accent)" }}
               >
                 Zone exploratoire
               </h2>
@@ -105,18 +105,18 @@ export default function ProModeAcknowledgePage() {
                 <p style={{ color: "rgba(245,240,235,0.7)" }}>
                   Les outils présentés dans cette section sont des solutions
                   tierces que vous pouvez choisir d&apos;utiliser de manière{" "}
-                  <strong style={{ color: "#F5F0EB" }}>
+                  <strong style={{ color: "var(--text-primary)" }}>
                     INDÉPENDANTE
                   </strong>{" "}
                   de notre plateforme.
                 </p>
                 <p style={{ color: "rgba(245,240,235,0.7)" }}>
                   Notre maison{" "}
-                  <strong style={{ color: "#F5F0EB" }}>
+                  <strong style={{ color: "var(--text-primary)" }}>
                     NE LES INTÈGRE PAS
                   </strong>{" "}
                   techniquement et{" "}
-                  <strong style={{ color: "#F5F0EB" }}>
+                  <strong style={{ color: "var(--text-primary)" }}>
                     NE GARANTIT PAS
                   </strong>{" "}
                   leur conformité avec les conditions d&apos;utilisation des
@@ -124,7 +124,7 @@ export default function ProModeAcknowledgePage() {
                 </p>
                 <p style={{ color: "rgba(245,240,235,0.7)" }}>
                   L&apos;utilisation de ces outils est sous{" "}
-                  <strong style={{ color: "#F5F0EB" }}>
+                  <strong style={{ color: "var(--text-primary)" }}>
                     VOTRE RESPONSABILITÉ
                   </strong>{" "}
                   exclusive et peut entraîner la suspension ou la résiliation de
@@ -132,29 +132,29 @@ export default function ProModeAcknowledgePage() {
                 </p>
                 <p style={{ color: "rgba(245,240,235,0.7)" }}>
                   Notre{" "}
-                  <strong style={{ color: "#F5F0EB" }}>
+                  <strong style={{ color: "var(--text-primary)" }}>
                     Garantie Zero Ban
                   </strong>{" "}
-                  <strong style={{ color: "#C44536" }}>NE COUVRE PAS</strong>{" "}
+                  <strong style={{ color: "var(--danger)" }}>NE COUVRE PAS</strong>{" "}
                   les incidents résultant de l&apos;utilisation de ces outils
                   tiers.
                 </p>
                 <div
                   className="p-3 mt-2 text-[10px]"
                   style={{
-                    backgroundColor: "rgba(199,91,57,0.08)",
-                    border: "1px solid rgba(199,91,57,0.15)",
+                    backgroundColor: "var(--accent-soft)",
+                    border: "1px solid var(--accent-border)",
                     color: "rgba(245,240,235,0.5)",
                   }}
                 >
-                  <strong style={{ color: "#C75B39" }}>Alternative légale :</strong>{" "}
-                  Si vous souhaitez gérer plusieurs comptes de manière 100% conforme,
+                  <strong style={{ color: "var(--accent)" }}>Alternative légale :</strong>{" "}
+                  Si vous souhaitez gérer plusieurs comptes de manière entièrement conforme,
                   nous vous recommandons fortement d&apos;utiliser plutôt notre
                   fonctionnalité{" "}
                   <Link
                     href="/dashboard/integrations"
                     className="font-medium underline underline-offset-2"
-                    style={{ color: "#C75B39" }}
+                    style={{ color: "var(--accent)" }}
                   >
                     Co-management officiel
                   </Link>
@@ -181,13 +181,13 @@ export default function ProModeAcknowledgePage() {
                 type="checkbox"
                 checked={!!checked[cb.key]}
                 onChange={() => handleToggle(cb.key)}
-                className="mt-0.5 accent-[#C75B39] shrink-0"
+                className="mt-0.5 accent-[var(--accent)] shrink-0"
               />
               <span
                 className="text-xs leading-relaxed"
                 style={{
                   color: checked[cb.key]
-                    ? "#F5F0EB"
+                    ? "var(--text-primary)"
                     : "rgba(245,240,235,0.5)",
                 }}
               >
@@ -203,7 +203,7 @@ export default function ProModeAcknowledgePage() {
             className="text-xs px-3 py-2 mb-4"
             style={{
               backgroundColor: "rgba(196,69,54,0.08)",
-              color: "#C44536",
+              color: "var(--danger)",
               border: "1px solid rgba(196,69,54,0.15)",
             }}
           >
@@ -218,8 +218,8 @@ export default function ProModeAcknowledgePage() {
             disabled={!allChecked || loading}
             className="w-full text-sm font-semibold py-3 transition-all flex items-center justify-center gap-2 disabled:opacity-30"
             style={{
-              backgroundColor: allChecked ? "#C75B39" : "rgba(245,240,235,0.06)",
-              color: allChecked ? "#F5F0EB" : "rgba(245,240,235,0.2)",
+              backgroundColor: allChecked ? "var(--accent)" : "rgba(245,240,235,0.06)",
+              color: allChecked ? "var(--text-primary)" : "rgba(245,240,235,0.2)",
             }}
           >
             {loading ? (

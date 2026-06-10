@@ -51,7 +51,7 @@ export function KpiCard({ label, value, sub, accent }: {
     <div
       className="p-4 animate-scale-fade"
       style={{
-        backgroundColor: "#2A2420",
+        backgroundColor: "var(--bg-card)",
         border: accent ? "1px solid rgba(199,91,57,0.25)" : "1px solid rgba(245,240,235,0.06)",
       }}
     >
@@ -60,7 +60,7 @@ export function KpiCard({ label, value, sub, accent }: {
       </span>
       <p
         className="text-[1.8rem] font-bold leading-none mt-2"
-        style={{ fontFamily: "var(--font-display)", color: accent ? "#C75B39" : "#F5F0EB" }}
+        style={{ fontFamily: "var(--font-display)", color: accent ? "var(--accent)" : "var(--text-primary)" }}
       >
         {value}
       </p>
@@ -76,7 +76,7 @@ export function Card({ title, children, className = "" }: {
     <div className={className} style={{ border: "1px solid rgba(245,240,235,0.06)" }}>
       {title && (
         <div className="px-4 py-3" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
-          <h3 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>{title}</h3>
+          <h3 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>{title}</h3>
         </div>
       )}
       <div className="p-4">{children}</div>
@@ -120,7 +120,7 @@ export function Table({ headers, rows }: {
           {rows.map((row, ri) => (
             <tr key={ri} className="table-row">
               {row.map((cell, ci) => (
-                <td key={ci} className="px-3 py-2" style={{ color: "#F5F0EB" }}>{cell}</td>
+                <td key={ci} className="px-3 py-2" style={{ color: "var(--text-primary)" }}>{cell}</td>
               ))}
             </tr>
           ))}

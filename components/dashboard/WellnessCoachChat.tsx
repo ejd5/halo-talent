@@ -67,11 +67,11 @@ export function WellnessCoachChat() {
               <div className="p-4 border border-[var(--color-border)] mb-4" style={{ backgroundColor: "var(--color-card)" }}>
                 <span className="text-4xl">🌱</span>
               </div>
-              <p className="text-base font-semibold mb-2" style={{ color: "#FFFFFF" }}>Wellness Coach</p>
-              <p className="text-sm mb-1" style={{ color: "#FFFFFF" }}>
+              <p className="text-base font-semibold mb-2" style={{ color: "var(--text-primary)" }}>Wellness Coach</p>
+              <p className="text-sm mb-1" style={{ color: "var(--text-primary)" }}>
                 Je veille sur ton équilibre. Comment te sens-tu aujourd&apos;hui ?
               </p>
-              <p className="text-sm mb-6" style={{ color: "#FFFFFF60" }}>
+              <p className="text-sm mb-6" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Fais un check-in rapide ou demande un conseil
               </p>
             </div>
@@ -89,7 +89,7 @@ export function WellnessCoachChat() {
               }`}
                 style={msg.role === "user" ? { backgroundColor: "var(--color-accent)" } : { backgroundColor: "var(--color-card)" }}
               >
-                <span style={{ color: "#FFFFFF" }}>{msg.content}</span>
+                <span style={{ color: "var(--text-primary)" }}>{msg.content}</span>
               </div>
             </div>
           ))}
@@ -101,9 +101,9 @@ export function WellnessCoachChat() {
               </div>
               <div className="border border-[var(--color-border)] px-4 py-3" style={{ backgroundColor: "var(--color-card)" }}>
                 <div className="flex gap-1.5">
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full" style={{ backgroundColor: "#10B981" }} />
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:150ms]" style={{ backgroundColor: "#10B981" }} />
-                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:300ms]" style={{ backgroundColor: "#10B981" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full" style={{ backgroundColor: "var(--success)" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:150ms]" style={{ backgroundColor: "var(--success)" }} />
+                  <span className="w-1.5 h-1.5 animate-pulse rounded-full [animation-delay:300ms]" style={{ backgroundColor: "var(--success)" }} />
                 </div>
               </div>
             </div>
@@ -122,9 +122,9 @@ export function WellnessCoachChat() {
               placeholder="Comment te sens-tu ?"
               disabled={loading}
               className="flex-1 bg-transparent border-b border-[var(--color-border)] py-3 text-lg placeholder:opacity-30 focus:outline-none focus:border-[#10B981] transition-colors disabled:opacity-40"
-              style={{ color: "#FFFFFF" }}
+              style={{ color: "var(--text-primary)" }}
             />
-            <button onClick={() => handleSend()} disabled={!input.trim() || loading} className="opacity-40 hover:opacity-100 transition-opacity disabled:opacity-20" style={{ color: "#10B981" }}>
+            <button onClick={() => handleSend()} disabled={!input.trim() || loading} className="opacity-40 hover:opacity-100 transition-opacity disabled:opacity-20" style={{ color: "var(--success)" }}>
               <Send size={16} />
             </button>
           </div>
@@ -133,7 +133,7 @@ export function WellnessCoachChat() {
 
       {/* Toggle */}
       <button onClick={() => setSidebarOpen(!sidebarOpen)} className="border-l border-[var(--color-border)] px-2 flex items-center hover:opacity-70 transition-opacity" style={{ backgroundColor: "var(--color-card)" }}>
-        {sidebarOpen ? <PanelRightClose size={14} style={{ color: "#FFFFFF60" }} /> : <PanelRightOpen size={14} style={{ color: "#FFFFFF60" }} />}
+        {sidebarOpen ? <PanelRightClose size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} /> : <PanelRightOpen size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} />}
       </button>
 
       {/* Sidebar */}
@@ -141,8 +141,8 @@ export function WellnessCoachChat() {
         <div className="w-64 border-l border-[var(--color-border)] flex flex-col shrink-0" style={{ backgroundColor: "var(--color-card)" }}>
           <div className="p-4 border-b border-[var(--color-border)]" style={{ backgroundColor: "#10B98108" }}>
             <div className="flex items-center gap-2 mb-1">
-              <Brain size={14} style={{ color: "#10B981" }} />
-              <span className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: "#FFFFFF" }}>Actions rapides</span>
+              <Brain size={14} style={{ color: "var(--success)" }} />
+              <span className="text-[10px] uppercase tracking-wider font-semibold" style={{ color: "var(--text-primary)" }}>Actions rapides</span>
             </div>
           </div>
           <div className="flex-1 overflow-y-auto p-3 space-y-2">
@@ -156,16 +156,16 @@ export function WellnessCoachChat() {
                   className="flex items-center gap-2.5 w-full p-2.5 text-left text-xs border border-[var(--color-border)] transition-all hover:border-[#10B981]/40 disabled:opacity-40"
                   style={{ backgroundColor: "var(--color-base)" }}
                 >
-                  <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-full" style={{ backgroundColor: "#10B98115" }}>
-                    <Icon size={13} style={{ color: "#10B981" }} />
+                  <div className="w-7 h-7 flex items-center justify-center shrink-0 rounded-full" style={{ backgroundColor: "rgba(16, 185, 129, 0.08)" }}>
+                    <Icon size={13} style={{ color: "var(--success)" }} />
                   </div>
-                  <span style={{ color: "#FFFFFF" }}>{action.label}</span>
+                  <span style={{ color: "var(--text-primary)" }}>{action.label}</span>
                 </button>
               );
             })}
           </div>
           <div className="p-3 border-t border-[var(--color-border])">
-            <p className="text-[8px]" style={{ color: "#FFFFFF30" }}>
+            <p className="text-[8px]" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
               En cas d&apos;urgence : 3114 (prévention suicide) · 15 (SAMU) · 09 72 39 40 50 (SOS Amitié)
             </p>
           </div>

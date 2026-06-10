@@ -29,7 +29,7 @@ export function BusinessTab() {
   };
 
   return (
-    <div className="space-y-6 card-accent" style={{ background: "#0A0908" }}>
+    <div className="space-y-6 card-accent" style={{ background: "var(--bg-primary)" }}>
       {/* Executive Summary */}
       <div className="border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
         <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--color-border)]">
@@ -75,9 +75,9 @@ export function BusinessTab() {
             data={revenue24}
             xKey="month"
             series={[
-              { key: "brut", color: "#C75B39", name: "Brut" },
-              { key: "net", color: "#7A9A65", name: "Net" },
-              { key: "commission", color: "#E0D8D0", name: "Commission" },
+              { key: "brut", color: "var(--accent)", name: "Brut" },
+              { key: "net", color: "var(--success)", name: "Net" },
+              { key: "commission", color: "var(--text-secondary)", name: "Commission" },
             ]}
             height={220}
           />
@@ -90,7 +90,7 @@ export function BusinessTab() {
             data={momG.slice(-12)}
             xKey="month"
             barKey="growth_pct"
-            color="#C75B39"
+            color="var(--accent)"
             height={220}
           />
         </div>
@@ -104,7 +104,7 @@ export function BusinessTab() {
           <SimpleLineChart
             data={ret}
             xKey="month"
-            series={[{ key: "retention_pct", color: "#7A9A65", name: "Rétention" }]}
+            series={[{ key: "retention_pct", color: "var(--success)", name: "Rétention" }]}
             height={180}
           />
         </div>
@@ -116,7 +116,7 @@ export function BusinessTab() {
             data={analyticsData.ltv.map((l) => ({ ...l, label: `${l.months}m` }))}
             xKey="label"
             barKey="average_ltv"
-            color="#C75B39"
+            color="var(--accent)"
             height={180}
           />
         </div>
@@ -128,7 +128,7 @@ export function BusinessTab() {
             data={analyticsData.cac.map((c) => ({ ...c, source: c.source.slice(0, 6) }))}
             xKey="source"
             barKey="cac"
-            color="#E0D8D0"
+            color="var(--text-secondary)"
             height={180}
           />
         </div>

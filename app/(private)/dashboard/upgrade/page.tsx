@@ -27,7 +27,7 @@ const PLANS = [
     features: [
       "Tout le plan Creator",
       "Studio créatif complet",
-      "Génération IA illimitée",
+      "Génération IA (fair use: usage commercial normal)",
       "Multi-publish",
       "50 crédits IA / mois",
       "Support prioritaire",
@@ -59,7 +59,7 @@ const PLANS = [
     tier: "icon",
     features: [
       "Tout le plan Elite",
-      "Crédits IA illimités",
+      "Crédits IA selon fair use",
       "Accès API prioritaire",
       "Modèles sur mesure",
       "Collaboration d'équipe",
@@ -75,7 +75,7 @@ function UpgradePageInner() {
   const reason = searchParams.get("reason");
 
   return (
-    <div className="min-h-screen" data-theme="dark" style={{ background: "#0A0908" }}>
+    <div className="min-h-screen" data-theme="dark" style={{ background: "var(--bg-primary)" }}>
       <div className="max-w-5xl mx-auto px-4 py-16 animate-fade-in">
         <Link
           href="/dashboard"
@@ -90,7 +90,7 @@ function UpgradePageInner() {
           {reason === "studio" && (
             <div
               className="inline-flex items-center gap-1.5 px-3 py-1 text-xs mb-4"
-              style={{ background: "rgba(199,91,57,0.1)", color: "#C75B39" }}
+              style={{ background: "rgba(199,91,57,0.1)", color: "var(--accent)" }}
             >
               <Crown size={12} />
               Studio requis
@@ -98,7 +98,7 @@ function UpgradePageInner() {
           )}
           <h1
             className="text-3xl italic mb-3"
-            style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}
+            style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}
           >
             Passez au niveau supérieur
           </h1>
@@ -114,18 +114,18 @@ function UpgradePageInner() {
               key={plan.tier}
               className="relative flex flex-col p-5 border transition-all duration-200"
               style={{
-                borderColor: plan.highlight ? "#C75B39" : "rgba(255,255,255,0.08)",
-                backgroundColor: plan.highlight ? "rgba(199,91,57,0.04)" : "#0A0908",
+                borderColor: plan.highlight ? "var(--accent)" : "rgba(255,255,255,0.08)",
+                backgroundColor: plan.highlight ? "rgba(199,91,57,0.04)" : "var(--bg-primary)",
                 transform: plan.highlight ? "scale(1.02)" : "none",
               }}
             >
               {plan.highlight && (
-                <div className="absolute -top-[1px] left-0 right-0 h-[2px]" style={{ background: "#C75B39" }} />
+                <div className="absolute -top-[1px] left-0 right-0 h-[2px]" style={{ background: "var(--accent)" }} />
               )}
               <div className="mb-4">
-                <p className="text-sm font-semibold mb-1" style={{ color: "#F5F0EB" }}>{plan.name}</p>
+                <p className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>{plan.name}</p>
                 <div className="flex items-baseline gap-0.5">
-                  <span className="text-2xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+                  <span className="text-2xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
                     {plan.price}
                   </span>
                   {plan.period && <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>{plan.period}</span>}
@@ -134,19 +134,19 @@ function UpgradePageInner() {
               <ul className="flex-1 space-y-2 mb-6">
                 {plan.features.map((f) => (
                   <li key={f} className="flex items-start gap-2 text-xs" style={{ color: "rgba(255,255,255,0.6)" }}>
-                    <Check size={12} className="mt-0.5 shrink-0" style={{ color: plan.highlight ? "#C75B39" : "rgba(255,255,255,0.2)" }} />
+                    <Check size={12} className="mt-0.5 shrink-0" style={{ color: plan.highlight ? "var(--accent)" : "rgba(255,255,255,0.2)" }} />
                     {f}
                   </li>
                 ))}
               </ul>
               {plan.current ? (
-                <div className="w-full text-center py-2 text-[11px] uppercase tracking-wider" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.3)" }}>
+                <div className="w-full text-center py-2 text-[11px] uppercase tracking-wider" style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.3)" }}>
                   Plan actuel
                 </div>
               ) : (
                 <button
                   className="w-full py-2 text-[11px] uppercase tracking-wider font-medium transition-opacity hover:opacity-80"
-                  style={{ background: plan.highlight ? "#C75B39" : "rgba(255,255,255,0.06)", color: plan.highlight ? "#FFFFFF" : "#F5F0EB" }}
+                  style={{ background: plan.highlight ? "var(--accent)" : "rgba(255,255,255,0.06)", color: plan.highlight ? "var(--text-primary)" : "var(--text-primary)" }}
                 >
                   {plan.cta}
                 </button>
@@ -165,7 +165,7 @@ function UpgradePageInner() {
 
 export default function UpgradePage() {
   return (
-    <Suspense fallback={<div className="min-h-screen" style={{ background: "#0A0908" }} />}>
+    <Suspense fallback={<div className="min-h-screen" style={{ background: "var(--bg-primary)" }} />}>
       <UpgradePageInner />
     </Suspense>
   );

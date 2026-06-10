@@ -23,10 +23,10 @@ const methodLabels: Record<string, string> = {
 };
 
 const statusStyles: Record<string, { icon: React.ElementType; label: string; bg: string; fg: string }> = {
-  pending: { icon: Loader2, label: "En attente", bg: "rgba(199,91,57,0.12)", fg: "#C75B39" },
-  validated: { icon: CheckCircle, label: "Validé", bg: "rgba(122,154,101,0.12)", fg: "#7A9A65" },
-  completed: { icon: CheckCircle, label: "Effectué", bg: "rgba(255,255,255,0.06)", fg: "#E0D8D0" },
-  error: { icon: XCircle, label: "Erreur", bg: "rgba(196,69,54,0.12)", fg: "#C44536" },
+  pending: { icon: Loader2, label: "En attente", bg: "rgba(199,91,57,0.12)", fg: "var(--accent)" },
+  validated: { icon: CheckCircle, label: "Validé", bg: "rgba(122,154,101,0.12)", fg: "var(--success)" },
+  completed: { icon: CheckCircle, label: "Effectué", bg: "rgba(255,255,255,0.06)", fg: "var(--text-secondary)" },
+  error: { icon: XCircle, label: "Erreur", bg: "rgba(196,69,54,0.12)", fg: "var(--danger)" },
 };
 
 export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
@@ -72,19 +72,19 @@ export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
 
   if (payouts.length === 0) {
     return (
-      <div className="text-center py-12" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <p className="text-sm font-sans" style={{ color: "#E0D8D0" }}>Aucun payout trouvé</p>
+      <div className="text-center py-12" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+        <p className="text-sm font-sans" style={{ color: "var(--text-secondary)" }}>Aucun payout trouvé</p>
       </div>
     );
   }
 
   return (
-    <div className="card-accent" style={{ border: "1px solid rgba(255,255,255,0.04)" }}>
+    <div className="card-accent" style={{ border: "1px solid var(--border-default)" }}>
       <div className="overflow-x-auto">
         <table className="w-full text-left">
           <thead>
             <tr className="text-[10px] font-sans font-semibold uppercase tracking-[0.12em]"
-              style={{ color: "#E0D8D0", borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+              style={{ color: "var(--text-secondary)", borderBottom: "1px solid var(--border-default)" }}>
               <th className="py-3 px-4 font-medium">Créateur</th>
               <th className="py-3 px-4 font-medium">Montant</th>
               <th className="py-3 px-4 font-medium">Période</th>
@@ -110,37 +110,37 @@ export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-2">
                       <div className="w-7 h-7 flex items-center justify-center text-[10px] font-sans font-semibold"
-                        style={{ background: "rgba(199,91,57,0.15)", color: "#C75B39" }}>
+                        style={{ background: "rgba(199,91,57,0.15)", color: "var(--accent)" }}>
                         {po.creator_name.charAt(0)}
                       </div>
                       <div>
                         <p className="text-xs font-sans font-medium" style={{ color: "#D0CCC6" }}>
                           {po.creator_name}
                         </p>
-                        <p className="text-[9px] font-sans" style={{ color: "#E0D8D0" }}>{po.department}</p>
+                        <p className="text-[9px] font-sans" style={{ color: "var(--text-secondary)" }}>{po.department}</p>
                       </div>
                     </div>
                   </td>
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-1">
-                      <span className="text-xs font-sans font-semibold tabular-nums" style={{ color: "#F5F0EB" }}>
+                      <span className="text-xs font-sans font-semibold tabular-nums" style={{ color: "var(--text-primary)" }}>
                         {formatEuro(po.amount)}
                       </span>
                       {po.amount > 5000 && (
-                        <AlertTriangle size={9} strokeWidth={1.5} style={{ color: "#C75B39" }} />
+                        <AlertTriangle size={9} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
                       )}
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-xs font-sans" style={{ color: "#E0D8D0" }}>{po.period}</td>
+                  <td className="py-3 px-4 text-xs font-sans" style={{ color: "var(--text-secondary)" }}>{po.period}</td>
                   <td className="py-3 px-4">
                     <div className="flex items-center gap-1.5">
-                      <MethodIcon size={11} strokeWidth={1.5} style={{ color: "#F5F0EB" }} />
-                      <span className="text-[10px] font-sans" style={{ color: "#F5F0EB" }}>
+                      <MethodIcon size={11} strokeWidth={1.5} style={{ color: "var(--text-primary)" }} />
+                      <span className="text-[10px] font-sans" style={{ color: "var(--text-primary)" }}>
                         {methodLabels[po.method]}
                       </span>
                     </div>
                   </td>
-                  <td className="py-3 px-4 text-[11px] font-sans" style={{ color: "#F5F0EB" }}>
+                  <td className="py-3 px-4 text-[11px] font-sans" style={{ color: "var(--text-primary)" }}>
                     {new Date(po.scheduled_date).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}
                   </td>
                   <td className="py-3 px-4">
@@ -156,7 +156,7 @@ export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
                         <button
                           onClick={(e) => handleAction(e, po.id, "validate")}
                           className="px-2 py-1 text-[9px] font-sans font-semibold uppercase tracking-[0.08em] transition-colors"
-                          style={{ background: "rgba(199,91,57,0.12)", color: "#C75B39" }}
+                          style={{ background: "rgba(199,91,57,0.12)", color: "var(--accent)" }}
                         >
                           Valider
                         </button>
@@ -165,7 +165,7 @@ export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
                         <button
                           onClick={(e) => handleAction(e, po.id, "execute")}
                           className="px-2 py-1 text-[9px] font-sans font-semibold uppercase tracking-[0.08em] transition-colors"
-                          style={{ background: "rgba(122,154,101,0.15)", color: "#7A9A65" }}
+                          style={{ background: "rgba(122,154,101,0.15)", color: "var(--success)" }}
                         >
                           Exécuter
                         </button>
@@ -174,7 +174,7 @@ export function PayoutTable({ payouts, onSelect, onUpdate }: Props) {
                         <button
                           onClick={(e) => handleAction(e, po.id, "error")}
                           className="px-2 py-1 text-[9px] font-sans font-semibold uppercase tracking-[0.08em] transition-colors"
-                          style={{ background: "rgba(196,69,54,0.1)", color: "#C44536" }}
+                          style={{ background: "rgba(196,69,54,0.1)", color: "var(--danger)" }}
                         >
                           Erreur
                         </button>

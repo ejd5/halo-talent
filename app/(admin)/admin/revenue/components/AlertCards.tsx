@@ -28,8 +28,8 @@ const alertBorder: Record<string, string> = {
 export function AlertCards({ alerts }: Props) {
   if (alerts.length === 0) {
     return (
-      <div className="p-5 text-center" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
-        <p className="text-xs font-sans" style={{ color: "#E0D8D0" }}>
+      <div className="p-5 text-center" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
+        <p className="text-xs font-sans" style={{ color: "var(--text-secondary)" }}>
           Aucune alerte financière
         </p>
       </div>
@@ -38,7 +38,7 @@ export function AlertCards({ alerts }: Props) {
 
   return (
     <div>
-      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "#F5F0EB" }}>
+      <p className="text-[11px] font-sans font-semibold uppercase tracking-[0.1em] mb-3" style={{ color: "var(--text-primary)" }}>
         Alertes & notifications
       </p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
@@ -57,9 +57,9 @@ export function AlertCards({ alerts }: Props) {
                 <Icon size={14} strokeWidth={1.5} className="shrink-0 mt-0.5"
                   style={{
                     color:
-                      alert.severity === "high" ? "#C44536"
-                      : alert.severity === "medium" ? "#C75B39"
-                      : "#F5F0EB",
+                      alert.severity === "high" ? "var(--danger)"
+                      : alert.severity === "medium" ? "var(--accent)"
+                      : "var(--text-primary)",
                   }}
                 />
                 <div>
@@ -67,7 +67,7 @@ export function AlertCards({ alerts }: Props) {
                     {alert.message}
                   </p>
                   {alert.creator_name && (
-                    <p className="text-[10px] font-sans mt-1" style={{ color: "#E0D8D0" }}>
+                    <p className="text-[10px] font-sans mt-1" style={{ color: "var(--text-secondary)" }}>
                       {alert.creator_name}
                     </p>
                   )}

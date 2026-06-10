@@ -14,14 +14,14 @@ export function CommunicationsTab({ creatorId }: Props) {
       {/* Action */}
       <button
         className="flex items-center gap-2 px-4 py-2.5 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-90"
-        style={{ background: "#C75B39", color: "#F5F0EB" }}
+        style={{ background: "var(--accent)", color: "var(--text-primary)" }}
       >
         <Send size={14} strokeWidth={1.5} />
         Envoyer un message
       </button>
 
       {list.length === 0 ? (
-        <p className="text-sm font-sans text-center py-8" style={{ color: "#E0D8D0" }}>
+        <p className="text-sm font-sans text-center py-8" style={{ color: "var(--text-secondary)" }}>
           Aucune conversation pour ce créateur.
         </p>
       ) : (
@@ -32,25 +32,25 @@ export function CommunicationsTab({ creatorId }: Props) {
               className="p-4 transition-colors hover:bg-white/[0.02]"
               style={{
                 background: msg.read ? "transparent" : "rgba(199,91,57,0.04)",
-                border: "1px solid rgba(255,255,255,0.04)",
+                border: "1px solid var(--border-default)",
                 borderLeft: msg.read ? "1px solid rgba(255,255,255,0.04)" : "2px solid rgba(199,91,57,0.4)",
               }}
             >
               <div className="flex items-start justify-between mb-1.5">
                 <div className="flex items-center gap-2">
-                  <MessageSquare size={12} strokeWidth={1.5} style={{ color: msg.read ? "#E0D8D0" : "#C75B39" }} />
+                  <MessageSquare size={12} strokeWidth={1.5} style={{ color: msg.read ? "var(--text-secondary)" : "var(--accent)" }} />
                   <span className="text-xs font-sans font-semibold" style={{ color: "#D0CCC6" }}>
                     {msg.from} → {msg.to}
                   </span>
                 </div>
-                <span className="text-[10px] font-sans" style={{ color: "#E0D8D0" }}>
+                <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>
                   {relativeTime(msg.created_at)}
                 </span>
               </div>
-              <p className="text-xs font-sans font-medium mb-1" style={{ color: "#E0D8D0" }}>
+              <p className="text-xs font-sans font-medium mb-1" style={{ color: "var(--text-secondary)" }}>
                 {msg.subject}
               </p>
-              <p className="text-xs font-sans leading-relaxed" style={{ color: "#F5F0EB" }}>
+              <p className="text-xs font-sans leading-relaxed" style={{ color: "var(--text-primary)" }}>
                 {msg.content}
               </p>
             </div>

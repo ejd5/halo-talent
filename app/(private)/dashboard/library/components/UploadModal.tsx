@@ -143,15 +143,15 @@ export function UploadModal({
         {/* Header */}
         <div className="flex items-center justify-between px-5 py-3 border-b border-[var(--color-border)]">
           <div>
-            <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>
+            <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
               Importer des médias
             </h2>
-            <p className="text-[10px]" style={{ color: "#FFFFFF60" }}>
+            <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
               {files.length > 0 ? `${files.length} fichier${files.length > 1 ? "s" : ""} · ${formatSize(totalSize)}` : "Glisse ou sélectionne tes fichiers"}
             </p>
           </div>
           <button onClick={onClose} className="p-1.5 hover:bg-[var(--color-base)] transition-colors">
-            <X size={14} style={{ color: "#FFFFFF60" }} />
+            <X size={14} style={{ color: "rgba(255, 255, 255, 0.375)" }} />
           </button>
         </div>
 
@@ -164,14 +164,14 @@ export function UploadModal({
             onClick={() => inputRef.current?.click()}
             className={cn(
               "border-2 border-dashed p-8 text-center transition-all cursor-pointer",
-              dragOver ? "border-[#C75B39] bg-[#C75B39]/5" : "border-[var(--color-border)] hover:border-[#C75B39]/50"
+              dragOver ? "border-[var(--accent)] bg-[var(--accent)]/5" : "border-[var(--color-border)] hover:border-[var(--accent)]/50"
             )}
           >
-            <Upload size={28} className="mx-auto mb-2" style={{ color: "#FFFFFF30" }} />
-            <p className="text-xs font-medium" style={{ color: "#FFFFFF80" }}>
+            <Upload size={28} className="mx-auto mb-2" style={{ color: "rgba(255, 255, 255, 0.19)" }} />
+            <p className="text-xs font-medium" style={{ color: "rgba(255, 255, 255, 0.5)" }}>
               {dragOver ? "Dépose les fichiers ici" : "Glisse-dépose tes fichiers ici"}
             </p>
-            <p className="text-[10px] mt-1" style={{ color: "#FFFFFF40" }}>
+            <p className="text-[10px] mt-1" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
               ou clique pour parcourir — Images, vidéos, audio, documents
             </p>
             <input
@@ -198,29 +198,29 @@ export function UploadModal({
                       {file.preview ? (
                         <img src={file.preview} alt="" className="w-full h-full object-cover" />
                       ) : (
-                        <Icon size={16} style={{ color: "#FFFFFF40" }} />
+                        <Icon size={16} style={{ color: "rgba(255, 255, 255, 0.25)" }} />
                       )}
                     </div>
 
                     {/* Info */}
                     <div className="flex-1 min-w-0">
-                      <p className="text-[11px] font-medium truncate" style={{ color: "#FFFFFF" }}>{file.name}</p>
-                      <p className="text-[9px]" style={{ color: "#FFFFFF50" }}>{formatSize(file.size)}</p>
+                      <p className="text-[11px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{file.name}</p>
+                      <p className="text-[9px]" style={{ color: "rgba(255, 255, 255, 0.31)" }}>{formatSize(file.size)}</p>
                     </div>
 
                     {/* Progress / Status */}
                     <div className="w-24 shrink-0">
                       {file.status === "pending" && (
                         <button onClick={() => removeFile(file.id)} className="p-1 hover:opacity-70 transition-opacity">
-                          <X size={12} style={{ color: "#FFFFFF40" }} />
+                          <X size={12} style={{ color: "rgba(255, 255, 255, 0.25)" }} />
                         </button>
                       )}
                       {file.status === "uploading" && (
                         <div className="space-y-0.5">
                           <div className="h-1 bg-[var(--color-border)] overflow-hidden">
-                            <div className="h-full bg-[#C75B39] transition-all duration-300" style={{ width: `${file.progress}%` }} />
+                            <div className="h-full bg-[var(--accent)] transition-all duration-300" style={{ width: `${file.progress}%` }} />
                           </div>
-                          <p className="text-[8px] text-right" style={{ color: "#FFFFFF40" }}>{file.progress}%</p>
+                          <p className="text-[8px] text-right" style={{ color: "rgba(255, 255, 255, 0.25)" }}>{file.progress}%</p>
                         </div>
                       )}
                       {(file.status === "compressing") && (
@@ -234,12 +234,12 @@ export function UploadModal({
                         </div>
                       )}
                       {file.status === "done" && (
-                        <div className="flex items-center gap-1 text-[9px]" style={{ color: "#10B981" }}>
+                        <div className="flex items-center gap-1 text-[9px]" style={{ color: "var(--success)" }}>
                           <CheckCircle size={10} /> Terminé
                         </div>
                       )}
                       {file.status === "error" && (
-                        <div className="flex items-center gap-1 text-[9px]" style={{ color: "#EF4444" }}>
+                        <div className="flex items-center gap-1 text-[9px]" style={{ color: "var(--danger)" }}>
                           <AlertCircle size={10} /> {file.error ?? "Erreur"}
                         </div>
                       )}
@@ -253,20 +253,20 @@ export function UploadModal({
 
         {/* Footer */}
         <div className="flex items-center justify-between px-5 py-3 border-t border-[var(--color-border)]">
-          <p className="text-[9px]" style={{ color: "#FFFFFF40" }}>
+          <p className="text-[9px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
             Formats supportés : JPG, PNG, MP4, MOV, MP3, PDF — Max 100MB
           </p>
           <div className="flex gap-2">
             <button onClick={onClose}
               className="px-4 py-1.5 text-[10px] font-medium uppercase tracking-wider border border-[var(--color-border)] hover:bg-[var(--color-base)] transition-colors"
-              style={{ color: "#FFFFFF" }}>
+              style={{ color: "var(--text-primary)" }}>
               Annuler
             </button>
             <button
               onClick={simulateUpload}
               disabled={files.length === 0 || uploading}
               className="flex items-center gap-1.5 px-4 py-1.5 text-[10px] font-medium uppercase tracking-wider disabled:opacity-40 transition-opacity"
-              style={{ backgroundColor: "#C75B39", color: "#FFFFFF" }}
+              style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
             >
               {uploading ? (
                 <><Loader2 size={11} className="animate-spin" /> Upload en cours...</>

@@ -130,7 +130,7 @@ function MonContratTab({ locale }: { locale: string }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <div className="w-6 h-6 rounded-full animate-spin" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "#C75B39" }} />
+        <div className="w-6 h-6 rounded-full animate-spin" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "var(--accent)" }} />
       </div>
     );
   }
@@ -152,7 +152,7 @@ function MonContratTab({ locale }: { locale: string }) {
         <div
           key={a.id}
           className="rounded-lg overflow-hidden"
-          style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}
+          style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}
         >
           {/* Header */}
           <div className="flex items-center justify-between px-5 py-4" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
@@ -162,7 +162,7 @@ function MonContratTab({ locale }: { locale: string }) {
                 style={{ backgroundColor: RISK_COLORS[a.risk_level] || "#666" }}
               />
               <div>
-                <span className="text-sm font-medium capitalize" style={{ color: "#F5F0EB" }}>
+                <span className="text-sm font-medium capitalize" style={{ color: "var(--text-primary)" }}>
                   {t("atlas.analysis_of", locale).replace("{platform}", translatePlatform(a.platform, locale))}
                 </span>
                 <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>
@@ -253,7 +253,7 @@ function MonContratTab({ locale }: { locale: string }) {
             <a
               href={`/protection?platform=${a.platform}`}
               className="flex items-center gap-1.5 text-xs font-medium transition-opacity hover:opacity-70"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--accent)" }}
             >
               <ExternalLink size={12} /> {t("atlas.new_analysis_link", locale)}
             </a>
@@ -339,9 +339,9 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
             onChange={(e) => setSearch(e.target.value)}
             className="w-full text-xs pl-9 pr-3 py-2.5 rounded outline-none transition-colors"
             style={{
-              backgroundColor: "#2A2420",
+              backgroundColor: "var(--bg-card)",
               border: "1px solid rgba(245,240,235,0.08)",
-              color: "#F5F0EB",
+              color: "var(--text-primary)",
             }}
           />
         </div>
@@ -351,9 +351,9 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
             onChange={(e) => setPlatform(e.target.value)}
             className="text-xs px-3 py-2.5 rounded outline-none"
             style={{
-              backgroundColor: "#2A2420",
+              backgroundColor: "var(--bg-card)",
               border: "1px solid rgba(245,240,235,0.08)",
-              color: platform ? "#F5F0EB" : "var(--color-ink-tertiary)",
+              color: platform ? "var(--text-primary)" : "var(--color-ink-tertiary)",
             }}
           >
             <option value="">Plateforme</option>
@@ -366,9 +366,9 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
             onChange={(e) => setCategory(e.target.value)}
             className="text-xs px-3 py-2.5 rounded outline-none"
             style={{
-              backgroundColor: "#2A2420",
+              backgroundColor: "var(--bg-card)",
               border: "1px solid rgba(245,240,235,0.08)",
-              color: category ? "#F5F0EB" : "var(--color-ink-tertiary)",
+              color: category ? "var(--text-primary)" : "var(--color-ink-tertiary)",
             }}
           >
             <option value="">Catégorie</option>
@@ -381,9 +381,9 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
             onChange={(e) => setJurisdiction(e.target.value)}
             className="text-xs px-3 py-2.5 rounded outline-none"
             style={{
-              backgroundColor: "#2A2420",
+              backgroundColor: "var(--bg-card)",
               border: "1px solid rgba(245,240,235,0.08)",
-              color: jurisdiction ? "#F5F0EB" : "var(--color-ink-tertiary)",
+              color: jurisdiction ? "var(--text-primary)" : "var(--color-ink-tertiary)",
             }}
           >
             <option value="">Juridiction</option>
@@ -397,7 +397,7 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
       {/* Results */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <div className="w-6 h-6 rounded-full animate-spin" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "#C75B39" }} />
+          <div className="w-6 h-6 rounded-full animate-spin" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "var(--accent)" }} />
         </div>
       ) : entries.length === 0 ? (
         <div className="flex flex-col items-center justify-center py-20 text-center">
@@ -412,14 +412,14 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
               <div
                 key={e.id}
                 className="rounded-lg overflow-hidden transition-opacity"
-                style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}
+                style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}
               >
                 <div className="p-4">
                   {/* Badges row */}
                   <div className="flex items-center gap-2 mb-3 flex-wrap">
                     <span
                       className="text-[10px] font-semibold px-1.5 py-0.5 rounded"
-                      style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}
+                      style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}
                     >
                       {e.category.replace(/_/g, " ")}
                     </span>
@@ -449,7 +449,7 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
                   </div>
 
                   {/* Title & summary */}
-                  <h3 className="text-sm font-semibold mb-1" style={{ color: "#F5F0EB" }}>{e.title}</h3>
+                  <h3 className="text-sm font-semibold mb-1" style={{ color: "var(--text-primary)" }}>{e.title}</h3>
                   {e.summary && (
                     <p className="text-xs leading-relaxed" style={{ color: "var(--color-ink-secondary)" }}>
                       {isExpanded ? e.content : e.summary}
@@ -480,7 +480,7 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
                     <button
                       onClick={() => setExpandedId(isExpanded ? null : e.id)}
                       className="flex items-center gap-1 text-[10px] font-medium transition-opacity hover:opacity-70"
-                      style={{ color: "#C75B39" }}
+                      style={{ color: "var(--accent)" }}
                     >
                       {isExpanded ? t("atlas.collapse", locale) : t("atlas.read_more", locale)}
                       <ChevronRight size={10} style={{ transform: isExpanded ? "rotate(90deg)" : "none" }} />
@@ -496,8 +496,8 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
       {/* Suggest new clause */}
       <div className="mt-8" style={{ borderTop: "1px solid rgba(245,240,235,0.06)" }}>
         {suggestOpen ? (
-          <div className="mt-6 p-5 rounded-lg" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
-            <h4 className="text-sm font-semibold mb-4" style={{ color: "#F5F0EB" }}>
+          <div className="mt-6 p-5 rounded-lg" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
+            <h4 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
               {t("atlas.suggest_title", locale)}
             </h4>
             <div className="space-y-3">
@@ -507,7 +507,7 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
                 value={suggestLabel}
                 onChange={(e) => setSuggestLabel(e.target.value)}
                 className="w-full text-xs px-3 py-2.5 rounded outline-none"
-                style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+                style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
               />
               <textarea
                 placeholder={t("atlas.suggest_desc_placeholder", locale)}
@@ -515,13 +515,13 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
                 onChange={(e) => setSuggestDesc(e.target.value)}
                 rows={3}
                 className="w-full text-xs px-3 py-2.5 rounded outline-none resize-none"
-                style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)", color: "#F5F0EB" }}
+                style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)", color: "var(--text-primary)" }}
               />
               <select
                 value={suggestPlatform}
                 onChange={(e) => setSuggestPlatform(e.target.value)}
                 className="w-full text-xs px-3 py-2.5 rounded outline-none"
-                style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)", color: suggestPlatform ? "#F5F0EB" : "var(--color-ink-tertiary)" }}
+                style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)", color: suggestPlatform ? "var(--text-primary)" : "var(--color-ink-tertiary)" }}
               >
                 <option value="">{t("atlas.suggest_platform", locale)}</option>
                 {PLATFORM_OPTIONS.map((p) => (
@@ -533,7 +533,7 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
                   onClick={handleSuggest}
                   disabled={sending || !suggestLabel.trim()}
                   className="flex items-center gap-1.5 text-xs font-medium px-4 py-2 transition-opacity hover:opacity-70 disabled:opacity-40"
-                  style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+                  style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
                 >
                   {sending ? t("atlas.sending", locale) : suggestSent ? t("atlas.sent", locale) : t("atlas.send", locale)}
                   {suggestSent ? <Check size={12} /> : <Send size={12} />}
@@ -552,7 +552,7 @@ function BaseJuridiqueTab({ locale }: { locale: string }) {
           <button
             onClick={() => setSuggestOpen(true)}
             className="flex items-center gap-2 text-xs font-medium mt-6 px-4 py-2.5 transition-opacity hover:opacity-70"
-            style={{ color: "#C75B39", border: "1px solid rgba(199,91,57,0.2)" }}
+            style={{ color: "var(--accent)", border: "1px solid var(--accent-border)" }}
           >
             <Plus size={14} /> {t("atlas.knowledge_suggest", locale)}
           </button>
@@ -584,7 +584,7 @@ function AlertesJuridiquesTab({ locale }: { locale: string }) {
   if (loading) {
     return (
       <div className="flex items-center justify-center py-32">
-        <div className="w-6 h-6 rounded-full animate-spin" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "#C75B39" }} />
+        <div className="w-6 h-6 rounded-full animate-spin" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "var(--accent)" }} />
       </div>
     );
   }
@@ -605,7 +605,7 @@ function AlertesJuridiquesTab({ locale }: { locale: string }) {
               title: "CGU OnlyFans 2026",
               desc: "Mise à jour des conditions générales d'utilisation — section propriété du contenu",
               tag: "CGU",
-              color: "#C75B39",
+              color: "var(--accent)",
             },
             {
               icon: Scale,
@@ -634,7 +634,7 @@ function AlertesJuridiquesTab({ locale }: { locale: string }) {
               <div
                 key={i}
                 className="rounded-lg p-4"
-                style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}
+                style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}
               >
                 <div className="flex items-start gap-3">
                   <div className="w-8 h-8 flex items-center justify-center rounded shrink-0" style={{ backgroundColor: `${item.color}15` }}>
@@ -642,7 +642,7 @@ function AlertesJuridiquesTab({ locale }: { locale: string }) {
                   </div>
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <h3 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>{item.title}</h3>
+                      <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>{item.title}</h3>
                       <span
                         className="text-[9px] font-semibold px-1 py-px rounded"
                         style={{ backgroundColor: `${item.color}15`, color: item.color }}
@@ -667,16 +667,16 @@ function AlertesJuridiquesTab({ locale }: { locale: string }) {
         <div
           key={u.id}
           className="rounded-lg p-4 flex items-start gap-3"
-          style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}
+          style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}
         >
           <div className="w-8 h-8 flex items-center justify-center rounded shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)" }}>
-            {u.action === "clause_added" ? <Plus size={14} style={{ color: "#C75B39" }} /> :
+            {u.action === "clause_added" ? <Plus size={14} style={{ color: "var(--accent)" }} /> :
              u.action === "cgu_scraped" ? <FileText size={14} style={{ color: "#3b82f6" }} /> :
              <AlertTriangle size={14} style={{ color: "#eab308" }} />}
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>
+              <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
                 {ACTION_LABELS[u.action] || u.action}
               </span>
               <span className="text-[10px]" style={{ color: "var(--color-ink-tertiary)" }}>
@@ -730,9 +730,9 @@ export default function AtlasLegalPage() {
       {/* Header */}
       <div>
         <div className="flex items-center gap-3">
-          <ShieldCheck size={28} strokeWidth={1.5} style={{ color: "#C75B39" }} />
+          <ShieldCheck size={28} strokeWidth={1.5} style={{ color: "var(--accent)" }} />
           <div>
-            <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+            <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
               {t("hero.badge", locale)}
             </h1>
             <p className="text-sm mt-1" style={{ color: "var(--color-ink-secondary)" }}>
@@ -752,8 +752,8 @@ export default function AtlasLegalPage() {
               onClick={() => setActiveTab(tab.id)}
               className="flex items-center gap-2 px-4 py-3 text-xs font-medium transition-all whitespace-nowrap"
               style={{
-                color: isActive ? "#C75B39" : "var(--color-ink-tertiary)",
-                borderBottom: isActive ? "1px solid #C75B39" : "1px solid transparent",
+                color: isActive ? "var(--accent)" : "var(--color-ink-tertiary)",
+                borderBottom: isActive ? "1px solid var(--accent)" : "1px solid transparent",
                 marginBottom: -1,
               }}
             >

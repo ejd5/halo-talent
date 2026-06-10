@@ -4,9 +4,9 @@ import { FileEdit, Eye } from "lucide-react";
 import type { SitePage } from "../../types";
 
 const STATUS_LABELS: Record<string, { label: string; color: string }> = {
-  published: { label: "Publié", color: "#7A9A65" },
-  draft: { label: "Brouillon", color: "#E0D8D0" },
-  review: { label: "En modification", color: "#C75B39" },
+  published: { label: "Publié", color: "var(--success)" },
+  draft: { label: "Brouillon", color: "var(--text-secondary)" },
+  review: { label: "En modification", color: "var(--accent)" },
 };
 
 export function PageList({
@@ -17,7 +17,7 @@ export function PageList({
   onEdit: (page: SitePage) => void;
 }) {
   return (
-    <div className="border border-[var(--color-border)] divide-y divide-[var(--color-border)] card-accent" style={{ background: "#0A0908" }}>
+    <div className="border border-[var(--color-border)] divide-y divide-[var(--color-border)] card-accent" style={{ background: "var(--bg-primary)" }}>
       {/* Header */}
       <div className="grid grid-cols-[1fr_120px_180px_100px] gap-4 px-5 py-3 text-[10px] font-semibold uppercase tracking-wider opacity-40">
         <div>Page</div>

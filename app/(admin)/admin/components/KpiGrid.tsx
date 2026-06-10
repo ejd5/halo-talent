@@ -59,27 +59,27 @@ export function KpiGrid() {
             href={kpi.href}
             className="group p-5 transition-colors hover:bg-white/[0.03]"
             style={{
-              background: "#1A1614",
-              border: "1px solid rgba(255,255,255,0.04)",
+              background: "var(--bg-primary)",
+              border: "1px solid var(--border-default)",
             }}
           >
             <p
               className="text-[11px] font-sans font-semibold uppercase tracking-[0.12em] mb-2"
-              style={{ color: "#F5F0EB" }}
+              style={{ color: "var(--text-primary)" }}
             >
               {kpi.label}
             </p>
             <div className="flex items-baseline gap-2">
               <span
                 className="font-display text-[40px] font-bold leading-none"
-                style={{ color: "#C75B39" }}
+                style={{ color: "var(--accent)" }}
               >
                 {kpi.value}
               </span>
               {kpi.prefix && (
                 <span
                   className="font-display text-xl font-bold"
-                  style={{ color: "#C75B39" }}
+                  style={{ color: "var(--accent)" }}
                 >
                   {kpi.prefix}
                 </span>
@@ -87,14 +87,14 @@ export function KpiGrid() {
             </div>
             <div className="flex items-center gap-1 mt-2">
               {isPositive ? (
-                <TrendingUp size={12} strokeWidth={2} style={{ color: "#7A9A65" }} />
+                <TrendingUp size={12} strokeWidth={2} style={{ color: "var(--success)" }} />
               ) : (
-                <TrendingDown size={12} strokeWidth={2} style={{ color: "#C44536" }} />
+                <TrendingDown size={12} strokeWidth={2} style={{ color: "var(--danger)" }} />
               )}
               <span
                 className="text-[11px] font-sans font-medium"
                 style={{
-                  color: isPositive ? "#7A9A65" : "#C44536",
+                  color: isPositive ? "var(--success)" : "var(--danger)",
                 }}
               >
                 {isPositive ? "+" : ""}
@@ -102,7 +102,7 @@ export function KpiGrid() {
               </span>
               <span
                 className="text-[10px] font-sans ml-1"
-                style={{ color: "#E0D8D0" }}
+                style={{ color: "var(--text-secondary)" }}
               >
                 vs période préc.
               </span>

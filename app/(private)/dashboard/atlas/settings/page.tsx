@@ -15,8 +15,8 @@ export default function AtlasSettingsPage() {
   return (
     <div className="max-w-2xl mx-auto space-y-6 animate-fade-in">
       <div>
-        <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>Paramètres Atlas</h1>
-        <p className="text-sm mt-1" style={{ color: "#FFFFFF" }}>Configure tes canaux, préférences et conformité</p>
+        <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Paramètres Atlas</h1>
+        <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>Configure tes canaux, préférences et conformité</p>
       </div>
 
       {/* Connected Channels */}
@@ -31,7 +31,7 @@ export default function AtlasSettingsPage() {
 
       {/* Message Templates */}
       <Section title="Templates de messages" icon={Mail}>
-        <p className="text-xs mb-3" style={{ color: "#FFFFFF" }}>Les templates permettent de standardiser tes réponses automatiques</p>
+        <p className="text-xs mb-3" style={{ color: "var(--text-primary)" }}>Les templates permettent de standardiser tes réponses automatiques</p>
         <TemplateRow name="Bienvenue" preview="Hey {name}! 🔥 So glad you joined..." />
         <TemplateRow name="Relance 7 jours" preview="Hey {name}! 💫 Been a while — wanted to check in..." />
         <TemplateRow name="Remerciement achat" preview="{name}! 🫶 Huge thank you for your support..." />
@@ -41,16 +41,16 @@ export default function AtlasSettingsPage() {
       {/* Compliance */}
       <Section title="Conformité & Disclosure" icon={Shield}>
         <div className="space-y-3">
-          <p className="text-xs" style={{ color: "#FFFFFF" }}>
+          <p className="text-xs" style={{ color: "var(--text-primary)" }}>
             Assure-toi que toutes tes communications respectent les réglementations en vigueur (RGPD, CAN-SPAM, FTC).
           </p>
           <Link
             href="/dashboard/atlas/settings/compliance"
             className="flex items-center justify-between text-sm group transition-colors"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
           >
             <span>Centre de conformité complet</span>
-            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" style={{ color: "#C75B39" }} />
+            <ArrowRight size={14} className="transition-transform group-hover:translate-x-1" style={{ color: "var(--accent)" }} />
           </Link>
         </div>
       </Section>
@@ -59,19 +59,19 @@ export default function AtlasSettingsPage() {
       <Section title="Gestion des données" icon={Database}>
         <div className="space-y-2 text-sm">
           <div className="flex items-center justify-between">
-            <span style={{ color: "#FFFFFF" }}>Rétention des données fans</span>
-            <span style={{ color: "#FFFFFF" }}>12 mois</span>
+            <span style={{ color: "var(--text-primary)" }}>Rétention des données fans</span>
+            <span style={{ color: "var(--text-primary)" }}>12 mois</span>
           </div>
           <div className="flex items-center justify-between">
-            <span style={{ color: "#FFFFFF" }}>Anonymisation automatique</span>
-            <span className="text-xs px-2 py-0.5 rounded-sm" style={{ background: "rgba(16,185,129,0.1)", color: "#10B981" }}>Activée</span>
+            <span style={{ color: "var(--text-primary)" }}>Anonymisation automatique</span>
+            <span className="text-xs px-2 py-0.5 rounded-sm" style={{ background: "rgba(16,185,129,0.1)", color: "var(--success)" }}>Activée</span>
           </div>
         </div>
       </Section>
 
       <button onClick={handleSave}
         className="flex items-center gap-1.5 px-4 py-2 text-sm rounded-sm transition-opacity hover:opacity-80"
-        style={{ background: "#C75B39", color: "#FFFFFF" }}>
+        style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
         {saved ? <><CheckCircle size={14} /> Sauvegardé</> : "Sauvegarder les paramètres"}
       </button>
     </div>
@@ -81,7 +81,7 @@ export default function AtlasSettingsPage() {
 function Section({ title, icon: Icon, children }: { title: string; icon: any; children: React.ReactNode }) {
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-sm font-semibold mb-3 flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
         <Icon size={14} /> {title}
       </h3>
       {children}
@@ -92,9 +92,9 @@ function Section({ title, icon: Icon, children }: { title: string; icon: any; ch
 function ChannelRow({ label, connected }: { label: string; connected: boolean }) {
   return (
     <div className="flex items-center justify-between py-2 text-sm">
-      <span style={{ color: "#FFFFFF" }}>{label}</span>
+      <span style={{ color: "var(--text-primary)" }}>{label}</span>
       <span className={`flex items-center gap-1 text-xs ${
-        connected ? "text-[#10B981]" : "text-[#FFFFFF]"
+        connected ? "text-[var(--success)]" : "text-[var(--text-primary)]"
       }`}>
         {connected ? <CheckCircle size={12} /> : <XCircle size={12} />}
         {connected ? "Connecté" : "Non connecté"}
@@ -106,8 +106,8 @@ function ChannelRow({ label, connected }: { label: string; connected: boolean })
 function TemplateRow({ name, preview }: { name: string; preview: string }) {
   return (
     <div className="py-2">
-      <span className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{name}</span>
-      <p className="text-xs mt-0.5 italic" style={{ color: "#FFFFFF" }}>{preview}</p>
+      <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{name}</span>
+      <p className="text-xs mt-0.5 italic" style={{ color: "var(--text-primary)" }}>{preview}</p>
     </div>
   );
 }

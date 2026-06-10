@@ -15,9 +15,9 @@ import type { AggregatedMonthlyRevenue } from "../types";
 type Props = { data: AggregatedMonthlyRevenue[] };
 
 const COLORS = {
-  commission: "#C75B39",
-  net: "#E0D8D0",
-  fees: "#E0D8D0",
+  commission: "var(--accent)",
+  net: "var(--text-secondary)",
+  fees: "var(--text-secondary)",
 };
 
 export function RevenueStackedChart({ data }: Props) {
@@ -29,14 +29,14 @@ export function RevenueStackedChart({ data }: Props) {
   }));
 
   return (
-    <div className="card-accent" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.04)" }}>
+    <div className="card-accent" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
       {/* Header */}
-      <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid var(--border-default)" }}>
         <div>
-          <h2 className="font-display text-lg font-bold" style={{ color: "#F5F0EB" }}>
+          <h2 className="font-display text-lg font-bold" style={{ color: "var(--text-primary)" }}>
             Répartition des revenus
           </h2>
-          <p className="text-xs font-sans mt-0.5" style={{ color: "#F5F0EB" }}>
+          <p className="text-xs font-sans mt-0.5" style={{ color: "var(--text-primary)" }}>
             Commission · Net créateurs · Frais plateformes
           </p>
         </div>
@@ -48,7 +48,7 @@ export function RevenueStackedChart({ data }: Props) {
           ].map((item) => (
             <div key={item.label} className="flex items-center gap-1.5">
               <span className="w-2.5 h-2.5" style={{ background: item.color }} />
-              <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>
+              <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-primary)" }}>
                 {item.label}
               </span>
             </div>
@@ -79,23 +79,23 @@ export function RevenueStackedChart({ data }: Props) {
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#F5F0EB", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
+              tick={{ fill: "var(--text-primary)", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#F5F0EB", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
+              tick={{ fill: "var(--text-primary)", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
               tickFormatter={formatEuro}
             />
             <Tooltip
               contentStyle={{
                 background: "#0F0D0B",
-                border: "1px solid rgba(255,255,255,0.08)",
+                border: "1px solid var(--border-default)",
                 borderRadius: 0,
                 fontSize: 12,
                 fontFamily: "Plus Jakarta Sans",
               }}
-              labelStyle={{ color: "#F5F0EB", marginBottom: 4 }}
+              labelStyle={{ color: "var(--text-primary)", marginBottom: 4 }}
               formatter={(value) => formatEuro(Number(value) || 0)}
             />
             <Area

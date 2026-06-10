@@ -1,5 +1,5 @@
 import { type NextRequest, NextResponse } from "next/server";
-import { createClient } from "@/lib/supabase/server";
+import { createClient, createAdminClient } from "@/lib/supabase/server";
 import { finalizeDNA } from "@/lib/dna/finalizer";
 
 export async function POST(request: NextRequest) {
@@ -12,8 +12,13 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Non autorisé" }, { status: 401 });
     }
 
-    const body = await request.json();
-    const creatorId = body.creator_id ?? user.id;
+    let body: Record<string, unknown> = {};
+    try {
+      body = await request.json();
+    } catch {
+      // No body or invalid JSON — use defaults
+    }
+    const creatorId = (body.creator_id as string) ?? user.id;
 
     // Vérifier l'accès (seul le créateur ou admin/manager peut finaliser)
     if (creatorId !== user.id) {
@@ -27,8 +32,9 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Vérifier que toutes les sections sont remplies
-    const { data: dna } = await supabase
+    // Vérifier que toutes les sections sont remplies (admin client bypass RLS)
+    const adminDb = createAdminClient();
+    const { data: dna } = await adminDb
       .from("creator_dna")
       .select("*")
       .eq("creator_id", creatorId)
@@ -66,9 +72,10 @@ export async function POST(request: NextRequest) {
 
     return NextResponse.json(result);
   } catch (err) {
-    console.error("[DNA Finalize] Error:", err);
+    const message = err instanceof Error ? err.message : String(err);
+    console.error("[DNA Finalize] Error:", message, err);
     return NextResponse.json(
-      { success: false, error: "Erreur serveur lors de la finalisation" },
+      { success: false, error: `Erreur serveur lors de la finalisation: ${message}` },
       { status: 500 },
     );
   }

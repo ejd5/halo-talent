@@ -49,40 +49,40 @@ export function RevenueChart() {
     <div
       className="card-accent"
       style={{
-        background: "#1A1614",
-        border: "1px solid rgba(255,255,255,0.04)",
+        background: "var(--bg-primary)",
+        border: "1px solid var(--border-default)",
       }}
     >
       {/* Header */}
       <div
         className="flex items-center justify-between px-6 py-4"
         style={{
-          borderBottom: "1px solid rgba(255,255,255,0.04)",
+          borderBottom: "1px solid var(--border-default)",
         }}
       >
         <div>
           <h2
             className="font-display text-lg font-bold"
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           >
             Revenus — 12 mois
           </h2>
-          <p className="text-xs font-sans mt-0.5" style={{ color: "#F5F0EB" }}>
+          <p className="text-xs font-sans mt-0.5" style={{ color: "var(--text-primary)" }}>
             Bruts · Commission · Net créateurs
           </p>
         </div>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#C75B39" }} />
-            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>Brut</span>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: "var(--accent)" }} />
+            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-primary)" }}>Brut</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#E0D8D0" }} />
-            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>Commission</span>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: "var(--text-secondary)" }} />
+            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-primary)" }}>Commission</span>
           </div>
           <div className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#F5F0EB" }} />
-            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#F5F0EB" }}>Net</span>
+            <span className="w-2.5 h-2.5 rounded-full" style={{ background: "var(--text-primary)" }} />
+            <span className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-primary)" }}>Net</span>
           </div>
         </div>
       </div>
@@ -93,16 +93,16 @@ export function RevenueChart() {
           <AreaChart data={data}>
             <defs>
               <linearGradient id="gradientBrut" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#C75B39" stopOpacity={0.2} />
-                <stop offset="100%" stopColor="#C75B39" stopOpacity={0} />
+                <stop offset="0%" stopColor="var(--accent)" stopOpacity={0.2} />
+                <stop offset="100%" stopColor="var(--accent)" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="gradientCommission" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#E0D8D0" stopOpacity={0.15} />
-                <stop offset="100%" stopColor="#E0D8D0" stopOpacity={0} />
+                <stop offset="0%" stopColor="var(--text-secondary)" stopOpacity={0.15} />
+                <stop offset="100%" stopColor="var(--text-secondary)" stopOpacity={0} />
               </linearGradient>
               <linearGradient id="gradientNet" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#F5F0EB" stopOpacity={0.1} />
-                <stop offset="100%" stopColor="#F5F0EB" stopOpacity={0} />
+                <stop offset="0%" stopColor="var(--text-primary)" stopOpacity={0.1} />
+                <stop offset="100%" stopColor="var(--text-primary)" stopOpacity={0} />
               </linearGradient>
             </defs>
             <CartesianGrid
@@ -114,51 +114,51 @@ export function RevenueChart() {
               dataKey="month"
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#F5F0EB", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
+              tick={{ fill: "var(--text-primary)", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
             />
             <YAxis
               axisLine={false}
               tickLine={false}
-              tick={{ fill: "#F5F0EB", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
+              tick={{ fill: "var(--text-primary)", fontSize: 11, fontFamily: "Plus Jakarta Sans" }}
               tickFormatter={formatEuro}
             />
             <Tooltip
               contentStyle={{
                 background: "#0F0D0B",
-                border: "1px solid rgba(255,255,255,0.08)",
+                border: "1px solid var(--border-default)",
                 borderRadius: 0,
                 fontSize: 12,
                 fontFamily: "Plus Jakarta Sans",
               }}
-              labelStyle={{ color: "#F5F0EB", marginBottom: 4 }}
+              labelStyle={{ color: "var(--text-primary)", marginBottom: 4 }}
               formatter={(value) => formatEuro(Number(value) || 0)}
             />
             <Area
               type="monotone"
               dataKey="brut"
-              stroke="#C75B39"
+              stroke="var(--accent)"
               strokeWidth={2}
               fill="url(#gradientBrut)"
               dot={false}
-              activeDot={{ r: 4, stroke: "#C75B39", strokeWidth: 2, fill: "#0F0D0B" }}
+              activeDot={{ r: 4, stroke: "var(--accent)", strokeWidth: 2, fill: "#0F0D0B" }}
             />
             <Area
               type="monotone"
               dataKey="commission"
-              stroke="#E0D8D0"
+              stroke="var(--text-secondary)"
               strokeWidth={1.5}
               fill="url(#gradientCommission)"
               dot={false}
-              activeDot={{ r: 3, stroke: "#E0D8D0", strokeWidth: 1.5, fill: "#0F0D0B" }}
+              activeDot={{ r: 3, stroke: "var(--text-secondary)", strokeWidth: 1.5, fill: "#0F0D0B" }}
             />
             <Area
               type="monotone"
               dataKey="net"
-              stroke="#F5F0EB"
+              stroke="var(--text-primary)"
               strokeWidth={1.5}
               fill="url(#gradientNet)"
               dot={false}
-              activeDot={{ r: 3, stroke: "#F5F0EB", strokeWidth: 1.5, fill: "#0F0D0B" }}
+              activeDot={{ r: 3, stroke: "var(--text-primary)", strokeWidth: 1.5, fill: "#0F0D0B" }}
             />
           </AreaChart>
         </ResponsiveContainer>

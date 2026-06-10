@@ -51,7 +51,7 @@ export default function AtlasMonitoringPage() {
   return (
     <div className="space-y-6 animate-fade-in">
       <div>
-        <h1 className="text-2xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <h1 className="text-2xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           Monitoring Atlas
         </h1>
         <p className="text-sm mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -72,25 +72,25 @@ export default function AtlasMonitoringPage() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Channel volume */}
         <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)" }}>
-          <h2 className="text-sm font-semibold mb-4" style={{ color: "#F5F0EB" }}>Volume par canal</h2>
+          <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Volume par canal</h2>
           <div className="space-y-3">
-            <ChannelRow icon={Mail} label="Email" count={cv?.email ?? 0} color="#C75B39" />
+            <ChannelRow icon={Mail} label="Email" count={cv?.email ?? 0} color="var(--accent)" />
             <ChannelRow icon={Phone} label="SMS" count={cv?.sms ?? 0} color="#5B8FA8" />
-            <ChannelRow icon={Bell} label="Push" count={cv?.push ?? 0} color="#7A9A65" />
+            <ChannelRow icon={Bell} label="Push" count={cv?.push ?? 0} color="var(--success)" />
           </div>
         </div>
 
         {/* Costs */}
         <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)" }}>
-          <h2 className="text-sm font-semibold mb-4" style={{ color: "#F5F0EB" }}>Coûts estimés (USD)</h2>
+          <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Coûts estimés (USD)</h2>
           <div className="space-y-3">
-            <CostRow label="Email (Resend)" amount={costs?.email ?? 0} color="#C75B39" />
+            <CostRow label="Email (Resend)" amount={costs?.email ?? 0} color="var(--accent)" />
             <CostRow label="SMS (Twilio)" amount={costs?.sms ?? 0} color="#5B8FA8" />
-            <CostRow label="Push" amount={costs?.push ?? 0} color="#7A9A65" />
+            <CostRow label="Push" amount={costs?.push ?? 0} color="var(--success)" />
             <div className="pt-2 border-t" style={{ borderColor: "rgba(245,240,235,0.06)" }}>
               <div className="flex justify-between items-center">
-                <span className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>Total</span>
-                <span className="text-sm font-bold" style={{ color: "#C75B39" }}>
+                <span className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Total</span>
+                <span className="text-sm font-bold" style={{ color: "var(--accent)" }}>
                   ${(costs?.total ?? 0).toFixed(2)}
                 </span>
               </div>
@@ -101,8 +101,8 @@ export default function AtlasMonitoringPage() {
 
       {/* Recent errors */}
       <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)" }}>
-        <h2 className="text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: "#F5F0EB" }}>
-          <AlertTriangle size={14} style={{ color: "#C44536" }} />
+        <h2 className="text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
+          <AlertTriangle size={14} style={{ color: "var(--danger)" }} />
           Erreurs récentes
         </h2>
         {(!data?.recent_errors || data.recent_errors.length === 0) ? (
@@ -117,7 +117,7 @@ export default function AtlasMonitoringPage() {
                 className="flex items-start gap-2 p-2 text-xs"
                 style={{ backgroundColor: "rgba(196,69,54,0.05)", border: "1px solid rgba(196,69,54,0.1)" }}
               >
-                <span style={{ color: "#C44536" }}>{err.error_message}</span>
+                <span style={{ color: "var(--danger)" }}>{err.error_message}</span>
                 <span className="ml-auto shrink-0" style={{ color: "rgba(245,240,235,0.2)" }}>
                   {new Date(err.created_at).toLocaleDateString("fr-FR")}
                 </span>
@@ -132,12 +132,12 @@ export default function AtlasMonitoringPage() {
 
 function StatCard({ icon: Icon, label, value }: { icon: any; label: string; value: number }) {
   return (
-    <div className="p-4" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+    <div className="p-4" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
       <div className="flex items-center justify-between mb-2">
         <span className="text-[10px] uppercase tracking-wider" style={{ color: "rgba(245,240,235,0.4)" }}>{label}</span>
         <Icon size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
       </div>
-      <p className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+      <p className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
         {value.toLocaleString("fr-FR")}
       </p>
     </div>
@@ -149,7 +149,7 @@ function ChannelRow({ icon: Icon, label, count, color }: { icon: any; label: str
     <div className="flex items-center gap-3">
       <Icon size={14} style={{ color }} />
       <span className="text-sm flex-1" style={{ color: "rgba(245,240,235,0.5)" }}>{label}</span>
-      <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{count.toLocaleString("fr-FR")}</span>
+      <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{count.toLocaleString("fr-FR")}</span>
     </div>
   );
 }
@@ -161,7 +161,7 @@ function CostRow({ label, amount, color }: { label: string; amount: number; colo
         <div className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
         <span className="text-sm" style={{ color: "rgba(245,240,235,0.5)" }}>{label}</span>
       </div>
-      <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>${amount.toFixed(2)}</span>
+      <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>${amount.toFixed(2)}</span>
     </div>
   );
 }

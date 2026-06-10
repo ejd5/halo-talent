@@ -3,26 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 
-/* ─── Fake partner logos for the marquee ─── */
-const partners = [
-  "VOGUE",
-  "NUMÉRO",
-  "GQ",
-  "VANITY FAIR",
-  "LCI",
-  "LE MONDE",
-  "BRUT.",
-  "KOLNET",
-  "LES ECHOS",
-  "TECH&CO",
-];
-
 /* ─── Stats data ─── */
 const stats = [
   { value: "30%→10%", label: "Commission dégressive" },
-  { value: "5", label: "Départements" },
-  { value: "100%", label: "Souveraineté garantie" },
-  { value: "30 jours", label: "Sortie garantie" },
+  { value: "5", label: "Départements spécialisés" },
+  { value: "30 jours", label: "Sortie sans pénalité" },
+  { value: "0", label: "Frais d'entrée" },
 ];
 
 /* ─── Count-up hook ─── */
@@ -104,41 +90,7 @@ export function SocialProofSection() {
     <section ref={ref} className="py-32 md:py-44 bg-base overflow-hidden">
       <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
         {/* ════════════════════════════════════════ */}
-        {/* PARTIE 1 — MARQUEE LOGOS                */}
-        {/* ════════════════════════════════════════ */}
-        <div
-          style={{
-            opacity: visible ? 1 : 0,
-            transition: "opacity 0.8s ease-out 0.1s",
-          }}
-        >
-          <p className="text-[11px] font-sans font-semibold text-ink-muted uppercase tracking-[0.12em] text-center mb-10">
-            Ils nous font confiance
-          </p>
-
-          <div className="relative w-full overflow-hidden">
-            <div
-              className="flex gap-16 md:gap-24 w-max"
-              style={{
-                animation: visible ? "marquee 40s linear infinite" : "none",
-              }}
-            >
-              {/* Two copies for seamless loop */}
-              {[...partners, ...partners].map((name, i) => (
-                <span
-                  key={`${name}-${i}`}
-                  className="text-[13px] md:text-sm font-sans font-bold uppercase tracking-[0.15em] select-none transition-all duration-500 grayscale opacity-40 hover:grayscale-0 hover:opacity-100"
-                  style={{ color: "var(--color-ink)" }}
-                >
-                  {name}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* ════════════════════════════════════════ */}
-        {/* PARTIE 2 — CHIFFRES CLÉS               */}
+        {/* CHIFFRES CLÉS                          */}
         {/* ════════════════════════════════════════ */}
         <div className="mt-28 md:mt-36">
           <div className="grid grid-cols-2 md:grid-cols-4 border-t border-b border-ink/10">

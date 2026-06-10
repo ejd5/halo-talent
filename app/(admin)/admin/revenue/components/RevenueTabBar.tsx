@@ -19,8 +19,8 @@ export function RevenueTabBar({ tabs, active, onChange }: Props) {
             onClick={() => onChange(tab.id)}
             className="pb-3 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors relative"
             style={{
-              color: isActive ? "#C75B39" : "#F5F0EB",
-              borderBottom: isActive ? "2px solid #C75B39" : "2px solid transparent",
+              color: isActive ? "var(--accent)" : "var(--text-primary)",
+              borderBottom: isActive ? "2px solid var(--accent)" : "2px solid transparent",
               marginBottom: "-1px",
             }}
           >

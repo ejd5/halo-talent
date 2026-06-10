@@ -167,7 +167,7 @@ export default function TikTokCreativePage() {
       {/* Header */}
       <div className="flex items-start justify-between mb-4 flex-wrap gap-3">
         <div>
-          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             TikTok Creative Lab
           </h1>
           <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -193,7 +193,7 @@ export default function TikTokCreativePage() {
             className="flex items-center gap-1.5 text-xs px-3 py-1.5 font-medium transition-all"
             style={{
               backgroundColor: activeTab === t.key ? "rgba(199,91,57,0.12)" : "transparent",
-              color: activeTab === t.key ? "#C75B39" : "rgba(245,240,235,0.3)",
+              color: activeTab === t.key ? "var(--accent)" : "rgba(245,240,235,0.3)",
               border: activeTab === t.key ? "1px solid rgba(199,91,57,0.3)" : "1px solid transparent",
             }}
           >
@@ -211,7 +211,7 @@ export default function TikTokCreativePage() {
             value={region}
             onChange={(e) => setRegion(e.target.value)}
             className="px-2 py-1 text-[10px] border bg-transparent"
-            style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+            style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
           >
             {REGIONS.map((r) => (
               <option key={r.value} value={r.value}>{r.label}</option>
@@ -226,7 +226,7 @@ export default function TikTokCreativePage() {
             value={period}
             onChange={(e) => setPeriod(e.target.value)}
             className="px-2 py-1 text-[10px] border bg-transparent"
-            style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+            style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
           >
             {PERIODS.map((p) => (
               <option key={p.value} value={p.value}>{p.label}</option>
@@ -241,7 +241,7 @@ export default function TikTokCreativePage() {
               type="checkbox"
               checked={commercialOnly}
               onChange={(e) => setCommercialOnly(e.target.checked)}
-              className="accent-[#C75B39]"
+              className="accent-[var(--accent)]"
             />
             <span className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
               Commercial-safe
@@ -254,7 +254,7 @@ export default function TikTokCreativePage() {
       {error && (
         <div
           className="text-xs px-3 py-2 mb-4 flex items-center gap-2"
-          style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "#C44536", border: "1px solid rgba(196,69,54,0.15)" }}
+          style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "var(--danger)", border: "1px solid rgba(196,69,54,0.15)" }}
         >
           <span>{error}</span>
           <button

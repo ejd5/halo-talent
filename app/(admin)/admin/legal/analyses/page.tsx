@@ -45,30 +45,30 @@ type Stats = {
 };
 
 const RISK_COLORS: Record<string, string> = {
-  low: "#7A9A65",
+  low: "var(--success)",
   moderate: "#D4A24C",
-  high: "#C44536",
+  high: "var(--danger)",
   critical: "#8B0000",
 };
 
-const PLATFORM_COLORS = ["#C75B39", "#D4A24C", "#7A9A65", "#4A7C9B", "#8B5CF6", "#EC4899", "#6366F1"];
+const PLATFORM_COLORS = ["var(--accent)", "#D4A24C", "var(--success)", "#4A7C9B", "#8B5CF6", "#EC4899", "#6366F1"];
 
-const BAR_COLORS = ["#C75B39", "#C75B39", "#C75B39", "#C75B39", "#C75B39", "#B84E2E", "#A84324", "#93371A", "#7D2B10", "#671F06"];
+const BAR_COLORS = ["var(--accent)", "var(--accent)", "var(--accent)", "var(--accent)", "var(--accent)", "#B84E2E", "#A84324", "#93371A", "#7D2B10", "#671F06"];
 
 const TOOLTIP_STYLE = {
-  background: "#2A2420",
-  border: "1px solid rgba(255,255,255,0.08)",
+  background: "var(--bg-card)",
+  border: "1px solid var(--border-default)",
   borderRadius: 0,
   fontSize: 12,
-  color: "#F5F0EB",
+  color: "var(--text-primary)",
 };
 
 function ChartCard({ icon: Icon, title, children }: { icon: React.ElementType; title: string; children: React.ReactNode }) {
   return (
-    <div className="p-4 h-full flex flex-col" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "transparent" }}>
+    <div className="p-4 h-full flex flex-col" style={{ border: "1px solid var(--border-default)", background: "transparent" }}>
       <div className="flex items-center gap-2 mb-3 shrink-0">
-        <Icon size={14} style={{ color: "#E0D8D0" }} />
-        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#E0D8D0" }}>{title}</span>
+        <Icon size={14} style={{ color: "var(--text-secondary)" }} />
+        <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--text-secondary)" }}>{title}</span>
       </div>
       <div className="flex-1 min-h-0">{children}</div>
     </div>
@@ -135,9 +135,9 @@ export default function LegalAnalysesPage() {
   const funnelMax = funnel?.total_analyses ?? 1;
   const funnelStages = funnel
     ? [
-        { label: "Analyses", value: funnel.total_analyses, pct: 100, color: "#C75B39" },
+        { label: "Analyses", value: funnel.total_analyses, pct: 100, color: "var(--accent)" },
         { label: "Lettre générée", value: funnel.with_letters, pct: (funnel.with_letters / funnelMax) * 100, color: "#D4A24C" },
-        { label: "Lead", value: funnel.converted_to_lead, pct: (funnel.converted_to_lead / funnelMax) * 100, color: "#7A9A65" },
+        { label: "Lead", value: funnel.converted_to_lead, pct: (funnel.converted_to_lead / funnelMax) * 100, color: "var(--success)" },
         { label: "Membre", value: funnel.converted_to_member, pct: (funnel.converted_to_member / funnelMax) * 100, color: "#4A7C9B" },
       ]
     : [];
@@ -148,12 +148,12 @@ export default function LegalAnalysesPage() {
       <div className="flex items-center justify-between mb-8">
         <div>
           <div className="flex items-center gap-3 mb-1">
-            <BarChart3 size={24} style={{ color: "#C75B39" }} />
-            <h1 className="text-2xl font-display font-semibold" style={{ color: "#F5F0EB" }}>
+            <BarChart3 size={24} style={{ color: "var(--accent)" }} />
+            <h1 className="text-2xl font-display font-semibold" style={{ color: "var(--text-primary)" }}>
               Analyses contrats
             </h1>
           </div>
-          <p className="text-sm" style={{ color: "#E0D8D0" }}>
+          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
             {analyses.length} analyses — Détection des clauses abusives dans les contrats créateurs
           </p>
         </div>
@@ -171,7 +171,7 @@ export default function LegalAnalysesPage() {
                   <XAxis dataKey="date" tick={{ fontSize: 9, fill: "rgba(255,255,255,0.4)" }} axisLine={false} tickLine={false} />
                   <YAxis tick={{ fontSize: 9, fill: "rgba(255,255,255,0.4)" }} axisLine={false} tickLine={false} allowDecimals={false} />
                   <Tooltip contentStyle={TOOLTIP_STYLE} />
-                  <Line type="monotone" dataKey="count" stroke="#C75B39" strokeWidth={2} dot={false} />
+                  <Line type="monotone" dataKey="count" stroke="var(--accent)" strokeWidth={2} dot={false} />
                 </LineChart>
               </ResponsiveContainer>
             </ChartCard>
@@ -218,7 +218,7 @@ export default function LegalAnalysesPage() {
                   />
                   <Tooltip
                     contentStyle={TOOLTIP_STYLE}
-                    formatter={(value: number) => [`${value} fois`, "Fréquence"]}
+                    formatter={(value) => [`${value} fois`, "Fréquence"]}
                   />
                   <Bar dataKey="count" radius={[0, 2, 2, 0]} barSize={14}>
                     {topClauses.slice(0, 10).map((_, i) => (
@@ -250,20 +250,20 @@ export default function LegalAnalysesPage() {
                       cy="65%"
                       stroke="none"
                     >
-                      <Cell fill="#C75B39" />
+                      <Cell fill="var(--accent)" />
                       <Cell fill="rgba(255,255,255,0.06)" />
                     </Pie>
                   </RePie>
                 </ResponsiveContainer>
                 <div className="text-center -mt-8">
-                  <span className="text-2xl font-bold font-display" style={{ color: "#F5F0EB" }}>
+                  <span className="text-2xl font-bold font-display" style={{ color: "var(--text-primary)" }}>
                     {avgScore}
                   </span>
                   <span className="text-xs ml-1" style={{ color: "rgba(255,255,255,0.4)" }}>
                     / {maxScore}
                   </span>
                   <div className="w-full h-1 mt-1" style={{ background: "rgba(255,255,255,0.06)" }}>
-                    <div className="h-full" style={{ width: `${gaugePct}%`, background: "#C75B39" }} />
+                    <div className="h-full" style={{ width: `${gaugePct}%`, background: "var(--accent)" }} />
                   </div>
                 </div>
               </div>
@@ -276,7 +276,7 @@ export default function LegalAnalysesPage() {
               <div className="flex items-end justify-center gap-6 pt-2 pb-1">
                 {funnelStages.map((stage) => (
                   <div key={stage.label} className="flex flex-col items-center gap-2">
-                    <span className="text-lg font-bold font-display" style={{ color: "#F5F0EB" }}>{stage.value}</span>
+                    <span className="text-lg font-bold font-display" style={{ color: "var(--text-primary)" }}>{stage.value}</span>
                     <div
                       className="w-full transition-all duration-500"
                       style={{
@@ -301,15 +301,15 @@ export default function LegalAnalysesPage() {
 
       {/* Patterns détectés */}
       {stats && stats.top_other_clauses.length > 0 && (
-        <div className="mb-8 p-4" style={{ border: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+        <div className="mb-8 p-4" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
           <div className="flex items-center gap-2 mb-3">
             <AlertTriangle size={14} style={{ color: "#D4A24C" }} />
-            <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "#E0D8D0" }}>Autres clauses fréquentes détectées</span>
+            <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--text-secondary)" }}>Autres clauses fréquentes détectées</span>
           </div>
           <div className="space-y-2">
             {stats.top_other_clauses.map((item, i) => (
-              <div key={i} className="flex items-center justify-between py-1.5" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
-                <span className="text-sm" style={{ color: "#E0D8D0" }}>{item.text}</span>
+              <div key={i} className="flex items-center justify-between py-1.5" style={{ borderBottom: "1px solid var(--border-default)" }}>
+                <span className="text-sm" style={{ color: "var(--text-secondary)" }}>{item.text}</span>
                 <span className="text-xs font-medium px-2 py-0.5" style={{ background: "rgba(212,162,76,0.12)", color: "#D4A24C" }}>
                   ×{item.count}
                 </span>
@@ -321,13 +321,13 @@ export default function LegalAnalysesPage() {
 
       {/* Filters */}
       <div className="flex items-center gap-3 mb-6">
-        <select value={filterPlat} onChange={(e) => setFilterPlat(e.target.value)} className="text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#E0D8D0" }}>
+        <select value={filterPlat} onChange={(e) => setFilterPlat(e.target.value)} className="text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-secondary)" }}>
           <option value="">Toutes plateformes</option>
           {[...new Set(analyses.map((a) => a.platform))].sort().map((p) => (
             <option key={p} value={p}>{p}</option>
           ))}
         </select>
-        <select value={filterRisk} onChange={(e) => setFilterRisk(e.target.value)} className="text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", color: "#E0D8D0" }}>
+        <select value={filterRisk} onChange={(e) => setFilterRisk(e.target.value)} className="text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-secondary)" }}>
           <option value="">Tous risques</option>
           {["low", "moderate", "high", "critical"].map((r) => (
             <option key={r} value={r}>{r}</option>
@@ -341,15 +341,15 @@ export default function LegalAnalysesPage() {
       {/* Table */}
       {loading ? (
         <div className="flex items-center justify-center py-20">
-          <Loader2 size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+          <Loader2 size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
         </div>
       ) : (
-        <div style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+        <div style={{ border: "1px solid var(--border-default)" }}>
           <table className="w-full" style={{ borderCollapse: "collapse" }}>
             <thead>
-              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+              <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "var(--bg-card)" }}>
                 {["Date", "Plateforme", "Score", "Risque", "Agence", "Clauses", "Lettre", "Anonyme", ""].map((h) => (
-                  <th key={h} className="text-left text-xs font-semibold uppercase tracking-wider px-4 py-3" style={{ color: "#E0D8D0" }}>{h}</th>
+                  <th key={h} className="text-left text-xs font-semibold uppercase tracking-wider px-4 py-3" style={{ color: "var(--text-secondary)" }}>{h}</th>
                 ))}
               </tr>
             </thead>
@@ -359,29 +359,29 @@ export default function LegalAnalysesPage() {
                   <td className="px-4 py-3 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
                     {a.created_at ? new Date(a.created_at).toLocaleDateString("fr-FR") : "—"}
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: "#F5F0EB" }}>{a.platform}</td>
-                  <td className="px-4 py-3 text-sm font-medium" style={{ color: "#F5F0EB" }}>{a.total_score ?? "—"}</td>
+                  <td className="px-4 py-3 text-sm" style={{ color: "var(--text-primary)" }}>{a.platform}</td>
+                  <td className="px-4 py-3 text-sm font-medium" style={{ color: "var(--text-primary)" }}>{a.total_score ?? "—"}</td>
                   <td className="px-4 py-3">
                     <span className="text-xs font-medium px-2 py-0.5" style={{ background: `${RISK_COLORS[a.risk_level] || "#666"}20`, color: RISK_COLORS[a.risk_level] || "#666" }}>
                       {a.risk_level}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: "#E0D8D0" }}>{a.agency_name || "—"}</td>
+                  <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{a.agency_name || "—"}</td>
                   <td className="px-4 py-3 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
                     {a.clauses_checked?.length ?? 0} clauses
                   </td>
                   <td className="px-4 py-3">
-                    <span className="text-[10px] px-1.5 py-0.5 font-medium" style={{ background: a.letter_generated ? "rgba(122,154,101,0.12)" : "rgba(255,255,255,0.04)", color: a.letter_generated ? "#7A9A65" : "rgba(255,255,255,0.3)" }}>
+                    <span className="text-[10px] px-1.5 py-0.5 font-medium" style={{ background: a.letter_generated ? "rgba(122,154,101,0.12)" : "rgba(255,255,255,0.04)", color: a.letter_generated ? "var(--success)" : "rgba(255,255,255,0.3)" }}>
                       {a.letter_generated ? "oui" : "non"}
                     </span>
                   </td>
                   <td className="px-4 py-3">
-                    <span className="text-[10px]" style={{ color: a.is_anonymous ? "rgba(255,255,255,0.3)" : "#7A9A65" }}>
+                    <span className="text-[10px]" style={{ color: a.is_anonymous ? "rgba(255,255,255,0.3)" : "var(--success)" }}>
                       {a.is_anonymous ? "oui" : "non"}
                     </span>
                   </td>
                   <td className="px-4 py-3">
-                    <button onClick={() => openDetail(a.id)} className="p-1.5 transition-colors hover:bg-white/5" style={{ color: "#C75B39" }}>
+                    <button onClick={() => openDetail(a.id)} className="p-1.5 transition-colors hover:bg-white/5" style={{ color: "var(--accent)" }}>
                       <Eye size={14} />
                     </button>
                   </td>
@@ -398,26 +398,26 @@ export default function LegalAnalysesPage() {
       {/* Detail modal */}
       {detail && (
         <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.6)" }}>
-          <div className="w-full max-w-2xl max-h-[85vh] overflow-y-auto" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
+          <div className="w-full max-w-2xl max-h-[85vh] overflow-y-auto" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
             <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-              <h2 className="text-lg font-semibold" style={{ color: "#F5F0EB" }}>
+              <h2 className="text-lg font-semibold" style={{ color: "var(--text-primary)" }}>
                 Analyse {detail.platform}
               </h2>
-              <button onClick={() => setDetail(null)} style={{ color: "#E0D8D0" }}><X size={18} /></button>
+              <button onClick={() => setDetail(null)} style={{ color: "var(--text-secondary)" }}><X size={18} /></button>
             </div>
             <div className="p-6 space-y-5">
               <div className="grid grid-cols-2 gap-4 text-sm">
                 <div>
                   <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Date</span>
-                  <p style={{ color: "#F5F0EB" }}>{new Date(detail.created_at).toLocaleDateString("fr-FR", { dateStyle: "long" })}</p>
+                  <p style={{ color: "var(--text-primary)" }}>{new Date(detail.created_at).toLocaleDateString("fr-FR", { dateStyle: "long" })}</p>
                 </div>
                 <div>
                   <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Plateforme</span>
-                  <p style={{ color: "#F5F0EB" }}>{detail.platform}</p>
+                  <p style={{ color: "var(--text-primary)" }}>{detail.platform}</p>
                 </div>
                 <div>
                   <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Score</span>
-                  <p className="font-semibold" style={{ color: "#F5F0EB" }}>{detail.total_score ?? "—"}/100</p>
+                  <p className="font-semibold" style={{ color: "var(--text-primary)" }}>{detail.total_score ?? "—"}/100</p>
                 </div>
                 <div>
                   <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Risque</span>
@@ -428,24 +428,24 @@ export default function LegalAnalysesPage() {
                 {detail.agency_name && (
                   <div>
                     <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Agence</span>
-                    <p style={{ color: "#F5F0EB" }}>{detail.agency_name}</p>
+                    <p style={{ color: "var(--text-primary)" }}>{detail.agency_name}</p>
                   </div>
                 )}
                 <div>
                   <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Lettre générée</span>
-                  <p style={{ color: detail.letter_generated ? "#7A9A65" : "rgba(255,255,255,0.3)" }}>
+                  <p style={{ color: detail.letter_generated ? "var(--success)" : "rgba(255,255,255,0.3)" }}>
                     {detail.letter_generated ? "Oui" : "Non"}
                   </p>
                 </div>
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold mb-2" style={{ color: "#F5F0EB" }}>Clauses vérifiées ({detail.clauses_details.length})</h3>
+                <h3 className="text-sm font-semibold mb-2" style={{ color: "var(--text-primary)" }}>Clauses vérifiées ({detail.clauses_details.length})</h3>
                 <div className="space-y-2">
                   {detail.clauses_details.map((clause) => (
-                    <div key={clause.id} className="flex items-center justify-between p-3" style={{ border: "1px solid rgba(255,255,255,0.06)" }}>
+                    <div key={clause.id} className="flex items-center justify-between p-3" style={{ border: "1px solid var(--border-default)" }}>
                       <div>
-                        <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{clause.label}</span>
+                        <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{clause.label}</span>
                         <span className="text-xs ml-2" style={{ color: "rgba(255,255,255,0.3)" }}>{clause.category}</span>
                       </div>
                       <span className="text-xs font-medium px-2 py-0.5" style={{ background: `${RISK_COLORS[clause.severity <= 2 ? "low" : clause.severity <= 4 ? "moderate" : "high"]}20`, color: RISK_COLORS[clause.severity <= 2 ? "low" : clause.severity <= 4 ? "moderate" : "high"] }}>
@@ -461,10 +461,10 @@ export default function LegalAnalysesPage() {
 
               {detail.letters.length > 0 && (
                 <div>
-                  <h3 className="text-sm font-semibold mb-2" style={{ color: "#F5F0EB" }}>Lettres générées</h3>
+                  <h3 className="text-sm font-semibold mb-2" style={{ color: "var(--text-primary)" }}>Lettres générées</h3>
                   <div className="space-y-1">
                     {detail.letters.map((l) => (
-                      <div key={l.id} className="text-sm" style={{ color: "#E0D8D0" }}>
+                      <div key={l.id} className="text-sm" style={{ color: "var(--text-secondary)" }}>
                         {l.letter_type} — {new Date(l.created_at).toLocaleDateString("fr-FR")}
                       </div>
                     ))}

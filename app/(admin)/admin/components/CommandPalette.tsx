@@ -166,7 +166,7 @@ export function CommandPalette({ onClose }: Props) {
         className="w-full max-w-[580px] shadow-2xl"
         style={{
           background: "#0F0D0B",
-          border: "1px solid rgba(255,255,255,0.08)",
+          border: "1px solid var(--border-default)",
         }}
       >
         {/* Search input */}
@@ -176,7 +176,7 @@ export function CommandPalette({ onClose }: Props) {
             borderBottom: "1px solid rgba(255,255,255,0.06)",
           }}
         >
-          <Search size={16} strokeWidth={1.5} style={{ color: "#F5F0EB" }} />
+          <Search size={16} strokeWidth={1.5} style={{ color: "var(--text-primary)" }} />
           <input
             ref={inputRef}
             type="text"
@@ -184,13 +184,13 @@ export function CommandPalette({ onClose }: Props) {
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Rechercher une page, une action, un créateur..."
             className="flex-1 bg-transparent text-sm font-sans py-4 outline-none"
-            style={{ color: "#F5F0EB" }}
+            style={{ color: "var(--text-primary)" }}
           />
           <kbd
             className="text-[10px] font-sans px-1.5 py-0.5"
             style={{
-              color: "#E0D8D0",
-              border: "1px solid rgba(255,255,255,0.08)",
+              color: "var(--text-secondary)",
+              border: "1px solid var(--border-default)",
             }}
           >
             ESC
@@ -203,7 +203,7 @@ export function CommandPalette({ onClose }: Props) {
             <div key={category}>
               <p
                 className="text-[10px] font-sans font-semibold uppercase tracking-[0.15em] px-4 py-2"
-                style={{ color: "#F5F0EB" }}
+                style={{ color: "var(--text-primary)" }}
               >
                 {category}
               </p>
@@ -221,7 +221,7 @@ export function CommandPalette({ onClose }: Props) {
                           ? "rgba(199,91,57,0.1)"
                           : "transparent",
                       color:
-                        globalIdx === activeIndex ? "#C75B39" : "#E0D8D0",
+                        globalIdx === activeIndex ? "var(--accent)" : "var(--text-secondary)",
                     }}
                   >
                     <Icon size={16} strokeWidth={1.5} />
@@ -230,13 +230,13 @@ export function CommandPalette({ onClose }: Props) {
                         className="text-sm"
                         style={{
                           color:
-                            globalIdx === activeIndex ? "#F5F0EB" : "#F5F0EB",
+                            globalIdx === activeIndex ? "var(--text-primary)" : "var(--text-primary)",
                         }}
                       >
                         {item.label}
                       </p>
                       {item.description && (
-                        <p className="text-xs" style={{ color: "#F5F0EB" }}>
+                        <p className="text-xs" style={{ color: "var(--text-primary)" }}>
                           {item.description}
                         </p>
                       )}
@@ -250,7 +250,7 @@ export function CommandPalette({ onClose }: Props) {
           {filtered.length === 0 && (
             <p
               className="text-sm font-sans text-center py-8"
-              style={{ color: "#F5F0EB" }}
+              style={{ color: "var(--text-primary)" }}
             >
               Aucun résultat pour &ldquo;{query}&rdquo;
             </p>

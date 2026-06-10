@@ -193,7 +193,7 @@ export default function GoogleTrendsPage() {
     }
   }
 
-  const CHART_COLORS = ["#C75B39", "#7A9A65", "#4285F4", "#FFD700", "#A855F7"];
+  const CHART_COLORS = ["var(--accent)", "var(--success)", "#4285F4", "#FFD700", "#A855F7"];
 
   // ── Empty state ──────────────────────────────────────────────
 
@@ -203,7 +203,7 @@ export default function GoogleTrendsPage() {
     <div className="animate-fade-in">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+        <h1 className="text-xl font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           Google Trends
         </h1>
         <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -218,7 +218,7 @@ export default function GoogleTrendsPage() {
           value={geo}
           onChange={(e) => setGeo(e.target.value)}
           className="px-3 py-1.5 text-xs border bg-transparent"
-          style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+          style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
         >
           {GEO_OPTIONS.map((g) => (
             <option key={g.value} value={g.value}>
@@ -239,7 +239,7 @@ export default function GoogleTrendsPage() {
                   timeframe === tf.value
                     ? "rgba(199,91,57,0.12)"
                     : "transparent",
-                color: timeframe === tf.value ? "#C75B39" : "rgba(245,240,235,0.3)",
+                color: timeframe === tf.value ? "var(--accent)" : "rgba(245,240,235,0.3)",
                 border:
                   timeframe === tf.value
                     ? "1px solid rgba(199,91,57,0.3)"
@@ -257,9 +257,9 @@ export default function GoogleTrendsPage() {
           disabled={loading || activeKeywordCount === 0}
           className="flex items-center gap-1.5 text-xs px-4 py-1.5 font-medium transition-all"
           style={{
-            backgroundColor: "rgba(199,91,57,0.12)",
-            color: "#C75B39",
-            border: "1px solid rgba(199,91,57,0.3)",
+            backgroundColor: "var(--accent-soft)",
+            color: "var(--accent)",
+            border: "1px solid var(--accent-border)",
             opacity: loading || activeKeywordCount === 0 ? 0.5 : 1,
           }}
         >
@@ -305,7 +305,7 @@ export default function GoogleTrendsPage() {
               className="flex-1 px-3 py-2 text-sm bg-transparent border"
               style={{
                 borderColor: "rgba(245,240,235,0.1)",
-                color: "#F5F0EB",
+                color: "var(--text-primary)",
               }}
             />
             {keywords.length > 1 && (
@@ -337,7 +337,7 @@ export default function GoogleTrendsPage() {
           className="text-xs px-3 py-2 mb-4"
           style={{
             backgroundColor: "rgba(196,69,54,0.1)",
-            color: "#C44536",
+            color: "var(--danger)",
             border: "1px solid rgba(196,69,54,0.2)",
           }}
         >
@@ -350,7 +350,7 @@ export default function GoogleTrendsPage() {
         <div
           className="p-6 animate-pulse"
           style={{
-            backgroundColor: "#2A2420",
+            backgroundColor: "var(--bg-card)",
             border: "1px solid rgba(245,240,235,0.06)",
           }}
         >
@@ -376,11 +376,11 @@ export default function GoogleTrendsPage() {
           <div
             className="p-4"
             style={{
-              backgroundColor: "#2A2420",
+              backgroundColor: "var(--bg-card)",
               border: "1px solid rgba(245,240,235,0.06)",
             }}
           >
-            <h2 className="text-sm font-semibold mb-4" style={{ color: "#F5F0EB" }}>
+            <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
               Évolution de l&apos;intérêt
             </h2>
             <div style={{ width: "100%", height: 256, position: "relative" }}>
@@ -404,11 +404,11 @@ export default function GoogleTrendsPage() {
                   />
                   <Tooltip
                     contentStyle={{
-                      backgroundColor: "#1A1614",
+                      backgroundColor: "var(--bg-primary)",
                       border: "1px solid rgba(245,240,235,0.1)",
                       borderRadius: 0,
                       fontSize: 12,
-                      color: "#F5F0EB",
+                      color: "var(--text-primary)",
                     }}
                     labelStyle={{ color: "rgba(245,240,235,0.5)", fontSize: 10 }}
                   />
@@ -451,11 +451,11 @@ export default function GoogleTrendsPage() {
             <div
               className="p-4"
               style={{
-                backgroundColor: "#2A2420",
+                backgroundColor: "var(--bg-card)",
                 border: "1px solid rgba(245,240,235,0.06)",
               }}
             >
-              <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "#F5F0EB" }}>
+              <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--text-primary)" }}>
                 Requêtes associées
               </h3>
               <div className="grid grid-cols-2 gap-4">
@@ -466,7 +466,7 @@ export default function GoogleTrendsPage() {
                   </p>
                   <div className="space-y-1">
                     {(results.find(Boolean)?.related_queries?.top ?? []).slice(0, 8).map((q, i) => (
-                      <RelatedRow key={i} query={q} color="#7A9A65" />
+                      <RelatedRow key={i} query={q} color="var(--success)" />
                     ))}
                   </div>
                 </div>
@@ -477,7 +477,7 @@ export default function GoogleTrendsPage() {
                   </p>
                   <div className="space-y-1">
                     {(results.find(Boolean)?.related_queries?.rising ?? []).slice(0, 8).map((q, i) => (
-                      <RelatedRow key={i} query={q} color="#C75B39" />
+                      <RelatedRow key={i} query={q} color="var(--accent)" />
                     ))}
                   </div>
                 </div>
@@ -488,11 +488,11 @@ export default function GoogleTrendsPage() {
             <div
               className="p-4"
               style={{
-                backgroundColor: "#2A2420",
+                backgroundColor: "var(--bg-card)",
                 border: "1px solid rgba(245,240,235,0.06)",
               }}
             >
-              <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "#F5F0EB" }}>
+              <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--text-primary)" }}>
                 Intérêt par région
               </h3>
               <div className="space-y-1">
@@ -509,12 +509,12 @@ export default function GoogleTrendsPage() {
               key={r!.keyword}
               className="p-4"
               style={{
-                backgroundColor: "#2A2420",
+                backgroundColor: "var(--bg-card)",
                 border: "1px solid rgba(245,240,235,0.06)",
               }}
             >
               <div className="flex items-center justify-between mb-2">
-                <h3 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>
+                <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
                   {r!.keyword}
                 </h3>
                 <div className="flex items-center gap-2">
@@ -533,9 +533,9 @@ export default function GoogleTrendsPage() {
                         r!.source === "apify"
                           ? "#4285F4"
                           : r!.source === "serpapi"
-                            ? "#C75B39"
+                            ? "var(--accent)"
                             : r!.source === "cache"
-                              ? "#7A9A65"
+                              ? "var(--success)"
                               : "rgba(245,240,235,0.3)",
                     }}
                   >
@@ -559,13 +559,13 @@ export default function GoogleTrendsPage() {
               </div>
               <div className="flex items-center gap-4 text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
                 <span>
-                  Pic : <strong style={{ color: "#F5F0EB" }}>{r!.peak_value}</strong>/100
+                  Pic : <strong style={{ color: "var(--text-primary)" }}>{r!.peak_value}</strong>/100
                 </span>
                 <span>
-                  Actuel : <strong style={{ color: "#F5F0EB" }}>{r!.current_value}</strong>/100
+                  Actuel : <strong style={{ color: "var(--text-primary)" }}>{r!.current_value}</strong>/100
                 </span>
                 <span>
-                  Source : <strong style={{ color: "#F5F0EB" }}>{r!.source === "apify" ? "Apify" : r!.source === "serpapi" ? "SerpApi" : r!.source === "cache" ? "Cache Supabase" : "Mock (dev)"}</strong>
+                  Source : <strong style={{ color: "var(--text-primary)" }}>{r!.source === "apify" ? "Apify" : r!.source === "serpapi" ? "SerpApi" : r!.source === "cache" ? "Cache Supabase" : "Mock (dev)"}</strong>
                 </span>
               </div>
             </div>
@@ -578,7 +578,7 @@ export default function GoogleTrendsPage() {
         <div
           className="flex flex-col items-center py-16 text-center"
           style={{
-            backgroundColor: "#2A2420",
+            backgroundColor: "var(--bg-card)",
             border: "1px solid rgba(245,240,235,0.06)",
           }}
         >
@@ -604,9 +604,9 @@ export default function GoogleTrendsPage() {
                   }}
                   className="flex items-center gap-1 text-[10px] px-2.5 py-1.5 font-medium transition-all"
                   style={{
-                    backgroundColor: "rgba(199,91,57,0.08)",
-                    color: "#C75B39",
-                    border: "1px solid rgba(199,91,57,0.15)",
+                    backgroundColor: "var(--accent-soft)",
+                    color: "var(--accent)",
+                    border: "1px solid var(--accent-border)",
                   }}
                 >
                   <Sparkles size={10} />
@@ -629,7 +629,7 @@ function RelatedRow({ query, color }: { query: RelatedQuery; color: string }) {
       className="flex items-center justify-between py-1 px-1.5 text-xs"
       style={{ borderBottom: "1px solid rgba(245,240,235,0.03)" }}
     >
-      <span className="truncate flex-1" style={{ color: "#F5F0EB" }}>
+      <span className="truncate flex-1" style={{ color: "var(--text-primary)" }}>
         {query.query}
       </span>
       <span className="tabular-nums ml-2" style={{ color }}>
@@ -651,7 +651,7 @@ function RegionRow({ region }: { region: RegionInterest }) {
         backgroundColor: `rgba(199,91,57,${bgOpacity})`,
       }}
     >
-      <span style={{ color: "#F5F0EB" }}>{region.region}</span>
+      <span style={{ color: "var(--text-primary)" }}>{region.region}</span>
       <div className="flex items-center gap-2">
         <div
           className="h-1.5 w-16"
@@ -661,7 +661,7 @@ function RegionRow({ region }: { region: RegionInterest }) {
             className="h-full"
             style={{
               width: `${region.value}%`,
-              backgroundColor: "#C75B39",
+              backgroundColor: "var(--accent)",
             }}
           />
         </div>

@@ -47,32 +47,41 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
       style={{
         height: 64,
         padding: "0 24px",
-        background: "#0A0908",
-        borderBottom: "1px solid rgba(255,255,255,0.06)",
+        background: "var(--bg-primary)",
+        borderBottom: "1px solid var(--border-default)",
       }}
     >
       {/* Left: Search */}
       <button
         onClick={onCommandOpen}
-        className="flex items-center gap-3 text-sm font-sans transition-colors hover:bg-white/5"
+        className="hidden sm:flex items-center gap-3 text-sm font-sans transition-colors"
         style={{
           padding: "8px 16px",
-          color: "#E0D8D0",
-          border: "1px solid rgba(255,255,255,0.08)",
+          color: "var(--text-secondary)",
+          border: "1px solid var(--border-default)",
           minWidth: 280,
         }}
       >
         <Search size={16} strokeWidth={1.5} />
         <span>Rechercher...</span>
         <kbd
-          className="ml-auto text-[10px] font-sans px-1.5 py-0.5"
+          className="ml-auto text-[10px] font-sans px-1.5 py-0.5 rounded"
           style={{
-            color: "#E0D8D0",
-            border: "1px solid rgba(255,255,255,0.08)",
+            color: "var(--text-tertiary)",
+            border: "1px solid var(--border-default)",
           }}
         >
           ⌘K
         </kbd>
+      </button>
+      {/* Mobile search icon-only */}
+      <button
+        onClick={onCommandOpen}
+        className="flex sm:hidden min-touch rounded-md"
+        style={{ color: "var(--text-secondary)" }}
+        aria-label="Rechercher"
+      >
+        <Search size={18} strokeWidth={1.5} />
       </button>
 
       {/* Right: Period + Notifications + Avatar */}
@@ -84,7 +93,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
             className="flex items-center gap-2 text-xs font-sans font-medium uppercase tracking-[0.08em] transition-colors hover:bg-white/5"
             style={{
               padding: "8px 12px",
-              color: "#F5F0EB",
+              color: "var(--text-primary)",
             }}
           >
             {periods.find((p) => p.value === period)?.label}
@@ -94,8 +103,8 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
             <div
               className="absolute right-0 top-full mt-1 min-w-[160px] py-1 z-50"
               style={{
-                background: "#1A1614",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "var(--bg-primary)",
+                border: "1px solid var(--border-default)",
               }}
             >
               {periods.map((p) => (
@@ -107,7 +116,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
                   }}
                   className="block w-full text-left text-xs font-sans px-4 py-2 transition-colors hover:bg-white/5"
                   style={{
-                    color: period === p.value ? "#C75B39" : "#F5F0EB",
+                    color: period === p.value ? "var(--accent)" : "var(--text-primary)",
                   }}
                 >
                   {p.label}
@@ -119,29 +128,29 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
 
         {/* Notification bell */}
         <button
-          className="relative p-2 transition-colors hover:bg-white/5"
-          style={{ color: "#F5F0EB" }}
+          className="relative min-touch transition-colors hover:bg-white/5"
+          style={{ color: "var(--text-primary)" }}
           aria-label="Notifications"
         >
           <Bell size={18} strokeWidth={1.5} />
           <span
             className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full"
-            style={{ background: "#C44536" }}
+            style={{ background: "var(--danger)" }}
           />
         </button>
 
         {/* Messages icon */}
         <button
-          className="relative p-2 transition-colors hover:bg-white/5"
-          style={{ color: "#F5F0EB" }}
+          className="relative min-touch transition-colors hover:bg-white/5"
+          style={{ color: "var(--text-primary)" }}
           aria-label="Messages internes"
         >
           <MessageSquare size={18} strokeWidth={1.5} />
           <span
             className="absolute -top-0.5 -right-0.5 text-[9px] font-sans font-semibold px-1 py-0.5"
             style={{
-              background: "#C75B39",
-              color: "#F5F0EB",
+              background: "var(--accent)",
+              color: "var(--text-primary)",
               minWidth: 16,
               textAlign: "center",
             }}
@@ -161,7 +170,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
               className="w-8 h-8 flex items-center justify-center text-xs font-sans font-semibold"
               style={{
                 background: userAvatar ? "transparent" : "rgba(199,91,57,0.2)",
-                color: "#C75B39",
+                color: "var(--accent)",
               }}
             >
               {userAvatar ? (
@@ -175,29 +184,29 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
               )}
             </div>
             <div className="hidden md:block text-left">
-              <p className="text-xs font-sans font-medium truncate max-w-[120px]" style={{ color: "#F5F0EB" }}>
+              <p className="text-xs font-sans font-medium truncate max-w-[120px]" style={{ color: "var(--text-primary)" }}>
                 {userName}
               </p>
-              <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "#E0D8D0" }}>
+              <p className="text-[10px] font-sans uppercase tracking-[0.08em]" style={{ color: "var(--text-tertiary)" }}>
                 {userRole === "admin" ? "Administrateur" : "Manager"}
               </p>
             </div>
-            <ChevronDown size={14} strokeWidth={1.5} style={{ color: "#E0D8D0" }} />
+            <ChevronDown size={14} strokeWidth={1.5} style={{ color: "var(--text-tertiary)" }} />
           </button>
 
           {avatarOpen && (
             <div
               className="absolute right-0 top-full mt-1 min-w-[180px] py-1 z-50"
               style={{
-                background: "#1A1614",
-                border: "1px solid rgba(255,255,255,0.08)",
+                background: "var(--bg-primary)",
+                border: "1px solid var(--border-default)",
               }}
             >
               <Link
                 href="/admin/settings/team"
                 onClick={() => setAvatarOpen(false)}
                 className="flex items-center gap-3 px-4 py-2.5 text-xs font-sans transition-colors hover:bg-white/5"
-                style={{ color: "#F5F0EB" }}
+                style={{ color: "var(--text-primary)" }}
               >
                 <User size={14} strokeWidth={1.5} />
                 Mon profil
@@ -206,7 +215,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
                 href="/admin/settings/system"
                 onClick={() => setAvatarOpen(false)}
                 className="flex items-center gap-3 px-4 py-2.5 text-xs font-sans transition-colors hover:bg-white/5"
-                style={{ color: "#F5F0EB" }}
+                style={{ color: "var(--text-primary)" }}
               >
                 <Settings size={14} strokeWidth={1.5} />
                 Paramètres
@@ -214,7 +223,7 @@ export function Topbar({ userName, userRole, userAvatar, onCommandOpen }: Props)
               <hr style={{ borderColor: "rgba(255,255,255,0.06)", margin: "4px 0" }} />
               <button
                 className="flex items-center gap-3 w-full px-4 py-2.5 text-xs font-sans transition-colors hover:bg-white/5"
-                style={{ color: "#C44536" }}
+                style={{ color: "var(--danger)" }}
               >
                 <LogOut size={14} strokeWidth={1.5} />
                 Déconnexion

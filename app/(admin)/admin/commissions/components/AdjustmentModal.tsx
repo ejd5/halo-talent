@@ -54,16 +54,16 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
     <>
       <div className="fixed inset-0 z-40 bg-black/50" onClick={onClose} />
       <div className="fixed inset-0 z-50 flex items-center justify-center">
-        <div className="w-full max-w-lg card-accent" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}>
+        <div className="w-full max-w-lg card-accent" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}>
           {/* Header */}
           <div className="flex items-center justify-between px-6 py-4" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
             <div>
-              <p className="font-display text-base font-bold" style={{ color: "#F5F0EB" }}>
+              <p className="font-display text-base font-bold" style={{ color: "var(--text-primary)" }}>
                 Ajuster la commission
               </p>
-              <p className="text-[11px] font-sans mt-0.5" style={{ color: "#F5F0EB" }}>{creatorName}</p>
+              <p className="text-[11px] font-sans mt-0.5" style={{ color: "var(--text-primary)" }}>{creatorName}</p>
             </div>
-            <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "#F5F0EB" }}>
+            <button onClick={onClose} className="p-1 transition-colors hover:bg-white/5" style={{ color: "var(--text-primary)" }}>
               <X size={16} strokeWidth={1.5} />
             </button>
           </div>
@@ -71,17 +71,17 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
           <div className="px-6 py-5 space-y-4">
             {/* Current */}
             <div>
-              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#E0D8D0" }}>
+              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "var(--text-secondary)" }}>
                 Commission actuelle
               </p>
-              <p className="font-display text-xl font-bold" style={{ color: "#F5F0EB" }}>
+              <p className="font-display text-xl font-bold" style={{ color: "var(--text-primary)" }}>
                 {formatEuro(currentCommission)}
               </p>
             </div>
 
             {/* New amount */}
             <div>
-              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#E0D8D0" }}>
+              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "var(--text-secondary)" }}>
                 Nouveau montant (€)
               </p>
               <input
@@ -90,7 +90,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
                 onChange={(e) => setAdjustmentAmount(Number(e.target.value))}
                 placeholder="0"
                 className="w-full bg-transparent text-sm font-sans py-2 px-3 outline-none tabular-nums"
-                style={{ color: "#F5F0EB", border: "1px solid rgba(255,255,255,0.06)" }}
+                style={{ color: "var(--text-primary)", border: "1px solid var(--border-default)" }}
               />
             </div>
 
@@ -100,8 +100,8 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
                 background: needsValidation ? "rgba(196,69,54,0.08)" : "rgba(199,91,57,0.08)",
               }}>
                 <AlertTriangle size={12} strokeWidth={1.5}
-                  style={{ color: needsValidation ? "#C44536" : "#C75B39" }} />
-                <span className="text-[10px] font-sans" style={{ color: needsValidation ? "#C44536" : "#C75B39" }}>
+                  style={{ color: needsValidation ? "var(--danger)" : "var(--accent)" }} />
+                <span className="text-[10px] font-sans" style={{ color: needsValidation ? "var(--danger)" : "var(--accent)" }}>
                   {difference >= 0 ? "+" : ""}{formatEuro(difference)}
                   {needsValidation ? " — Validation requise (>1000€)" : ""}
                 </span>
@@ -110,24 +110,24 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
 
             {/* Reason */}
             <div>
-              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#E0D8D0" }}>
+              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "var(--text-secondary)" }}>
                 Motif
               </p>
               <select
                 value={reason}
                 onChange={(e) => setReason(e.target.value)}
                 className="w-full bg-transparent text-xs font-sans py-2 px-3 outline-none"
-                style={{ color: "#D0CCC6", border: "1px solid rgba(255,255,255,0.06)" }}
+                style={{ color: "#D0CCC6", border: "1px solid var(--border-default)" }}
               >
                 {REASONS.map((r) => (
-                  <option key={r} value={r} style={{ background: "#1A1614" }}>{r}</option>
+                  <option key={r} value={r} style={{ background: "var(--bg-primary)" }}>{r}</option>
                 ))}
               </select>
             </div>
 
             {/* Justification */}
             <div>
-              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "#E0D8D0" }}>
+              <p className="text-[10px] font-sans font-semibold uppercase tracking-[0.08em] mb-1" style={{ color: "var(--text-secondary)" }}>
                 Justification
               </p>
               <textarea
@@ -136,7 +136,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
                 placeholder="Expliquez la raison de cet ajustement..."
                 rows={3}
                 className="w-full bg-transparent text-xs font-sans py-2 px-3 outline-none resize-none"
-                style={{ color: "#D0CCC6", border: "1px solid rgba(255,255,255,0.06)" }}
+                style={{ color: "#D0CCC6", border: "1px solid var(--border-default)" }}
               />
             </div>
           </div>
@@ -146,7 +146,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
             <button
               onClick={onClose}
               className="px-4 py-2 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-white/5"
-              style={{ color: "#F5F0EB" }}
+              style={{ color: "var(--text-primary)" }}
             >
               Annuler
             </button>
@@ -154,7 +154,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
               onClick={handleSave}
               disabled={!isValid}
               className="px-4 py-2 text-[11px] font-sans font-semibold uppercase tracking-[0.1em] transition-colors hover:opacity-90 disabled:opacity-30"
-              style={{ background: "#C75B39", color: "#F5F0EB" }}
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
             >
               {needsValidation ? "Soumettre pour validation" : "Appliquer"}
             </button>

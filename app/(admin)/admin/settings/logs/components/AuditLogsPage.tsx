@@ -35,7 +35,7 @@ const SEVERITY_ICONS: Record<LogSeverity, typeof AlertCircle> = {
   info: Info, warning: AlertTriangle, critical: AlertCircle,
 };
 const SEVERITY_COLORS: Record<LogSeverity, string> = {
-  info: "#4A90D9", warning: "#C7A254", critical: "#C44536",
+  info: "#4A90D9", warning: "var(--warning)", critical: "var(--danger)",
 };
 const ACTION_TYPE_LABELS: Record<LogActionType, string> = {
   create: "Création", update: "Modification", delete: "Suppression",
@@ -193,7 +193,7 @@ function FilterBar({
         {statuses.map((s) => (
           <button key={s} onClick={() => toggleArray("status", s)}
             className={`px-2 py-0.5 text-[9px] font-medium border transition-colors ${
-              filters.status.includes(s) ? (s === "success" ? "border-[#7A9A65] text-[#7A9A65]" : "border-[#C44536] text-[#C44536]") : "border-[var(--color-border)] opacity-50 hover:opacity-100"
+              filters.status.includes(s) ? (s === "success" ? "border-[var(--success)] text-[var(--success)]" : "border-[var(--danger)] text-[var(--danger)]") : "border-[var(--color-border)] opacity-50 hover:opacity-100"
             }`}
           >{s === "success" ? "Succès" : "Échec"}</button>
         ))}
@@ -254,7 +254,7 @@ function LogRow({ log, isExpanded, onToggle }: { log: AuditLogDetail; isExpanded
 
         {/* Status */}
         <div className="flex justify-center">
-          {log.status === "success" ? <CheckCircle size={12} className="text-[#7A9A65]" /> : <XCircle size={12} className="text-[#C44536]" />}
+          {log.status === "success" ? <CheckCircle size={12} className="text-[var(--success)]" /> : <XCircle size={12} className="text-[var(--danger)]" />}
         </div>
 
         {/* Expand */}
@@ -299,9 +299,9 @@ function LogRow({ log, isExpanded, onToggle }: { log: AuditLogDetail; isExpanded
             {log.error_message && (
               <div>
                 <div className="text-[10px] font-semibold uppercase tracking-wider opacity-40 mb-1 flex items-center gap-1">
-                  <AlertCircle size={10} className="text-[#C44536]" /> Erreur
+                  <AlertCircle size={10} className="text-[var(--danger)]" /> Erreur
                 </div>
-                <div className="text-[#C44536] mb-1">{log.error_message}</div>
+                <div className="text-[var(--danger)] mb-1">{log.error_message}</div>
                 {log.stack_trace && (
                   <pre className="text-[10px] p-2 border border-[var(--color-border)] overflow-x-auto opacity-60" style={{ backgroundColor: "var(--color-base)", maxHeight: 160 }}>
                     {log.stack_trace}
@@ -357,7 +357,7 @@ function AlertConfigPanel({ onClose }: { onClose: () => void }) {
                 <button
                   onClick={() => setAlerts((prev) => prev.map((x) => x.id === a.id ? { ...x, enabled: !x.enabled } : x))}
                   className={`relative w-8 h-4 rounded-[0px] transition-all duration-150 ${a.enabled ? "opacity-100" : "opacity-20"}`}
-                  style={{ backgroundColor: a.enabled ? "#7A9A65" : "var(--color-border)" }}
+                  style={{ backgroundColor: a.enabled ? "var(--success)" : "var(--color-border)" }}
                 >
                   <div className={`absolute top-0.5 w-3.5 h-3 bg-white transition-transform duration-150 ${a.enabled ? "translate-x-[16px]" : "translate-x-[2px]"}`} style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.3)" }} />
                 </button>

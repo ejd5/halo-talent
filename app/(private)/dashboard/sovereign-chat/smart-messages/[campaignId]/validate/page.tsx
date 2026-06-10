@@ -181,7 +181,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
             <ArrowLeft size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
           </Link>
           <div>
-            <h1 className="text-base font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+            <h1 className="text-base font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
               Validation
             </h1>
             <p className="text-[9px]" style={{ color: "rgba(245,240,235,0.3)" }}>
@@ -195,7 +195,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
             <button
               onClick={() => setShowSendAll(true)}
               className="text-[9px] font-medium py-1.5 px-2.5 transition-all hover:opacity-80"
-              style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39", border: "1px solid rgba(199,91,57,0.15)" }}
+              style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
             >
               Skip tout & envoyer ({pendingCount})
             </button>
@@ -212,25 +212,25 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
           className="h-full transition-all"
           style={{
             width: `${drafts.length > 0 ? (processedCount / drafts.length) * 100 : 0}%`,
-            backgroundColor: "#C75B39",
+            backgroundColor: "var(--accent)",
           }}
         />
       </div>
 
       {/* Stats row */}
       <div className="flex gap-2 text-[8px]">
-        <span style={{ color: "#7A9A65" }}>✅ {stats.sent} envoyés</span>
+        <span style={{ color: "var(--success)" }}>✅ {stats.sent} envoyés</span>
         <span style={{ color: "rgba(245,240,235,0.2)" }}>⏭ {stats.skipped} ignorés</span>
-        <span style={{ color: "#C75B39" }}>✏️ {stats.edited} modifiés</span>
-        <span style={{ color: "#C44536" }}>🗑 {stats.rejected} rejetés</span>
+        <span style={{ color: "var(--accent)" }}>✏️ {stats.edited} modifiés</span>
+        <span style={{ color: "var(--danger)" }}>🗑 {stats.rejected} rejetés</span>
       </div>
 
       {/* All processed banner */}
       {allProcessed ? (
         <div className="p-8 text-center space-y-4" style={{ backgroundColor: "rgba(122,154,101,0.04)", border: "1px solid rgba(122,154,101,0.1)" }}>
-          <Check size={24} className="mx-auto" style={{ color: "#7A9A65" }} />
+          <Check size={24} className="mx-auto" style={{ color: "var(--success)" }} />
           <div>
-            <h2 className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>Tous les drafts sont traités !</h2>
+            <h2 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Tous les drafts sont traités !</h2>
             <p className="text-[10px] mt-1" style={{ color: "rgba(245,240,235,0.3)" }}>
               {drafts.length} drafts · {stats.sent} envoyés · {stats.edited} modifiés · {stats.rejected} rejetés
             </p>
@@ -238,7 +238,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
           <div className="flex gap-2 justify-center">
             <Link href={`/dashboard/sovereign-chat/smart-messages/${campaignId}/results`}
               className="text-[10px] font-medium py-2 px-3"
-              style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}>
+              style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
               Voir les résultats
             </Link>
             <Link href="/dashboard/sovereign-chat/smart-messages"
@@ -253,11 +253,11 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
           {/* Fan info */}
           <div className="flex items-center gap-2 p-2.5" style={{ backgroundColor: "rgba(245,240,235,0.02)", border: "1px solid rgba(245,240,235,0.04)" }}>
             <div className="w-7 h-7 flex items-center justify-center text-[10px] font-medium shrink-0"
-              style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39" }}>
+              style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
               {(current.atlas_fans?.display_name || current.atlas_fans?.email || "?").charAt(0).toUpperCase()}
             </div>
             <div className="flex-1 min-w-0">
-              <p className="text-[10px] font-medium truncate" style={{ color: "#F5F0EB" }}>
+              <p className="text-[10px] font-medium truncate" style={{ color: "var(--text-primary)" }}>
                 {current.atlas_fans?.display_name || current.atlas_fans?.email || "Inconnu"}
                 <span className="text-[8px] ml-1.5" style={{ color: "rgba(245,240,235,0.2)" }}>
                   {current.atlas_fans?.fan_tier} · LTV {current.atlas_fans?.total_spent}€
@@ -270,7 +270,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
               </p>
             </div>
             {current.approach && (
-              <span className="text-[8px] px-1.5 py-0.5 shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.08)", color: "#C75B39" }}>
+              <span className="text-[8px] px-1.5 py-0.5 shrink-0" style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}>
                 {current.approach}
               </span>
             )}
@@ -286,7 +286,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
                 value={editText}
                 onChange={(e) => setEditText(e.target.value)}
                 className="w-full min-h-[100px] text-xs leading-relaxed bg-transparent resize-none"
-                style={{ color: "#F5F0EB" }}
+                style={{ color: "var(--text-primary)" }}
               />
             ) : (
               <p className="text-xs leading-relaxed whitespace-pre-wrap" style={{ color: "rgba(245,240,235,0.8)" }}>
@@ -309,7 +309,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
                 onClick={() => handleAction("edit", editText)}
                 disabled={actionLoading}
                 className="flex-1 text-[10px] font-semibold py-2 transition-all disabled:opacity-30"
-                style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}
+                style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
               >
                 {actionLoading ? "..." : "Sauvegarder & passer"}
               </button>
@@ -317,7 +317,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
                 onClick={() => handleAction("send", editText)}
                 disabled={actionLoading}
                 className="flex-1 text-[10px] font-semibold py-2 transition-all disabled:opacity-30"
-                style={{ backgroundColor: "#7A9A65", color: "#F5F0EB" }}
+                style={{ backgroundColor: "var(--success)", color: "var(--text-primary)" }}
               >
                 {actionLoading ? "..." : "Envoyer modifié"}
               </button>
@@ -340,7 +340,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
                 onClick={() => { setEditText(current.draft_text); setEditMode(true); }}
                 disabled={actionLoading}
                 className="text-[10px] font-medium py-2.5 transition-all hover:opacity-70 disabled:opacity-30 flex items-center justify-center gap-1"
-                style={{ backgroundColor: "rgba(199,91,57,0.08)", color: "#C75B39", border: "1px solid rgba(199,91,57,0.15)" }}
+                style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
               >
                 <Edit3 size={10} />
                 Éditer
@@ -349,7 +349,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
                 onClick={() => handleAction("reject")}
                 disabled={actionLoading}
                 className="text-[10px] font-medium py-2.5 transition-all hover:opacity-70 disabled:opacity-30 flex items-center justify-center gap-1"
-                style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "#C44536", border: "1px solid rgba(196,69,54,0.15)" }}
+                style={{ backgroundColor: "rgba(196,69,54,0.08)", color: "var(--danger)", border: "1px solid rgba(196,69,54,0.15)" }}
               >
                 <X size={10} />
                 Rejeter
@@ -358,7 +358,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
                 onClick={() => handleAction("send")}
                 disabled={actionLoading}
                 className="text-[10px] font-semibold py-2.5 transition-all hover:opacity-80 disabled:opacity-30 flex items-center justify-center gap-1"
-                style={{ backgroundColor: "#7A9A65", color: "#F5F0EB" }}
+                style={{ backgroundColor: "var(--success)", color: "var(--text-primary)" }}
               >
                 <Send size={10} />
                 Envoyer
@@ -376,8 +376,8 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
       {/* Send all confirmation modal */}
       {showSendAll && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4" style={{ backgroundColor: "rgba(0,0,0,0.7)" }}>
-          <div className="w-full max-w-sm p-4" style={{ backgroundColor: "#1A1614", border: "1px solid rgba(245,240,235,0.08)" }}>
-            <h3 className="text-xs font-semibold mb-2" style={{ color: "#F5F0EB" }}>Envoyer tout sans relecture ?</h3>
+          <div className="w-full max-w-sm p-4" style={{ backgroundColor: "var(--bg-primary)", border: "1px solid rgba(245,240,235,0.08)" }}>
+            <h3 className="text-xs font-semibold mb-2" style={{ color: "var(--text-primary)" }}>Envoyer tout sans relecture ?</h3>
             <p className="text-[10px] mb-3" style={{ color: "rgba(245,240,235,0.3)" }}>
               {pendingCount} drafts seront marqués comme envoyés sans validation individuelle. Cette action est irréversible.
             </p>
@@ -389,7 +389,7 @@ export default function ValidatePage({ params }: { params: Promise<{ campaignId:
               </button>
               <button onClick={handleSendAll} disabled={sendingAll}
                 className="flex-1 text-[10px] font-semibold py-2 disabled:opacity-30"
-                style={{ backgroundColor: "#C75B39", color: "#F5F0EB" }}>
+                style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}>
                 {sendingAll ? "Envoi..." : `Envoyer ${pendingCount} drafts`}
               </button>
             </div>

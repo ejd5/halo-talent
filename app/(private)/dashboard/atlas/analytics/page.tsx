@@ -52,7 +52,7 @@ export default function AtlasAnalyticsPage() {
       {/* Header */}
       <div className="flex items-start justify-between">
         <div>
-          <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+          <h1 className="text-[2.2rem] font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
             Analytics Atlas
           </h1>
           <p className="text-sm mt-1" style={{ color: "var(--color-ink-secondary)" }}>
@@ -63,7 +63,7 @@ export default function AtlasAnalyticsPage() {
           onClick={handleExport}
           disabled={exporting}
           className="flex items-center gap-2 px-4 py-2 text-xs font-medium transition-opacity hover:opacity-70 disabled:opacity-40"
-          style={{ backgroundColor: "rgba(199,91,57,0.12)", color: "#C75B39", border: "1px solid rgba(199,91,57,0.2)" }}
+          style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)", border: "1px solid var(--accent-border)" }}
         >
           <Download size={14} />
           {exporting ? "Export..." : "Export PDF"}
@@ -80,8 +80,8 @@ export default function AtlasAnalyticsPage() {
               onClick={() => setActiveTab(tab.id)}
               className="flex items-center gap-2 px-4 py-3 text-xs font-medium transition-all whitespace-nowrap"
               style={{
-                color: isActive ? "#C75B39" : "var(--color-ink-tertiary)",
-                borderBottom: isActive ? "1px solid #C75B39" : "1px solid transparent",
+                color: isActive ? "var(--accent)" : "var(--color-ink-tertiary)",
+                borderBottom: isActive ? "1px solid var(--accent)" : "1px solid transparent",
                 marginBottom: -1,
               }}
             >

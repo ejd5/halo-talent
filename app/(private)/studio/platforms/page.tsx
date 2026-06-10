@@ -60,20 +60,20 @@ function PlatformCard({
   return (
     <div
       className="flex items-center gap-3 p-3 transition-all hover:opacity-90"
-      style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+      style={{ borderBottom: "1px solid var(--border-default)" }}
     >
       <div
         className="w-10 h-10 flex items-center justify-center shrink-0 rounded-sm"
         style={{ background: "rgba(255,255,255,0.04)" }}
       >
-        <Icon size={18} style={{ color: connection ? "#C75B39" : "rgba(255,255,255,0.2)" }} />
+        <Icon size={18} style={{ color: connection ? "var(--accent)" : "rgba(255,255,255,0.2)" }} />
       </div>
 
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-2">
-          <span className="text-sm" style={{ color: "#F5F0EB" }}>{provider.label}</span>
+          <span className="text-sm" style={{ color: "var(--text-primary)" }}>{provider.label}</span>
           {connection && connection.status === "active" && (
-            <span className="text-[10px] px-1.5 py-0.5" style={{ background: "rgba(34,197,94,0.1)", color: "#22C55E" }}>
+            <span className="text-[10px] px-1.5 py-0.5" style={{ background: "rgba(34,197,94,0.1)", color: "var(--success)" }}>
               {connection.platform_username || "Connecté"}
             </span>
           )}
@@ -110,7 +110,7 @@ function PlatformCard({
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1 px-2.5 py-1.5 text-[10px] transition-colors hover:opacity-80 rounded-sm shrink-0"
-          style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.4)" }}
+          style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.4)" }}
         >
           <ExternalLink size={10} />
           Manuel
@@ -118,7 +118,7 @@ function PlatformCard({
       ) : provider.authType === "api_key" ? (
         <button
           className="flex items-center gap-1 px-2.5 py-1.5 text-[10px] transition-colors rounded-sm shrink-0"
-          style={{ border: "1px solid rgba(199,91,57,0.2)", color: "#C75B39" }}
+          style={{ border: "1px solid var(--accent-border)", color: "var(--accent)" }}
         >
           <Link2 size={10} />
           Configurer
@@ -130,7 +130,7 @@ function PlatformCard({
               onClick={() => onConnect(provider.type)}
               disabled={connecting === provider.type}
               className="flex items-center gap-1 px-2.5 py-1.5 text-[10px] transition-colors rounded-sm"
-              style={{ border: "1px solid rgba(199,91,57,0.2)", color: "#C75B39" }}
+              style={{ border: "1px solid var(--accent-border)", color: "var(--accent)" }}
             >
               {connecting === provider.type ? <Loader size={10} className="animate-spin" /> : <RefreshCw size={10} />}
               Reconnecter
@@ -139,7 +139,7 @@ function PlatformCard({
             <button
               onClick={() => onDisconnect(provider.type)}
               className="flex items-center gap-1 px-2.5 py-1.5 text-[10px] transition-colors rounded-sm"
-              style={{ border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}
+              style={{ border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}
             >
               <Unlink size={10} />
               Déconnecter
@@ -151,7 +151,7 @@ function PlatformCard({
           onClick={() => onConnect(provider.type)}
           disabled={connecting === provider.type}
           className="flex items-center gap-1 px-2.5 py-1.5 text-[10px] transition-colors rounded-sm shrink-0"
-          style={{ border: "1px solid rgba(199,91,57,0.2)", color: "#C75B39" }}
+          style={{ border: "1px solid var(--accent-border)", color: "var(--accent)" }}
         >
           {connecting === provider.type ? (
             <Loader size={10} className="animate-spin" />
@@ -169,7 +169,7 @@ function SuccessBanner({ message }: { message: string }) {
   return (
     <div
       className="flex items-center gap-2 px-3 py-2 text-xs mb-4 rounded-sm animate-fade-in"
-      style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", color: "#22C55E" }}
+      style={{ background: "rgba(34,197,94,0.08)", border: "1px solid rgba(34,197,94,0.2)", color: "var(--success)" }}
     >
       <CheckCircle size={14} />
       {message}
@@ -181,7 +181,7 @@ function ErrorBanner({ message }: { message: string }) {
   return (
     <div
       className="flex items-center gap-2 px-3 py-2 text-xs mb-4 rounded-sm animate-fade-in"
-      style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}
+      style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}
     >
       <AlertTriangle size={14} />
       {message}
@@ -254,7 +254,7 @@ export default function PlatformsPage() {
     <div className="animate-fade-in max-w-3xl mx-auto">
       {/* Header */}
       <div className="mb-6">
-        <h1 className="text-2xl italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>
+        <h1 className="text-2xl italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>
           Comptes connectés
         </h1>
         <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -283,7 +283,7 @@ export default function PlatformsPage() {
         /* Platform cards */
         <div
           className="rounded-sm overflow-hidden"
-          style={{ border: "1px solid rgba(255,255,255,0.06)" }}
+          style={{ border: "1px solid var(--border-default)" }}
         >
           {/* OAuth platforms */}
           {OAUTH_PROVIDERS.filter((p) => p.authType === "oauth").map((provider) => (
@@ -300,7 +300,7 @@ export default function PlatformsPage() {
           {/* Divider for manual platforms */}
           <div
             className="px-3 py-2 text-[10px] uppercase tracking-wider"
-            style={{ background: "rgba(255,255,255,0.02)", color: "rgba(255,255,255,0.2)", borderBottom: "1px solid rgba(255,255,255,0.04)" }}
+            style={{ background: "var(--bg-card)", color: "rgba(255,255,255,0.2)", borderBottom: "1px solid var(--border-default)" }}
           >
             Accès manuel — Pas d'API publique
           </div>

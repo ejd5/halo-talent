@@ -34,12 +34,12 @@ export default function ChannelsTab() {
     <div className="space-y-6 animate-fade-in">
       {/* Best channel highlight */}
       {best && (
-        <div className="p-4" style={{ border: "1px solid rgba(199,91,57,0.15)", backgroundColor: "rgba(199,91,57,0.04)" }}>
+        <div className="p-4" style={{ border: "1px solid var(--accent-border)", backgroundColor: "rgba(199,91,57,0.04)" }}>
           <div className="flex items-center gap-3">
-            <Trophy size={20} style={{ color: "#C75B39" }} />
+            <Trophy size={20} style={{ color: "var(--accent)" }} />
             <div>
-              <p className="text-sm font-semibold" style={{ color: "#F5F0EB" }}>
-                Meilleur canal : <span style={{ color: "#C75B39" }}>{best.name}</span>
+              <p className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
+                Meilleur canal : <span style={{ color: "var(--accent)" }}>{best.name}</span>
               </p>
               <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>
                 {eur(best.revenue)} de revenus générés ce mois — ROI estimé {best.roi}
@@ -54,19 +54,19 @@ export default function ChannelsTab() {
         {channels.map((ch: any) => {
           const Icon = CHANNEL_ICONS[ch.id] ?? TrendingUp;
           return (
-            <div key={ch.id} className="p-4" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(245,240,235,0.06)" }}>
+            <div key={ch.id} className="p-4" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.06)" }}>
               <div className="flex items-center gap-2 mb-3">
-                <Icon size={16} style={{ color: "#C75B39" }} />
-                <h3 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>{ch.name}</h3>
+                <Icon size={16} style={{ color: "var(--accent)" }} />
+                <h3 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>{ch.name}</h3>
               </div>
               <div className="grid grid-cols-2 gap-3 text-sm">
                 <div>
                   <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>Envoyés</span>
-                  <p className="font-semibold" style={{ color: "#F5F0EB" }}>{ch.sent.toLocaleString()}</p>
+                  <p className="font-semibold" style={{ color: "var(--text-primary)" }}>{ch.sent.toLocaleString()}</p>
                 </div>
                 <div>
                   <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>Ouverts</span>
-                  <p className="font-semibold" style={{ color: "#F5F0EB" }}>
+                  <p className="font-semibold" style={{ color: "var(--text-primary)" }}>
                     {ch.opens?.toLocaleString() ?? "-"}
                     {ch.sent > 0 && ch.opens > 0 && (
                       <span className="text-xs ml-1" style={{ color: "var(--color-ink-tertiary)" }}>
@@ -77,17 +77,17 @@ export default function ChannelsTab() {
                 </div>
                 <div>
                   <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>Clics</span>
-                  <p className="font-semibold" style={{ color: "#F5F0EB" }}>{ch.clicks?.toLocaleString() ?? "-"}</p>
+                  <p className="font-semibold" style={{ color: "var(--text-primary)" }}>{ch.clicks?.toLocaleString() ?? "-"}</p>
                 </div>
                 <div>
                   <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>Conversions</span>
-                  <p className="font-semibold" style={{ color: "#F5F0EB" }}>{ch.conversions?.toLocaleString() ?? "-"}</p>
+                  <p className="font-semibold" style={{ color: "var(--text-primary)" }}>{ch.conversions?.toLocaleString() ?? "-"}</p>
                 </div>
               </div>
               <div className="mt-3 pt-3" style={{ borderTop: "1px solid rgba(245,240,235,0.04)" }}>
                 <div className="flex items-center justify-between">
                   <span className="text-xs" style={{ color: "var(--color-ink-tertiary)" }}>Revenus</span>
-                  <span className="font-semibold" style={{ color: "#7A9A65" }}>{eur(ch.revenue)}</span>
+                  <span className="font-semibold" style={{ color: "var(--success)" }}>{eur(ch.revenue)}</span>
                 </div>
               </div>
             </div>
@@ -104,11 +104,11 @@ export default function ChannelsTab() {
               <XAxis dataKey="name" tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} />
               <YAxis tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} tickFormatter={(v: number) => `${v}€`} />
               <Tooltip
-                contentStyle={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
-                labelStyle={{ color: "#F5F0EB" }}
+                contentStyle={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
+                labelStyle={{ color: "var(--text-primary)" }}
                 formatter={(v: any) => [eur(Number(v)), "Revenus"]}
               />
-              <Bar dataKey="revenue" fill="#C75B39" radius={0} />
+              <Bar dataKey="revenue" fill="var(--accent)" radius={0} />
             </BarChart>
           </ResponsiveContainer>
         </div>

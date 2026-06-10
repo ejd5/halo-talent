@@ -282,11 +282,11 @@ function IdentityCard({ fan }: { fan: AtlasFan }) {
         </div>
 
         {/* Name */}
-        <h2 className="text-lg font-bold mt-3" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>
+        <h2 className="text-lg font-bold mt-3" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           {fan.display_name || "Anonyme"}
         </h2>
         {fan.email && (
-          <p className="text-sm mt-0.5" style={{ color: "#FFFFFF" }}>{fan.email}</p>
+          <p className="text-sm mt-0.5" style={{ color: "var(--text-primary)" }}>{fan.email}</p>
         )}
 
         {/* Tier badge */}
@@ -300,7 +300,7 @@ function IdentityCard({ fan }: { fan: AtlasFan }) {
         {/* Score bar */}
         <div className="w-full mt-4">
           <div className="flex justify-between text-xs mb-1">
-            <span style={{ color: "#FFFFFF" }}>Score</span>
+            <span style={{ color: "var(--text-primary)" }}>Score</span>
             <span className="font-bold" style={{ color: "#F59E0B" }}>{fan.fan_score}/100</span>
           </div>
           <div className="w-full h-2 rounded-sm" style={{ background: "rgba(255,255,255,0.06)" }}>
@@ -318,7 +318,7 @@ function IdentityCard({ fan }: { fan: AtlasFan }) {
 function QuickActionsCard({ fan, onAction }: { fan: AtlasFan; onAction: (action: string) => void }) {
   return (
     <div className="p-4 border border-[var(--color-border)] space-y-2" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: "#FFFFFF" }}>Actions rapides</h3>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-2" style={{ color: "var(--text-primary)" }}>Actions rapides</h3>
 
       <QuickActionBtn
         icon={Mail} label="Envoyer un email"
@@ -350,7 +350,7 @@ function QuickActionBtn({ icon: Icon, label, disabled, onClick }: { icon: any; l
       className="flex items-center gap-2.5 w-full px-3 py-2 text-sm rounded-sm transition-all disabled:opacity-30 disabled:cursor-not-allowed hover:opacity-80"
       style={{
         background: disabled ? "rgba(255,255,255,0.03)" : "rgba(199,91,57,0.1)",
-        color: disabled ? "#FFFFFF" : "#C75B39",
+        color: disabled ? "var(--text-primary)" : "var(--accent)",
       }}
     >
       <Icon size={14} />
@@ -373,24 +373,24 @@ function PlatformIdentitiesCard({ fan }: { fan: AtlasFan }) {
 
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
         <UserCheck size={12} /> Identités
       </h3>
       <div className="space-y-2.5">
         {platforms.map((p) => (
           <div key={p.label} className="flex items-center gap-2.5 text-sm">
-            <p.icon size={13} style={{ color: "#FFFFFF" }} />
-            <span className="text-xs" style={{ color: "#FFFFFF" }}>{p.label}</span>
-            <span className={`text-xs ml-auto ${p.value ? "font-medium" : "italic"}`} style={{ color: p.value ? "#FFFFFF" : "rgba(255,255,255,0.3)" }}>
+            <p.icon size={13} style={{ color: "var(--text-primary)" }} />
+            <span className="text-xs" style={{ color: "var(--text-primary)" }}>{p.label}</span>
+            <span className={`text-xs ml-auto ${p.value ? "font-medium" : "italic"}`} style={{ color: p.value ? "var(--text-primary)" : "rgba(255,255,255,0.3)" }}>
               {p.value || "Non lié"}
             </span>
           </div>
         ))}
         {others && Object.entries(others).map(([key, val]) => (
           <div key={key} className="flex items-center gap-2.5 text-sm">
-            <Link2Icon size={13} style={{ color: "#FFFFFF" }} />
-            <span className="text-xs" style={{ color: "#FFFFFF" }}>{key}</span>
-            <span className="text-xs ml-auto font-medium" style={{ color: "#FFFFFF" }}>{val}</span>
+            <Link2Icon size={13} style={{ color: "var(--text-primary)" }} />
+            <span className="text-xs" style={{ color: "var(--text-primary)" }}>{key}</span>
+            <span className="text-xs ml-auto font-medium" style={{ color: "var(--text-primary)" }}>{val}</span>
           </div>
         ))}
       </div>
@@ -411,21 +411,21 @@ function GeographyCard({ fan }: { fan: AtlasFan }) {
   const flag = fan.country ? COUNTRY_FLAGS[fan.country] || "🌍" : "🌍";
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--text-primary)" }}>
         <Globe size={12} className="inline mr-1" /> Géographie
       </h3>
       <div className="space-y-2 text-sm">
         <div className="flex justify-between">
-          <span style={{ color: "#FFFFFF" }}>Pays</span>
-          <span style={{ color: "#FFFFFF" }}>{flag} {fan.country || "Inconnu"}</span>
+          <span style={{ color: "var(--text-primary)" }}>Pays</span>
+          <span style={{ color: "var(--text-primary)" }}>{flag} {fan.country || "Inconnu"}</span>
         </div>
         <div className="flex justify-between">
-          <span style={{ color: "#FFFFFF" }}>Timezone</span>
-          <span style={{ color: "#FFFFFF" }}>{fan.timezone || "—"}</span>
+          <span style={{ color: "var(--text-primary)" }}>Timezone</span>
+          <span style={{ color: "var(--text-primary)" }}>{fan.timezone || "—"}</span>
         </div>
         <div className="flex justify-between">
-          <span style={{ color: "#FFFFFF" }}>Langue</span>
-          <span style={{ color: "#FFFFFF" }}>{fan.language === "fr" ? "Français" : fan.language === "en" ? "English" : fan.language || "—"}</span>
+          <span style={{ color: "var(--text-primary)" }}>Langue</span>
+          <span style={{ color: "var(--text-primary)" }}>{fan.language === "fr" ? "Français" : fan.language === "en" ? "English" : fan.language || "—"}</span>
         </div>
       </div>
     </div>
@@ -442,20 +442,20 @@ function ConsentsCard({ fan }: { fan: AtlasFan }) {
 
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
         <CheckCircle size={12} /> Consentements RGPD
       </h3>
       <div className="space-y-2">
         {items.map((item) => (
           <div key={item.label} className="flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <item.icon size={12} style={{ color: "#FFFFFF" }} />
-              <span className="text-sm" style={{ color: "#FFFFFF" }}>{item.label}</span>
+              <item.icon size={12} style={{ color: "var(--text-primary)" }} />
+              <span className="text-sm" style={{ color: "var(--text-primary)" }}>{item.label}</span>
             </div>
             {item.granted ? (
-              <CheckCircle size={14} style={{ color: "#10B981" }} />
+              <CheckCircle size={14} style={{ color: "var(--success)" }} />
             ) : (
-              <XCircle size={14} style={{ color: "#E5484D" }} />
+              <XCircle size={14} style={{ color: "var(--danger)" }} />
             )}
           </div>
         ))}
@@ -513,7 +513,7 @@ function TimelineTab({ events }: { events: TimelineEvent[] }) {
             {/* Content */}
             <div className="flex-1 min-w-0 pt-1">
               <div className="flex items-start justify-between gap-2">
-                <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{evt.title}</p>
+                <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{evt.title}</p>
                 <span className="text-[11px] shrink-0" style={{ color: "rgba(255,255,255,0.3)" }}>{timeAgo(evt.date)}</span>
               </div>
               {evt.subtitle && (
@@ -522,7 +522,7 @@ function TimelineTab({ events }: { events: TimelineEvent[] }) {
               {evt.meta && (
                 <span className="inline-block text-[10px] px-1.5 py-0.5 rounded-sm mt-1 font-medium" style={{
                   background: evt.metaType === "success" ? "rgba(16,185,129,0.1)" : evt.metaType === "warning" ? "rgba(245,158,11,0.1)" : "rgba(255,255,255,0.05)",
-                  color: evt.metaType === "success" ? "#10B981" : evt.metaType === "warning" ? "#F59E0B" : "#FFFFFF",
+                  color: evt.metaType === "success" ? "var(--success)" : evt.metaType === "warning" ? "#F59E0B" : "var(--text-primary)",
                 }}>
                   {evt.meta}
                 </span>
@@ -553,14 +553,14 @@ function ConversationsTab({ interactions }: { interactions: AtlasInteraction[] }
         <div key={msg.id} className="p-3 border border-[var(--color-border)]"
           style={{
             backgroundColor: "var(--color-card)",
-            borderLeft: `3px solid ${msg.direction === "inbound" ? "rgba(255,255,255,0.2)" : "#C75B39"}`,
+            borderLeft: `3px solid ${msg.direction === "inbound" ? "rgba(255,255,255,0.2)" : "var(--accent)"}`,
           }}>
           <div className="flex items-start justify-between gap-2 mb-1">
             <div className="flex items-center gap-2">
               <span className="text-[11px] px-1.5 py-0.5 rounded-sm font-medium"
                 style={{
                   background: msg.direction === "inbound" ? "rgba(255,255,255,0.06)" : "rgba(199,91,57,0.15)",
-                  color: msg.direction === "inbound" ? "#FFFFFF" : "#C75B39",
+                  color: msg.direction === "inbound" ? "var(--text-primary)" : "var(--accent)",
                 }}>
                 {msg.direction === "inbound" ? "Inbound" : "Outbound"}
               </span>
@@ -573,7 +573,7 @@ function ConversationsTab({ interactions }: { interactions: AtlasInteraction[] }
               {timeAgo(new Date(msg.occurred_at))}
             </span>
           </div>
-          <p className="text-sm" style={{ color: "#FFFFFF" }}>{msg.content || msg.subject || "—"}</p>
+          <p className="text-sm" style={{ color: "var(--text-primary)" }}>{msg.content || msg.subject || "—"}</p>
         </div>
       ))}
     </div>
@@ -595,13 +595,13 @@ function PurchasesTab({ purchases }: { purchases: AtlasPurchase[] }) {
   return (
     <div>
       <div className="flex items-center justify-between mb-4 p-3 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-        <span className="text-sm font-medium" style={{ color: "#FFFFFF" }}>Total LTV (achats affichés)</span>
-        <span className="text-lg font-bold" style={{ fontFamily: "var(--font-display)", color: "#C75B39" }}>
+        <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Total LTV (achats affichés)</span>
+        <span className="text-lg font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--accent)" }}>
           {total.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })}
         </span>
       </div>
       <div className="space-y-1">
-        <div className="grid grid-cols-[1fr_auto_auto_auto] gap-3 px-3 py-2 text-xs font-semibold uppercase tracking-wider" style={{ color: "#FFFFFF" }}>
+        <div className="grid grid-cols-[1fr_auto_auto_auto] gap-3 px-3 py-2 text-xs font-semibold uppercase tracking-wider" style={{ color: "var(--text-primary)" }}>
           <span>Description</span>
           <span>Type</span>
           <span>Montant</span>
@@ -609,16 +609,16 @@ function PurchasesTab({ purchases }: { purchases: AtlasPurchase[] }) {
         </div>
         {purchases.map((p) => (
           <div key={p.id} className="grid grid-cols-[1fr_auto_auto_auto] gap-3 px-3 py-2.5 text-sm border-b border-[var(--color-border)] last:border-0 items-center"
-            style={{ borderColor: "rgba(255,255,255,0.04)" }}>
+            style={{ borderColor: "var(--border-default)" }}>
             <div>
-              <span style={{ color: "#FFFFFF" }}>{p.description || PURCHASE_TYPE_LABELS[p.type] || p.type}</span>
+              <span style={{ color: "var(--text-primary)" }}>{p.description || PURCHASE_TYPE_LABELS[p.type] || p.type}</span>
               <span className="text-[10px] ml-2" style={{ color: "rgba(255,255,255,0.3)" }}>{p.platform}</span>
             </div>
             <span className="text-xs px-1.5 py-0.5 rounded-sm" style={{
               background: "rgba(255,255,255,0.05)",
-              color: "#FFFFFF",
+              color: "var(--text-primary)",
             }}>{PURCHASE_TYPE_LABELS[p.type] || p.type}</span>
-            <span className="font-medium" style={{ color: "#FFFFFF" }}>
+            <span className="font-medium" style={{ color: "var(--text-primary)" }}>
               {p.amount.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })}
             </span>
             <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -664,12 +664,12 @@ function NotesTab({ notes, fanId }: { notes: AtlasNote[]; fanId: string }) {
             onChange={(e) => setNewNote(e.target.value)}
             placeholder="Ajouter une note privée..."
             className="flex-1 text-sm bg-transparent px-3 py-2 border border-[var(--color-border)] outline-none focus:border-[var(--color-accent)]"
-            style={{ color: "#FFFFFF" }}
+            style={{ color: "var(--text-primary)" }}
             onKeyDown={(e) => e.key === "Enter" && addNote()}
           />
           <button onClick={addNote} disabled={saving || !newNote.trim()}
             className="px-3 py-2 text-sm rounded-sm transition-opacity disabled:opacity-30"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}>
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
             {saving ? "..." : "Ajouter"}
           </button>
         </div>
@@ -692,19 +692,19 @@ function NotesTab({ notes, fanId }: { notes: AtlasNote[]; fanId: string }) {
           onChange={(e) => setNewNote(e.target.value)}
           placeholder="Ajouter une note privée..."
           className="flex-1 text-sm bg-transparent px-3 py-2 border border-[var(--color-border)] outline-none focus:border-[var(--color-accent)]"
-          style={{ color: "#FFFFFF" }}
+          style={{ color: "var(--text-primary)" }}
           onKeyDown={(e) => e.key === "Enter" && addNote()}
         />
         <button onClick={addNote} disabled={saving || !newNote.trim()}
           className="px-3 py-2 text-sm rounded-sm transition-opacity disabled:opacity-30"
-          style={{ background: "#C75B39", color: "#FFFFFF" }}>
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
           {saving ? "..." : "Ajouter"}
         </button>
       </div>
       <div className="space-y-2">
         {localNotes.map((note) => (
           <div key={note.id} className="p-3 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-            <p className="text-sm whitespace-pre-wrap" style={{ color: "#FFFFFF" }}>{note.content}</p>
+            <p className="text-sm whitespace-pre-wrap" style={{ color: "var(--text-primary)" }}>{note.content}</p>
             <div className="flex items-center gap-2 mt-2">
               <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
                 {new Date(note.created_at).toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" })}
@@ -738,10 +738,10 @@ function DocumentsTab({ documents, fanId }: { documents: AtlasDocument[]; fanId:
         <div key={doc.id} className="flex items-center gap-3 p-3 border border-[var(--color-border)]"
           style={{ backgroundColor: "var(--color-card)" }}>
           <div className="p-2" style={{ background: "rgba(199,91,57,0.1)" }}>
-            <FileText size={16} style={{ color: "#C75B39" }} />
+            <FileText size={16} style={{ color: "var(--accent)" }} />
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-medium" style={{ color: "#FFFFFF" }}>{doc.name}</p>
+            <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{doc.name}</p>
             <p className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
               {doc.type === "contract" ? "Contrat" : doc.type === "id_verification" ? "Vérification ID" : doc.type === "release_form" ? "Release form" : "Document"} · {new Date(doc.uploaded_at).toLocaleDateString("fr-FR")}
             </p>
@@ -749,12 +749,12 @@ function DocumentsTab({ documents, fanId }: { documents: AtlasDocument[]; fanId:
           {doc.file_url && (
             <a href={doc.file_url} target="_blank" rel="noopener noreferrer"
               className="text-xs transition-opacity hover:opacity-70"
-              style={{ color: "#C75B39" }}>
+              style={{ color: "var(--accent)" }}>
               Voir
             </a>
           )}
           {doc.expires_at && new Date(doc.expires_at) < new Date() && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(229,72,77,0.1)", color: "#E5484D" }}>
+            <span className="text-[10px] px-1.5 py-0.5 rounded-sm" style={{ background: "rgba(229,72,77,0.1)", color: "var(--danger)" }}>
               Expiré
             </span>
           )}
@@ -773,7 +773,7 @@ function AiInsightsCard({ insights }: { insights: AiInsight[] }) {
 
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
         <Zap size={12} style={{ color: "#F59E0B" }} /> Insights IA
       </h3>
       <div className="space-y-2.5">
@@ -786,7 +786,7 @@ function AiInsightsCard({ insights }: { insights: AiInsight[] }) {
             <div className="flex items-start gap-2">
               <span>{insight.icon}</span>
               <div>
-                <p className="text-xs font-semibold" style={{ color: "#FFFFFF" }}>{insight.title}</p>
+                <p className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>{insight.title}</p>
                 <p className="text-xs mt-0.5" style={{ color: "rgba(255,255,255,0.5)" }}>{insight.description}</p>
               </div>
             </div>
@@ -800,7 +800,7 @@ function AiInsightsCard({ insights }: { insights: AiInsight[] }) {
 function RecommendedActionsCard({ fan, onAction }: { fan: AtlasFan; onAction: (action: string) => void }) {
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
         <Target size={12} /> Actions recommandées
       </h3>
       <div className="space-y-1.5">
@@ -817,7 +817,7 @@ function RecActionBtn({ icon: Icon, label, onClick }: { icon: any; label: string
   return (
     <button onClick={onClick}
       className="flex items-center gap-2.5 w-full px-3 py-2 text-sm rounded-sm transition-all hover:opacity-80"
-      style={{ background: "rgba(255,255,255,0.03)", color: "#FFFFFF" }}>
+      style={{ background: "rgba(255,255,255,0.03)", color: "var(--text-primary)" }}>
       <Icon size={13} />
       <span className="flex-1 text-left">{label}</span>
       <ChevronRight size={12} style={{ color: "rgba(255,255,255,0.3)" }} />
@@ -833,7 +833,7 @@ function QuickStatsCard({ fan }: { fan: AtlasFan }) {
 
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3" style={{ color: "var(--text-primary)" }}>
         <Activity size={12} className="inline mr-1" /> Statistiques rapides
       </h3>
       <div className="grid grid-cols-2 gap-3">
@@ -852,7 +852,7 @@ function StatItem({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.4)" }}>{label}</p>
-      <p className="text-sm font-semibold mt-0.5" style={{ color: "#FFFFFF" }}>{value}</p>
+      <p className="text-sm font-semibold mt-0.5" style={{ color: "var(--text-primary)" }}>{value}</p>
     </div>
   );
 }
@@ -864,8 +864,8 @@ function StatItem({ label, value }: { label: string; value: string }) {
 function VaultRecommendationsCard({ recommendations, loading }: { recommendations: any[]; loading: boolean }) {
   if (loading) return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "#FFFFFF" }}>
-        <Package size={12} style={{ color: "#C75B39" }} /> Recommandations Vault
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
+        <Package size={12} style={{ color: "var(--accent)" }} /> Recommandations Vault
       </h3>
       {[1,2,3].map(i => <div key={i} className="h-6 animate-pulse mb-2" style={{ backgroundColor: "rgba(255,255,255,0.03)" }} />)}
     </div>
@@ -875,26 +875,26 @@ function VaultRecommendationsCard({ recommendations, loading }: { recommendation
 
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "#FFFFFF" }}>
-        <Package size={12} style={{ color: "#C75B39" }} /> Vault recommendations
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
+        <Package size={12} style={{ color: "var(--accent)" }} /> Vault recommendations
       </h3>
       <div className="space-y-2">
         {recommendations.slice(0, 5).map((rec, i) => (
           <div key={i} className="p-2 border border-[var(--color-border)]" style={{ backgroundColor: "rgba(255,255,255,0.02)" }}>
             <div className="flex items-start justify-between gap-2">
               <div className="min-w-0 flex-1">
-                <p className="text-xs font-medium truncate" style={{ color: "#FFFFFF" }}>
+                <p className="text-xs font-medium truncate" style={{ color: "var(--text-primary)" }}>
                   {(rec.product as any)?.name || "Produit"}
                 </p>
                 <p className="text-[10px] mt-0.5" style={{ color: "rgba(255,255,255,0.4)" }}>{rec.reason}</p>
               </div>
-              <span className="text-xs font-semibold shrink-0" style={{ color: "#C75B39" }}>
+              <span className="text-xs font-semibold shrink-0" style={{ color: "var(--accent)" }}>
                 {(rec.product as any)?.price}€
               </span>
             </div>
             <div className="flex items-center gap-2 mt-1.5">
               <div className="flex-1 h-1" style={{ backgroundColor: "rgba(255,255,255,0.06)" }}>
-                <div className="h-full" style={{ width: `${rec.score}%`, backgroundColor: "#C75B39", opacity: 0.7 }} />
+                <div className="h-full" style={{ width: `${rec.score}%`, backgroundColor: "var(--accent)", opacity: 0.7 }} />
               </div>
               <span className="text-[9px] shrink-0" style={{ color: "rgba(255,255,255,0.3)" }}>{rec.score}%</span>
             </div>
@@ -912,7 +912,7 @@ function VaultRecommendationsCard({ recommendations, loading }: { recommendation
 function PredictionsCard({ ltv, churn, loading }: { ltv: any; churn: any; loading: boolean }) {
   if (loading) return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
         <BarChart3 size={12} style={{ color: "#8B5CF6" }} /> Prédictions IA
       </h3>
       {[1,2].map(i => <div key={i} className="h-12 animate-pulse mb-2" style={{ backgroundColor: "rgba(255,255,255,0.03)" }} />)}
@@ -923,7 +923,7 @@ function PredictionsCard({ ltv, churn, loading }: { ltv: any; churn: any; loadin
 
   return (
     <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
-      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "#FFFFFF" }}>
+      <h3 className="text-xs font-semibold uppercase tracking-wider mb-3 flex items-center gap-1.5" style={{ color: "var(--text-primary)" }}>
         <BarChart3 size={12} style={{ color: "#8B5CF6" }} /> Prédictions IA
       </h3>
       <div className="space-y-3">
@@ -932,11 +932,11 @@ function PredictionsCard({ ltv, churn, loading }: { ltv: any; churn: any; loadin
         {ltv && (
           <div className="p-2.5 border border-[var(--color-border)]" style={{ backgroundColor: "rgba(16,185,129,0.04)" }}>
             <div className="flex items-center gap-1.5 mb-1.5">
-              <TrendingUp size={11} style={{ color: "#10B981" }} />
-              <span className="text-[10px] font-semibold" style={{ color: "#10B981" }}>LTV Projection</span>
+              <TrendingUp size={11} style={{ color: "var(--success)" }} />
+              <span className="text-[10px] font-semibold" style={{ color: "var(--success)" }}>LTV Projection</span>
             </div>
             <div className="flex items-end gap-2">
-              <span className="text-base font-bold" style={{ color: "#FFFFFF" }}>
+              <span className="text-base font-bold" style={{ color: "var(--text-primary)" }}>
                 {Math.round(ltv.predicted_ltv_12m)}€
               </span>
               <span className="text-[10px] mb-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -945,17 +945,17 @@ function PredictionsCard({ ltv, churn, loading }: { ltv: any; churn: any; loadin
             </div>
             <div className="grid grid-cols-2 gap-x-3 gap-y-1 mt-1.5 text-[10px]">
               <span style={{ color: "rgba(255,255,255,0.4)" }}>
-                Actuel: <strong style={{ color: "#FFFFFF" }}>{Math.round(ltv.current_ltv)}€</strong>
+                Actuel: <strong style={{ color: "var(--text-primary)" }}>{Math.round(ltv.current_ltv)}€</strong>
               </span>
               <span style={{ color: "rgba(255,255,255,0.4)" }}>
-                Confiance: <strong style={{ color: "#FFFFFF" }}>{ltv.confidence}</strong>
+                Confiance: <strong style={{ color: "var(--text-primary)" }}>{ltv.confidence}</strong>
               </span>
               <span style={{ color: "rgba(255,255,255,0.4)" }}>
-                Vélocité: <strong style={{ color: "#FFFFFF" }}>{Math.round(ltv.monthly_velocity)}€/mois</strong>
+                Vélocité: <strong style={{ color: "var(--text-primary)" }}>{Math.round(ltv.monthly_velocity)}€/mois</strong>
               </span>
               <span style={{ color: "rgba(255,255,255,0.4)" }}>
                 Tendance: <strong style={{
-                  color: ltv.trend_direction === "growing" ? "#10B981" : ltv.trend_direction === "declining" ? "#E5484D" : "#FFFFFF",
+                  color: ltv.trend_direction === "growing" ? "var(--success)" : ltv.trend_direction === "declining" ? "var(--danger)" : "var(--text-primary)",
                 }}>
                   {ltv.trend_direction === "growing" ? "Croissante ↑" : ltv.trend_direction === "declining" ? "Décroissante ↓" : "Stable"}
                 </strong>
@@ -975,15 +975,15 @@ function PredictionsCard({ ltv, churn, loading }: { ltv: any; churn: any; loadin
             backgroundColor: churn.score > 40 ? "rgba(229,72,77,0.04)" : "rgba(16,185,129,0.04)",
           }}>
             <div className="flex items-center gap-1.5 mb-1.5">
-              <TrendingDown size={11} style={{ color: churn.score > 40 ? "#E5484D" : "#10B981" }} />
-              <span className="text-[10px] font-semibold" style={{ color: churn.score > 40 ? "#E5484D" : "#10B981" }}>
+              <TrendingDown size={11} style={{ color: churn.score > 40 ? "var(--danger)" : "var(--success)" }} />
+              <span className="text-[10px] font-semibold" style={{ color: churn.score > 40 ? "var(--danger)" : "var(--success)" }}>
                 Risque de churn
               </span>
             </div>
             <div className="flex items-end gap-2">
-              <span className="text-base font-bold" style={{ color: "#FFFFFF" }}>{churn.score}/100</span>
+              <span className="text-base font-bold" style={{ color: "var(--text-primary)" }}>{churn.score}/100</span>
               <span className="text-[10px] mb-0.5" style={{
-                color: churn.score > 70 ? "#E5484D" : churn.score > 40 ? "#C75B39" : churn.score > 20 ? "#F59E0B" : "#10B981",
+                color: churn.score > 70 ? "var(--danger)" : churn.score > 40 ? "var(--accent)" : churn.score > 20 ? "#F59E0B" : "var(--success)",
               }}>
                 {churn.level}
               </span>
@@ -995,7 +995,7 @@ function PredictionsCard({ ltv, churn, loading }: { ltv: any; churn: any; loadin
                 ))}
               </div>
             )}
-            <p className="text-[9px] mt-1.5" style={{ color: "#C75B39" }}>
+            <p className="text-[9px] mt-1.5" style={{ color: "var(--accent)" }}>
               → {churn.recommended_action === "win_back_campaign_high_value" && "Campagne win-back"}
               {churn.recommended_action === "personal_outreach" && "Contact personnalisé"}
               {churn.recommended_action === "engagement_content" && "Contenu d'engagement"}
@@ -1032,18 +1032,18 @@ function MergeDialog({ fan, open, onClose }: { fan: AtlasFan; open: boolean; onC
 
   return (
     <DialogOverlay open={open} onClose={onClose} title="Fusionner des identités">
-      <p className="text-sm mb-3" style={{ color: "#FFFFFF" }}>
+      <p className="text-sm mb-3" style={{ color: "var(--text-primary)" }}>
         Rechercher un fan à fusionner avec <strong>{fan.display_name || fan.email}</strong>.
         Les interactions et achats seront regroupés.
       </p>
       <div className="flex items-center gap-2 mb-3">
         <input value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email du doublon..."
           className="flex-1 text-sm bg-transparent px-3 py-2 border border-[var(--color-border)] outline-none"
-          style={{ color: "#FFFFFF" }}
+          style={{ color: "var(--text-primary)" }}
           onKeyDown={(e) => e.key === "Enter" && handleSearch()} />
         <button onClick={handleSearch} disabled={searching}
           className="px-3 py-2 text-sm rounded-sm"
-          style={{ background: "#C75B39", color: "#FFFFFF" }}>
+          style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
           <Search size={14} />
         </button>
       </div>
@@ -1052,8 +1052,8 @@ function MergeDialog({ fan, open, onClose }: { fan: AtlasFan; open: boolean; onC
           {matches.map((m) => (
             <div key={m.id} className="flex items-center justify-between p-2 border border-[var(--color-border)] text-sm"
               style={{ backgroundColor: "var(--color-surface)" }}>
-              <span style={{ color: "#FFFFFF" }}>{m.display_name || m.email}</span>
-              <button className="text-xs px-2 py-1 rounded-sm" style={{ background: "rgba(199,91,57,0.2)", color: "#C75B39" }}>
+              <span style={{ color: "var(--text-primary)" }}>{m.display_name || m.email}</span>
+              <button className="text-xs px-2 py-1 rounded-sm" style={{ background: "rgba(199,91,57,0.2)", color: "var(--accent)" }}>
                 Fusionner
               </button>
             </div>
@@ -1079,7 +1079,7 @@ function ExportDialog({ fan, open, onClose }: { fan: AtlasFan; open: boolean; on
 
   return (
     <DialogOverlay open={open} onClose={onClose} title="Exporter les données RGPD">
-      <p className="text-sm mb-4" style={{ color: "#FFFFFF" }}>
+      <p className="text-sm mb-4" style={{ color: "var(--text-primary)" }}>
         Toutes les données de <strong>{fan.display_name || fan.email}</strong> seront exportées :
         interactions, achats, notes, documents et métadonnées.
       </p>
@@ -1091,7 +1091,7 @@ function ExportDialog({ fan, open, onClose }: { fan: AtlasFan; open: boolean; on
       </div>
       <button onClick={handleExport} disabled={exporting}
         className="flex items-center gap-2 px-4 py-2 text-sm rounded-sm transition-opacity disabled:opacity-40"
-        style={{ background: "#C75B39", color: "#FFFFFF" }}>
+        style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
         <Download size={14} />
         {exporting ? "Génération du ZIP..." : "Exporter toutes les données"}
       </button>
@@ -1119,14 +1119,14 @@ function DeleteDialog({ fan, open, onClose }: { fan: AtlasFan; open: boolean; on
     return (
       <DialogOverlay open={open} onClose={onClose} title="Fan supprimé">
         <div className="flex flex-col items-center py-4 text-center">
-          <CheckCircle size={32} style={{ color: "#10B981" }} />
-          <p className="text-sm mt-3 font-medium" style={{ color: "#FFFFFF" }}>Données anonymisées</p>
+          <CheckCircle size={32} style={{ color: "var(--success)" }} />
+          <p className="text-sm mt-3 font-medium" style={{ color: "var(--text-primary)" }}>Données anonymisées</p>
           <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
             Conforme RGPD — un log de suppression a été conservé
           </p>
           <Link href="/dashboard/atlas/fans"
             className="mt-4 px-4 py-2 text-sm rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}>
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
             Retour à la liste
           </Link>
         </div>
@@ -1136,26 +1136,26 @@ function DeleteDialog({ fan, open, onClose }: { fan: AtlasFan; open: boolean; on
 
   return (
     <DialogOverlay open={open && !deleted} onClose={onClose} title="Supprimer ce fan ?">
-      <div className="p-3 mb-4 border border-[#E5484D]/20 flex items-start gap-2"
+      <div className="p-3 mb-4 border border-[var(--danger)/20] flex items-start gap-2"
         style={{ background: "rgba(229,72,77,0.05)" }}>
-        <AlertTriangle size={16} style={{ color: "#E5484D", marginTop: 1 }} />
+        <AlertTriangle size={16} style={{ color: "var(--danger)", marginTop: 1 }} />
         <div>
-          <p className="text-sm font-medium" style={{ color: "#E5484D" }}>Action irréversible</p>
-          <p className="text-xs mt-1" style={{ color: "#FFFFFF" }}>
+          <p className="text-sm font-medium" style={{ color: "var(--danger)" }}>Action irréversible</p>
+          <p className="text-xs mt-1" style={{ color: "var(--text-primary)" }}>
             Toutes les données de <strong>{fan.display_name || fan.email}</strong> seront anonymisées :
             interactions, achats, notes et documents. Un log de suppression sera conservé pour conformité RGPD.
           </p>
         </div>
       </div>
-      <p className="text-xs mb-2" style={{ color: "#FFFFFF" }}>
+      <p className="text-xs mb-2" style={{ color: "var(--text-primary)" }}>
         Tape <strong>SUPPRIMER</strong> pour confirmer :
       </p>
       <input value={confirm} onChange={(e) => setConfirm(e.target.value)} placeholder="SUPPRIMER"
         className="w-full text-sm bg-transparent px-3 py-2 border border-[var(--color-border)] outline-none mb-3"
-        style={{ color: "#FFFFFF" }} />
+        style={{ color: "var(--text-primary)" }} />
       <button onClick={handleDelete} disabled={confirm !== "SUPPRIMER" || deleting}
         className="flex items-center gap-2 px-4 py-2 text-sm rounded-sm transition-opacity disabled:opacity-40"
-        style={{ background: "#E5484D", color: "#FFFFFF" }}>
+        style={{ background: "var(--danger)", color: "var(--text-primary)" }}>
         <Trash2 size={14} />
         {deleting ? "Suppression..." : "Supprimer définitivement"}
       </button>
@@ -1170,7 +1170,7 @@ function DialogOverlay({ open, onClose, title, children }: { open: boolean; onCl
       <div className="w-full max-w-md mx-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}
         onClick={(e) => e.stopPropagation()}>
         <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--color-border)]">
-          <h3 className="text-sm font-bold" style={{ color: "#FFFFFF" }}>{title}</h3>
+          <h3 className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>{title}</h3>
           <button onClick={onClose} className="p-1 transition-opacity hover:opacity-70"><X size={14} /></button>
         </div>
         <div className="p-5">{children}</div>
@@ -1281,7 +1281,7 @@ export default function FanProfilePage({ params }: { params: Promise<{ fanId: st
     return (
       <div className="flex flex-col items-center py-16">
         <p className="text-sm" style={{ color: "rgba(255,255,255,0.3)" }}>Fan introuvable</p>
-        <Link href="/dashboard/atlas/fans" className="text-sm mt-2" style={{ color: "#C75B39" }}>Retour</Link>
+        <Link href="/dashboard/atlas/fans" className="text-sm mt-2" style={{ color: "var(--accent)" }}>Retour</Link>
       </div>
     );
   }
@@ -1291,7 +1291,7 @@ export default function FanProfilePage({ params }: { params: Promise<{ fanId: st
       {/* ── Header ── */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <Link href="/dashboard/atlas/fans" className="p-1 transition-opacity hover:opacity-70" style={{ color: "#FFFFFF" }}>
+          <Link href="/dashboard/atlas/fans" className="p-1 transition-opacity hover:opacity-70" style={{ color: "var(--text-primary)" }}>
             <ArrowLeft size={18} />
           </Link>
           <div className="flex items-center gap-3">
@@ -1300,7 +1300,7 @@ export default function FanProfilePage({ params }: { params: Promise<{ fanId: st
               {(fan.display_name || fan.email || "?").charAt(0).toUpperCase()}
             </div>
             <div>
-              <h1 className="text-lg font-bold" style={{ fontFamily: "var(--font-display)", color: "#FFFFFF" }}>
+              <h1 className="text-lg font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
                 {fan.display_name || fan.email || "Fan anonyme"}
               </h1>
               <div className="flex items-center gap-2 mt-0.5">
@@ -1309,7 +1309,7 @@ export default function FanProfilePage({ params }: { params: Promise<{ fanId: st
                   color: TIER_COLORS[fan.fan_tier],
                 }}>{TIER_LABELS[fan.fan_tier]}</span>
                 <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Score: {fan.fan_score}/100</span>
-                <span className={`text-xs ${fan.status === "active" ? "text-[#10B981]" : "text-[#E5484D]"}`}>
+                <span className={`text-xs ${fan.status === "active" ? "text-[var(--success)]" : "text-[var(--danger)]"}`}>
                   ● {fan.status === "active" ? "Actif" : fan.status}
                 </span>
               </div>
@@ -1321,12 +1321,12 @@ export default function FanProfilePage({ params }: { params: Promise<{ fanId: st
         <div className="flex items-center gap-2">
           <button onClick={() => handleAction("export")}
             className="flex items-center gap-1.5 px-3 py-2 text-sm rounded-sm transition-opacity hover:opacity-80"
-            style={{ background: "rgba(255,255,255,0.06)", color: "#FFFFFF" }}>
+            style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-primary)" }}>
             <Download size={14} /> Exporter
           </button>
           <button onClick={() => handleAction("delete")}
             className="flex items-center gap-1.5 px-3 py-2 text-sm rounded-sm transition-opacity hover:opacity-80"
-            style={{ background: "rgba(229,72,77,0.15)", color: "#E5484D" }}>
+            style={{ background: "rgba(229,72,77,0.15)", color: "var(--danger)" }}>
             <Trash2 size={14} /> Supprimer
           </button>
         </div>
@@ -1352,8 +1352,8 @@ export default function FanProfilePage({ params }: { params: Promise<{ fanId: st
               <button key={id} onClick={() => setActiveTab(id)}
                 className="px-4 py-3 text-sm font-medium transition-colors whitespace-nowrap"
                 style={{
-                  color: activeTab === id ? "#C75B39" : "#FFFFFF",
-                  borderBottom: activeTab === id ? "2px solid #C75B39" : "2px solid transparent",
+                  color: activeTab === id ? "var(--accent)" : "var(--text-primary)",
+                  borderBottom: activeTab === id ? "2px solid var(--accent)" : "2px solid transparent",
                 }}>
                 {label}
               </button>

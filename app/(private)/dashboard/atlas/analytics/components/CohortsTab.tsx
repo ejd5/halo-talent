@@ -57,7 +57,7 @@ export default function CohortsTab() {
             <tbody>
               {cohorts.map((c: any) => (
                 <tr key={c.cohort} className="table-row">
-                  <td className="px-3 py-2 font-medium" style={{ color: "#F5F0EB" }}>{c.cohort}</td>
+                  <td className="px-3 py-2 font-medium" style={{ color: "var(--text-primary)" }}>{c.cohort}</td>
                   <td className="px-3 py-2" style={{ color: "var(--color-ink-tertiary)" }}>{c.acquired}</td>
                   {Array.from({ length: Math.min(maxOffset + 1, 12) }, (_, i) => {
                     const r = c.retention.find((x: any) => x.offset === i);
@@ -68,7 +68,7 @@ export default function CohortsTab() {
                         className="px-2 py-2 text-center font-mono text-xs"
                         style={{
                           color: rate !== null
-                            ? rate > 60 ? "#7A9A65" : rate > 30 ? "#C75B39" : "#C44536"
+                            ? rate > 60 ? "var(--success)" : rate > 30 ? "var(--accent)" : "var(--danger)"
                             : "var(--color-ink-tertiary)",
                           backgroundColor: rate !== null
                             ? `rgba(199,91,57,${rate / 200})`
@@ -103,8 +103,8 @@ export default function CohortsTab() {
                   domain={[0, 100]}
                 />
                 <Tooltip
-                  contentStyle={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
-                  labelStyle={{ color: "#F5F0EB" }}
+                  contentStyle={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
+                  labelStyle={{ color: "var(--text-primary)" }}
                   formatter={(v: any) => [`${String(v)}%`, "Rétention M0"]}
                 />
                 <Legend />
@@ -114,7 +114,7 @@ export default function CohortsTab() {
                     type="monotone"
                     dataKey={`m${i}`}
                     name={`M${i}`}
-                    stroke={i === 0 ? "#C75B39" : i === 1 ? "#5B8FA8" : "#7A9A65"}
+                    stroke={i === 0 ? "var(--accent)" : i === 1 ? "#5B8FA8" : "var(--success)"}
                     strokeWidth={2}
                     dot={false}
                   />
@@ -133,8 +133,8 @@ export default function CohortsTab() {
                 <XAxis dataKey="cohort" tick={{ fontSize: 10, fill: "var(--color-ink-tertiary)" }} />
                 <YAxis tick={{ fontSize: 11, fill: "var(--color-ink-tertiary)" }} tickFormatter={(v: number) => `${v}€`} />
                 <Tooltip
-                  contentStyle={{ background: "#2A2420", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
-                  labelStyle={{ color: "#F5F0EB" }}
+                  contentStyle={{ background: "var(--bg-card)", border: "1px solid rgba(245,240,235,0.1)", borderRadius: 0 }}
+                  labelStyle={{ color: "var(--text-primary)" }}
                   formatter={(v: any) => [eur(Number(v)), "LTV moyen"]}
                 />
                 <Bar dataKey="ltv" fill="#5B8FA8" radius={0} />

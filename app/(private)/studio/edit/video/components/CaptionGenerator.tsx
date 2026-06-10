@@ -18,7 +18,7 @@ export function CaptionGenerator({ onCaptionsReady, onClose, totalDurationFrames
   const [style, setStyle] = useState<CaptionStyle>({
     fontFamily: "sans-serif",
     fontSize: 28,
-    color: "#FFFFFF",
+    color: "var(--text-primary)",
     position: "bottom",
     background: true,
   });
@@ -127,13 +127,13 @@ export function CaptionGenerator({ onCaptionsReady, onClose, totalDurationFrames
     >
       <div
         className="w-[480px] max-h-[600px] flex flex-col rounded-sm"
-        style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }}
+        style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
         <div className="flex items-center justify-between px-4 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-          <h3 className="text-sm flex items-center gap-2" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>
-            <Mic size={14} style={{ color: "#C75B39" }} />
+          <h3 className="text-sm flex items-center gap-2" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>
+            <Mic size={14} style={{ color: "var(--accent)" }} />
             Sous-titres automatiques
           </h3>
           <button onClick={onClose} className="p-1 transition-colors hover:bg-white/10 rounded-sm" style={{ color: "rgba(255,255,255,0.4)" }}>
@@ -152,7 +152,7 @@ export function CaptionGenerator({ onCaptionsReady, onClose, totalDurationFrames
               style={{ border: "1px dashed rgba(255,255,255,0.1)" }}
             >
               {generating ? (
-                <Loader size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+                <Loader size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
               ) : (
                 <>
                   <Mic size={20} style={{ color: "rgba(255,255,255,0.2)" }} />
@@ -182,7 +182,7 @@ export function CaptionGenerator({ onCaptionsReady, onClose, totalDurationFrames
                       value={style.position}
                       onChange={(e) => setStyle({ ...style, position: e.target.value as any })}
                       className="w-full text-[10px] bg-transparent px-2 py-1 rounded-sm outline-none"
-                      style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+                      style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
                     >
                       <option value="top">Haut</option>
                       <option value="middle">Milieu</option>
@@ -195,7 +195,7 @@ export function CaptionGenerator({ onCaptionsReady, onClose, totalDurationFrames
                       value={style.fontFamily}
                       onChange={(e) => setStyle({ ...style, fontFamily: e.target.value })}
                       className="w-full text-[10px] bg-transparent px-2 py-1 rounded-sm outline-none"
-                      style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+                      style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
                     >
                       <option value="sans-serif">Sans-serif</option>
                       <option value="serif">Serif</option>
@@ -209,7 +209,7 @@ export function CaptionGenerator({ onCaptionsReady, onClose, totalDurationFrames
                       value={style.fontSize}
                       onChange={(e) => setStyle({ ...style, fontSize: Number(e.target.value) })}
                       className="w-full text-[10px] bg-transparent px-2 py-1 rounded-sm outline-none"
-                      style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+                      style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
                     />
                   </div>
                 </div>
@@ -258,7 +258,7 @@ export function CaptionGenerator({ onCaptionsReady, onClose, totalDurationFrames
                 <button
                   onClick={applyCaptions}
                   className="flex-1 flex items-center justify-center gap-1.5 py-2 text-[10px] rounded-sm transition-opacity hover:opacity-80"
-                  style={{ background: "#C75B39", color: "#FFFFFF" }}
+                  style={{ background: "var(--accent)", color: "var(--text-primary)" }}
                 >
                   <Type size={10} />
                   Appliquer les sous-titres
@@ -287,7 +287,7 @@ export function CaptionGenerator({ onCaptionsReady, onClose, totalDurationFrames
                     URL.revokeObjectURL(url);
                   }}
                   className="flex items-center gap-1.5 px-3 py-2 text-[10px] rounded-sm transition-colors hover:bg-white/5"
-                  style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }}
+                  style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.5)" }}
                 >
                   <Download size={10} />
                   SRT

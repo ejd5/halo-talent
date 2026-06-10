@@ -98,7 +98,7 @@ export default function OnboardingPage() {
               className="flex items-center gap-2 px-3 py-1.5 text-xs font-medium transition-all"
               style={{
                 backgroundColor: i <= step ? "rgba(199,91,57,0.12)" : "transparent",
-                color: i <= step ? "#C75B39" : "rgba(245,240,235,0.15)",
+                color: i <= step ? "var(--accent)" : "rgba(245,240,235,0.15)",
                 border: i === step ? "1px solid rgba(199,91,57,0.3)" : "1px solid transparent",
               }}
             >
@@ -106,7 +106,7 @@ export default function OnboardingPage() {
               <span className="hidden sm:inline">{s.label}</span>
             </div>
             {i < STEPS.length - 1 && (
-              <div className="flex-1 h-px" style={{ backgroundColor: i < step ? "#C75B39" : "rgba(245,240,235,0.06)" }} />
+              <div className="flex-1 h-px" style={{ backgroundColor: i < step ? "var(--accent)" : "rgba(245,240,235,0.06)" }} />
             )}
           </div>
         ))}
@@ -179,8 +179,8 @@ export default function OnboardingPage() {
             disabled={!canContinue()}
             className="flex items-center gap-1.5 text-sm font-medium px-5 py-2.5 transition-all disabled:opacity-30"
             style={{
-              backgroundColor: "#C75B39",
-              color: "#F5F0EB",
+              backgroundColor: "var(--accent)",
+              color: "var(--text-primary)",
               opacity: canContinue() ? 1 : 0.3,
             }}
           >
@@ -200,9 +200,9 @@ function StepWelcome() {
   return (
     <div className="flex flex-col items-center text-center py-8 animate-fade-in">
       <div className="w-20 h-20 flex items-center justify-center mb-6" style={{ backgroundColor: "rgba(199,91,57,0.1)" }}>
-        <Sparkles size={36} style={{ color: "#C75B39" }} />
+        <Sparkles size={36} style={{ color: "var(--accent)" }} />
       </div>
-      <h1 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+      <h1 className="text-2xl font-semibold mb-3" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
         Bienvenue dans Atlas
       </h1>
       <p className="text-sm max-w-lg mb-6" style={{ color: "rgba(245,240,235,0.5)" }}>
@@ -216,11 +216,11 @@ function StepWelcome() {
         {[
           { icon: Users, title: "CRM Intelligent", desc: "Segmentez, scorez et fidélisez chaque fan automatiquement" },
           { icon: Zap, title: "Automatisations", desc: "Règles, funnels, webhooks — tout s'automatise" },
-          { icon: Shield, title: "100% Conforme", desc: "RGPD, anti-spam, taux limites — zéro ban garanti" },
+          { icon: Shield, title: "Conforme RGPD", desc: "RGPD, anti-spam, taux limites — protection anti-ban" },
         ].map((f) => (
-          <div key={f.title} className="p-4 text-center" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
-            <f.icon size={20} style={{ color: "#C75B39" }} className="mb-2" />
-            <h3 className="text-sm font-medium mb-1" style={{ color: "#F5F0EB" }}>{f.title}</h3>
+          <div key={f.title} className="p-4 text-center" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
+            <f.icon size={20} style={{ color: "var(--accent)" }} className="mb-2" />
+            <h3 className="text-sm font-medium mb-1" style={{ color: "var(--text-primary)" }}>{f.title}</h3>
             <p className="text-[11px]" style={{ color: "rgba(245,240,235,0.35)" }}>{f.desc}</p>
           </div>
         ))}
@@ -238,7 +238,7 @@ function StepWelcome() {
 function StepPlatforms({ connected, onToggle }: { connected: string[]; onToggle: (id: string) => void }) {
   return (
     <div className="py-4 animate-fade-in">
-      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
         Connecter vos plateformes
       </h2>
       <p className="text-sm mb-6" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -262,16 +262,16 @@ function StepPlatforms({ connected, onToggle }: { connected: string[]; onToggle:
                 <p.icon size={20} style={{ color: p.color }} />
               </div>
               <div className="flex-1">
-                <div className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{p.label}</div>
-                <div className="text-[10px] mt-0.5" style={{ color: isConnected ? "#7A9A65" : "rgba(245,240,235,0.25)" }}>
+                <div className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{p.label}</div>
+                <div className="text-[10px] mt-0.5" style={{ color: isConnected ? "var(--success)" : "rgba(245,240,235,0.25)" }}>
                   {isConnected ? "Connecté" : "Cliquer pour connecter"}
                 </div>
               </div>
               <div
                 className="w-5 h-5 flex items-center justify-center text-[10px] font-medium"
                 style={{
-                  backgroundColor: isConnected ? "#7A9A65" : "rgba(245,240,235,0.06)",
-                  color: isConnected ? "#F5F0EB" : "transparent",
+                  backgroundColor: isConnected ? "var(--success)" : "rgba(245,240,235,0.06)",
+                  color: isConnected ? "var(--text-primary)" : "transparent",
                 }}
               >
                 {isConnected ? "✓" : ""}
@@ -293,7 +293,7 @@ function StepPlatforms({ connected, onToggle }: { connected: string[]; onToggle:
 function StepImport({ imported, onToggle }: { imported: string[]; onToggle: (id: string) => void }) {
   return (
     <div className="py-4 animate-fade-in">
-      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
         Importer vos contacts
       </h2>
       <p className="text-sm mb-6" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -314,17 +314,17 @@ function StepImport({ imported, onToggle }: { imported: string[]; onToggle: (id:
               }}
             >
               <div className="w-10 h-10 flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(199,91,57,0.1)" }}>
-                <opt.icon size={18} style={{ color: "#C75B39" }} />
+                <opt.icon size={18} style={{ color: "var(--accent)" }} />
               </div>
               <div className="flex-1 min-w-0">
-                <div className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{opt.label}</div>
+                <div className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{opt.label}</div>
                 <div className="text-[10px] mt-0.5 truncate" style={{ color: "rgba(245,240,235,0.35)" }}>{opt.desc}</div>
               </div>
               <div
                 className="w-5 h-5 flex items-center justify-center text-[10px] font-medium shrink-0"
                 style={{
-                  backgroundColor: isImported ? "#7A9A65" : "rgba(245,240,235,0.06)",
-                  color: isImported ? "#F5F0EB" : "transparent",
+                  backgroundColor: isImported ? "var(--success)" : "rgba(245,240,235,0.06)",
+                  color: isImported ? "var(--text-primary)" : "transparent",
                 }}
               >
                 {isImported ? "✓" : ""}
@@ -352,7 +352,7 @@ function StepConsents({
 }) {
   return (
     <div className="py-4 animate-fade-in">
-      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
         Configurer les consents
       </h2>
       <p className="text-sm mb-6" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -361,7 +361,7 @@ function StepConsents({
 
       <div className="space-y-4">
         {/* Email domain */}
-        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
           <label className="block text-xs font-medium mb-1" style={{ color: "rgba(245,240,235,0.5)" }}>
             Domaine email (DKIM/SPF)
           </label>
@@ -371,7 +371,7 @@ function StepConsents({
             onChange={(e) => onEmailDomain(e.target.value)}
             placeholder="ex: votredomaine.com"
             className="w-full px-3 py-2 text-sm bg-transparent border"
-            style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+            style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
           />
           <p className="text-[10px] mt-1" style={{ color: "rgba(245,240,235,0.2)" }}>
             Nécessaire pour l&apos;envoi d&apos;emails. DKIM/SPF à configurer dans votre DNS.
@@ -379,7 +379,7 @@ function StepConsents({
         </div>
 
         {/* Phone number */}
-        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
           <label className="block text-xs font-medium mb-1" style={{ color: "rgba(245,240,235,0.5)" }}>
             Numéro SMS (Twilio)
           </label>
@@ -389,12 +389,12 @@ function StepConsents({
             onChange={(e) => onPhoneNumber(e.target.value)}
             placeholder="ex: +33612345678"
             className="w-full px-3 py-2 text-sm bg-transparent border"
-            style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+            style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
           />
         </div>
 
         {/* Privacy policy */}
-        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
           <label className="flex items-start gap-3 cursor-pointer">
             <input
               type="checkbox"
@@ -403,7 +403,7 @@ function StepConsents({
               className="mt-0.5"
             />
             <div>
-              <span className="text-sm font-medium" style={{ color: "#F5F0EB" }}>
+              <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
                 Générer une politique de confidentialité
               </span>
               <p className="text-[10px] mt-0.5" style={{ color: "rgba(245,240,235,0.2)" }}>
@@ -429,7 +429,7 @@ function StepFunnel({
 }) {
   return (
     <div className="py-4 animate-fade-in">
-      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
         Premier funnel &quot;Welcome&quot;
       </h2>
       <p className="text-sm mb-6" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -438,7 +438,7 @@ function StepFunnel({
 
       <div className="space-y-4">
         {/* Creator name */}
-        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
           <label className="block text-xs font-medium mb-1" style={{ color: "rgba(245,240,235,0.5)" }}>
             Nom du créateur
           </label>
@@ -448,12 +448,12 @@ function StepFunnel({
             onChange={(e) => onCreatorName(e.target.value)}
             placeholder="Votre nom / pseudo"
             className="w-full px-3 py-2 text-sm bg-transparent border"
-            style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+            style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
           />
         </div>
 
         {/* Tone style */}
-        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
           <label className="block text-xs font-medium mb-2" style={{ color: "rgba(245,240,235,0.5)" }}>
             Style de communication
           </label>
@@ -465,7 +465,7 @@ function StepFunnel({
                 className="flex-1 py-2 text-sm font-medium transition-all"
                 style={{
                   backgroundColor: funnelStyle === style ? "rgba(199,91,57,0.12)" : "rgba(245,240,235,0.04)",
-                  color: funnelStyle === style ? "#C75B39" : "rgba(245,240,235,0.3)",
+                  color: funnelStyle === style ? "var(--accent)" : "rgba(245,240,235,0.3)",
                   border: `1px solid ${funnelStyle === style ? "rgba(199,91,57,0.3)" : "transparent"}`,
                 }}
               >
@@ -493,14 +493,14 @@ function StepFunnel({
               <div
                 className="w-5 h-5 flex items-center justify-center text-[10px] font-medium shrink-0"
                 style={{
-                  backgroundColor: selectedFunnel === ft.id ? "#C75B39" : "rgba(245,240,235,0.06)",
-                  color: selectedFunnel === ft.id ? "#F5F0EB" : "transparent",
+                  backgroundColor: selectedFunnel === ft.id ? "var(--accent)" : "rgba(245,240,235,0.06)",
+                  color: selectedFunnel === ft.id ? "var(--text-primary)" : "transparent",
                 }}
               >
                 {selectedFunnel === ft.id ? "✓" : ""}
               </div>
               <div>
-                <div className="text-sm font-medium" style={{ color: "#F5F0EB" }}>{ft.label}</div>
+                <div className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{ft.label}</div>
                 <div className="text-[10px]" style={{ color: "rgba(245,240,235,0.35)" }}>{ft.desc}</div>
               </div>
             </button>
@@ -508,7 +508,7 @@ function StepFunnel({
         </div>
 
         {/* Welcome offer (optional) */}
-        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "#2A2420" }}>
+        <div className="p-4" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
           <label className="block text-xs font-medium mb-1" style={{ color: "rgba(245,240,235,0.5)" }}>
             Offre de bienvenue (optionnel)
           </label>
@@ -518,7 +518,7 @@ function StepFunnel({
             onChange={(e) => onWelcomeOffer(e.target.value)}
             placeholder="ex: -10% sur ton premier abonnement"
             className="w-full px-3 py-2 text-sm bg-transparent border"
-            style={{ borderColor: "rgba(245,240,235,0.1)", color: "#F5F0EB" }}
+            style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
           />
         </div>
       </div>
@@ -544,7 +544,7 @@ function StepCompliance({ complete }: { complete: boolean }) {
 
   return (
     <div className="py-4 animate-fade-in">
-      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "#F5F0EB" }}>
+      <h2 className="text-xl font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
         Vérification compliance
       </h2>
       <p className="text-sm mb-6" style={{ color: "rgba(245,240,235,0.4)" }}>
@@ -552,19 +552,19 @@ function StepCompliance({ complete }: { complete: boolean }) {
       </p>
 
       {/* Score */}
-      <div className="flex items-center gap-4 p-5 mb-6" style={{ backgroundColor: "#2A2420", border: "1px solid rgba(199,91,57,0.1)" }}>
+      <div className="flex items-center gap-4 p-5 mb-6" style={{ backgroundColor: "var(--bg-card)", border: "1px solid rgba(199,91,57,0.1)" }}>
         <div
           className="w-16 h-16 flex items-center justify-center text-2xl font-bold shrink-0"
           style={{
             fontFamily: "var(--font-display)",
             backgroundColor: score >= 8 ? "rgba(122,154,101,0.1)" : "rgba(199,91,57,0.1)",
-            color: score >= 8 ? "#7A9A65" : "#C75B39",
+            color: score >= 8 ? "var(--success)" : "var(--accent)",
           }}
         >
           {score}/10
         </div>
         <div>
-          <p className="text-sm font-medium" style={{ color: "#F5F0EB" }}>
+          <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
             {score >= 9 ? "Excellent !" : score >= 7 ? "Bien, quelques améliorations possibles" : "Améliorations nécessaires"}
           </p>
           {score < 10 && (
@@ -588,18 +588,18 @@ function StepCompliance({ complete }: { complete: boolean }) {
                 className="w-2 h-2 rounded-full shrink-0"
                 style={{
                   backgroundColor:
-                    c.status === "ok" ? "#7A9A65" :
-                    c.status === "warn" ? "#C75B39" :
+                    c.status === "ok" ? "var(--success)" :
+                    c.status === "warn" ? "var(--accent)" :
                     "rgba(245,240,235,0.1)",
                 }}
               />
-              <span style={{ color: c.status === "ok" ? "#F5F0EB" : "rgba(245,240,235,0.5)" }}>
+              <span style={{ color: c.status === "ok" ? "var(--text-primary)" : "rgba(245,240,235,0.5)" }}>
                 {c.label}
               </span>
             </div>
             <span
               className="text-[10px] font-medium"
-              style={{ color: c.status === "ok" ? "#7A9A65" : "rgba(245,240,235,0.2)" }}
+              style={{ color: c.status === "ok" ? "var(--success)" : "rgba(245,240,235,0.2)" }}
             >
               {c.detail}
             </span>

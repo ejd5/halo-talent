@@ -9,7 +9,7 @@ interface Props {
   progress?: number;
 }
 
-export function AudioWaveform({ audioUrl, color = "#10B981", height = 40, progress = 0 }: Props) {
+export function AudioWaveform({ audioUrl, color = "var(--success)", height = 40, progress = 0 }: Props) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [peaks, setPeaks] = useState<number[]>([]);
 

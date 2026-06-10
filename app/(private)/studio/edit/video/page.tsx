@@ -111,7 +111,7 @@ export default function EditVideoPage() {
           const fontSize = clip.props.fontSize ?? 32;
           ctx.font = `${clip.props.fontWeight || "bold"} ${fontSize}px ${clip.props.fontFamily || "sans-serif"}`;
           ctx.textAlign = clip.props.textAlign || "center";
-          ctx.fillStyle = clip.props.color || "#FFFFFF";
+          ctx.fillStyle = clip.props.color || "var(--text-primary)";
           ctx.shadowColor = "rgba(0,0,0,0.6)";
           ctx.shadowBlur = 8;
           ctx.fillText(clip.props.text, x, y + fontSize / 3);
@@ -233,7 +233,7 @@ export default function EditVideoPage() {
     const clipId = generateId();
     setTracks((prev) => {
       const textTrack = prev.find((t) => t.type === "text");
-      const newClip: Clip = { id: clipId, type: "text", name: "Texte", startFrame: 0, durationFrames: FPS * 3, props: { text: "Double-clic pour éditer", x: 50, y: 50, fontSize: 40, color: "#FFFFFF", fontFamily: "sans-serif", fontWeight: "bold", textAlign: "center", opacity: 100 } };
+      const newClip: Clip = { id: clipId, type: "text", name: "Texte", startFrame: 0, durationFrames: FPS * 3, props: { text: "Double-clic pour éditer", x: 50, y: 50, fontSize: 40, color: "var(--text-primary)", fontFamily: "sans-serif", fontWeight: "bold", textAlign: "center", opacity: 100 } };
       if (textTrack) return prev.map((t) => t.id === textTrack.id ? { ...t, clips: [...t.clips, newClip] } : t);
       return [...prev, { id: generateId(), type: "text" as const, name: "Texte", clips: [newClip], visible: true, locked: false }];
     });
@@ -452,12 +452,12 @@ export default function EditVideoPage() {
   return (
     <div className="flex flex-col h-full animate-fade-in">
       {/* ─── Header ─── */}
-      <div className="flex items-center gap-3 px-4 shrink-0" style={{ height: 40, borderBottom: "1px solid rgba(255,255,255,0.06)", background: "#0A0908" }}>
+      <div className="flex items-center gap-3 px-4 shrink-0" style={{ height: 40, borderBottom: "1px solid rgba(255,255,255,0.06)", background: "var(--bg-primary)" }}>
         <Link href="/studio/edit" className="flex items-center gap-1 text-[11px] transition-opacity hover:opacity-70" style={{ color: "rgba(255,255,255,0.4)" }}>
           <ArrowLeft size={12} /> Studio
         </Link>
         <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.15)" }}>/</span>
-        <span className="text-[11px]" style={{ color: "#C75B39" }}>Éditeur vidéo</span>
+        <span className="text-[11px]" style={{ color: "var(--accent)" }}>Éditeur vidéo</span>
         <div className="flex-1" />
         {exporting && (
           <div className="flex items-center gap-2 text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -505,14 +505,14 @@ export default function EditVideoPage() {
 
       {/* ─── Audio waveform preview ─── */}
       {tracks.filter(t => t.type === "audio" && t.clips.length > 0).length > 0 && (
-        <div className="shrink-0 px-3 py-1" style={{ background: "rgba(16,185,129,0.03)", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
-          <div className="flex items-center gap-2 text-[9px] mb-1" style={{ color: "#10B981" }}>
-            <span className="w-1.5 h-1.5 rounded-full bg-[#10B981]" />
+        <div className="shrink-0 px-3 py-1" style={{ background: "rgba(16,185,129,0.03)", borderTop: "1px solid var(--border-default)" }}>
+          <div className="flex items-center gap-2 text-[9px] mb-1" style={{ color: "var(--success)" }}>
+            <span className="w-1.5 h-1.5 rounded-full bg-[var(--success)]" />
             Audio
           </div>
           {tracks.filter(t => t.type === "audio").map(track =>
             track.clips.map(clip => clip.src ? (
-              <AudioWaveform key={clip.id} audioUrl={clip.src} color="#10B981" height={28} />
+              <AudioWaveform key={clip.id} audioUrl={clip.src} color="var(--success)" height={28} />
             ) : null)
           )}
         </div>
@@ -521,8 +521,8 @@ export default function EditVideoPage() {
       {/* ─── Export Modal ─── */}
       {showExportModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center" style={{ background: "rgba(0,0,0,0.7)" }} onClick={() => !exporting && setShowExportModal(false)}>
-          <div className="w-80 p-6 rounded-sm" style={{ background: "#1A1614", border: "1px solid rgba(255,255,255,0.08)" }} onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-sm mb-4" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Export de la vidéo</h3>
+          <div className="w-80 p-6 rounded-sm" style={{ background: "var(--bg-primary)", border: "1px solid var(--border-default)" }} onClick={(e) => e.stopPropagation()}>
+            <h3 className="text-sm mb-4" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Export de la vidéo</h3>
             <div className="space-y-3">
               <ExportInfo label="Format" value="MP4 (H.264)" />
               <ExportInfo label="Résolution" value={`${ASPECT_RATIOS.find((a) => a.value === aspectRatio)?.w ?? 1080}×${ASPECT_RATIOS.find((a) => a.value === aspectRatio)?.h ?? 1920}`} />
@@ -531,7 +531,7 @@ export default function EditVideoPage() {
               {exporting && (
                 <div className="space-y-1">
                   <div className="relative h-1 w-full rounded-sm" style={{ background: "rgba(255,255,255,0.06)" }}>
-                    <div className="absolute left-0 top-0 h-full rounded-sm transition-all" style={{ width: `${exportProgress}%`, background: "#C75B39" }} />
+                    <div className="absolute left-0 top-0 h-full rounded-sm transition-all" style={{ width: `${exportProgress}%`, background: "var(--accent)" }} />
                   </div>
                   <p className="text-[9px] text-center" style={{ color: "rgba(255,255,255,0.2)" }}>
                     {exportProgress < 50 ? "Rendu des images..." : "Encodage..."}
@@ -539,7 +539,7 @@ export default function EditVideoPage() {
                 </div>
               )}
               {!exporting && (
-                <button onClick={() => setShowExportModal(false)} className="w-full py-1.5 text-[10px] rounded-sm transition-colors hover:bg-white/5" style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}>Fermer</button>
+                <button onClick={() => setShowExportModal(false)} className="w-full py-1.5 text-[10px] rounded-sm transition-colors hover:bg-white/5" style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>Fermer</button>
               )}
             </div>
           </div>
@@ -555,16 +555,16 @@ export default function EditVideoPage() {
       {/* ─── Empty state ─── */}
       {tracks.length === 0 && !exporting && (
         <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none" style={{ top: 88 }}>
-          <div className="pointer-events-auto flex flex-col items-center gap-3 px-8 py-6 rounded-sm" style={{ background: "rgba(10,9,8,0.9)", border: "1px solid rgba(255,255,255,0.06)" }}>
-            <p className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>Montage Vidéo</p>
+          <div className="pointer-events-auto flex flex-col items-center gap-3 px-8 py-6 rounded-sm" style={{ background: "rgba(10,9,8,0.9)", border: "1px solid var(--border-default)" }}>
+            <p className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Montage Vidéo</p>
             <p className="text-[10px] text-center max-w-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
               Importe une vidéo, une image ou de l&apos;audio pour commencer. Utilise un template ou ajoute du texte, des stickers, des effets.
             </p>
             <div className="flex gap-2">
-              <button onClick={handleImportMedia} className="flex items-center gap-1.5 px-4 py-2 text-xs transition-opacity hover:opacity-80 rounded-sm" style={{ background: "#C75B39", color: "#FFFFFF" }}>
+              <button onClick={handleImportMedia} className="flex items-center gap-1.5 px-4 py-2 text-xs transition-opacity hover:opacity-80 rounded-sm" style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
                 <ArrowLeft size={12} className="rotate-45" /> Importer
               </button>
-              <button onClick={() => setShowTemplates(true)} className="flex items-center gap-1.5 px-4 py-2 text-xs transition-opacity hover:opacity-80 rounded-sm" style={{ border: "1px solid rgba(255,255,255,0.1)", color: "#F5F0EB" }}>
+              <button onClick={() => setShowTemplates(true)} className="flex items-center gap-1.5 px-4 py-2 text-xs transition-opacity hover:opacity-80 rounded-sm" style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
                 Templates
               </button>
             </div>
@@ -573,7 +573,7 @@ export default function EditVideoPage() {
       )}
 
       {/* ─── Status bar ─── */}
-      <div className="flex items-center gap-3 px-3 shrink-0" style={{ height: 24, background: "#0A0908", borderTop: "1px solid rgba(255,255,255,0.04)" }}>
+      <div className="flex items-center gap-3 px-3 shrink-0" style={{ height: 24, background: "var(--bg-primary)", borderTop: "1px solid var(--border-default)" }}>
         <span className="text-[8px]" style={{ color: "rgba(255,255,255,0.15)" }}>
           Espace: Play/Pause · ⌫: Supprimer · Templates · Stickers · Effets · Sous-titres IA
         </span>

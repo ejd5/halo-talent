@@ -31,7 +31,7 @@ export function EditorToolbar({
       className="flex items-center gap-0.5 px-3 shrink-0 overflow-x-auto"
       style={{
         height: 48,
-        background: "#0A0908",
+        background: "var(--bg-primary)",
         borderBottom: "1px solid rgba(255,255,255,0.06)",
       }}
     >
@@ -70,7 +70,7 @@ function ToolbarButton({ icon: Icon, label, onClick, disabled, accent }: { icon:
       onClick={onClick}
       disabled={disabled}
       className="flex items-center gap-1.5 px-2.5 py-1.5 text-[11px] whitespace-nowrap transition-colors hover:bg-white/5 disabled:opacity-30 rounded-sm"
-      style={{ color: accent ? "#FFFFFF" : "rgba(255,255,255,0.6)", background: accent ? "#C75B39" : "transparent" }}
+      style={{ color: accent ? "var(--text-primary)" : "rgba(255,255,255,0.6)", background: accent ? "var(--accent)" : "transparent" }}
     >
       {disabled && Icon === Loader ? <Loader size={13} className="animate-spin" /> : <Icon size={13} />}
       {label}

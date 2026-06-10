@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
     .single();
   if (!send) return NextResponse.json({ error: "Envoi introuvable" }, { status: 404 });
 
-  if (send.unlocked) {
+  if (send.unlock_revenue != null) {
     return NextResponse.json({ error: "Déjà unlock" }, { status: 400 });
   }
 

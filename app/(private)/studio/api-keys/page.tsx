@@ -114,7 +114,7 @@ export default function ApiKeysPage() {
   if (loading) {
     return (
       <div className="flex-1 overflow-y-auto p-4 md:p-8 flex items-center justify-center">
-        <Loader size={20} className="animate-spin" style={{ color: "#C75B39" }} />
+        <Loader size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
       </div>
     );
   }
@@ -127,14 +127,14 @@ export default function ApiKeysPage() {
           <Link href="/studio" className="p-1 transition-opacity hover:opacity-70" style={{ color: "rgba(255,255,255,0.4)" }}>
             <ArrowLeft size={16} />
           </Link>
-          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "#F5F0EB" }}>BYOK — Clés API</h1>
+          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>BYOK — Clés API</h1>
         </div>
 
         {/* Info banner */}
         <div className="flex items-start gap-2.5 px-4 py-3 rounded-sm text-[10px]" style={{ background: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)" }}>
-          <Info size={14} style={{ color: "#C75B39", marginTop: 1 }} />
+          <Info size={14} style={{ color: "var(--accent)", marginTop: 1 }} />
           <div>
-            <p className="text-[11px] font-medium" style={{ color: "#C75B39" }}>C&apos;est quoi le BYOK ?</p>
+            <p className="text-[11px] font-medium" style={{ color: "var(--accent)" }}>C&apos;est quoi le BYOK ?</p>
             <p className="mt-1 leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
               Bring Your Own Key — tu utilises tes propres clés API des fournisseurs d&apos;IA.
               Quand le BYOK est activé pour une catégorie, tes crédits Halo ne sont PAS déduits.
@@ -153,14 +153,14 @@ export default function ApiKeysPage() {
             const hasValue = !!keyValues[provider.id];
 
             return (
-              <div key={provider.id} className="p-4 border rounded-sm" style={{ borderColor: "rgba(255,255,255,0.06)", background: "rgba(255,255,255,0.02)" }}>
+              <div key={provider.id} className="p-4 border rounded-sm" style={{ borderColor: "rgba(255,255,255,0.06)", background: "var(--bg-card)" }}>
                 <div className="flex items-center justify-between mb-2">
                   <div className="flex items-center gap-2">
                     <div className="w-8 h-8 flex items-center justify-center rounded-sm" style={{ background: isEnabled ? "rgba(16,185,129,0.1)" : "rgba(255,255,255,0.04)" }}>
-                      <KeyRound size={14} style={{ color: isEnabled ? "#10B981" : "rgba(255,255,255,0.2)" }} />
+                      <KeyRound size={14} style={{ color: isEnabled ? "var(--success)" : "rgba(255,255,255,0.2)" }} />
                     </div>
                     <div>
-                      <span className="text-xs font-medium" style={{ color: "#F5F0EB" }}>{provider.label}</span>
+                      <span className="text-xs font-medium" style={{ color: "var(--text-primary)" }}>{provider.label}</span>
                       {provider.has_key && provider.key_preview && (
                         <span className="text-[9px] ml-2 font-mono" style={{ color: "rgba(255,255,255,0.2)" }}>{provider.key_preview}</span>
                       )}
@@ -180,7 +180,7 @@ export default function ApiKeysPage() {
                       onChange={(e) => setKeyValues((prev) => ({ ...prev, [provider.id]: e.target.value }))}
                       placeholder={provider.has_key ? "Changer la clé..." : `sk-... (clé ${provider.label})`}
                       className="w-full text-[10px] bg-transparent px-2.5 py-1.5 pr-8 rounded-sm outline-none"
-                      style={{ border: "1px solid rgba(255,255,255,0.08)", color: "#F5F0EB" }}
+                      style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
                       autoComplete="off"
                     />
                     <button
@@ -198,7 +198,7 @@ export default function ApiKeysPage() {
                         onClick={() => handleTest(provider.id)}
                         disabled={testingKey === provider.id}
                         className="flex items-center gap-1 px-2 py-1 text-[9px] rounded-sm transition-colors hover:bg-white/5 disabled:opacity-30"
-                        style={{ border: "1px solid rgba(255,255,255,0.08)", color: "rgba(255,255,255,0.5)" }}
+                        style={{ border: "1px solid var(--border-default)", color: "rgba(255,255,255,0.5)" }}
                       >
                         {testingKey === provider.id ? <Loader size={10} className="animate-spin" /> : <RefreshCw size={10} />}
                         Tester
@@ -223,7 +223,7 @@ export default function ApiKeysPage() {
                   <button
                     onClick={() => toggleByok(provider.id)}
                     className="flex items-center gap-1.5 text-[9px] transition-opacity hover:opacity-70"
-                    style={{ color: isEnabled ? "#10B981" : "rgba(255,255,255,0.3)" }}
+                    style={{ color: isEnabled ? "var(--success)" : "rgba(255,255,255,0.3)" }}
                   >
                     <Shield size={10} />
                     {isEnabled
@@ -238,7 +238,7 @@ export default function ApiKeysPage() {
 
         {/* Error */}
         {error && (
-          <div className="px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "#E5484D" }}>
+          <div className="px-3 py-2 text-xs rounded-sm" style={{ background: "rgba(229,72,77,0.08)", border: "1px solid rgba(229,72,77,0.2)", color: "var(--danger)" }}>
             {error}
           </div>
         )}
@@ -249,13 +249,13 @@ export default function ApiKeysPage() {
             onClick={handleSave}
             disabled={saving}
             className="flex items-center gap-1.5 px-4 py-2 text-xs font-medium transition-opacity hover:opacity-80 disabled:opacity-30 rounded-sm"
-            style={{ background: "#C75B39", color: "#FFFFFF" }}
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
           >
             {saving ? <Loader size={12} className="animate-spin" /> : <KeyRound size={12} />}
             {saving ? "Sauvegarde..." : "Sauvegarder les clés"}
           </button>
           {saved && (
-            <span className="flex items-center gap-1 text-[10px]" style={{ color: "#10B981" }}>
+            <span className="flex items-center gap-1 text-[10px]" style={{ color: "var(--success)" }}>
               <Check size={10} /> Sauvegardé
             </span>
           )}
