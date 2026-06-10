@@ -2,14 +2,17 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useLocale } from "@/lib/i18n/use-locale";
+import { t, type Locale } from "@/lib/i18n/common";
 
-const heroLines = [
-  { text: "VOUS CRÉEZ.", delay: 300 },
-  { text: "NOUS PROTÉGEONS.", delay: 600 },
-  { text: "VOUS GARDEZ.", delay: 900 },
-];
+/** legal.ts uses "pt", common.ts uses "pt-BR" — normalize at call site */
+function norm(locale: string): Locale {
+  return locale === "pt" ? "pt-BR" : (locale as Locale);
+}
 
 export function HeroSection() {
+  const locale = useLocale();
+  const l = norm(locale);
   const [mounted, setMounted] = useState(false);
   useEffect(() => setMounted(true), []);
 
@@ -18,76 +21,73 @@ export function HeroSection() {
       {/* ─── GAUCHE — Texte ─── */}
       <div className="flex items-center order-2 md:order-1">
         <div className="w-full pl-6 pr-6 md:pl-20 md:pr-16 py-20 md:py-0">
-          {/* Micro-label */}
-          <p
-            className="label-uppercase mb-8"
+          {/* H1 — clip-path reveal */}
+          <h1
+            className="font-display font-bold text-ink leading-[1.1] tracking-[-0.02em] text-[1.75rem] sm:text-[2.25rem] md:text-[3.2rem] lg:text-[4rem] xl:text-[4.2rem] max-w-[640px]"
             style={{
-              transform: mounted ? "translateX(0)" : "translateX(-30px)",
-              opacity: mounted ? 1 : 0,
-              transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1)",
+              clipPath: mounted
+                ? "inset(0 0% 0 0)"
+                : "inset(0 100% 0 0)",
+              transition: "clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s",
             }}
           >
-            Maison de management créatif
-          </p>
-
-          {/* Titre — clip-path reveal par ligne */}
-          <h1>
-            {heroLines.map((line) => (
-              <span
-                key={line.text}
-                className="block font-display font-bold text-ink uppercase leading-[1.1] tracking-[-0.02em] text-[2.5rem] md:text-[4rem]"
-                style={{
-                  clipPath:
-                    mounted
-                      ? "inset(0 0% 0 0)"
-                      : "inset(0 100% 0 0)",
-                  transition: `clip-path 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${line.delay}ms`,
-                }}
-              >
-                {line.text}
-              </span>
-            ))}
+            {t("home.hero.title", l)}
           </h1>
 
           {/* Sous-titre */}
           <p
-            className="text-lg md:text-xl font-sans font-normal text-ink-secondary leading-relaxed mt-8 max-w-[420px]"
+            className="text-base sm:text-lg md:text-xl font-sans font-normal text-ink-secondary leading-relaxed mt-6 md:mt-8 max-w-[500px]"
             style={{
               transform: mounted ? "translateY(0)" : "translateY(20px)",
               opacity: mounted ? 1 : 0,
-              transition: "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.2s, opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.2s",
+              transition:
+                "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.8s, opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.8s",
             }}
           >
-            Une maison qui rééquilibre le rapport entre créateurs et management.
+            {t("home.hero.subtitle", l)}
           </p>
 
           {/* CTAs */}
           <div
-            className="flex flex-col sm:flex-row gap-4 mt-10"
+            className="flex flex-col sm:flex-row gap-4 mt-8 md:mt-10"
             style={{
               transform: mounted ? "translateY(0)" : "translateY(16px)",
               opacity: mounted ? 1 : 0,
-              transition: "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.5s, opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.5s",
+              transition:
+                "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.1s, opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.1s",
             }}
           >
             <Link
-              href="/apply"
-              className="inline-flex items-center justify-center px-10 py-4 bg-accent text-white text-[0.8rem] font-display font-semibold uppercase tracking-[0.08em] transition-all duration-300 hover:scale-[1.02] hover:bg-accent-hover"
+              href="/protection"
+              className="inline-flex items-center justify-center px-8 sm:px-10 py-4 bg-accent text-white text-[0.8rem] font-display font-semibold uppercase tracking-[0.08em] transition-all duration-300 hover:scale-[1.02] hover:bg-accent-hover whitespace-nowrap"
             >
-              Postuler à la maison
+              {t("home.hero.cta_analyze", l)}
             </Link>
             <Link
-              href="/manifeste"
-              className="inline-flex items-center justify-center px-10 py-4 border-2 border-ink text-ink text-[0.8rem] font-display font-semibold uppercase tracking-[0.08em] transition-all duration-300 hover:bg-ink/5"
+              href="/demo"
+              className="inline-flex items-center justify-center px-8 sm:px-10 py-4 border-2 border-ink text-ink text-[0.8rem] font-display font-semibold uppercase tracking-[0.08em] transition-all duration-300 hover:bg-ink/5 whitespace-nowrap"
             >
-              Découvrir notre approche
+              {t("home.hero.cta_demo", l)}
             </Link>
           </div>
+
+          {/* Micro-proofs */}
+          <p
+            className="text-xs sm:text-sm font-sans text-ink-tertiary mt-6 md:mt-8 max-w-[460px] leading-relaxed"
+            style={{
+              transform: mounted ? "translateY(0)" : "translateY(12px)",
+              opacity: mounted ? 1 : 0,
+              transition:
+                "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.4s, opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.4s",
+            }}
+          >
+            {t("home.hero.micro_proofs", l)}
+          </p>
         </div>
       </div>
 
       {/* ─── DROITE — Image plein cadre ─── */}
-      <div className="relative h-[60vh] md:h-screen overflow-hidden order-1 md:order-2">
+      <div className="relative h-[50vh] sm:h-[60vh] md:h-screen overflow-hidden order-1 md:order-2">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{

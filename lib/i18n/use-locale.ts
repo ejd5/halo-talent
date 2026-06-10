@@ -3,6 +3,7 @@
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { setLocale, type Locale, LOCALES } from "./legal";
+import { setCommonLocale } from "./common";
 
 export function useLocale(): Locale {
   const pathname = usePathname();
@@ -11,6 +12,7 @@ export function useLocale(): Locale {
 
   useEffect(() => {
     setLocale(locale);
+    setCommonLocale(locale as any);
   }, [locale]);
 
   return locale;
