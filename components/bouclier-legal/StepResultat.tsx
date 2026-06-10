@@ -24,7 +24,7 @@ export function StepResultat({
   const [savedScripts, setSavedScripts] = useState<Set<string>>(new Set());
   const [copied, setCopied] = useState(false);
 
-  const { riskScore, analyzedClauses, diagnosis, platforms } = report;
+  const { riskScore, analyzedClauses, diagnosis, platforms, aiDiagnosis } = report;
   const isRisky = riskScore.level === "high" || riskScore.level === "critical";
 
   const handleCopy = async (text: string) => {
@@ -169,6 +169,35 @@ Dans l'attente de votre retour, je vous prie d'agréer, Madame, Monsieur, l'expr
           </p>
         </div>
       </div>
+
+      {/* AI Diagnosis (only when available — connected users) */}
+      {aiDiagnosis && (
+        <div
+          className="p-5 mb-8"
+          style={{
+            backgroundColor: "rgba(199,91,57,0.06)",
+            border: "1px solid rgba(199,91,57,0.2)",
+          }}
+        >
+          <div className="flex items-center gap-2 mb-3">
+            <span
+              className="text-[10px] font-bold px-2 py-0.5 uppercase tracking-wider"
+              style={{ backgroundColor: "var(--color-accent)", color: "#fff" }}
+            >
+              Diagnostic IA
+            </span>
+            <span className="text-[10px]" style={{ color: "var(--text-tertiary)" }}>
+              Analyse personnalisée par intelligence artificielle
+            </span>
+          </div>
+          <div
+            className="text-sm leading-relaxed whitespace-pre-wrap"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            {aiDiagnosis}
+          </div>
+        </div>
+      )}
 
       {/* Analyzed clauses */}
       {analyzedClauses.length > 0 && (

@@ -49,6 +49,7 @@ export interface AnalysisReport {
   riskScore: RiskScore;
   analyzedClauses: AnalyzedClause[];
   diagnosis: string;
+  aiDiagnosis?: string;
 }
 
 export type WizardStep = "welcome" | "platforms" | "clauses" | "result";

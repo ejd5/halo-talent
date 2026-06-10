@@ -7,6 +7,7 @@ import { StepPlateformes } from "@/components/bouclier-legal/StepPlateformes";
 import { StepClauses } from "@/components/bouclier-legal/StepClauses";
 import { StepResultat } from "@/components/bouclier-legal/StepResultat";
 import { calculateRisk } from "@/lib/bouclier-legal/scoring";
+import { createClient } from "@/lib/supabase/client";
 import type { WizardStep, AnalysisReport } from "@/lib/bouclier-legal/types";
 
 const STEP_LABELS: Record<WizardStep, string> = {
@@ -38,15 +39,51 @@ export default function ProtectionPage() {
     goTo("clauses");
   }, [goTo]);
 
-  const handleClausesNext = useCallback((clauseIds: string[]) => {
+  const handleClausesNext = useCallback(async (clauseIds: string[]) => {
     setAnalyzing(true);
-    // Calculate locally (no API call — fully client-side)
+
+    // Detect auth state
+    const supabase = createClient();
+    const { data: { user } } = await supabase.auth.getUser();
+    const isConnected = !!user;
+
+    if (isConnected) {
+      // Connected user → call AI diagnosis API
+      try {
+        // Post to the analyze API — one platform for now (first selected)
+        const platform = platforms[0] || "other";
+        const res = await fetch("/api/legal/analyze", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ platform, clauses_checked: clauseIds }),
+        });
+
+        if (res.ok) {
+          const apiData = await res.json();
+          // Build report from client scoring + AI diagnosis
+          const localReport = calculateRisk(clauseIds, platforms);
+          setReport({
+            ...localReport,
+            aiDiagnosis: apiData.diagnosis,
+          });
+          setAnalyzing(false);
+          goTo("result");
+          return;
+        }
+        // API failed — fall through to local scoring
+        console.warn("API analyze failed, using local fallback:", res.status);
+      } catch (err) {
+        console.warn("API analyze error, using local fallback:", err);
+      }
+    }
+
+    // Anonymous user or API failure → local client-side scoring
+    const fallbackReport = calculateRisk(clauseIds, platforms);
     setTimeout(() => {
-      const result = calculateRisk(clauseIds, platforms);
-      setReport(result);
+      setReport(fallbackReport);
       setAnalyzing(false);
       goTo("result");
-    }, 600); // simulate brief analysis
+    }, 400);
   }, [platforms, goTo]);
 
   const handleNewAnalysis = useCallback(() => {

@@ -1,30 +1,25 @@
 import { NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 import Anthropic from "@anthropic-ai/sdk";
+import { AnalyzeLegalSchema } from "@/lib/validation/legal";
 
 const anthropicKey = process.env.ANTHROPIC_API_KEY;
-
-interface AnalyzeRequest {
-  platform: string;
-  clauses_checked: string[];
-  other_clause_text?: string;
-  agency_name?: string;
-  language?: string;
-}
 
 export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
-    const body: AnalyzeRequest = await request.json();
-    const { platform, clauses_checked, other_clause_text, agency_name, language } = body;
-    const lang = language || "fr";
+    const body = await request.json();
 
-    if (!platform || !clauses_checked?.length) {
+    const parsed = AnalyzeLegalSchema.safeParse(body);
+    if (!parsed.success) {
       return NextResponse.json(
-        { error: "platform and clauses_checked are required" },
+        { error: "Données invalides", details: parsed.error.flatten().fieldErrors },
         { status: 400 }
       );
     }
+
+    const { platform, clauses_checked, other_clause_text, agency_name, language } = parsed.data;
+    const lang = language || "fr";
 
     // 1. Fetch corresponding abusive clauses
     const { data: clauses, error: clausesError } = await supabase
