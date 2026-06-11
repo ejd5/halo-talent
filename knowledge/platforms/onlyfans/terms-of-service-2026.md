@@ -16,8 +16,6 @@ related:
 
 OnlyFans requiert que chaque compte soit détenu par une seule personne réelle, vérifiée par pièce d'identité. Le partage de compte est interdit. Le titulaire vérifié est le seul propriétaire légitime du compte.
 
-> "Account Ownership: One person per account; sharing accounts is prohibited" — OnlyFans ToS, Section Account Requirements
-
 **Implications pour les agences :**
 - L'agence ne peut PAS être propriétaire du compte
 - Le créateur vérifié peut toujours récupérer l'accès via le support
@@ -27,8 +25,6 @@ OnlyFans requiert que chaque compte soit détenu par une seule personne réelle,
 
 Les créateurs conservent la propriété de leur contenu. La plateforme obtient une licence d'utilisation limitée à l'affichage.
 
-> "Content ownership: The platform requires that the creator maintains ownership of their content."
-
 **Implications pour les agences :**
 - Une clause "work for hire" dans le contrat d'agence contredit les CGU OF
 - Le créateur peut exiger le retrait de tout contenu à tout moment
@@ -36,8 +32,6 @@ Les créateurs conservent la propriété de leur contenu. La plateforme obtient 
 ## Interdiction de l'usurpation d'identité
 
 OnlyFans interdit aux agences de se faire passer pour le créateur dans les messages privés. Depuis 2026, l'utilisation d'IA dans le chat doit être explicitement divulguée.
-
-> "No impersonation: OnlyFans prohibits agencies or managers from pretending to be the creators while interacting with subscribers."
 
 ## Politique de paiement
 
@@ -51,5 +45,3 @@ Les paiements sont versés directement au créateur vérifié. Les agences ne pe
 ## Contenu IA (2026)
 
 Depuis 2026, tout contenu généré ou assisté par IA doit être étiqueté. Le non-respect entraîne la suppression du compte.
-
-> "AI-Generated Content Labeling: All AI-assisted or AI-generated content must be clearly labeled as such."

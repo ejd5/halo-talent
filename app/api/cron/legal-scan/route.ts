@@ -4,6 +4,7 @@ import { createAdminClient } from "@/lib/supabase/server";
 import Anthropic from "@anthropic-ai/sdk";
 import { CGU_SOURCES, type CguSource } from "@/lib/legal/sources";
 import { htmlToMarkdown } from "@/lib/legal/html-to-md";
+import { runLegislativeWatch } from "@/lib/legal/official-sources";
 
 export const dynamic = "force-dynamic";
 
@@ -505,6 +506,7 @@ export async function GET(request: NextRequest) {
   const results = {
     patterns: { scanned: 0, newClauses: 0 },
     cgu: { checked: 0, updated: 0 },
+    legislative: { sourcesScanned: 0, itemsFound: 0, itemsInserted: 0 },
     errors: [] as string[],
   };
 
@@ -522,7 +524,17 @@ export async function GET(request: NextRequest) {
     results.errors.push(`CGU scan: ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  // Task 3 — Write execution summary for FreshnessBadge
+  // Task 3 — Legislative watch (weekly: only on Mondays)
+  try {
+    const today = new Date().getDay();
+    if (today === 1) {
+      results.legislative = await runLegislativeWatch();
+    }
+  } catch (err) {
+    results.errors.push(`Legislative watch: ${err instanceof Error ? err.message : String(err)}`);
+  }
+
+  // Task 4 — Write execution summary for FreshnessBadge
   try {
     await supabase.from("legal_updates_log").insert({
       action: "cgu_scraped",
