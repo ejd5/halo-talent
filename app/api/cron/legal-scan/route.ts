@@ -1,15 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
+import crypto from "crypto";
 import { createAdminClient } from "@/lib/supabase/server";
 import Anthropic from "@anthropic-ai/sdk";
+import { CGU_SOURCES, type CguSource } from "@/lib/legal/sources";
+import { htmlToMarkdown } from "@/lib/legal/html-to-md";
 
 export const dynamic = "force-dynamic";
 
 // ── Config ──────────────────────────────────────────────────────
-
-const CGU_PLATFORMS = [
-  { slug: "onlyfans", url: "https://onlyfans.com/terms", label: "OnlyFans", fileSlug: "terms-of-service-2026" },
-  { slug: "fansly", url: "https://fansly.com/tos", label: "Fansly", fileSlug: "terms-of-service" },
-];
 
 const ADMIN_USER_ID = process.env.ADMIN_USER_ID;
 
@@ -21,31 +19,15 @@ function isAuthorized(request: NextRequest) {
 
 // ── Helpers ─────────────────────────────────────────────────────
 
-function extractText(html: string): string {
-  return html
-    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")
-    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, "")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/&[a-z]+;/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+function sha256(text: string): string {
+  return crypto.createHash("sha256").update(text, "utf-8").digest("hex");
 }
 
-function wordSet(text: string): string[] {
-  return [...new Set(text.toLowerCase().split(/\s+/).filter((w) => w.length > 3))];
+function sleep(ms: number) {
+  return new Promise((r) => setTimeout(r, ms));
 }
 
-function similar(a: string, b: string): boolean {
-  const aWords = wordSet(a);
-  const bWords = wordSet(b);
-  const bSet = new Set(bWords);
-  let common = 0;
-  for (const w of aWords) if (bSet.has(w)) common++;
-  const union = new Set(aWords.concat(bWords));
-  return union.size > 0 && common / union.size > 0.35;
-}
-
-// ── Tasks ───────────────────────────────────────────────────────
+// ── Pattern detection (unchanged) ───────────────────────────────
 
 async function runPatternDetection(supabase: ReturnType<typeof createAdminClient>, anthropic: Anthropic) {
   const sevenDaysAgo = new Date(Date.now() - 7 * 86400000).toISOString();
@@ -58,7 +40,6 @@ async function runPatternDetection(supabase: ReturnType<typeof createAdminClient
 
   if (!analyses || analyses.length === 0) return { scanned: 0, newClauses: 0 };
 
-  // Group by normalised text
   const groups = new Map<string, { raw: string; count: number; platforms: Set<string> }>();
   for (const a of analyses) {
     const t = (a.other_clause_text || "").trim();
@@ -76,14 +57,12 @@ async function runPatternDetection(supabase: ReturnType<typeof createAdminClient
   const frequent = Array.from(groups.values()).filter((g) => g.count > 3);
   if (frequent.length === 0) return { scanned: analyses.length, newClauses: 0 };
 
-  // Load existing abusive clauses
   const { data: existingClauses } = await supabase
     .from("abusive_clauses")
     .select("id, label, description");
 
   const existingLabels = (existingClauses || []).map((c) => c.label.toLowerCase());
 
-  // Filter patterns that don't match existing clauses
   const novel = frequent.filter((p) => {
     return !existingLabels.some((l) => {
       const words = p.raw.toLowerCase().split(/\s+/);
@@ -94,7 +73,6 @@ async function runPatternDetection(supabase: ReturnType<typeof createAdminClient
 
   if (novel.length === 0) return { scanned: analyses.length, newClauses: 0 };
 
-  // Generate legal argument for each novel pattern
   let inserted = 0;
   for (const pattern of novel) {
     const platforms = [...pattern.platforms].join(", ");
@@ -124,7 +102,6 @@ Format : paragraphe concis, sans titre ni introduction.`,
 
     const text = response.content[0].type === "text" ? response.content[0].text : "";
 
-    // Insert pattern notification into legal_updates_log
     await supabase.from("legal_updates_log").insert({
       action: "pattern_detected",
       source: "legal_scanner",
@@ -145,60 +122,175 @@ Format : paragraphe concis, sans titre ni introduction.`,
   return { scanned: analyses.length, newClauses: inserted };
 }
 
-async function runCGUScan(supabase: ReturnType<typeof createAdminClient>, anthropic: Anthropic) {
-  let checked = 0;
-  let updated = 0;
+// ── Snapshot helpers ────────────────────────────────────────────
 
-  for (const platform of CGU_PLATFORMS) {
-    const { data: existing } = await supabase
-      .from("legal_knowledge")
-      .select("id, title, content, updated_at")
-      .eq("platform", platform.slug)
-      .eq("category", "cgu")
-      .order("updated_at", { ascending: false })
-      .limit(1)
-      .maybeSingle();
+async function getLastSnapshot(
+  supabase: ReturnType<typeof createAdminClient>,
+  source: CguSource,
+) {
+  const { data } = await supabase
+    .from("legal_source_snapshots")
+    .select("id, content_hash, fetched_at")
+    .eq("platform", source.slug)
+    .eq("doc_type", source.docType)
+    .eq("is_active", true)
+    .order("fetched_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
 
-    // Skip if less than 7 days since last update
-    if (existing?.updated_at) {
-      const daysSince = (Date.now() - new Date(existing.updated_at).getTime()) / 86400000;
-      if (daysSince < 7) {
-        checked++;
-        continue;
-      }
-    }
+  return data;
+}
 
-    // Fetch fresh CGU
-    let html: string;
-    try {
-      const res = await fetch(platform.url, {
-        headers: { "User-Agent": "HaloTalent-LegalBot/1.0" },
-        signal: AbortSignal.timeout(15000),
-      });
-      html = await res.text();
-    } catch {
-      continue;
-    }
+async function insertSnapshot(
+  supabase: ReturnType<typeof createAdminClient>,
+  source: CguSource,
+  markdown: string,
+  hash: string,
+  fetchSuccess: boolean,
+  fetchError?: string,
+) {
+  const sizeBytes = new TextEncoder().encode(markdown).length;
 
-    const freshText = extractText(html);
-    const freshWords = freshText.split(/\s+/).length;
-    if (freshWords < 50) continue;
+  const { data, error } = await supabase
+    .from("legal_source_snapshots")
+    .insert({
+      platform: source.slug,
+      doc_type: source.docType,
+      source_url: source.url,
+      raw_content: markdown,
+      content_hash: hash,
+      fetched_at: new Date().toISOString(),
+      fetch_method: "scraper",
+      fetch_success: fetchSuccess,
+      fetch_error: fetchError || null,
+      response_size_bytes: sizeBytes,
+      is_active: true,
+    })
+    .select("id")
+    .single();
 
-    checked++;
+  if (error) throw error;
+  return data.id as string;
+}
 
-    if (!existing) {
-      // First-time seed
-      const response = await anthropic.messages.create({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 2000,
-        messages: [
-          {
-            role: "user",
-            content: `Tu es un analyste juridique spécialisé dans les plateformes créateurs.
+async function archiveToStorage(
+  supabase: ReturnType<typeof createAdminClient>,
+  source: CguSource,
+  markdown: string,
+  hash: string,
+) {
+  const datePath = new Date().toISOString().slice(0, 10);
+  const fileName = `${source.slug}/${source.docType}/${datePath}_${hash.slice(0, 12)}.md`;
 
-Voici les CGU de ${platform.label} (${platform.url}) :
+  const { error } = await supabase.storage
+    .from("legal-snapshots")
+    .upload(fileName, markdown, {
+      contentType: "text/markdown",
+      upsert: false,
+    });
 
-${freshText.slice(0, 10000)}
+  if (error && !error.message?.includes("already exists")) {
+    console.warn(`[cron] Storage archive failed for ${source.slug}: ${error.message}`);
+  }
+}
+
+async function createChangeEvent(
+  supabase: ReturnType<typeof createAdminClient>,
+  source: CguSource,
+  previousSnapshotId: string | null,
+  newSnapshotId: string,
+  anthropic: Anthropic,
+  freshMarkdown: string,
+  previousMarkdown?: string,
+) {
+  // Generate AI summary of changes
+  let summary = `CGU de ${source.label} mises à jour.`;
+  let impact: string = "minor";
+  let articles: string[] = [];
+
+  try {
+    const prompt = `Tu es un analyste juridique. Les CGU de ${source.label} ont changé.
+
+NOUVELLE VERSION (extrait, ${freshMarkdown.length} caractères) :
+${freshMarkdown.slice(0, 6000)}
+
+${previousMarkdown ? `ANCIENNE VERSION (extrait, ${previousMarkdown.length} caractères) :
+${previousMarkdown.slice(0, 3000)}` : "Pas de version précédente disponible (premier snapshot)."}
+
+Analyse les changements et réponds UNIQUEMENT au format JSON :
+{
+  "summary": "Résumé des changements en 1-2 phrases en français",
+  "impact": "critical|major|minor|none",
+  "articles": ["Article modifié 1", "Article modifié 2"]
+}`;
+
+    const response = await anthropic.messages.create({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 800,
+      messages: [{ role: "user", content: prompt }],
+    });
+
+    const text = response.content[0].type === "text" ? response.content[0].text : "";
+    const parsed = JSON.parse(text);
+    if (parsed.summary) summary = parsed.summary;
+    if (parsed.impact) impact = parsed.impact;
+    if (Array.isArray(parsed.articles)) articles = parsed.articles;
+  } catch {
+    // Use defaults on AI failure
+  }
+
+  const { error } = await supabase.from("legal_change_events").insert({
+    previous_snapshot_id: previousSnapshotId,
+    new_snapshot_id: newSnapshotId,
+    platform: source.slug,
+    doc_type: source.docType,
+    source_url: source.url,
+    summary,
+    impact_level: impact,
+    affected_articles: articles.length > 0 ? articles : null,
+    human_reviewed: false,
+    published: false,
+  });
+
+  if (error) console.error(`[cron] Failed to create change event for ${source.slug}:`, error.message);
+}
+
+async function updateLegalKnowledge(
+  supabase: ReturnType<typeof createAdminClient>,
+  source: CguSource,
+  anthropic: Anthropic,
+  freshMarkdown: string,
+  previousMarkdown?: string,
+) {
+  const { data: existing } = await supabase
+    .from("legal_knowledge")
+    .select("id, title, content")
+    .eq("platform", source.slug)
+    .eq("category", "cgu")
+    .order("updated_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+
+  const maxChars = 10000;
+  const truncated = freshMarkdown.slice(0, maxChars);
+
+  let response;
+  try {
+    const compareContext = previousMarkdown
+      ? `\nANCIENNE VERSION (à mettre à jour) :\n${previousMarkdown.slice(0, 4000)}`
+      : "";
+
+    response = await anthropic.messages.create({
+      model: "claude-sonnet-4-20250514",
+      max_tokens: 2000,
+      messages: [
+        {
+          role: "user",
+          content: `Tu es un analyste juridique spécialisé dans les plateformes créateurs.
+
+Voici les CGU de ${source.label} (${source.url}) :
+
+${truncated}${compareContext}
 
 Produis une fiche knowledge au format markdown structuré avec les sections suivantes (quand applicables) :
 - Propriété du compte
@@ -209,101 +301,163 @@ Produis une fiche knowledge au format markdown structuré avec les sections suiv
 - Implications pour les agences
 
 Chaque section : 3-6 points, incluant des sous-sections "Implications pour les agences" quand pertinent.
-Ajoute > citations des CGU originales quand possible.
-
-Ne mets PAS de frontmatter YAML dans ta réponse, seulement le contenu markdown.`,
-          },
-        ],
-      });
-
-      const text = response.content[0].type === "text" ? response.content[0].text : "";
-
-      // Determine tags from content
-      const lower = text.toLowerCase();
-      const tags: string[] = [];
-      if (lower.includes("compte") || lower.includes("account")) tags.push("account_ownership");
-      if (lower.includes("contenu") || lower.includes("content")) tags.push("content_rights");
-      if (lower.includes("ia") || lower.includes("ai")) tags.push("ai_disclosure");
-      if (lower.includes("paiement") || lower.includes("payment")) tags.push("payment");
-      if (lower.includes("usurpation") || lower.includes("impersonation")) tags.push("impersonation");
-
-      await supabase.from("legal_knowledge").insert({
-        title: `${platform.label} Terms of Service`,
-        category: "cgu",
-        platform: platform.slug,
-        jurisdiction: "international",
-        content: text,
-        tags,
-        source_url: platform.url,
-        source_name: platform.label,
-        auto_generated: true,
-      });
-
-      await supabase.from("legal_updates_log").insert({
-        action: "cgu_scraped",
-        source: "legal_scanner",
-        details: { platform: platform.slug, note: `Premier import des CGU ${platform.label}` },
-        items_affected: 1,
-        reviewed_by_admin: false,
-      });
-
-      updated++;
-      continue;
-    }
-
-    // Compare — crude similarity check
-    const existingWords = (existing.content || "").split(/\s+/).length;
-    const ratio = Math.abs(freshWords - existingWords) / Math.max(existingWords, 1);
-
-    if (ratio < 0.05) continue;
-
-    // Changes detected — ask Claude
-    const response = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
-      max_tokens: 2000,
-      messages: [
-        {
-          role: "user",
-          content: `Tu es un analyste juridique spécialisé dans les plateformes créateurs.
-
-Les CGU de ${platform.label} ont changé (${(ratio * 100).toFixed(1)}% de différence détectée).
-
-NOUVELLE VERSION (extrait) :
-${freshText.slice(0, 8000)}
-
-ANCIENNE VERSION :
-${(existing.content || "").slice(0, 4000)}
-
-Produis une fiche knowledge markdown à jour avec les sections :
-- Propriété du compte
-- Propriété du contenu
-- Politique de paiement
-- Interdiction de l'usurpation d'identité
-- Contenu IA
-- Implications pour les agences
-
-Ajoute un bloc [CHANGEMENTS DÉTECTÉS] en haut listant les modifications importantes identifiées.
-Ne mets PAS de frontmatter YAML.`,
+${previousMarkdown ? "Ajoute un bloc [CHANGEMENTS DÉTECTÉS] en haut listant les modifications importantes." : ""}
+Ne mets PAS de frontmatter YAML dans ta réponse, seulement le contenu markdown.
+Ne cite JAMAIS les CGU textuellement — reformule avec tes mots.`,
         },
       ],
     });
+  } catch {
+    return; // Skip knowledge update on AI failure
+  }
 
-    const text = response.content[0].type === "text" ? response.content[0].text : "";
+  const text = response.content[0].type === "text" ? response.content[0].text : "";
+  if (!text) return;
 
+  // Determine tags from content
+  const lower = text.toLowerCase();
+  const tags: string[] = [];
+  if (lower.includes("compte") || lower.includes("account")) tags.push("account_ownership");
+  if (lower.includes("contenu") || lower.includes("content")) tags.push("content_rights");
+  if (lower.includes("ia") || lower.includes("ai")) tags.push("ai_disclosure");
+  if (lower.includes("paiement") || lower.includes("payment")) tags.push("payment");
+  if (lower.includes("usurpation") || lower.includes("impersonation")) tags.push("impersonation");
+
+  if (existing) {
     await supabase
       .from("legal_knowledge")
-      .update({ content: text, auto_generated: true, updated_at: new Date().toISOString() })
+      .update({ content: text, tags, auto_generated: true, updated_at: new Date().toISOString() })
       .eq("id", existing.id);
+  } else {
+    await supabase.from("legal_knowledge").insert({
+      title: `${source.label} Terms of Service`,
+      category: "cgu",
+      platform: source.slug,
+      jurisdiction: source.jurisdiction,
+      content: text,
+      tags,
+      source_url: source.url,
+      source_name: source.label,
+      auto_generated: true,
+    });
+  }
+}
 
+// ── CGU scan (generalised, versioned) ──────────────────────────
+
+async function runCGUScan(supabase: ReturnType<typeof createAdminClient>, anthropic: Anthropic) {
+  let checked = 0;
+  let updated = 0;
+
+  for (const source of CGU_SOURCES) {
+    // 1. Get last snapshot to compare
+    const lastSnapshot = await getLastSnapshot(supabase, source);
+
+    // 2. Fetch fresh CGU page
+    let freshMarkdown = "";
+    let fetchError: string | undefined;
+
+    try {
+      const res = await fetch(source.url, {
+        headers: { "User-Agent": "HaloTalent-LegalBot/1.0 (cron)" },
+        signal: AbortSignal.timeout(20000),
+      });
+
+      if (!res.ok) {
+        fetchError = `HTTP ${res.status}`;
+        // Still insert a failed snapshot for the record
+        const failedHash = sha256(`failed:${res.status}:${Date.now()}`);
+        await insertSnapshot(supabase, source, "", failedHash, false, fetchError);
+        await sleep(source.delayMs);
+        continue;
+      }
+
+      const html = await res.text();
+      freshMarkdown = htmlToMarkdown(html);
+
+      if (freshMarkdown.split(/\s+/).length < 50) {
+        fetchError = "Response too short";
+        const failedHash = sha256(`failed:short:${Date.now()}`);
+        await insertSnapshot(supabase, source, "", failedHash, false, fetchError);
+        await sleep(source.delayMs);
+        continue;
+      }
+    } catch (err) {
+      fetchError = err instanceof Error ? err.message : String(err);
+      const failedHash = sha256(`failed:${Date.now()}`);
+      await insertSnapshot(supabase, source, "", failedHash, false, fetchError);
+      await sleep(source.delayMs);
+      continue;
+    }
+
+    checked++;
+
+    // 3. Compare hash with last snapshot
+    const newHash = sha256(freshMarkdown);
+
+    if (lastSnapshot && lastSnapshot.content_hash === newHash) {
+      // No change — skip
+      await sleep(source.delayMs);
+      continue;
+    }
+
+    // 4. CHANGE DETECTED — insert snapshot, archive, create event
+    const previousMarkdown: string | undefined =
+      lastSnapshot?.content_hash
+        ? undefined // We'd need to fetch the raw_content, skip for efficiency
+        : undefined;
+
+    // We fetch the previous raw_content only if there's a change to report
+    let previousContent: string | undefined;
+    if (lastSnapshot) {
+      const { data: prev } = await supabase
+        .from("legal_source_snapshots")
+        .select("raw_content")
+        .eq("id", lastSnapshot.id)
+        .single();
+      previousContent = prev?.raw_content;
+    }
+
+    const newSnapshotId = await insertSnapshot(supabase, source, freshMarkdown, newHash, true);
+
+    // Archive to Storage (best-effort)
+    await archiveToStorage(supabase, source, freshMarkdown, newHash);
+
+    // Create change event with AI summary
+    await createChangeEvent(
+      supabase,
+      source,
+      lastSnapshot?.id || null,
+      newSnapshotId,
+      anthropic,
+      freshMarkdown,
+      previousContent,
+    );
+
+    // 5. Update legal_knowledge (existing behaviour, now with 8 platforms)
+    await updateLegalKnowledge(supabase, source, anthropic, freshMarkdown, previousContent);
+
+    // Log the update
     await supabase.from("legal_updates_log").insert({
       action: "cgu_scraped",
       source: "legal_scanner",
-      details: { platform: platform.slug, change_ratio: ratio, note: "CGU mises à jour automatiquement" },
+      details: {
+        platform: source.slug,
+        hash_changed: !lastSnapshot,
+        previous_hash: lastSnapshot?.content_hash || null,
+        new_hash: newHash,
+        note: lastSnapshot
+          ? "CGU modifiées — snapshot + change event créés"
+          : "Premier snapshot CGU",
+      },
       items_affected: 1,
       reviewed_by_admin: false,
     });
 
     updated++;
+
+    // Respectful delay between sources
+    await sleep(source.delayMs);
   }
 
   return { checked, updated };
@@ -354,21 +508,42 @@ export async function GET(request: NextRequest) {
     errors: [] as string[],
   };
 
-  // Task 1 — Pattern detection
+  // Task 1 — Pattern detection (unchanged)
   try {
     results.patterns = await runPatternDetection(supabase, anthropic);
   } catch (err) {
     results.errors.push(`Pattern detection: ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  // Task 2 — CGU scan
+  // Task 2 — CGU scan (generalised, 8 platforms + versioning)
   try {
     results.cgu = await runCGUScan(supabase, anthropic);
   } catch (err) {
     results.errors.push(`CGU scan: ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  // Task 3 — Notification
+  // Task 3 — Write execution summary for FreshnessBadge
+  try {
+    await supabase.from("legal_updates_log").insert({
+      action: "cgu_scraped",
+      source: "legal_scanner",
+      details: {
+        summary: true,
+        platforms_checked: results.cgu.checked,
+        platforms_updated: results.cgu.updated,
+        patterns_scanned: results.patterns.scanned,
+        patterns_new: results.patterns.newClauses,
+        errors: results.errors.length > 0 ? results.errors : null,
+        scan_date: new Date().toISOString(),
+      },
+      items_affected: results.cgu.checked + results.patterns.scanned,
+      reviewed_by_admin: false,
+    });
+  } catch {
+    // Non-critical
+  }
+
+  // Task 4 — Notification
   try {
     await sendDigest(supabase, results);
   } catch {
@@ -377,33 +552,3 @@ export async function GET(request: NextRequest) {
 
   return NextResponse.json({ ok: true, ...results });
 }
-
-/*
- ── Option B : n8n workflow (auto-hébergé) ─────────────────────
-
- Si tu préfères n8n plutôt que Vercel Cron, voici la logique :
-
- 1. TRIGGER : Schedule "Daily at 6:00"
- 2. HTTP Request (GET) → Supabase REST /rest/v1/contract_analyses
-    Query: other_clause_text=not.is.null&created_at=gte.${7daysAgo}
-    Headers: apikey, Authorization: Bearer ${SERVICE_ROLE}
- 3. Code Node (JavaScript) :
-    const groups = {};
-    for (const a of $input.all()) {
-      const t = (a.other_clause_text || "").trim();
-      if (t.length < 10) continue;
-      const key = t.toLowerCase().slice(0, 80);
-      groups[key] = groups[key] || { text: t, count: 0 };
-      groups[key].count++;
-    }
-    const frequent = Object.values(groups).filter(g => g.count > 3);
-    return frequent;
- 4. HTTP Request (POST) → Anthropic API /v1/messages
-    Body: { model: "claude-sonnet-4-20250514", max_tokens: 1000, messages: [...] }
- 5. HTTP Request (POST) → Supabase REST /rest/v1/legal_updates_log
-    Body: { action: "pattern_detected", source: "legal_scanner", details: {...} }
- 6. HTTP Request (POST) → Telegram Bot API sendMessage
-    Chat: admin_chat_id, Text: résumé du scan
-
- Dépendances n8n : aucune (HTTP nodes natifs + 1 Code node)
-*/
