@@ -39,6 +39,7 @@ const NAV_ITEMS: NavItem[] = [
   { href: "/features", labelKey: "nav.features" },
   { href: "/pricing", labelKey: "nav.pricing" },
   { href: "/protection", labelKey: "nav.protection" },
+  { href: "/lex", labelKey: "nav.legal" },
   { href: "/blog", labelKey: "nav.blog" },
 ];
 

@@ -13,6 +13,7 @@ type Messages = Record<string, Record<Locale, string>>;
 const messages: Messages = {
   // ─── Navigation ───
   "nav.home": { fr: "Accueil", en: "Home", es: "Inicio", "pt-BR": "Início", de: "Start", it: "Home" },
+  "nav.legal": { fr: "Sécurité & Cadre légal", en: "Security & Legal", es: "Seguridad y Marco legal", "pt-BR": "Segurança e Marco legal", de: "Sicherheit & Rechtliches", it: "Sicurezza e Quadro legale" },
   "nav.pricing": { fr: "Tarifs", en: "Pricing", es: "Precios", "pt-BR": "Preços", de: "Preise", it: "Prezzi" },
   "nav.studio": { fr: "Studio", en: "Studio", es: "Studio", "pt-BR": "Studio", de: "Studio", it: "Studio" },
   "nav.atlas": { fr: "Atlas", en: "Atlas", es: "Atlas", "pt-BR": "Atlas", de: "Atlas", it: "Atlas" },

@@ -234,6 +234,16 @@ export default function SecurityPage() {
               Contacter l&apos;équipe
             </Link>
           </div>
+          <div className="mt-6">
+            <Link
+              href="/lex"
+              className="inline-flex items-center gap-1.5 text-xs font-medium underline underline-offset-4 transition-opacity hover:opacity-70"
+              style={{ color: "rgba(245,240,235,0.4)" }}
+            >
+              Voir aussi : Sécurité & Cadre légal — le hub juridique Halo
+              <ArrowRight size={10} />
+            </Link>
+          </div>
         </div>
       </section>
 
