@@ -26,7 +26,7 @@ const BRACKET_COLORS = [
   { bar: "var(--success)", text: "var(--success)", light: "rgba(16,185,129,0.12)" },
   { bar: "#34D399", text: "#34D399", light: "rgba(52,211,153,0.12)" },
   { bar: "#F59E0B", text: "#F59E0B", light: "rgba(245,158,11,0.12)" },
-  { bar: "#F97316", text: "#F97316", light: "rgba(249,115,22,0.12)" },
+  { bar: "var(--or, #D8A95B)", text: "var(--or, #D8A95B)", light: "rgba(249,115,22,0.12)" },
   { bar: "#EF4444", text: "#EF4444", light: "rgba(239,68,68,0.12)" },
 ];
 

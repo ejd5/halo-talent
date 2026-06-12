@@ -9,7 +9,7 @@ export default function ThanksPage() {
         <div style={{
           width: 64, height: 64, borderRadius: "50%",
           display: "flex", alignItems: "center", justifyContent: "center",
-          backgroundColor: "rgba(199,91,57,0.1)", color: "#C75B39",
+          backgroundColor: "rgba(199,91,57,0.1)", color: "var(--or, #D8A95B)",
           fontSize: 28, margin: "0 auto 16px",
         }}>
           ✓

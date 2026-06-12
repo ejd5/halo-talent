@@ -144,7 +144,7 @@ function PriceSimulator() {
           type="number"
           value={currentPrice}
           onChange={(e) => setCurrentPrice(e.target.value)}
-          className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[#C75B39] transition-colors"
+          className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--or, #D8A95B)] transition-colors"
           style={{ color: "var(--text-primary)" }}
         />
       </div>
@@ -157,7 +157,7 @@ function PriceSimulator() {
           type="number"
           value={newPrice}
           onChange={(e) => setNewPrice(e.target.value)}
-          className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[#C75B39] transition-colors"
+          className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--or, #D8A95B)] transition-colors"
           style={{ color: "var(--text-primary)" }}
         />
       </div>
@@ -170,7 +170,7 @@ function PriceSimulator() {
           type="number"
           value={subscribers}
           onChange={(e) => setSubscribers(e.target.value)}
-          className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[#C75B39] transition-colors"
+          className="w-full bg-transparent border border-[var(--color-border)] px-3 py-2 text-sm focus:outline-none focus:border-[var(--or, #D8A95B)] transition-colors"
           style={{ color: "var(--text-primary)" }}
         />
       </div>
@@ -396,7 +396,7 @@ export function PricingAdvisorChat() {
               onKeyDown={(e) => e.key === "Enter" && handleSend()}
               placeholder="Pose ta question pricing..."
               disabled={loading}
-              className="flex-1 bg-transparent border-b border-[var(--color-border)] py-3 text-lg placeholder:opacity-30 focus:outline-none focus:border-[#C75B39] transition-colors disabled:opacity-40"
+              className="flex-1 bg-transparent border-b border-[var(--color-border)] py-3 text-lg placeholder:opacity-30 focus:outline-none focus:border-[var(--or, #D8A95B)] transition-colors disabled:opacity-40"
               style={{ color: "var(--text-primary)" }}
             />
             <button
@@ -441,7 +441,7 @@ export function PricingAdvisorChat() {
                       key={skill.id}
                       onClick={() => handleSend(skill.prompt)}
                       disabled={loading}
-                      className="flex items-center gap-2 w-full p-3 text-left text-sm border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50 hover:bg-[#C75B39]/05 disabled:opacity-40"
+                      className="flex items-center gap-2 w-full p-3 text-left text-sm border border-[var(--color-border)] transition-all hover:border-[var(--or, #D8A95B)]/50 hover:bg-[var(--or, #D8A95B)]/05 disabled:opacity-40"
                       style={{ backgroundColor: "var(--color-base)" }}
                     >
                       <div className="w-7 h-7 flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(199, 91, 57, 0.08)" }}>

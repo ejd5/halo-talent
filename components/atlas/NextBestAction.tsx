@@ -35,9 +35,9 @@ export function NextBestAction({ action, offer, expectedRevenueImpact, threadSta
         ) : isDormant ? (
           <Clock size={14} style={{ color: "rgba(255,255,255,0.4)" }} />
         ) : (
-          <Zap size={14} style={{ color: "var(--color-accent, #C75B39)" }} />
+          <Zap size={14} style={{ color: "var(--color-accent, var(--or, #D8A95B))" }} />
         )}
-        <span className="text-[11px] font-medium" style={{ color: "var(--color-accent, #C75B39)" }}>
+        <span className="text-[11px] font-medium" style={{ color: "var(--color-accent, var(--or, #D8A95B))" }}>
           {isEscalated
             ? t("revenue_inbox.status_escalated", l)
             : t(`revenue_inbox.action_${action}` as any, l)}

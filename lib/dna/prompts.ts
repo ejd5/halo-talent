@@ -159,7 +159,7 @@ export function buildMockVoiceProfile() {
 export function buildMockStyleProfile() {
   return {
     visual_universe: "Univers lumineux et naturel avec des tons chauds",
-    dominant_colors: ["#F5E6D3", "#C75B39", "#2A1A0A", "#8FA98B", "#E8D5C4"],
+    dominant_colors: ["#F5E6D3", "var(--or, #D8A95B)", "#2A1A0A", "#8FA98B", "#E8D5C4"],
     aesthetic_tags: ["naturel", "lumineux", "authentique", "minimal", "chaleureux"],
     photography_style: "Lifestyle naturel, lumière du jour",
     editing_vibe: "Naturelle avec tons chauds, peu de filtres",

@@ -22,7 +22,7 @@ const SAMPLE_DATA: Record<number, Record<string, unknown>> = {
   },
   4: {
     mood_cards: ["minimal", "chaud", "nature", "lumineux", "soft"],
-    colors: ["#C75B39", "#F5F0EB", "#2D1B69"],
+    colors: ["var(--or, #D8A95B)", "#F5F0EB", "#2D1B69"],
     photo_style: "natural",
     visual_inspirations: "Magazines Kinfolk, direction photo Christopher Nolan, minimalisme japonais",
   },

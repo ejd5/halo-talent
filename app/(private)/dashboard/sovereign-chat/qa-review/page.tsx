@@ -44,7 +44,7 @@ const STATUS_CONFIG: Record<string, { color: string; bg: string; label: string }
   approved: { color: "var(--success)", bg: "rgba(122,154,101,0.08)", label: "Approuvé" },
   revised: { color: "var(--accent)", bg: "rgba(199,91,57,0.08)", label: "Révisé" },
   blocked: { color: "var(--danger)", bg: "rgba(196,69,54,0.08)", label: "Bloqué" },
-  escalated: { color: "#C75B39", bg: "rgba(199,91,57,0.12)", label: "Escaladé" },
+  escalated: { color: "var(--or, #D8A95B)", bg: "rgba(199,91,57,0.12)", label: "Escaladé" },
   false_positive: { color: "rgba(245,240,235,0.2)", bg: "rgba(245,240,235,0.03)", label: "Faux positif" },
 };
 
@@ -128,7 +128,7 @@ export default function QAReviewPage() {
           { label: "Total", value: stats.total, color: "var(--text-primary)" },
           { label: "En attente", value: stats.pending, color: "rgba(245,240,235,0.3)" },
           { label: "Bloqués", value: stats.blocked, color: "var(--danger)" },
-          { label: "Escaladés", value: stats.escalated, color: "#C75B39" },
+          { label: "Escaladés", value: stats.escalated, color: "var(--or, #D8A95B)" },
         ].map((s) => (
           <div key={s.label} style={{
             padding: "8px 14px", borderRadius: 6,
@@ -303,7 +303,7 @@ export default function QAReviewPage() {
                         disabled={updatingId === item.id}
                         style={{
                           display: "flex", alignItems: "center", gap: 4, fontSize: 10, padding: "4px 10px",
-                          background: "rgba(199,91,57,0.08)", color: "#C75B39",
+                          background: "rgba(199,91,57,0.08)", color: "var(--or, #D8A95B)",
                           border: "1px solid rgba(199,91,57,0.2)", borderRadius: 4, cursor: "pointer",
                         }}
                       >

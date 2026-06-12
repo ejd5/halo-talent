@@ -74,11 +74,11 @@ export default function SecurityPage() {
       <section className="py-24 md:py-32">
         <div className="mx-auto w-full max-w-7xl px-6 md:px-12 text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Shield size={28} style={{ color: "#C75B39" }} />
+            <Shield size={28} style={{ color: "var(--or, #D8A95B)" }} />
           </div>
           <p
             className="text-[0.65rem] font-sans font-semibold uppercase tracking-[0.12em] mb-6"
-            style={{ color: "#C75B39" }}
+            style={{ color: "var(--or, #D8A95B)" }}
           >
             Centre de Confiance
           </p>
@@ -129,7 +129,7 @@ export default function SecurityPage() {
                         border: "1px solid rgba(199,91,57,0.15)",
                       }}
                     >
-                      <Icon size={18} style={{ color: "#C75B39" }} />
+                      <Icon size={18} style={{ color: "var(--or, #D8A95B)" }} />
                     </div>
                   </div>
 
@@ -145,7 +145,7 @@ export default function SecurityPage() {
                           border: "1px solid rgba(199,91,57,0.15)",
                         }}
                       >
-                        <Icon size={16} style={{ color: "#C75B39" }} />
+                        <Icon size={16} style={{ color: "var(--or, #D8A95B)" }} />
                       </div>
                       <h3
                         className="text-lg font-bold"
@@ -210,7 +210,7 @@ export default function SecurityPage() {
               href="/pricing"
               className="px-8 py-3 text-sm font-semibold uppercase tracking-wider transition-colors"
               style={{
-                background: "#C75B39",
+                background: "var(--or, #D8A95B)",
                 color: "#F5F0EB",
                 fontFamily: "var(--font-body)",
               }}

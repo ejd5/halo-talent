@@ -6,7 +6,7 @@ export default {
     extend: {
       colors: {
         // Halo Palette B — Design System
-        accent: "#F97316",
+        accent: "var(--or, #D8A95B)",
         "accent-soft": "rgba(249,115,22,0.12)",
         "bg-primary": "#0A0A0A",
         "bg-surface": "#141414",

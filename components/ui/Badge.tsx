@@ -5,7 +5,7 @@ type BadgeVariant = "default" | "success" | "alert";
 const variantStyles: Record<BadgeVariant, React.CSSProperties> = {
   default: {
     backgroundColor: "rgba(199, 91, 57, 0.08)",
-    color: "#C75B39",
+    color: "var(--or, #D8A95B)",
   },
   success: {
     backgroundColor: "rgba(122, 154, 101, 0.08)",

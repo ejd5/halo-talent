@@ -47,7 +47,7 @@ export default function DepartementsPage() {
         <div className="mx-auto w-full max-w-5xl px-6 md:px-12 text-center">
           <p
             className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] mb-6"
-            style={{ color: "#C75B39" }}
+            style={{ color: "var(--or, #D8A95B)" }}
           >
             Notre expertise
           </p>
@@ -75,7 +75,7 @@ export default function DepartementsPage() {
                 <Link
                   key={dept.slug}
                   href={`/departements/${dept.slug}`}
-                  className="block p-6 transition-all hover:border-[#C75B39]/30 group"
+                  className="block p-6 transition-all hover:border-[var(--or, #D8A95B)]/30 group"
                   style={{
                     border: "1px solid rgba(245, 240, 235, 0.06)",
                     background: "rgba(245, 240, 235, 0.02)",
@@ -86,7 +86,7 @@ export default function DepartementsPage() {
                       className="w-12 h-12 flex items-center justify-center shrink-0 transition-colors group-hover:bg-[rgba(199,91,57,0.12)]"
                       style={{
                         background: "rgba(199, 91, 57, 0.06)",
-                        color: "#C75B39",
+                        color: "var(--or, #D8A95B)",
                       }}
                     >
                       <Icon size={20} />
@@ -99,7 +99,7 @@ export default function DepartementsPage() {
                         <ArrowRight
                           size={16}
                           className="shrink-0 transition-transform group-hover:translate-x-1"
-                          style={{ color: "#C75B39" }}
+                          style={{ color: "var(--or, #D8A95B)" }}
                         />
                       </div>
                       <p
@@ -136,7 +136,7 @@ export default function DepartementsPage() {
           <Link
             href="/apply"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[0.8rem] font-semibold uppercase tracking-[0.08em] transition-all hover:opacity-90"
-            style={{ background: "#C75B39", color: "#F5F0EB" }}
+            style={{ background: "var(--or, #D8A95B)", color: "#F5F0EB" }}
           >
             Postuler
             <ArrowRight size={14} />

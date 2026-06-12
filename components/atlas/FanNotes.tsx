@@ -52,7 +52,7 @@ export function FanNotes({ notes, onAddNote }: FanNotesProps) {
             backgroundColor: "rgba(255,255,255,0.02)",
           }}
           onFocus={(e) => {
-            e.currentTarget.style.borderColor = "var(--color-accent, #C75B39)";
+            e.currentTarget.style.borderColor = "var(--color-accent, var(--or, #D8A95B))";
           }}
           onBlur={(e) => {
             e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
@@ -63,7 +63,7 @@ export function FanNotes({ notes, onAddNote }: FanNotesProps) {
           disabled={!value.trim()}
           className="shrink-0 px-3 rounded-sm transition-opacity flex items-center justify-center"
           style={{
-            backgroundColor: value.trim() ? "var(--color-accent, #C75B39)" : "rgba(255,255,255,0.06)",
+            backgroundColor: value.trim() ? "var(--color-accent, var(--or, #D8A95B))" : "rgba(255,255,255,0.06)",
             opacity: value.trim() ? 1 : 0.4,
           }}
         >

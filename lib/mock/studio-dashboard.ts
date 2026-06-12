@@ -223,7 +223,7 @@ export const QUICK_ACTIONS: SDQuickAction[] = [
     descriptionKey: "studio_dashboard.quick.create_desc",
     icon: "PenSquare",
     href: "/studio/composer",
-    color: "#C75B39",
+    color: "var(--or, #D8A95B)",
   },
   {
     id: "caption",

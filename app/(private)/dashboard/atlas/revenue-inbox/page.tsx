@@ -20,7 +20,7 @@ export default function RevenueInboxPage() {
             className="w-6 h-6 border-2 rounded-full animate-spin"
             style={{
               borderColor: "rgba(199,91,57,0.2)",
-              borderTopColor: "var(--color-accent, #C75B39)",
+              borderTopColor: "var(--color-accent, var(--or, #D8A95B))",
             }}
           />
         </div>

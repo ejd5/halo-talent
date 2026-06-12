@@ -207,7 +207,7 @@ export const TIER_OPTIONS = [
 /* ─── Node type colors ─── */
 
 export const NODE_COLORS = {
-  trigger: { bg: "rgba(199,91,57,0.12)", border: "#C75B39", text: "#C75B39" },
+  trigger: { bg: "rgba(199,91,57,0.12)", border: "var(--or, #D8A95B)", text: "var(--or, #D8A95B)" },
   action: { bg: "rgba(91,143,168,0.12)", border: "#5B8FA8", text: "#5B8FA8" },
   logic:  { bg: "rgba(122,154,101,0.12)", border: "#7A9A65", text: "#7A9A65" },
 };

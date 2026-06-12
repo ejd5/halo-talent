@@ -209,7 +209,7 @@ export const PLATFORM_RULES: PlatformRules[] = [
 ];
 
 export const PLATFORM_COLORS: Record<PlatformName, string> = {
-  OF: "#C75B39",
+  OF: "var(--or, #D8A95B)",
   Fansly: "#8B5CF6",
   IG: "#EC4899",
   TT: "#3B82F6",

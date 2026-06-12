@@ -391,7 +391,7 @@ export default function PricingPage() {
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-1/2 h-full opacity-[0.03] pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse at center, #C75B39 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, var(--or, #D8A95B) 0%, transparent 70%)",
           }}
         />
 

@@ -350,7 +350,7 @@ export function getConnectionStatus(connection: PlatformConnection | null | unde
   if (!connection) return { label: "Non connecté", color: "rgba(255,255,255,0.2)" };
   switch (connection.status) {
     case "active": return { label: "Connecté", color: "#22C55E" };
-    case "expired": return { label: "Token expiré", color: "#C75B39" };
+    case "expired": return { label: "Token expiré", color: "var(--or, #D8A95B)" };
     case "revoked": return { label: "Révoqué", color: "#E5484D" };
     case "error": return { label: "Erreur de connexion", color: "#E5484D" };
     default: return { label: "Non connecté", color: "rgba(255,255,255,0.2)" };

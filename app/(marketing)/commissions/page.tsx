@@ -17,7 +17,7 @@ export default function CommissionsPage() {
         <div className="mx-auto w-full max-w-5xl px-6 md:px-12 text-center">
           <p
             className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] mb-6"
-            style={{ color: "#C75B39" }}
+            style={{ color: "var(--or, #D8A95B)" }}
           >
             Tarification transparente
           </p>
@@ -40,7 +40,7 @@ export default function CommissionsPage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr style={{ borderBottom: "2px solid #C75B39" }}>
+                <tr style={{ borderBottom: "2px solid var(--or, #D8A95B)" }}>
                   <th
                     className="py-4 px-6 text-xs uppercase tracking-[0.1em] font-semibold"
                     style={{ color: "rgba(245, 240, 235, 0.4)" }}
@@ -78,7 +78,7 @@ export default function CommissionsPage() {
                     </td>
                     <td
                       className="py-4 px-6 text-sm font-bold"
-                      style={{ color: "#C75B39" }}
+                      style={{ color: "var(--or, #D8A95B)" }}
                     >
                       {t.taux}
                     </td>
@@ -120,7 +120,7 @@ export default function CommissionsPage() {
               background: "rgba(199, 91, 57, 0.04)",
             }}
           >
-            <h3 className="font-display text-lg font-bold mb-4" style={{ color: "#C75B39" }}>
+            <h3 className="font-display text-lg font-bold mb-4" style={{ color: "var(--or, #D8A95B)" }}>
               Exemple : 25 000 € de revenus mensuels
             </h3>
             <div className="space-y-2 text-sm">
@@ -136,9 +136,9 @@ export default function CommissionsPage() {
                 <span style={{ color: "rgba(245, 240, 235, 0.6)" }}>Sur les 5 000 € restants à 20%</span>
                 <span className="font-mono font-semibold">1 000 €</span>
               </div>
-              <div className="flex justify-between py-2 mt-2" style={{ borderTop: "1px solid #C75B39" }}>
+              <div className="flex justify-between py-2 mt-2" style={{ borderTop: "1px solid var(--or, #D8A95B)" }}>
                 <span className="font-semibold">Total commission Halo</span>
-                <span className="font-mono font-bold text-lg" style={{ color: "#C75B39" }}>6 500 €</span>
+                <span className="font-mono font-bold text-lg" style={{ color: "var(--or, #D8A95B)" }}>6 500 €</span>
               </div>
               <div className="flex justify-between py-1">
                 <span style={{ color: "rgba(245, 240, 235, 0.6)" }}>Taux effectif</span>
@@ -184,7 +184,7 @@ export default function CommissionsPage() {
             </div>
             <p
               className="text-sm mt-6 font-semibold"
-              style={{ color: "#C75B39" }}
+              style={{ color: "var(--or, #D8A95B)" }}
             >
               Vous gardez 6 000 € de plus chaque mois avec Halo.
             </p>
@@ -238,7 +238,7 @@ export default function CommissionsPage() {
           <Link
             href="/apply"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[0.8rem] font-semibold uppercase tracking-[0.08em] transition-all hover:opacity-90"
-            style={{ background: "#C75B39", color: "#F5F0EB" }}
+            style={{ background: "var(--or, #D8A95B)", color: "#F5F0EB" }}
           >
             Postuler
             <ArrowRight size={14} />

@@ -130,7 +130,7 @@ export const PAGE_TEMPLATES = [
     config: {
       background_type: "color" as BackgroundType,
       background_value: "#1A1614",
-      accent_color: "#C75B39",
+      accent_color: "var(--or, #D8A95B)",
       text_color: "#F5F0EB",
       display_name: "",
       bio: "Creator • Content",
@@ -145,7 +145,7 @@ export const PAGE_TEMPLATES = [
     config: {
       background_type: "color" as BackgroundType,
       background_value: "#1A1614",
-      accent_color: "#C75B39",
+      accent_color: "var(--or, #D8A95B)",
       text_color: "#F5F0EB",
       headline: "Recevez ma newsletter exclusive",
       subtitle: "Contenu premium, BTS, et exclusivités avant tout le monde",
@@ -164,7 +164,7 @@ export const PAGE_TEMPLATES = [
     config: {
       background_type: "color" as BackgroundType,
       background_value: "#1A1614",
-      accent_color: "#C75B39",
+      accent_color: "var(--or, #D8A95B)",
       text_color: "#F5F0EB",
       headline: "Quelque chose de grand arrive...",
       subtitle: "Soyez le premier à être notifié",
@@ -183,7 +183,7 @@ export const PAGE_TEMPLATES = [
     config: {
       background_type: "color" as BackgroundType,
       background_value: "#1A1614",
-      accent_color: "#C75B39",
+      accent_color: "var(--or, #D8A95B)",
       text_color: "#F5F0EB",
       headline: "Ne rate rien de mon contenu",
       subtitle: "Reçois mes dernières actus chaque semaine",
@@ -213,6 +213,6 @@ export const LINK_PRESETS = [
 
 export function generateQRUrl(url: string, options?: { size?: number; fgColor?: string; centerImage?: string }): string {
   const size = options?.size || 300;
-  const fg = (options?.fgColor || "#C75B39").replace("#", "");
+  const fg = (options?.fgColor || "var(--or, #D8A95B)").replace("#", "");
   return `https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(url)}&color=${fg}&margin=12`;
 }

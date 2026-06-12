@@ -138,7 +138,7 @@ export default function ChatAICompliancePage() {
                   approved: "var(--success)",
                   revised: "var(--accent)",
                   blocked: "var(--danger)",
-                  escalated: "#C75B39",
+                  escalated: "var(--or, #D8A95B)",
                   false_positive: "rgba(245,240,235,0.15)",
                 };
                 return (

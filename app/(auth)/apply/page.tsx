@@ -668,7 +668,7 @@ function SuccessScreen() {
           <svg className="w-20 h-20 -rotate-90" viewBox="0 0 80 80">
             <circle cx="40" cy="40" r="36" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="1.5" />
             <circle
-              cx="40" cy="40" r="36" fill="none" stroke="#C75B39" strokeWidth="1.5"
+              cx="40" cy="40" r="36" fill="none" stroke="var(--or, #D8A95B)" strokeWidth="1.5"
               strokeDasharray={Math.PI * 72}
               strokeDashoffset={reveal ? 0 : Math.PI * 72}
               className="transition-all duration-1000 ease-out"

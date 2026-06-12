@@ -121,7 +121,7 @@ export function buildEmailHtml(
       case "image":
         return `<img src="${block.src || ""}" alt="" style="max-width:100%;height:auto;border-radius:4px;margin:12px 0;display:block" />`;
       case "button":
-        return `<div style="text-align:${block.align || "center"};margin:16px 0"><a href="${replaceVariables(block.url || "#", vars)}" style="display:inline-block;background-color:#C75B39;color:#ffffff;text-decoration:none;padding:12px 28px;border-radius:4px;font-size:15px;font-weight:600">${block.label || "Cliquez ici"}</a></div>`;
+        return `<div style="text-align:${block.align || "center"};margin:16px 0"><a href="${replaceVariables(block.url || "#", vars)}" style="display:inline-block;background-color:var(--or, #D8A95B);color:#ffffff;text-decoration:none;padding:12px 28px;border-radius:4px;font-size:15px;font-weight:600">${block.label || "Cliquez ici"}</a></div>`;
       case "video":
         return `<div style="margin:12px 0;text-align:center;padding:32px 0;background-color:rgba(0,0,0,0.05);border-radius:4px"><p style="font-size:13px;color:#888">🎬 ${block.content || "Vidéo"}</p></div>`;
       case "divider":

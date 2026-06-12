@@ -39,13 +39,13 @@ export default function Popup() {
           className="w-6 h-6 rounded-md flex items-center justify-center"
           style={{ backgroundColor: "rgba(249,115,22,0.1)" }}
         >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--or, #D8A95B)" strokeWidth="2">
             <path d="M12 2L2 7l10 5 10-5-10-5z" />
             <path d="M2 17l10 5 10-5" />
             <path d="M2 12l10 5 10-5" />
           </svg>
         </div>
-        <span className="text-xs font-bold" style={{ color: "#F97316" }}>
+        <span className="text-xs font-bold" style={{ color: "var(--or, #D8A95B)" }}>
           Halo Companion
         </span>
       </div>
@@ -70,7 +70,7 @@ export default function Popup() {
       <button
         onClick={openSidePanel}
         className="w-full text-xs font-semibold py-2.5 rounded-lg mb-1.5 transition-all"
-        style={{ backgroundColor: "#F97316", color: "#fff" }}
+        style={{ backgroundColor: "var(--or, #D8A95B)", color: "#fff" }}
       >
         Ouvrir Halo Companion
       </button>

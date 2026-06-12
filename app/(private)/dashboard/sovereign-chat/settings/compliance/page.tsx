@@ -397,7 +397,7 @@ export default function ComplianceSettingsPage() {
                 <p style={{ fontSize: 8, color: "rgba(245,240,235,0.15)", marginTop: 1 }}>Bloqués</p>
               </div>
               <div>
-                <span style={{ fontSize: 16, fontWeight: 700, color: "#C75B39" }}>{complianceStats.escalated}</span>
+                <span style={{ fontSize: 16, fontWeight: 700, color: "var(--or, #D8A95B)" }}>{complianceStats.escalated}</span>
                 <p style={{ fontSize: 8, color: "rgba(245,240,235,0.15)", marginTop: 1 }}>Escaladés</p>
               </div>
               <div style={{ marginLeft: "auto" }}>

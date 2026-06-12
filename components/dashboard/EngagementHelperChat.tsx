@@ -252,7 +252,7 @@ export function EngagementHelperChat() {
       <button
         onClick={() => selectDm(dm.id)}
         className={cn(
-          "w-full text-left p-3 border-b border-[var(--color-border)] transition-all hover:bg-[#C75B39]/05",
+          "w-full text-left p-3 border-b border-[var(--color-border)] transition-all hover:bg-[var(--or, #D8A95B)]/05",
           isSelected && "bg-[var(--accent)/10]"
         )}
       >
@@ -331,7 +331,7 @@ export function EngagementHelperChat() {
             <textarea
               value={editText}
               onChange={(e) => setEditText(e.target.value)}
-              className="w-full bg-transparent border border-[var(--color-border)] p-2 text-sm resize-none focus:outline-none focus:border-[#C75B39]"
+              className="w-full bg-transparent border border-[var(--color-border)] p-2 text-sm resize-none focus:outline-none focus:border-[var(--or, #D8A95B)]"
               rows={4}
               style={{ color: "var(--text-primary)" }}
             />
@@ -410,7 +410,7 @@ export function EngagementHelperChat() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Rechercher..."
-              className="w-full bg-transparent border border-[var(--color-border)] pl-8 pr-3 py-1.5 text-xs focus:outline-none focus:border-[#C75B39] transition-colors"
+              className="w-full bg-transparent border border-[var(--color-border)] pl-8 pr-3 py-1.5 text-xs focus:outline-none focus:border-[var(--or, #D8A95B)] transition-colors"
               style={{ color: "var(--text-primary)" }}
             />
           </div>

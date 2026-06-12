@@ -31,7 +31,7 @@ export function AISuggestionBox({
   return (
     <div
       className="border-l-2 px-4 py-3 my-3"
-      style={{ borderLeftColor: "var(--color-accent, #C75B39)", backgroundColor: "rgba(199,91,57,0.04)" }}
+      style={{ borderLeftColor: "var(--color-accent, var(--or, #D8A95B))", backgroundColor: "rgba(199,91,57,0.04)" }}
     >
       {/* Watermark */}
       <p
@@ -99,7 +99,7 @@ export function AISuggestionBox({
             <button
               onClick={onApprove}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm text-[11px] font-medium transition-colors"
-              style={{ backgroundColor: "var(--color-accent, #C75B39)", color: "#fff" }}
+              style={{ backgroundColor: "var(--color-accent, var(--or, #D8A95B))", color: "#fff" }}
             >
               <Check size={12} />
               {t("revenue_inbox.btn_approve", l)}

@@ -108,7 +108,7 @@ export function FanIntelligenceTable({
               backgroundColor: "rgba(255,255,255,0.02)",
             }}
             onFocus={(e) => {
-              e.currentTarget.style.borderColor = "var(--color-accent, #C75B39)";
+              e.currentTarget.style.borderColor = "var(--color-accent, var(--or, #D8A95B))";
             }}
             onBlur={(e) => {
               e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
@@ -272,7 +272,7 @@ export function FanIntelligenceTable({
                       >
                         <div
                           className="w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-display font-bold shrink-0"
-                          style={{ backgroundColor: "var(--color-accent, #C75B39)", color: "#fff" }}
+                          style={{ backgroundColor: "var(--color-accent, var(--or, #D8A95B))", color: "#fff" }}
                         >
                           {fan.pseudonyme.charAt(0)}
                         </div>

@@ -18,7 +18,7 @@ export const HALO_STYLES = /* css */ `
     --halo-text-tertiary: #706F6D;
 
     /* Accent */
-    --halo-accent: #F97316;
+    --halo-accent: var(--or, #D8A95B);
     --halo-accent-soft: rgba(249,115,22,0.12);
     --halo-accent-hover: #FB923C;
 

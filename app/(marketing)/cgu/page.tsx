@@ -36,7 +36,7 @@ export default function CGUPage() {
         <div
           className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-full opacity-[0.03] pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse at center, #C75B39 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, var(--or, #D8A95B) 0%, transparent 70%)",
           }}
         />
 

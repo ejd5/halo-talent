@@ -36,7 +36,7 @@ export default function ContratTypePage() {
         <div className="mx-auto w-full max-w-5xl px-6 md:px-12 text-center">
           <p
             className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] mb-6"
-            style={{ color: "#C75B39" }}
+            style={{ color: "var(--or, #D8A95B)" }}
           >
             Engagement
           </p>
@@ -69,13 +69,13 @@ export default function ContratTypePage() {
                 className="w-10 h-10 flex items-center justify-center shrink-0"
                 style={{
                   background: "rgba(199, 91, 57, 0.15)",
-                  color: "#C75B39",
+                  color: "var(--or, #D8A95B)",
                 }}
               >
                 <FileText size={18} />
               </div>
               <div>
-                <h2 className="font-display text-lg font-bold mb-2" style={{ color: "#C75B39" }}>
+                <h2 className="font-display text-lg font-bold mb-2" style={{ color: "var(--or, #D8A95B)" }}>
                   Document en cours de finalisation
                 </h2>
                 <p
@@ -117,7 +117,7 @@ export default function ContratTypePage() {
                     className="w-10 h-10 flex items-center justify-center mb-4"
                     style={{
                       background: "rgba(199, 91, 57, 0.1)",
-                      color: "#C75B39",
+                      color: "var(--or, #D8A95B)",
                     }}
                   >
                     <Icon size={18} />
@@ -148,10 +148,10 @@ export default function ContratTypePage() {
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr style={{ borderBottom: "2px solid #C75B39" }}>
+                <tr style={{ borderBottom: "2px solid var(--or, #D8A95B)" }}>
                   <th className="py-3 px-4 text-xs uppercase tracking-[0.08em] font-semibold" style={{ color: "rgba(245, 240, 235, 0.4)" }}>Critère</th>
                   <th className="py-3 px-4 text-xs uppercase tracking-[0.08em] font-semibold" style={{ color: "rgba(245, 240, 235, 0.4)" }}>Agence classique</th>
-                  <th className="py-3 px-4 text-xs uppercase tracking-[0.08em] font-semibold" style={{ color: "#C75B39" }}>Halo</th>
+                  <th className="py-3 px-4 text-xs uppercase tracking-[0.08em] font-semibold" style={{ color: "var(--or, #D8A95B)" }}>Halo</th>
                 </tr>
               </thead>
               <tbody>
@@ -196,7 +196,7 @@ export default function ContratTypePage() {
           <Link
             href="/apply"
             className="inline-flex items-center justify-center gap-2 px-10 py-4 text-[0.8rem] font-semibold uppercase tracking-[0.08em] transition-all hover:opacity-90"
-            style={{ background: "#C75B39", color: "#F5F0EB" }}
+            style={{ background: "var(--or, #D8A95B)", color: "#F5F0EB" }}
           >
             Postuler
             <ArrowRight size={14} />

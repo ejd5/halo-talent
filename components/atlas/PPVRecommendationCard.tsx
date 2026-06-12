@@ -144,7 +144,7 @@ export function PPVRecommendationCard({
               >
                 <div
                   className="w-6 h-6 rounded-full flex items-center justify-center text-[8px] font-bold shrink-0"
-                  style={{ backgroundColor: "var(--color-accent, #C75B39)", color: "#fff" }}
+                  style={{ backgroundColor: "var(--color-accent, var(--or, #D8A95B))", color: "#fff" }}
                 >
                   {rec.pseudonyme.charAt(0)}
                 </div>

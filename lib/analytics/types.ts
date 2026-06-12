@@ -157,7 +157,7 @@ export const INSIGHT_CATEGORY_LABELS: Record<string, string> = {
 };
 
 export const INSIGHT_CATEGORY_COLORS: Record<string, string> = {
-  pattern: "#C75B39",
+  pattern: "var(--or, #D8A95B)",
   recommendation: "#10B981",
   warning: "#E5484D",
   opportunity: "#8B5CF6",

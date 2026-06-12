@@ -66,7 +66,7 @@ export function FanScoreBreakdown({ fan }: FanScoreBreakdownProps) {
         {sections.map((section) => {
           const pct = (section.value / section.max) * 100;
           const barColor =
-            pct >= 80 ? "var(--success)" : pct >= 50 ? "#F59E0B" : "var(--color-accent, #C75B39)";
+            pct >= 80 ? "var(--success)" : pct >= 50 ? "#F59E0B" : "var(--color-accent, var(--or, #D8A95B))";
 
           return (
             <div key={section.key}>

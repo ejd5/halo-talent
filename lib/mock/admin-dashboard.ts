@@ -340,7 +340,7 @@ export const PIPELINE_STAGE_CONFIG: { key: PipelineStage; labelKey: string; colo
   { key: "call", labelKey: "admin_dashboard.pipeline.stage.call", color: "#F59E0B" },
   { key: "contract", labelKey: "admin_dashboard.pipeline.stage.contract", color: "#EC4899" },
   { key: "onboarding", labelKey: "admin_dashboard.pipeline.stage.onboarding", color: "#10B981" },
-  { key: "active", labelKey: "admin_dashboard.pipeline.stage.active", color: "#C75B39" },
+  { key: "active", labelKey: "admin_dashboard.pipeline.stage.active", color: "var(--or, #D8A95B)" },
 ];
 
 // ─── Team Performance ───

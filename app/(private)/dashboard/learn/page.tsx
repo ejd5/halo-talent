@@ -145,7 +145,7 @@ export default function LearnPage() {
                 ) : null}
                 <button
                   className="w-full py-2 text-[10px] uppercase tracking-wider font-semibold transition-opacity hover:opacity-80"
-                  style={{ backgroundColor: track.progress > 0 ? "#C75B3920" : "var(--accent)", color: track.progress > 0 ? "var(--accent)" : "var(--text-primary)" }}
+                  style={{ backgroundColor: track.progress > 0 ? "var(--or, #D8A95B)20" : "var(--accent)", color: track.progress > 0 ? "var(--accent)" : "var(--text-primary)" }}
                 >
                   {track.progress > 0 ? "Continuer" : "Commencer"}
                 </button>
@@ -288,7 +288,7 @@ export default function LearnPage() {
       {/* ─── AI Mentor (floating) ────────────────────────── */}
       {mentorOpen && (
         <div className="fixed bottom-6 right-6 w-80 border border-[var(--color-border)] shadow-2xl z-50" style={{ backgroundColor: "var(--color-card)" }}>
-          <div className="flex items-center justify-between p-3 border-b border-[var(--color-border)]" style={{ backgroundColor: "#C75B3910" }}>
+          <div className="flex items-center justify-between p-3 border-b border-[var(--color-border)]" style={{ backgroundColor: "var(--or, #D8A95B)10" }}>
             <div className="flex items-center gap-2">
               <Sparkles size={14} style={{ color: "var(--accent)" }} />
               <span className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>Mentor IA</span>

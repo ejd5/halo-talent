@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 export const colors = {
   black: "#1A1614",
   espresso: "#1A1614",
-  gold: "#C75B39",
+  gold: "var(--or, #D8A95B)",
   goldLight: "#F0DDD4",
   ivory: "#F5F0EB",
   taupe: "#7A736B",

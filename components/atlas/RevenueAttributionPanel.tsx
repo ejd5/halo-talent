@@ -48,7 +48,7 @@ export function RevenueAttributionPanel({ thread, onAddNote }: RevenueAttributio
             <span className="text-[10px] block" style={{ color: "rgba(255,255,255,0.2)" }}>
               {t("revenue_inbox.total_revenue", l)}
             </span>
-            <span className="text-[13px] font-medium" style={{ color: "var(--color-accent, #C75B39)" }}>
+            <span className="text-[13px] font-medium" style={{ color: "var(--color-accent, var(--or, #D8A95B))" }}>
               {formatAmount(ppvTotal)}
             </span>
           </div>
@@ -152,7 +152,7 @@ export function RevenueAttributionPanel({ thread, onAddNote }: RevenueAttributio
             className="p-1.5 rounded-sm transition-colors"
             style={{
               backgroundColor: noteInput.trim()
-                ? "var(--color-accent, #C75B39)"
+                ? "var(--color-accent, var(--or, #D8A95B))"
                 : "rgba(255,255,255,0.06)",
               opacity: noteInput.trim() ? 1 : 0.3,
             }}

@@ -151,7 +151,7 @@ export function TrendSpotterChat() {
     const UrgencyIcon = urgency?.icon ?? Clock;
 
     return (
-      <div className="border border-[var(--color-border)] transition-all hover:border-[#C75B39]/30" style={{ backgroundColor: "var(--color-card)" }}>
+      <div className="border border-[var(--color-border)] transition-all hover:border-[var(--or, #D8A95B)]/30" style={{ backgroundColor: "var(--color-card)" }}>
         {/* Header */}
         <div className="flex items-start gap-3 p-4">
           {/* Platform icon */}
@@ -236,7 +236,7 @@ export function TrendSpotterChat() {
                     router.push(`/studio/composer?query=${encodeURIComponent(trend.title)}`);
                   }
                 }}
-                className="flex items-center gap-1 px-2 py-1 text-[9px] font-medium uppercase tracking-wider border border-[var(--color-border)] transition-all hover:border-[#C75B39]/50"
+                className="flex items-center gap-1 px-2 py-1 text-[9px] font-medium uppercase tracking-wider border border-[var(--color-border)] transition-all hover:border-[var(--or, #D8A95B)]/50"
                 style={{ color: "rgba(255, 255, 255, 0.5)" }}
               >
                 <Zap size={10} />
@@ -372,7 +372,7 @@ export function TrendSpotterChat() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Rechercher..."
-              className="w-32 bg-transparent border border-[var(--color-border)] pl-6 pr-2 py-1 text-[10px] focus:outline-none focus:border-[#C75B39] transition-colors"
+              className="w-32 bg-transparent border border-[var(--color-border)] pl-6 pr-2 py-1 text-[10px] focus:outline-none focus:border-[var(--or, #D8A95B)] transition-colors"
               style={{ color: "var(--text-primary)" }}
             />
           </div>
@@ -430,7 +430,7 @@ export function TrendSpotterChat() {
                 onChange={(e) => setChatInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleChat()}
                 placeholder="Ta question..."
-                className="flex-1 bg-transparent border-b border-[var(--color-border)] py-1.5 text-xs focus:outline-none focus:border-[#C75B39] transition-colors"
+                className="flex-1 bg-transparent border-b border-[var(--color-border)] py-1.5 text-xs focus:outline-none focus:border-[var(--or, #D8A95B)] transition-colors"
                 style={{ color: "var(--text-primary)" }}
               />
               <button onClick={handleChat} disabled={!chatInput.trim() || loading} className="opacity-40 hover:opacity-100 disabled:opacity-20 transition-opacity" style={{ color: "var(--accent)" }}>

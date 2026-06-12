@@ -12,7 +12,7 @@ function norm(locale: string): Locale {
 const RISK_CONFIG: Record<RiskLevel, { bg: string; text: string; key: string }> = {
   low: { bg: "rgba(16,185,129,0.15)", text: "var(--success)", key: "revenue_inbox.risk_low" },
   medium: { bg: "rgba(245,158,11,0.15)", text: "#F59E0B", key: "revenue_inbox.risk_medium" },
-  high: { bg: "rgba(249,115,22,0.15)", text: "#F97316", key: "revenue_inbox.risk_high" },
+  high: { bg: "rgba(249,115,22,0.15)", text: "var(--or, #D8A95B)", key: "revenue_inbox.risk_high" },
   critical: { bg: "rgba(229,72,77,0.18)", text: "var(--danger)", key: "revenue_inbox.risk_critical" },
 };
 

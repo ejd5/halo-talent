@@ -51,7 +51,7 @@ export default function LexPage() {
         />
         <div
           className="absolute top-0 right-0 w-1/2 h-full opacity-[0.03] pointer-events-none"
-          style={{ background: "radial-gradient(ellipse at center, #C75B39 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(ellipse at center, var(--or, #D8A95B) 0%, transparent 70%)" }}
         />
 
         <div className="relative z-10 mx-auto w-full max-w-4xl px-6 md:px-12 text-center">

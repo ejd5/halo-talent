@@ -39,7 +39,7 @@ const STATUS_COLORS: Record<string, string> = {
   approved: "var(--success)",
   revised: "var(--accent)",
   blocked: "var(--danger)",
-  escalated: "#C75B39",
+  escalated: "var(--or, #D8A95B)",
   false_positive: "rgba(245,240,235,0.2)",
 };
 
@@ -269,7 +269,7 @@ export default function ChatAIQAPage() {
                             ["approved", CheckCircle, "var(--success)"],
                             ["revised", RefreshCw, "var(--accent)"],
                             ["blocked", Ban, "var(--danger)"],
-                            ["escalated", Flag, "#C75B39"],
+                            ["escalated", Flag, "var(--or, #D8A95B)"],
                             ["false_positive", ThumbsUp, "rgba(245,240,235,0.2)"],
                           ] as const).filter(([s]) => s !== item.status).map(([status, Icon, color]) => (
                             <button

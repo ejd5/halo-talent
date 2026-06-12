@@ -140,7 +140,7 @@ export function ContactForm() {
           type="checkbox"
           checked={consent}
           onChange={(e) => setConsent(e.target.checked)}
-          className="mt-0.5 accent-[#C75B39]"
+          className="mt-0.5 accent-[var(--or, #D8A95B)]"
         />
         <span className="text-xs leading-relaxed" style={{ color: "rgba(245, 240, 235, 0.5)" }}>
           J&apos;accepte d&apos;être contacté(e) en réponse à ce message. Vos données ne seront pas utilisées à d&apos;autres fins.

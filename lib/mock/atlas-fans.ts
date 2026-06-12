@@ -1616,7 +1616,7 @@ export const PLATFORM_LABELS: Record<string, string> = {
 export const PLATFORM_COLORS: Record<string, string> = {
   onlyfans: "#00A7E1",
   fansly: "#E5484D",
-  mym: "#C75B39",
+  mym: "var(--or, #D8A95B)",
   fanvue: "#8B5CF6",
   instagram: "#E1306C",
   tiktok: "#00F2EA",

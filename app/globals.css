@@ -632,7 +632,7 @@
     border-color: var(--cuivre);
     color: #fff;
   }
-  .btn-eco-fill:hover { background: #F08440; border-color: #F08440; color: #fff; }
+  .btn-eco-fill:hover { background: var(--or-clair, #EBC98A); border-color: var(--or-clair, #EBC98A); color: #fff; }
   .btn-eco-gold { border-color: var(--or); color: var(--or); }
   .btn-eco-gold:hover { background: var(--or); color: var(--encre); }
 

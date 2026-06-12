@@ -61,7 +61,7 @@ export function FanOpportunityCard({ thread, onClose }: FanOpportunityCardProps)
         <div className="flex items-center gap-3 mb-3">
           <div
             className="w-12 h-12 rounded-full flex items-center justify-center text-lg font-display font-bold shrink-0"
-            style={{ backgroundColor: "var(--color-accent, #C75B39)", color: "#fff" }}
+            style={{ backgroundColor: "var(--color-accent, var(--or, #D8A95B))", color: "#fff" }}
           >
             {thread.fanName.charAt(0)}
           </div>
@@ -122,7 +122,7 @@ export function FanOpportunityCard({ thread, onClose }: FanOpportunityCardProps)
       {/* Scores */}
       <div className="p-4 border-b space-y-3" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
         {[
-          { label: t("revenue_inbox.intent_score", l), value: thread.intentScore, color: "var(--color-accent, #C75B39)" },
+          { label: t("revenue_inbox.intent_score", l), value: thread.intentScore, color: "var(--color-accent, var(--or, #D8A95B))" },
           { label: t("revenue_inbox.fan_value_score", l), value: thread.fanValueScore, color: "#8B5CF6" },
           { label: t("revenue_inbox.relationship_score", l), value: thread.relationshipScore, color: "#3B82F6" },
           { label: t("revenue_inbox.compliance_risk_score", l), value: thread.complianceRiskScore, color: "var(--danger)", reverse: true },

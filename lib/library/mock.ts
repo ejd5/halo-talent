@@ -396,7 +396,7 @@ export const mediaItems: MediaItem[] = [
     tags: ["infographie", "network", "stratégie", "business"],
     ai_description: "Infographie carrée sur la stratégie de réseau social avec données chiffrées et graphiques",
     ai_tags: ["infographie", "stratégie", "données", "graphique", "business", "social media"],
-    ai_colors: ["#C75B39", "#2A4A6A", "#F5F0E8"],
+    ai_colors: ["var(--or, #D8A95B)", "#2A4A6A", "#F5F0E8"],
     ai_mood: "professional", ai_suitable_platforms: ["linkedin", "twitter", "instagram"],
     ai_analyzed: true, ai_analysis_date: "2026-06-06T09:00:00Z",
     moderation_safe: true, moderation_concerns: [], moderation_checked: true,

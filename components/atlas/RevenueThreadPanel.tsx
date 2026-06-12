@@ -99,7 +99,7 @@ export function RevenueThreadPanel({
 
         <div
           className="w-8 h-8 rounded-full flex items-center justify-center text-sm font-display font-bold shrink-0"
-          style={{ backgroundColor: "var(--color-accent, #C75B39)", color: "#fff" }}
+          style={{ backgroundColor: "var(--color-accent, var(--or, #D8A95B))", color: "#fff" }}
         >
           {thread.fanName.charAt(0)}
         </div>
@@ -256,7 +256,7 @@ export function RevenueThreadPanel({
           style={{
             backgroundColor: isGenerating
               ? "rgba(199,91,57,0.3)"
-              : "var(--color-accent, #C75B39)",
+              : "var(--color-accent, var(--or, #D8A95B))",
             color: "#fff",
             opacity: isGenerating ? 0.6 : 1,
           }}

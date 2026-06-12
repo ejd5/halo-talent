@@ -90,7 +90,7 @@ export function RevenueThreadList({
       <div className="shrink-0 p-4 border-b" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
         <div className="flex items-center justify-between mb-3">
           <div className="flex items-center gap-2">
-            <TrendingUp size={16} style={{ color: "var(--color-accent, #C75B39)" }} />
+            <TrendingUp size={16} style={{ color: "var(--color-accent, var(--or, #D8A95B))" }} />
             <h2 className="text-sm font-display font-semibold" style={{ color: "var(--color-base, #F5F0EB)" }}>
               {t("revenue_inbox.title", l)}
             </h2>
@@ -143,7 +143,7 @@ export function RevenueThreadList({
           >
             <Filter
               size={14}
-              style={{ color: hasActiveFilters ? "var(--color-accent, #C75B39)" : "rgba(255,255,255,0.4)" }}
+              style={{ color: hasActiveFilters ? "var(--color-accent, var(--or, #D8A95B))" : "rgba(255,255,255,0.4)" }}
             />
           </button>
         </div>
@@ -158,7 +158,7 @@ export function RevenueThreadList({
               style={{
                 backgroundColor:
                   sortMode === opt.value ? "rgba(199,91,57,0.15)" : "transparent",
-                color: sortMode === opt.value ? "var(--color-accent, #C75B39)" : "rgba(255,255,255,0.35)",
+                color: sortMode === opt.value ? "var(--color-accent, var(--or, #D8A95B))" : "rgba(255,255,255,0.35)",
               }}
             >
               {t(opt.key, l)}
@@ -277,14 +277,14 @@ export function RevenueThreadList({
                 style={{
                   borderColor: "rgba(255,255,255,0.04)",
                   backgroundColor: isSelected ? "rgba(199,91,57,0.08)" : "transparent",
-                  borderLeft: isSelected ? "2px solid var(--color-accent, #C75B39)" : "2px solid transparent",
+                  borderLeft: isSelected ? "2px solid var(--color-accent, var(--or, #D8A95B))" : "2px solid transparent",
                 }}
               >
                 {/* Row 1: Avatar + Name + Platform + Unread */}
                 <div className="flex items-center gap-2 mb-1">
                   <div
                     className="w-7 h-7 rounded-full flex items-center justify-center text-[12px] font-display font-bold shrink-0"
-                    style={{ backgroundColor: "var(--color-accent, #C75B39)", color: "#fff" }}
+                    style={{ backgroundColor: "var(--color-accent, var(--or, #D8A95B))", color: "#fff" }}
                   >
                     {thread.fanName.charAt(0)}
                   </div>
@@ -303,7 +303,7 @@ export function RevenueThreadList({
                   {thread.unread && (
                     <span
                       className="w-2 h-2 rounded-full shrink-0"
-                      style={{ backgroundColor: "var(--color-accent, #C75B39)" }}
+                      style={{ backgroundColor: "var(--color-accent, var(--or, #D8A95B))" }}
                     />
                   )}
                 </div>
@@ -343,7 +343,7 @@ export function RevenueThreadList({
 
                   <span
                     className="text-[10px] shrink-0 font-medium"
-                    style={{ color: "var(--color-accent, #C75B39)" }}
+                    style={{ color: "var(--color-accent, var(--or, #D8A95B))" }}
                   >
                     {formatAmount(thread.revenuePotential * 10)}
                   </span>

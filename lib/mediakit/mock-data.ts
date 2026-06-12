@@ -16,7 +16,7 @@ export const MOCK_MEDIAKIT_STATE: MediaKitState = {
       avatarUrl: "/mock/avatar.jpg",
       languages: ["Français", "English"],
       country: "France",
-      accentColor: "#C75B39",
+      accentColor: "var(--or, #D8A95B)",
     },
     stats: [
       { platform: "OnlyFans", followers: 28450, engagement: 8.2, avgViews: 12500, growth: 5.3 },

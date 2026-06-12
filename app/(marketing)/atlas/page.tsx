@@ -221,7 +221,7 @@ export default function AtlasLandingPage() {
         <div
           className="absolute top-0 right-0 w-1/2 h-full opacity-[0.04] pointer-events-none"
           style={{
-            background: "radial-gradient(ellipse at center, #C75B39 0%, transparent 70%)",
+            background: "radial-gradient(ellipse at center, var(--or, #D8A95B) 0%, transparent 70%)",
           }}
         />
 

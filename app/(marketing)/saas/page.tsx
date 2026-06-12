@@ -14,7 +14,7 @@ const produits = [
       "Bibliothèque de templates personnalisables",
     ],
     lien: "/studio",
-    couleur: "#C75B39",
+    couleur: "var(--or, #D8A95B)",
   },
   {
     nom: "Atlas",
@@ -67,7 +67,7 @@ export default function SaasPage() {
         <div className="mx-auto w-full max-w-5xl px-6 md:px-12 text-center">
           <p
             className="text-[0.65rem] font-semibold uppercase tracking-[0.12em] mb-6"
-            style={{ color: "#C75B39" }}
+            style={{ color: "var(--or, #D8A95B)" }}
           >
             Technologie
           </p>
@@ -153,7 +153,7 @@ export default function SaasPage() {
                     className="w-12 h-12 flex items-center justify-center mx-auto mb-4"
                     style={{
                       background: "rgba(199, 91, 57, 0.1)",
-                      color: "#C75B39",
+                      color: "var(--or, #D8A95B)",
                     }}
                   >
                     <Icon size={20} />
@@ -193,7 +193,7 @@ export default function SaasPage() {
             <Link
               href="/studio"
               className="inline-flex items-center justify-center gap-2 px-8 py-3 text-[0.75rem] font-semibold uppercase tracking-[0.08em] transition-all hover:opacity-90"
-              style={{ background: "#C75B39", color: "#F5F0EB" }}
+              style={{ background: "var(--or, #D8A95B)", color: "#F5F0EB" }}
             >
               Essayer Studio
               <ArrowRight size={12} />

@@ -60,7 +60,7 @@ export function FanProfileDrawer({ fan, onClose, onAddNote }: FanProfileDrawerPr
           {/* Avatar */}
           <div
             className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-display font-bold shrink-0"
-            style={{ backgroundColor: "var(--color-accent, #C75B39)", color: "#fff" }}
+            style={{ backgroundColor: "var(--color-accent, var(--or, #D8A95B))", color: "#fff" }}
           >
             {fan.pseudonyme.charAt(0)}
           </div>
@@ -125,8 +125,8 @@ export function FanProfileDrawer({ fan, onClose, onAddNote }: FanProfileDrawerPr
               onClick={() => setTab(tb.key)}
               className="flex-1 px-2 py-2.5 text-[10px] font-medium uppercase tracking-wider transition-colors"
               style={{
-                color: tab === tb.key ? "var(--color-accent, #C75B39)" : "rgba(255,255,255,0.25)",
-                borderBottom: tab === tb.key ? "2px solid var(--color-accent, #C75B39)" : "2px solid transparent",
+                color: tab === tb.key ? "var(--color-accent, var(--or, #D8A95B))" : "rgba(255,255,255,0.25)",
+                borderBottom: tab === tb.key ? "2px solid var(--color-accent, var(--or, #D8A95B))" : "2px solid transparent",
               }}
             >
               {t(tb.labelKey, l)}

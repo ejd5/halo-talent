@@ -73,7 +73,7 @@ export async function POST(request: NextRequest) {
     // Mock analysis fallback
     const mockTags = ["portrait", "lumière naturelle", "créatif", "contenu visuel"];
     const mockPlatforms = ["instagram", "tiktok"];
-    const mockColors = ["#C75B39", "#F5F0E8", "#2A2A2A"];
+    const mockColors = ["var(--or, #D8A95B)", "#F5F0E8", "#2A2A2A"];
 
     return NextResponse.json({
       description: "Contenu visuel avec éclairage naturel et composition soignée. Ambiance chaleureuse et professionnelle.",
