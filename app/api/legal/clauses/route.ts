@@ -22,10 +22,13 @@ export async function GET() {
       grouped[clause.category].push(clause);
     }
 
+    const headers = new Headers();
+    headers.set("Cache-Control", "public, max-age=3600, s-maxage=3600");
+
     return NextResponse.json({
       clauses: clauses || [],
       grouped,
-    });
+    }, { headers });
   } catch (error) {
     console.error("Legal clauses error:", error);
     return NextResponse.json(

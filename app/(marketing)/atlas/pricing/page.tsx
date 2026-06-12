@@ -6,10 +6,7 @@ import {
   CheckCircle2,
   ShieldCheck,
   ArrowRight,
-  HelpCircle,
   Users,
-  MessageSquare,
-  GitBranch,
   BarChart3,
   Zap,
 } from "lucide-react";
@@ -104,7 +101,7 @@ const faqs = [
   },
   {
     q: "Comment Atlas protège-t-il contre les bans ?",
-    a: "Atlas intègre des limites de taux, une vérification de contenu et un suivi de conformité pour réduire les risques. Si une action initiée par Atlas cause la suspension de votre compte, nous remboursons les 12 derniers mois d'abonnement.",
+    a: "Atlas intègre des limites de taux, une vérification de contenu et un suivi de conformité pour aider à réduire les risques. Si une action initiée par Atlas cause la suspension de votre compte, nous remboursons les 12 derniers mois d'abonnement, sous réserve du respect de nos recommandations.",
   },
   {
     q: "Les prix sont-ils TTC ?",
@@ -253,7 +250,7 @@ function PlanCard({
             style={{ color: "var(--color-success)" }}
           >
             <ShieldCheck size={10} />
-            Zero ban garanti
+            Protection anti-ban proactive
           </div>
         )}
       </div>
@@ -320,9 +317,7 @@ function FaqItem({
 
 /* ─── Page ─── */
 export default function PricingPage() {
-  const [mounted, setMounted] = useState(false);
   const [annual, setAnnual] = useState(false);
-  useEffect(() => setMounted(true), []);
 
   const headerRef = useRef<HTMLDivElement>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
@@ -412,7 +407,7 @@ export default function PricingPage() {
             }}
           >
             <ShieldCheck size={12} />
-            Zero ban garanti sur toutes les offres
+            Protection anti-ban proactive sur toutes les offres
           </div>
 
           <h1
@@ -530,11 +525,12 @@ export default function PricingPage() {
             </div>
             <div>
               <h3 className="font-display text-lg font-semibold mb-2" style={{ color: "var(--color-dark-text)" }}>
-                Zero ban garanti sur tous les plans
+                Protection anti-ban proactive sur tous les plans
               </h3>
               <p className="text-sm leading-relaxed" style={{ color: "rgba(245, 240, 235, 0.55)" }}>
-                Si votre compte est banni à cause d&apos;Atlas, nous vous remboursons
-                intégralement les 12 derniers mois. C&apos;est notre engagement.
+                Si votre compte est restreint à cause d&apos;une action initiée par Atlas,
+                nous vous remboursons les 12 derniers mois d&apos;abonnement. C&apos;est notre
+                engagement, sous réserve du respect de nos recommandations de configuration.
               </p>
             </div>
             <Link

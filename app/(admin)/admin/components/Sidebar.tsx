@@ -9,7 +9,7 @@ import {
   Percent, Banknote, CreditCard, Library, AtSign, Clock,
   Globe, BookOpen, UserCheck, FileCode, Shield, Puzzle,
   KeyRound, ScrollText, Settings, Book, ChevronDown,
-  PanelRightClose, ArrowLeft,
+  PanelRightClose, ArrowLeft, PenSquare, Bot,
 } from "lucide-react";
 
 /* ─── Types ─── */
@@ -99,6 +99,7 @@ const BOTTOM_ITEMS: SidebarItem[] = [
       { label: "Clauses abusives", href: "/admin/legal/clauses", icon: FileSignature },
       { label: "Analyses contrats", href: "/admin/legal/analyses", icon: BarChart3 },
       { label: "Journal mises à jour", href: "/admin/legal/updates", icon: Clock },
+      { label: "Lex Rédaction", href: "/admin/lex/requests", icon: PenSquare },
     ],
   },
   {
@@ -120,6 +121,18 @@ const BOTTOM_ITEMS: SidebarItem[] = [
     ],
   },
   { label: "Documentation", href: "/admin/docs", icon: Book },
+  {
+    label: "Chat AI",
+    icon: Bot,
+    submenu: [
+      { label: "Vue d'ensemble", href: "/admin/chat-ai/overview", icon: LayoutDashboard },
+      { label: "Créateurs", href: "/admin/chat-ai/creators", icon: Users },
+      { label: "QA Review", href: "/admin/chat-ai/qa", icon: Shield },
+      { label: "Conformité", href: "/admin/chat-ai/compliance", icon: FileSignature },
+      { label: "Audit Log", href: "/admin/chat-ai/audit", icon: ScrollText },
+      { label: "Usage", href: "/admin/chat-ai/usage", icon: TrendingUp },
+    ],
+  },
 ];
 
 /* ─── Contextual Creator Menu ─── */

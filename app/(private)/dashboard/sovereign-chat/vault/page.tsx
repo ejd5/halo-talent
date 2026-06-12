@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import {
-  Package, Search, Filter, Plus, X, DollarSign, Send, Target,
-  TrendingUp, Users, Download, ChevronDown, ChevronRight, Zap,
-  Clock, AlertTriangle, CheckCircle, FileText, BarChart3,
+  Package, Search, Plus, X, DollarSign, Send, Target,
+  Users, Download, AlertTriangle, Bot,
 } from "lucide-react";
 
 // ─── Types ──────────────────────────────────────────────────
@@ -22,8 +22,14 @@ interface Product {
   is_active: boolean;
 }
 
+interface RecommendationFan {
+  id?: string;
+  display_name?: string;
+  email?: string;
+}
+
 interface Recommendation {
-  fan: Record<string, any>;
+  fan: RecommendationFan;
   score: number;
   reason: string;
   probability: number;
@@ -82,6 +88,100 @@ function FilterBar({
         <option value="">Toutes catégories</option>
         {categories.map((c) => <option key={c} value={c!}>{c}</option>)}
       </select>
+    </div>
+  );
+}
+
+// ─── "Optimiser prix" AI Modal ─────────────────────────────
+
+function PriceOptimizeModal({
+  product,
+  onClose,
+}: {
+  product: Product;
+  onClose: () => void;
+}) {
+  const [loading, setLoading] = useState(true);
+  const [result, setResult] = useState<{
+    recommendedPrice: number; minPrice: number; maxPrice: number;
+    justification: string; fatigueRisk: string; conversionEstimate: string;
+  } | null>(null);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    fetch("/api/chat-ai/ppv-recommendation", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ vaultAssetId: product.id }),
+    })
+      .then((r) => r.json())
+      .then((d) => {
+        if (d.recommendation) setResult(d.recommendation);
+        else setError(d.error || "Analyse impossible");
+      })
+      .catch(() => setError("Erreur réseau"))
+      .finally(() => setLoading(false));
+  }, [product.id]);
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60" onClick={onClose}>
+      <div
+        className="w-full max-w-md mx-4 border"
+        style={{ backgroundColor: "var(--bg-primary)", borderColor: "rgba(245,240,235,0.06)" }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="flex items-center justify-between px-4 py-3 shrink-0" style={{ borderBottom: "1px solid rgba(245,240,235,0.04)" }}>
+          <div>
+            <div className="flex items-center gap-2">
+              <Bot size={14} style={{ color: "var(--accent)" }} />
+              <h3 className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Optimisation IA — &quot;{product.name}&quot;</h3>
+            </div>
+            <p className="text-[9px] mt-0.5" style={{ color: "rgba(245,240,235,0.3)" }}>
+              Prix actuel: {product.price}€ · {product.total_sends} envois
+            </p>
+          </div>
+          <button onClick={onClose} className="p-1 hover:opacity-70"><X size={14} style={{ color: "rgba(245,240,235,0.3)" }} /></button>
+        </div>
+
+        <div className="p-4">
+          {loading ? (
+            <div className="space-y-3">
+              <div className="h-10 animate-pulse" style={{ background: "rgba(245,240,235,0.03)" }} />
+              <div className="h-16 animate-pulse" style={{ background: "rgba(245,240,235,0.03)" }} />
+            </div>
+          ) : error ? (
+            <div className="flex items-start gap-2 p-3" style={{ background: "rgba(196,69,54,0.04)", borderRadius: 4 }}>
+              <AlertTriangle size={12} style={{ color: "var(--danger)", minWidth: 12, marginTop: 1 }} />
+              <p className="text-xs" style={{ color: "var(--danger)", margin: 0 }}>{error}</p>
+            </div>
+          ) : result ? (
+            <div className="space-y-3">
+              <div style={{ display: "flex", gap: 10 }}>
+                <div style={{ flex: 1, textAlign: "center", padding: 10, background: "rgba(199,91,57,0.08)", borderRadius: 6 }}>
+                  <p style={{ fontSize: 18, fontWeight: 700, color: "var(--accent)", margin: 0 }}>{result.recommendedPrice}€</p>
+                  <p style={{ fontSize: 9, color: "rgba(245,240,235,0.3)", marginTop: 2 }}>Prix IA recommandé</p>
+                </div>
+                <div style={{ flex: 1, textAlign: "center", padding: 10, background: "rgba(245,240,235,0.02)", borderRadius: 6, border: "1px solid rgba(245,240,235,0.04)" }}>
+                  <p style={{ fontSize: 14, fontWeight: 600, color: "var(--text-primary)", margin: 0 }}>{result.minPrice}€ – {result.maxPrice}€</p>
+                  <p style={{ fontSize: 9, color: "rgba(245,240,235,0.3)", marginTop: 2 }}>Fourchette</p>
+                </div>
+              </div>
+              <div>
+                <p className="text-[10px] font-semibold mb-1" style={{ color: "rgba(245,240,235,0.3)" }}>Analyse</p>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(245,240,235,0.6)" }}>{result.justification}</p>
+              </div>
+              <div className="flex gap-2 text-[10px] flex-wrap">
+                <span className="px-2 py-1" style={{ background: "rgba(245,240,235,0.04)", color: "rgba(245,240,235,0.4)", borderRadius: 4 }}>
+                  Fatigue: {result.fatigueRisk}
+                </span>
+                <span className="px-2 py-1" style={{ background: "rgba(245,240,235,0.04)", color: "rgba(245,240,235,0.4)", borderRadius: 4 }}>
+                  {result.conversionEstimate}
+                </span>
+              </div>
+            </div>
+          ) : null}
+        </div>
+      </div>
     </div>
   );
 }
@@ -250,6 +350,7 @@ export default function VaultPage() {
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [recommendFor, setRecommendFor] = useState<Product | null>(null);
+  const [optimizeFor, setOptimizeFor] = useState<Product | null>(null);
   const [filters, setFilters] = useState({ category: "", search: "", minRate: 0 });
 
   const [form, setForm] = useState({
@@ -263,7 +364,15 @@ export default function VaultPage() {
     setLoading(false);
   };
 
-  useEffect(() => { loadProducts(); }, []);
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/sovereign-chat/ppv/products")
+      .then((r) => r.json())
+      .then((d) => { if (!cancelled) setProducts(d.products || []); })
+      .catch(() => {})
+      .finally(() => { if (!cancelled) setLoading(false); });
+    return () => { cancelled = true; };
+  }, []);
 
   const handleCreate = async () => {
     if (!form.name || !form.price) return;
@@ -309,6 +418,9 @@ export default function VaultPage() {
           <p className="text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
             Recommandations intelligentes — quel contenu envoyer à quel fan
           </p>
+          <Link href="/dashboard/sovereign-chat/ppv-copilot" className="inline-flex items-center gap-1 mt-2 text-[10px] font-medium py-1 px-2" style={{ color: "var(--accent)", background: "rgba(199,91,57,0.06)", borderRadius: 4, textDecoration: "none" }}>
+            <Bot size={10} /> PPV Copilot — stratégie IA avancée →
+          </Link>
         </div>
         <button onClick={() => setShowForm(!showForm)}
           className="flex items-center gap-1.5 text-[10px] font-medium py-2 px-3"
@@ -392,6 +504,11 @@ export default function VaultPage() {
                       style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>
                       <Users size={10} /> Pour qui&nbsp;?
                     </button>
+                    <button onClick={() => setOptimizeFor(p)}
+                      className="flex items-center gap-1 text-[9px] font-medium py-1.5 px-2.5 whitespace-nowrap"
+                      style={{ backgroundColor: "rgba(245,240,235,0.04)", color: "rgba(245,240,235,0.5)" }}>
+                      <Bot size={10} /> Optimiser prix
+                    </button>
                     <div className="flex gap-1">
                       <span className="text-[10px] font-semibold px-2 py-1 text-center" style={{
                         backgroundColor: rate > 50 ? "rgba(122,154,101,0.1)" : "rgba(245,240,235,0.04)",
@@ -413,6 +530,9 @@ export default function VaultPage() {
 
       {/* Recommend modal */}
       {recommendFor && <RecommendModal product={recommendFor} onClose={() => setRecommendFor(null)} />}
+
+      {/* AI Price Optimize modal */}
+      {optimizeFor && <PriceOptimizeModal product={optimizeFor} onClose={() => setOptimizeFor(null)} />}
     </div>
   );
 }

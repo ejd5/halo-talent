@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Loader2, Plus, Search, X, Edit3, Trash2, FileText, Globe, Shield, AlertTriangle, CheckCircle, BookOpen, ExternalLink } from "lucide-react";
+import { Loader2, Plus, Search, X, Edit3, Trash2, FileText, Globe, Shield, AlertTriangle, CheckCircle, BookOpen, ExternalLink, Database, RefreshCw, Layers } from "lucide-react";
 
 type KnowledgeEntry = {
   id: string;
@@ -20,11 +20,30 @@ type KnowledgeEntry = {
   updated_at: string;
 };
 
+type SourceStatus = {
+  sourceId: string;
+  sourceName: string;
+  sourceType: string;
+  documentCount: number;
+  chunkCount: number;
+  lastIngestedAt: string | null;
+  status: "pending" | "done" | "error";
+};
+
+type IngestionTotals = {
+  totalSources: number;
+  totalDocuments: number;
+  totalChunks: number;
+  doneCount: number;
+  pendingCount: number;
+};
+
 const CATEGORIES = ["cgu", "loi", "jurisprudence", "pratique", "réglementation"];
 const PLATFORMS = ["TikTok", "Instagram", "YouTube", "Twitch", "X", "LinkedIn", "Snapchat", "autre"];
 const JURISDICTIONS = ["international", "france", "europe", "usa"];
 
 export default function LegalKnowledgePage() {
+  const [activeTab, setActiveTab] = useState<"knowledge" | "ingestion">("knowledge");
   const [entries, setEntries] = useState<KnowledgeEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
@@ -47,6 +66,14 @@ export default function LegalKnowledgePage() {
     tags: "",
     auto_generated: false,
   });
+
+  // --- Ingestion state ---
+  const [ingestionTab, setIngestionTab] = useState(false);
+  const [sources, setSources] = useState<SourceStatus[]>([]);
+  const [totals, setTotals] = useState<IngestionTotals | null>(null);
+  const [ingestionLoading, setIngestionLoading] = useState(false);
+  const [ingestionRunning, setIngestionRunning] = useState(false);
+  const [ingestionResult, setIngestionResult] = useState<string | null>(null);
 
   const fetchEntries = useCallback(async () => {
     setLoading(true);
@@ -143,10 +170,39 @@ export default function LegalKnowledgePage() {
     return "var(--danger)";
   };
 
+  // --- Ingestion helpers ---
+  const fetchSources = useCallback(async () => {
+    setIngestionLoading(true);
+    try {
+      const res = await fetch("/api/admin/legal/ingest");
+      const data = await res.json();
+      setSources(data.sources || []);
+      setTotals(data.totals || null);
+    } catch (e) { console.error(e); }
+    setIngestionLoading(false);
+  }, []);
+
+  const runIngestion = async () => {
+    setIngestionRunning(true);
+    setIngestionResult(null);
+    try {
+      const res = await fetch("/api/admin/legal/ingest", { method: "POST" });
+      const data = await res.json();
+      const msg = `Ingestion terminée : ${data.chunksCreated} chunks créés en ${Math.round(data.durationMs / 1000)}s${data.errors?.length ? ` (${data.errors.length} erreurs)` : ""}`;
+      setIngestionResult(msg);
+      fetchSources();
+    } catch (e) {
+      setIngestionResult("Erreur lors de l'ingestion");
+    }
+    setIngestionRunning(false);
+  };
+
+  useEffect(() => { fetchSources(); }, []);
+
   return (
     <div style={{ padding: "32px 40px" }}>
       {/* Header */}
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-6">
         <div>
           <div className="flex items-center gap-3 mb-1">
             <BookOpen size={24} style={{ color: "var(--accent)" }} />
@@ -154,21 +210,51 @@ export default function LegalKnowledgePage() {
               Base juridique
             </h1>
           </div>
-          <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-            {entries.length} entrées — Références légales, CGU plateformes, jurisprudence
-          </p>
         </div>
+        {activeTab === "knowledge" && (
+          <button
+            onClick={openCreate}
+            className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90"
+            style={{ background: "var(--accent)", color: "var(--text-primary)" }}
+          >
+            <Plus size={16} /> Ajouter
+          </button>
+        )}
+      </div>
+
+      {/* Tab bar */}
+      <div className="flex gap-0 mb-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
         <button
-          onClick={openCreate}
-          className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90"
-          style={{ background: "var(--accent)", color: "var(--text-primary)" }}
+          onClick={() => setActiveTab("knowledge")}
+          className="flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors"
+          style={{
+            color: activeTab === "knowledge" ? "var(--accent)" : "var(--text-secondary)",
+            borderBottom: activeTab === "knowledge" ? "2px solid var(--accent)" : "2px solid transparent",
+          }}
         >
-          <Plus size={16} /> Ajouter
+          <BookOpen size={16} />
+          Base de connaissances
+        </button>
+        <button
+          onClick={() => { setActiveTab("ingestion"); fetchSources(); }}
+          className="flex items-center gap-2 px-4 py-3 text-sm font-medium transition-colors"
+          style={{
+            color: activeTab === "ingestion" ? "var(--accent)" : "var(--text-secondary)",
+            borderBottom: activeTab === "ingestion" ? "2px solid var(--accent)" : "2px solid transparent",
+          }}
+        >
+          <Database size={16} />
+          Ingestion vectorielle
+          {totals && (
+            <span className="text-xs px-1.5 py-0.5" style={{ background: "rgba(255,255,255,0.06)" }}>
+              {totals.totalChunks}
+            </span>
+          )}
         </button>
       </div>
 
-      {/* Filters */}
-      <div className="flex items-center gap-3 mb-6 flex-wrap">
+      {activeTab === "knowledge" && (
+      <><div className="flex items-center gap-3 mb-6 flex-wrap">
         <div className="relative flex-1 max-w-xs">
           <Search size={14} style={{ color: "rgba(255,255,255,0.3)" }} className="absolute left-3 top-1/2 -translate-y-1/2" />
           <input
@@ -292,6 +378,103 @@ export default function LegalKnowledgePage() {
               )}
             </tbody>
           </table>
+        </div>
+      )}
+      </>)}
+
+      {activeTab === "ingestion" && (
+        <div>
+          {totals && (
+            <div className="grid grid-cols-4 gap-4 mb-6">
+              <div style={{ border: "1px solid rgba(255,255,255,0.06)", padding: "16px" }}>
+                <div className="text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Sources</div>
+                <div className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>{totals.totalSources}</div>
+              </div>
+              <div style={{ border: "1px solid rgba(255,255,255,0.06)", padding: "16px" }}>
+                <div className="text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Documents</div>
+                <div className="text-2xl font-semibold" style={{ color: "var(--text-primary)" }}>{totals.totalDocuments}</div>
+              </div>
+              <div style={{ border: "1px solid rgba(255,255,255,0.06)", padding: "16px" }}>
+                <div className="text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Chunks</div>
+                <div className="text-2xl font-semibold" style={{ color: "var(--accent)" }}>{totals.totalChunks}</div>
+              </div>
+              <div style={{ border: "1px solid rgba(255,255,255,0.06)", padding: "16px" }}>
+                <div className="text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Ingérés</div>
+                <div className="text-2xl font-semibold" style={{ color: "rgb(34,197,94)" }}>{totals.doneCount}/{totals.totalSources}</div>
+              </div>
+            </div>
+          )}
+
+          <div className="flex items-center gap-3 mb-6">
+            <button
+              onClick={runIngestion}
+              disabled={ingestionRunning}
+              className="flex items-center gap-2 px-4 py-2 text-sm font-medium transition-opacity hover:opacity-90 disabled:opacity-40"
+              style={{ background: "var(--accent)", color: "var(--text-primary)" }}
+            >
+              {ingestionRunning ? (
+                <><Loader2 size={16} className="animate-spin" /> Ingestion en cours...</>
+              ) : (
+                <><RefreshCw size={16} /> Lancer l'ingestion</>
+              )}
+            </button>
+            <button onClick={fetchSources} className="px-3 py-2 text-sm" style={{ color: "var(--text-secondary)" }}>
+              <RefreshCw size={14} /> Actualiser
+            </button>
+          </div>
+
+          {ingestionResult && (
+            <div className="mb-4 px-4 py-3 text-sm" style={{ background: "rgba(199,91,57,0.1)", border: "1px solid rgba(199,91,57,0.3)", color: "var(--accent)" }}>
+              {ingestionResult}
+            </div>
+          )}
+
+          {ingestionLoading ? (
+            <div className="flex items-center justify-center py-20">
+              <Loader2 size={20} className="animate-spin" style={{ color: "var(--accent)" }} />
+            </div>
+          ) : (
+            <div style={{ border: "1px solid var(--border-default)" }}>
+              <table className="w-full" style={{ borderCollapse: "collapse" }}>
+                <thead>
+                  <tr style={{ borderBottom: "1px solid rgba(255,255,255,0.06)", background: "var(--bg-card)" }}>
+                    {["Source", "Type", "Documents", "Chunks", "Dernière ingestion", "Statut"].map((h) => (
+                      <th key={h} className="text-left text-xs font-semibold uppercase tracking-wider px-4 py-3" style={{ color: "var(--text-secondary)" }}>{h}</th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {sources.map((src) => (
+                    <tr key={src.sourceId} style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                      <td className="px-4 py-3">
+                        <span className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{src.sourceName}</span>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className="text-xs px-2 py-0.5" style={{ background: "rgba(255,255,255,0.06)", color: "var(--text-secondary)" }}>{src.sourceType}</span>
+                      </td>
+                      <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{src.documentCount}</td>
+                      <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{src.chunkCount}</td>
+                      <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>
+                        {src.lastIngestedAt ? new Date(src.lastIngestedAt).toLocaleDateString("fr-FR") : "—"}
+                      </td>
+                      <td className="px-4 py-3">
+                        {src.status === "done" ? (
+                          <span className="text-xs font-medium" style={{ color: "rgb(34,197,94)" }}>Ingéré</span>
+                        ) : src.status === "error" ? (
+                          <span className="text-xs font-medium" style={{ color: "var(--danger)" }}>Erreur</span>
+                        ) : (
+                          <span className="text-xs font-medium" style={{ color: "#D4A24C" }}>En attente</span>
+                        )}
+                      </td>
+                    </tr>
+                  ))}
+                  {sources.length === 0 && (
+                    <tr><td colSpan={6} className="text-center py-12 text-sm" style={{ color: "rgba(255,255,255,0.3)" }}>Aucune source trouvée</td></tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       )}
 

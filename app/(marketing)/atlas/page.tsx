@@ -11,7 +11,6 @@ import {
   ShieldCheck,
   ArrowRight,
   CheckCircle2,
-  Star,
 } from "lucide-react";
 
 /* ─── Feature data ─── */
@@ -274,7 +273,7 @@ export default function AtlasLandingPage() {
             }}
           >
             CRM, campagnes multi-canaux, funnels automatisés, et modération IA.
-            Le tout 100% conforme aux règles 2026.
+            Le tout conçu pour aider à respecter les règles actuelles des plateformes.
           </p>
 
           {/* CTAs */}

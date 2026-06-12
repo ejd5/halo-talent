@@ -4,18 +4,13 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
   Users,
-  Mail,
   Send,
   GitBranch,
   BarChart3,
   ShieldCheck,
   ArrowRight,
   CheckCircle2,
-  Inbox,
-  Sparkles,
   MessageSquare,
-  Zap,
-  FileText,
 } from "lucide-react";
 
 /* ─── Sections data ─── */
@@ -89,13 +84,13 @@ const sections = [
     id: "conformite",
     icon: ShieldCheck,
     title: "Conformité",
-    desc: "Atlas a été audité par des experts juridiques pour garantir une conformité totale avec les régulations 2026.",
+    desc: "Atlas intègre une surveillance continue des risques de conformité pour vous aider à respecter les régulations en vigueur.",
     features: [
       "Score compliance en temps réel : chaque action est notée avant envoi",
       "Registre des consentements : opt-in, opt-out, historique complet",
       "Audit trail : toutes les actions sont horodatées et signées",
       "Anti-spam intégré : limites de fréquence, validation des listes",
-      "RGPD, CAN-SPAM, anti-spam : conformité multi-juridiction garantie",
+      "RGPD, CAN-SPAM, anti-spam : outils de conformité multi-juridiction",
     ],
   },
 ];
@@ -185,10 +180,7 @@ function FeatureSection({
 
 /* ─── Page ─── */
 export default function FonctionnalitesPage() {
-  const [mounted, setMounted] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Record<string, boolean>>({});
-
-  useEffect(() => setMounted(true), []);
 
   /* ─── Header animation ─── */
   const [headerVisible, setHeaderVisible] = useState(false);
@@ -279,8 +271,9 @@ export default function FonctionnalitesPage() {
               transition: "opacity 0.7s ease-out 0.3s, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.3s",
             }}
           >
-            De la capture à la fidélisation, en passant par la conformité —
-            Atlas est le seul outil tout-en-un conforme aux règles 2026.
+            De la capture à la fidélisation, en passant par la conformité —
+            Atlas est un outil tout-en-un conçu pour accompagner les créateurs
+            face aux règles actuelles des plateformes.
           </p>
         </div>
       </section>

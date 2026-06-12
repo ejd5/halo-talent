@@ -38,7 +38,10 @@ export async function GET(request: NextRequest) {
 
     if (error) throw error;
 
-    return NextResponse.json({ entries: entries || [] });
+    const headers = new Headers();
+    headers.set("Cache-Control", "public, max-age=3600, s-maxage=3600");
+
+    return NextResponse.json({ entries: entries || [] }, { headers });
   } catch (error) {
     console.error("Legal knowledge error:", error);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

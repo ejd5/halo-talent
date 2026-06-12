@@ -1,7 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Shield, AlertTriangle, Info, Check } from "lucide-react";
+import Link from "next/link";
+import { Shield, AlertTriangle, Info, Check, Pause, Play, Eye, Clock, Activity, FileText, ChevronRight } from "lucide-react";
 
 interface Settings {
   auto_disclaimer_email: boolean;
@@ -48,13 +49,87 @@ export default function ComplianceSettingsPage() {
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState("");
 
+  // Enhanced state for Phase 2B
+  const [consentComplete, setConsentComplete] = useState<boolean | null>(null);
+  const [consentItems, setConsentItems] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const [pausing, setPausing] = useState(false);
+  const [auditLogs, setAuditLogs] = useState<Array<{ action: string; created_at: string; metadata?: Record<string, unknown> }>>([]);
+  const [complianceStats, setComplianceStats] = useState({ pending: 0, blocked: 0, escalated: 0 });
+
   useEffect(() => {
-    fetch("/api/sovereign-chat/settings")
-      .then((r) => r.json())
-      .then((d) => setSettings(d.settings))
-      .catch(() => setError("Erreur de chargement"))
-      .finally(() => setLoading(false));
+    let cancelled = false;
+    async function fetchAll() {
+      try {
+        const [settingsRes, consentRes, auditRes] = await Promise.all([
+          fetch("/api/sovereign-chat/settings"),
+          fetch("/api/chat-ai/consent"),
+          fetch("/api/chat-ai/audit?limit=5"),
+        ]);
+
+        if (cancelled) return;
+
+        const settingsData = await settingsRes.json();
+        setSettings(settingsData.settings);
+        setIsPaused(settingsData.settings?.is_paused || false);
+
+        const consentData = await consentRes.json();
+        const checklist = consentData.checklist;
+        if (checklist) {
+          const items = [
+            checklist.item_1_authorized, checklist.item_2_platform_rules,
+            checklist.item_3_ia_limitations, checklist.item_4_no_guarantee,
+            checklist.item_5_no_revenue_guarantee, checklist.item_6_human_approval,
+            checklist.item_7_disclosure, checklist.item_8_boundaries,
+            checklist.item_9_audit_logged, checklist.item_10_can_disable,
+            checklist.item_11_legal_info_only,
+          ];
+          const completed = items.filter(Boolean).length;
+          setConsentItems(completed);
+          setConsentComplete(completed === 11);
+        }
+
+        const auditData = await auditRes.json();
+        if (!cancelled) setAuditLogs(auditData.logs || []);
+
+        try {
+          const [pendingRes, blockedRes, escalatedRes] = await Promise.all([
+            fetch("/api/chat-ai/qa-items?status=pending&limit=1"),
+            fetch("/api/chat-ai/qa-items?status=blocked&limit=1"),
+            fetch("/api/chat-ai/qa-items?status=escalated&limit=1"),
+          ]);
+          if (cancelled) return;
+          const pendingData = await pendingRes.json();
+          const blockedData = await blockedRes.json();
+          const escalatedData = await escalatedRes.json();
+          setComplianceStats({
+            pending: pendingData.items?.length || 0,
+            blocked: blockedData.items?.length || 0,
+            escalated: escalatedData.items?.length || 0,
+          });
+        } catch { /* stats are optional */ }
+      } catch {
+        if (!cancelled) setError("Erreur de chargement");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    }
+    fetchAll();
+    return () => { cancelled = true; };
   }, []);
+
+  const handlePauseToggle = async () => {
+    setPausing(true);
+    try {
+      const res = await fetch("/api/sovereign-chat/settings", {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ is_paused: !isPaused }),
+      });
+      if (res.ok) setIsPaused(!isPaused);
+    } catch { /* keep current state */ }
+    setPausing(false);
+  };
 
   const handleToggle = async (key: keyof Settings) => {
     if (!settings) return;
@@ -235,6 +310,133 @@ export default function ComplianceSettingsPage() {
         >
           <Check size={10} />
           Paramètres sauvegardés
+        </div>
+      )}
+
+      {/* Compliance overview cards */}
+      {!loading && (
+        <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
+          {/* Consent checklist card */}
+          <div style={{ flex: "1 1 220px", padding: 14, borderRadius: 8, background: "rgba(245,240,235,0.01)", border: "1px solid rgba(245,240,235,0.04)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+              <FileText size={12} style={{ color: "rgba(245,240,235,0.3)" }} />
+              <span style={{ fontSize: 10, fontWeight: 600, color: "rgba(245,240,235,0.4)", textTransform: "uppercase" }}>
+                Checklist consentement
+              </span>
+            </div>
+            {consentComplete === null ? (
+              <p style={{ fontSize: 11, color: "rgba(245,240,235,0.15)" }}>Chargement...</p>
+            ) : consentComplete ? (
+              <div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <Check size={14} style={{ color: "var(--success)" }} />
+                  <span style={{ fontSize: 12, fontWeight: 600, color: "var(--success)" }}>Complète</span>
+                </div>
+                <p style={{ fontSize: 10, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>11/11 items validés</p>
+              </div>
+            ) : (
+              <div>
+                <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+                  <AlertTriangle size={14} style={{ color: "var(--accent)" }} />
+                  <span style={{ fontSize: 12, fontWeight: 600, color: "var(--accent)" }}>Incomplète</span>
+                </div>
+                <p style={{ fontSize: 10, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>{consentItems}/11 items validés</p>
+                <div style={{ height: 4, borderRadius: 2, background: "rgba(245,240,235,0.06)", marginTop: 6 }}>
+                  <div style={{ height: 4, borderRadius: 2, background: consentItems > 8 ? "var(--success)" : "var(--accent)", width: `${(consentItems / 11) * 100}%` }} />
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Pause control */}
+          <div style={{ flex: "1 1 220px", padding: 14, borderRadius: 8, background: isPaused ? "rgba(196,69,54,0.04)" : "rgba(245,240,235,0.01)", border: isPaused ? "1px solid rgba(196,69,54,0.12)" : "1px solid rgba(245,240,235,0.04)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+              {isPaused ? <Pause size={12} style={{ color: "var(--danger)" }} /> : <Activity size={12} style={{ color: "rgba(245,240,235,0.3)" }} />}
+              <span style={{ fontSize: 10, fontWeight: 600, color: "rgba(245,240,235,0.4)", textTransform: "uppercase" }}>
+                Module IA
+              </span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+              <div>
+                <span style={{ fontSize: 12, fontWeight: 600, color: isPaused ? "var(--danger)" : "var(--success)" }}>
+                  {isPaused ? "En pause" : "Actif"}
+                </span>
+                <p style={{ fontSize: 9, color: "rgba(245,240,235,0.2)", marginTop: 2 }}>
+                  {isPaused ? "Génération IA bloquée" : "Fonctionnement normal"}
+                </p>
+              </div>
+              <button
+                onClick={handlePauseToggle}
+                disabled={pausing}
+                style={{
+                  display: "flex", alignItems: "center", gap: 4, padding: "5px 10px", fontSize: 10, fontWeight: 500,
+                  background: isPaused ? "var(--success)" : "var(--danger)",
+                  color: "var(--text-primary)", border: "none", borderRadius: 4, cursor: "pointer",
+                }}
+              >
+                {isPaused ? <><Play size={10} /> Reprendre</> : <><Pause size={10} /> Pause urgence</>}
+              </button>
+            </div>
+          </div>
+
+          {/* QA stats */}
+          <div style={{ flex: "1 1 220px", padding: 14, borderRadius: 8, background: "rgba(245,240,235,0.01)", border: "1px solid rgba(245,240,235,0.04)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+              <Eye size={12} style={{ color: "rgba(245,240,235,0.3)" }} />
+              <span style={{ fontSize: 10, fontWeight: 600, color: "rgba(245,240,235,0.4)", textTransform: "uppercase" }}>
+                QA en attente
+              </span>
+            </div>
+            <div style={{ display: "flex", gap: 16 }}>
+              <div>
+                <span style={{ fontSize: 16, fontWeight: 700, color: "rgba(245,240,235,0.3)" }}>{complianceStats.pending}</span>
+                <p style={{ fontSize: 8, color: "rgba(245,240,235,0.15)", marginTop: 1 }}>En attente</p>
+              </div>
+              <div>
+                <span style={{ fontSize: 16, fontWeight: 700, color: "var(--danger)" }}>{complianceStats.blocked}</span>
+                <p style={{ fontSize: 8, color: "rgba(245,240,235,0.15)", marginTop: 1 }}>Bloqués</p>
+              </div>
+              <div>
+                <span style={{ fontSize: 16, fontWeight: 700, color: "#C75B39" }}>{complianceStats.escalated}</span>
+                <p style={{ fontSize: 8, color: "rgba(245,240,235,0.15)", marginTop: 1 }}>Escaladés</p>
+              </div>
+              <div style={{ marginLeft: "auto" }}>
+                <Link
+                  href="/dashboard/sovereign-chat/qa-review"
+                  style={{
+                    display: "flex", alignItems: "center", gap: 3, fontSize: 9, padding: "3px 8px",
+                    color: "var(--accent)", background: "rgba(199,91,57,0.06)", borderRadius: 3, textDecoration: "none",
+                  }}
+                >
+                  Voir <ChevronRight size={10} />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Recent audit preview */}
+      {!loading && auditLogs.length > 0 && (
+        <div style={{ padding: 14, borderRadius: 8, background: "rgba(245,240,235,0.01)", border: "1px solid rgba(245,240,235,0.04)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+            <Clock size={12} style={{ color: "rgba(245,240,235,0.3)" }} />
+            <span style={{ fontSize: 10, fontWeight: 600, color: "rgba(245,240,235,0.4)", textTransform: "uppercase" }}>
+              Derniers événements d&apos;audit
+            </span>
+          </div>
+          <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
+            {auditLogs.slice(0, 5).map((log, i) => (
+              <div key={i} style={{ display: "flex", alignItems: "center", gap: 8, fontSize: 10, padding: "2px 0" }}>
+                <span style={{ color: "rgba(245,240,235,0.3)", minWidth: 140 }}>
+                  {new Date(log.created_at).toLocaleDateString("fr-FR", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" })}
+                </span>
+                <span style={{ color: "rgba(245,240,235,0.5)", fontSize: 9 }}>
+                  {log.action}
+                </span>
+              </div>
+            ))}
+          </div>
         </div>
       )}
 

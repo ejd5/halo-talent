@@ -1,29 +1,25 @@
 import { HeroSection } from "@/components/home/HeroSection";
-import { ProblemSection } from "@/components/home/ProblemSection";
-import { SolutionSection } from "@/components/home/SolutionSection";
+import { MarqueeBar } from "@/components/home/MarqueeBar";
+import { MaisonsSection } from "@/components/home/MaisonsSection";
+import { SimulateurSection } from "@/components/home/SimulateurSection";
 import { ComparisonSection } from "@/components/home/ComparisonSection";
-import { CalculatorSection } from "@/components/home/CalculatorSection";
-import { FeaturesSection } from "@/components/home/FeaturesSection";
-import { PricingSection } from "@/components/home/PricingSection";
-import { FAQSection } from "@/components/home/FAQSection";
-import { SocialProofSection } from "@/components/home/SocialProofSection";
+import { BouclierSection } from "@/components/home/BouclierSection";
+import { DepartmentsSection } from "@/components/home/DepartmentsSection";
+import { ManifesteSection } from "@/components/home/ManifesteSection";
 import { FinalCtaSection } from "@/components/home/FinalCtaSection";
-import { FooterSection } from "@/components/home/FooterSection";
 
 export default function HomePage() {
   return (
     <>
       <HeroSection />
-      <ProblemSection />
-      <SolutionSection />
+      <MarqueeBar />
+      <MaisonsSection />
+      <SimulateurSection />
       <ComparisonSection />
-      <CalculatorSection />
-      <FeaturesSection />
-      <PricingSection />
-      <FAQSection />
-      <SocialProofSection />
+      <BouclierSection />
+      <DepartmentsSection />
+      <ManifesteSection />
       <FinalCtaSection />
-      <FooterSection />
     </>
   );
 }

@@ -69,10 +69,10 @@ const MONTHLY_PLANS: Plan[] = [
     name: "Icon",
     price: 199,
     annualPrice: 159,
-    credits: "Crédits illimités",
+    credits: "Crédits généreux avec politique d'usage équitable",
     features: [
       "Tout Elite +",
-      "Comptes illimités",
+      "Comptes multiples",
       "API dédiée",
       "Account manager",
       "Benchmark marché",
@@ -318,6 +318,15 @@ export function PricingSection() {
               <PricingCard key={plan.name} plan={plan} annual={annual} />
             ))}
           </div>
+
+          {/* Fair use + beta note */}
+          <p
+            className="text-[0.55rem] mt-6 text-center max-w-2xl mx-auto leading-relaxed"
+            style={{ color: "var(--text-tertiary)" }}
+          >
+            Crédits généreux soumis à une politique d&apos;usage équitable. Les prix et fonctionnalités
+            peuvent évoluer pendant la phase beta. Aucun revenu n&apos;est garanti.
+          </p>
         </div>
       </div>
     </section>

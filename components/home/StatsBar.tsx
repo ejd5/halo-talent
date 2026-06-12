@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 const stats = [
   { value: "30%→10%", label: "Commission dégressive" },
   { value: "5", label: "Départements" },
-  { value: "100%", label: "Souveraineté garantie" },
+  { value: "100%", label: "Contrôle renforcé de vos données" },
 ];
 
 function useCountUp(value: string, active: boolean, delay: number): string {

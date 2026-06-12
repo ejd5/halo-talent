@@ -7,10 +7,10 @@ export default function MarketingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <>
+    <div data-theme="encre" style={{ backgroundColor: "var(--encre, #0C0A08)", minHeight: "100vh" }}>
       <Navbar />
-      <main className="flex-1 pt-20">{children}</main>
+      <main className="flex-1">{children}</main>
       <Footer />
-    </>
+    </div>
   );
 }

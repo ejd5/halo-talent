@@ -23,7 +23,7 @@ const points = [
   {
     icon: EyeOff,
     title: "L'IA propose, vous décidez",
-    description: "Zéro ban guarantee. Nos outils suggèrent, vous validez. Toujours.",
+    description: "Proactive ban protection. Nos outils suggèrent, vous validez. Toujours.",
   },
   {
     icon: ShieldCheck,

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Halo Talent — Maison de management créatif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --encre:#0C0A08;
+  --fumee:#15110D;
+  --surface:#1C1712;
+  --ligne:rgba(216,169,91,.18);
+  --ligne-faible:rgba(244,238,227,.08);
+  --ivoire:#F4EEE3;
+  --pierre:#9C9183;
+  --or:#D8A95B;
+  --or-clair:#EBC98A;
+  --cuivre:#E2702E;
+  --sauge:#8FB58A;
+  --display:'Fraunces',serif;
+  --body:'Instrument Sans',sans-serif;
+  --util:'Space Grotesk',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--encre);color:var(--ivoire);font-family:var(--body);font-size:17px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::selection{background:var(--or);color:var(--encre)}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1240px;margin:0 auto;padding:0 40px}
+.eyebrow{font-family:var(--util);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--or)}
+.serif-i{font-style:italic;font-weight:400;color:var(--or-clair)}
+
+/* ——— Nav ——— */
+nav{position:fixed;inset:0 0 auto 0;z-index:100;backdrop-filter:blur(18px);background:rgba(12,10,8,.72);border-bottom:1px solid var(--ligne-faible);transition:transform .4s}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:72px;max-width:1240px;margin:0 auto;padding:0 40px}
+.logo{font-family:var(--display);font-size:22px;font-weight:500;letter-spacing:.01em}
+.logo em{font-style:italic;color:var(--or)}
+.nav-links{display:flex;gap:36px;font-family:var(--util);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--pierre)}
+.nav-links a{transition:color .25s}
+.nav-links a:hover,.nav-links a:focus-visible{color:var(--or)}
+.nav-cta{display:flex;align-items:center;gap:22px}
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--util);font-size:11px;letter-spacing:.22em;text-transform:uppercase;padding:14px 26px;border:1px solid var(--ligne);border-radius:2px;transition:all .3s;cursor:pointer;background:none;color:var(--ivoire)}
+.btn:hover,.btn:focus-visible{border-color:var(--or);color:var(--or)}
+.btn-fill{background:var(--cuivre);border-color:var(--cuivre);color:#fff}
+.btn-fill:hover,.btn-fill:focus-visible{background:#F08440;border-color:#F08440;color:#fff}
+.btn-gold{border-color:var(--or);color:var(--or)}
+.btn-gold:hover{background:var(--or);color:var(--encre)}
+
+/* ——— Halo signature ——— */
+.halo-ring{position:absolute;border-radius:50%;pointer-events:none;
+  background:conic-gradient(from 0deg, transparent 0%, rgba(216,169,91,.55) 12%, transparent 30%, rgba(226,112,46,.35) 55%, transparent 75%, rgba(216,169,91,.4) 92%, transparent 100%);
+  -webkit-mask:radial-gradient(circle, transparent 62%, #000 63%, #000 66%, transparent 67%);
+  mask:radial-gradient(circle, transparent 62%, #000 63%, #000 66%, transparent 67%);
+  animation:spin 26s linear infinite}
+.halo-glow{position:absolute;border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle, rgba(216,169,91,.14) 0%, rgba(226,112,46,.06) 40%, transparent 70%);
+  animation:breathe 7s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.8}50%{transform:scale(1.08);opacity:1}}
+
+/* ——— Hero ——— */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:160px 0 100px}
+.hero .halo-ring{width:780px;height:780px;top:50%;right:-180px;transform:translateY(-50%)}
+.hero .halo-glow{width:900px;height:900px;top:50%;right:-240px;transform:translateY(-50%)}
+.hero-grid{position:relative;z-index:2}
+.hero h1{font-family:var(--display);font-weight:300;font-size:clamp(44px,6.4vw,92px);line-height:1.04;letter-spacing:-.015em;max-width:14ch}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line span{display:block;transform:translateY(110%);animation:rise 1.1s cubic-bezier(.16,1,.3,1) forwards}
+.hero h1 .line:nth-child(2) span{animation-delay:.12s}
+.hero h1 .line:nth-child(3) span{animation-delay:.24s}
+.hero h1 .line:nth-child(4) span{animation-delay:.36s}
+@keyframes rise{to{transform:translateY(0)}}
+.hero-sub{margin:36px 0 44px;max-width:520px;color:var(--pierre);font-size:18px;opacity:0;animation:fade 1s .7s forwards}
+.hero-cta{display:flex;gap:18px;flex-wrap:wrap;opacity:0;animation:fade 1s .9s forwards}
+@keyframes fade{to{opacity:1}}
+.hero-badge{display:inline-flex;align-items:center;gap:10px;font-family:var(--util);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--or);border:1px solid var(--ligne);padding:10px 18px;border-radius:100px;margin-bottom:34px;opacity:0;animation:fade .8s .1s forwards}
+.hero-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--sauge);box-shadow:0 0 10px var(--sauge);animation:breathe 2.5s infinite}
+.hero-stats{display:flex;gap:56px;margin-top:80px;opacity:0;animation:fade 1s 1.15s forwards;flex-wrap:wrap}
+.hstat .n{font-family:var(--display);font-size:36px;font-weight:400;color:var(--ivoire)}
+.hstat .n em{font-style:italic;color:var(--or);font-size:22px}
+.hstat .l{font-family:var(--util);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--pierre);margin-top:6px}
+
+/* ——— Marquee ——— */
+.marquee{border-top:1px solid var(--ligne-faible);border-bottom:1px solid var(--ligne-faible);padding:26px 0;overflow:hidden;white-space:nowrap;background:var(--fumee)}
+.marquee-track{display:inline-flex;gap:70px;animation:scroll 32s linear infinite;font-family:var(--util);font-size:13px;letter-spacing:.3em;text-transform:uppercase;color:var(--pierre)}
+.marquee-track span b{color:var(--or);font-weight:400;margin-right:70px}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ——— Sections génériques ——— */
+section{padding:130px 0;position:relative}
+.sec-head{max-width:680px;margin-bottom:80px}
+.sec-head h2{font-family:var(--display);font-weight:300;font-size:clamp(34px,4.2vw,58px);line-height:1.1;margin:18px 0 22px;letter-spacing:-.01em}
+.sec-head p{color:var(--pierre);font-size:18px}
+
+/* reveal au scroll */
+.rv{opacity:0;transform:translateY(36px);transition:opacity .9s cubic-bezier(.16,1,.3,1),transform .9s cubic-bezier(.16,1,.3,1)}
+.rv.in{opacity:1;transform:none}
+.rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}
+
+/* ——— Trois maisons ——— */
+.maisons{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--ligne-faible);border:1px solid var(--ligne-faible)}
+.maison{background:var(--encre);padding:54px 42px;position:relative;overflow:hidden;transition:background .4s}
+.maison:hover{background:var(--fumee)}
+.maison .num{font-family:var(--util);font-size:11px;letter-spacing:.3em;color:var(--or);margin-bottom:30px;display:block}
+.maison h3{font-family:var(--display);font-size:30px;font-weight:400;margin-bottom:16px}
+.maison p{color:var(--pierre);font-size:15.5px;margin-bottom:28px}
+.maison ul{list-style:none}
+.maison li{padding:11px 0;border-top:1px solid var(--ligne-faible);font-size:14.5px;color:#C8BFB1;display:flex;gap:12px;align-items:baseline}
+.maison li::before{content:'—';color:var(--or);flex-shrink:0}
+.maison .glow-corner{position:absolute;top:-60px;right:-60px;width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(216,169,91,.15),transparent 70%);opacity:0;transition:opacity .5s}
+.maison:hover .glow-corner{opacity:1}
+
+/* ——— Simulateur ——— */
+.simu{background:var(--fumee);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
+.simu-grid{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center}
+.simu-card{background:var(--encre);border:1px solid var(--ligne);padding:52px;border-radius:3px;position:relative}
+.simu-card::before{content:'';position:absolute;top:0;left:52px;right:52px;height:1px;background:linear-gradient(90deg,transparent,var(--or),transparent)}
+.simu-rev{font-family:var(--display);font-size:54px;font-weight:300;margin:8px 0 30px}
+.simu-rev em{font-style:italic;font-size:26px;color:var(--pierre)}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:2px;background:linear-gradient(90deg,var(--or) var(--p,30%),rgba(244,238,227,.12) var(--p,30%));outline:none;margin:10px 0 40px;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:22px;height:22px;border-radius:50%;background:var(--encre);border:2px solid var(--or);box-shadow:0 0 16px rgba(216,169,91,.5);cursor:grab}
+input[type=range]::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--encre);border:2px solid var(--or);box-shadow:0 0 16px rgba(216,169,91,.5);cursor:grab}
+.simu-out{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--ligne-faible);border:1px solid var(--ligne-faible)}
+.simu-out > div{background:var(--encre);padding:26px}
+.simu-out .v{font-family:var(--display);font-size:32px;font-weight:400}
+.simu-out .v.gold{color:var(--or)}
+.simu-out .v.green{color:var(--sauge)}
+.simu-out .k{font-family:var(--util);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--pierre);margin-top:6px}
+.tiers{margin-top:34px;display:flex;flex-direction:column;gap:0}
+.tier{display:flex;justify-content:space-between;padding:13px 4px;border-top:1px solid var(--ligne-faible);font-size:14px;color:var(--pierre);transition:all .3s}
+.tier.active{color:var(--ivoire);background:linear-gradient(90deg,rgba(216,169,91,.08),transparent);padding-left:14px;border-left:2px solid var(--or)}
+.tier .rate{font-family:var(--util)}
+.tier.active .rate{color:var(--or)}
+
+/* ——— Comparatif ——— */
+.compare{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.col{border:1px solid var(--ligne-faible);padding:46px 38px;border-radius:3px}
+.col.featured{border-color:var(--or);background:linear-gradient(180deg,rgba(216,169,91,.06),transparent 55%);position:relative}
+.col.featured::after{content:'LA MAISON HALO';position:absolute;top:-10px;left:38px;background:var(--encre);padding:0 12px;font-family:var(--util);font-size:10px;letter-spacing:.28em;color:var(--or)}
+.col h4{font-family:var(--display);font-size:23px;font-weight:400;margin-bottom:8px}
+.col .tag{font-family:var(--util);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--pierre);margin-bottom:30px;display:block}
+.col ul{list-style:none}
+.col li{padding:13px 0;border-top:1px solid var(--ligne-faible);font-size:14.5px;color:var(--pierre);display:flex;gap:12px;align-items:baseline}
+.col li::before{content:'✕';color:#A35B4A;font-size:11px;flex-shrink:0}
+.col li.ok{color:#D6CEC0}
+.col li.ok::before{content:'✓';color:var(--sauge)}
+.col.featured li.ok{color:var(--ivoire)}
+
+/* ——— Bouclier ——— */
+.bouclier{background:var(--fumee);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne);overflow:hidden}
+.bouclier .halo-ring{width:520px;height:520px;left:-200px;top:50%;transform:translateY(-50%);opacity:.6}
+.bouclier-in{display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:center;position:relative;z-index:2}
+.bouclier h2{font-family:var(--display);font-weight:300;font-size:clamp(32px,3.8vw,52px);line-height:1.12;margin:18px 0 24px}
+.scan{border:1px solid var(--ligne);background:var(--encre);border-radius:3px;padding:36px;font-family:var(--util);font-size:13px}
+.scan-line{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--ligne-faible);color:var(--pierre)}
+.scan-line .flag{color:#C96A4A}
+.scan-line .safe{color:var(--sauge)}
+.scan-bar{height:3px;background:rgba(244,238,227,.08);margin-top:26px;border-radius:2px;overflow:hidden}
+.scan-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--or),var(--cuivre));transition:width 2.2s cubic-bezier(.16,1,.3,1)}
+.scan.in .scan-bar i{width:78%}
+
+/* ——— Départements ——— */
+.depts{border-top:1px solid var(--ligne-faible)}
+.dept{display:grid;grid-template-columns:90px 1fr 1fr auto;gap:40px;align-items:center;padding:40px 10px;border-bottom:1px solid var(--ligne-faible);transition:all .35s;cursor:pointer}
+.dept:hover{background:var(--fumee);padding-left:28px}
+.dept .ix{font-family:var(--util);font-size:12px;letter-spacing:.2em;color:var(--pierre)}
+.dept h3{font-family:var(--display);font-size:clamp(22px,2.6vw,34px);font-weight:400;transition:color .3s}
+.dept:hover h3{color:var(--or)}
+.dept p{color:var(--pierre);font-size:14.5px}
+.dept .arr{font-size:22px;color:var(--pierre);transition:all .3s}
+.dept:hover .arr{color:var(--or);transform:translateX(8px)}
+
+/* ——— Manifeste ——— */
+.manifeste{text-align:center}
+.manifeste blockquote{font-family:var(--display);font-weight:300;font-size:clamp(28px,3.6vw,48px);line-height:1.25;max-width:880px;margin:0 auto}
+.manifeste blockquote em{font-style:italic;color:var(--or)}
+.manifeste cite{display:block;margin-top:40px;font-family:var(--util);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--pierre);font-style:normal}
+
+/* ——— CTA final ——— */
+.final{position:relative;text-align:center;padding:170px 0;overflow:hidden}
+.final .halo-glow{width:1100px;height:1100px;left:50%;top:50%;transform:translate(-50%,-50%)}
+.final .halo-ring{width:680px;height:680px;left:50%;top:50%;transform:translate(-50%,-50%)}
+.final h2{font-family:var(--display);font-weight:300;font-size:clamp(40px,5.4vw,76px);line-height:1.08;position:relative;z-index:2}
+.final p{color:var(--pierre);margin:28px auto 48px;max-width:480px;position:relative;z-index:2}
+.final .hero-cta{justify-content:center;opacity:1;animation:none;position:relative;z-index:2}
+
+/* ——— Footer ——— */
+footer{border-top:1px solid var(--ligne-faible);padding:90px 0 50px;background:var(--fumee)}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:60px;margin-bottom:80px}
+.foot-grid h5{font-family:var(--util);font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--or);margin-bottom:26px}
+.foot-grid ul{list-style:none}
+.foot-grid li{margin-bottom:13px}
+.foot-grid a{color:var(--pierre);font-size:14.5px;transition:color .25s}
+.foot-grid a:hover{color:var(--ivoire)}
+.foot-brand p{color:var(--pierre);font-size:14.5px;margin:16px 0 26px;max-width:260px}
+.nl{display:flex;border-bottom:1px solid var(--ligne);max-width:300px}
+.nl input{flex:1;background:none;border:none;color:var(--ivoire);font-family:var(--body);font-size:14px;padding:12px 0;outline:none}
+.nl input::placeholder{color:var(--pierre)}
+.nl button{background:none;border:none;color:var(--or);font-family:var(--util);font-size:11px;letter-spacing:.2em;cursor:pointer}
+.foot-base{display:flex;justify-content:space-between;border-top:1px solid var(--ligne-faible);padding-top:36px;font-size:13px;color:var(--pierre);flex-wrap:wrap;gap:14px}
+.foot-base em{font-family:var(--display);color:var(--or)}
+
+@media(max-width:980px){
+  .nav-links{display:none}
+  .maisons,.compare{grid-template-columns:1fr}
+  .simu-grid,.bouclier-in{grid-template-columns:1fr;gap:50px}
+  .dept{grid-template-columns:auto 1fr auto;gap:20px}
+  .dept p{display:none}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  .hero .halo-ring,.hero .halo-glow{right:-420px;opacity:.6}
+  .wrap{padding:0 24px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .hero h1 .line span{transform:none}
+  .hero-sub,.hero-cta,.hero-stats,.hero-badge{opacity:1}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-in">
+    <a class="logo" href="#">Halo <em>Talent</em></a>
+    <div class="nav-links">
+      <a href="#maisons">La Maison</a>
+      <a href="#commissions">Commissions</a>
+      <a href="#bouclier">Bouclier Légal</a>
+      <a href="#departements">Départements</a>
+      <a href="#">Blog</a>
+    </div>
+    <div class="nav-cta">
+      <a href="#" class="nav-links" style="display:flex">Se connecter</a>
+      <a href="#" class="btn btn-fill">Commencer</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="halo-glow"></div>
+  <div class="halo-ring"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-badge"><span class="dot"></span> Nouveau — Bouclier Légal gratuit · analysez votre contrat d'agence</div>
+    <h1>
+      <span class="line"><span>Les autres agences</span></span>
+      <span class="line"><span>prennent 50%.</span></span>
+      <span class="line"><span class="serif-i">Nous, on vous donne</span></span>
+      <span class="line"><span class="serif-i">les outils.</span></span>
+    </h1>
+    <p class="hero-sub">Halo remplace 7 outils par une seule maison : création IA, CRM fans, analytics, protection juridique et management transparent. Commission dégressive de 30% à 10% — publique, sans frais d'entrée, sortie en 30 jours.</p>
+    <div class="hero-cta">
+      <a href="#bouclier" class="btn btn-fill">Analyser mon contrat gratuitement →</a>
+      <a href="#maisons" class="btn btn-gold">Découvrir la maison</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><div class="n"><span data-count="10" data-suffix="%">10%</span></div><div class="l">Commission plancher</div></div>
+      <div class="hstat"><div class="n"><span data-count="7">7</span> <em>en 1</em></div><div class="l">Outils remplacés</div></div>
+      <div class="hstat"><div class="n"><span data-count="30">30</span> <em>jours</em></div><div class="l">Sortie sans pénalité</div></div>
+      <div class="hstat"><div class="n"><span data-count="6">6</span> <em>langues</em></div><div class="l">FR · EN · ES · DE · PT · IT</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span><b>◆</b>OnlyFans</span><span><b>◆</b>Fansly</span><span><b>◆</b>MYM</span><span><b>◆</b>Instagram</span><span><b>◆</b>TikTok</span><span><b>◆</b>YouTube</span><span><b>◆</b>LinkedIn</span><span><b>◆</b>X / Twitter</span><span><b>◆</b>Threads</span><span><b>◆</b>Bluesky</span>
+    <span><b>◆</b>OnlyFans</span><span><b>◆</b>Fansly</span><span><b>◆</b>MYM</span><span><b>◆</b>Instagram</span><span><b>◆</b>TikTok</span><span><b>◆</b>YouTube</span><span><b>◆</b>LinkedIn</span><span><b>◆</b>X / Twitter</span><span><b>◆</b>Threads</span><span><b>◆</b>Bluesky</span>
+  </div>
+</div>
+
+<section id="maisons">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Une maison, trois étages</span>
+      <h2>Tout ce qu'une agence fait pour vous. <span class="serif-i">Sans l'opacité.</span></h2>
+      <p>Management humain, studio de création IA et CRM fans — réunis dans une seule plateforme dont vous gardez les clés.</p>
+    </div>
+    <div class="maisons">
+      <article class="maison rv"><div class="glow-corner"></div>
+        <span class="num">I — Management</span>
+        <h3>La représentation</h3>
+        <p>Une équipe dédiée qui négocie, planifie et protège votre carrière — payée au résultat, jamais à l'opacité.</p>
+        <ul>
+          <li>Commission dégressive 30% → 10%</li>
+          <li>Contrat public, lisible en 10 minutes</li>
+          <li>Sortie en 30 jours, sans pénalité</li>
+          <li>Vos comptes restent les vôtres</li>
+        </ul>
+      </article>
+      <article class="maison rv rv-d1"><div class="glow-corner"></div>
+        <span class="num">II — Studio</span>
+        <h3>La création IA</h3>
+        <p>Texte, image, vidéo, audio et avatars — un studio complet pour produire chaque jour sans équipe de production.</p>
+        <ul>
+          <li>Génération multi-format intégrée</li>
+          <li>Calendrier multi-créateurs</li>
+          <li>Déclinaison par plateforme en 1 clic</li>
+          <li>Votre voix, votre style, vos droits</li>
+        </ul>
+      </article>
+      <article class="maison rv rv-d2"><div class="glow-corner"></div>
+        <span class="num">III — Atlas</span>
+        <h3>Le CRM fans</h3>
+        <p>Connaissez chaque fan : scoring, segmentation, campagnes et automatisations — vous gardez le contrôle des conversations.</p>
+        <ul>
+          <li>Scoring & segmentation des fans</li>
+          <li>Chat Copilot IA supervisé par vous</li>
+          <li>Analytics unifiés toutes plateformes</li>
+          <li>Export complet CSV / JSON / PDF</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="simu" id="commissions">
+  <div class="wrap simu-grid">
+    <div class="rv">
+      <span class="eyebrow">Commissions transparentes</span>
+      <h2 style="font-family:var(--display);font-weight:300;font-size:clamp(32px,4vw,54px);line-height:1.12;margin:18px 0 24px">Plus vous gagnez, <span class="serif-i">moins on prend.</span></h2>
+      <p style="color:var(--pierre);margin-bottom:34px">Notre barème est marginal, comme l'impôt : chaque tranche a son taux, et le taux baisse à mesure que votre revenu monte. Il est public. C'est notre manifeste autant que notre modèle.</p>
+      <div class="tiers" id="tiers">
+        <div class="tier" data-min="0"><span>0 — 5 000 €</span><span class="rate">30%</span></div>
+        <div class="tier" data-min="5000"><span>5 000 — 20 000 €</span><span class="rate">25%</span></div>
+        <div class="tier" data-min="20000"><span>20 000 — 50 000 €</span><span class="rate">20%</span></div>
+        <div class="tier" data-min="50000"><span>50 000 — 150 000 €</span><span class="rate">15%</span></div>
+        <div class="tier" data-min="150000"><span>150 000 € +</span><span class="rate">10%</span></div>
+      </div>
+    </div>
+    <div class="simu-card rv rv-d1">
+      <span class="eyebrow">Simulateur</span>
+      <div class="simu-rev"><span id="rev">12 000</span> €<em> / mois</em></div>
+      <input type="range" id="slider" min="1000" max="200000" step="500" value="12000" aria-label="Revenu mensuel">
+      <div class="simu-out">
+        <div><div class="v gold" id="effRate">—</div><div class="k">Taux effectif Halo</div></div>
+        <div><div class="v" id="halofee">—</div><div class="k">Commission Halo</div></div>
+        <div><div class="v green" id="keep">—</div><div class="k">Vous gardez</div></div>
+        <div><div class="v" id="saving" style="color:var(--cuivre)">—</div><div class="k">Économisé vs agence à 50%</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Ce que Halo fait mieux</span>
+      <h2>Pas de magie. <span class="serif-i">Une approche différente.</span></h2>
+    </div>
+    <div class="compare">
+      <div class="col rv">
+        <h4>Agence traditionnelle</h4><span class="tag">Le modèle opaque</span>
+        <ul>
+          <li>30 à 70% de commission, souvent opaque</li>
+          <li>Le contrat protège l'agence, pas vous</li>
+          <li>3 à 12 mois d'engagement + pénalités</li>
+          <li>L'agence contrôle souvent vos comptes</li>
+          <li class="ok">Une équipe gère tout à votre place</li>
+        </ul>
+      </div>
+      <div class="col rv rv-d1">
+        <h4>Stack OFM classique</h4><span class="tag">5 à 7 outils à recoller</span>
+        <ul>
+          <li>500 à 1 200 € / mois d'outils</li>
+          <li>Canva + CapCut + ChatGPT séparément</li>
+          <li>Analytics éclatés par plateforme</li>
+          <li>Aucune protection juridique</li>
+          <li class="ok">0% de commission (flat fee)</li>
+        </ul>
+      </div>
+      <div class="col featured rv rv-d2">
+        <h4>Halo Talent</h4><span class="tag">Une maison, un seul outil</span>
+        <ul>
+          <li class="ok">30% → 10% dégressif, barème public</li>
+          <li class="ok">Création IA texte · image · vidéo · audio</li>
+          <li class="ok">Atlas CRM + Chat Copilot supervisé</li>
+          <li class="ok">Bouclier Légal + base juridique</li>
+          <li class="ok">Sortie 30 jours · export total des données</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bouclier" id="bouclier">
+  <div class="halo-ring"></div>
+  <div class="wrap bouclier-in">
+    <div class="rv">
+      <span class="eyebrow">Bouclier Légal — gratuit</span>
+      <h2>Votre contrat d'agence cache peut-être <span class="serif-i">des clauses abusives.</span></h2>
+      <p style="color:var(--pierre);margin-bottom:40px">Importez votre contrat. Notre analyse détecte les clauses d'exclusivité abusives, les pénalités de sortie déguisées et les transferts de propriété de comptes. En 2 minutes, sans engagement, même si vous ne signez jamais chez nous.</p>
+      <a href="#" class="btn btn-fill">Analyser mon contrat →</a>
+    </div>
+    <div class="scan rv rv-d1" id="scan">
+      <div class="eyebrow" style="margin-bottom:20px">Analyse · contrat_agence.pdf</div>
+      <div class="scan-line"><span>Clause d'exclusivité 36 mois</span><span class="flag">⚠ Abusive</span></div>
+      <div class="scan-line"><span>Pénalité de sortie 15 000 €</span><span class="flag">⚠ Abusive</span></div>
+      <div class="scan-line"><span>Propriété des comptes → agence</span><span class="flag">⚠ Critique</span></div>
+      <div class="scan-line"><span>Reversement sous 30 jours</span><span class="safe">✓ Conforme</span></div>
+      <div class="scan-bar"><i></i></div>
+      <div style="margin-top:14px;color:var(--pierre);font-size:11px;letter-spacing:.1em">SCORE DE RISQUE : ÉLEVÉ — 3 CLAUSES À RENÉGOCIER</div>
+    </div>
+  </div>
+</section>
+
+<section id="departements">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Cinq départements</span>
+      <h2>Chaque univers a <span class="serif-i">sa propre maison.</span></h2>
+    </div>
+    <div class="depts rv">
+      <a class="dept" href="#"><span class="ix">D·01</span><h3>Musique & Spectacle Vivant</h3><p>Musiciens, chanteurs, performers — de la scène au stream.</p><span class="arr">→</span></a>
+      <a class="dept" href="#"><span class="ix">D·02</span><h3>Sport & Lifestyle</h3><p>Athlètes, coachs, créateurs lifestyle — l'image au niveau de la performance.</p><span class="arr">→</span></a>
+      <a class="dept" href="#"><span class="ix">D·03</span><h3>Business & Leadership</h3><p>Entrepreneurs, speakers, experts — une autorité qui se construit.</p><span class="arr">→</span></a>
+      <a class="dept" href="#"><span class="ix">D·04</span><h3>Créateurs Digitaux</h3><p>Influenceurs, vidéastes, podcasteurs — multi-plateformes, une seule stratégie.</p><span class="arr">→</span></a>
+      <a class="dept" href="#"><span class="ix">D·05</span><h3>Talent Premium</h3><p>Créateurs adultes — discrétion, protection juridique et croissance maîtrisée.</p><span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="manifeste">
+  <div class="wrap rv">
+    <span class="eyebrow">Manifeste</span>
+    <blockquote style="margin-top:34px">« Une maison qui réussit n'a pas besoin de retenir ses talents par contrat. <em>Elle les retient par ce qu'elle leur apporte.</em> »</blockquote>
+    <cite>— Le manifeste Halo Talent</cite>
+  </div>
+</section>
+
+<section class="final">
+  <div class="halo-glow"></div>
+  <div class="halo-ring"></div>
+  <div class="wrap">
+    <h2>Entrez dans <span class="serif-i">la maison.</span></h2>
+    <p>Commencez gratuitement avec le Bouclier Légal, ou candidatez pour rejoindre le roster.</p>
+    <div class="hero-cta">
+      <a href="#" class="btn btn-fill">Commencer gratuitement →</a>
+      <a href="#" class="btn btn-gold">Candidater au management</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="logo" href="#">Halo <em>Talent</em></a>
+        <p>Maison de management créatif. Faite avec conviction, pas avec des templates.</p>
+        <div style="display:flex;gap:18px;color:var(--pierre);font-family:var(--util);font-size:11px;letter-spacing:.15em">
+          <a href="#">IG</a><a href="#">TT</a><a href="#">IN</a><a href="#">X</a>
+        </div>
+      </div>
+      <div>
+        <h5>Navigation</h5>
+        <ul><li><a href="#">Manifeste</a></li><li><a href="#departements">Départements</a></li><li><a href="#commissions">Commissions</a></li><li><a href="#">Talents</a></li><li><a href="#bouclier">Bouclier Légal</a></li><li><a href="#">SaaS</a></li><li><a href="#">Blog</a></li></ul>
+      </div>
+      <div>
+        <h5>Légal</h5>
+        <ul><li><a href="#">Mentions légales</a></li><li><a href="#">Politique de confidentialité</a></li><li><a href="#">CGU</a></li><li><a href="#">Contrat type</a></li></ul>
+      </div>
+      <div>
+        <h5>Newsletter</h5>
+        <p style="color:var(--pierre);font-size:14px;margin-bottom:18px">Restez informé des nouvelles de la maison.</p>
+        <div class="nl"><input type="email" placeholder="votre@email.com" aria-label="Email"><button>S'inscrire</button></div>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Halo Talent. Tous droits réservés.</span>
+      <span>Halo Talent ne fournit pas de conseil juridique. <em>Fait avec conviction.</em></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Reveal au scroll
+const io = new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.rv,#scan').forEach(el=>io.observe(el));
+
+// Compteurs hero
+const cio = new IntersectionObserver(es=>{es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  const el=e.target,end=+el.dataset.count,suf=el.dataset.suffix||'';let t0=null;
+  const step=ts=>{if(!t0)t0=ts;const p=Math.min((ts-t0)/1200,1);el.textContent=Math.round(end*(1-Math.pow(1-p,3)))+suf;if(p<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step);cio.unobserve(el);
+})},{threshold:.5});
+document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
+
+// Simulateur de commission (barème marginal)
+const tiers=[[0,5000,.30],[5000,20000,.25],[20000,50000,.20],[50000,150000,.15],[150000,Infinity,.10]];
+const slider=document.getElementById('slider');
+const fmt=n=>n.toLocaleString('fr-FR');
+function calc(){
+  const r=+slider.value;
+  slider.style.setProperty('--p',((r-1000)/(200000-1000)*100)+'%');
+  let fee=0,topRate=.30;
+  for(const[a,b,t]of tiers){if(r>a){fee+=(Math.min(r,b)-a)*t;topRate=t}}
+  document.getElementById('rev').textContent=fmt(r);
+  document.getElementById('effRate').textContent=(fee/r*100).toFixed(1).replace('.',',')+'%';
+  document.getElementById('halofee').textContent=fmt(Math.round(fee))+' €';
+  document.getElementById('keep').textContent=fmt(Math.round(r-fee))+' €';
+  document.getElementById('saving').textContent='+'+fmt(Math.round(r*.5-fee))+' €';
+  document.querySelectorAll('.tier').forEach(el=>el.classList.toggle('active',r>+el.dataset.min));
+}
+slider.addEventListener('input',calc);calc();
+
+// Nav qui se cache au scroll descendant
+let lastY=0;
+addEventListener('scroll',()=>{
+  const y=scrollY;
+  document.getElementById('nav').style.transform=(y>120&&y>lastY)?'translateY(-100%)':'';
+  lastY=y;
+},{passive:true});
+</script>
+</body>
+</html>

@@ -5,10 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import {
   ShieldCheck,
   CheckCircle2,
-  AlertTriangle,
   ArrowRight,
   FileCheck,
-  Gavel,
   Mail,
   Globe,
   Smartphone,
@@ -21,7 +19,7 @@ const complianceSections = [
   {
     icon: FileCheck,
     title: "RGPD",
-    desc: "Conformité totale avec le Règlement Général sur la Protection des Données.",
+    desc: "Conformité renforcée avec le Règlement Général sur la Protection des Données.",
     items: [
       "Recueil explicite du consentement pour chaque traitement",
       "Droit à l'oubli : suppression immédiate sur demande",
@@ -147,9 +145,6 @@ function ComplianceSection({
 
 /* ─── Page ─── */
 export default function ConformitePage() {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-
   const headerRef = useRef<HTMLDivElement>(null);
   const [headerVisible, setHeaderVisible] = useState(false);
 
@@ -277,7 +272,7 @@ export default function ConformitePage() {
             }}
           >
             <ShieldCheck size={12} />
-            La conformité d'abord
+            La conformité d&apos;abord
           </div>
 
           <h1
@@ -476,7 +471,7 @@ export default function ConformitePage() {
             }}
           >
             <ShieldCheck size={12} />
-            Garanti sans risque
+            Risque réduit grâce à des garde-fous
           </div>
 
           <h2
