@@ -72,14 +72,14 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 h-[72px]"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-12 h-full flex items-center justify-between">
-        {/* Logo — Style n°4 couture */}
-        <Link href="/" className="flex-shrink-0">
-          <HaloCoutureLogo size="sm" variant="ivoire" />
-        </Link>
+        {/* Left group: Logo + Nav items */}
+        <div className="flex items-center h-full">
+          <Link href="/" className="flex-shrink-0 mr-12 lg:mr-16">
+            <HaloCoutureLogo size="sm" variant="ivoire" />
+          </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-9 h-full">
-          <div className="flex items-center gap-9 h-full">
+          {/* Desktop nav items */}
+          <div className="hidden md:flex items-center gap-9 h-full">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item.href}
@@ -95,8 +95,10 @@ export function Navbar() {
               </Link>
             ))}
           </div>
+        </div>
 
-          <div className="flex items-center gap-5 ml-4">
+        {/* Right group: Lang + Login + CTA */}
+        <div className="hidden md:flex items-center gap-5">
             {/* Language switcher */}
             <div className="relative">
               <button
@@ -175,7 +177,6 @@ export function Navbar() {
               {t("nav.start_free", l)}
             </Link>
           </div>
-        </div>
 
         {/* Mobile toggle */}
         <button

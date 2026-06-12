@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type ButtonVariant = "primary" | "secondary" | "ghost" | "danger";
+type ButtonVariant = "primary" | "secondary" | "ghost" | "danger" | "couture" | "couture-ghost";
 
 type ButtonProps = {
   children: React.ReactNode;
@@ -19,39 +19,60 @@ type ButtonProps = {
 
 const variantBase: Record<ButtonVariant, React.CSSProperties> = {
   primary: {
-    backgroundColor: "#C75B39",
-    color: "#FFFFFF",
-    border: "none",
+    backgroundColor: "var(--or, #D8A95B)",
+    color: "var(--encre, #0C0A08)",
+    border: "1px solid var(--or, #D8A95B)",
   },
   secondary: {
     backgroundColor: "transparent",
-    border: "1.5px solid var(--color-ink)",
-    color: "var(--color-ink)",
+    border: "1px solid var(--ligne, rgba(216,169,91,0.18))",
+    color: "var(--ivoire, #F4EEE3)",
   },
   ghost: {
     backgroundColor: "transparent",
     border: "none",
-    color: "var(--color-ink-secondary)",
+    color: "var(--pierre, #9C9183)",
   },
   danger: {
     backgroundColor: "transparent",
-    border: "1.5px solid #C44536",
-    color: "#C44536",
+    border: "1px solid #E8634A",
+    color: "#E8634A",
+  },
+  couture: {
+    backgroundColor: "var(--or, #D8A95B)",
+    color: "var(--encre, #0C0A08)",
+    border: "1px solid var(--or, #D8A95B)",
+  },
+  "couture-ghost": {
+    backgroundColor: "transparent",
+    border: "1px solid rgba(244,238,227,0.18)",
+    color: "rgba(244,238,227,0.65)",
   },
 };
 
 const variantHover: Record<ButtonVariant, React.CSSProperties> = {
   primary: {
-    backgroundColor: "#D4693F",
+    backgroundColor: "var(--or-clair, #EBC98A)",
+    borderColor: "var(--or-clair, #EBC98A)",
   },
   secondary: {
-    backgroundColor: "rgba(128, 128, 128, 0.08)",
+    borderColor: "var(--or, #D8A95B)",
+    color: "var(--or, #D8A95B)",
   },
   ghost: {
-    color: "var(--color-ink)",
+    color: "var(--ivoire, #F4EEE3)",
   },
   danger: {
-    backgroundColor: "rgba(196, 69, 54, 0.06)",
+    backgroundColor: "rgba(232, 99, 74, 0.1)",
+  },
+  couture: {
+    backgroundColor: "transparent",
+    color: "var(--or, #D8A95B)",
+    borderColor: "var(--or, #D8A95B)",
+  },
+  "couture-ghost": {
+    borderColor: "var(--or, #D8A95B)",
+    color: "var(--or, #D8A95B)",
   },
 };
 
@@ -69,8 +90,9 @@ export function Button({
 
   const baseClasses = cn(
     "inline-flex items-center justify-center",
-    "font-display text-[0.8rem] uppercase tracking-[0.06em]",
-    "px-8 py-3",
+    "font-util text-[11px] uppercase tracking-[0.22em]",
+    "px-[26px] py-[14px]",
+    "rounded-[2px]",
     "transition-all duration-300",
     "disabled:opacity-40 disabled:pointer-events-none",
     className,
@@ -79,7 +101,7 @@ export function Button({
   const style: React.CSSProperties = {
     ...variantBase[variant],
     ...(hovered ? variantHover[variant] : {}),
-    transform: hovered && variant === "primary" ? "translateY(-1px)" : "none",
+    transform: hovered ? "translateY(-1px)" : "none",
   };
 
   const handlers = {

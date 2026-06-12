@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { SITE_CONFIG, type SocialPlatform } from "@/lib/config/site";
+import { HaloCoutureLogo } from "@/components/brand/HaloCoutureLogo";
 
 const SOCIAL_LABELS: Record<SocialPlatform, string> = {
   instagram: "IG",
@@ -93,8 +94,8 @@ export function Footer() {
         <div className="foot-grid">
           {/* Brand */}
           <div className="foot-brand">
-            <Link className="logo" href="/" style={{ fontFamily: "var(--font-display-alt, Fraunces, serif)", fontSize: "22px", fontWeight: 500, letterSpacing: "0.01em", color: "var(--ivoire, #F4EEE3)" }}>
-              Halo <em style={{ fontStyle: "italic", color: "var(--or, #D8A95B)" }}>Talent</em>
+            <Link href="/" className="inline-block mb-4">
+              <HaloCoutureLogo size="md" variant="ivoire" />
             </Link>
             <p>Maison de management créatif. Faite avec conviction, pas avec des templates.</p>
             <div style={{ display: "flex", gap: "18px", color: "var(--pierre, #9C9183)", fontFamily: "var(--font-util, Space Grotesk, monospace)", fontSize: "11px", letterSpacing: "0.15em" }}>

@@ -29,7 +29,7 @@ export function HaloCoutureLogo({
   const c = COLOR_MAP[variant];
 
   return (
-    <div className={`inline-flex flex-col leading-none ${className ?? ""}`}>
+    <div className={`inline-flex items-baseline leading-none ${className ?? ""}`} style={{ gap: "0.35em" }}>
       <span
         style={{
           fontFamily: "var(--font-display-alt), Georgia, serif",
@@ -50,7 +50,6 @@ export function HaloCoutureLogo({
           fontWeight: 400,
           fontStyle: "italic",
           color: c.secondary,
-          paddingLeft: "0.12em",
           lineHeight: 1.2,
         }}
       >
