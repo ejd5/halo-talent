@@ -3,7 +3,7 @@
 import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 import {
   RAIL_LABELS,
@@ -16,35 +16,11 @@ import {
   HERO_EDITORIAL_STEPS,
 } from "@/lib/marketing/couture-homepage";
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 24 },
-  show: (d = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.8, delay: d, ease: "easeOut" as const },
-  }),
-};
-
-const titleLine = {
-  hidden: { y: "110%", opacity: 0 },
-  show: (d = 0) => ({
-    y: 0,
-    opacity: 1,
-    transition: { duration: 0.9, delay: d, ease: [0.16, 1, 0.3, 1] as const },
-  }),
-};
-
-const imgReveal = {
-  hidden: { clipPath: "inset(0 100% 0 0)" },
-  show: {
-    clipPath: "inset(0 0% 0 0)",
-    transition: { duration: 1.1, delay: 0.4, ease: [0.16, 1, 0.3, 1] as const },
-  },
-};
-
 export function CoutureHero() {
   const ref = useRef<HTMLElement>(null);
-  const inView = useInView(ref, { once: true, amount: 0.08 });
+  const inView = useInView(ref, { once: true, amount: 0.05 });
+  const { scrollY } = useScroll();
+  const imageY = useTransform(scrollY, [0, 800], [0, 120]);
 
   return (
     <header
@@ -52,117 +28,124 @@ export function CoutureHero() {
       className="relative min-h-screen flex overflow-hidden"
       style={{ backgroundColor: "var(--creme, #F9F6EF)" }}
     >
-      {/* ── Side rail — noir couture (desktop only) ── */}
+      {/* ══════════ Ambient light sweep ══════════ */}
+      {/* Ambient light sweep — disabled via CSS prefers-reduced-motion */}
       <div
-        className="hidden lg:flex flex-col items-center justify-center relative z-20 flex-shrink-0"
+          className="absolute inset-0 pointer-events-none z-0"
+          style={{
+            background: "radial-gradient(ellipse 80% 60% at 70% 40%, rgba(216,169,91,0.04) 0%, transparent 60%)",
+            animation: "couture-light-sweep 8s ease-in-out infinite",
+          }}
+        />
+
+      {/* ══════════ A. Side rail — BIG, visible, starts at navbar bottom ══════════ */}
+      <div
+        className="hidden lg:flex flex-col items-center justify-center relative z-30 flex-shrink-0"
         style={{
-          width: 56,
-          backgroundColor: "var(--encre, #0C0A08)",
-          borderRight: "1px solid var(--ligne)",
+          width: 80,
+          backgroundColor: "#090806",
+          borderRight: "1px solid rgba(216,169,91,0.15)",
+          paddingTop: 72, // clears navbar
         }}
       >
-        {/* Emblem top */}
-        <div className="mb-auto mt-8">
+        {/* Fleur de lys at top */}
+        <div className="mb-auto mt-12">
           <CoutureEmblem size={14} color="var(--or)" />
         </div>
 
-        {/* Cities */}
+        {/* 4 capitales — large, bright, vertical */}
         <div
-          className="flex flex-col items-center gap-5 my-auto"
+          className="flex flex-col items-center gap-8 my-auto"
           style={{
             writingMode: "vertical-rl",
             textOrientation: "mixed",
             fontFamily: "var(--font-util), monospace",
-            fontSize: 8,
-            letterSpacing: "0.32em",
+            fontSize: 9,
+            letterSpacing: "0.44em",
             textTransform: "uppercase",
-            color: "var(--pierre)",
+            color: "rgba(244,238,227,0.72)",
+            fontWeight: 500,
           }}
         >
           {RAIL_LABELS.map((city, i) => (
-            <span key={city} className="flex flex-col items-center gap-4">
+            <span key={city} className="flex flex-col items-center gap-6">
               {i > 0 && (
-                <span style={{ color: "var(--or)", fontSize: 5, opacity: 0.6 }}>
-                  ·
-                </span>
+                <span style={{ color: "var(--or)", fontSize: 5, opacity: 0.6 }}>·</span>
               )}
               {city}
             </span>
           ))}
         </div>
 
-        {/* Thin gold line at bottom */}
-        <div className="mb-auto mt-8 w-4 h-px" style={{ background: "var(--or)", opacity: 0.3 }} />
+        {/* Gold line bottom */}
+        <div className="mb-auto mt-12 w-8 h-px" style={{ background: "var(--or)", opacity: 0.3 }} />
       </div>
 
-      {/* ── Main content area ── */}
+      {/* ══════════ B + C. Content: text left + image right ══════════ */}
       <div className="flex-1 flex flex-col lg:flex-row min-h-screen" style={{ paddingTop: 72 }}>
-        {/* LEFT: Editorial text */}
-        <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 py-10 lg:py-16">
-          <div className="max-w-[560px]">
+        {/* B. Zone texte — left/center, lots of breathing room */}
+        <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-24 py-12 lg:py-20">
+          <div className="max-w-[540px]">
             {/* Badge */}
             <motion.div
-              className="mb-8 lg:mb-10"
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "show" : "hidden"}
-              custom={0}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, ease: "easeOut" }}
+              className="mb-10"
             >
               <span
-                className="inline-flex items-center gap-2 text-[9px] uppercase tracking-[0.26em]"
+                className="inline-flex items-center gap-2.5 text-[9px] uppercase tracking-[0.3em]"
                 style={{
                   fontFamily: "var(--font-util), monospace",
                   color: "var(--or)",
                 }}
               >
-                <span
-                  className="w-4 h-px"
-                  style={{ background: "var(--or)", opacity: 0.5 }}
-                />
+                <span className="w-5 h-px" style={{ background: "var(--or)", opacity: 0.4 }} />
                 {HERO_BADGE}
               </span>
             </motion.div>
 
-            {/* H1 — 4 lines, split typography */}
+            {/* H1 — Playfair Display, haute couture */}
             <motion.h1
-              className="mb-8 lg:mb-10"
+              className="mb-10"
               style={{
-                fontFamily: "var(--font-display-alt), Fraunces, Georgia, serif",
-                fontWeight: 300,
-                fontSize: "clamp(38px, 5.6vw, 76px)",
-                lineHeight: 1.06,
-                letterSpacing: "-0.015em",
-                color: "var(--encre, #0C0A08)",
+                fontFamily: "var(--font-couture), Georgia, serif",
+                fontWeight: 700,
+                fontSize: "clamp(44px, 6vw, 88px)",
+                lineHeight: 1.04,
+                letterSpacing: "-0.01em",
+                color: "#0C0A08",
               }}
             >
               {[HERO_TITLE.line1, HERO_TITLE.line2, HERO_TITLE.line3, HERO_TITLE.line4].map((line, i) => (
-                <span key={line} className="block overflow-hidden">
-                  <motion.span
-                    className="block"
-                    variants={titleLine}
-                    initial="hidden"
-                    animate={inView ? "show" : "hidden"}
-                    custom={0.15 + i * 0.12}
-                  >
-                    {line}
-                  </motion.span>
-                </span>
+                <motion.span
+                  key={line}
+                  className="block"
+                  initial={{ opacity: 0, y: 40 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{
+                    duration: 0.9,
+                    delay: 0.15 + i * 0.13,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                >
+                  {line}
+                </motion.span>
               ))}
             </motion.h1>
 
             {/* Subtitle */}
             <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, delay: 0.65, ease: "easeOut" }}
               className="mb-5"
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "show" : "hidden"}
-              custom={0.6}
               style={{
-                color: "var(--pierre, #9C9183)",
-                fontSize: "clamp(14px, 1.4vw, 16px)",
-                lineHeight: 1.7,
+                color: "#9C9183",
+                fontSize: "clamp(14px, 1.3vw, 16px)",
+                lineHeight: 1.75,
                 fontFamily: "var(--font-body), sans-serif",
-                maxWidth: 480,
+                maxWidth: 460,
               }}
             >
               {HERO_SUBTITLE}
@@ -170,17 +153,16 @@ export function CoutureHero() {
 
             {/* Micro-copy */}
             <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.75, ease: "easeOut" }}
               className="mb-10"
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "show" : "hidden"}
-              custom={0.7}
               style={{
-                color: "var(--pierre, #9C9183)",
-                fontSize: 12,
+                color: "#9C9183",
+                fontSize: 13,
                 fontStyle: "italic",
-                opacity: 0.8,
-                maxWidth: 440,
+                opacity: 0.75,
+                maxWidth: 420,
               }}
             >
               {HERO_MICRO}
@@ -188,29 +170,22 @@ export function CoutureHero() {
 
             {/* CTAs */}
             <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.7, delay: 0.85, ease: "easeOut" }}
               className="flex flex-wrap gap-4 mb-14"
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "show" : "hidden"}
-              custom={0.8}
             >
               {HERO_CTAS.map((cta) =>
                 cta.variant === "fill" ? (
                   <Link
                     key={cta.href}
                     href={cta.href}
-                    className="inline-flex items-center gap-2.5 px-7 py-3.5 text-[11px] uppercase tracking-[0.2em] rounded-[2px] transition-all duration-300"
+                    className="inline-flex items-center gap-2.5 px-8 py-4 text-[11px] uppercase tracking-[0.2em] transition-all duration-300 hover:scale-[1.02]"
                     style={{
                       fontFamily: "var(--font-util), monospace",
-                      backgroundColor: "var(--encre, #0C0A08)",
-                      color: "var(--ivoire, #F4EEE3)",
-                      border: "1px solid var(--encre, #0C0A08)",
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "#2A2520";
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = "var(--encre, #0C0A08)";
+                      backgroundColor: "#0C0A08",
+                      color: "#F4EEE3",
+                      border: "1px solid #0C0A08",
                     }}
                   >
                     {cta.label} &rarr;
@@ -219,20 +194,20 @@ export function CoutureHero() {
                   <Link
                     key={cta.href}
                     href={cta.href}
-                    className="inline-flex items-center gap-2.5 px-7 py-3.5 text-[11px] uppercase tracking-[0.2em] rounded-[2px] transition-all duration-300"
+                    className="inline-flex items-center gap-2.5 px-8 py-4 text-[11px] uppercase tracking-[0.2em] transition-all duration-300"
                     style={{
                       fontFamily: "var(--font-util), monospace",
-                      border: "1px solid var(--encre, #0C0A08)",
-                      color: "var(--encre, #0C0A08)",
+                      border: "1px solid #0C0A08",
+                      color: "#0C0A08",
                       background: "transparent",
                     }}
                     onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = "var(--encre, #0C0A08)";
-                      e.currentTarget.style.color = "var(--creme, #F9F6EF)";
+                      e.currentTarget.style.backgroundColor = "#0C0A08";
+                      e.currentTarget.style.color = "#F9F6EF";
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.backgroundColor = "transparent";
-                      e.currentTarget.style.color = "var(--encre, #0C0A08)";
+                      e.currentTarget.style.color = "#0C0A08";
                     }}
                   >
                     {cta.label}
@@ -241,11 +216,10 @@ export function CoutureHero() {
                   <Link
                     key={cta.href}
                     href={cta.href}
-                    className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.2em] py-3.5 transition-colors duration-300"
+                    className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.2em] py-4 transition-colors duration-300"
                     style={{
                       fontFamily: "var(--font-util), monospace",
-                      color: "var(--pierre, #9C9183)",
-                      borderBottom: "1px solid transparent",
+                      color: "#9C9183",
                     }}
                   >
                     {cta.label}
@@ -254,19 +228,17 @@ export function CoutureHero() {
               )}
             </motion.div>
 
-            {/* Reassurance line */}
+            {/* Reassurance */}
             <motion.p
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "show" : "hidden"}
-              custom={1.0}
+              initial={{ opacity: 0 }}
+              animate={inView ? { opacity: 0.45 } : {}}
+              transition={{ duration: 0.8, delay: 1.0 }}
               style={{
                 fontFamily: "var(--font-util), monospace",
                 fontSize: 9,
                 letterSpacing: "0.14em",
                 textTransform: "uppercase",
-                color: "var(--pierre, #9C9183)",
-                opacity: 0.5,
+                color: "#9C9183",
               }}
             >
               {HERO_REASSURANCE}
@@ -274,100 +246,106 @@ export function CoutureHero() {
           </div>
         </div>
 
-        {/* RIGHT: Editorial model image */}
-        <motion.div
-          className="hidden lg:block relative flex-1 overflow-hidden"
-          style={{ minHeight: "100%", backgroundColor: "var(--encre, #0C0A08)" }}
-          variants={imgReveal}
-          initial="hidden"
-          animate={inView ? "show" : "hidden"}
-        >
-          {/* Use existing hero image or placeholder slot */}
-          <Image
-            src="/images/heropic.png"
-            alt=""
-            fill
-            priority
-            sizes="50vw"
-            className="object-cover"
-            style={{ filter: "grayscale(100%) contrast(1.08) brightness(0.95)" }}
-          />
-          {/* Subtle gradient overlay to blend with ivoire background */}
+        {/* C. Zone image — déborde dans la navbar, pleine hauteur, couverture magazine */}
+        <div className="hidden lg:block relative flex-1 overflow-hidden">
+          <motion.div
+            className="absolute inset-0"
+            style={{
+              top: -72, // déborde au-dessus dans la navbar
+              y: imageY,
+            }}
+          >
+            <Image
+              src="/images/heropic.png"
+              alt=""
+              fill
+              priority
+              sizes="50vw"
+              className="object-cover"
+              style={{
+                objectFit: "cover",
+                objectPosition: "center 15%",
+                filter: "grayscale(100%) contrast(1.08) brightness(0.9)",
+              }}
+            />
+          </motion.div>
+
+          {/* Magazine-cover gradient: blends left edge into ivoire */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{
-              background: "linear-gradient(to right, rgba(12,10,8,0.4) 0%, transparent 25%, transparent 70%, rgba(12,10,8,0.2) 100%)",
+              background:
+                "linear-gradient(to right, #F4EFE7 0%, transparent 12%, transparent 80%, rgba(12,10,8,0.1) 100%)",
             }}
           />
-        </motion.div>
+
+          {/* Golden ambient glow behind image — disabled via CSS prefers-reduced-motion */}
+          <div
+            className="absolute pointer-events-none"
+            style={{
+              bottom: "10%",
+              right: "10%",
+              width: 300,
+              height: 300,
+              borderRadius: "50%",
+              background: "radial-gradient(circle, rgba(216,169,91,0.08) 0%, transparent 70%)",
+              animation: "breathe 6s ease-in-out infinite",
+            }}
+          />
+        </div>
       </div>
 
-      {/* ── Editorial bottom line ── */}
+      {/* ══════════ Editorial bottom line ══════════ */}
       <div
-        className="absolute bottom-0 left-0 right-0 z-20 hidden md:flex items-center justify-center gap-10 py-5"
+        className="absolute bottom-0 left-0 right-0 z-30 hidden md:flex items-center justify-center py-5"
         style={{
-          borderTop: "1px solid rgba(0,0,0,0.06)",
-          background: "rgba(249,246,239,0.85)",
-          backdropFilter: "blur(8px)",
+          borderTop: "1px solid rgba(0,0,0,0.05)",
+          background: "rgba(249,246,239,0.9)",
+          backdropFilter: "blur(6px)",
         }}
       >
-        {HERO_EDITORIAL_STEPS.map((step, i) => (
-          <div key={step.num} className="flex items-center gap-3">
-            <span
-              style={{
-                fontFamily: "var(--font-util), monospace",
-                fontSize: 10,
-                color: "var(--or, #D8A95B)",
-                letterSpacing: "0.1em",
-              }}
-            >
-              {step.num}
-            </span>
-            <span
-              style={{
-                fontFamily: "var(--font-display-alt), Georgia, serif",
-                fontSize: 12,
-                color: "var(--encre, #0C0A08)",
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
-              }}
-            >
-              {step.label}
-            </span>
-            {i < HERO_EDITORIAL_STEPS.length - 1 && (
+        <div className="flex items-center gap-0">
+          {HERO_EDITORIAL_STEPS.map((step, i) => (
+            <div key={step.num} className="flex items-center">
               <span
-                className="mx-2"
                 style={{
-                  display: "inline-block",
-                  width: 32,
-                  height: 1,
-                  background: "rgba(0,0,0,0.12)",
-                  marginLeft: 12,
+                  fontFamily: "var(--font-util), monospace",
+                  fontSize: 9,
+                  color: "var(--or)",
+                  letterSpacing: "0.12em",
+                  fontWeight: 500,
                 }}
-              />
-            )}
-          </div>
-        ))}
+              >
+                {step.num}
+              </span>
+              <span
+                className="mx-3"
+                style={{
+                  fontFamily: "var(--font-couture), Georgia, serif",
+                  fontSize: 11,
+                  color: "#0C0A08",
+                  letterSpacing: "0.12em",
+                  textTransform: "uppercase",
+                  fontWeight: 600,
+                }}
+              >
+                {step.label}
+              </span>
+              {i < HERO_EDITORIAL_STEPS.length - 1 && (
+                <span
+                  className="mx-6"
+                  style={{
+                    display: "inline-block",
+                    width: 44,
+                    height: 1,
+                    background: "rgba(0,0,0,0.08)",
+                  }}
+                />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
-
-      {/* ── Scroll indicator ── */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 z-10 hidden md:block" style={{ bottom: 4 }}>
-        <div
-          style={{
-            width: 1,
-            height: 48,
-            background: "linear-gradient(180deg, var(--or), transparent)",
-            opacity: 0.35,
-          }}
-        />
-      </div>
-
-      {/* Mobile: model image shown below text (subtle, behind) */}
-      <div
-        className="lg:hidden absolute inset-0 pointer-events-none opacity-[0.06]"
-        style={{ backgroundColor: "var(--encre, #0C0A08)" }}
-        aria-hidden="true"
-      />
     </header>
   );
 }

@@ -8,6 +8,7 @@ import {
   Fraunces,
   Instrument_Sans,
   Space_Grotesk,
+  Playfair_Display,
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
@@ -70,6 +71,14 @@ const spaceGrotesk = Space_Grotesk({
   display: "swap",
 });
 
+const playfairDisplay = Playfair_Display({
+  variable: "--font-couture",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+  style: ["normal", "italic"],
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Halo Talent — Maison de création",
@@ -99,7 +108,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${syne.variable} ${plusJakartaSans.variable} ${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${fraunces.variable} ${instrumentSans.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${syne.variable} ${plusJakartaSans.variable} ${inter.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} ${fraunces.variable} ${instrumentSans.variable} ${spaceGrotesk.variable} ${playfairDisplay.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">

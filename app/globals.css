@@ -65,6 +65,7 @@
   --font-studio: var(--font-display);
   --font-display-legacy: "Syne", system-ui, sans-serif;
   --font-display-alt: "Fraunces", "Georgia", serif;
+  --font-couture: "Playfair Display", "Fraunces", "Georgia", serif;
   --font-body: "Instrument Sans", "Inter", sans-serif;
   --font-util: "Space Grotesk", "JetBrains Mono", monospace;
 
@@ -1263,5 +1264,26 @@
     .couture-scroll-indicator {
       animation: none;
     }
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COUTURE AMBIENT ANIMATIONS
+   ═══════════════════════════════════════════════════════════ */
+
+@keyframes couture-light-sweep {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.04); }
+}
+
+@keyframes couture-soft-breathe {
+  0%, 100% { opacity: 0.04; transform: scale(1); }
+  50% { opacity: 0.09; transform: scale(1.06); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .couture-light-sweep,
+  .couture-soft-breathe {
+    animation: none !important;
   }
 }
