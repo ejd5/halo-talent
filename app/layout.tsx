@@ -72,19 +72,19 @@ const spaceGrotesk = Space_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "Halo Talent — Maison de management créatif",
+    default: "Halo Talent — Maison de création",
     template: "%s — Halo Talent",
   },
   description:
-    "Cinq départements, une commission dégressive (30% → 10%), une seule exigence : votre succès. Management créatif avec transparence radicale.",
+    "Management, IA, CRM, protection juridique et stratégie de croissance. Halo Talent réunit tout ce dont un créateur a besoin dans une seule maison. Paris, New York, Milan, Tokyo.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Halo Talent — Maison de management créatif",
+    title: "Halo Talent — Maison de création",
     description:
-      "Cinq départements, une commission dégressive (30% → 10%), une seule exigence : votre succès.",
+      "Management, IA, CRM, protection juridique et stratégie de croissance. Une maison pour les créateurs ambitieux.",
     siteName: "Halo Talent",
     locale: "fr_FR",
     type: "website",

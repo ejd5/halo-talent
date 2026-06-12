@@ -1,25 +1,30 @@
-import { HeroSection } from "@/components/home/HeroSection";
-import { MarqueeBar } from "@/components/home/MarqueeBar";
-import { MaisonsSection } from "@/components/home/MaisonsSection";
-import { SimulateurSection } from "@/components/home/SimulateurSection";
-import { ComparisonSection } from "@/components/home/ComparisonSection";
-import { BouclierSection } from "@/components/home/BouclierSection";
-import { DepartmentsSection } from "@/components/home/DepartmentsSection";
-import { ManifesteSection } from "@/components/home/ManifesteSection";
-import { FinalCtaSection } from "@/components/home/FinalCtaSection";
+import { CoutureHero } from "@/components/home/CoutureHero";
+import { CoutureSignalStrip } from "@/components/home/CoutureSignalStrip";
+import { CoutureVignettes } from "@/components/home/CoutureVignettes";
+import { CoutureEditorialIntro } from "@/components/home/CoutureEditorialIntro";
+import { CoutureServicesGrid } from "@/components/home/CoutureServicesGrid";
+import { CoutureCarousel } from "@/components/home/CoutureCarousel";
+import { CoutureReassurance } from "@/components/home/CoutureReassurance";
+import { CoutureStatement } from "@/components/home/CoutureStatement";
+import { CoutureCommissionSection } from "@/components/home/CoutureCommissionSection";
+import { CoutureLegalShield } from "@/components/home/CoutureLegalShield";
+import { CoutureFooter } from "@/components/home/CoutureFooter";
 
 export default function HomePage() {
   return (
     <>
-      <HeroSection />
-      <MarqueeBar />
-      <MaisonsSection />
-      <SimulateurSection />
-      <ComparisonSection />
-      <BouclierSection />
-      <DepartmentsSection />
-      <ManifesteSection />
-      <FinalCtaSection />
+      <CoutureHero />
+      <CoutureSignalStrip />
+      <CoutureVignettes />
+      <CoutureEditorialIntro />
+      <CoutureServicesGrid />
+      <CoutureCarousel />
+      <CoutureReassurance />
+      <CoutureStatement />
+      <CoutureSignalStrip />
+      <CoutureCommissionSection />
+      <CoutureLegalShield />
+      <CoutureFooter />
     </>
   );
 }
