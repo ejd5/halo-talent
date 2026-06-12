@@ -1409,4 +1409,125 @@
   @keyframes marquee-scroll {
     to { transform: translateX(-50%); }
   }
+  @keyframes marquee-loading {
+    to { transform: translateX(-50%); }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     CHAT AI HERO — ANIMATIONS
+     ═══════════════════════════════════════════════════════════ */
+
+  @keyframes chat-ai-reveal-up {
+    from { transform: translateY(28px); opacity: 0; }
+    to   { transform: translateY(0); opacity: 1; }
+  }
+  @keyframes chat-ai-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  @keyframes chat-ai-orbital-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  @keyframes chat-ai-orbital-spin-reverse {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to   { transform: translate(-50%, -50%) rotate(-360deg); }
+  }
+  @keyframes chat-ai-float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+  }
+  @keyframes chat-ai-float-slower {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+  @keyframes chat-ai-pulse-node {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.25); }
+    50% { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+  }
+  @keyframes chat-ai-scan-line {
+    0% { top: -2px; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+  }
+  @keyframes chat-ai-rise {
+    from { transform: translateY(110%); }
+    to   { transform: translateY(0); }
+  }
+
+  @keyframes chat-ai-spotlight-breathe {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.65; transform: scale(1.05); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chat-ai-hero-reveal {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     CHAT AI — SCROLL REVEAL & INTERACTION UTILITIES
+     ═══════════════════════════════════════════════════════════ */
+
+  .rv-hidden > * {
+    opacity: 0;
+    transform: translateY(32px);
+    transition:
+      opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+      transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .rv-in > * {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Stagger children via CSS custom property */
+  .rv-in > *:nth-child(1) { transition-delay: calc(var(--stagger-ms, 80ms) * 0); }
+  .rv-in > *:nth-child(2) { transition-delay: calc(var(--stagger-ms, 80ms) * 1); }
+  .rv-in > *:nth-child(3) { transition-delay: calc(var(--stagger-ms, 80ms) * 2); }
+  .rv-in > *:nth-child(4) { transition-delay: calc(var(--stagger-ms, 80ms) * 3); }
+  .rv-in > *:nth-child(5) { transition-delay: calc(var(--stagger-ms, 80ms) * 4); }
+  .rv-in > *:nth-child(6) { transition-delay: calc(var(--stagger-ms, 80ms) * 5); }
+  .rv-in > *:nth-child(7) { transition-delay: calc(var(--stagger-ms, 80ms) * 6); }
+  .rv-in > *:nth-child(8) { transition-delay: calc(var(--stagger-ms, 80ms) * 7); }
+  .rv-in > *:nth-child(9) { transition-delay: calc(var(--stagger-ms, 80ms) * 8); }
+  .rv-in > *:nth-child(10) { transition-delay: calc(var(--stagger-ms, 80ms) * 9); }
+
+  /* Card hover glow */
+  .card-glow {
+    transition:
+      transform 0.35s ease-out,
+      border-color 0.35s ease-out,
+      box-shadow 0.35s ease-out;
+  }
+  .card-glow:hover {
+    transform: translateY(-2px);
+    border-color: rgba(16,185,129,0.18);
+    box-shadow: 0 8px 32px rgba(16,185,129,0.04), 0 2px 8px rgba(0,0,0,0.2);
+  }
+
+  /* Section background alternation */
+  .section-alt-a {
+    background: radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.018) 0%, transparent 60%);
+  }
+  .section-alt-b {
+    background: radial-gradient(ellipse at 50% 100%, rgba(59,130,246,0.015) 0%, transparent 60%);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rv-hidden > *,
+    .rv-in > * {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    .card-glow:hover {
+      transform: none;
+    }
+  }
 }

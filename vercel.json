@@ -1,5 +1,4 @@
 {
-  "deploymentProtection": false,
   "crons": [
     {
       "path": "/api/cron/legal-scan",
