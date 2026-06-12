@@ -207,12 +207,12 @@ export function CoutureHero() {
               position: "absolute",
               width: "122%",
               height: "122%",
-              right: 0,
+              right: "-11%",
               top: 0,
               objectFit: "cover",
               objectPosition: "50% 24%",
               transform: "scale(0.82)",
-              transformOrigin: "top right",
+              transformOrigin: "top center",
             }}
           />
           <MaskLeft />
