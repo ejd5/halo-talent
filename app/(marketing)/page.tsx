@@ -8,7 +8,6 @@ import { CoutureReassurance } from "@/components/home/CoutureReassurance";
 import { CoutureStatement } from "@/components/home/CoutureStatement";
 import { CoutureCommissionSection } from "@/components/home/CoutureCommissionSection";
 import { CoutureLegalShield } from "@/components/home/CoutureLegalShield";
-import { CoutureFooter } from "@/components/home/CoutureFooter";
 
 export default function HomePage() {
   return (
@@ -24,7 +23,6 @@ export default function HomePage() {
       <CoutureSignalStrip />
       <CoutureCommissionSection />
       <CoutureLegalShield />
-      <CoutureFooter />
     </>
   );
 }

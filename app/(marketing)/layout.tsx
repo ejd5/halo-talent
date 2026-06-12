@@ -1,5 +1,5 @@
 import { Navbar } from "@/components/shared/Navbar";
-import { ConditionalFooter } from "@/components/shared/ConditionalFooter";
+import { Footer } from "@/components/shared/Footer";
 
 export default function MarketingLayout({
   children,
@@ -10,7 +10,7 @@ export default function MarketingLayout({
     <div data-theme="encre" style={{ backgroundColor: "var(--encre, #0C0A08)", minHeight: "100vh" }}>
       <Navbar />
       <main className="flex-1">{children}</main>
-      <ConditionalFooter />
+      <Footer />
     </div>
   );
 }
