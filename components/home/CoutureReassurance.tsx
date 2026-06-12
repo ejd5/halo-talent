@@ -3,14 +3,13 @@
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { REASSURANCE_ITEMS } from "@/lib/marketing/couture-homepage";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 28 },
+  hidden: { opacity: 0, y: 30 },
   show: (d: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, delay: d, ease: "easeOut" as const },
+    transition: { duration: 0.9, delay: d, ease: [0.16, 1, 0.3, 1] as const },
   }),
 };
 
@@ -21,68 +20,67 @@ export function CoutureReassurance() {
   return (
     <section
       ref={ref}
-      className="couture-section couture-section-ivoire"
+      className="py-32 md:py-48"
       style={{ backgroundColor: "var(--creme, #F9F6EF)" }}
     >
-      <div className="wrap-eco">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <motion.div
-          className="text-center mb-16"
+          className="mb-24 md:mb-32 max-w-[600px]"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <div className="couture-ornament mb-6">
-            <CoutureEmblem size={22} color="var(--or)" />
-          </div>
-          <h2
-            className="display-medium"
-            style={{ color: "var(--encre)" }}
+          <span 
+            className="block mb-6 text-[10px] uppercase tracking-[0.34em]"
+            style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
           >
-            Ce que Halo <span className="serif-i">apporte.</span>
+            Standards
+          </span>
+          <h2
+            style={{
+              fontFamily: "var(--font-couture), Georgia, serif",
+              fontSize: "clamp(36px, 4vw, 56px)",
+              color: "var(--encre)",
+              lineHeight: 1.1,
+              letterSpacing: "-0.02em"
+            }}
+          >
+            Ce que Halo <span style={{ fontStyle: "italic", color: "var(--or)" }}>apporte.</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "rgba(0,0,0,0.06)" }}>
+        <div className="flex flex-col md:flex-row flex-wrap gap-16 md:gap-24 lg:gap-32">
           {REASSURANCE_ITEMS.map((item, i) => (
             <motion.div
               key={item.title}
-              className="p-10"
-              style={{
-                backgroundColor: "var(--creme, #F9F6EF)",
-                transition: "background 0.3s",
-              }}
+              className="flex-1 min-w-[280px]"
               variants={fadeUp}
               initial="hidden"
               animate={inView ? "show" : "hidden"}
-              custom={0.08 * i}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "rgba(216,169,91,0.04)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--creme, #F9F6EF)";
-              }}
+              custom={0.1 * i}
             >
               <div
-                className="mb-5"
+                className="mb-8"
                 style={{
                   width: 1,
-                  height: 28,
+                  height: 64,
                   background: "var(--or)",
-                  opacity: 0.5,
+                  opacity: 0.6,
                 }}
               />
               <h3
-                className="mb-2"
+                className="mb-6"
                 style={{
-                  fontFamily: "var(--font-display-alt), serif",
-                  fontSize: "clamp(18px, 1.6vw, 24px)",
+                  fontFamily: "var(--font-couture), Georgia, serif",
+                  fontSize: "clamp(24px, 2.5vw, 32px)",
                   fontWeight: 400,
                   color: "var(--encre)",
+                  lineHeight: 1.2
                 }}
               >
                 {item.title}
               </h3>
-              <p className="text-[14px] leading-relaxed" style={{ color: "var(--encre)", opacity: 0.6 }}>
+              <p className="text-[15px] leading-relaxed max-w-[340px]" style={{ color: "rgba(12,10,8,0.6)" }}>
                 {item.desc}
               </p>
             </motion.div>

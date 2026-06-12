@@ -13,61 +13,75 @@ export function CoutureVignettes() {
   return (
     <section
       ref={ref}
-      className="couture-section"
-      style={{ backgroundColor: "var(--encre, #0C0A08)" }}
+      className="py-32 md:py-48"
+      style={{ backgroundColor: "var(--creme, #F9F6EF)" }}
     >
-      <div className="wrap-eco">
-        <div className="couture-vignette-grid">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
+        <div className="flex flex-col gap-0">
           {VIGNETTES.map((v, i) => (
             <motion.div
               key={v.id}
-              className="couture-vignette-card group cursor-pointer"
-              style={{
-                background: hovered === v.id ? "var(--fumee)" : "transparent",
-              }}
-              initial={{ opacity: 0, y: 24 }}
+              className="group relative border-b"
+              style={{ borderColor: "rgba(12,10,8,0.1)" }}
+              initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.08 * i, ease: "easeOut" }}
+              transition={{ duration: 0.9, delay: 0.1 * i, ease: [0.16, 1, 0.3, 1] }}
               onMouseEnter={() => setHovered(v.id)}
               onMouseLeave={() => setHovered(null)}
             >
-              <Link href={v.href} className="no-underline" style={{ color: "inherit" }}>
-                <span
-                  className="block mb-6 text-[10px] uppercase tracking-[0.34em]"
-                  style={{
-                    fontFamily: "var(--font-util), monospace",
-                    color: "var(--or)",
-                  }}
-                >
-                  {v.num}
-                </span>
-                <h3
-                  className="mb-3 transition-colors duration-300"
-                  style={{
-                    fontFamily: "var(--font-display-alt), serif",
-                    fontSize: "clamp(20px, 2vw, 28px)",
-                    fontWeight: 400,
-                    color: hovered === v.id ? "var(--or)" : "var(--ivoire)",
-                  }}
-                >
-                  {v.title}
-                </h3>
-                <p
-                  className="text-[14px] leading-relaxed"
-                  style={{ color: "var(--pierre)" }}
-                >
-                  {v.desc}
-                </p>
-                <span
-                  className="inline-block mt-5 text-[10px] uppercase tracking-[0.2em] transition-all duration-300"
-                  style={{
-                    fontFamily: "var(--font-util), monospace",
-                    color: hovered === v.id ? "var(--or)" : "var(--pierre)",
-                    transform: hovered === v.id ? "translateX(4px)" : "none",
-                  }}
-                >
-                  Explorer &rarr;
-                </span>
+              <Link href={v.href} className="block py-16 md:py-24 no-underline">
+                <div className="flex flex-col md:flex-row md:items-baseline gap-6 md:gap-16">
+                  {/* Numero */}
+                  <span
+                    className="flex-shrink-0 text-[10px] uppercase tracking-[0.34em]"
+                    style={{
+                      fontFamily: "var(--font-util), monospace",
+                      color: hovered === v.id ? "var(--or)" : "var(--pierre)",
+                      transition: "color 0.4s ease",
+                      width: "80px",
+                    }}
+                  >
+                    {v.num}
+                  </span>
+
+                  {/* Titre Geant */}
+                  <h3
+                    className="flex-grow transition-colors duration-500"
+                    style={{
+                      fontFamily: "var(--font-couture), Georgia, serif",
+                      fontSize: "clamp(32px, 5vw, 64px)",
+                      fontWeight: 900,
+                      letterSpacing: "-0.02em",
+                      color: hovered === v.id ? "var(--or)" : "var(--encre)",
+                      lineHeight: 1.1,
+                    }}
+                  >
+                    {v.title}
+                  </h3>
+
+                  {/* Desc */}
+                  <div className="md:w-[320px] lg:w-[400px] flex-shrink-0">
+                    <p
+                      className="text-[14px] leading-relaxed transition-opacity duration-500"
+                      style={{ 
+                        color: "var(--encre)", 
+                        opacity: hovered === v.id ? 1 : 0.6 
+                      }}
+                    >
+                      {v.desc}
+                    </p>
+                    <span
+                      className="inline-block mt-8 text-[10px] uppercase tracking-[0.2em] transition-all duration-500"
+                      style={{
+                        fontFamily: "var(--font-util), monospace",
+                        color: hovered === v.id ? "var(--or)" : "var(--pierre)",
+                        transform: hovered === v.id ? "translateX(8px)" : "none",
+                      }}
+                    >
+                      Découvrir &rarr;
+                    </span>
+                  </div>
+                </div>
               </Link>
             </motion.div>
           ))}

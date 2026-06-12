@@ -2,7 +2,6 @@
 
 import { useRef, useState, useCallback } from "react";
 import { motion, useInView } from "framer-motion";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 import {
   COMMISSION_TITLE,
   COMMISSION_SUBTITLE,
@@ -46,169 +45,206 @@ export function CoutureCommissionSection() {
     <section
       id="commissions"
       ref={ref}
-      className="couture-section couture-section-noir relative overflow-hidden"
+      className="py-32 md:py-48 relative overflow-hidden"
       style={{ backgroundColor: "var(--encre, #0C0A08)" }}
     >
-      {/* Ambient ring */}
-      <div
-        className="halo-ring"
-        style={{
-          width: 500,
-          height: 500,
-          right: -180,
-          top: "50%",
-          transform: "translateY(-50%)",
-          opacity: 0.25,
-        }}
-      />
-
-      <div className="wrap-eco relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-24 lg:gap-32 items-start">
+          
           {/* Left: explanation */}
           <motion.div
-            initial={{ opacity: 0, y: 28 }}
+            className="flex-1 max-w-[500px]"
+            initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] as const }}
           >
-            <div className="couture-ornament mb-8" style={{ justifyContent: "flex-start" }}>
-              <CoutureEmblem size={22} color="var(--or)" />
-            </div>
-            <span className="eyebrow">Commissions transparentes</span>
-            <h2 className="display-small mt-4 mb-6">
+            <span 
+              className="block mb-8 text-[10px] uppercase tracking-[0.34em]"
+              style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
+            >
+              Commissions
+            </span>
+            <h2 
+              className="mb-10"
+              style={{
+                fontFamily: "var(--font-couture), Georgia, serif",
+                fontSize: "clamp(36px, 4vw, 56px)",
+                fontWeight: 400,
+                color: "var(--ivoire)",
+                lineHeight: 1.1,
+                letterSpacing: "-0.02em"
+              }}
+            >
               {COMMISSION_TITLE.split(".")[0]}
-              <span className="serif-i">.</span>
+              <span style={{ color: "var(--or)" }}>.</span>
             </h2>
-            <p className="mb-10 text-[15px] leading-relaxed" style={{ color: "var(--pierre)" }}>
+            <p 
+              className="mb-16 text-[15px] leading-relaxed" 
+              style={{ color: "rgba(244, 238, 227, 0.6)" }}
+            >
               {COMMISSION_SUBTITLE}
             </p>
 
-            <div className="space-y-1 mb-8">
-              {COMMISSION_TIERS.map((t) => (
+            <div className="flex flex-col gap-0">
+              {COMMISSION_TIERS.map((t, idx) => (
                 <div
                   key={t.label}
-                  className="flex justify-between items-center py-3 px-4 text-[13px]"
+                  className="flex justify-between items-center py-4 text-[13px]"
                   style={{
-                    borderLeft: "1px solid var(--ligne-faible)",
+                    borderTop: idx === 0 ? "1px solid rgba(244,238,227,0.1)" : "none",
+                    borderBottom: "1px solid rgba(244,238,227,0.1)",
                     fontFamily: "var(--font-util), monospace",
-                    color: parseFloat(t.rate) <= 15 ? "var(--sauge)" : "var(--pierre)",
+                    color: parseFloat(t.rate) <= 15 ? "var(--ivoire)" : "rgba(244, 238, 227, 0.5)",
                   }}
                 >
-                  <span>{t.label}</span>
+                  <span className="tracking-[0.05em]">{t.label}</span>
                   <span style={{ color: "var(--or)" }}>{t.rate}</span>
                 </div>
               ))}
             </div>
           </motion.div>
 
-          {/* Right: simulator */}
+          {/* Right: simulator (Éditorial style) */}
           <motion.div
-            className="p-10 md:p-12"
-            style={{
-              border: "1px solid var(--ligne)",
-              background: "linear-gradient(180deg, rgba(216,169,91,0.03), transparent 60%)",
-            }}
-            initial={{ opacity: 0, y: 28 }}
+            className="flex-1 w-full max-w-[560px] lg:mt-24"
+            initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
+            transition={{ duration: 0.9, delay: 0.2, ease: [0.16, 1, 0.3, 1] as const }}
           >
-            <span
-              className="block mb-6 text-[10px] uppercase tracking-[0.2em]"
-              style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
-            >
-              Simulateur
-            </span>
-
-            <div className="mb-6">
+            <div className="mb-16">
               <span
-                className="text-[11px] uppercase tracking-[0.2em] block mb-1"
-                style={{ fontFamily: "var(--font-util), monospace", color: "var(--pierre)" }}
+                className="text-[10px] uppercase tracking-[0.2em] block mb-4"
+                style={{ fontFamily: "var(--font-util), monospace", color: "rgba(244, 238, 227, 0.5)" }}
               >
                 Revenu mensuel
               </span>
-              <div className="flex items-baseline gap-1">
+              <div className="flex items-baseline gap-3 mb-8">
                 <span
-                  className="text-[36px] font-light"
-                  style={{ fontFamily: "var(--font-display-alt), serif", color: "var(--ivoire)" }}
+                  className="font-light"
+                  style={{ 
+                    fontFamily: "var(--font-couture), Georgia, serif", 
+                    color: "var(--ivoire)",
+                    fontSize: "clamp(64px, 7vw, 96px)",
+                    lineHeight: 0.9,
+                    letterSpacing: "-0.03em"
+                  }}
                 >
                   {fmt(revenue)}
                 </span>
-                <span style={{ color: "var(--pierre)" }}>€ / mois</span>
+                <span 
+                  style={{ 
+                    fontFamily: "var(--font-util), monospace",
+                    color: "var(--or)",
+                    fontSize: 14,
+                    letterSpacing: "0.1em"
+                  }}
+                >
+                  € / mois
+                </span>
               </div>
+
+              <input
+                type="range"
+                className="w-full h-px appearance-none bg-transparent cursor-pointer"
+                min="1000"
+                max="200000"
+                step="500"
+                value={revenue}
+                onChange={handleSlider}
+                aria-label="Revenu mensuel"
+                style={{
+                  background: "rgba(244, 238, 227, 0.1)",
+                  outline: "none",
+                }}
+              />
+              {/* Le slider aura besoin de CSS custom pour la thumb, géré dans globals.css s'il existe, sinon on simplifie */}
             </div>
 
-            <input
-              type="range"
-              className="simu-slider"
-              min="1000"
-              max="200000"
-              step="500"
-              value={revenue}
-              onChange={handleSlider}
-              aria-label="Revenu mensuel"
-            />
+            <div className="flex flex-col gap-12">
+              <div className="flex flex-wrap gap-12 md:gap-24">
+                <div>
+                  <div
+                    className="text-[9px] uppercase tracking-[0.25em] mb-3"
+                    style={{ fontFamily: "var(--font-util), monospace", color: "rgba(244, 238, 227, 0.5)" }}
+                  >
+                    Taux effectif
+                  </div>
+                  <div
+                    style={{ 
+                      fontFamily: "var(--font-couture), Georgia, serif", 
+                      color: "var(--or)",
+                      fontSize: "clamp(32px, 3vw, 42px)",
+                      lineHeight: 1
+                    }}
+                  >
+                    {effRate}
+                  </div>
+                </div>
+                
+                <div>
+                  <div
+                    className="text-[9px] uppercase tracking-[0.25em] mb-3"
+                    style={{ fontFamily: "var(--font-util), monospace", color: "rgba(244, 238, 227, 0.5)" }}
+                  >
+                    Commission Halo
+                  </div>
+                  <div
+                    style={{ 
+                      fontFamily: "var(--font-couture), Georgia, serif", 
+                      color: "var(--ivoire)",
+                      fontSize: "clamp(32px, 3vw, 42px)",
+                      lineHeight: 1
+                    }}
+                  >
+                    {feeDisplay}
+                  </div>
+                </div>
+              </div>
 
-            <div className="grid grid-cols-2 gap-4 mt-8">
-              <div className="p-4" style={{ border: "1px solid var(--ligne-faible)" }}>
-                <div
-                  className="text-[10px] uppercase tracking-[0.15em] mb-1"
-                  style={{ fontFamily: "var(--font-util), monospace", color: "var(--pierre)" }}
-                >
-                  Taux effectif
+              <div className="flex flex-wrap gap-12 md:gap-24">
+                <div>
+                  <div
+                    className="text-[9px] uppercase tracking-[0.25em] mb-3"
+                    style={{ fontFamily: "var(--font-util), monospace", color: "rgba(244, 238, 227, 0.5)" }}
+                  >
+                    Vous gardez
+                  </div>
+                  <div
+                    style={{ 
+                      fontFamily: "var(--font-couture), Georgia, serif", 
+                      color: "var(--ivoire)",
+                      fontSize: "clamp(32px, 3vw, 42px)",
+                      lineHeight: 1
+                    }}
+                  >
+                    {keepDisplay}
+                  </div>
                 </div>
-                <div
-                  className="text-[22px]"
-                  style={{ fontFamily: "var(--font-display-alt), serif", color: "var(--or)" }}
-                >
-                  {effRate}
-                </div>
-              </div>
-              <div className="p-4" style={{ border: "1px solid var(--ligne-faible)" }}>
-                <div
-                  className="text-[10px] uppercase tracking-[0.15em] mb-1"
-                  style={{ fontFamily: "var(--font-util), monospace", color: "var(--pierre)" }}
-                >
-                  Commission Halo
-                </div>
-                <div
-                  className="text-[22px]"
-                  style={{ fontFamily: "var(--font-display-alt), serif", color: "var(--ivoire)" }}
-                >
-                  {feeDisplay}
-                </div>
-              </div>
-              <div className="p-4" style={{ border: "1px solid var(--ligne-faible)" }}>
-                <div
-                  className="text-[10px] uppercase tracking-[0.15em] mb-1"
-                  style={{ fontFamily: "var(--font-util), monospace", color: "var(--pierre)" }}
-                >
-                  Vous gardez
-                </div>
-                <div
-                  className="text-[22px]"
-                  style={{ fontFamily: "var(--font-display-alt), serif", color: "var(--sauge)" }}
-                >
-                  {keepDisplay}
-                </div>
-              </div>
-              <div className="p-4" style={{ border: "1px solid var(--ligne-faible)" }}>
-                <div
-                  className="text-[10px] uppercase tracking-[0.15em] mb-1"
-                  style={{ fontFamily: "var(--font-util), monospace", color: "var(--pierre)" }}
-                >
-                  vs agence à 50%
-                </div>
-                <div
-                  className="text-[22px]"
-                  style={{ fontFamily: "var(--font-display-alt), serif", color: "var(--cuivre)" }}
-                >
-                  {savedDisplay}
+
+                <div>
+                  <div
+                    className="text-[9px] uppercase tracking-[0.25em] mb-3"
+                    style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
+                  >
+                    vs agence à 50%
+                  </div>
+                  <div
+                    style={{ 
+                      fontFamily: "var(--font-couture), Georgia, serif", 
+                      color: "var(--or)",
+                      fontSize: "clamp(32px, 3vw, 42px)",
+                      lineHeight: 1
+                    }}
+                  >
+                    {savedDisplay}
+                  </div>
                 </div>
               </div>
             </div>
 
             <p
-              className="mt-6 text-[11px] text-center"
-              style={{ color: "var(--pierre)", opacity: 0.5 }}
+              className="mt-16 text-[10px] tracking-[0.05em]"
+              style={{ color: "rgba(244, 238, 227, 0.3)", fontFamily: "var(--font-util), monospace" }}
             >
               {COMMISSION_DISCLAIMER}
             </p>

@@ -10,7 +10,7 @@ const fadeUp = {
   show: (d: number) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, delay: d, ease: "easeOut" as const },
+    transition: { duration: 0.9, delay: d, ease: [0.16, 1, 0.3, 1] as const },
   }),
 };
 
@@ -21,87 +21,117 @@ export function CoutureServicesGrid() {
   return (
     <section
       ref={ref}
-      className="couture-section couture-section-noir"
+      className="py-32 md:py-48"
       style={{ backgroundColor: "var(--encre, #0C0A08)" }}
     >
-      <div className="wrap-eco">
+      <div className="max-w-[1200px] mx-auto px-6 md:px-12">
         <motion.div
-          className="mb-16"
+          className="mb-24 md:mb-40"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="eyebrow">Services</span>
-          <h2 className="display-medium mt-4" style={{ maxWidth: 700 }}>
+          <span 
+            className="block text-[10px] uppercase tracking-[0.34em] mb-6"
+            style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
+          >
+            Services
+          </span>
+          <h2 
+            style={{ 
+              fontFamily: "var(--font-couture), Georgia, serif", 
+              fontSize: "clamp(42px, 5vw, 72px)", 
+              color: "var(--ivoire)", 
+              lineHeight: 1.05, 
+              letterSpacing: "-0.02em",
+              maxWidth: 800
+            }}
+          >
             Un écosystème complet pour{" "}
-            <span className="serif-i">créateurs ambitieux.</span>
+            <span style={{ fontStyle: "italic", color: "var(--or)" }}>créateurs ambitieux.</span>
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px" style={{ background: "var(--ligne-faible)" }}>
-          {SERVICES.map((svc, i) => (
-            <motion.div
-              key={svc.id}
-              className="p-10 md:p-12 group"
-              style={{
-                background: "var(--encre)",
-                transition: "background 0.4s",
-              }}
-              variants={fadeUp}
-              initial="hidden"
-              animate={inView ? "show" : "hidden"}
-              custom={0.1 + i * 0.08}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "var(--fumee)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "var(--encre)";
-              }}
-            >
-              <h3
-                className="mb-3 transition-colors duration-300"
-                style={{
-                  fontFamily: "var(--font-display-alt), serif",
-                  fontSize: "clamp(22px, 2vw, 30px)",
-                  fontWeight: 400,
-                  color: "var(--ivoire)",
-                }}
+        {/* Layout Asymétrique sans bordures SaaS */}
+        <div className="flex flex-col gap-32 md:gap-48">
+          {SERVICES.map((svc, i) => {
+            const isEven = i % 2 === 0;
+            return (
+              <motion.div
+                key={svc.id}
+                className={`flex flex-col md:flex-row gap-12 md:gap-24 ${isEven ? "" : "md:flex-row-reverse"}`}
+                variants={fadeUp}
+                initial="hidden"
+                animate={inView ? "show" : "hidden"}
+                custom={0.1 * i}
               >
-                {svc.title}
-              </h3>
-              <p
-                className="mb-8 text-[14px] leading-relaxed"
-                style={{ color: "var(--pierre)" }}
-              >
-                {svc.desc}
-              </p>
-              <ul style={{ listStyle: "none" }} className="mb-10">
-                {svc.capabilities.map((c) => (
-                  <li
-                    key={c}
-                    className="py-2.5 flex items-center gap-3 text-[13px]"
+                {/* Block Titre & Desc */}
+                <div className="flex-1 max-w-[500px]">
+                  <h3
+                    className="mb-6"
                     style={{
-                      borderTop: "1px solid var(--ligne-faible)",
-                      color: "var(--pierre)",
+                      fontFamily: "var(--font-couture), Georgia, serif",
+                      fontSize: "clamp(32px, 3.5vw, 48px)",
+                      fontWeight: 400,
+                      color: "var(--ivoire)",
+                      lineHeight: 1.1
                     }}
                   >
-                    <span style={{ color: "var(--or)", fontSize: 8 }}>&#9670;</span>
-                    {c}
-                  </li>
-                ))}
-              </ul>
-              <Link
-                href={svc.cta.href}
-                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-[0.22em] transition-colors"
-                style={{
-                  fontFamily: "var(--font-util), monospace",
-                  color: "var(--or)",
-                }}
-              >
-                {svc.cta.label} &rarr;
-              </Link>
-            </motion.div>
-          ))}
+                    {svc.title}
+                  </h3>
+                  <p
+                    className="text-[15px] leading-relaxed mb-10"
+                    style={{ color: "rgba(244, 238, 227, 0.6)" }}
+                  >
+                    {svc.desc}
+                  </p>
+                  <Link
+                    href={svc.cta.href}
+                    className="inline-flex items-center gap-4 text-[10px] uppercase tracking-[0.22em] transition-all duration-300 group"
+                    style={{
+                      fontFamily: "var(--font-util), monospace",
+                      color: "var(--or)",
+                    }}
+                  >
+                    <span 
+                      className="block w-8 h-px transition-all duration-300 group-hover:w-16" 
+                      style={{ background: "var(--or)" }}
+                    />
+                    {svc.cta.label}
+                  </Link>
+                </div>
+
+                {/* Block Capacités (Capabilities) */}
+                <div className="flex-1 max-w-[400px]">
+                  <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+                    {svc.capabilities.map((c, j) => (
+                      <li
+                        key={c}
+                        className="py-5 flex items-start gap-4 text-[14px]"
+                        style={{
+                          borderBottom: j < svc.capabilities.length - 1 ? "1px solid rgba(244, 238, 227, 0.08)" : "none",
+                          color: "rgba(244, 238, 227, 0.8)",
+                          lineHeight: 1.5
+                        }}
+                      >
+                        <span 
+                          className="mt-1"
+                          style={{ 
+                            color: "var(--or)", 
+                            fontSize: 8,
+                            fontFamily: "var(--font-util), monospace",
+                          }}
+                        >
+                          {(j + 1).toString().padStart(2, "0")}
+                        </span>
+                        {c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

@@ -31,158 +31,165 @@ export function CoutureCarousel() {
   return (
     <section
       ref={ref}
-      className="couture-section couture-section-fumee"
-      style={{ backgroundColor: "var(--fumee, #15110D)" }}
+      className="py-32 md:py-48 overflow-hidden"
+      style={{ backgroundColor: "var(--creme, #F9F6EF)" }}
     >
-      <div className="wrap-eco">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12 relative">
         <motion.div
-          className="mb-14"
+          className="mb-24"
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7, ease: "easeOut" }}
+          transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <span className="eyebrow">Cas d&apos;usage</span>
-          <h2 className="display-medium mt-4">
-            Des scénarios de <span className="serif-i">croissance.</span>
+          <span 
+            className="block mb-6 text-[10px] uppercase tracking-[0.34em]"
+            style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
+          >
+            Cas d&apos;usage
+          </span>
+          <h2 
+            style={{
+              fontFamily: "var(--font-couture), Georgia, serif",
+              fontSize: "clamp(42px, 5vw, 72px)",
+              color: "var(--encre)",
+              lineHeight: 1.05,
+              letterSpacing: "-0.02em"
+            }}
+          >
+            Des scénarios de <span style={{ fontStyle: "italic", color: "var(--or)" }}>croissance.</span>
           </h2>
         </motion.div>
 
-        {/* Carousel */}
-        <div
-          className="couture-carousel-wrap relative"
-          onMouseEnter={() => {}}
-        >
+        {/* Carousel (Editorial Layout) */}
+        <div className="relative min-h-[500px] flex items-center">
           <motion.div
             key={slide.id}
-            className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center p-10"
-            style={{
-              border: "1px solid var(--ligne-faible)",
-              background: "var(--encre)",
-            }}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4 }}
+            className="w-full flex flex-col md:flex-row gap-16 md:gap-32 items-start"
+            initial={{ opacity: 0, filter: "blur(8px)", x: 40 }}
+            animate={{ opacity: 1, filter: "blur(0px)", x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            {/* Left: Info */}
-            <div>
+            {/* Numero Geant */}
+            <div className="flex-shrink-0 md:w-[120px]">
               <span
-                className="inline-block mb-4 text-[10px] uppercase tracking-[0.3em]"
-                style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
-              >
-                {String(current + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-              </span>
-              <h3
-                className="mb-3"
                 style={{
-                  fontFamily: "var(--font-display-alt), serif",
-                  fontSize: "clamp(28px, 3vw, 42px)",
+                  fontFamily: "var(--font-couture), Georgia, serif",
+                  fontSize: "clamp(80px, 10vw, 140px)",
+                  color: "rgba(12,10,8,0.06)",
+                  lineHeight: 0.8,
+                  fontStyle: "italic",
+                }}
+              >
+                {String(current + 1).padStart(2, "0")}
+              </span>
+            </div>
+
+            {/* Left: Info */}
+            <div className="flex-1 max-w-[600px] mt-8 md:mt-16">
+              <h3
+                className="mb-6"
+                style={{
+                  fontFamily: "var(--font-couture), Georgia, serif",
+                  fontSize: "clamp(36px, 4vw, 56px)",
                   fontWeight: 400,
-                  color: "var(--ivoire)",
+                  color: "var(--encre)",
+                  lineHeight: 1.1,
+                  letterSpacing: "-0.02em"
                 }}
               >
                 {slide.title}
               </h3>
-              <p className="mb-8 text-[15px] leading-relaxed" style={{ color: "var(--pierre)" }}>
+              <p className="mb-16 text-[16px] leading-relaxed" style={{ color: "var(--encre)", opacity: 0.7 }}>
                 {slide.subtitle}
               </p>
 
-              <div className="space-y-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
                   <span
-                    className="text-[10px] uppercase tracking-[0.2em] block mb-1"
-                    style={{ fontFamily: "var(--font-util), monospace", color: "var(--terre)" }}
+                    className="text-[9px] uppercase tracking-[0.25em] block mb-3"
+                    style={{ fontFamily: "var(--font-util), monospace", color: "rgba(12,10,8,0.4)" }}
                   >
                     Problème
                   </span>
-                  <p className="text-[14px]" style={{ color: "var(--pierre)" }}>{slide.problem}</p>
+                  <p className="text-[14px] leading-relaxed" style={{ color: "var(--encre)" }}>{slide.problem}</p>
                 </div>
                 <div>
                   <span
-                    className="text-[10px] uppercase tracking-[0.2em] block mb-1"
+                    className="text-[9px] uppercase tracking-[0.25em] block mb-3"
                     style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
                   >
                     Système Halo
                   </span>
-                  <p className="text-[14px]" style={{ color: "var(--pierre)" }}>{slide.system}</p>
-                </div>
-                <div>
-                  <span
-                    className="text-[10px] uppercase tracking-[0.2em] block mb-1"
-                    style={{ fontFamily: "var(--font-util), monospace", color: "var(--sauge)" }}
-                  >
-                    Bénéfice
-                  </span>
-                  <p className="text-[14px]" style={{ color: "var(--ivoire)" }}>{slide.benefit}</p>
+                  <p className="text-[14px] leading-relaxed" style={{ color: "var(--encre)" }}>{slide.system}</p>
                 </div>
               </div>
-            </div>
-
-            {/* Right: Abstract visual placeholder */}
-            <div
-              className="hidden md:flex items-center justify-center"
-              style={{ minHeight: 320 }}
-              aria-hidden="true"
-            >
-              <div
-                style={{
-                  width: 280,
-                  height: 360,
-                  background: "linear-gradient(135deg, rgba(216,169,91,0.06), rgba(226,112,46,0.03))",
-                  border: "1px solid var(--ligne)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
+              
+              <div className="mt-12 pt-12" style={{ borderTop: "1px solid rgba(12,10,8,0.1)" }}>
                 <span
-                  style={{
-                    fontFamily: "var(--font-display-alt), serif",
-                    fontSize: 72,
-                    color: "var(--or)",
-                    opacity: 0.12,
-                    fontStyle: "italic",
+                  className="text-[9px] uppercase tracking-[0.25em] block mb-3"
+                  style={{ fontFamily: "var(--font-util), monospace", color: "rgba(12,10,8,0.4)" }}
+                >
+                  Bénéfice
+                </span>
+                <p 
+                  className="text-[20px]" 
+                  style={{ 
+                    fontFamily: "var(--font-couture), Georgia, serif", 
+                    color: "var(--encre)", 
+                    fontStyle: "italic" 
                   }}
                 >
-                  {String(current + 1).padStart(2, "0")}
-                </span>
+                  {slide.benefit}
+                </p>
               </div>
             </div>
           </motion.div>
+        </div>
 
-          {/* Controls */}
-          <div className="flex items-center justify-between mt-6">
+        {/* Controls - Minimalist Absolute Bottom Right */}
+        <div className="flex items-center gap-12 mt-24 justify-end">
+          <div className="flex items-center gap-4">
+            {CAROUSEL_SLIDES.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrent(i)}
+                aria-label={`Slide ${i + 1}`}
+                style={{
+                  width: i === current ? 40 : 12,
+                  height: 1,
+                  background: i === current ? "var(--encre)" : "rgba(12,10,8,0.2)",
+                  border: "none",
+                  padding: 0,
+                  cursor: "pointer",
+                  transition: "all 0.5s ease"
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="flex gap-4">
             <button
               onClick={prev}
-              className="couture-carousel-btn"
-              aria-label="Slide précédent"
+              className="group flex items-center justify-center w-12 h-12"
+              style={{ border: "1px solid rgba(12,10,8,0.1)", background: "transparent", cursor: "pointer", transition: "all 0.3s" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--encre)" }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(12,10,8,0.1)" }}
+              aria-label="Précédent"
             >
-              <span style={{ fontSize: 20 }}>&larr;</span>
+              <span style={{ color: "var(--encre)" }}>&larr;</span>
             </button>
-
-            <div className="flex items-center gap-3">
-              {CAROUSEL_SLIDES.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrent(i)}
-                  className={`couture-carousel-dot${i === current ? " active" : ""}`}
-                  aria-label={`Slide ${i + 1}`}
-                />
-              ))}
-            </div>
-
             <button
               onClick={next}
-              className="couture-carousel-btn"
-              aria-label="Slide suivant"
+              className="group flex items-center justify-center w-12 h-12"
+              style={{ border: "1px solid rgba(12,10,8,0.1)", background: "transparent", cursor: "pointer", transition: "all 0.3s" }}
+              onMouseEnter={e => { e.currentTarget.style.borderColor = "var(--encre)" }}
+              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(12,10,8,0.1)" }}
+              aria-label="Suivant"
             >
-              <span style={{ fontSize: 20 }}>&rarr;</span>
+              <span style={{ color: "var(--encre)" }}>&rarr;</span>
             </button>
           </div>
         </div>
-
-        <p className="mt-8 text-center text-[11px]" style={{ color: "var(--pierre)", opacity: 0.4 }}>
-          Scénarios illustratifs — aucun résultat n&apos;est garanti.
-        </p>
       </div>
     </section>
   );
