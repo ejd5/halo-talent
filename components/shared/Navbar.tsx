@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { useLocale } from "@/lib/i18n/use-locale";
 import { t, type Locale } from "@/lib/i18n/common";
+import { HaloCoutureLogo } from "@/components/brand/HaloCoutureLogo";
 
 function norm(locale: string): Locale {
   return locale === "pt" ? "pt-BR" : (locale as Locale);
@@ -71,13 +72,9 @@ export function Navbar() {
       className="fixed top-0 left-0 right-0 z-50 h-[72px]"
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-12 h-full flex items-center justify-between">
-        {/* Logo */}
-        <Link
-          href="/"
-          className="font-display-alt text-[22px] font-medium tracking-[0.01em]"
-          style={{ fontFamily: "var(--font-display-alt, Fraunces, Georgia, serif)", color: "var(--ivoire, #F4EEE3)" }}
-        >
-          Halo <em style={{ fontStyle: "italic", color: "var(--or, #D8A95B)" }}>Talent</em>
+        {/* Logo — Style n°4 couture */}
+        <Link href="/" className="flex-shrink-0">
+          <HaloCoutureLogo size="sm" variant="ivoire" />
         </Link>
 
         {/* Desktop nav */}
@@ -156,24 +153,23 @@ export function Navbar() {
               {t("nav.login", l)}
             </Link>
 
-            {/* CTA */}
+            {/* CTA — Couture noir/champagne */}
             <Link
               href="/apply"
-              className="inline-flex items-center gap-2.5 px-[26px] py-[14px] text-[11px] uppercase tracking-[0.22em] transition-all duration-300"
+              className="inline-flex items-center gap-2.5 px-[26px] py-[14px] text-[11px] uppercase tracking-[0.22em] transition-all duration-300 rounded-[2px]"
               style={{
                 fontFamily: "var(--font-util, Space Grotesk, monospace)",
-                backgroundColor: "var(--cuivre, #E2702E)",
-                color: "#fff",
-                border: "1px solid var(--cuivre, #E2702E)",
-                borderRadius: "2px",
+                backgroundColor: "transparent",
+                color: "var(--or, #D8A95B)",
+                border: "1px solid var(--or, #D8A95B)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#F08440";
-                e.currentTarget.style.borderColor = "#F08440";
+                e.currentTarget.style.backgroundColor = "var(--or, #D8A95B)";
+                e.currentTarget.style.color = "var(--encre, #0C0A08)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--cuivre, #E2702E)";
-                e.currentTarget.style.borderColor = "var(--cuivre, #E2702E)";
+                e.currentTarget.style.backgroundColor = "transparent";
+                e.currentTarget.style.color = "var(--or, #D8A95B)";
               }}
             >
               {t("nav.start_free", l)}
@@ -252,10 +248,12 @@ export function Navbar() {
             <Link
               href="/apply"
               onClick={() => setIsOpen(false)}
-              className="inline-flex items-center justify-center px-10 py-4 text-[0.8rem] font-semibold uppercase tracking-[0.08em]"
+              className="inline-flex items-center justify-center px-10 py-4 text-[0.8rem] font-semibold uppercase tracking-[0.08em] transition-all duration-300"
               style={{
-                backgroundColor: "var(--cuivre, #E2702E)",
-                color: "#fff",
+                border: "1px solid var(--or, #D8A95B)",
+                color: "var(--or, #D8A95B)",
+                backgroundColor: "transparent",
+                borderRadius: "2px",
               }}
             >
               {t("nav.start_free", l)}

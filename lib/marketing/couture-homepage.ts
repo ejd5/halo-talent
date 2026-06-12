@@ -27,6 +27,14 @@ export const HERO_CTAS = [
   { label: "Explorer Chat AI", href: "/chat-ai", variant: "ghost" as const },
 ];
 
+// --- Hero editorial bottom line ---
+export const HERO_EDITORIAL_STEPS = [
+  { num: "01", label: "Management" },
+  { num: "02", label: "Image" },
+  { num: "03", label: "Croissance" },
+  { num: "04", label: "Contrôle" },
+];
+
 export const FLOATING_CARD_LABELS = [
   { label: "Management", x: "6%", y: "16%", delay: 0 },
   { label: "Studio IA", x: "80%", y: "10%", delay: 0.6 },
