@@ -100,7 +100,7 @@
   --animate-reveal: reveal 0.6s ease-out both;
   --animate-slide-up: slideUp 0.5s ease-out both;
 
-  /* ── Halo signature animations ── */
+  /* ── WTF signature animations ── */
   --animate-halo-spin: spin 26s linear infinite;
   --animate-halo-breathe: breathe 7s ease-in-out infinite;
 
@@ -636,7 +636,7 @@
   .btn-eco-gold { border-color: var(--or); color: var(--or); }
   .btn-eco-gold:hover { background: var(--or); color: var(--encre); }
 
-  /* --- Halo ambient signature --- */
+  /* --- WTF ambient signature --- */
   .halo-ring {
     position: absolute;
     border-radius: 50%;

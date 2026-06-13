@@ -136,7 +136,7 @@ export default function PPVCopilotPage() {
             </h1>
           </div>
           <p className="text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
-            Recommandations IA de prix et stratégie PPV — basé sur ton vault, tes fans, et l&apos;historique
+            Recommandations IA de prix et stratégie PPV, basé sur ton vault, tes fans, et l'historique
           </p>
         </div>
       </div>
@@ -178,7 +178,7 @@ export default function PPVCopilotPage() {
                     <option value="">-- Choisir un contenu --</option>
                     {assets.map((a) => (
                       <option key={a.id} value={a.id}>
-                        {a.title} ({a.type}) — {a.currentPrice}€
+                        {a.title} ({a.type}), {a.currentPrice}€
                       </option>
                     ))}
                   </select>

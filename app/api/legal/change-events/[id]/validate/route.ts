@@ -73,7 +73,7 @@ export async function POST(
         await notify({
           userId: creatorId,
           type: "legal_change",
-          title: `${event.platform} — CGU mises à jour`,
+          title: `${event.platform}, CGU mises à jour`,
           message: event.summary.slice(0, 200),
           severity: event.impact_level === "critical" ? "critical" : "info",
           link: "/dashboard/atlas/legal?tab=veille",
@@ -81,7 +81,7 @@ export async function POST(
         });
         notifiedCount++;
       } catch {
-        // Non-critical — continue notifying others
+        // Non-critical, continue notifying others
       }
     }
 

@@ -103,7 +103,7 @@ export function AdjustmentModal({ creatorId, creatorName, currentCommission, onS
                   style={{ color: needsValidation ? "var(--danger)" : "var(--accent)" }} />
                 <span className="text-[10px] font-sans" style={{ color: needsValidation ? "var(--danger)" : "var(--accent)" }}>
                   {difference >= 0 ? "+" : ""}{formatEuro(difference)}
-                  {needsValidation ? " — Validation requise (>1000€)" : ""}
+                  {needsValidation ? ", Validation requise (>1000€)" : ""}
                 </span>
               </div>
             )}

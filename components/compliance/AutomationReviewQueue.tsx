@@ -156,7 +156,7 @@ export function AutomationReviewQueue({ items = REVIEW_QUEUE }: AutomationReview
 
                   {!isPending && item.reviewedBy && (
                     <p className="text-[7px]" style={{ color: "rgba(255,255,255,0.2)" }}>
-                      {item.status === "approved" ? "✓" : "✗"} {item.reviewedBy} — {item.reviewedAt ? new Date(item.reviewedAt).toLocaleDateString("fr-FR") : ""}
+                      {item.status === "approved" ? "✓" : "✗"} {item.reviewedBy}, {item.reviewedAt ? new Date(item.reviewedAt).toLocaleDateString("fr-FR") : ""}
                     </p>
                   )}
                 </div>

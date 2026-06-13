@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";
 
 /**
- * OnlyFans / MYM / Fansly — Pas d'API publique.
+ * OnlyFans / MYM / Fansly, Pas d'API publique.
  *
  * SOLUTIONS :
  * 1. Saisie manuelle : le créateur entre ses revenus mensuels dans le dashboard

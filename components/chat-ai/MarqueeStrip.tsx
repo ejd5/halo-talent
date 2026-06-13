@@ -1,4 +1,4 @@
-// ── MarqueeStrip — Infinite scrolling text banner ─────────
+// ── MarqueeStrip, Infinite scrolling text banner ─────────
 // Inspired by Synchronized Studio's marquee technique.
 // Renders a single row of text that scrolls infinitely.
 

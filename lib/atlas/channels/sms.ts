@@ -297,7 +297,7 @@ export async function handleInboundSMS(from: string, body: string) {
       .eq("fan_id", fan.id)
       .is("unsubscribed_at", null);
 
-    return { action: "unsubscribed", fan, responseXml: twimlResponse("You've been unsubscribed. No more messages will be sent. ❌ Réponse STOP reçue — vous ne recevrez plus de SMS.") };
+    return { action: "unsubscribed", fan, responseXml: twimlResponse("You've been unsubscribed. No more messages will be sent. ❌ Réponse STOP reçue, vous ne recevrez plus de SMS.") };
   }
 
   // Handle HELP keywords
@@ -306,7 +306,7 @@ export async function handleInboundSMS(from: string, body: string) {
     return { action: "help", fan, responseXml: twimlResponse("Reply STOP to unsubscribe at any time. Standard message rates apply.") };
   }
 
-  // Regular reply — create interaction + notify creator
+  // Regular reply, create interaction + notify creator
   if (fan) {
     await supabase.from("atlas_interactions").insert({
       fan_id: fan.id,

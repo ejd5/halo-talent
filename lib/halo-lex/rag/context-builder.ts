@@ -1,4 +1,4 @@
-// ─── Halo Lex — Context Builder ───────────────────────────────
+// ─── WTF Lex, Context Builder ───────────────────────────────
 // Construit le contexte injecté dans le system prompt du LLM.
 
 import type { RerankedResult, ContextBlock } from "./types";

@@ -5,7 +5,7 @@
 // Affiche le statut, la timeline, le téléchargement, le feedback
 
 import { useState, useEffect, use } from "react";
-import { Clock, CheckCircle, Circle, Download, Star, MessageSquare, FileText, AlertTriangle, RefreshCw, ArrowLeft, Send, ChevronRight } from "lucide-react";
+import { Clock, CheckCircle, Circle, Download, Star, AlertTriangle, RefreshCw, ArrowLeft, Send, ChevronRight } from "lucide-react";
 import Link from "next/link";
 
 interface LetterEvent {
@@ -124,7 +124,7 @@ export default function LetterRequestTrackingPage({ params }: { params: Promise<
           <h1 className="text-xl font-semibold mt-4" style={{ color: "var(--text-primary)" }}>Demande introuvable</h1>
           <p className="text-sm mt-2" style={{ color: "var(--text-secondary)" }}>{error || "Cette demande n'existe pas ou vous n'y avez pas accès."}</p>
           <Link href="/lex" className="inline-flex items-center gap-1.5 mt-4 px-4 py-2 text-sm rounded-md" style={{ backgroundColor: "var(--accent)", color: "var(--accent-text)" }}>
-            <ArrowLeft size={14} /> Retour à Halo Lex
+            <ArrowLeft size={14} /> Retour à WTF Lex
           </Link>
         </div>
       </div>
@@ -139,7 +139,7 @@ export default function LetterRequestTrackingPage({ params }: { params: Promise<
       <div className="max-w-2xl mx-auto px-4 py-8">
         {/* Back link */}
         <Link href="/lex" className="inline-flex items-center gap-1.5 text-xs mb-6" style={{ color: "var(--accent)" }}>
-          <ArrowLeft size={14} /> Retour à Halo Lex
+          <ArrowLeft size={14} /> Retour à WTF Lex
         </Link>
 
         {/* Header */}
@@ -209,7 +209,7 @@ export default function LetterRequestTrackingPage({ params }: { params: Promise<
 
           {request.status === "awaiting_info" && (
             <div className="mt-4 p-3 rounded-lg text-xs" style={{ backgroundColor: "#fff7ed", color: "#f59e0b" }}>
-              <AlertTriangle size={12} className="inline mr-1" /> En attente d&apos;informations complémentaires de votre part
+              <AlertTriangle size={12} className="inline mr-1" /> En attente d'informations complémentaires de votre part
             </div>
           )}
           {request.status === "refused" && (
@@ -253,7 +253,7 @@ export default function LetterRequestTrackingPage({ params }: { params: Promise<
                 <h2 className="text-sm font-semibold" style={{ color: "#16a34a" }}>Votre document est prêt</h2>
               </div>
               <p className="text-xs mb-3" style={{ color: "#15803d" }}>
-                Livré le {request.delivered_at ? new Date(request.delivered_at).toLocaleDateString("fr-FR", { dateStyle: "long" }) : "—"}
+                Livré le {request.delivered_at ? new Date(request.delivered_at).toLocaleDateString("fr-FR", { dateStyle: "long" }) : ", "}
               </p>
 
               <a
@@ -346,7 +346,7 @@ export default function LetterRequestTrackingPage({ params }: { params: Promise<
 
         {/* Bottom info */}
         <p className="text-center text-xs mt-8" style={{ color: "var(--text-tertiary)" }}>
-          ℹ️ Halo Lex fournit une assistance à la rédaction juridique. Information juridique générale, ne constitue pas un acte d&apos;avocat.
+          ℹ️ WTF Lex fournit une assistance à la rédaction juridique. Information juridique générale, ne constitue pas un acte d'avocat.
         </p>
       </div>
     </div>

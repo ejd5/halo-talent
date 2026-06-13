@@ -483,7 +483,7 @@ function Editor({ pageId, router, qrTab: initialQrTab }: { pageId: string; route
 }
 
 /* ═══════════════════════════════════════════════════════════
-   Live Preview — renders exactly what the public page looks like
+   Live Preview, renders exactly what the public page looks like
    ═══════════════════════════════════════════════════════════ */
 function LivePreview({ form, links, pageType, mode }: {
   form: any;

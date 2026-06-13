@@ -63,7 +63,7 @@ export function ContentPerformancePanel({ asset }: ContentPerformancePanelProps)
         <KPIBox
           icon={<BarChart3 size={13} />}
           label={t("content_vault.overview.avg_price", l)}
-          value={asset.averagePrice > 0 ? `${asset.averagePrice}€` : "—"}
+          value={asset.averagePrice > 0 ? `${asset.averagePrice}€` : ", "}
           color="#8B5CF6"
         />
       </div>

@@ -28,7 +28,7 @@ export function StepIntro({ onStart }: { onStart: () => void }) {
         }`}
         style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
       >
-        Bienvenue chez Halo
+        Bienvenue chez WTF
       </h1>
 
       {/* Subtitle */}
@@ -39,8 +39,8 @@ export function StepIntro({ onStart }: { onStart: () => void }) {
         style={{ color: "var(--text-secondary)", fontFamily: "var(--font-body)" }}
       >
         Prenons 5 minutes pour comprendre qui vous êtes. Vos réponses configurent votre{" "}
-        <strong style={{ color: "var(--accent)" }}>ADN créatif</strong> — l&apos;intelligence
-        qui personnalise tout dans Halo.
+        <strong style={{ color: "var(--accent)" }}>ADN créatif</strong>, l'intelligence
+        qui personnalise tout dans WTF.
       </p>
 
       {/* Start button */}

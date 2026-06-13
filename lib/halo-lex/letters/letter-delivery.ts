@@ -1,4 +1,4 @@
-// ─── Halo Lex — Letter Delivery & Notification Service ──────
+// ─── WTF Lex, Letter Delivery & Notification Service ──────
 // Gère l'envoi des notifications aux 4 étapes clés, les emails,
 // le suivi post-livraison J+3 et J+7, et le feedback.
 
@@ -66,7 +66,7 @@ async function sendAndLogEmail(
 // ─── Step 1: Received confirmation ───────────────────────
 
 export async function sendReceivedConfirmation(data: NotificationPayload) {
-  const subject = `✅ Votre demande de rédaction a bien été reçue — Halo Lex`;
+  const subject = `✅ Votre demande de rédaction a bien été reçue, WTF Lex`;
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <h2>Bonjour ${data.firstName},</h2>
@@ -83,10 +83,10 @@ export async function sendReceivedConfirmation(data: NotificationPayload) {
         </ul>
       </div>
 
-      <p>L'équipe Halo va préparer votre document. Vous recevrez une notification dès qu'il sera prêt.</p>
+      <p>L'équipe WTF va préparer votre document. Vous recevrez une notification dès qu'il sera prêt.</p>
       <p>Vous pouvez suivre le statut de votre demande en temps réel :</p>
       <p><a href="https://halo-talent.com/lex/requests/${data.letterRequestId}" style="display: inline-block; background: #7c3aed; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">Suivre ma demande</a></p>
-      <p style="margin-top: 24px; font-size: 12px; color: #666;">ℹ️ Halo Lex fournit une assistance à la rédaction juridique. Information juridique générale, ne constitue pas un acte d'avocat.</p>
+      <p style="margin-top: 24px; font-size: 12px; color: #666;">ℹ️ WTF Lex fournit une assistance à la rédaction juridique. Information juridique générale, ne constitue pas un acte d'avocat.</p>
     </div>
   `;
 
@@ -97,14 +97,14 @@ export async function sendReceivedConfirmation(data: NotificationPayload) {
 // ─── Step 2: In progress notification ────────────────────
 
 export async function sendInProgressNotification(data: NotificationPayload) {
-  const subject = `✍️ Votre lettre est en cours de rédaction — Halo Lex`;
+  const subject = `✍️ Votre lettre est en cours de rédaction, WTF Lex`;
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <h2>Bonjour ${data.firstName},</h2>
       <p>Bonne nouvelle ! Notre équipe a commencé la rédaction de votre document <strong>"${data.letterType}"</strong>.</p>
       <p>Vous le recevrez avant le <strong>${new Date(data.deadlineAt).toLocaleDateString("fr-FR", { dateStyle: "long" })}</strong>.</p>
       <p><a href="https://halo-talent.com/lex/requests/${data.letterRequestId}" style="display: inline-block; background: #7c3aed; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">Suivre l'avancement</a></p>
-      <p style="margin-top: 24px;">À bientôt,<br>L'équipe Halo</p>
+      <p style="margin-top: 24px;">À bientôt,<br>L'équipe WTF</p>
     </div>
   `;
 
@@ -120,7 +120,7 @@ export async function sendDocumentReadyNotification(
   recommendations?: { deadlineDays?: number; followUpDays?: number; sendMethod?: string }
 ) {
   const rec = recommendations || {};
-  const subject = `📄 Votre document est prêt — Halo Lex`;
+  const subject = `📄 Votre document est prêt, WTF Lex`;
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <h2>Bonjour ${data.firstName},</h2>
@@ -137,7 +137,7 @@ export async function sendDocumentReadyNotification(
       </div>
 
       ${rec.deadlineDays ? `<p>🕐 Délais légaux à respecter : ${rec.deadlineDays} jours ouvrés à compter de la réception.</p>` : ""}
-      ${rec.followUpDays ? `<p>📊 Suivi recommandé : Si vous n'avez pas de réponse sous ${rec.followUpDays} jours, n'hésitez pas à demander une lettre de relance via Halo Lex.</p>` : ""}
+      ${rec.followUpDays ? `<p>📊 Suivi recommandé : Si vous n'avez pas de réponse sous ${rec.followUpDays} jours, n'hésitez pas à demander une lettre de relance via WTF Lex.</p>` : ""}
 
       <p><a href="${pdfUrl}" style="display: inline-block; background: #7c3aed; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">Télécharger mon document</a></p>
       <p style="margin-top: 24px; font-size: 12px; color: #666;">ℹ️ Information juridique générale, ne constitue pas un acte d'avocat. Le créateur reste seul responsable de l'envoi et des conséquences de ce document.</p>
@@ -154,7 +154,7 @@ export async function sendClarificationNotification(
   data: NotificationPayload,
   questions: string[]
 ) {
-  const subject = `❓ Information complémentaire nécessaire — Halo Lex`;
+  const subject = `❓ Information complémentaire nécessaire, WTF Lex`;
   const questionList = questions.map((q, i) => `${i + 1}. ${q}`).join("\n");
   const html = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -166,7 +166,7 @@ export async function sendClarificationNotification(
       <p>Répondez directement sur votre tableau de bord :</p>
       <p><a href="https://halo-talent.com/lex/requests/${data.letterRequestId}" style="display: inline-block; background: #7c3aed; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">Répondre</a></p>
       <p>Le compte à rebours de votre demande est mis en pause jusqu'à votre réponse.</p>
-      <p>Merci,<br>L'équipe Halo</p>
+      <p>Merci,<br>L'équipe WTF</p>
     </div>
   `;
 
@@ -189,7 +189,7 @@ export async function sendFollowUp3Days(data: NotificationPayload) {
         <a href="https://halo-talent.com/lex/requests/${data.letterRequestId}?outcome=no_response" style="background: #ef4444; color: white; padding: 10px 20px; text-decoration: none; border-radius: 6px;">Pas de réponse</a>
       </div>
       <p>Si vous n'avez pas de réponse, une lettre de relance pourrait être nécessaire.</p>
-      <p>L'équipe Halo</p>
+      <p>L'équipe WTF</p>
     </div>
   `;
 
@@ -206,7 +206,7 @@ export async function sendFollowUp7Days(data: NotificationPayload) {
       <p>7 jours se sont écoulés depuis l'envoi de votre document <strong>"${data.letterType}"</strong>.</p>
       <p>Sans réponse du destinataire, une relance formelle peut accélérer le processus.</p>
       <p><a href="https://halo-talent.com/lex/requests/${data.letterRequestId}?request_relance=true" style="display: inline-block; background: #7c3aed; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px;">Demander une lettre de relance</a></p>
-      <p>L'équipe Halo</p>
+      <p>L'équipe WTF</p>
     </div>
   `;
 
@@ -221,7 +221,7 @@ async function sendInAppNotification(userId: string, type: string, message: stri
     await notify({
       userId,
       type: "letter_" + type,
-      title: "Halo Lex",
+      title: "WTF Lex",
       message,
       link: `/lex/requests/${letterRequestId}`,
       channels: ["in_app"],
@@ -531,7 +531,7 @@ async function getAdminEmails(): Promise<string[]> {
 }
 
 /**
- * Récapitulatif quotidien à 8h — résumé des demandes en cours.
+ * Récapitulatif quotidien à 8h, résumé des demandes en cours.
  */
 export async function sendAdminDailyRecap() {
   const supabase = await createAdminClient();
@@ -559,7 +559,7 @@ export async function sendAdminDailyRecap() {
   };
 
   const rows = pending.slice(0, 15).map((r: any) => {
-    const userName = r.users?.raw_user_meta_data?.first_name || "—";
+    const userName = r.users?.raw_user_meta_data?.first_name || ", ";
     const dl = new Date(r.deadline_at);
     const isLate = dl < now;
     const hoursLeft = Math.round((dl.getTime() - now.getTime()) / (1000 * 60 * 60));
@@ -573,10 +573,10 @@ export async function sendAdminDailyRecap() {
     </tr>`;
   }).join("");
 
-  const subject = `📊 Halo Lex — Récap du ${now.toLocaleDateString("fr-FR", { dateStyle: "long" })}`;
+  const subject = `📊 WTF Lex, Récap du ${now.toLocaleDateString("fr-FR", { dateStyle: "long" })}`;
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
-      <h2>File de rédaction — ${now.toLocaleDateString("fr-FR", { dateStyle: "long" })}</h2>
+      <h2>File de rédaction, ${now.toLocaleDateString("fr-FR", { dateStyle: "long" })}</h2>
       <div style="background:#f8f9fa;padding:12px;border-radius:8px;margin:12px 0">
         <p><strong>En attente :</strong> ${pending.length} demande${pending.length > 1 ? "s" : ""}</p>
         <ul>
@@ -634,13 +634,13 @@ export async function sendDeadlineReminder4h() {
   if (adminEmails.length === 0) return { sent: 0 };
 
   const requestList = urgent.map((r: any) => {
-    const userName = r.users?.raw_user_meta_data?.first_name || "—";
+    const userName = r.users?.raw_user_meta_data?.first_name || ", ";
     const dl = new Date(r.deadline_at);
     const minsLeft = Math.round((dl.getTime() - now.getTime()) / (1000 * 60));
-    return `<li>${r.reference || r.id.substring(0, 8)} — ${r.letter_type} (${userName}) — ${r.priority === "express" ? "Express" : "Urgent"} — <strong>${minsLeft}min restantes</strong></li>`;
+    return `<li>${r.reference || r.id.substring(0, 8)}, ${r.letter_type} (${userName}), ${r.priority === "express" ? "Express" : "Urgent"}, <strong>${minsLeft}min restantes</strong></li>`;
   }).join("");
 
-  const subject = `🚨 Halo Lex — ${urgent.length} demande${urgent.length > 1 ? "s" : ""} urgente${urgent.length > 1 ? "s" : ""} à traiter`;
+  const subject = `🚨 WTF Lex, ${urgent.length} demande${urgent.length > 1 ? "s" : ""} urgente${urgent.length > 1 ? "s" : ""} à traiter`;
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
       <h2 style="color:#ef4444">Demandes urgentes à traiter</h2>
@@ -659,7 +659,7 @@ export async function sendDeadlineReminder4h() {
 }
 
 /**
- * Alerte de retard — demandes dont l'échéance est dépassée.
+ * Alerte de retard, demandes dont l'échéance est dépassée.
  */
 export async function sendLateAlert() {
   const supabase = await createAdminClient();
@@ -678,13 +678,13 @@ export async function sendLateAlert() {
   if (adminEmails.length === 0) return { sent: 0 };
 
   const requestList = late.map((r: any) => {
-    const userName = r.users?.raw_user_meta_data?.first_name || "—";
+    const userName = r.users?.raw_user_meta_data?.first_name || ", ";
     const dl = new Date(r.deadline_at);
     const hoursLate = Math.round((now.getTime() - dl.getTime()) / (1000 * 60 * 60));
-    return `<li>${r.reference || r.id.substring(0, 8)} — ${r.letter_type} (${userName}) — <strong style="color:#ef4444">En retard de ${hoursLate}h</strong></li>`;
+    return `<li>${r.reference || r.id.substring(0, 8)}, ${r.letter_type} (${userName}), <strong style="color:#ef4444">En retard de ${hoursLate}h</strong></li>`;
   }).join("");
 
-  const subject = `🔴 Halo Lex — ${late.length} demande${late.length > 1 ? "s" : ""} en retard`;
+  const subject = `🔴 WTF Lex, ${late.length} demande${late.length > 1 ? "s" : ""} en retard`;
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto">
       <h2 style="color:#ef4444">Demandes en retard</h2>

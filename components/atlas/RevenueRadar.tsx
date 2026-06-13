@@ -53,7 +53,7 @@ export function RevenueRadar() {
 
   // Handlers
   const handleOpenConversation = useCallback((opp: RadarOpportunity) => {
-    // Placeholder — would navigate to Chat Copilot with this fan
+    // Placeholder, would navigate to Chat Copilot with this fan
   }, []);
 
   const handlePreparePPV = useCallback((opp: RadarOpportunity) => {

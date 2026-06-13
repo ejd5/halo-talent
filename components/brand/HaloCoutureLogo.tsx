@@ -1,5 +1,5 @@
-// HaloCoutureLogo — Style n°4 validated by user.
-// "HALO" in serif display uppercase + "Talent" in italic script underneath.
+// WtfCoutureLogo, Style n°4 validated by user.
+// "WTF" in serif display uppercase + "Where Talent Forms" in italic script underneath.
 // Champagne/gold on dark backgrounds, encre on light backgrounds.
 
 interface HaloCoutureLogoProps {
@@ -41,7 +41,7 @@ export function HaloCoutureLogo({
           lineHeight: 1.1,
         }}
       >
-        Halo
+        WTF
       </span>
       <span
         style={{

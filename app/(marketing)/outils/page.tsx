@@ -1,33 +1,17 @@
-"use client";
+import type { Metadata } from "next";
+import { OutilsClient } from "./OutilsClient";
 
-import { ToolsPage } from "@/components/blog/ToolsPage";
+export const metadata: Metadata = {
+  title: "Outils gratuits, Where Talent Forms",
+  description:
+    "Bouclier Légal, simulateur de commission, média kit generator, contrat-type. Tous les outils gratuits WTF pour gérer, protéger et développer votre activité.",
+  openGraph: {
+    title: "Outils gratuits pour créateurs, Where Talent Forms",
+    description:
+      "Simulateur de commission, Bouclier Légal, Média Kit, Studio IA gratuit. Des outils pensés pour les créateurs, sans engagement.",
+  },
+};
 
-export default function OutilsRoute() {
-  return (
-    <div style={{ backgroundColor: "var(--bg-primary)" }}>
-      <section className="py-20 md:py-28">
-        <div className="mx-auto w-full max-w-7xl px-6 md:px-12">
-          <div className="mb-12 max-w-2xl">
-            <span
-              className="inline-block text-[10px] font-semibold uppercase tracking-[0.12em] mb-4 px-3 py-1 rounded-full"
-              style={{ backgroundColor: "var(--accent-soft)", color: "var(--accent)" }}
-            >
-              Outils
-            </span>
-            <h1
-              className="text-[2.5rem] md:text-[4rem] font-bold tracking-[-0.02em] leading-[1.05]"
-              style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
-            >
-              Outils gratuits
-            </h1>
-            <p className="text-base md:text-lg mt-4" style={{ color: "var(--text-secondary)" }}>
-              Tous les outils gratuits Halo pour gérer, développer et sécuriser votre activité OFM.
-            </p>
-          </div>
-
-          <ToolsPage />
-        </div>
-      </section>
-    </div>
-  );
+export default function OutilsPage() {
+  return <OutilsClient />;
 }

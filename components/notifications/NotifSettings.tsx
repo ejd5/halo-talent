@@ -175,7 +175,7 @@ export function NotifSettings({
                   className="text-[10px] block mb-1"
                   style={{ color: "var(--text-tertiary)" }}
                 >
-                  Heure d&apos;envoi
+                  Heure d'envoi
                 </label>
                 <input
                   type="time"

@@ -1,4 +1,4 @@
-// ─── Tone Guard v2 — Pre-send message verification ───
+// ─── Tone Guard v2, Pre-send message verification ───
 // 5 check categories: ADN, Taboos, TOS, Legal, Quality
 // 3 severity levels: pass, warning, blocking
 
@@ -172,7 +172,7 @@ export function checkTone(
       });
     }
 
-    // Too short message for a long fan message (context-based — mock: flag very short messages)
+    // Too short message for a long fan message (context-based, mock: flag very short messages)
     if (message.trim().length > 0 && message.trim().split(/\s+/).length <= 2) {
       scores.quality = Math.max(0, scores.quality - 15);
       warnings.push({
@@ -257,7 +257,7 @@ export function getMockToneCheck(message: string): ToneCheckResult {
     };
   }
 
-  // Pass — clean message
+  // Pass, clean message
   return {
     overall: "pass",
     passed: true,

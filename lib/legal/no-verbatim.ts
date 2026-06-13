@@ -3,7 +3,7 @@
  * Detects if a generated text is too similar to a source (CGU, law text, etc.)
  * and blocks publication if the similarity exceeds the threshold.
  *
- * Uses word-set overlap (Jaccard index) — lightweight, no embedding model needed.
+ * Uses word-set overlap (Jaccard index), lightweight, no embedding model needed.
  * Threshold 0.35 = 35% word overlap triggers rejection.
  */
 
@@ -52,14 +52,14 @@ export function assertNoVerbatim(
     throw new Error(
       `[no-verbatim] Blocage : similarité ${(sim * 100).toFixed(0)}% ` +
         `(seuil ${(THRESHOLD * 100).toFixed(0)}%)` +
-        (context ? ` — ${context}` : "") +
+        (context ? `, ${context}` : "") +
         `. Le texte généré est trop proche de la source originale. Reformulez avec vos propres mots.`,
     );
   }
 }
 
 /**
- * Safe version — returns result instead of throwing.
+ * Safe version, returns result instead of throwing.
  */
 export function checkVerbatim(
   generated: string,

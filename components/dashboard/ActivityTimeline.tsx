@@ -24,7 +24,7 @@ const activities = [
     href: "/dashboard/analytics",
   },
   {
-    label: "Contrat mis à jour — Nouvelle version disponible",
+    label: "Contrat mis à jour, Nouvelle version disponible",
     time: "Il y a 5 jours",
     href: "/dashboard/contracts",
   },

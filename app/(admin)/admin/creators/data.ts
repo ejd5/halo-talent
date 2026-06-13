@@ -249,11 +249,11 @@ export const contracts: Record<string, Contract[]> = {
   ],
   c4: [
     { id: "ct2", title: "Contrat de management principal", status: "active", signed_date: "2023-06-15", end_date: "2024-06-15", commission_rate: 10, pdf_url: null, created_at: "2023-06-15" },
-    { id: "ct3", title: "Avenant n°1 — Nouveau palier Icon", status: "active", signed_date: "2024-01-01", end_date: "2025-01-01", commission_rate: 8, pdf_url: null, created_at: "2024-01-01" },
+    { id: "ct3", title: "Avenant n°1, Nouveau palier Icon", status: "active", signed_date: "2024-01-01", end_date: "2025-01-01", commission_rate: 8, pdf_url: null, created_at: "2024-01-01" },
   ],
   c6: [
     { id: "ct4", title: "Contrat de management principal", status: "active", signed_date: "2023-01-10", end_date: "2024-01-10", commission_rate: 12, pdf_url: null, created_at: "2023-01-10" },
-    { id: "ct5", title: "Renouvellement — Année 2", status: "active", signed_date: "2024-01-10", end_date: "2025-01-10", commission_rate: 10, pdf_url: null, created_at: "2024-01-10" },
+    { id: "ct5", title: "Renouvellement, Année 2", status: "active", signed_date: "2024-01-10", end_date: "2025-01-10", commission_rate: 10, pdf_url: null, created_at: "2024-01-10" },
   ],
 };
 
@@ -316,12 +316,12 @@ export const aiReports: Record<string, AIReport[]> = {
 
 export const documents: Record<string, CreatorDocument[]> = {
   c4: [
-    { id: "doc1", title: "Contrat signé — Inès D.", type: "contract", url: "#", uploaded_at: "2023-06-15", uploaded_by: "Marc A." },
+    { id: "doc1", title: "Contrat signé, Inès D.", type: "contract", url: "#", uploaded_at: "2023-06-15", uploaded_by: "Marc A." },
     { id: "doc2", title: "Photos shooting branding", type: "photo", url: "#", uploaded_at: "2024-02-10", uploaded_by: "Inès D." },
     { id: "doc3", title: "Rapport trimestriel Q1 2025", type: "report", url: "#", uploaded_at: "2025-04-01", uploaded_by: "Marc A." },
   ],
   c1: [
-    { id: "doc4", title: "Contrat signé — Clara W.", type: "contract", url: "#", uploaded_at: "2024-03-15", uploaded_by: "Marc A." },
+    { id: "doc4", title: "Contrat signé, Clara W.", type: "contract", url: "#", uploaded_at: "2024-03-15", uploaded_by: "Marc A." },
     { id: "doc5", title: "Moodboard marque cosmétique", type: "photo", url: "#", uploaded_at: "2024-11-20", uploaded_by: "Clara W." },
   ],
 };

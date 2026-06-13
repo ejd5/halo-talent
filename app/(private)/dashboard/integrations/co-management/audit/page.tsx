@@ -59,7 +59,7 @@ export default function CoManagementAuditPage() {
               className="text-lg font-semibold"
               style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
             >
-              Journal d&apos;audit
+              Journal d'audit
             </h1>
           </div>
           <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>

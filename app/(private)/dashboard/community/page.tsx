@@ -71,7 +71,7 @@ const MOCK_POSTS: ForumPost[] = [
     replies: 12, likes: 8, views: 189, timestamp: "2026-06-05T16:45:00", pinned: false,
   },
   {
-    id: "p4", title: "Vos questions sur le nouveau contrat Halo",
+    id: "p4", title: "Vos questions sur le nouveau contrat WTF",
     excerpt: "Nouveau dans la maison, j'ai quelques questions sur les clauses d'exclusivité et le partage des revenus.",
     category: "qa", author: "Chloé T.", authorAvatar: null, anonymous: false, isManager: false,
     replies: 7, likes: 11, views: 156, timestamp: "2026-06-04T11:20:00", pinned: false,
@@ -110,10 +110,10 @@ const MOCK_MEETUPS: Meetup[] = [
     description: "3 jours de workshops, networking et bien-être au bord de l'océan.",
   },
   {
-    id: "m2", title: "Afterwork Paris — Juillet",
+    id: "m2", title: "Afterwork Paris, Juillet",
     date: "2026-07-08T18:30:00", location: "Paris 11e",
     spots: 30, spotsLeft: 12,
-    description: "Rencontre informelle entre créateurs Halo. Verre offert par la maison.",
+    description: "Rencontre informelle entre créateurs WTF. Verre offert par la maison.",
   },
 ];
 
@@ -255,7 +255,7 @@ export default function CommunityPage() {
                   style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
                 >
                   <Users size={10} className="inline mr-1" />
-                  S&apos;inscrire
+                  S'inscrire
                 </button>
               </div>
             ))}

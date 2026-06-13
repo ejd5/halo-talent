@@ -1,4 +1,4 @@
-// ─── Halo Lex — Retriever ─────────────────────────────────────
+// ─── WTF Lex, Retriever ─────────────────────────────────────
 // Recherche multi-stratégie : vectorielle + full-text + hybride.
 
 import { createClient } from "@supabase/supabase-js";

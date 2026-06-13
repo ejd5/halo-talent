@@ -66,7 +66,7 @@ async function sendTelegramAlert({ text }: { text: string }) {
   const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID ?? process.env.TELEGRAM_CHAT_ID;
 
   if (!botToken || !chatId) {
-    // Silent — Telegram not configured
+    // Silent, Telegram not configured
     return;
   }
 

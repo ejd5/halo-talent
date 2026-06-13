@@ -1,12 +1,17 @@
-import { Section } from "@/components/ui/Section";
+import type { Metadata } from "next";
+import { TalentsClient } from "./TalentsClient";
+
+export const metadata: Metadata = {
+  title: "Talents, Where Talent Forms",
+  description:
+    "Pour les créateurs qui veulent construire plus qu'une audience. Découvrez les profils que nous accompagnons, nos critères de sélection, et le parcours de candidature Where Talent Forms.",
+  openGraph: {
+    title: "Talents, Pour les créateurs qui veulent construire plus qu'une audience | Where Talent Forms",
+    description:
+      "Image, discipline, potentiel, cohérence, ambition, volonté long terme. Découvrez si votre profil correspond à l'accompagnement Where Talent Forms. Candidature gratuite et confidentielle.",
+  },
+};
 
 export default function TalentsPage() {
-  return (
-    <Section background="dark" className="min-h-screen">
-      <h1 className="font-display text-5xl md:text-7xl italic">Nos Talents</h1>
-      <p className="mt-6 text-lg text-ink-muted max-w-2xl">
-        Page en construction. Contenu à venir.
-      </p>
-    </Section>
-  );
+  return <TalentsClient />;
 }

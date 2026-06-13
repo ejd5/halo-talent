@@ -121,7 +121,7 @@ function generateReportHtml(data: Record<string, any>, userLabel: string): strin
     ).join("")}
   </table>
 
-  <div class="footer">Halo Talent — Rapport généré automatiquement. Données confidentielles.</div>
+  <div class="footer">Where Talent Forms, Rapport généré automatiquement. Données confidentielles.</div>
 </body>
 </html>`.trim();
 }

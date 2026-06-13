@@ -143,7 +143,7 @@ export function PageLoader() {
           opacity: 0.4,
         }}
       >
-        Halo Sovereign Chat AI
+        WTF Sovereign Chat AI
       </div>
     </div>
   );

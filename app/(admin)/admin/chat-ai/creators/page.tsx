@@ -88,7 +88,7 @@ export default function ChatAICreatorsPage() {
     <div style={{ padding: "24px 32px", maxWidth: 1400 }}>
       <div style={{ marginBottom: 24 }}>
         <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-          Créateurs — Chat AI
+          Créateurs, Chat AI
         </h1>
         <p style={{ fontSize: 11, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>
           {total} créateur(s) utilisant le module Sovereign Chat AI

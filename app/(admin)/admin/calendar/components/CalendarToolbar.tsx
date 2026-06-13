@@ -83,7 +83,7 @@ export function CalendarToolbar({
             onClick={onToday}
             className="px-3 py-1 text-xs font-medium border border-[var(--color-border)] hover:bg-[var(--color-card)] transition-colors rounded-[0px]"
           >
-            Aujourd&apos;hui
+            Aujourd'hui
           </button>
         </div>
 

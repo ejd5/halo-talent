@@ -1,16 +1,16 @@
 // ─── Disclaimer Injector ──────────────────────────────────────
 // Injecte les mentions légales obligatoires dans les réponses
-// et les documents générés par Halo Lex.
+// et les documents générés par WTF Lex.
 
 export type DisclaimerMode = "chat" | "document" | "full";
 
 const DISCLAIMERS: Record<DisclaimerMode, string> = {
   chat:
-    "ℹ️ Information juridique générale. Halo Lex ne constitue pas un acte d'avocat au sens de la loi du 31 décembre 1971. Pour une représentation juridique, consultez un avocat inscrit au barreau.",
+    "ℹ️ Information juridique générale. WTF Lex ne constitue pas un acte d'avocat au sens de la loi du 31 décembre 1971. Pour une représentation juridique, consultez un avocat inscrit au barreau.",
   document:
-    "Document préparé avec l'assistance de Halo Talent. Information juridique générale, ne constitue pas un acte d'avocat. Le créateur reste seul responsable de l'envoi et des conséquences de ce document.",
+    "Document préparé avec l'assistance de Where Talent Forms. Information juridique générale, ne constitue pas un acte d'avocat. Le créateur reste seul responsable de l'envoi et des conséquences de ce document.",
   full:
-    "Halo Lex fournit une assistance à la rédaction juridique et une information juridique générale. Cela ne constitue pas un acte d'avocat ni un conseil juridique personnalisé au sens de la loi du 31 décembre 1971. Pour une représentation juridique ou un conseil adapté à votre situation personnelle, veuillez consulter un avocat inscrit au barreau.",
+    "WTF Lex fournit une assistance à la rédaction juridique et une information juridique générale. Cela ne constitue pas un acte d'avocat ni un conseil juridique personnalisé au sens de la loi du 31 décembre 1971. Pour une représentation juridique ou un conseil adapté à votre situation personnelle, veuillez consulter un avocat inscrit au barreau.",
 };
 
 /**
@@ -52,7 +52,7 @@ export function hasDisclaimer(text: string): boolean {
 export function getDocumentFooter(): string {
   return [
     "────────────────────────────────────────",
-    "Document préparé avec l'assistance de Halo Talent.",
+    "Document préparé avec l'assistance de Where Talent Forms.",
     "Information juridique générale, ne constitue pas un acte d'avocat.",
     "Le créateur reste seul responsable de l'envoi et des conséquences de ce document.",
   ].join("\n");
@@ -63,7 +63,7 @@ export function getDocumentFooter(): string {
  */
 export function getDocumentHeader(): string {
   return [
-    "HALO TALENT — Assistance à la rédaction juridique",
+    "WHERE TALENT FORMS, Assistance à la rédaction juridique",
     "Plateforme de gestion créateur · halo-talent.com",
     "",
   ].join("\n");

@@ -84,7 +84,7 @@ export default function WatchlistPage() {
             Aucun mot-clé surveillé
           </p>
           <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.1)" }}>
-            Ajoutez des mots-clés depuis la vue d&apos;ensemble des tendances
+            Ajoutez des mots-clés depuis la vue d'ensemble des tendances
           </p>
           <button
             onClick={() => setShowAdd(true)}

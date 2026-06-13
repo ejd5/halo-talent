@@ -1,4 +1,4 @@
-// ─── Dynamic PPV Pricing — Mock Data + Engine ──────────────
+// ─── Dynamic PPV Pricing, Mock Data + Engine ──────────────
 
 import { mockFans, type FanIntel } from "./atlas-fans";
 
@@ -385,7 +385,7 @@ export function runGuardrails(
       id: "price-high",
       label: "Prix trop élevé",
       status: "warn",
-      detail: `${priceWarnCount} fan(s) — le prix recommandé dépasse de 30% leur maximum historique.`,
+      detail: `${priceWarnCount} fan(s), le prix recommandé dépasse de 30% leur maximum historique.`,
       category: "price",
       applicableFansCount: priceWarnCount,
     });
@@ -534,6 +534,6 @@ export function generateForecast(
 
 export function getBlockedFanIds(checks: PPVGuardrailCheck[]): string[] {
   const blockChecks = checks.filter((c) => c.status === "block" && c.category !== "disclaimer");
-  // For now return empty — in a real app these would map to fan IDs
+  // For now return empty, in a real app these would map to fan IDs
   return [];
 }

@@ -94,7 +94,7 @@ export const mockTopMessages: TopMessage[] = [
   { id: "m6", text: "Il me reste 2 places pour un appel privé cette semaine. Tu veux réserver la tienne ?", revenue: 590, timesUsed: 8, conversionRate: 45 },
   { id: "m7", text: "J'ai remarqué que tu aimais mes photos en lingerie. J'en ai un set spécial que je n'ai posté nulle part...", revenue: 540, timesUsed: 14, conversionRate: 36 },
   { id: "m8", text: "Abonne-toi maintenant et je t'envoie un cadeau exclusif en MP 🎁", revenue: 480, timesUsed: 42, conversionRate: 11 },
-  { id: "m9", text: "Stories interactives cette semaine — vote pour la prochaine tenue que je porterai !", revenue: 420, timesUsed: 9, conversionRate: 16 },
+  { id: "m9", text: "Stories interactives cette semaine, vote pour la prochaine tenue que je porterai !", revenue: 420, timesUsed: 9, conversionRate: 16 },
   { id: "m10", text: "Bonne nuit de la part de ta créatrice préférée 💤 Bisous", revenue: 350, timesUsed: 55, conversionRate: 7 },
 ];
 

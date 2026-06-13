@@ -1,4 +1,4 @@
-// ─── Fan Brain — Orchestrator ─────────────────────────────
+// ─── Fan Brain, Orchestrator ─────────────────────────────
 // Loads, updates, analyzes, and exports the FanBrain knowledge graph.
 // Every fan has a brain row (auto-created via DB trigger on atlas_fans insert).
 
@@ -300,7 +300,7 @@ export class FanBrainService {
       .join("\n");
 
     return [
-      "Tu es un assistant d'analyse de profil fan pour Halo Talent.",
+      "Tu es un assistant d'analyse de profil fan pour Where Talent Forms.",
       "Analyse la conversation suivante et détecte :",
       "- Communication style (flirty/friendly/shy/demanding/casual)",
       "- Intérêts mentionnés",

@@ -69,7 +69,7 @@ export function KanbanColumn({
       <div className="flex-1 overflow-y-auto custom-scrollbar p-2 space-y-2" style={{ minHeight: 100 }}>
         {opportunities.length === 0 ? (
           <div className="flex items-center justify-center h-full text-[10px]" style={{ color: "var(--text-tertiary)" }}>
-            —
+            , 
           </div>
         ) : (
           opportunities.map((opp) => (

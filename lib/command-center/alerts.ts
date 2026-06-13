@@ -58,7 +58,7 @@ export async function detectAlerts(profile: Record<string, any>, supabase: any):
         type: "platform_disconnected",
         severity: "critical",
         label: "Plateforme déconnectée",
-        message: `${acc.platform} — connexion perdue`,
+        message: `${acc.platform}, connexion perdue`,
       });
     }
   }

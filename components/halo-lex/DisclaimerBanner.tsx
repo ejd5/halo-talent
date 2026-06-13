@@ -9,8 +9,8 @@ interface DisclaimerBannerProps {
 
 export function DisclaimerBanner({ locale = "fr", compact = false }: DisclaimerBannerProps) {
   const text = locale === "en"
-    ? "Halo Lex provides general legal information only. This does not constitute personalized legal advice. For complex cases, we connect you with our partner lawyer network."
-    : "Halo Lex fournit une information juridique générale. Cela ne constitue pas un conseil juridique personnalisé. Pour les cas complexes, nous vous mettons en relation avec notre réseau d'avocats partenaires.";
+    ? "WTF Lex provides general legal information only. This does not constitute personalized legal advice. For complex cases, we connect you with our partner lawyer network."
+    : "WTF Lex fournit une information juridique générale. Cela ne constitue pas un conseil juridique personnalisé. Pour les cas complexes, nous vous mettons en relation avec notre réseau d'avocats partenaires.";
 
   if (compact) {
     return (

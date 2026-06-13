@@ -222,7 +222,7 @@ function CreatorCard({ creator, onSelect }: { creator: CreatorData; onSelect: (c
           <div className="min-w-0">
             <p className="text-[10px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{name}</p>
             <p className="text-[8px] truncate" style={{ color: "rgba(245,240,235,0.3)" }}>
-              {creator.department || "—"}
+              {creator.department || ", "}
             </p>
           </div>
         </div>
@@ -285,7 +285,7 @@ function CreatorRow({ creator, onSelect }: { creator: CreatorData; onSelect: (c:
           <span className="text-[10px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{name}</span>
         </div>
       </td>
-      <td className="py-2.5 px-2 text-[10px]" style={{ color: "rgba(245,240,235,0.4)" }}>{creator.department || "—"}</td>
+      <td className="py-2.5 px-2 text-[10px]" style={{ color: "rgba(245,240,235,0.4)" }}>{creator.department || ", "}</td>
       <td className="py-2.5 px-2 text-[10px]" style={{ color: "var(--text-primary)" }}>{creator.today_revenue}€</td>
       <td className="py-2.5 px-2 text-[10px]" style={{ color: "var(--accent)" }}>{creator.period_revenue}€</td>
       <td className="py-2.5 px-2 text-[10px]" style={{ color: changeColor }}>{creator.period_change > 0 ? "+" : ""}{creator.period_change}%</td>
@@ -325,7 +325,7 @@ function DetailedCard({ creator, onClose }: { creator: CreatorData; onClose: () 
             <div>
               <h3 className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{name}</h3>
               <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
-                {creator.department || "—"} · {creator.commission_tier || "N/A"}
+                {creator.department || ", "} · {creator.commission_tier || "N/A"}
               </p>
             </div>
           </div>
@@ -456,7 +456,7 @@ function KpiBand({ totals, creators }: { totals: CommandCenterData["totals"]; cr
         { label: "Commission agence", value: `${totals.total_commission}€`, icon: TrendingUp, color: "var(--success)" },
         {
           label: "Top performer",
-          value: topPerformer ? (topPerformer.display_name || topPerformer.full_name || "—") : "—",
+          value: topPerformer ? (topPerformer.display_name || topPerformer.full_name || ", ") : ", ",
           icon: Star,
           color: "var(--accent)",
         },
@@ -814,7 +814,7 @@ export default function CommandCenterPage() {
                       </span>
                     </div>
                   </td>
-                  <td className="py-2.5 px-2 text-[10px]" style={{ color: "rgba(245,240,235,0.4)" }}>{c.department || "—"}</td>
+                  <td className="py-2.5 px-2 text-[10px]" style={{ color: "rgba(245,240,235,0.4)" }}>{c.department || ", "}</td>
                   <td className="py-2.5 px-2 text-[10px]" style={{ color: "var(--text-primary)" }}>{c.today_revenue}€</td>
                   <td className="py-2.5 px-2 text-[10px]" style={{ color: "var(--accent)" }}>{c.period_revenue}€</td>
                   <td className="py-2.5 px-2 text-[10px]" style={{ color: c.period_change > 0 ? "var(--success)" : "var(--danger)" }}>
@@ -856,7 +856,7 @@ export default function CommandCenterPage() {
                       <div>
                         <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>{name}</p>
                         <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
-                          {c.department || "—"} · {c.commission_tier || "N/A"}
+                          {c.department || ", "} · {c.commission_tier || "N/A"}
                         </p>
                       </div>
                       <StatusDot color={c.status_color} />

@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
         const wavUrl = await wavToDataUrl(buffer, sampleRate);
         tracks.push({
           url: wavUrl,
-          title: `${prompt.slice(0, 40)} — Variation ${i + 1}`,
+          title: `${prompt.slice(0, 40)}, Variation ${i + 1}`,
           duration: Math.min(duration, 30),
         });
       }

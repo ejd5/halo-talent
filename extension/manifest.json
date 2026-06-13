@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Halo Companion",
+  "name": "WTF Companion",
   "version": "1.0.0",
-  "description": "Votre assistant IA pour créateurs de contenu — productivité, CRM et intelligence dans votre navigateur.",
+  "description": "Votre co-pilote IA pour créateurs de contenu — CRM, IA générative et intelligence fan dans votre navigateur.",
   "permissions": [
     "sidePanel",
     "storage",

@@ -11,7 +11,7 @@ interface EmailParams {
   replyTo?: string;
 }
 
-const FROM = "Halo Lex <lex@halo-talent.com>";
+const FROM = "WTF Lex <lex@halo-talent.com>";
 const REPLY_TO = "support@halo-talent.com";
 
 function getResend(): Resend | null {
@@ -30,7 +30,7 @@ export async function sendEmail(params: EmailParams): Promise<{ sent: boolean; p
   const resend = getResend();
 
   if (!resend) {
-    console.log("[Email] RESEND_API_KEY not configured — logging email:");
+    console.log("[Email] RESEND_API_KEY not configured, logging email:");
     console.log(`  To: ${params.to}`);
     console.log(`  Subject: ${params.subject}`);
     console.log(`  Reply-To: ${params.replyTo || REPLY_TO}`);

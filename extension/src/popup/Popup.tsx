@@ -1,13 +1,21 @@
-// ─── Popup component — Halo Companion ───────────
-// Mini popup (256px) — quick status and open side panel shortcut
+// ─── Popup — WTF Companion ────────────────────────────────
+// Mini popup (320px) — status, stats live, open sidepanel
 
 import { useState, useEffect } from "react";
+import { Zap, TrendingUp, Users, DollarSign, ChevronRight } from "lucide-react";
+
+const PLANS = {
+  free: { label: "FREE", color: "#9C9183" },
+  starter: { label: "STARTER", color: "#D8A95B" },
+  pro: { label: "PRO", color: "#C75B39" },
+};
 
 export default function Popup() {
   const [platform, setPlatform] = useState<string | null>(null);
+  const [plan] = useState<"free" | "starter" | "pro">("starter");
+  const [stats] = useState({ revenue: 248, fans: 1240, active: 38 });
 
   useEffect(() => {
-    // Query the active tab to check platform
     chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
       if (tab?.url) {
         const hostname = new URL(tab.url).hostname;
@@ -22,70 +30,195 @@ export default function Popup() {
 
   const openSidePanel = () => {
     chrome.tabs.query({ active: true, currentWindow: true }, ([tab]) => {
-      if (tab?.id) {
-        chrome.sidePanel.open({ tabId: tab.id });
-      }
+      if (tab?.id) chrome.sidePanel.open({ tabId: tab.id });
     });
   };
 
+  const planInfo = PLANS[plan];
+
   return (
     <div
-      className="p-4"
-      style={{ backgroundColor: "#0A0A0A", color: "#FAFAFA", fontFamily: "Inter, sans-serif" }}
+      style={{
+        width: 320,
+        backgroundColor: "#0A0A0B",
+        color: "#F5F0EB",
+        fontFamily: "Inter, -apple-system, sans-serif",
+        overflow: "hidden",
+      }}
     >
-      {/* Logo */}
-      <div className="flex items-center gap-2 mb-3">
-        <div
-          className="w-6 h-6 rounded-md flex items-center justify-center"
-          style={{ backgroundColor: "rgba(249,115,22,0.1)" }}
-        >
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--or, #D8A95B)" strokeWidth="2">
-            <path d="M12 2L2 7l10 5 10-5-10-5z" />
-            <path d="M2 17l10 5 10-5" />
-            <path d="M2 12l10 5 10-5" />
-          </svg>
+      {/* Header */}
+      <div
+        style={{
+          padding: "16px 16px 12px",
+          borderBottom: "1px solid rgba(245,240,235,0.06)",
+          background: "linear-gradient(135deg, rgba(199,91,57,0.06) 0%, transparent 60%)",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+        }}
+      >
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+          {/* Logo */}
+          <div
+            style={{
+              width: 32,
+              height: 32,
+              background: "linear-gradient(135deg, #C75B39 0%, #D8A95B 100%)",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              fontSize: 13,
+              fontWeight: 900,
+              color: "#fff",
+              letterSpacing: "-0.5px",
+            }}
+          >
+            W
+          </div>
+          <div>
+            <div style={{ fontSize: 13, fontWeight: 700, color: "#F5F0EB", lineHeight: 1 }}>
+              WTF Companion
+            </div>
+            <div style={{ fontSize: 9, color: "#9C9183", marginTop: 2, letterSpacing: "0.1em" }}>
+              BY HALO TALENT
+            </div>
+          </div>
         </div>
-        <span className="text-xs font-bold" style={{ color: "var(--or, #D8A95B)" }}>
-          Halo Companion
-        </span>
+        {/* Plan badge */}
+        <div
+          style={{
+            fontSize: 9,
+            fontWeight: 700,
+            padding: "3px 8px",
+            letterSpacing: "0.12em",
+            border: `1px solid ${planInfo.color}40`,
+            color: planInfo.color,
+            backgroundColor: `${planInfo.color}12`,
+          }}
+        >
+          {planInfo.label}
+        </div>
       </div>
 
       {/* Platform status */}
-      <div
-        className="flex items-center gap-2 px-2.5 py-2 rounded-lg mb-3"
-        style={{ backgroundColor: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.06)" }}
-      >
+      <div style={{ padding: "10px 16px" }}>
         <div
-          className="w-2 h-2 rounded-full"
           style={{
-            backgroundColor: platform ? "#10B981" : "#71717A",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            padding: "8px 12px",
+            backgroundColor: "rgba(245,240,235,0.03)",
+            border: "1px solid rgba(245,240,235,0.06)",
           }}
-        />
-        <span className="text-[11px]" style={{ color: platform ? "#10B981" : "#71717A" }}>
-          {platform ? `${platform} - Connecté` : "En attente"}
-        </span>
+        >
+          <div
+            style={{
+              width: 7,
+              height: 7,
+              borderRadius: "50%",
+              backgroundColor: platform ? "#10B981" : "#6B7280",
+              boxShadow: platform ? "0 0 6px rgba(16,185,129,0.5)" : "none",
+            }}
+          />
+          <span style={{ fontSize: 11, color: platform ? "#10B981" : "#6B7280", fontWeight: 500 }}>
+            {platform ? `${platform} — Actif` : "Aucune plateforme détectée"}
+          </span>
+        </div>
       </div>
 
-      {/* Action buttons */}
-      <button
-        onClick={openSidePanel}
-        className="w-full text-xs font-semibold py-2.5 rounded-lg mb-1.5 transition-all"
-        style={{ backgroundColor: "var(--or, #D8A95B)", color: "#fff" }}
-      >
-        Ouvrir Halo Companion
-      </button>
+      {/* Mini stats */}
+      <div style={{ padding: "0 16px 12px", display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 8 }}>
+        {[
+          { icon: DollarSign, value: `${stats.revenue}€`, label: "Auj.", color: "#10B981" },
+          { icon: Users, value: stats.fans.toLocaleString("fr"), label: "Fans", color: "#C75B39" },
+          { icon: TrendingUp, value: `${stats.active}`, label: "En ligne", color: "#D8A95B" },
+        ].map((s) => (
+          <div
+            key={s.label}
+            style={{
+              padding: "8px",
+              backgroundColor: "rgba(245,240,235,0.03)",
+              border: "1px solid rgba(245,240,235,0.06)",
+              textAlign: "center",
+            }}
+          >
+            <s.icon size={13} style={{ color: s.color, margin: "0 auto 4px" }} />
+            <div style={{ fontSize: 13, fontWeight: 700, color: "#F5F0EB", fontFamily: "monospace" }}>
+              {s.value}
+            </div>
+            <div style={{ fontSize: 9, color: "#9C9183" }}>{s.label}</div>
+          </div>
+        ))}
+      </div>
 
-      <button
-        onClick={() => chrome.runtime.openOptionsPage?.()}
-        className="w-full text-[11px] font-medium py-1.5 rounded-lg transition-all"
+      {/* Main CTA */}
+      <div style={{ padding: "0 16px 12px" }}>
+        <button
+          onClick={openSidePanel}
+          style={{
+            width: "100%",
+            padding: "11px 16px",
+            background: "linear-gradient(135deg, #C75B39 0%, #D8A95B 100%)",
+            color: "#fff",
+            fontSize: 12,
+            fontWeight: 700,
+            border: "none",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 8,
+            letterSpacing: "0.04em",
+          }}
+        >
+          <Zap size={14} />
+          Ouvrir WTF Companion
+          <ChevronRight size={14} />
+        </button>
+      </div>
+
+      {/* Footer */}
+      <div
         style={{
-          backgroundColor: "transparent",
-          color: "#71717A",
-          border: "1px solid rgba(255,255,255,0.06)",
+          padding: "8px 16px 12px",
+          display: "flex",
+          gap: 8,
         }}
       >
-        Paramètres
-      </button>
+        <button
+          onClick={() => chrome.tabs.create({ url: "https://app.halotalent.com/dashboard" })}
+          style={{
+            flex: 1,
+            padding: "7px",
+            fontSize: 10,
+            fontWeight: 600,
+            color: "#9C9183",
+            backgroundColor: "transparent",
+            border: "1px solid rgba(245,240,235,0.08)",
+            cursor: "pointer",
+            letterSpacing: "0.05em",
+          }}
+        >
+          Dashboard
+        </button>
+        <button
+          onClick={() => chrome.runtime.openOptionsPage?.()}
+          style={{
+            flex: 1,
+            padding: "7px",
+            fontSize: 10,
+            fontWeight: 600,
+            color: "#9C9183",
+            backgroundColor: "transparent",
+            border: "1px solid rgba(245,240,235,0.08)",
+            cursor: "pointer",
+            letterSpacing: "0.05em",
+          }}
+        >
+          Paramètres
+        </button>
+      </div>
     </div>
   );
 }

@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
 // GET /api/admin/apify/usage?month=2026-06
-// Admin only — Apify cost monitoring
+// Admin only, Apify cost monitoring
 export async function GET(request: NextRequest) {
   try {
     const supabase = await createClient();

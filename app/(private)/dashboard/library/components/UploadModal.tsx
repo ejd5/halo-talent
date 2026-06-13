@@ -172,7 +172,7 @@ export function UploadModal({
               {dragOver ? "Dépose les fichiers ici" : "Glisse-dépose tes fichiers ici"}
             </p>
             <p className="text-[10px] mt-1" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
-              ou clique pour parcourir — Images, vidéos, audio, documents
+              ou clique pour parcourir, Images, vidéos, audio, documents
             </p>
             <input
               ref={inputRef}
@@ -254,7 +254,7 @@ export function UploadModal({
         {/* Footer */}
         <div className="flex items-center justify-between px-5 py-3 border-t border-[var(--color-border)]">
           <p className="text-[9px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
-            Formats supportés : JPG, PNG, MP4, MOV, MP3, PDF — Max 100MB
+            Formats supportés : JPG, PNG, MP4, MOV, MP3, PDF, Max 100MB
           </p>
           <div className="flex gap-2">
             <button onClick={onClose}

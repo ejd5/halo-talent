@@ -178,7 +178,7 @@ export function ApplicationDetailPanel({ application, onClose, onStatusUpdate }:
           >
             <CheckCircle size={14} strokeWidth={1.5} style={{ color: "var(--success)" }} />
             <span className="text-xs font-sans" style={{ color: "var(--success)" }}>
-              Approuvée — Contrat envoyé le {formatDate(app.created_at)}
+              Approuvée, Contrat envoyé le {formatDate(app.created_at)}
             </span>
           </div>
         )}

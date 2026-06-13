@@ -59,12 +59,12 @@ BRIEF : ${brief}
 TON : ${tone || "naturel"}
 LONGUEUR CIBLE : ${length || "moyenne"} (${maxLength} caractères max)
 
-ADN DU CRÉATEUR — VOICE PROFILE :
+ADN DU CRÉATEUR, VOICE PROFILE :
 ${JSON.stringify(voiceProfile, null, 2)}
 
 INSTRUCTIONS DE STYLE :
 - Respecte EXACTEMENT la voice du créateur (ton, vocabulaire, structure de phrases)
-- Utilise les emojis de manière ${emojiStyle}${signatureEmojis.length ? ` — emojis signature : ${signatureEmojis.join(" ")}` : ""}
+- Utilise les emojis de manière ${emojiStyle}${signatureEmojis.length ? `, emojis signature : ${signatureEmojis.join(" ")}` : ""}
 - ÉVITE ces mots et expressions : ${bannedWords}
 ${signOff ? `- Termine par une variante de : "${signOff}"` : ""}
 - Écris dans un français naturel et authentique

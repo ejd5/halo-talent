@@ -169,7 +169,7 @@ export default function ComplianceSettingsPage() {
           </h1>
         </div>
         <p className="text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
-          Paramètres de conformité pour les drafts IA — conformes aux régulations 2026
+          Paramètres de conformité pour les drafts IA, conformes aux régulations 2026
           (OnlyFans, Meta, TikTok, CAN-SPAM, RGPD)
         </p>
       </div>
@@ -185,9 +185,9 @@ export default function ComplianceSettingsPage() {
       >
         <Info size={12} className="shrink-0 mt-0.5" style={{ color: "var(--accent)" }} />
         <div>
-          <strong style={{ color: "var(--accent)" }}>Souveraineté du créateur</strong> — Ces
-          paramètres contrôlent comment l&apos;IA assiste sans jamais remplacer la validation
-          humaine. Le drafter ne s&apos;envoie jamais automatiquement : c&apos;est
+          <strong style={{ color: "var(--accent)" }}>Souveraineté du créateur</strong>, Ces
+          paramètres contrôlent comment l'IA assiste sans jamais remplacer la validation
+          humaine. Le drafter ne s'envoie jamais automatiquement : c'est
           strictement <strong style={{ color: "var(--text-primary)" }}>DRAFT → VALIDATION → ENVOI</strong>.
           Tous les drafts conservent un audit trail complet (7 ans).
         </div>
@@ -422,7 +422,7 @@ export default function ComplianceSettingsPage() {
           <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
             <Clock size={12} style={{ color: "rgba(245,240,235,0.3)" }} />
             <span style={{ fontSize: 10, fontWeight: 600, color: "rgba(245,240,235,0.4)", textTransform: "uppercase" }}>
-              Derniers événements d&apos;audit
+              Derniers événements d'audit
             </span>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 4 }}>
@@ -452,17 +452,17 @@ export default function ComplianceSettingsPage() {
         <div className="flex items-center gap-1.5">
           <AlertTriangle size={10} style={{ color: "var(--accent)" }} />
           <span style={{ color: "var(--accent)" }}>
-            Important — Conservation légale 7 ans
+            Important, Conservation légale 7 ans
           </span>
         </div>
         <p>
           Chaque draft conserve : prompt complet, réponse Claude, checks de
-          conformité, timestamp, édition éventuelle, timestamp et canal d&apos;envoi.
+          conformité, timestamp, édition éventuelle, timestamp et canal d'envoi.
           Ces données constituent une preuve juridique en cas de litige ou de
           procès collectif (type OnlyFans 2026).
         </p>
         <p>
-          Le logging détaillé n&apos;est pas désactivable pour des raisons de
+          Le logging détaillé n'est pas désactivable pour des raisons de
           conformité et de protection juridique du créateur.
         </p>
       </div>

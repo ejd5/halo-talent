@@ -52,7 +52,7 @@ export async function GET() {
       // For each month, get avg revenue per creator in cohort
       const revenueByMonth = months.map((month) => {
         // Batch query all revenues for this cohort in this month
-        return 0; // placeholder — calculated below
+        return 0; // placeholder, calculated below
       });
 
       // Calculate month 0, month 1, month 2... from join date

@@ -1,4 +1,4 @@
-// ─── System Prompts — Per-task DeepSeek prompts ──────────
+// ─── System Prompts, Per-task DeepSeek prompts ──────────
 // Every prompt includes: playbook rules, boundaries, no promises,
 // human validation required, JSON output format.
 

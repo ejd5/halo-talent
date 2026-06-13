@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ApplicationsPage } from "./components/ApplicationsPage";
 
 export const metadata: Metadata = {
-  title: "Candidatures — Halo Talent Admin",
+  title: "Candidatures, Where Talent Forms Admin",
 };
 
 export default function Page() {

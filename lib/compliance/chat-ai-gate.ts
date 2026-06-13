@@ -1,4 +1,4 @@
-// ─── Compliance Gate — Chat AI Actions ──────────────────
+// ─── Compliance Gate, Chat AI Actions ──────────────────
 // Central gate for all sensitive Chat AI operations.
 // Checks: consent → pause → platform → fan status → cooldown → vault → sensitive words → pricing
 
@@ -86,7 +86,7 @@ export function canUseChatAIAction(
   // 4. Fan status checks (for commercial actions)
   const commercialActions: ChatAIAction[] = ["create_ppv", "create_followup"];
   if (commercialActions.includes(action) && context.fanId) {
-    // These checks require DB lookups — the gate function is sync,
+    // These checks require DB lookups, the gate function is sync,
     // the caller should pre-check fan status and pass the result in context.
     // We add a note that the caller must verify.
     requiredActions.push("verify_fan_status");

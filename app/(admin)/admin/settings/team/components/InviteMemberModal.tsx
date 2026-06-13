@@ -138,7 +138,7 @@ export function InviteMemberModal({
               style={{ backgroundColor: "var(--color-accent)" }}
             >
               <Send size={12} />
-              Envoyer l&apos;invitation
+              Envoyer l'invitation
             </button>
           </div>
         </div>

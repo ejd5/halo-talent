@@ -86,11 +86,11 @@ function CronRow({ job }: { job: CronJobStatus }) {
       </div>
       <div className="text-[10px] opacity-40">{timeAgo(job.last_run)}</div>
       <div className="text-[10px] opacity-40">
-        {job.last_duration_ms ? `${(job.last_duration_ms / 1000).toFixed(1)}s` : "—"}
+        {job.last_duration_ms ? `${(job.last_duration_ms / 1000).toFixed(1)}s` : ", "}
       </div>
       <div className="flex justify-center">
         {job.last_success === null ? (
-          <span className="text-[10px] opacity-20">—</span>
+          <span className="text-[10px] opacity-20">, </span>
         ) : job.last_success ? (
           <CheckCircle size={12} className="text-[var(--success)]" />
         ) : (

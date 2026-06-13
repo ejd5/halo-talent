@@ -1,4 +1,4 @@
-// ─── Chat Copilot — Mock Data ─────────────────────────────
+// ─── Chat Copilot, Mock Data ─────────────────────────────
 // 12 conversations covering all segments, platforms, and priority levels
 
 import type {

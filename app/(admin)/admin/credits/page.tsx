@@ -189,7 +189,7 @@ export default function AdminCreditsPage() {
       <div className="p-4 border rounded-sm" style={{ borderColor: "rgba(255,255,255,0.06)", background: "var(--bg-primary)" }}>
         <h2 className="text-xs font-semibold mb-2" style={{ color: "var(--text-primary)" }}>Ajuster manuellement les crédits</h2>
         <p className="text-[10px] mb-3" style={{ color: "rgba(255,255,255,0.3)" }}>
-          Entrez l&apos;ID utilisateur et le montant à ajouter (négatif pour retirer)
+          Entrez l'ID utilisateur et le montant à ajouter (négatif pour retirer)
         </p>
         <div className="flex items-end gap-2">
           <div className="flex-1">

@@ -142,7 +142,7 @@ export function TemplateRenderer({ state, forPrint }: TemplateRendererProps) {
       {/* ═══ FOOTER ═══ */}
       <div className="text-center pt-6 mt-6" style={{ borderTop: "1px solid #E5E7EB" }}>
         <p className="text-[9px]" style={{ color: "#9CA3AF" }}>
-          Généré par Halo Talent · {data.profile.pseudo} · {new Date().toLocaleDateString("fr-FR")}
+          Généré par Where Talent Forms · {data.profile.pseudo} · {new Date().toLocaleDateString("fr-FR")}
         </p>
       </div>
     </div>

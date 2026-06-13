@@ -1,8 +1,8 @@
 {
-  "name": "halo-companion",
+  "name": "ofm-companion",
   "version": "1.0.0",
   "private": true,
-  "description": "Halo Talent Chrome Companion Extension",
+  "description": "WTF Companion Chrome Extension",
   "type": "module",
   "scripts": {
     "dev": "wxt",

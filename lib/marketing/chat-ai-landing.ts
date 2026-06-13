@@ -72,7 +72,7 @@ export const features: Feature[] = [
   },
   {
     title: "Audit Logs",
-    description: "Chaque action — brouillon généré, message approuvé, QA revue — est horodatée et traçable.",
+    description: "Chaque action, brouillon généré, message approuvé, QA revue, est horodatée et traçable.",
     benefit: "Trace complète en cas de litige ou de contrôle.",
   },
 ];
@@ -80,7 +80,7 @@ export const features: Feature[] = [
 export const workflowSteps: WorkflowStep[] = [
   {
     step: "1",
-    title: "Halo priorise",
+    title: "WTF priorise",
     description: "Les conversations sont classées par potentiel de revenu, urgence et historique du fan.",
   },
   {
@@ -122,12 +122,12 @@ export const profiles: ProfileCard[] = [
   {
     title: "Créateur solo",
     problem: "Vous gérez tout seul et les messages s'accumulent. Impossible de prioriser les fans qui rapportent.",
-    solution: "Halo priorise vos conversations et prépare des brouillons. Vous restez aux commandes.",
+    solution: "WTF priorise vos conversations et prépare des brouillons. Vous restez aux commandes.",
   },
   {
     title: "Agence OFM",
     problem: "Vous managez plusieurs créateurs avec des équipes de chatters. Difficile de garder le contrôle qualité.",
-    solution: "Halo donne à chaque manager une vue d'ensemble, des logs d'audit et des contrôles QA par créateur.",
+    solution: "WTF donne à chaque manager une vue d'ensemble, des logs d'audit et des contrôles QA par créateur.",
   },
   {
     title: "Manager d'équipe",
@@ -137,7 +137,7 @@ export const profiles: ProfileCard[] = [
   {
     title: "Équipe chatting",
     problem: "Vous écrivez des dizaines de messages par jour sans visibilité sur ce qui convertit vraiment.",
-    solution: "Halo suggère des brouillons optimisés et vous aide à suivre ce qui génère des ventes PPV.",
+    solution: "WTF suggère des brouillons optimisés et vous aide à suivre ce qui génère des ventes PPV.",
   },
   {
     title: "Créateur premium",
@@ -153,11 +153,11 @@ export const noPromiseItems: NoPromiseItem[] = [
   },
   {
     title: "Aucune garantie de sécurité de compte",
-    description: "Halo ne promet pas une immunité contre les restrictions de plateforme. Nous aidons à structurer les contrôles, mais le risque zéro n'existe pas.",
+    description: "WTF ne promet pas une immunité contre les restrictions de plateforme. Nous aidons à structurer les contrôles, mais le risque zéro n'existe pas.",
   },
   {
     title: "Pas un substitut d'avocat",
-    description: "Halo Sovereign Chat AI n'est pas un conseiller juridique. Pour toute question légale, rapprochez-vous d'un professionnel du droit ou consultez Halo Lex.",
+    description: "WTF Sovereign Chat AI n'est pas un conseiller juridique. Pour toute question légale, rapprochez-vous d'un professionnel du droit ou consultez WTF Lex.",
   },
   {
     title: "Aucun envoi automatique non contrôlé",
@@ -165,53 +165,53 @@ export const noPromiseItems: NoPromiseItem[] = [
   },
   {
     title: "Pas de contournement des règles plateformes",
-    description: "Halo ne fournit aucun outil pour contourner les conditions d'utilisation d'OnlyFans, Fansly, MYM ou toute autre plateforme.",
+    description: "WTF ne fournit aucun outil pour contourner les conditions d'utilisation d'OnlyFans, Fansly, MYM ou toute autre plateforme.",
   },
   {
     title: "Pas de scraping de données fans",
-    description: "Halo n'extrait pas, n'aspire pas et ne scrape pas les données des plateformes. Toutes les données sont fournies et contrôlées par le créateur.",
+    description: "WTF n'extrait pas, n'aspire pas et ne scrape pas les données des plateformes. Toutes les données sont fournies et contrôlées par le créateur.",
   },
 ];
 
 export const faqItems: FAQItem[] = [
   {
-    question: "Est-ce que Halo répond automatiquement aux fans ?",
-    answer: "Non, par défaut. Halo prépare des brouillons que l'humain doit approuver avant de copier et d'envoyer manuellement. L'automatisation est une option configurable qui reste sous contrôle du créateur.",
+    question: "Est-ce que WTF répond automatiquement aux fans ?",
+    answer: "Non, par défaut. WTF prépare des brouillons que l'humain doit approuver avant de copier et d'envoyer manuellement. L'automatisation est une option configurable qui reste sous contrôle du créateur.",
   },
   {
     question: "Est-ce que l'humain doit valider chaque réponse ?",
     answer: "Oui, c'est le fonctionnement par défaut. Chaque brouillon généré par l'IA passe par une validation humaine. Le créateur ou son équipe approuve, modifie ou bloque chaque message.",
   },
   {
-    question: "Est-ce que Halo garantit des revenus ?",
-    answer: "Non. Halo fournit des recommandations indicatives basées sur l'historique du fan et les prix pratiqués. Les résultats réels dépendent de nombreux facteurs propres à chaque créateur et à son audience.",
+    question: "Est-ce que WTF garantit des revenus ?",
+    answer: "Non. WTF fournit des recommandations indicatives basées sur l'historique du fan et les prix pratiqués. Les résultats réels dépendent de nombreux facteurs propres à chaque créateur et à son audience.",
   },
   {
-    question: "Est-ce que Halo peut éviter les restrictions de plateforme ?",
-    answer: "Non. Halo aide à structurer la conformité (consentement, audit, contrôle qualité) mais ne peut pas garantir l'absence de restrictions. Chaque créateur reste responsable du respect des conditions d'utilisation de sa plateforme.",
+    question: "Est-ce que WTF peut éviter les restrictions de plateforme ?",
+    answer: "Non. WTF aide à structurer la conformité (consentement, audit, contrôle qualité) mais ne peut pas garantir l'absence de restrictions. Chaque créateur reste responsable du respect des conditions d'utilisation de sa plateforme.",
   },
   {
-    question: "Est-ce que Halo remplace un chatter humain ?",
-    answer: "Non. Halo est un copilote qui assiste les chatters humains en préparant des brouillons et en fournissant du contexte. L'humain garde le contrôle éditorial et relationnel.",
+    question: "Est-ce que WTF remplace un chatter humain ?",
+    answer: "Non. WTF est un copilote qui assiste les chatters humains en préparant des brouillons et en fournissant du contexte. L'humain garde le contrôle éditorial et relationnel.",
   },
   {
-    question: "Est-ce que Halo remplace une agence ?",
-    answer: "Non. Halo est un outil qui peut être utilisé par des créateurs indépendants ou par des agences pour améliorer la productivité de leurs équipes. Il ne remplace pas le conseil stratégique.",
+    question: "Est-ce que WTF remplace une agence ?",
+    answer: "Non. WTF est un outil qui peut être utilisé par des créateurs indépendants ou par des agences pour améliorer la productivité de leurs équipes. Il ne remplace pas le conseil stratégique.",
   },
   {
-    question: "Est-ce que Halo fonctionne avec plusieurs plateformes ?",
-    answer: "Oui. Halo est conçu pour accompagner les créateurs sur OnlyFans, Fansly, MYM et d'autres plateformes. Les règles spécifiques à chaque plateforme sont prises en compte dans les contrôles de conformité.",
+    question: "Est-ce que WTF fonctionne avec plusieurs plateformes ?",
+    answer: "Oui. WTF est conçu pour accompagner les créateurs sur OnlyFans, Fansly, MYM et d'autres plateformes. Les règles spécifiques à chaque plateforme sont prises en compte dans les contrôles de conformité.",
   },
   {
     question: "Est-ce que les données sont exportables ?",
-    answer: "Oui. Toutes vos données — conversations, brouillons, logs d'audit, historique PPV — sont exportables à tout moment. Vous gardez le contrôle total de vos informations.",
+    answer: "Oui. Toutes vos données, conversations, brouillons, logs d'audit, historique PPV, sont exportables à tout moment. Vous gardez le contrôle total de vos informations.",
   },
   {
     question: "Quelle est la différence avec ChatGPT ou Claude ?",
-    answer: "Contrairement à un LLM généraliste, Halo est spécialisé dans le chatting créateur. Il intègre le contexte fan (historique d'achat, préférences), les règles des plateformes, un contrôle conformité automatisé, et une validation humaine obligatoire.",
+    answer: "Contrairement à un LLM généraliste, WTF est spécialisé dans le chatting créateur. Il intègre le contexte fan (historique d'achat, préférences), les règles des plateformes, un contrôle conformité automatisé, et une validation humaine obligatoire.",
   },
   {
     question: "Quelle est la différence avec un CRM classique ?",
-    answer: "Un CRM classique organise les contacts. Halo va plus loin : il analyse le potentiel de chaque fan, génère des brouillons contextuels, vérifie la conformité, et garde une trace de chaque action. C'est un CRM augmenté par l'IA, spécialisé pour le chatting créateur.",
+    answer: "Un CRM classique organise les contacts. WTF va plus loin : il analyse le potentiel de chaque fan, génère des brouillons contextuels, vérifie la conformité, et garde une trace de chaque action. C'est un CRM augmenté par l'IA, spécialisé pour le chatting créateur.",
   },
 ];

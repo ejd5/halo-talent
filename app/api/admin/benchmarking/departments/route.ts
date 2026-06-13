@@ -55,7 +55,7 @@ export async function GET() {
 
     deptMap.get(dept)!.push({
       id: c.id,
-      name: c.display_name || c.full_name || "—",
+      name: c.display_name || c.full_name || ", ",
       revenue: currentRev,
       growth,
       joined_at: c.joined_at,

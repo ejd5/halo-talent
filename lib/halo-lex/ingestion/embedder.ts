@@ -1,4 +1,4 @@
-// ─── Halo Lex — Embedder ───────────────────────────────────────
+// ─── WTF Lex, Embedder ───────────────────────────────────────
 // Génère des embeddings pour une liste de chunks et les stocke.
 
 import { generateEmbedding, generateEmbeddings } from "../embeddings";

@@ -12,10 +12,10 @@ export default defineConfig({
   // ── Manifest ──────────────────────────────────────────
   manifest: () => ({
     manifest_version: 3,
-    name: "Halo Companion",
+    name: "WTF Companion",
     version: "1.0.0",
     description:
-      "Votre assistant IA pour créateurs de contenu — productivité, CRM et intelligence dans votre navigateur.",
+      "Votre co-pilote IA pour créateurs de contenu — CRM, IA générative et intelligence fan dans votre navigateur.",
     author: "Halo Talent",
     homepage_url: "https://halotalent.com",
     minimum_chrome_version: "120",
@@ -123,18 +123,8 @@ export default defineConfig({
       // Size budgets (warnings in dev)
       chunkSizeWarningLimit: 200,
 
-      // Minify in production, not in dev
-      minify: process.env.NODE_ENV === "production" ? "terser" : false,
-      terserOptions: {
-        compress: {
-          drop_console: process.env.NODE_ENV === "production",
-          drop_debugger: true,
-          pure_funcs: ["console.debug"],
-        },
-        mangle: {
-          properties: false, // Don't mangle chrome API calls
-        },
-      },
+      // Minify in production using default esbuild
+      minify: process.env.NODE_ENV === "production" ? "esbuild" : false,
     },
 
     // Source maps in dev only
@@ -146,7 +136,7 @@ export default defineConfig({
 
   // ── Zip (for Chrome Web Store submission) ──────────────
   zip: {
-    name: "halo-companion",
-    artifactTemplate: "halo-companion-v{{version}}.zip",
+    name: "ofm-companion",
+    artifactTemplate: "ofm-companion-v{{version}}.zip",
   },
 });

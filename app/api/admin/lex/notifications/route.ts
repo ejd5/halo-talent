@@ -1,6 +1,6 @@
 // ─── Admin Notifications API (Task 81) ────────────────────
-// GET  /api/admin/lex/notifications          — Trigger notifications check
-// GET  /api/admin/lex/notifications?type=X   — Specific notification type
+// GET  /api/admin/lex/notifications         , Trigger notifications check
+// GET  /api/admin/lex/notifications?type=X  , Specific notification type
 //
 // Types: daily_recap, deadline_4h, late_alert, all
 

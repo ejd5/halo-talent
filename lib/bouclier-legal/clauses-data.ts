@@ -1,4 +1,4 @@
-// ─── Bouclier Légal — 6 catégories de clauses ───────────
+// ─── Bouclier Légal, 6 catégories de clauses ───────────
 // Données complètes avec arguments juridiques et reformulations
 
 import type { ClauseGroup } from "./types";
@@ -18,7 +18,7 @@ export const CLAUSE_GROUPS: ClauseGroup[] = [
         severity: 5,
         legalArgument: "La délégation d'identifiants viole les CGU de la plupart des plateformes (OnlyFans clause 3.2, MYM article 5). Vous êtes responsable de toute action effectuée depuis votre compte, même par l'agence.",
         recommendedAction: "Exigez que l'agence utilise un système de délégation de compte officiel (si la plateforme le permet) ou cessez de partager vos identifiants.",
-        legalRef: "OnlyFans CGU 3.2, MYM Art. 5 — Interdiction de partage de compte",
+        legalRef: "OnlyFans CGU 3.2, MYM Art. 5, Interdiction de partage de compte",
         sanaReformulation: "Le créateur conserve l'exclusivité de ses identifiants. L'agence dispose d'un accès via un outil de gestion agréé par la plateforme, sans connaître le mot de passe.",
       },
       {
@@ -37,7 +37,7 @@ export const CLAUSE_GROUPS: ClauseGroup[] = [
         severity: 5,
         legalArgument: "Cette clause est abusive car elle vous prive du contrôle élémentaire de votre compte et de votre identité numérique. Elle pourrait être annulée par un tribunal comme clause abusive au sens de l'article L.212-1 du Code de la consommation.",
         recommendedAction: "Refusez cette clause. Vous devez toujours pouvoir reprendre le contrôle de votre compte.",
-        legalRef: "Art. L.212-1 Code de la consommation — Clauses abusives",
+        legalRef: "Art. L.212-1 Code de la consommation, Clauses abusives",
         sanaReformulation: "Le créateur conserve la maîtrise totale de ses accès et peut modifier ses identifiants à tout moment, sous réserve d'en informer l'agence.",
       },
       {
@@ -47,7 +47,7 @@ export const CLAUSE_GROUPS: ClauseGroup[] = [
         severity: 4,
         legalArgument: "Les DM privés contiennent des données personnelles et des conversations confidentielles. Leur accès sans consentement explicite peut violer le RGPD (Règlement Général sur la Protection des Données).",
         recommendedAction: "Exigez une clause de confidentialité et un accord explicite sur le périmètre d'accès aux DM.",
-        legalRef: "RGPD Art. 5 — Principe de minimisation des données",
+        legalRef: "RGPD Art. 5, Principe de minimisation des données",
         sanaReformulation: "L'agence peut accéder aux DM dans le seul cadre de la gestion des abonnés, après consentement écrit du créateur. Les conversations à caractère personnel sont exclues.",
       },
     ],
@@ -65,7 +65,7 @@ export const CLAUSE_GROUPS: ClauseGroup[] = [
         severity: 5,
         legalArgument: "Une commission supérieure à 50% est disproportionnée par rapport aux services fournis dans la plupart des cas. La moyenne du marché OFM se situe entre 20% et 35%. Une commission excessive peut être requalifiée en clause abusive.",
         recommendedAction: "Négociez une commission entre 15% et 35% selon les services inclus.",
-        legalRef: "Art. L.442-1 Code de commerce — Déséquilibre significatif",
+        legalRef: "Art. L.442-1 Code de commerce, Déséquilibre significatif",
         sanaReformulation: "La rémunération de l'agence est fixée à [X]% du revenu brut généré, avec un plafond dégressif au-delà de [montant] € de revenus mensuels.",
       },
       {
@@ -75,7 +75,7 @@ export const CLAUSE_GROUPS: ClauseGroup[] = [
         severity: 5,
         legalArgument: "Cette clause crée une obligation perpétuelle qui peut être annulée comme clause abusive. Le travail de l'agence cesse à la fin du contrat, il n'est pas légitime de continuer à prélever une commission sur des revenus futurs sans service correspondant.",
         recommendedAction: "Refusez catégoriquement. Maximum : commission dégressive sur 3-6 mois post-contrat si l'agence a apporté des abonnés de longue durée.",
-        legalRef: "Art. L.212-1 Code de la consommation — Clauses abusives ; Jurisprudence constante",
+        legalRef: "Art. L.212-1 Code de la consommation, Clauses abusives ; Jurisprudence constante",
         sanaReformulation: "À la fin du contrat, aucune commission n'est due sur les revenus futurs du créateur. Les commissions en cours sont versées jusqu'à la date effective de rupture.",
       },
       {
@@ -178,7 +178,7 @@ export const CLAUSE_GROUPS: ClauseGroup[] = [
         severity: 5,
         legalArgument: "L'exploitation de l'image d'une personne sans son consentement après la fin de la relation contractuelle constitue une atteinte au droit à l'image (Art. 9 Code civil).",
         recommendedAction: "Exigez la suppression de tout votre contenu des supports de l'agence à la fin du contrat.",
-        legalRef: "Art. 9 Code civil — Droit au respect de la vie privée",
+        legalRef: "Art. 9 Code civil, Droit au respect de la vie privée",
         sanaReformulation: "À la fin du contrat, l'agence cesse toute utilisation du contenu et de l'image du créateur. Tous les contenus présents sur les supports de l'agence sont supprimés sous 15 jours.",
       },
       {
@@ -249,7 +249,7 @@ export const CLAUSE_GROUPS: ClauseGroup[] = [
         severity: 4,
         legalArgument: "L'obligation de disponibilité permanente est contraire au droit au repos et à la déconnexion. Elle peut être considérée comme abusive et attentatoire aux droits fondamentaux.",
         recommendedAction: "Définissez des plages horaires de disponibilité et un droit à la déconnexion.",
-        legalRef: "Art. L.2242-8 Code du travail — Droit à la déconnexion (principe général)",
+        legalRef: "Art. L.2242-8 Code du travail, Droit à la déconnexion (principe général)",
         sanaReformulation: "Le créateur est disponible selon des plages horaires définies d'un commun accord, avec un droit à la déconnexion garanti. Les urgences sont gérées via un protocole écrit.",
       },
       {

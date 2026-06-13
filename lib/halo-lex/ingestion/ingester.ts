@@ -1,4 +1,4 @@
-// ─── Halo Lex — Ingester ───────────────────────────────────────
+// ─── WTF Lex, Ingester ───────────────────────────────────────
 // Orchestrateur du pipeline : chunk → embed → enrich → insert.
 
 import { createClient } from "@supabase/supabase-js";

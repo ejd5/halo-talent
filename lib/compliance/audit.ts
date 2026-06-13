@@ -1,4 +1,4 @@
-// ─── Audit Log Service — Chat AI ─────────────────────────
+// ─── Audit Log Service, Chat AI ─────────────────────────
 // Logs every sensitive action: draft generated, approved, copied,
 // PPV created, follow-up approved, settings changed, pause/resume.
 

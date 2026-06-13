@@ -30,7 +30,7 @@ const SECTIONS: DocSection[] = [
     title: "Vue d'ensemble",
     icon: LayoutDashboard,
     content: [
-      "Halo Talent est une plateforme de management créatif. Ce panneau d'administration vous permet de gérer l'ensemble de vos opérations : candidatures, créateurs, finances, contenu, et paramètres système.",
+      "Where Talent Forms est une plateforme de management créatif. Ce panneau d'administration vous permet de gérer l'ensemble de vos opérations : candidatures, créateurs, finances, contenu, et paramètres système.",
       "L'interface est organisée en sections thématiques accessibles depuis la barre latérale gauche. Chaque section regroupe les fonctionnalités liées à un domaine métier.",
       "Conseil : utilisez ⌘K pour ouvrir la palette de commandes et accéder rapidement à n'importe quelle page.",
     ],
@@ -40,10 +40,10 @@ const SECTIONS: DocSection[] = [
     title: "Navigation & Raccourcis",
     icon: Command,
     content: [
-      "Palette de commandes : ⌘K (ou Ctrl+K) — recherchez une page ou une action instantanément.",
+      "Palette de commandes : ⌘K (ou Ctrl+K), recherchez une page ou une action instantanément.",
       "Raccourcis clavier : appuyez sur ? pour afficher la liste complète des raccourcis disponibles.",
       "Navigation sidebar : cliquez sur une section pour développer son contenu. Utilisez les flèches du clavier dans la palette de commandes pour naviguer.",
-      "Retour rapide : le logo Halo en haut de la sidebar vous ramène à la vue d'ensemble depuis n'importe quelle page.",
+      "Retour rapide : le logo WTF en haut de la sidebar vous ramène à la vue d'ensemble depuis n'importe quelle page.",
     ],
   },
   {
@@ -83,10 +83,10 @@ const SECTIONS: DocSection[] = [
     title: "Site Web & Blog",
     icon: Globe,
     content: [
-      "Pages : gérez le contenu des pages publiques du site Halo Talent (accueil, équipe, contact, etc.).",
+      "Pages : gérez le contenu des pages publiques du site Where Talent Forms (accueil, équipe, contact, etc.).",
       "Blog : rédigez et publiez des articles. Éditeur Markdown avec prévisualisation en temps réel.",
       "Roster public : la section Talents affiche les créateurs signés sur le site public. Activez/désactivez la visibilité de chaque talent.",
-      "Manifeste : page statique présentant les valeurs et la vision de Halo Talent.",
+      "Manifeste : page statique présentant les valeurs et la vision de Where Talent Forms.",
     ],
   },
   {
@@ -96,7 +96,7 @@ const SECTIONS: DocSection[] = [
     content: [
       "Comptes connectés : liez les comptes sociaux de vos créateurs (YouTube, Instagram, TikTok, OnlyFans, Twitter) pour centraliser les insights.",
       "Planificateur : programmez les publications sur les différentes plateformes depuis une interface unifiée.",
-      "Insights : métriques agrégées par plateforme — abonnés, vues, engagement, croissance.",
+      "Insights : métriques agrégées par plateforme, abonnés, vues, engagement, croissance.",
     ],
   },
   {
@@ -141,17 +141,17 @@ const SECTIONS: DocSection[] = [
     title: "Raccourcis Clavier",
     icon: Keyboard,
     content: [
-      "⌘K — Palette de commandes (recherche rapide de pages et actions)",
-      "? — Aide / liste des raccourcis clavier",
-      "N — Nouvelle ressource (selon le contexte)",
-      "M — Vue mois (calendrier)",
-      "W — Vue semaine (calendrier)",
-      "D — Vue jour (calendrier)",
-      "T — Vue liste (calendrier)",
-      "⌘U — Uploader un média (bibliothèque)",
-      "⌘S — Enregistrer le document en cours",
-      "⌘F — Rechercher dans la page courante",
-      "Escape — Fermer le modal ou panneau ouvert",
+      "⌘K, Palette de commandes (recherche rapide de pages et actions)",
+      "?, Aide / liste des raccourcis clavier",
+      "N, Nouvelle ressource (selon le contexte)",
+      "M, Vue mois (calendrier)",
+      "W, Vue semaine (calendrier)",
+      "D, Vue jour (calendrier)",
+      "T, Vue liste (calendrier)",
+      "⌘U, Uploader un média (bibliothèque)",
+      "⌘S, Enregistrer le document en cours",
+      "⌘F, Rechercher dans la page courante",
+      "Escape, Fermer le modal ou panneau ouvert",
     ],
   },
 ];
@@ -258,7 +258,7 @@ export default function DocsPage() {
             color: "rgba(255,255,255,0.3)",
           }}
         >
-          Dernière mise à jour — Juin 2026 · Halo Talent v1.0
+          Dernière mise à jour, Juin 2026 · Where Talent Forms v1.0
         </div>
       </div>
     </div>

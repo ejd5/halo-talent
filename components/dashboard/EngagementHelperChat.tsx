@@ -379,7 +379,7 @@ export function EngagementHelperChat() {
 
           {!isEditing && (
             <p className="text-[8px] mt-2" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
-              Suggestion IA — À valider avant envoi · Copiez-collez dans votre messagerie
+              Suggestion IA, À valider avant envoi · Copiez-collez dans votre messagerie
             </p>
           )}
         </div>
@@ -555,7 +555,7 @@ export function EngagementHelperChat() {
 
               {/* Legal notice */}
               <p className="text-[8px] text-center" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
-                Aucun message n&apos;est envoyé automatiquement. Vous copiez-collez manuellement dans votre messagerie.
+                Aucun message n'est envoyé automatiquement. Vous copiez-collez manuellement dans votre messagerie.
               </p>
             </div>
           </>
@@ -570,7 +570,7 @@ export function EngagementHelperChat() {
                 Choisissez un message à gauche pour voir la conversation
               </p>
               <p className="text-[9px] mt-4" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
-                L&apos;agent catégorise et priorise automatiquement vos DMs
+                L'agent catégorise et priorise automatiquement vos DMs
               </p>
             </div>
           </div>

@@ -285,7 +285,7 @@ export const internalNotes: Record<string, InternalNote[]> = {
       id: "n2",
       application_id: "3",
       author: "Marc A.",
-      content: "Vérifier sa situation contractuelle actuelle — elle travaille peut-être avec une autre structure.",
+      content: "Vérifier sa situation contractuelle actuelle, elle travaille peut-être avec une autre structure.",
       created_at: new Date(Date.now() - 1000 * 60 * 60 * 3).toISOString(),
     },
   ],

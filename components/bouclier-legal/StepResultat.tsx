@@ -38,7 +38,7 @@ export function StepResultat({
   // Generate letter content
   const generateLetter = (type: "mise_en_demeure" | "platform_support") => {
     const clauseList = analyzedClauses
-      .map((ac, i) => `${i + 1}. ${ac.clause.label} — ${ac.clause.legalArgument}`)
+      .map((ac, i) => `${i + 1}. ${ac.clause.label}, ${ac.clause.legalArgument}`)
       .join("\n");
 
     const date = new Date().toLocaleDateString("fr-FR", {
@@ -134,7 +134,7 @@ Dans l'attente de votre retour, je vous prie d'agréer, Madame, Monsieur, l'expr
           <Scale size={22} style={{ color: "var(--color-accent)" }} />
         </div>
         <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--text-primary)" }}>
-          Résultat de l&apos;analyse
+          Résultat de l'analyse
         </h2>
         <p className="text-base" style={{ color: "var(--text-secondary)" }}>
           Analyse pour : {platforms.join(", ")}
@@ -170,7 +170,7 @@ Dans l'attente de votre retour, je vous prie d'agréer, Madame, Monsieur, l'expr
         </div>
       </div>
 
-      {/* AI Diagnosis (only when available — connected users) */}
+      {/* AI Diagnosis (only when available, connected users) */}
       {aiDiagnosis && (
         <div
           className="p-5 mb-8"
@@ -426,7 +426,7 @@ ${analyzedClauses.map((ac, i) =>
         <ShieldCheck size={32} style={{ color: "var(--color-accent)" }} className="mx-auto" />
         <div>
           <h3 className="text-base font-bold mb-1" style={{ color: "var(--text-primary)" }}>
-            Comparez avec le contrat standard Halo
+            Comparez avec le contrat standard WTF
           </h3>
           <p className="text-sm leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             Notre contrat standard a été conçu par des avocats spécialisés pour protéger
@@ -439,7 +439,7 @@ ${analyzedClauses.map((ac, i) =>
             className="inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-semibold transition-all hover:scale-[1.02]"
             style={{ backgroundColor: "var(--color-accent)", color: "#fff" }}
           >
-            Voir le contrat standard Halo
+            Voir le contrat standard WTF
             <ArrowRight size={16} />
           </a>
           <a
@@ -451,7 +451,7 @@ ${analyzedClauses.map((ac, i) =>
               border: "1px solid var(--border-default)",
             }}
           >
-            Créer un compte Halo
+            Créer un compte WTF
             <ExternalLink size={16} />
           </a>
         </div>

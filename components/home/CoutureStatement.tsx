@@ -57,7 +57,7 @@ export function CoutureStatement() {
               className="block w-12 h-px transition-all duration-300 group-hover:w-20" 
               style={{ background: "var(--or)" }}
             />
-            Rejoindre Halo
+            Rejoindre WTF
             <span 
               className="block w-12 h-px transition-all duration-300 group-hover:w-20" 
               style={{ background: "var(--or)" }}

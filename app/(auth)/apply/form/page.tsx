@@ -35,11 +35,11 @@ const allPlatforms = [
 ];
 
 const departments = [
-  { id: "music", label: "Music & Performing Arts", subtitle: "Artistes, musiciens, danseurs, comédiens" },
-  { id: "sport", label: "Sport & Lifestyle", subtitle: "Athlètes, coachs, bien-être, nutrition" },
-  { id: "business", label: "Business & Thought Leadership", subtitle: "Entrepreneurs, conférenciers, experts" },
-  { id: "digital", label: "Digital Creators", subtitle: "Influenceurs, content creators, storytellers" },
-  { id: "premium", label: "Talent Premium", subtitle: "Segment créateurs adultes, accompagnement spécifique et discret" },
+  { id: "glamour-premium", label: "Glamour Premium", subtitle: "Mode, beauté, luxe, mannequins" },
+  { id: "influenceurs", label: "Influenceurs", subtitle: "Créateurs de contenu, streamers, TikTokers" },
+  { id: "youtube-podcast", label: "YouTube / Podcast", subtitle: "Youtubeurs, podcasteurs, documentaristes" },
+  { id: "musique", label: "Musique", subtitle: "Musiciens, producteurs, beatmakers, DJs" },
+  { id: "sport-fitness", label: "Sport / Fitness", subtitle: "Athlètes, coaches, nutritionnistes" },
 ];
 
 const followerRanges = ["< 1K", "1K – 10K", "10K – 100K", "100K – 1M", "1M+"];
@@ -220,8 +220,8 @@ export default function ApplyPage() {
 
       {/* Header */}
       <div className="fixed top-6 left-8 right-8 z-40 flex items-center justify-between">
-        <Link href="/" className="font-display text-lg italic tracking-wide text-dark-text hover:text-accent transition-colors">
-          Halo Talent
+        <Link href="/apply" className="font-display text-lg italic tracking-wide text-dark-text hover:text-accent transition-colors">
+          ← Candidature
         </Link>
         <span className="text-xs text-dark-muted uppercase tracking-[0.2em]">
           Étape {step + 1} / 5
@@ -338,7 +338,7 @@ function StepContent({
 }
 
 // ══════════════════════════════════════════════
-// STEP 1 — Vous
+// STEP 1, Vous
 // ══════════════════════════════════════════════
 
 function Step1({ form, errors, onUpdate }: {
@@ -378,7 +378,7 @@ function Step1({ form, errors, onUpdate }: {
 }
 
 // ══════════════════════════════════════════════
-// STEP 2 — Département
+// STEP 2, Département
 // ══════════════════════════════════════════════
 
 function Step2({ form, onToggle }: {
@@ -434,7 +434,7 @@ function Step2({ form, onToggle }: {
 }
 
 // ══════════════════════════════════════════════
-// STEP 3 — Plateformes
+// STEP 3, Plateformes
 // ══════════════════════════════════════════════
 
 function Step3({ form, errors, onToggle, onUpdate, onUpdateForm }: {
@@ -540,7 +540,7 @@ function Step3({ form, errors, onToggle, onUpdate, onUpdateForm }: {
 }
 
 // ══════════════════════════════════════════════
-// STEP 4 — Ambitions
+// STEP 4, Ambitions
 // ══════════════════════════════════════════════
 
 const textareaClass = "w-full bg-transparent border-b border-white/20 py-3 text-dark-text placeholder:text-dark-muted/30 focus:outline-none focus:border-accent transition-colors resize-none h-28 text-lg leading-relaxed";
@@ -593,7 +593,7 @@ function Step4({ form, errors, onUpdate }: {
 }
 
 // ══════════════════════════════════════════════
-// STEP 5 — Confirmation
+// STEP 5, Confirmation
 // ══════════════════════════════════════════════
 
 function Step5({ form, rgpd, onRgpdChange }: {
@@ -610,12 +610,12 @@ function Step5({ form, rgpd, onRgpdChange }: {
         <SummaryRow label="Email" value={form.email || ""} />
         <SummaryRow label="Âge" value={form.age || ""} />
         <SummaryRow label="Pays" value={form.country || ""} />
-        <SummaryRow label="Département(s)" value={form.departments?.join(", ") || "—"} />
+        <SummaryRow label="Département(s)" value={form.departments?.join(", ") || ", "} />
         <SummaryRow label="Plateformes" value={form.platforms?.map((p) => {
           const label = allPlatforms.find((x) => x.id === p.name)?.label || p.name;
           return p.followers ? `${label} (${p.followers})` : label;
         }).join(", ") || "Aucune"} />
-        <SummaryRow label="Revenus mensuels" value={form.monthlyRevenue || "—"} />
+        <SummaryRow label="Revenus mensuels" value={form.monthlyRevenue || ", "} />
       </div>
 
       <div className="border border-white/[0.06] p-5">

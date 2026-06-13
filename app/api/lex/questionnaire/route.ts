@@ -1,8 +1,8 @@
-// ─── Halo Lex — Questionnaire API ──────────────────────────────
-// POST /api/lex/questionnaire — Crée/met à jour un questionnaire
-// GET  /api/lex/questionnaire  — Liste les questionnaires de l'utilisateur
-// GET  /api/lex/questionnaire?id=xxx — Récupère un questionnaire spécifique
-// DELETE /api/lex/questionnaire?id=xxx — Supprime un questionnaire
+// ─── WTF Lex, Questionnaire API ──────────────────────────────
+// POST /api/lex/questionnaire, Crée/met à jour un questionnaire
+// GET  /api/lex/questionnaire , Liste les questionnaires de l'utilisateur
+// GET  /api/lex/questionnaire?id=xxx, Récupère un questionnaire spécifique
+// DELETE /api/lex/questionnaire?id=xxx, Supprime un questionnaire
 
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";

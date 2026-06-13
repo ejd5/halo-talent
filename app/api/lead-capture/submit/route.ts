@@ -126,7 +126,7 @@ export async function POST(request: NextRequest) {
       });
     } catch (emailErr) {
       console.error("[LEAD-CAPTURE] Email send error:", emailErr);
-      // Don't fail the request — the submission is recorded
+      // Don't fail the request, the submission is recorded
     }
 
     return NextResponse.json({

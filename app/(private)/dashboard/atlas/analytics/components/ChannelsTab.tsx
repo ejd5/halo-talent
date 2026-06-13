@@ -42,7 +42,7 @@ export default function ChannelsTab() {
                 Meilleur canal : <span style={{ color: "var(--accent)" }}>{best.name}</span>
               </p>
               <p className="text-xs mt-0.5" style={{ color: "var(--color-ink-tertiary)" }}>
-                {eur(best.revenue)} de revenus générés ce mois — ROI estimé {best.roi}
+                {eur(best.revenue)} de revenus générés ce mois, ROI estimé {best.roi}
               </p>
             </div>
           </div>

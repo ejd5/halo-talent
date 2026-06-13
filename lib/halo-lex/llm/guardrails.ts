@@ -1,4 +1,4 @@
-// ─── Halo Lex — Guardrails (Express compliance) ──────────────
+// ─── WTF Lex, Guardrails (Express compliance) ──────────────
 // Détection des demandes hors-champ, urgences, cas complexes.
 // Version Express : terminologie conforme (pas de "conseil juridique",
 // pas d'"avocat partenaire").
@@ -29,7 +29,7 @@ const EMERGENCY_KEYWORDS: { words: string[]; message: string }[] = [
   },
 ];
 
-// Motifs d'escalade vers l'équipe Halo
+// Motifs d'escalade vers l'équipe WTF
 const ESCALATION_PATTERNS = [
   { regex: /(\d{4,})\s*€|(\d+)\s*000\s*euros?/i, reason: "Montant significatif en jeu" },
   { regex: /proc[èe]s|tribunal|plainte|judiciaire/i, reason: "Procédure judiciaire mentionnée" },

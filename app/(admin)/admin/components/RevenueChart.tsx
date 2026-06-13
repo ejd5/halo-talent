@@ -65,7 +65,7 @@ export function RevenueChart() {
             className="font-display text-lg font-bold"
             style={{ color: "var(--text-primary)" }}
           >
-            Revenus — 12 mois
+            Revenus, 12 mois
           </h2>
           <p className="text-xs font-sans mt-0.5" style={{ color: "var(--text-primary)" }}>
             Bruts · Commission · Net créateurs

@@ -11,7 +11,7 @@ export async function GET() {
   checks.supabase_url =
     process.env.NEXT_PUBLIC_SUPABASE_URL ? "ok" : "miss";
 
-  // Check DB connectivity (optional — add if you have a client)
+  // Check DB connectivity (optional, add if you have a client)
   // try { await supabase.from("health").select("1").limit(1); checks.database = "ok"; }
   // catch { checks.database = "error"; }
 

@@ -315,7 +315,7 @@ export default function CampaignDetailPage({ params }: { params: Promise<{ id: s
         <div className="rounded-sm" style={{ backgroundColor: "var(--color-card)", border: "1px solid var(--color-border)" }}>
           <div className="px-4 py-3 border-b" style={{ borderColor: "var(--color-border)" }}>
             <h3 className="text-xs font-semibold flex items-center gap-2" style={{ color: "rgba(255,255,255,0.4)" }}>
-              <Activity size={12} /> Activité d&apos;envoi ({campaign.recent_sends.length})
+              <Activity size={12} /> Activité d'envoi ({campaign.recent_sends.length})
             </h3>
           </div>
           <div className="divide-y max-h-[300px] overflow-y-auto" style={{ borderColor: "var(--color-border)" }}>

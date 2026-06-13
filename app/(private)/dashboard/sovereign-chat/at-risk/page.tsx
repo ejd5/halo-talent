@@ -72,7 +72,7 @@ export default function AtRiskPage() {
           )}
         </div>
         <p className="text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
-          Fans avec risque de churn élevé — classés par perte potentielle
+          Fans avec risque de churn élevé, classés par perte potentielle
         </p>
       </div>
 
@@ -87,7 +87,7 @@ export default function AtRiskPage() {
             <p className="text-lg font-semibold" style={{ color: "var(--accent)" }}>
               {Math.round((data.total / Math.max(data.total_fans, 1)) * 100)}%
             </p>
-            <p className="text-[9px]" style={{ color: "rgba(245,240,235,0.3)" }}>Taux d&apos;attrition potentiel</p>
+            <p className="text-[9px]" style={{ color: "rgba(245,240,235,0.3)" }}>Taux d'attrition potentiel</p>
           </div>
           <div className="p-3" style={{ backgroundColor: "rgba(122,154,101,0.04)", border: "1px solid rgba(122,154,101,0.1)" }}>
             <p className="text-lg font-semibold" style={{ color: "var(--success)" }}>{totalPotentialLoss}€</p>
@@ -120,7 +120,7 @@ export default function AtRiskPage() {
         <div className="flex flex-col items-center py-12">
           <TrendingDown size={32} style={{ color: "rgba(245,240,235,0.06)" }} />
           <p className="text-sm mt-3" style={{ color: "rgba(245,240,235,0.15)" }}>Aucun fan à risque</p>
-          <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.1)" }}>Tout va bien — tes fans sont engagés</p>
+          <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.1)" }}>Tout va bien, tes fans sont engagés</p>
         </div>
       ) : (
         <div className="space-y-1.5">

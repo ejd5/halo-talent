@@ -304,7 +304,7 @@ Produis une fiche knowledge au format markdown structuré avec les sections suiv
 Chaque section : 3-6 points, incluant des sous-sections "Implications pour les agences" quand pertinent.
 ${previousMarkdown ? "Ajoute un bloc [CHANGEMENTS DÉTECTÉS] en haut listant les modifications importantes." : ""}
 Ne mets PAS de frontmatter YAML dans ta réponse, seulement le contenu markdown.
-Ne cite JAMAIS les CGU textuellement — reformule avec tes mots.`,
+Ne cite JAMAIS les CGU textuellement, reformule avec tes mots.`,
         },
       ],
     });
@@ -397,12 +397,12 @@ async function runCGUScan(supabase: ReturnType<typeof createAdminClient>, anthro
     const newHash = sha256(freshMarkdown);
 
     if (lastSnapshot && lastSnapshot.content_hash === newHash) {
-      // No change — skip
+      // No change, skip
       await sleep(source.delayMs);
       continue;
     }
 
-    // 4. CHANGE DETECTED — insert snapshot, archive, create event
+    // 4. CHANGE DETECTED, insert snapshot, archive, create event
     const previousMarkdown: string | undefined =
       lastSnapshot?.content_hash
         ? undefined // We'd need to fetch the raw_content, skip for efficiency
@@ -448,7 +448,7 @@ async function runCGUScan(supabase: ReturnType<typeof createAdminClient>, anthro
         previous_hash: lastSnapshot?.content_hash || null,
         new_hash: newHash,
         note: lastSnapshot
-          ? "CGU modifiées — snapshot + change event créés"
+          ? "CGU modifiées, snapshot + change event créés"
           : "Premier snapshot CGU",
       },
       items_affected: 1,
@@ -473,7 +473,7 @@ async function sendDigest(supabase: ReturnType<typeof createAdminClient>, result
   if (!ADMIN_USER_ID) return;
 
   const lines = [
-    `🤖 *Scanner Juridique — ${new Date().toLocaleDateString("fr-FR")}*`,
+    `🤖 *Scanner Juridique, ${new Date().toLocaleDateString("fr-FR")}*`,
     ``,
     `*Patterns détectés :*`,
     `  Analyses scannées : ${results.patterns.scanned}`,
@@ -510,21 +510,21 @@ export async function GET(request: NextRequest) {
     errors: [] as string[],
   };
 
-  // Task 1 — Pattern detection (unchanged)
+  // Task 1, Pattern detection (unchanged)
   try {
     results.patterns = await runPatternDetection(supabase, anthropic);
   } catch (err) {
     results.errors.push(`Pattern detection: ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  // Task 2 — CGU scan (generalised, 8 platforms + versioning)
+  // Task 2, CGU scan (generalised, 8 platforms + versioning)
   try {
     results.cgu = await runCGUScan(supabase, anthropic);
   } catch (err) {
     results.errors.push(`CGU scan: ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  // Task 3 — Legislative watch (weekly: only on Mondays)
+  // Task 3, Legislative watch (weekly: only on Mondays)
   try {
     const today = new Date().getDay();
     if (today === 1) {
@@ -534,7 +534,7 @@ export async function GET(request: NextRequest) {
     results.errors.push(`Legislative watch: ${err instanceof Error ? err.message : String(err)}`);
   }
 
-  // Task 4 — Write execution summary for FreshnessBadge
+  // Task 4, Write execution summary for FreshnessBadge
   try {
     await supabase.from("legal_updates_log").insert({
       action: "cgu_scraped",
@@ -555,7 +555,7 @@ export async function GET(request: NextRequest) {
     // Non-critical
   }
 
-  // Task 4 — Notification
+  // Task 4, Notification
   try {
     await sendDigest(supabase, results);
   } catch {

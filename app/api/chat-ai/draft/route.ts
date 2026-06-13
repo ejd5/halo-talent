@@ -112,7 +112,7 @@ export async function POST(request: NextRequest) {
       vaultAsset = asset;
     }
 
-    // 7. Compliance gate — fan status pre-checks
+    // 7. Compliance gate, fan status pre-checks
     const fanRiskFlags = (fan?.risk_flags as string[]) || [];
     const fanStatus = fan?.status as string | undefined;
 
@@ -165,7 +165,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // 9. Compliance gate — module-level checks
+    // 9. Compliance gate, module-level checks
     const gateResult: ComplianceCheckResult = canUseChatAIAction("generate_draft", {
       userId,
       fanId: fanId || undefined,
@@ -262,7 +262,7 @@ export async function POST(request: NextRequest) {
         objective,
         tone: toneOverride || "chaleureux et naturel",
         context_sources: JSON.stringify([
-          fan ? { type: "fan_brain", reference: `${fan.pseudonym} — ${fan.status}`, snippet: `LTV: ${fan.ltv}€, Scores: intent=${fan.intent_score}, churn=${fan.churn_risk}` } : null,
+          fan ? { type: "fan_brain", reference: `${fan.pseudonym}, ${fan.status}`, snippet: `LTV: ${fan.ltv}€, Scores: intent=${fan.intent_score}, churn=${fan.churn_risk}` } : null,
           playbook ? { type: "playbook", reference: playbook.name, snippet: `Ton: ${playbook.global_tone}, audace: ${playbook.boldness_level}/5` } : null,
         ].filter(Boolean)),
         risk_level: riskLevel,
@@ -312,7 +312,7 @@ export async function POST(request: NextRequest) {
         objective,
         tone: toneOverride || "chaleureux et naturel",
         contextSources: [
-          fan ? { type: "fan_brain", reference: `${fan.pseudonym} — ${fan.status}`, snippet: `LTV: ${fan.ltv}€` } : null,
+          fan ? { type: "fan_brain", reference: `${fan.pseudonym}, ${fan.status}`, snippet: `LTV: ${fan.ltv}€` } : null,
           playbook ? { type: "playbook", reference: playbook.name, snippet: `Ton: ${playbook.global_tone}` } : null,
         ].filter(Boolean),
         riskLevel,

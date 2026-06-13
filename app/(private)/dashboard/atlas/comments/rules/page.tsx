@@ -104,7 +104,7 @@ export default function CommentRulesPage() {
           </Link>
           <div>
             <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
-              Règles d&apos;auto-réponse
+              Règles d'auto-réponse
             </h1>
             <p className="text-sm mt-0.5" style={{ color: "var(--color-ink-secondary)" }}>
               {rules.length} règle{rules.length > 1 ? "s" : ""} · {activeRules} active{activeRules > 1 ? "s" : ""}

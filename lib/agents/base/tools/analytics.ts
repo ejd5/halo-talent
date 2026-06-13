@@ -536,7 +536,7 @@ export const benchmarkAgainstPeers: Tool = {
             total_compared: comparisons.length,
           }
         : null,
-      source: "Halo Talent Industry Benchmarks 2026",
+      source: "Where Talent Forms Industry Benchmarks 2026",
     };
   },
 };

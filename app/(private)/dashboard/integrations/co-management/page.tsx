@@ -118,9 +118,9 @@ export default function CoManagementPage() {
           color: "rgba(245,240,235,0.5)",
         }}
       >
-        Plutôt que de partager vos mots de passe ou d&apos;utiliser des outils
+        Plutôt que de partager vos mots de passe ou d'utiliser des outils
         risqués (anti-detect browsers), donnez à votre équipe un accès officiel
-        via les systèmes des plateformes elles-mêmes. C&apos;est gratuit, instantané,
+        via les systèmes des plateformes elles-mêmes. C'est gratuit, instantané,
         révocable à tout moment, et entièrement conforme.
       </div>
 
@@ -294,7 +294,7 @@ export default function CoManagementPage() {
           style={{ backgroundColor: "rgba(245,240,235,0.04)", color: "rgba(245,240,235,0.3)", border: "1px solid rgba(245,240,235,0.06)" }}
         >
           <Clock size={10} />
-          Journal d&apos;audit
+          Journal d'audit
         </a>
         <a
           href="/dashboard/integrations/pro-mode"
@@ -363,7 +363,7 @@ function InstagramGuide({ onDone }: { onDone: (p: string) => void }) {
         style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
       >
         <Check size={10} />
-        J&apos;ai configuré l&apos;accès Instagram
+        J'ai configuré l'accès Instagram
       </button>
       {showConfirm && (
         <div className="text-[10px] p-2" style={{ backgroundColor: "rgba(122,154,101,0.06)", color: "var(--success)" }}>
@@ -450,7 +450,7 @@ function OnlyFansGuide() {
         <div>
           <p className="font-medium mb-1" style={{ color: "var(--accent)" }}>Pas de système de co-management officiel</p>
           <p style={{ color: "rgba(245,240,235,0.5)" }}>
-            Ces plateformes ne proposent pas d&apos;API ou de rôles délégués. Voici des alternatives sécurisées.
+            Ces plateformes ne proposent pas d'API ou de rôles délégués. Voici des alternatives sécurisées.
           </p>
         </div>
       </div>
@@ -459,7 +459,7 @@ function OnlyFansGuide() {
         <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
           <h4 className="text-xs font-medium mb-2" style={{ color: "var(--text-primary)" }}>Bitwarden Teams</h4>
           <p className="text-[10px]" style={{ color: "rgba(245,240,235,0.3)" }}>
-            Gestionnaire de mots de passe chiffré end-to-end. Partage sécurisé, révocable, avec logs d&apos;audit. Gratuit pour les équipes de 2.
+            Gestionnaire de mots de passe chiffré end-to-end. Partage sécurisé, révocable, avec logs d'audit. Gratuit pour les équipes de 2.
           </p>
         </div>
         <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.03)", border: "1px solid rgba(245,240,235,0.06)" }}>
@@ -474,7 +474,7 @@ function OnlyFansGuide() {
         <h4 className="text-[10px] font-semibold mb-1" style={{ color: "var(--danger)" }}>Si partage de mot de passe (dernier recours)</h4>
         <ul className="text-[9px] space-y-0.5" style={{ color: "rgba(245,240,235,0.3)" }}>
           <li>• Active la 2FA SMS (le manager ne reçoit pas les codes)</li>
-          <li>• Change le mot de passe à chaque départ d&apos;équipe</li>
+          <li>• Change le mot de passe à chaque départ d'équipe</li>
           <li>• Signe un contrat écrit définissant les responsabilités</li>
           <li>• Logger les sessions inhabituelles</li>
         </ul>

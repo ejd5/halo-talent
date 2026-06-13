@@ -27,11 +27,146 @@ const messages: Messages = {
   "nav.login": { fr: "Se connecter", en: "Log in", es: "Iniciar sesión", "pt-BR": "Entrar", de: "Anmelden", it: "Accedi" },
   "nav.start_free": { fr: "Commencer gratuitement", en: "Start for free", es: "Comenzar gratis", "pt-BR": "Começar grátis", de: "Kostenlos starten", it: "Inizia gratis" },
   "nav.chat_ai": { fr: "Chat AI", en: "Chat AI", es: "Chat AI", "pt-BR": "Chat AI", de: "Chat AI", it: "Chat AI" },
+  "nav.qui_sommes_nous": { fr: "Qui nous sommes", en: "About us", es: "Quiénes somos", "pt-BR": "Quem somos", de: "Über uns", it: "Chi siamo" },
+
+  // ─── Mega Menu ───
+  "mega.qui_sommes_nous": { fr: "Qui nous sommes", en: "About us", es: "Quiénes somos", "pt-BR": "Quem somos", de: "Über uns", it: "Chi siamo" },
+  "mega.services": { fr: "Services", en: "Services", es: "Servicios", "pt-BR": "Serviços", de: "Services", it: "Servizi" },
+  "mega.departements": { fr: "Départements", en: "Departments", es: "Departamentos", "pt-BR": "Departamentos", de: "Abteilungen", it: "Dipartimenti" },
+  "mega.atlas_crm": { fr: "Atlas CRM", en: "Atlas CRM", es: "Atlas CRM", "pt-BR": "Atlas CRM", de: "Atlas CRM", it: "Atlas CRM" },
+  "mega.chat_ai": { fr: "Chat AI", en: "Chat AI", es: "Chat AI", "pt-BR": "Chat AI", de: "Chat AI", it: "Chat AI" },
+  "mega.lex": { fr: "Lex", en: "Lex", es: "Lex", "pt-BR": "Lex", de: "Lex", it: "Lex" },
+  "mega.protection": { fr: "Protection", en: "Protection", es: "Protección", "pt-BR": "Proteção", de: "Schutz", it: "Protezione" },
+  "mega.tarifs": { fr: "Tarifs", en: "Pricing", es: "Precios", "pt-BR": "Preços", de: "Preise", it: "Prezzi" },
+  "mega.ressources": { fr: "Ressources", en: "Resources", es: "Recursos", "pt-BR": "Recursos", de: "Ressourcen", it: "Risorse" },
+  "mega.contact": { fr: "Contact", en: "Contact", es: "Contacto", "pt-BR": "Contato", de: "Kontakt", it: "Contatto" },
+  // Qui nous sommes
+  "mega.notre_histoire": { fr: "Notre histoire", en: "Our story", es: "Nuestra historia", "pt-BR": "Nossa história", de: "Unsere Geschichte", it: "La nostra storia" },
+  "mega.notre_histoire_desc": { fr: "Pourquoi Where Talent Forms existe", en: "Why Where Talent Forms exists", es: "Por qué existe Where Talent Forms", "pt-BR": "Por que a Where Talent Forms existe", de: "Warum es Where Talent Forms gibt", it: "Perché Where Talent Forms esiste" },
+  "mega.constat_marche": { fr: "Le constat du marché", en: "Market assessment", es: "El diagnóstico del mercado", "pt-BR": "O diagnóstico do mercado", de: "Die Marktanalyse", it: "L'analisi del mercato" },
+  "mega.constat_marche_desc": { fr: "Un secteur qui a grandi trop vite", en: "An industry that grew too fast", es: "Un sector que creció demasiado rápido", "pt-BR": "Um setor que cresceu rápido demais", de: "Eine Branche, die zu schnell gewachsen ist", it: "Un settore cresciuto troppo in fretta" },
+  "mega.notre_manifeste": { fr: "Notre manifeste", en: "Our manifesto", es: "Nuestro manifiesto", "pt-BR": "Nosso manifesto", de: "Unser Manifest", it: "Il nostro manifesto" },
+  "mega.notre_manifeste_desc": { fr: "Nos convictions et nos valeurs", en: "Our convictions and values", es: "Nuestras convicciones y valores", "pt-BR": "Nossas convicções e valores", de: "Unsere Überzeugungen und Werte", it: "Le nostre convinzioni e valori" },
+  "mega.notre_difference": { fr: "Notre différence", en: "Our difference", es: "Nuestra diferencia", "pt-BR": "Nossa diferença", de: "Unser Unterschied", it: "La nostra differenza" },
+  "mega.notre_difference_desc": { fr: "Pas une agence de plus", en: "Not just another agency", es: "No una agencia más", "pt-BR": "Não é apenas mais uma agência", de: "Keine weitere Agentur", it: "Non un'altra agenzia" },
+  "mega.ce_que_nous_refusons": { fr: "Ce que nous refusons", en: "What we refuse", es: "Lo que rechazamos", "pt-BR": "O que recusamos", de: "Was wir ablehnen", it: "Cosa rifiutiamo" },
+  "mega.ce_que_nous_refusons_desc": { fr: "Nos lignes rouges", en: "Our red lines", es: "Nuestras líneas rojas", "pt-BR": "Nossas linhas vermelhas", de: "Unsere roten Linien", it: "Le nostre linee rosse" },
+  "mega.vision_long_terme": { fr: "Vision long terme", en: "Long term vision", es: "Visión a largo plazo", "pt-BR": "Visão de longo prazo", de: "Langfristige Vision", it: "Visione a lungo termine" },
+  "mega.vision_long_terme_desc": { fr: "Construire des carrières, pas des tendances", en: "Building careers, not trends", es: "Construir carreras, no tendencias", "pt-BR": "Construindo carreiras, não tendências", de: "Karrieren bauen, nicht Trends", it: "Costruire carriere, non tendenze" },
+  "mega.commissions_transparentes": { fr: "Commissions transparentes", en: "Transparent commissions", es: "Comisiones transparentes", "pt-BR": "Comissões transparentes", de: "Transparente Provisionen", it: "Commissioni trasparenti" },
+  "mega.commissions_transparentes_desc": { fr: "Publiques, marginales, dégressives", en: "Public, marginal, decreasing", es: "Públicas, marginales, decrecientes", "pt-BR": "Públicas, marginais, decrescentes", de: "Öffentlich, marginal, degressiv", it: "Pubbliche, marginali, decrescenti" },
+  "mega.maison_creative": { fr: "Maison créative", en: "Creative house", es: "Casa creativa", "pt-BR": "Casa criativa", de: "Kreativhaus", it: "Casa creativa" },
+  "mega.maison_creative_desc": { fr: "Technologie + humain, sans enfermement", en: "Technology + human, without lock-in", es: "Tecnología + humano, sin encierro", "pt-BR": "Tecnologia + humano, sem aprisionamento", de: "Technologie + Mensch, ohne Einsperrung", it: "Tecnologia + umano, senza prigionia" },
+  // Services
+  "mega.management_creatif": { fr: "Management créatif", en: "Creative management", es: "Gestión creativa", "pt-BR": "Gestão criativa", de: "Kreatives Management", it: "Management creativo" },
+  "mega.management_creatif_desc": { fr: "Accompagnement humain sur mesure", en: "Tailored human support", es: "Acompañamiento humano a medida", "pt-BR": "Acompanhamento humano personalizado", de: "Maßgeschneiderte menschliche Betreuung", it: "Accompagnamento umano su misura" },
+  "mega.strategie_image": { fr: "Stratégie d'image", en: "Image strategy", es: "Estrategia de imagen", "pt-BR": "Estratégia de imagem", de: "Image-Strategie", it: "Strategia d'immagine" },
+  "mega.strategie_image_desc": { fr: "Personal branding et direction artistique", en: "Personal branding and art direction", es: "Personal branding y dirección artística", "pt-BR": "Personal branding e direção artística", de: "Personal Branding und Art Direction", it: "Personal branding e direzione artistica" },
+  "mega.croissance": { fr: "Croissance", en: "Growth", es: "Crecimiento", "pt-BR": "Crescimento", de: "Wachstum", it: "Crescita" },
+  "mega.croissance_desc": { fr: "Stratégie et monétisation cross-plateforme", en: "Cross-platform strategy and monetization", es: "Estrategia y monetización cross-plataforma", "pt-BR": "Estratégia e monetização cross-plataforma", de: "Plattformübergreifende Strategie und Monetarisierung", it: "Strategia e monetizzazione cross-piattaforma" },
+  "mega.studio_ia": { fr: "Studio IA", en: "AI Studio", es: "Studio IA", "pt-BR": "Studio IA", de: "KI-Studio", it: "Studio IA" },
+  "mega.studio_ia_desc": { fr: "Génération, retouche, montage assisté", en: "Generation, retouching, assisted editing", es: "Generación, retoque, edición asistida", "pt-BR": "Geração, retoque, edição assistida", de: "Generierung, Retusche, assistierte Bearbeitung", it: "Generazione, ritocco, montaggio assistito" },
+  "mega.crm": { fr: "CRM", en: "CRM", es: "CRM", "pt-BR": "CRM", de: "CRM", it: "CRM" },
+  "mega.crm_desc": { fr: "Gestion de communauté et campagnes", en: "Community and campaign management", es: "Gestión de comunidad y campañas", "pt-BR": "Gestão de comunidade e campanhas", de: "Community- und Kampagnenmanagement", it: "Gestione community e campagne" },
+  "mega.juridique_preparatoire": { fr: "Juridique préparatoire", en: "Preparatory legal", es: "Jurídico preparatorio", "pt-BR": "Jurídico preparatório", de: "Vorbereitende Rechtsberatung", it: "Giuridico preparatorio" },
+  "mega.juridique_preparatoire_desc": { fr: "Analyse de contrats, droits d'image", en: "Contract analysis, image rights", es: "Análisis de contratos, derechos de imagen", "pt-BR": "Análise de contratos, direitos de imagem", de: "Vertragsanalyse, Bildrechte", it: "Analisi contratti, diritti d'immagine" },
+  "mega.protection_comptes": { fr: "Protection des comptes", en: "Account protection", es: "Protección de cuentas", "pt-BR": "Proteção de contas", de: "Kontoschutz", it: "Protezione account" },
+  "mega.protection_comptes_desc": { fr: "CGU analysées, risques documentés", en: "Analyzed TOS, documented risks", es: "CGU analizadas, riesgos documentados", "pt-BR": "CGU analisadas, riscos documentados", de: "Analysierte AGB, dokumentierte Risiken", it: "CGU analizzate, rischi documentati" },
+  "mega.reporting": { fr: "Reporting", en: "Reporting", es: "Informes", "pt-BR": "Relatórios", de: "Berichterstattung", it: "Reporting" },
+  "mega.reporting_desc": { fr: "Tableaux de bord, analytics, KPI", en: "Dashboards, analytics, KPIs", es: "Dashboards, analytics, KPIs", "pt-BR": "Dashboards, análises, KPIs", de: "Dashboards, Analytics, KPIs", it: "Dashboard, analytics, KPI" },
+  // Départements
+  "mega.glamour_premium": { fr: "Glamour Premium", en: "Premium Glamour", es: "Glamour Premium", "pt-BR": "Glamour Premium", de: "Premium Glamour", it: "Glamour Premium" },
+  "mega.glamour_premium_desc": { fr: "Mode, beauté, lifestyle haut de gamme", en: "Fashion, beauty, high-end lifestyle", es: "Moda, belleza, lifestyle de lujo", "pt-BR": "Moda, beleza, lifestyle de luxo", de: "Mode, Beauty, High-End-Lifestyle", it: "Moda, bellezza, lifestyle di lusso" },
+  "mega.influenceurs": { fr: "Influenceurs", en: "Influencers", es: "Influencers", "pt-BR": "Influenciadores", de: "Influencer", it: "Influencer" },
+  "mega.influenceurs_desc": { fr: "Contenu digital, UGC, réseaux sociaux", en: "Digital content, UGC, social media", es: "Contenido digital, UGC, redes sociales", "pt-BR": "Conteúdo digital, UGC, redes sociais", de: "Digitaler Content, UGC, Social Media", it: "Contenuti digitali, UGC, social media" },
+  "mega.youtube_podcast": { fr: "YouTube & Podcast", en: "YouTube & Podcast", es: "YouTube & Podcast", "pt-BR": "YouTube & Podcast", de: "YouTube & Podcast", it: "YouTube & Podcast" },
+  "mega.youtube_podcast_desc": { fr: "Formats longs, monétisation, droits", en: "Long formats, monetization, rights", es: "Formatos largos, monetización, derechos", "pt-BR": "Formatos longos, monetização, direitos", de: "Lange Formate, Monetarisierung, Rechte", it: "Formati lunghi, monetizzazione, diritti" },
+  "mega.musique": { fr: "Musique", en: "Music", es: "Música", "pt-BR": "Música", de: "Musik", it: "Musica" },
+  "mega.musique_desc": { fr: "Artistes, producteurs, DJs, compositeurs", en: "Artists, producers, DJs, composers", es: "Artistas, productores, DJs, compositores", "pt-BR": "Artistas, produtores, DJs, compositores", de: "Künstler, Produzenten, DJs, Komponisten", it: "Artisti, produttori, DJ, compositori" },
+  "mega.sport_fitness": { fr: "Sport & Fitness", en: "Sports & Fitness", es: "Deporte & Fitness", "pt-BR": "Esporte & Fitness", de: "Sport & Fitness", it: "Sport & Fitness" },
+  "mega.sport_fitness_desc": { fr: "Athlètes, coachs, personnalités sportives", en: "Athletes, coaches, sports personalities", es: "Atletas, coaches, personalidades deportivas", "pt-BR": "Atletas, coaches, personalidades esportivas", de: "Athleten, Coaches, Sportpersönlichkeiten", it: "Atleti, coach, personalità sportive" },
+  // Atlas CRM
+  "mega.fonctionnalites": { fr: "Fonctionnalités", en: "Features", es: "Funcionalidades", "pt-BR": "Funcionalidades", de: "Funktionen", it: "Funzionalità" },
+  "mega.fonctionnalites_desc": { fr: "Vue d'ensemble complète d'Atlas", en: "Complete Atlas overview", es: "Visión completa de Atlas", "pt-BR": "Visão geral completa do Atlas", de: "Vollständiger Atlas-Überblick", it: "Panoramica completa di Atlas" },
+  "mega.crm_suite": { fr: "Suite CRM", en: "CRM Suite", es: "Suite CRM", "pt-BR": "Suite CRM", de: "CRM-Suite", it: "Suite CRM" },
+  "mega.crm_suite_desc": { fr: "Gestion complète de la relation fan", en: "Complete fan relationship management", es: "Gestión completa de la relación con fans", "pt-BR": "Gestão completa do relacionamento com fãs", de: "Vollständiges Fan-Beziehungsmanagement", it: "Gestione completa della relazione con i fan" },
+  "mega.dashboard": { fr: "Dashboard", en: "Dashboard", es: "Dashboard", "pt-BR": "Dashboard", de: "Dashboard", it: "Dashboard" },
+  "mega.dashboard_desc": { fr: "Vue centralisée de toute l'activité", en: "Centralized view of all activity", es: "Vista centralizada de toda la actividad", "pt-BR": "Visão centralizada de toda a atividade", de: "Zentralisierte Ansicht aller Aktivitäten", it: "Vista centralizzata di tutta l'attività" },
+  "mega.automatisation_controlee": { fr: "Automatisation contrôlée", en: "Controlled automation", es: "Automatización controlada", "pt-BR": "Automação controlada", de: "Kontrollierte Automatisierung", it: "Automazione controllata" },
+  "mega.automatisation_controlee_desc": { fr: "L'IA propose, l'humain valide", en: "AI proposes, human validates", es: "La IA propone, el humano valida", "pt-BR": "A IA propõe, o humano valida", de: "KI schlägt vor, Mensch validiert", it: "L'IA propone, l'umano convalida" },
+  "mega.reporting_atlas": { fr: "Reporting", en: "Reporting", es: "Informes", "pt-BR": "Relatórios", de: "Berichte", it: "Report" },
+  "mega.reporting_atlas_desc": { fr: "KPIs, analytics, exports programmables", en: "KPIs, analytics, programmable exports", es: "KPIs, analytics, exportaciones programables", "pt-BR": "KPIs, análises, exportações programáveis", de: "KPIs, Analytics, programmierbare Exporte", it: "KPI, analytics, esportazioni programmabili" },
+  "mega.conformite": { fr: "Conformité", en: "Compliance", es: "Conformidad", "pt-BR": "Conformidade", de: "Compliance", it: "Conformità" },
+  "mega.conformite_desc": { fr: "RGPD, CAN-SPAM, règles plateformes", en: "GDPR, CAN-SPAM, platform rules", es: "RGPD, CAN-SPAM, reglas de plataformas", "pt-BR": "RGPD, CAN-SPAM, regras das plataformas", de: "DSGVO, CAN-SPAM, Plattformregeln", it: "GDPR, CAN-SPAM, regole delle piattaforme" },
+  "mega.tarifs_atlas": { fr: "Tarifs Atlas", en: "Atlas Pricing", es: "Precios Atlas", "pt-BR": "Preços Atlas", de: "Atlas-Preise", it: "Prezzi Atlas" },
+  "mega.tarifs_atlas_desc": { fr: "Gratuit, Pro, Enterprise", en: "Free, Pro, Enterprise", es: "Gratuito, Pro, Enterprise", "pt-BR": "Grátis, Pro, Enterprise", de: "Kostenlos, Pro, Enterprise", it: "Gratuito, Pro, Enterprise" },
+  // Chat AI
+  "mega.comment_ca_marche": { fr: "Comment ça marche", en: "How it works", es: "Cómo funciona", "pt-BR": "Como funciona", de: "Wie es funktioniert", it: "Come funziona" },
+  "mega.comment_ca_marche_desc": { fr: "Prioriser, préparer, valider, tracer", en: "Prioritize, prepare, validate, trace", es: "Priorizar, preparar, validar, trazar", "pt-BR": "Priorizar, preparar, validar, rastrear", de: "Priorisieren, vorbereiten, validieren, nachverfolgen", it: "Prioritizzare, preparare, validare, tracciare" },
+  "mega.ia_validation_humaine": { fr: "IA + validation humaine", en: "AI + human validation", es: "IA + validación humana", "pt-BR": "IA + validação humana", de: "KI + menschliche Validierung", it: "IA + convalida umana" },
+  "mega.ia_validation_humaine_desc": { fr: "Rien n'est envoyé sans votre accord", en: "Nothing is sent without your approval", es: "Nada se envía sin su aprobación", "pt-BR": "Nada é enviado sem sua aprovação", de: "Nichts wird ohne Ihre Zustimmung gesendet", it: "Niente viene inviato senza la tua approvazione" },
+  "mega.fan_brain": { fr: "Fan Brain", en: "Fan Brain", es: "Fan Brain", "pt-BR": "Fan Brain", de: "Fan Brain", it: "Fan Brain" },
+  "mega.fan_brain_desc": { fr: "Mémoire de chaque conversation fan", en: "Memory of every fan conversation", es: "Memoria de cada conversación con fans", "pt-BR": "Memória de cada conversa com fãs", de: "Gedächtnis jeder Fan-Konversation", it: "Memoria di ogni conversazione con i fan" },
+  "mega.qa_review": { fr: "QA Review", en: "QA Review", es: "QA Review", "pt-BR": "QA Review", de: "QA-Review", it: "QA Review" },
+  "mega.qa_review_desc": { fr: "Détection des risques avant envoi", en: "Risk detection before sending", es: "Detección de riesgos antes del envío", "pt-BR": "Detecção de riscos antes do envio", de: "Risikoerkennung vor dem Senden", it: "Rilevamento rischi prima dell'invio" },
+  "mega.audit_logs": { fr: "Audit Logs", en: "Audit Logs", es: "Audit Logs", "pt-BR": "Audit Logs", de: "Audit-Logs", it: "Audit Log" },
+  "mega.audit_logs_desc": { fr: "Traçabilité complète sur 12 mois", en: "Full traceability over 12 months", es: "Trazabilidad completa durante 12 meses", "pt-BR": "Rastreabilidade completa por 12 meses", de: "Vollständige Nachverfolgbarkeit über 12 Monate", it: "Tracciabilità completa su 12 mesi" },
+  "mega.ppv_copilot": { fr: "PPV Copilot", en: "PPV Copilot", es: "PPV Copilot", "pt-BR": "PPV Copilot", de: "PPV-Copilot", it: "PPV Copilot" },
+  "mega.ppv_copilot_desc": { fr: "Recommandations de prix et de timing", en: "Price and timing recommendations", es: "Recomendaciones de precio y timing", "pt-BR": "Recomendações de preço e timing", de: "Preis- und Timing-Empfehlungen", it: "Raccomandazioni di prezzo e timing" },
+  "mega.securite_chat": { fr: "Sécurité", en: "Security", es: "Seguridad", "pt-BR": "Segurança", de: "Sicherheit", it: "Sicurezza" },
+  "mega.securite_chat_desc": { fr: "BYOK, chiffrement, 2FA obligatoire", en: "BYOK, encryption, mandatory 2FA", es: "BYOK, cifrado, 2FA obligatorio", "pt-BR": "BYOK, criptografia, 2FA obrigatório", de: "BYOK, Verschlüsselung, obligatorische 2FA", it: "BYOK, crittografia, 2FA obbligatoria" },
+  // WTF Companion Extension
+  "mega.wtf_companion": { fr: "WTF Companion", en: "WTF Companion", es: "WTF Companion", "pt-BR": "WTF Companion", de: "WTF Companion", it: "WTF Companion" },
+  "mega.wtf_decouvrir": { fr: "Découvrir l'extension", en: "Discover the extension", es: "Descubrir la extensión", "pt-BR": "Descobrir a extensão", de: "Erweiterung entdecken", it: "Scopri l'estensione" },
+  "mega.wtf_decouvrir_desc": { fr: "Co-pilote IA dans votre navigateur", en: "AI co-pilot in your browser", es: "Co-piloto IA en tu navegador", "pt-BR": "Co-piloto IA no seu navegador", de: "KI-Copilot in Ihrem Browser", it: "Co-pilota IA nel tuo browser" },
+  "mega.wtf_fonctionnalites": { fr: "Fonctionnalités", en: "Features", es: "Funcionalidades", "pt-BR": "Funcionalidades", de: "Funktionen", it: "Funzionalità" },
+  "mega.wtf_fonctionnalites_desc": { fr: "Revenue Radar, Chat Assist, Vault, Scripts", en: "Revenue Radar, Chat Assist, Vault, Scripts", es: "Revenue Radar, Chat Assist, Vault, Scripts", "pt-BR": "Revenue Radar, Chat Assist, Vault, Scripts", de: "Revenue Radar, Chat Assist, Vault, Scripts", it: "Revenue Radar, Chat Assist, Vault, Scripts" },
+  "mega.wtf_plans": { fr: "Plans & Tarifs", en: "Plans & Pricing", es: "Planes y precios", "pt-BR": "Planos e preços", de: "Pläne & Preise", it: "Piani e prezzi" },
+  "mega.wtf_plans_desc": { fr: "Gratuit, Starter inclus, Pro inclus", en: "Free, Starter included, Pro included", es: "Gratis, Starter incluido, Pro incluido", "pt-BR": "Grátis, Starter incluído, Pro incluído", de: "Kostenlos, Starter inklusive, Pro inklusive", it: "Gratuito, Starter incluso, Pro incluso" },
+  "mega.wtf_installer": { fr: "Installer l'extension", en: "Install the extension", es: "Instalar la extensión", "pt-BR": "Instalar a extensão", de: "Erweiterung installieren", it: "Installa l'estensione" },
+  "mega.wtf_installer_desc": { fr: "Chrome Web Store — 1 clic", en: "Chrome Web Store — 1 click", es: "Chrome Web Store — 1 clic", "pt-BR": "Chrome Web Store — 1 clique", de: "Chrome Web Store — 1 Klick", it: "Chrome Web Store — 1 clic" },
+  // Lex
+  "mega.ia_juridique": { fr: "IA juridique", en: "Legal AI", es: "IA jurídica", "pt-BR": "IA jurídica", de: "KI-Recht", it: "IA giuridica" },
+  "mega.ia_juridique_desc": { fr: "Assistant IA pour vos contrats", en: "AI assistant for your contracts", es: "Asistente IA para sus contratos", "pt-BR": "Assistente IA para seus contratos", de: "KI-Assistent für Ihre Verträge", it: "Assistente IA per i tuoi contratti" },
+  "mega.contrats": { fr: "Contrats", en: "Contracts", es: "Contratos", "pt-BR": "Contratos", de: "Verträge", it: "Contratti" },
+  "mega.contrats_desc": { fr: "Analyse clause par clause", en: "Clause-by-clause analysis", es: "Análisis cláusula por cláusula", "pt-BR": "Análise cláusula por cláusula", de: "Klauselweise Analyse", it: "Analisi clausola per clausola" },
+  "mega.droits_image": { fr: "Droits d'image", en: "Image rights", es: "Derechos de imagen", "pt-BR": "Direitos de imagem", de: "Bildrechte", it: "Diritti d'immagine" },
+  "mega.droits_image_desc": { fr: "Protection de votre propriété intellectuelle", en: "Protection of your intellectual property", es: "Protección de su propiedad intelectual", "pt-BR": "Proteção da sua propriedade intelectual", de: "Schutz Ihres geistigen Eigentums", it: "Protezione della tua proprietà intellettuale" },
+  "mega.dossiers_avocat": { fr: "Dossiers avocat", en: "Lawyer briefs", es: "Expedientes para abogado", "pt-BR": "Dossiês para advogado", de: "Anwaltsunterlagen", it: "Fascicoli per avvocato" },
+  "mega.dossiers_avocat_desc": { fr: "Préparation de dossiers structurés", en: "Structured brief preparation", es: "Preparación de expedientes estructurados", "pt-BR": "Preparação de dossiês estruturados", de: "Strukturierte Unterlagenvorbereitung", it: "Preparazione di fascicoli strutturati" },
+  "mega.guides_juridiques": { fr: "Guides juridiques", en: "Legal guides", es: "Guías jurídicas", "pt-BR": "Guias jurídicos", de: "Rechtliche Leitfäden", it: "Guide giuridiche" },
+  "mega.guides_juridiques_desc": { fr: "Guides pratiques par plateforme", en: "Practical guides by platform", es: "Guías prácticas por plataforma", "pt-BR": "Guias práticos por plataforma", de: "Praktische Leitfäden pro Plattform", it: "Guide pratiche per piattaforma" },
+  "mega.changements_legaux": { fr: "Changements légaux", en: "Legal changes", es: "Cambios legales", "pt-BR": "Mudanças legais", de: "Rechtliche Änderungen", it: "Modifiche legali" },
+  "mega.changements_legaux_desc": { fr: "Veille des CGU et réglementations", en: "TOS and regulation monitoring", es: "Vigilancia de CGU y regulaciones", "pt-BR": "Monitoramento de CGU e regulamentações", de: "AGB- und Regulierungsüberwachung", it: "Monitoraggio CGU e regolamenti" },
+  // Protection
+  "mega.guide_global": { fr: "Guide global", en: "Global guide", es: "Guía global", "pt-BR": "Guia global", de: "Globaler Leitfaden", it: "Guida globale" },
+  "mega.guide_global_desc": { fr: "Droits, CGU, bonnes pratiques", en: "Rights, TOS, best practices", es: "Derechos, CGU, buenas prácticas", "pt-BR": "Direitos, CGU, boas práticas", de: "Rechte, AGB, Best Practices", it: "Diritti, CGU, buone pratiche" },
+  "mega.onlyfans": { fr: "OnlyFans", en: "OnlyFans", es: "OnlyFans", "pt-BR": "OnlyFans", de: "OnlyFans", it: "OnlyFans" },
+  "mega.onlyfans_desc": { fr: "Analyse des CGU et droits créateur", en: "TOS analysis and creator rights", es: "Análisis de CGU y derechos del creador", "pt-BR": "Análise das CGU e direitos do criador", de: "AGB-Analyse und Creator-Rechte", it: "Analisi CGU e diritti del creator" },
+  "mega.fansly": { fr: "Fansly", en: "Fansly", es: "Fansly", "pt-BR": "Fansly", de: "Fansly", it: "Fansly" },
+  "mega.fansly_desc": { fr: "Protection et conformité Fansly", en: "Fansly protection and compliance", es: "Protección y conformidad Fansly", "pt-BR": "Proteção e conformidade Fansly", de: "Fansly-Schutz und -Compliance", it: "Protezione e conformità Fansly" },
+  "mega.mym": { fr: "MYM", en: "MYM", es: "MYM", "pt-BR": "MYM", de: "MYM", it: "MYM" },
+  "mega.mym_desc": { fr: "Spécificités françaises et droits", en: "French specifics and rights", es: "Especificidades francesas y derechos", "pt-BR": "Especificidades francesas e direitos", de: "Französische Besonderheiten und Rechte", it: "Specificità francesi e diritti" },
+  "mega.instagram": { fr: "Instagram", en: "Instagram", es: "Instagram", "pt-BR": "Instagram", de: "Instagram", it: "Instagram" },
+  "mega.instagram_desc": { fr: "Branded content et règles Meta", en: "Branded content and Meta rules", es: "Branded content y reglas de Meta", "pt-BR": "Branded content e regras da Meta", de: "Branded Content und Meta-Regeln", it: "Branded content e regole Meta" },
+  "mega.youtube": { fr: "YouTube", en: "YouTube", es: "YouTube", "pt-BR": "YouTube", de: "YouTube", it: "YouTube" },
+  "mega.youtube_desc": { fr: "Monétisation et droits d'auteur", en: "Monetization and copyright", es: "Monetización y derechos de autor", "pt-BR": "Monetização e direitos autorais", de: "Monetarisierung und Urheberrecht", it: "Monetizzazione e diritti d'autore" },
+  // Ressources
+  "mega.blog": { fr: "Blog", en: "Blog", es: "Blog", "pt-BR": "Blog", de: "Blog", it: "Blog" },
+  "mega.blog_desc": { fr: "Articles, analyses, actualités", en: "Articles, analysis, news", es: "Artículos, análisis, noticias", "pt-BR": "Artigos, análises, notícias", de: "Artikel, Analysen, Nachrichten", it: "Articoli, analisi, notizie" },
+  "mega.guides": { fr: "Guides", en: "Guides", es: "Guías", "pt-BR": "Guias", de: "Leitfäden", it: "Guide" },
+  "mega.guides_desc": { fr: "Guides pratiques et tutoriels", en: "Practical guides and tutorials", es: "Guías prácticas y tutoriales", "pt-BR": "Guias práticos e tutoriais", de: "Praktische Leitfäden und Tutorials", it: "Guide pratiche e tutorial" },
+  "mega.glossaire": { fr: "Glossaire", en: "Glossary", es: "Glosario", "pt-BR": "Glossário", de: "Glossar", it: "Glossario" },
+  "mega.glossaire_desc": { fr: "Termes OFM expliqués de A à Z", en: "OFM terms explained from A to Z", es: "Términos OFM explicados de la A a la Z", "pt-BR": "Termos OFM explicados de A a Z", de: "OFM-Begriffe von A bis Z erklärt", it: "Termini OFM spiegati dalla A alla Z" },
+  "mega.contrat_type": { fr: "Contrat type", en: "Template contract", es: "Contrato tipo", "pt-BR": "Contrato padrão", de: "Mustervertrag", it: "Contratto tipo" },
+  "mega.contrat_type_desc": { fr: "Modèle de contrat créateur-agence", en: "Creator-agency contract template", es: "Modelo de contrato creador-agencia", "pt-BR": "Modelo de contrato criador-agência", de: "Mustervertrag Creator-Agentur", it: "Modello di contratto creator-agenzia" },
+  "mega.faq": { fr: "FAQ", en: "FAQ", es: "FAQ", "pt-BR": "FAQ", de: "FAQ", it: "FAQ" },
+  "mega.faq_desc": { fr: "Questions fréquentes sur nos services", en: "Frequent questions about our services", es: "Preguntas frecuentes sobre nuestros servicios", "pt-BR": "Perguntas frequentes sobre nossos serviços", de: "Häufige Fragen zu unseren Services", it: "Domande frequenti sui nostri servizi" },
 
   // ─── Chat AI Landing ───
   "chat_ai.hero.badge": { fr: "Sovereign Chat AI", en: "Sovereign Chat AI", es: "Sovereign Chat AI", "pt-BR": "Sovereign Chat AI", de: "Sovereign Chat AI", it: "Sovereign Chat AI" },
   "chat_ai.hero.title": { fr: "Un copilote de chatting conçu pour vendre mieux, sans perdre le contrôle.", en: "A chatting copilot designed to sell better, without losing control.", es: "Un copiloto de chatting diseñado para vender mejor, sin perder el control.", "pt-BR": "Um copiloto de chatting projetado para vender melhor, sem perder o controle.", de: "Ein Chat-Copilot, der darauf ausgelegt ist, besser zu verkaufen, ohne die Kontrolle zu verlieren.", it: "Un copilota di chatting progettato per vendere meglio, senza perdere il controllo." },
-  "chat_ai.hero.desc": { fr: "Halo Sovereign Chat AI aide les créateurs et agences à préparer des réponses, prioriser les conversations, recommander des PPV, contrôler les risques et garder une trace de chaque action.", en: "Halo Sovereign Chat AI helps creators and agencies prepare responses, prioritize conversations, recommend PPV, control risks and track every action.", es: "Halo Sovereign Chat AI ayuda a creadores y agencias a preparar respuestas, priorizar conversaciones, recomendar PPV, controlar riesgos y rastrear cada acción.", "pt-BR": "Halo Sovereign Chat AI ajuda criadores e agências a preparar respostas, priorizar conversas, recomendar PPV, controlar riscos e rastrear cada ação.", de: "Halo Sovereign Chat AI hilft Creatorn und Agenturen, Antworten vorzubereiten, Gespräche zu priorisieren, PPV zu empfehlen, Risiken zu kontrollieren und jede Aktion nachzuverfolgen.", it: "Halo Sovereign Chat AI aiuta creator e agenzie a preparare risposte, dare priorità alle conversazioni, consigliare PPV, controllare i rischi e tenere traccia di ogni azione." },
+  "chat_ai.hero.desc": { fr: "WTF Sovereign Chat AI aide les créateurs et agences à préparer des réponses, prioriser les conversations, recommander des PPV, contrôler les risques et garder une trace de chaque action.", en: "WTF Sovereign Chat AI helps creators and agencies prepare responses, prioritize conversations, recommend PPV, control risks and track every action.", es: "WTF Sovereign Chat AI ayuda a creadores y agencias a preparar respuestas, priorizar conversaciones, recomendar PPV, controlar riesgos y rastrear cada acción.", "pt-BR": "WTF Sovereign Chat AI ajuda criadores e agências a preparar respostas, priorizar conversas, recomendar PPV, controlar riscos e rastrear cada ação.", de: "WTF Sovereign Chat AI hilft Creatorn und Agenturen, Antworten vorzubereiten, Gespräche zu priorisieren, PPV zu empfehlen, Risiken zu kontrollieren und jede Aktion nachzuverfolgen.", it: "WTF Sovereign Chat AI aiuta creator e agenzie a preparare risposte, dare priorità alle conversazioni, consigliare PPV, controllare i rischi e tenere traccia di ogni azione." },
   "chat_ai.hero.cta_demo": { fr: "Demander une démo", en: "Request a demo", es: "Solicitar una demo", "pt-BR": "Solicitar uma demo", de: "Demo anfordern", it: "Richiedi una demo" },
   "chat_ai.hero.cta_how": { fr: "Voir comment ça fonctionne", en: "See how it works", es: "Ver cómo funciona", "pt-BR": "Ver como funciona", de: "So funktioniert's", it: "Scopri come funziona" },
   "chat_ai.hero.reassurance": { fr: "Validation humaine requise. Aucune promesse de revenu. Aucun envoi automatique.", en: "Human validation required. No revenue promises. No automatic sending.", es: "Validación humana requerida. Sin promesas de ingresos. Sin envío automático.", "pt-BR": "Validação humana necessária. Nenhuma promessa de receita. Nenhum envio automático.", de: "Menschliche Validierung erforderlich. Keine Umsatzversprechen. Kein automatischer Versand.", it: "Validazione umana richiesta. Nessuna promessa di guadagno. Nessun invio automatico." },
@@ -41,7 +176,7 @@ const messages: Messages = {
   "chat_ai.features.title": { fr: "Un système complet, pas juste une boîte de dialogue IA.", en: "A complete system, not just an AI chat box.", es: "Un sistema completo, no solo una caja de diálogo IA.", "pt-BR": "Um sistema completo, não apenas uma caixa de diálogo IA.", de: "Ein vollständiges System, nicht nur eine KI-Dialogbox.", it: "Un sistema completo, non solo una chat IA." },
 
   "chat_ai.workflow.title": { fr: "De la conversation au contrôle final.", en: "From conversation to final control.", es: "De la conversación al control final.", "pt-BR": "Da conversa ao controle final.", de: "Vom Gespräch zur endgültigen Kontrolle.", it: "Dalla conversazione al controllo finale." },
-  "chat_ai.workflow.mantra": { fr: "L'IA prépare. L'humain valide. Le créateur contrôle. Halo mesure.", en: "AI prepares. Human validates. Creator controls. Halo measures.", es: "La IA prepara. El humano valida. El creador controla. Halo mide.", "pt-BR": "A IA prepara. O humano valida. O criador controla. Halo mede.", de: "KI bereitet vor. Mensch validiert. Creator kontrolliert. Halo misst.", it: "L'IA prepara. L'umano convalida. Il creator controlla. Halo misura." },
+  "chat_ai.workflow.mantra": { fr: "L'IA prépare. L'humain valide. Le créateur contrôle. WTF mesure.", en: "AI prepares. Human validates. Creator controls. WTF measures.", es: "La IA prepara. El humano valida. El creador controla. WTF mide.", "pt-BR": "A IA prepara. O humano valida. O criador controla. WTF mede.", de: "KI bereitet vor. Mensch validiert. Creator kontrolliert. WTF misst.", it: "L'IA prepara. L'umano convalida. Il creator controlla. WTF misura." },
 
   "chat_ai.ppv.title": { fr: "Recommander le bon contenu, sans vendre deux fois la même chose.", en: "Recommend the right content, without selling the same thing twice.", es: "Recomendar el contenido adecuado, sin vender lo mismo dos veces.", "pt-BR": "Recomendar o conteúdo certo, sem vender a mesma coisa duas vezes.", de: "Den richtigen Inhalt empfehlen, ohne dasselbe zweimal zu verkaufen.", it: "Consigliare il contenuto giusto, senza vendere la stessa cosa due volte." },
   "chat_ai.ppv.disclaimer": { fr: "Les recommandations PPV sont indicatives et ne garantissent aucun revenu.", en: "PPV recommendations are indicative and do not guarantee any revenue.", es: "Las recomendaciones PPV son indicativas y no garantizan ningún ingreso.", "pt-BR": "As recomendações PPV são indicativas e não garantem nenhuma receita.", de: "PPV-Empfehlungen sind Richtwerte und garantieren keine Einnahmen.", it: "Le raccomandazioni PPV sono indicative e non garantiscono alcun guadagno." },
@@ -58,8 +193,8 @@ const messages: Messages = {
   "chat_ai.faq.title": { fr: "Questions fréquentes", en: "Frequently asked questions", es: "Preguntas frecuentes", "pt-BR": "Perguntas frequentes", de: "Häufige Fragen", it: "Domande frequenti" },
 
   "chat_ai.cta.title": { fr: "Construisez une équipe de chatting plus claire, plus traçable et mieux contrôlée.", en: "Build a clearer, more traceable and better controlled chatting team.", es: "Construya un equipo de chatting más claro, más trazable y mejor controlado.", "pt-BR": "Construa uma equipe de chatting mais clara, mais rastreável e melhor controlada.", de: "Bauen Sie ein klareres, nachvollziehbareres und besser kontrolliertes Chat-Team auf.", it: "Costruisci un team di chatting più chiaro, più tracciabile e meglio controllato." },
-  "chat_ai.cta.desc": { fr: "Halo Sovereign Chat AI est le copilote qui prépare, structure et sécurise vos conversations — sans jamais prendre le contrôle à votre place.", en: "Halo Sovereign Chat AI is the copilot that prepares, structures and secures your conversations — without ever taking control in your place.", es: "Halo Sovereign Chat AI es el copiloto que prepara, estructura y asegura tus conversaciones — sin tomar nunca el control en tu lugar.", "pt-BR": "Halo Sovereign Chat AI é o copiloto que prepara, estrutura e protege suas conversas — sem nunca tomar o controle em seu lugar.", de: "Halo Sovereign Chat AI ist der Copilot, der Ihre Gespräche vorbereitet, strukturiert und absichert — ohne jemals die Kontrolle an Ihrer Stelle zu übernehmen.", it: "Halo Sovereign Chat AI è il copilota che prepara, struttura e protegge le tue conversazioni — senza mai prendere il controllo al posto tuo." },
-  "chat_ai.cta.secondary": { fr: "Explorer Halo Lex", en: "Explore Halo Lex", es: "Explorar Halo Lex", "pt-BR": "Explorar Halo Lex", de: "Halo Lex entdecken", it: "Esplora Halo Lex" },
+  "chat_ai.cta.desc": { fr: "WTF Sovereign Chat AI est le copilote qui prépare, structure et sécurise vos conversations, sans jamais prendre le contrôle à votre place.", en: "WTF Sovereign Chat AI is the copilot that prepares, structures and secures your conversations, without ever taking control in your place.", es: "WTF Sovereign Chat AI es el copiloto que prepara, estructura y asegura tus conversaciones, sin tomar nunca el control en tu lugar.", "pt-BR": "WTF Sovereign Chat AI é o copiloto que prepara, estrutura e protege suas conversas, sem nunca tomar o controle em seu lugar.", de: "WTF Sovereign Chat AI ist der Copilot, der Ihre Gespräche vorbereitet, strukturiert und absichert, ohne jemals die Kontrolle an Ihrer Stelle zu übernehmen.", it: "WTF Sovereign Chat AI è il copilota che prepara, struttura e protegge le tue conversazioni, senza mai prendere il controllo al posto tuo." },
+  "chat_ai.cta.secondary": { fr: "Explorer WTF Lex", en: "Explore WTF Lex", es: "Explorar WTF Lex", "pt-BR": "Explorar WTF Lex", de: "WTF Lex entdecken", it: "Esplora WTF Lex" },
   "chat_ai.cta.disclaimer": { fr: "Démo avec données exemples. Aucun revenu garanti.", en: "Demo with example data. No revenue guaranteed.", es: "Demo con datos de ejemplo. Ningún ingreso garantizado.", "pt-BR": "Demo com dados de exemplo. Nenhuma receita garantida.", de: "Demo mit Beispieldaten. Kein Umsatz garantiert.", it: "Demo con dati di esempio. Nessun guadagno garantito." },
 
   // ─── Pricing (existing) ───
@@ -86,7 +221,7 @@ const messages: Messages = {
   "trust.title": { fr: "Centre de Confiance", en: "Trust Center", es: "Centro de Confianza", "pt-BR": "Centro de Confiança", de: "Vertrauenszentrum", it: "Centro Fiduciario" },
 
   // ─── Demo (existing) ───
-  "demo.title": { fr: "Démo Halo Talent", en: "Halo Talent Demo", es: "Demo Halo Talent", "pt-BR": "Demo Halo Talent", de: "Halo Talent Demo", it: "Demo Halo Talent" },
+  "demo.title": { fr: "Démo Where Talent Forms", en: "Where Talent Forms Demo", es: "Demo Where Talent Forms", "pt-BR": "Demo Where Talent Forms", de: "Where Talent Forms Demo", it: "Demo Where Talent Forms" },
   "demo.disclaimer": { fr: "Données de démonstration", en: "Demo data", es: "Datos de demostración", "pt-BR": "Dados de demonstração", de: "Demodaten", it: "Dati dimostrativi" },
 
   // ─── Shared CTAs (existing) ───
@@ -95,15 +230,15 @@ const messages: Messages = {
   "cta.start_free": { fr: "Commencer gratuitement", en: "Start for free", es: "Comenzar gratis", "pt-BR": "Começar grátis", de: "Kostenlos starten", it: "Inizia gratis" },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — Hero
+  // HOMEPAGE, Hero
   // ═══════════════════════════════════════════════════════════════
   "home.hero.badge": {
-    fr: "✦ Nouveau — Bouclier Légal gratuit : analysez votre contrat d'agence",
-    en: "✦ New — Free Legal Shield: analyze your agency contract",
-    es: "✦ Nuevo — Escudo Legal gratis: analiza tu contrato de agencia",
-    "pt-BR": "✦ Novo — Escudo Legal grátis: analise seu contrato de agência",
-    de: "✦ Neu — Kostenloser Rechtsschutz: analysieren Sie Ihren Agenturvertrag",
-    it: "✦ Nuovo — Scudo Legale gratuito: analizza il tuo contratto d'agenzia",
+    fr: "✦ Nouveau, Bouclier Légal gratuit : analysez votre contrat d'agence",
+    en: "✦ New, Free Legal Shield: analyze your agency contract",
+    es: "✦ Nuevo, Escudo Legal gratis: analiza tu contrato de agencia",
+    "pt-BR": "✦ Novo, Escudo Legal grátis: analise seu contrato de agência",
+    de: "✦ Neu, Kostenloser Rechtsschutz: analysieren Sie Ihren Agenturvertrag",
+    it: "✦ Nuovo, Scudo Legale gratuito: analizza il tuo contratto d'agenzia",
   },
   "home.hero.title_line1": {
     fr: "Les autres agences prennent 50%.",
@@ -122,12 +257,12 @@ const messages: Messages = {
     it: "Noi ti diamo gli strumenti per non averne più bisogno.",
   },
   "home.hero.subtitle": {
-    fr: "Halo remplace 7 outils par un seul : création IA, CRM fans, analytics, protection juridique et management transparent. Commission dégressive de 30% à 10%.",
-    en: "Halo replaces 7 tools with one: AI creation, fan CRM, analytics, legal protection and transparent management. Decreasing commission from 30% to 10%.",
-    es: "Halo reemplaza 7 herramientas por una sola: creación IA, CRM fans, analíticas, protección jurídica y management transparente. Comisión decreciente del 30% al 10%.",
-    "pt-BR": "Halo substitui 7 ferramentas por uma: criação IA, CRM de fãs, analytics, proteção jurídica e gestão transparente. Comissão decrescente de 30% a 10%.",
-    de: "Halo ersetzt 7 Tools durch eines: KI-Erstellung, Fan-CRM, Analytics, Rechtsschutz und transparentes Management. Degressive Provision von 30% auf 10%.",
-    it: "Halo sostituisce 7 strumenti con uno solo: creazione IA, CRM fan, analytics, protezione legale e management trasparente. Commissione decrescente dal 30% al 10%.",
+    fr: "WTF remplace 7 outils par un seul : création IA, CRM fans, analytics, protection juridique et management transparent. Commission dégressive de 30% à 10%.",
+    en: "WTF replaces 7 tools with one: AI creation, fan CRM, analytics, legal protection and transparent management. Decreasing commission from 30% to 10%.",
+    es: "WTF reemplaza 7 herramientas por una sola: creación IA, CRM fans, analíticas, protección jurídica y management transparente. Comisión decreciente del 30% al 10%.",
+    "pt-BR": "WTF substitui 7 ferramentas por uma: criação IA, CRM de fãs, analytics, proteção jurídica e gestão transparente. Comissão decrescente de 30% a 10%.",
+    de: "WTF ersetzt 7 Tools durch eines: KI-Erstellung, Fan-CRM, Analytics, Rechtsschutz und transparentes Management. Degressive Provision von 30% auf 10%.",
+    it: "WTF sostituisce 7 strumenti con uno solo: creazione IA, CRM fan, analytics, protezione legale e management trasparente. Commissione decrescente dal 30% al 10%.",
   },
   "home.hero.cta_analyze": {
     fr: "Analyser mon contrat gratuitement",
@@ -163,7 +298,7 @@ const messages: Messages = {
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — Problem Section ("Le quotidien d'un créateur")
+  // HOMEPAGE, Problem Section ("Le quotidien d'un créateur")
   // ═══════════════════════════════════════════════════════════════
   "home.problem.title": {
     fr: "Le quotidien d'un créateur en 2026",
@@ -246,24 +381,24 @@ const messages: Messages = {
     it: "Il 73% dei creator non legge i propri contratti",
   },
   "home.problem.transition": {
-    fr: "Et si un seul outil faisait tout ça — en vous protégeant au lieu de vous exploiter ?",
-    en: "What if a single tool did all of that — protecting you instead of exploiting you?",
-    es: "¿Y si una sola herramienta hiciera todo eso — protegiéndote en lugar de explotarte?",
-    "pt-BR": "E se uma única ferramenta fizesse tudo isso — protegendo você em vez de explorar você?",
-    de: "Was wäre, wenn ein einziges Tool all das tun würde — Sie schützen statt auszubeuten?",
-    it: "E se un unico strumento facesse tutto questo — proteggendoti invece di sfruttarti?",
+    fr: "Et si un seul outil faisait tout ça, en vous protégeant au lieu de vous exploiter ?",
+    en: "What if a single tool did all of that, protecting you instead of exploiting you?",
+    es: "¿Y si una sola herramienta hiciera todo eso, protegiéndote en lugar de explotarte?",
+    "pt-BR": "E se uma única ferramenta fizesse tudo isso, protegendo você em vez de explorar você?",
+    de: "Was wäre, wenn ein einziges Tool all das tun würde, Sie schützen statt auszubeuten?",
+    it: "E se un unico strumento facesse tutto questo, proteggendoti invece di sfruttarti?",
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — Solution Section ("Halo remplace tout")
+  // HOMEPAGE, Solution Section ("WTF remplace tout")
   // ═══════════════════════════════════════════════════════════════
   "home.solution.title": {
-    fr: "Halo remplace tout",
-    en: "Halo replaces everything",
-    es: "Halo lo reemplaza todo",
-    "pt-BR": "Halo substitui tudo",
-    de: "Halo ersetzt alles",
-    it: "Halo sostituisce tutto",
+    fr: "WTF remplace tout",
+    en: "WTF replaces everything",
+    es: "WTF lo reemplaza todo",
+    "pt-BR": "WTF substitui tudo",
+    de: "WTF ersetzt alles",
+    it: "WTF sostituisce tutto",
   },
   "home.solution.before_label": {
     fr: "7 abonnements · 7 logins · 0 vue d'ensemble",
@@ -281,7 +416,7 @@ const messages: Messages = {
     de: "1 Plattform · 1 Login · Vollständiger Überblick",
     it: "1 piattaforma · 1 login · Panoramica completa",
   },
-  // HOMEPAGE — Pain Points
+  // HOMEPAGE, Pain Points
   // ═══════════════════════════════════════════════════════════════
   "home.pain.title": {
     fr: "Pourquoi les outils actuels ne suffisent plus",
@@ -292,12 +427,12 @@ const messages: Messages = {
     it: "Perché gli strumenti attuali non bastano più",
   },
   "home.pain.subtitle": {
-    fr: "Les créateurs utilisent 5 à 8 outils différents. Aucun ne communique avec les autres. Halo unifie tout.",
-    en: "Creators use 5 to 8 different tools. None of them talk to each other. Halo unifies everything.",
-    es: "Los creadores usan de 5 a 8 herramientas diferentes. Ninguna se comunica con las demás. Halo lo unifica todo.",
-    "pt-BR": "Criadores usam de 5 a 8 ferramentas diferentes. Nenhuma conversa com a outra. Halo unifica tudo.",
-    de: "Creator nutzen 5 bis 8 verschiedene Tools. Keines kommuniziert mit den anderen. Halo vereint alles.",
-    it: "I creator usano da 5 a 8 strumenti diversi. Nessuno comunica con gli altri. Halo unifica tutto.",
+    fr: "Les créateurs utilisent 5 à 8 outils différents. Aucun ne communique avec les autres. WTF unifie tout.",
+    en: "Creators use 5 to 8 different tools. None of them talk to each other. WTF unifies everything.",
+    es: "Los creadores usan de 5 a 8 herramientas diferentes. Ninguna se comunica con las demás. WTF lo unifica todo.",
+    "pt-BR": "Criadores usam de 5 a 8 ferramentas diferentes. Nenhuma conversa com a outra. WTF unifica tudo.",
+    de: "Creator nutzen 5 bis 8 verschiedene Tools. Keines kommuniziert mit den anderen. WTF vereint alles.",
+    it: "I creator usano da 5 a 8 strumenti diversi. Nessuno comunica con gli altri. WTF unifica tutto.",
   },
   "home.pain.card1_title": {
     fr: "Vous ne savez pas quels fans contacter en priorité",
@@ -364,24 +499,24 @@ const messages: Messages = {
     it: "Non sai quanto stai veramente generando, né cosa l'agenzia sta prendendo. Il divario può essere enorme.",
   },
   "home.pain.cta": {
-    fr: "Voir comment Halo résout ça",
-    en: "See how Halo solves this",
-    es: "Ver cómo Halo resuelve esto",
-    "pt-BR": "Ver como Halo resolve isso",
-    de: "Sehen, wie Halo das löst",
-    it: "Scopri come Halo risolve questo",
+    fr: "Voir comment WTF résout ça",
+    en: "See how WTF solves this",
+    es: "Ver cómo WTF resuelve esto",
+    "pt-BR": "Ver como WTF resolve isso",
+    de: "Sehen, wie WTF das löst",
+    it: "Scopri come WTF risolve questo",
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — Tools (replaces 5)
+  // HOMEPAGE, Tools (replaces 5)
   // ═══════════════════════════════════════════════════════════════
   "home.tools.title": {
-    fr: "Halo remplace 5 outils",
-    en: "Halo replaces 5 tools",
-    es: "Halo reemplaza 5 herramientas",
-    "pt-BR": "Halo substitui 5 ferramentas",
-    de: "Halo ersetzt 5 Tools",
-    it: "Halo sostituisce 5 strumenti",
+    fr: "WTF remplace 5 outils",
+    en: "WTF replaces 5 tools",
+    es: "WTF reemplaza 5 herramientas",
+    "pt-BR": "WTF substitui 5 ferramentas",
+    de: "WTF ersetzt 5 Tools",
+    it: "WTF sostituisce 5 strumenti",
   },
   "home.tools.subtitle": {
     fr: "Une plateforme. Tout intégré. Zéro couture entre les briques.",
@@ -446,15 +581,15 @@ const messages: Messages = {
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — Comparison
+  // HOMEPAGE, Comparison
   // ═══════════════════════════════════════════════════════════════
   "home.comparison.title": {
-    fr: "Ce que Halo fait mieux",
-    en: "What Halo does better",
-    es: "Lo que Halo hace mejor",
-    "pt-BR": "O que Halo faz melhor",
-    de: "Was Halo besser macht",
-    it: "Cosa Halo fa meglio",
+    fr: "Ce que WTF fait mieux",
+    en: "What WTF does better",
+    es: "Lo que WTF hace mejor",
+    "pt-BR": "O que WTF faz melhor",
+    de: "Was WTF besser macht",
+    it: "Cosa WTF fa meglio",
   },
   "home.comparison.subtitle": {
     fr: "Pas de magie. Juste une approche différente de la création et de la vente.",
@@ -490,7 +625,7 @@ const messages: Messages = {
   "home.comparison.col_critere": { fr: "Critère", en: "Criteria", es: "Criterio", "pt-BR": "Critério", de: "Kriterium", it: "Criterio" },
   "home.comparison.col_agency": { fr: "Agence traditionnelle", en: "Traditional agency", es: "Agencia tradicional", "pt-BR": "Agência tradicional", de: "Traditionelle Agentur", it: "Agenzia tradizionale" },
   "home.comparison.col_ofm": { fr: "Stack OFM classique", en: "Classic OFM stack", es: "Stack OFM clásico", "pt-BR": "Stack OFM clássico", de: "Klassischer OFM-Stack", it: "Stack OFM classico" },
-  "home.comparison.col_halo": { fr: "Halo Talent", en: "Halo Talent", es: "Halo Talent", "pt-BR": "Halo Talent", de: "Halo Talent", it: "Halo Talent" },
+  "home.comparison.col_halo": { fr: "Where Talent Forms", en: "Where Talent Forms", es: "Where Talent Forms", "pt-BR": "Where Talent Forms", de: "Where Talent Forms", it: "Where Talent Forms" },
   "home.comparison.recommended": { fr: "Recommandé", en: "Recommended", es: "Recomendado", "pt-BR": "Recomendado", de: "Empfohlen", it: "Raccomandato" },
 
   "home.comparison.row1_ofm": { fr: "Segmenté par plateforme, sans IA", en: "Segmented by platform, no AI", es: "Segmentado por plataforma, sin IA", "pt-BR": "Segmentado por plataforma, sem IA", de: "Nach Plattform segmentiert, ohne KI", it: "Segmentato per piattaforma, senza IA" },
@@ -520,7 +655,7 @@ const messages: Messages = {
   "home.comparison.row9_good": { fr: "Assisté IA avec recommandations actionnables", en: "AI-assisted with actionable recommendations", es: "Asistido por IA con recomendaciones prácticas", "pt-BR": "Assistido por IA com recomendações acionáveis", de: "KI-gestützt mit umsetzbaren Empfehlungen", it: "Assistito IA con raccomandazioni attuabili" },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — Workflow
+  // HOMEPAGE, Workflow
   // ═══════════════════════════════════════════════════════════════
   "home.workflow.title": {
     fr: "Comment ça marche",
@@ -564,7 +699,7 @@ const messages: Messages = {
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — Trust
+  // HOMEPAGE, Trust
   // ═══════════════════════════════════════════════════════════════
   "home.trust.title": {
     fr: "Construit sur la confiance",
@@ -600,7 +735,7 @@ const messages: Messages = {
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — FAQ
+  // HOMEPAGE, FAQ
   // ═══════════════════════════════════════════════════════════════
   "home.faq.title": {
     fr: "Questions fréquentes",
@@ -619,20 +754,20 @@ const messages: Messages = {
     it: "Tutto ciò che devi sapere prima di unirti a noi.",
   },
   "home.faq.q1": {
-    fr: "Est-ce que Halo répond à ma place ?",
-    en: "Does Halo reply for me?",
-    es: "¿Halo responde por mí?",
-    "pt-BR": "Halo responde por mim?",
-    de: "Antwortet Halo für mich?",
-    it: "Halo risponde al posto mio?",
+    fr: "Est-ce que WTF répond à ma place ?",
+    en: "Does WTF reply for me?",
+    es: "¿WTF responde por mí?",
+    "pt-BR": "WTF responde por mim?",
+    de: "Antwortet WTF für mich?",
+    it: "WTF risponde al posto mio?",
   },
   "home.faq.a1": {
-    fr: "Non. Halo génère des suggestions et des scripts que vous validez avant envoi. Rien n'est automatique sans votre approbation. Vous gardez le contrôle total de chaque message.",
-    en: "No. Halo generates suggestions and scripts that you validate before sending. Nothing is automatic without your approval. You keep full control of every message.",
-    es: "No. Halo genera sugerencias y guiones que tú validas antes de enviar. Nada es automático sin tu aprobación. Mantienes el control total de cada mensaje.",
-    "pt-BR": "Não. Halo gera sugestões e scripts que você valida antes de enviar. Nada é automático sem sua aprovação. Você mantém controle total de cada mensagem.",
-    de: "Nein. Halo generiert Vorschläge und Skripte, die Sie vor dem Senden validieren. Nichts geschieht automatisch ohne Ihre Zustimmung. Sie behalten die volle Kontrolle über jede Nachricht.",
-    it: "No. Halo genera suggerimenti e script che convalidi prima dell'invio. Niente è automatico senza la tua approvazione. Mantieni il pieno controllo di ogni messaggio.",
+    fr: "Non. WTF génère des suggestions et des scripts que vous validez avant envoi. Rien n'est automatique sans votre approbation. Vous gardez le contrôle total de chaque message.",
+    en: "No. WTF generates suggestions and scripts that you validate before sending. Nothing is automatic without your approval. You keep full control of every message.",
+    es: "No. WTF genera sugerencias y guiones que tú validas antes de enviar. Nada es automático sin tu aprobación. Mantienes el control total de cada mensaje.",
+    "pt-BR": "Não. WTF gera sugestões e scripts que você valida antes de enviar. Nada é automático sem sua aprovação. Você mantém controle total de cada mensagem.",
+    de: "Nein. WTF generiert Vorschläge und Skripte, die Sie vor dem Senden validieren. Nichts geschieht automatisch ohne Ihre Zustimmung. Sie behalten die volle Kontrolle über jede Nachricht.",
+    it: "No. WTF genera suggerimenti e script che convalidi prima dell'invio. Niente è automatico senza la tua approvazione. Mantieni il pieno controllo di ogni messaggio.",
   },
   "home.faq.q2": {
     fr: "Est-ce que mes comptes sont en danger ?",
@@ -675,12 +810,12 @@ const messages: Messages = {
     it: "È solo per OnlyFans?",
   },
   "home.faq.a4": {
-    fr: "Non. Halo est conçu pour tous les créateurs de contenu : TikTok, Instagram, YouTube, MYM, Fansly et plus. Nos outils s'adaptent à votre plateforme.",
-    en: "No. Halo is designed for all content creators: TikTok, Instagram, YouTube, MYM, Fansly, and more. Our tools adapt to your platform.",
-    es: "No. Halo está diseñado para todos los creadores de contenido: TikTok, Instagram, YouTube, MYM, Fansly y más. Nuestras herramientas se adaptan a tu plataforma.",
-    "pt-BR": "Não. Halo é projetado para todos os criadores de conteúdo: TikTok, Instagram, YouTube, MYM, Fansly e mais. Nossas ferramentas se adaptam à sua plataforma.",
-    de: "Nein. Halo ist für alle Content Creator gemacht: TikTok, Instagram, YouTube, MYM, Fansly und mehr. Unsere Tools passen sich Ihrer Plattform an.",
-    it: "No. Halo è progettato per tutti i content creator: TikTok, Instagram, YouTube, MYM, Fansly e altro. I nostri strumenti si adattano alla tua piattaforma.",
+    fr: "Non. WTF est conçu pour tous les créateurs de contenu : TikTok, Instagram, YouTube, MYM, Fansly et plus. Nos outils s'adaptent à votre plateforme.",
+    en: "No. WTF is designed for all content creators: TikTok, Instagram, YouTube, MYM, Fansly, and more. Our tools adapt to your platform.",
+    es: "No. WTF está diseñado para todos los creadores de contenido: TikTok, Instagram, YouTube, MYM, Fansly y más. Nuestras herramientas se adaptan a tu plataforma.",
+    "pt-BR": "Não. WTF é projetado para todos os criadores de conteúdo: TikTok, Instagram, YouTube, MYM, Fansly e mais. Nossas ferramentas se adaptam à sua plataforma.",
+    de: "Nein. WTF ist für alle Content Creator gemacht: TikTok, Instagram, YouTube, MYM, Fansly und mehr. Unsere Tools passen sich Ihrer Plattform an.",
+    it: "No. WTF è progettato per tutti i content creator: TikTok, Instagram, YouTube, MYM, Fansly e altro. I nostri strumenti si adattano alla tua piattaforma.",
   },
   "home.faq.q5": {
     fr: "Puis-je utiliser seulement le SaaS, sans management ?",
@@ -755,12 +890,12 @@ const messages: Messages = {
     it: "È disponibile in inglese, spagnolo, tedesco, portoghese, italiano?",
   },
   "home.faq.a9": {
-    fr: "Oui. L'interface Halo est disponible en 6 langues. Le Bouclier Légal, les contrats, et les communications sont traduits. Nous opérons et accompagnons des créateurs dans toute l'Europe et au Brésil.",
-    en: "Yes. The Halo interface is available in 6 languages. The Legal Shield, contracts, and communications are translated. We operate and support creators across Europe and Brazil.",
-    es: "Sí. La interfaz de Halo está disponible en 6 idiomas. El Escudo Legal, los contratos y las comunicaciones están traducidos. Operamos y apoyamos a creadores en toda Europa y Brasil.",
-    "pt-BR": "Sim. A interface Halo está disponível em 6 idiomas. O Escudo Legal, contratos e comunicações são traduzidos. Operamos e apoiamos criadores em toda Europa e Brasil.",
+    fr: "Oui. L'interface WTF est disponible en 6 langues. Le Bouclier Légal, les contrats, et les communications sont traduits. Nous opérons et accompagnons des créateurs dans toute l'Europe et au Brésil.",
+    en: "Yes. The WTF interface is available in 6 languages. The Legal Shield, contracts, and communications are translated. We operate and support creators across Europe and Brazil.",
+    es: "Sí. La interfaz de WTF está disponible en 6 idiomas. El Escudo Legal, los contratos y las comunicaciones están traducidos. Operamos y apoyamos a creadores en toda Europa y Brasil.",
+    "pt-BR": "Sim. A interface WTF está disponível em 6 idiomas. O Escudo Legal, contratos e comunicações são traduzidos. Operamos e apoiamos criadores em toda Europa e Brasil.",
     de: "Ja. Die Halo-Oberfläche ist in 6 Sprachen verfügbar. Der Rechtsschutz, die Verträge und die Kommunikation sind übersetzt. Wir betreuen Creator in ganz Europa und Brasilien.",
-    it: "Sì. L'interfaccia Halo è disponibile in 6 lingue. Lo Scudo Legale, i contratti e le comunicazioni sono tradotti. Operiamo e supportiamo creator in tutta Europa e Brasile.",
+    it: "Sì. L'interfaccia WTF è disponibile in 6 lingue. Lo Scudo Legale, i contratti e le comunicazioni sono tradotti. Operiamo e supportiamo creator in tutta Europa e Brasile.",
   },
   "home.faq.cta": {
     fr: "Une autre question ?",
@@ -772,7 +907,7 @@ const messages: Messages = {
   },
 
   // ═══════════════════════════════════════════════════════════════
-  // HOMEPAGE — Final CTA
+  // HOMEPAGE, Final CTA
   // ═══════════════════════════════════════════════════════════════
   "home.final_cta.title": {
     fr: "Prêt à reprendre le contrôle de votre carrière ?",
@@ -1149,7 +1284,7 @@ const messages: Messages = {
 
   // Guardrails
   "ppv_pricing.guardrails.title": { fr: "Garde-fous", en: "Guardrails", es: "Guardianes", "pt-BR": "Salvaguardas", de: "Schutzmaßnahmen", it: "Garanzie" },
-  "ppv_pricing.guardrails.human_approval_required": { fr: "Approbation humaine requise — des alertes sont actives", en: "Human approval required — alerts are active", es: "Aprobación humana requerida — alertas activas", "pt-BR": "Aprovação humana necessária — alertas ativos", de: "Menschliche Genehmigung erforderlich — Warnungen aktiv", it: "Approvazione umana richiesta — avvisi attivi" },
+  "ppv_pricing.guardrails.human_approval_required": { fr: "Approbation humaine requise, des alertes sont actives", en: "Human approval required, alerts are active", es: "Aprobación humana requerida, alertas activas", "pt-BR": "Aprovação humana necessária, alertas ativos", de: "Menschliche Genehmigung erforderlich, Warnungen aktiv", it: "Approvazione umana richiesta, avvisi attivi" },
   "ppv_pricing.guardrails.already_sold": { fr: "Contenu déjà vendu", en: "Content already sold", es: "Contenido ya vendido", "pt-BR": "Conteúdo já vendido", de: "Inhalt bereits verkauft", it: "Contenuto già venduto" },
   "ppv_pricing.guardrails.price_too_high": { fr: "Prix trop élevé", en: "Price too high", es: "Precio demasiado alto", "pt-BR": "Preço muito alto", de: "Preis zu hoch", it: "Prezzo troppo alto" },
   "ppv_pricing.guardrails.frequency_excessive": { fr: "Fréquence excessive", en: "Excessive frequency", es: "Frecuencia excesiva", "pt-BR": "Frequência excessiva", de: "Übermäßige Häufigkeit", it: "Frequenza eccessiva" },
@@ -1271,7 +1406,7 @@ const messages: Messages = {
   "content_vault.rights.restriction_sensitive": { fr: "Contenu sensible", en: "Sensitive content", es: "Contenido sensible", "pt-BR": "Conteúdo sensível", de: "Sensibler Inhalt", it: "Contenuto sensibile" },
   "content_vault.rights.restriction_compliance": { fr: "Retenue conformité", en: "Compliance hold", es: "Retención de cumplimiento", "pt-BR": "Retenção de conformidade", de: "Compliance-Sperre", it: "Blocco conformità" },
   "content_vault.rights.no_restrictions": { fr: "Aucune restriction active", en: "No active restrictions", es: "Sin restricciones activas", "pt-BR": "Nenhuma restrição ativa", de: "Keine aktiven Einschränkungen", it: "Nessuna restrizione attiva" },
-  "content_vault.rights.blocked_campaign": { fr: "Action bloquée — droits non validés", en: "Action blocked — rights not validated", es: "Acción bloqueada — derechos no validados", "pt-BR": "Ação bloqueada — direitos não validados", de: "Aktion blockiert — Rechte nicht bestätigt", it: "Azione bloccata — diritti non convalidati" },
+  "content_vault.rights.blocked_campaign": { fr: "Action bloquée, droits non validés", en: "Action blocked, rights not validated", es: "Acción bloqueada, derechos no validados", "pt-BR": "Ação bloqueada, direitos não validados", de: "Aktion blockiert, Rechte nicht bestätigt", it: "Azione bloccata, diritti non convalidati" },
 
   // Tags tab
   "content_vault.tags.placeholder": { fr: "Ajouter un tag...", en: "Add a tag...", es: "Añadir una etiqueta...", "pt-BR": "Adicionar uma tag...", de: "Tag hinzufügen...", it: "Aggiungi un tag..." },
@@ -1313,7 +1448,7 @@ const messages: Messages = {
   "studio_dashboard.mission.schedule.title": { fr: "Programmer 3 posts cette semaine", en: "Schedule 3 posts this week", es: "Programa 3 publicaciones esta semana", "pt-BR": "Agende 3 posts esta semana", de: "Plane 3 Beiträge für diese Woche", it: "Programma 3 post questa settimana" },
   "studio_dashboard.mission.schedule.desc": { fr: "Planifiez vos contenus pour garder une présence régulière", en: "Plan your content to maintain a steady presence", es: "Planifica tu contenido para mantener una presencia constante", "pt-BR": "Planeje seu conteúdo para manter presença constante", de: "Plane deine Inhalte für eine konstante Präsenz", it: "Pianifica i contenuti per una presenza costante" },
   "studio_dashboard.mission.legal.title": { fr: "Vérifier un contrat Bouclier Légal", en: "Check a Bouclier Légal contract", es: "Revisa un contrato Bouclier Légal", "pt-BR": "Verifique um contrato Bouclier Légal", de: "Prüfe einen Bouclier-Légal-Vertrag", it: "Controlla un contratto Bouclier Légal" },
-  "studio_dashboard.mission.legal.desc": { fr: "Un contrat est en attente de validation — vérifiez les clauses", en: "A contract is awaiting validation — review the clauses", es: "Un contrato espera validación — revisa las cláusulas", "pt-BR": "Um contrato aguarda validação — revise as cláusulas", de: "Ein Vertrag wartet auf Validierung — prüfe die Klauseln", it: "Un contratto attende convalida — controlla le clausole" },
+  "studio_dashboard.mission.legal.desc": { fr: "Un contrat est en attente de validation, vérifiez les clauses", en: "A contract is awaiting validation, review the clauses", es: "Un contrato espera validación, revisa las cláusulas", "pt-BR": "Um contrato aguarda validação, revise as cláusulas", de: "Ein Vertrag wartet auf Validierung, prüfe die Klauseln", it: "Un contratto attende convalida, controlla le clausole" },
   "studio_dashboard.mission.story.title": { fr: "Créer une story interactive", en: "Create an interactive story", es: "Crea una historia interactiva", "pt-BR": "Crie uma story interativa", de: "Erstelle eine interaktive Story", it: "Crea una storia interattiva" },
   "studio_dashboard.mission.story.desc": { fr: "Les stories avec sondages génèrent 40% plus de réponses", en: "Stories with polls generate 40% more replies", es: "Las historias con encuestas generan 40% más respuestas", "pt-BR": "Stories com enquetes geram 40% mais respostas", de: "Stories mit Umfragen generieren 40% mehr Antworten", it: "Le storie con sondaggi generano il 40% in più di risposte" },
   "studio_dashboard.mission.impact.high": { fr: "Fort impact", en: "High impact", es: "Alto impacto", "pt-BR": "Alto impacto", de: "Hohe Wirkung", it: "Alto impatto" },
@@ -1352,7 +1487,7 @@ const messages: Messages = {
   "studio_dashboard.insight.format.title": { fr: "Meilleur format : Reels 15-30s", en: "Best format: 15-30s Reels", es: "Mejor formato: Reels 15-30s", "pt-BR": "Melhor formato: Reels 15-30s", de: "Bestes Format: 15-30s Reels", it: "Miglior formato: Reel 15-30s" },
   "studio_dashboard.insight.format.desc": { fr: "Les contenus courts génèrent 2.3× plus d'engagement dans votre niche", en: "Short content generates 2.3× more engagement in your niche", es: "El contenido corto genera 2.3× más engagement en tu nicho", "pt-BR": "Conteúdos curtos geram 2.3× mais engajamento no seu nicho", de: "Kurze Inhalte generieren 2.3× mehr Engagement in deiner Nische", it: "I contenuti brevi generano 2.3× più engagement nella tua nicchia" },
   "studio_dashboard.insight.time.title": { fr: "Meilleure heure : 19h-21h", en: "Best time: 7pm-9pm", es: "Mejor hora: 19h-21h", "pt-BR": "Melhor horário: 19h-21h", de: "Beste Zeit: 19-21 Uhr", it: "Miglior orario: 19-21" },
-  "studio_dashboard.insight.time.desc": { fr: "Votre audience est la plus active en soirée — publiez dans ce créneau", en: "Your audience is most active in the evening — post during this window", es: "Tu audiencia está más activa por la noche — publica en esta ventana", "pt-BR": "Seu público está mais ativo à noite — publique nessa janela", de: "Deine Zielgruppe ist abends am aktivsten — poste in diesem Fenster", it: "Il tuo pubblico è più attivo la sera — pubblica in questa finestra" },
+  "studio_dashboard.insight.time.desc": { fr: "Votre audience est la plus active en soirée, publiez dans ce créneau", en: "Your audience is most active in the evening, post during this window", es: "Tu audiencia está más activa por la noche, publica en esta ventana", "pt-BR": "Seu público está mais ativo à noite, publique nessa janela", de: "Deine Zielgruppe ist abends am aktivsten, poste in diesem Fenster", it: "Il tuo pubblico è più attivo la sera, pubblica in questa finestra" },
   "studio_dashboard.insight.topic.title": { fr: "Sujet chaud : Behind the scenes", en: "Hot topic: Behind the scenes", es: "Tema candente: Behind the scenes", "pt-BR": "Tópico quente: Bastidores", de: "Heißes Thema: Behind the scenes", it: "Argomento caldo: Dietro le quinte" },
   "studio_dashboard.insight.topic.desc": { fr: "Les contenus coulisses cartonnent cette semaine dans votre niche", en: "Behind-the-scenes content is trending in your niche this week", es: "El contenido detrás de escena está triunfando esta semana", "pt-BR": "Conteúdos de bastidores estão bombando esta semana", de: "Behind-the-scenes-Inhalte sind diese Woche im Trend", it: "I contenuti dietro le quinte sono di tendenza questa settimana" },
   "studio_dashboard.insight.hook.title": { fr: "Hook recommandé : \"On m'a demandé...\"", en: "Recommended hook: \"I was asked...\"", es: "Hook recomendado: \"Me preguntaron...\"", "pt-BR": "Hook recomendado: \"Me perguntaram...\"", de: "Empfohlener Hook: \"Ich wurde gefragt...\"", it: "Hook consigliato: \"Mi è stato chiesto...\"" },
@@ -1360,7 +1495,7 @@ const messages: Messages = {
   "studio_dashboard.insight.platform.title": { fr: "Plateforme en hausse : TikTok", en: "Rising platform: TikTok", es: "Plataforma en alza: TikTok", "pt-BR": "Plataforma em alta: TikTok", de: "Aufstrebende Plattform: TikTok", it: "Piattaforma in crescita: TikTok" },
   "studio_dashboard.insight.platform.desc": { fr: "L'engagement TikTok est en hausse de 8.3% cette semaine", en: "TikTok engagement is up 8.3% this week", es: "El engagement en TikTok subió 8.3% esta semana", "pt-BR": "O engajamento no TikTok subiu 8.3% esta semana", de: "TikTok-Engagement ist diese Woche um 8.3% gestiegen", it: "L'engagement su TikTok è aumentato dell'8.3% questa settimana" },
   "studio_dashboard.insight.risk.title": { fr: "Risque : Répétition \"morning routine\" détectée", en: "Risk: \"Morning routine\" repetition detected", es: "Riesgo: Repetición \"morning routine\" detectada", "pt-BR": "Risco: Repetição \"morning routine\" detectada", de: "Risiko: Wiederholung \"Morgenroutine\" erkannt", it: "Rischio: Ripetizione \"morning routine\" rilevata" },
-  "studio_dashboard.insight.risk.desc": { fr: "Vous avez publié 4 contenus similaires — variez pour éviter la fatigue audience", en: "You've published 4 similar posts — vary to avoid audience fatigue", es: "Has publicado 4 contenidos similares — varía para evitar fatiga de audiencia", "pt-BR": "Você publicou 4 conteúdos similares — varie para evitar fadiga de audiência", de: "Du hast 4 ähnliche Beiträge veröffentlicht — variiere, um Audience Fatigue zu vermeiden", it: "Hai pubblicato 4 contenuti simili — varia per evitare l'affaticamento del pubblico" },
+  "studio_dashboard.insight.risk.desc": { fr: "Vous avez publié 4 contenus similaires, variez pour éviter la fatigue audience", en: "You've published 4 similar posts, vary to avoid audience fatigue", es: "Has publicado 4 contenidos similares, varía para evitar fatiga de audiencia", "pt-BR": "Você publicou 4 conteúdos similares, varie para evitar fadiga de audiência", de: "Du hast 4 ähnliche Beiträge veröffentlicht, variiere, um Audience Fatigue zu vermeiden", it: "Hai pubblicato 4 contenuti simili, varia per evitare l'affaticamento del pubblico" },
   "studio_dashboard.insight.source.analytics": { fr: "Analytics", en: "Analytics", es: "Analytics", "pt-BR": "Analytics", de: "Analytik", it: "Analytics" },
   "studio_dashboard.insight.source.trends": { fr: "Trend Hub", en: "Trend Hub", es: "Trend Hub", "pt-BR": "Trend Hub", de: "Trend Hub", it: "Trend Hub" },
   "studio_dashboard.insight.source.ai": { fr: "IA", en: "AI", es: "IA", "pt-BR": "IA", de: "KI", it: "IA" },
@@ -1406,7 +1541,7 @@ const messages: Messages = {
   "studio_dashboard.credits.consumption.image": { fr: "Image", en: "Image", es: "Imagen", "pt-BR": "Imagem", de: "Bild", it: "Immagine" },
   "studio_dashboard.credits.consumption.video": { fr: "Vidéo", en: "Video", es: "Video", "pt-BR": "Vídeo", de: "Video", it: "Video" },
   "studio_dashboard.credits.consumption.audio": { fr: "Audio", en: "Audio", es: "Audio", "pt-BR": "Áudio", de: "Audio", it: "Audio" },
-  "studio_dashboard.credits.byok": { fr: "BYOK — Clés API", en: "BYOK — API Keys", es: "BYOK — Claves API", "pt-BR": "BYOK — Chaves API", de: "BYOK — API-Schlüssel", it: "BYOK — Chiavi API" },
+  "studio_dashboard.credits.byok": { fr: "BYOK, Clés API", en: "BYOK, API Keys", es: "BYOK, Claves API", "pt-BR": "BYOK, Chaves API", de: "BYOK, API-Schlüssel", it: "BYOK, Chiavi API" },
   "studio_dashboard.credits.upgrade": { fr: "Passer au plan supérieur", en: "Upgrade plan", es: "Subir de plan", "pt-BR": "Fazer upgrade do plano", de: "Tarif upgraden", it: "Passa al piano superiore" },
   "studio_dashboard.credits.days_left": { fr: "Environ {n} jours restants", en: "About {n} days remaining", es: "Aprox. {n} días restantes", "pt-BR": "Aprox. {n} dias restantes", de: "Ca. {n} Tage übrig", it: "Circa {n} giorni rimasti" },
   "studio_dashboard.credits.tier": { fr: "Forfait {tier}", en: "{tier} plan", es: "Plan {tier}", "pt-BR": "Plano {tier}", de: "{tier}-Tarif", it: "Piano {tier}" },
@@ -1523,7 +1658,7 @@ const messages: Messages = {
   // Metrics
   "admin_dashboard.metrics.title": { fr: "Indicateurs clés", en: "Key metrics", es: "Indicadores clave", "pt-BR": "Indicadores-chave", de: "Schlüsselkennzahlen", it: "Indicatori chiave" },
   "admin_dashboard.metrics.brut": { fr: "Revenu brut", en: "Gross revenue", es: "Ingreso bruto", "pt-BR": "Receita bruta", de: "Bruttoumsatz", it: "Entrate lorde" },
-  "admin_dashboard.metrics.commission": { fr: "Commission Halo", en: "Halo commission", es: "Comisión Halo", "pt-BR": "Comissão Halo", de: "Halo-Provision", it: "Commissione Halo" },
+  "admin_dashboard.metrics.commission": { fr: "Commission WTF", en: "WTF commission", es: "Comisión WTF", "pt-BR": "Comissão WTF", de: "Halo-Provision", it: "Commissione WTF" },
   "admin_dashboard.metrics.net": { fr: "Net créateurs", en: "Creator net", es: "Neto creadores", "pt-BR": "Líquido criadores", de: "Creator-Netto", it: "Netto creator" },
   "admin_dashboard.metrics.arpc": { fr: "ARPC", en: "ARPC", es: "ARPC", "pt-BR": "ARPC", de: "ARPC", it: "ARPC" },
   "admin_dashboard.metrics.active": { fr: "Créateurs actifs", en: "Active creators", es: "Creadores activos", "pt-BR": "Criadores ativos", de: "Aktive Creator", it: "Creator attivi" },
@@ -1535,7 +1670,7 @@ const messages: Messages = {
   "admin_dashboard.metrics.vs_previous": { fr: "vs période préc.", en: "vs prev. period", es: "vs período ant.", "pt-BR": "vs período ant.", de: "vs Vorperiode", it: "vs periodo prec." },
 
   // Chart
-  "admin_dashboard.chart.title": { fr: "Revenus — 12 mois", en: "Revenue — 12 months", es: "Ingresos — 12 meses", "pt-BR": "Receita — 12 meses", de: "Umsatz — 12 Monate", it: "Entrate — 12 mesi" },
+  "admin_dashboard.chart.title": { fr: "Revenus, 12 mois", en: "Revenue, 12 months", es: "Ingresos, 12 meses", "pt-BR": "Receita, 12 meses", de: "Umsatz, 12 Monate", it: "Entrate, 12 mesi" },
   "admin_dashboard.chart.toggle.brut": { fr: "Brut / Net / Commission", en: "Gross / Net / Commission", es: "Bruto / Neto / Comisión", "pt-BR": "Bruto / Líquido / Comissão", de: "Brutto / Netto / Provision", it: "Lordo / Netto / Commissione" },
   "admin_dashboard.chart.toggle.platform": { fr: "Par plateforme", en: "By platform", es: "Por plataforma", "pt-BR": "Por plataforma", de: "Nach Plattform", it: "Per piattaforma" },
   "admin_dashboard.chart.toggle.region": { fr: "Par région", en: "By region", es: "Por región", "pt-BR": "Por região", de: "Nach Region", it: "Per regione" },
@@ -1614,7 +1749,7 @@ const messages: Messages = {
   "admin_dashboard.compliance.deletion_requests": { fr: "Demandes suppression", en: "Deletion requests", es: "Solicitudes de eliminación", "pt-BR": "Solicitações de exclusão", de: "Löschanfragen", it: "Richieste di cancellazione" },
   "admin_dashboard.compliance.deletion_requests_desc": { fr: "4 demandes RGPD à traiter", en: "4 GDPR requests to process", es: "4 solicitudes RGPD pendientes", "pt-BR": "4 solicitações LGPD para processar", de: "4 DSGVO-Anfragen zu bearbeiten", it: "4 richieste GDPR da elaborare" },
   "admin_dashboard.compliance.recent_exports": { fr: "Exports récents", en: "Recent exports", es: "Exportaciones recientes", "pt-BR": "Exportações recentes", de: "Kürzliche Exporte", it: "Esportazioni recenti" },
-  "admin_dashboard.compliance.recent_exports_desc": { fr: "12 exports ce mois — aucun suspect", en: "12 exports this month — none suspicious", es: "12 exportaciones este mes — ninguna sospechosa", "pt-BR": "12 exportações este mês — nenhuma suspeita", de: "12 Exporte diesen Monat — keine verdächtig", it: "12 esportazioni questo mese — nessuna sospetta" },
+  "admin_dashboard.compliance.recent_exports_desc": { fr: "12 exports ce mois, aucun suspect", en: "12 exports this month, none suspicious", es: "12 exportaciones este mes, ninguna sospechosa", "pt-BR": "12 exportações este mês, nenhuma suspeita", de: "12 Exporte diesen Monat, keine verdächtig", it: "12 esportazioni questo mese, nessuna sospetta" },
   "admin_dashboard.compliance.status.ok": { fr: "OK", en: "OK", es: "OK", "pt-BR": "OK", de: "OK", it: "OK" },
   "admin_dashboard.compliance.status.warning": { fr: "Attention", en: "Warning", es: "Advertencia", "pt-BR": "Atenção", de: "Warnung", it: "Attenzione" },
   "admin_dashboard.compliance.status.critical": { fr: "Critique", en: "Critical", es: "Crítico", "pt-BR": "Crítico", de: "Kritisch", it: "Critico" },
@@ -1638,7 +1773,7 @@ const messages: Messages = {
   // Activity feed
   "admin_dashboard.activity.title": { fr: "Activité récente", en: "Recent activity", es: "Actividad reciente", "pt-BR": "Atividade recente", de: "Neueste Aktivität", it: "Attività recente" },
   "admin_dashboard.activity.new_creator": { fr: "{user} a rejoint la maison", en: "{user} joined the house", es: "{user} se unió a la casa", "pt-BR": "{user} entrou para la maison", de: "{user} ist dem Haus beigetreten", it: "{user} si è unito alla casa" },
-  "admin_dashboard.activity.revenue_milestone": { fr: "{user} — palier de revenu atteint", en: "{user} — revenue milestone reached", es: "{user} — hito de ingresos alcanzado", "pt-BR": "{user} — marco de receita atingido", de: "{user} — Umsatzmeilenstein erreicht", it: "{user} — traguardo di fatturato raggiunto" },
+  "admin_dashboard.activity.revenue_milestone": { fr: "{user}, palier de revenu atteint", en: "{user}, revenue milestone reached", es: "{user}, hito de ingresos alcanzado", "pt-BR": "{user}, marco de receita atingido", de: "{user}, Umsatzmeilenstein erreicht", it: "{user}, traguardo di fatturato raggiunto" },
   "admin_dashboard.activity.contract_signed": { fr: "{user} a signé son contrat", en: "{user} signed their contract", es: "{user} firmó su contrato", "pt-BR": "{user} assinou seu contrato", de: "{user} hat seinen Vertrag unterschrieben", it: "{user} ha firmato il contratto" },
   "admin_dashboard.activity.urgent_message": { fr: "Message urgent de {user}", en: "Urgent message from {user}", es: "Mensaje urgente de {user}", "pt-BR": "Mensagem urgente de {user}", de: "Dringende Nachricht von {user}", it: "Messaggio urgente da {user}" },
   "admin_dashboard.activity.revenue_spike": { fr: "Pic de revenu sur {user}", en: "Revenue spike on {user}", es: "Pico de ingresos en {user}", "pt-BR": "Pico de receita no {user}", de: "Umsatzspitze auf {user}", it: "Picco di entrate su {user}" },
@@ -1658,16 +1793,16 @@ const messages: Messages = {
   "admin_dashboard.alerts.inactive_creators": { fr: "Créateurs inactifs", en: "Inactive creators", es: "Creadores inactivos", "pt-BR": "Criadores inativos", de: "Inaktive Creator", it: "Creator inattivi" },
   "admin_dashboard.alerts.inactive_creators_desc": { fr: "2 créateurs sans publication depuis 14 jours", en: "2 creators without posts for 14 days", es: "2 creadores sin publicaciones en 14 días", "pt-BR": "2 criadores sem postagens há 14 dias", de: "2 Creator seit 14 Tagen ohne Beiträge", it: "2 creator senza post da 14 giorni" },
   "admin_dashboard.alerts.revenue_anomaly": { fr: "Anomalie de revenu détectée", en: "Revenue anomaly detected", es: "Anomalía de ingresos detectada", "pt-BR": "Anomalia de receita detectada", de: "Umsatzanomalie erkannt", it: "Anomalia delle entrate rilevata" },
-  "admin_dashboard.alerts.revenue_anomaly_desc": { fr: "Baisse de 23% sur un compte OnlyFans — vérification recommandée", en: "23% drop on an OnlyFans account — check recommended", es: "Caída del 23% en una cuenta de OnlyFans — revisión recomendada", "pt-BR": "Queda de 23% em uma conta OnlyFans — verificação recomendada", de: "23% Rückgang auf einem OnlyFans-Konto — Überprüfung empfohlen", it: "Calo del 23% su un account OnlyFans — controllo consigliato" },
+  "admin_dashboard.alerts.revenue_anomaly_desc": { fr: "Baisse de 23% sur un compte OnlyFans, vérification recommandée", en: "23% drop on an OnlyFans account, check recommended", es: "Caída del 23% en una cuenta de OnlyFans, revisión recomendada", "pt-BR": "Queda de 23% em uma conta OnlyFans, verificação recomendada", de: "23% Rückgang auf einem OnlyFans-Konto, Überprüfung empfohlen", it: "Calo del 23% su un account OnlyFans, controllo consigliato" },
   "admin_dashboard.alerts.view": { fr: "Voir les alertes", en: "View alerts", es: "Ver alertas", "pt-BR": "Ver alertas", de: "Warnungen anzeigen", it: "Vedi avvisi" },
 
-  // Quick actions — Chat Copilot
+  // Quick actions, Chat Copilot
   "admin_dashboard.urgent.copilot": { fr: "Chat Copilot", en: "Chat Copilot", es: "Chat Copilot", "pt-BR": "Chat Copilot", de: "Chat Copilot", it: "Chat Copilot" },
   "admin_dashboard.urgent.copilot_desc": { fr: "Assistant IA pour répondre aux questions courantes", en: "AI assistant for common questions", es: "Asistente IA para preguntas comunes", "pt-BR": "Assistente IA para perguntas comuns", de: "KI-Assistent für häufige Fragen", it: "Assistente IA per domande comuni" },
   "admin_dashboard.urgent.impact_productivity": { fr: "Impact productivité", en: "Productivity impact", es: "Impacto en productividad", "pt-BR": "Impacto na produtividade", de: "Produktivitätsauswirkung", it: "Impatto sulla produttività" },
   "admin_dashboard.urgent.cta_copilot": { fr: "Ouvrir le Chat", en: "Open Chat", es: "Abrir Chat", "pt-BR": "Abrir Chat", de: "Chat öffnen", it: "Apri Chat" },
 
-  // Revenue chart — View by creator toggle
+  // Revenue chart, View by creator toggle
   "admin_dashboard.chart.view_by_creator": { fr: "Vue par créateur", en: "View by creator", es: "Ver por creador", "pt-BR": "Ver por criador", de: "Nach Creator anzeigen", it: "Vedi per creator" },
   "admin_dashboard.chart.view.overview": { fr: "Vue d'ensemble", en: "Overview", es: "Resumen", "pt-BR": "Visão geral", de: "Übersicht", it: "Panoramica" },
   "admin_dashboard.chart.view.platform": { fr: "Par plateforme", en: "By platform", es: "Por plataforma", "pt-BR": "Por plataforma", de: "Nach Plattform", it: "Per piattaforma" },
@@ -1676,7 +1811,7 @@ const messages: Messages = {
   // Demo badge
   "admin_dashboard.demo_badge": { fr: "Démo · Données simulées", en: "Demo · Simulated data", es: "Demo · Datos simulados", "pt-BR": "Demo · Dados simulados", de: "Demo · Simulierte Daten", it: "Demo · Dati simulati" },
 
-  // Quick actions — new card labels
+  // Quick actions, new card labels
   "admin_dashboard.quick.candidatures": { fr: "Candidatures à revoir", en: "Applications to review", es: "Solicitudes pendientes", "pt-BR": "Candidaturas para revisar", de: "Bewerbungen zu prüfen", it: "Candidature da esaminare" },
   "admin_dashboard.quick.candidatures_desc": { fr: "{n} nouvelles candidatures en attente", en: "{n} new applications pending", es: "{n} nuevas solicitudes pendientes", "pt-BR": "{n} novas candidaturas pendentes", de: "{n} neue Bewerbungen ausstehend", it: "{n} nuove candidature in attesa" },
   "admin_dashboard.quick.contracts": { fr: "Contrats à signer", en: "Contracts to sign", es: "Contratos por firmar", "pt-BR": "Contratos para assinar", de: "Verträge zu unterschreiben", it: "Contratti da firmare" },
@@ -1803,10 +1938,10 @@ const messages: Messages = {
   "compliance.requests.status_completed": { fr: "Terminé", en: "Completed", es: "Completado", "pt-BR": "Concluído", de: "Abgeschlossen", it: "Completato" },
   "compliance.requests.status_rejected": { fr: "Refusé", en: "Rejected", es: "Rechazado", "pt-BR": "Rejeitado", de: "Abgelehnt", it: "Rifiutato" },
   // ─── Interactive Demo (new) ───
-  "demo_new.intro.title": { fr: "Découvrez Halo Talent en 2 minutes", en: "Discover Halo Talent in 2 minutes", es: "Descubra Halo Talent en 2 minutos", "pt-BR": "Descubra o Halo Talent em 2 minutos", de: "Entdecken Sie Halo Talent in 2 Minuten", it: "Scopri Halo Talent in 2 minuti" },
-  "demo_new.intro.subtitle": { fr: "Une expérience interactive pour explorer notre plateforme — sans créer de compte.", en: "An interactive experience to explore our platform — without signing up.", es: "Una experiencia interactiva para explorar nuestra plataforma — sin registrarse.", "pt-BR": "Uma experiência interativa para explorar nossa plataforma — sem se cadastrar.", de: "Eine interaktive Erfahrung, um unsere Plattform zu erkunden — ohne Anmeldung.", it: "Un'esperienza interattiva per esplorare la nostra piattaforma — senza registrazione." },
+  "demo_new.intro.title": { fr: "Découvrez Where Talent Forms en 2 minutes", en: "Discover Where Talent Forms in 2 minutes", es: "Descubra Where Talent Forms en 2 minutos", "pt-BR": "Descubra o Where Talent Forms em 2 minutos", de: "Entdecken Sie Where Talent Forms in 2 Minuten", it: "Scopri Where Talent Forms in 2 minuti" },
+  "demo_new.intro.subtitle": { fr: "Une expérience interactive pour explorer notre plateforme, sans créer de compte.", en: "An interactive experience to explore our platform, without signing up.", es: "Una experiencia interactiva para explorar nuestra plataforma, sin registrarse.", "pt-BR": "Uma experiência interativa para explorar nossa plataforma, sem se cadastrar.", de: "Eine interaktive Erfahrung, um unsere Plattform zu erkunden, ohne Anmeldung.", it: "Un'esperienza interattiva per esplorare la nostra piattaforma, senza registrazione." },
   "demo_new.intro.cta": { fr: "Démarrer la démo →", en: "Start the demo →", es: "Iniciar la demo →", "pt-BR": "Iniciar a demo →", de: "Demo starten →", it: "Avvia la demo →" },
-  "demo_new.intro.disclaimer": { fr: "Démo interactive avec données exemples. Halo ne garantit ni revenus, ni absence de restriction de plateforme.", en: "Interactive demo with sample data. Halo does not guarantee income or absence of platform restrictions.", es: "Demo interactiva con datos de ejemplo. Halo no garantiza ingresos ni ausencia de restricciones de plataforma.", "pt-BR": "Demo interativa com dados de exemplo. A Halo não garante receitas nem ausência de restrições de plataforma.", de: "Interaktive Demo mit Beispieldaten. Halo garantiert weder Einnahmen noch die Abwesenheit von Plattformbeschränkungen.", it: "Demo interattiva con dati di esempio. Halo non garantisce entrate né assenza di restrizioni della piattaforma." },
+  "demo_new.intro.disclaimer": { fr: "Démo interactive avec données exemples. WTF ne garantit ni revenus, ni absence de restriction de plateforme.", en: "Interactive demo with sample data. WTF does not guarantee income or absence of platform restrictions.", es: "Demo interactiva con datos de ejemplo. WTF no garantiza ingresos ni ausencia de restricciones de plataforma.", "pt-BR": "Demo interativa com dados de exemplo. A WTF não garante receitas nem ausência de restrições de plataforma.", de: "Interaktive Demo mit Beispieldaten. WTF garantiert weder Einnahmen noch die Abwesenheit von Plattformbeschränkungen.", it: "Demo interattiva con dati di esempio. WTF non garantisce entrate né assenza di restrizioni della piattaforma." },
   "demo_new.step.count": { fr: "Étape {n}/8", en: "Step {n}/8", es: "Paso {n}/8", "pt-BR": "Etapa {n}/8", de: "Schritt {n}/8", it: "Passo {n}/8" },
   "demo_new.step.dna.title": { fr: "ADN Créatif", en: "Creative DNA", es: "ADN Creativo", "pt-BR": "DNA Criativo", de: "Kreative DNA", it: "DNA Creativo" },
   "demo_new.step.dna.desc": { fr: "Votre identité créative, comprise par l'IA", en: "Your creative identity, understood by AI", es: "Tu identidad creativa, comprendida por la IA", "pt-BR": "Sua identidade criativa, compreendida pela IA", de: "Ihre kreative Identität, verstanden von der KI", it: "La tua identità creativa, compresa dall'IA" },
@@ -1895,7 +2030,7 @@ const messages: Messages = {
   "demo_new.protection.level": { fr: "Niveau : {level}", en: "Level: {level}", es: "Nivel: {level}", "pt-BR": "Nível: {level}", de: "Stufe: {level}", it: "Livello: {level}" },
   "demo_new.protection.clause_severity": { fr: "Sévérité {n}/5", en: "Severity {n}/5", es: "Gravedad {n}/5", "pt-BR": "Gravidade {n}/5", de: "Schweregrad {n}/5", it: "Gravità {n}/5" },
   "demo_new.protection.analyze": { fr: "Analyser mon contrat", en: "Analyze my contract", es: "Analizar mi contrato", "pt-BR": "Analisar meu contrato", de: "Meinen Vertrag analysieren", it: "Analizza il mio contratto" },
-  "demo_new.protection.tooltip": { fr: "Le Bouclier Légal détecte les clauses abusives dans vos contrats d'agence — gratuitement.", en: "The Legal Shield detects abusive clauses in your agency contracts — for free.", es: "El Escudo Legal detecta cláusulas abusivas en tus contratos de agencia — gratis.", "pt-BR": "O Escudo Legal detecta cláusulas abusivas em seus contratos de agência — gratuitamente.", de: "Der Rechtsschutz erkennt missbräuchliche Klauseln in Ihren Agenturverträgen — kostenlos.", it: "Lo Scudo Legale rileva clausole abusive nei tuoi contratti di agenzia — gratuitamente." },
+  "demo_new.protection.tooltip": { fr: "Le Bouclier Légal détecte les clauses abusives dans vos contrats d'agence, gratuitement.", en: "The Legal Shield detects abusive clauses in your agency contracts, for free.", es: "El Escudo Legal detecta cláusulas abusivas en tus contratos de agencia, gratis.", "pt-BR": "O Escudo Legal detecta cláusulas abusivas em seus contratos de agência, gratuitamente.", de: "Der Rechtsschutz erkennt missbräuchliche Klauseln in Ihren Agenturverträgen, kostenlos.", it: "Lo Scudo Legale rileva clausole abusive nei tuoi contratti di agenzia, gratuitamente." },
   "demo_new.commission.slider_label": { fr: "Revenu mensuel brut", en: "Monthly gross revenue", es: "Ingresos brutos mensuales", "pt-BR": "Receita bruta mensal", de: "Monatlicher Bruttoumsatz", it: "Entrate lorde mensili" },
   "demo_new.commission.tier": { fr: "Tranche {label}", en: "Tier {label}", es: "Tramo {label}", "pt-BR": "Faixa {label}", de: "Stufe {label}", it: "Scaglione {label}" },
   "demo_new.commission.amount": { fr: "Montant", en: "Amount", es: "Importe", "pt-BR": "Valor", de: "Betrag", it: "Importo" },
@@ -1907,7 +2042,7 @@ const messages: Messages = {
   "demo_new.commission.savings": { fr: "Économie vs 50% : {n}€", en: "Savings vs 50%: {n}€", es: "Ahorro vs 50%: {n}€", "pt-BR": "Economia vs 50%: {n}€", de: "Ersparnis vs. 50%: {n}€", it: "Risparmio vs 50%: {n}€" },
   "demo_new.commission.tooltip": { fr: "Notre système de commission marginale est transparent et dégressif. Plus vous gagnez, moins vous payez.", en: "Our marginal commission system is transparent and degressive. The more you earn, the less you pay.", es: "Nuestro sistema de comisión marginal es transparente y decreciente. Cuanto más ganas, menos pagas.", "pt-BR": "Nosso sistema de comissão marginal é transparente e degressivo. Quanto mais você ganha, menos paga.", de: "Unser marginales Provisionssystem ist transparent und degressiv. Je mehr Sie verdienen, desto weniger zahlen Sie.", it: "Il nostro sistema di commissione marginale è trasparente e degressivo. Più guadagni, meno paghi." },
   "demo_new.final.title": { fr: "Prêt à passer à l'action ?", en: "Ready to take action?", es: "¿Listo para actuar?", "pt-BR": "Pronto para agir?", de: "Bereit zu handeln?", it: "Pronto ad agire?" },
-  "demo_new.final.desc": { fr: "Vous venez de découvrir l'essentiel de Halo Talent. Chaque outil est conçu pour vous faire gagner du temps, de l'argent et de la tranquillité.", en: "You've just discovered the essentials of Halo Talent. Every tool is designed to save you time, money, and peace of mind.", es: "Acabas de descubrir lo esencial de Halo Talent. Cada herramienta está diseñada para ahorrarte tiempo, dinero y tranquilidad.", "pt-BR": "Você acabou de descobrir o essencial do Halo Talent. Cada ferramenta é projetada para economizar tempo, dinheiro e tranquilidade.", de: "Sie haben gerade das Wesentliche von Halo Talent entdeckt. Jedes Tool spart Zeit, Geld und gibt Ihnen Seelenfrieden.", it: "Hai appena scoperto l'essenziale di Halo Talent. Ogni strumento è progettato per farti risparmiare tempo, denaro e tranquillità." },
+  "demo_new.final.desc": { fr: "Vous venez de découvrir l'essentiel de Where Talent Forms. Chaque outil est conçu pour vous faire gagner du temps, de l'argent et de la tranquillité.", en: "You've just discovered the essentials of Where Talent Forms. Every tool is designed to save you time, money, and peace of mind.", es: "Acabas de descubrir lo esencial de Where Talent Forms. Cada herramienta está diseñada para ahorrarte tiempo, dinero y tranquilidad.", "pt-BR": "Você acabou de descobrir o essencial do Where Talent Forms. Cada ferramenta é projetada para economizar tempo, dinheiro e tranquilidade.", de: "Sie haben gerade das Wesentliche von Where Talent Forms entdeckt. Jedes Tool spart Zeit, Geld und gibt Ihnen Seelenfrieden.", it: "Hai appena scoperto l'essenziale di Where Talent Forms. Ogni strumento è progettato per farti risparmiare tempo, denaro e tranquillità." },
   "demo_new.final.cta_pricing": { fr: "Créer un compte gratuit", en: "Create a free account", es: "Crear una cuenta gratuita", "pt-BR": "Criar uma conta gratuita", de: "Kostenloses Konto erstellen", it: "Crea un account gratuito" },
   "demo_new.final.cta_protection": { fr: "Analyser mon contrat", en: "Analyze my contract", es: "Analizar mi contrato", "pt-BR": "Analisar meu contrato", de: "Meinen Vertrag analysieren", it: "Analizza il mio contratto" },
   "demo_new.final.cta_demo": { fr: "Réserver une démo", en: "Book a demo", es: "Reservar una demo", "pt-BR": "Reservar uma demonstração", de: "Demo buchen", it: "Prenota una demo" },
@@ -1918,7 +2053,7 @@ const messages: Messages = {
   // REVENUE RADAR
   // ═══════════════════════════════════════════════════════════════
   "revenue_radar.title": { fr: "Revenue Radar", en: "Revenue Radar", es: "Revenue Radar", "pt-BR": "Revenue Radar", de: "Revenue Radar", it: "Revenue Radar" },
-  "revenue_radar.page_title": { fr: "Revenue Radar | Halo Atlas", en: "Revenue Radar | Halo Atlas", es: "Revenue Radar | Halo Atlas", "pt-BR": "Revenue Radar | Halo Atlas", de: "Revenue Radar | Halo Atlas", it: "Revenue Radar | Halo Atlas" },
+  "revenue_radar.page_title": { fr: "Revenue Radar | WTF Atlas", en: "Revenue Radar | WTF Atlas", es: "Revenue Radar | WTF Atlas", "pt-BR": "Revenue Radar | WTF Atlas", de: "Revenue Radar | WTF Atlas", it: "Revenue Radar | WTF Atlas" },
   "revenue_radar.stats_potential": { fr: "Revenu potentiel", en: "Potential revenue", es: "Ingreso potencial", "pt-BR": "Receita potencial", de: "Potenzielle Einnahmen", it: "Entrate potenziali" },
   "revenue_radar.stats_pending": { fr: "Opportunités en attente", en: "Pending opportunities", es: "Oportunidades pendientes", "pt-BR": "Oportunidades pendentes", de: "Ausstehende Chancen", it: "Opportunità in sospeso" },
   "revenue_radar.stats_conversion": { fr: "Taux de conversion", en: "Conversion rate", es: "Tasa de conversión", "pt-BR": "Taxa de conversão", de: "Konversionsrate", it: "Tasso di conversione" },
@@ -2045,12 +2180,12 @@ const messages: Messages = {
   // ═══════════════════════════════════════════════════════════════
   // NEW LANDING PAGE (Encre & Or)
   // ═══════════════════════════════════════════════════════════════
-  "home.nouveau.badge": { fr: "Nouveau — Bouclier Légal gratuit · analysez votre contrat d'agence", en: "New — Free Legal Shield: analyze your agency contract", es: "Nuevo — Escudo Legal gratis: analiza tu contrato de agencia", "pt-BR": "Novo — Escudo Legal grátis: analise seu contrato de agência", de: "Neu — Kostenloser Rechtsschutz: analysieren Sie Ihren Agenturvertrag", it: "Nuovo — Scudo Legale gratuito: analizza il tuo contratto d'agenzia" },
+  "home.nouveau.badge": { fr: "Nouveau, Bouclier Légal gratuit · analysez votre contrat d'agence", en: "New, Free Legal Shield: analyze your agency contract", es: "Nuevo, Escudo Legal gratis: analiza tu contrato de agencia", "pt-BR": "Novo, Escudo Legal grátis: analise seu contrato de agência", de: "Neu, Kostenloser Rechtsschutz: analysieren Sie Ihren Agenturvertrag", it: "Nuovo, Scudo Legale gratuito: analizza il tuo contratto d'agenzia" },
   "home.nouveau.hero_line1": { fr: "Les autres agences", en: "Other agencies", es: "Las otras agencias", "pt-BR": "As outras agências", de: "Andere Agenturen", it: "Le altre agenzie" },
   "home.nouveau.hero_line2": { fr: "prennent 50%.", en: "take 50%.", es: "se llevan el 50%.", "pt-BR": "ficam com 50%.", de: "nehmen 50%.", it: "prendono il 50%." },
   "home.nouveau.hero_line3": { fr: "Nous, on vous donne", en: "We give you", es: "Nosotros te damos", "pt-BR": "Nós te damos", de: "Wir geben Ihnen", it: "Noi vi diamo" },
   "home.nouveau.hero_line4": { fr: "les outils.", en: "the tools.", es: "las herramientas.", "pt-BR": "as ferramentas.", de: "die Werkzeuge.", it: "gli strumenti." },
-  "home.nouveau.subtitle": { fr: "Halo remplace 7 outils par une seule maison : création IA, CRM fans, analytics, protection juridique et management transparent. Commission dégressive de 30% à 10% — publique, sans frais d'entrée, sortie en 30 jours.", en: "Halo replaces 7 tools with a single house: AI creation, fan CRM, analytics, legal protection and transparent management. Decreasing commission from 30% to 10% — public, no entry fee, 30-day exit.", es: "Halo reemplaza 7 herramientas con una sola casa: creación IA, CRM fans, analytics, protección legal y management transparente. Comisión decreciente del 30% al 10% — pública, sin costo de entrada, salida en 30 días.", "pt-BR": "Halo substitui 7 ferramentas por uma única casa: criação IA, CRM fãs, analytics, proteção legal e gerenciamento transparente. Comissão decrescente de 30% a 10% — pública, sem taxa de entrada, saída em 30 dias.", de: "Halo ersetzt 7 Tools durch ein einziges Haus: KI-Erstellung, Fan-CRM, Analysen, Rechtsschutz und transparentes Management. Degressive Provision von 30% auf 10% — öffentlich, ohne Eintrittsgebühr, Ausstieg in 30 Tagen.", it: "Halo sostituisce 7 strumenti con una sola casa: creazione IA, CRM fan, analytics, protezione legale e management trasparente. Commissione decrescente dal 30% al 10% — pubblica, senza quota d'ingresso, uscita in 30 giorni." },
+  "home.nouveau.subtitle": { fr: "WTF remplace 7 outils par une seule maison : création IA, CRM fans, analytics, protection juridique et management transparent. Commission dégressive de 30% à 10%, publique, sans frais d'entrée, sortie en 30 jours.", en: "WTF replaces 7 tools with a single house: AI creation, fan CRM, analytics, legal protection and transparent management. Decreasing commission from 30% to 10%, public, no entry fee, 30-day exit.", es: "WTF reemplaza 7 herramientas con una sola casa: creación IA, CRM fans, analytics, protección legal y management transparente. Comisión decreciente del 30% al 10%, pública, sin costo de entrada, salida en 30 días.", "pt-BR": "WTF substitui 7 ferramentas por uma única casa: criação IA, CRM fãs, analytics, proteção legal e gerenciamento transparente. Comissão decrescente de 30% a 10%, pública, sem taxa de entrada, saída em 30 dias.", de: "WTF ersetzt 7 Tools durch ein einziges Haus: KI-Erstellung, Fan-CRM, Analysen, Rechtsschutz und transparentes Management. Degressive Provision von 30% auf 10%, öffentlich, ohne Eintrittsgebühr, Ausstieg in 30 Tagen.", it: "WTF sostituisce 7 strumenti con una sola casa: creazione IA, CRM fan, analytics, protezione legale e management trasparente. Commissione decrescente dal 30% al 10%, pubblica, senza quota d'ingresso, uscita in 30 giorni." },
   "home.nouveau.cta_analyze": { fr: "Analyser mon contrat gratuitement →", en: "Analyze my contract for free →", es: "Analizar mi contrato gratis →", "pt-BR": "Analisar meu contrato grátis →", de: "Meinen Vertrag kostenlos analysieren →", it: "Analizza il mio contratto gratis →" },
   "home.nouveau.cta_discover": { fr: "Découvrir la maison", en: "Discover the house", es: "Descubrir la maison", "pt-BR": "Descobrir a casa", de: "Das Haus entdecken", it: "Scopri la maison" },
   "home.nouveau.stat1_value": { fr: "10%", en: "10%", es: "10%", "pt-BR": "10%", de: "10%", it: "10%" },
@@ -2069,18 +2204,18 @@ const messages: Messages = {
   "home.nouveau.maisons_eyebrow": { fr: "Une maison, trois étages", en: "One house, three floors", es: "Una casa, tres pisos", "pt-BR": "Uma casa, três andares", de: "Ein Haus, drei Stockwerke", it: "Una casa, tre piani" },
   "home.nouveau.maisons_title": { fr: "Tout ce qu'une agence fait pour vous.", en: "Everything an agency does for you.", es: "Todo lo que una agencia hace por ti.", "pt-BR": "Tudo o que uma agência faz por você.", de: "Alles, was eine Agentur für Sie tut.", it: "Tutto ciò che un'agenzia fa per te." },
   "home.nouveau.maisons_title_italic": { fr: "Sans l'opacité.", en: "Without the opacity.", es: "Sin la opacidad.", "pt-BR": "Sem a opacidade.", de: "Ohne die Undurchsichtigkeit.", it: "Senza l'opacità." },
-  "home.nouveau.maisons_desc": { fr: "Management humain, studio de création IA et CRM fans — réunis dans une seule plateforme dont vous gardez les clés.", en: "Human management, AI creation studio and fan CRM — united in a single platform whose keys you keep.", es: "Management humano, estudio de creación IA y CRM fans — reunidos en una sola plataforma de la que guardas las llaves.", "pt-BR": "Gerenciamento humano, estúdio de criação IA e CRM fãs — reunidos em uma única plataforma da qual você guarda as chaves.", de: "Menschliches Management, KI-Erstellungsstudio und Fan-CRM — vereint in einer einzigen Plattform, deren Schlüssel Sie behalten.", it: "Management umano, studio di creazione IA e CRM fan — riuniti in un'unica piattaforma di cui conservi le chiavi." },
-  "home.nouveau.maison1_num": { fr: "I — Management", en: "I — Management", es: "I — Management", "pt-BR": "I — Management", de: "I — Management", it: "I — Management" },
+  "home.nouveau.maisons_desc": { fr: "Management humain, studio de création IA et CRM fans, réunis dans une seule plateforme dont vous gardez les clés.", en: "Human management, AI creation studio and fan CRM, united in a single platform whose keys you keep.", es: "Management humano, estudio de creación IA y CRM fans, reunidos en una sola plataforma de la que guardas las llaves.", "pt-BR": "Gerenciamento humano, estúdio de criação IA e CRM fãs, reunidos em uma única plataforma da qual você guarda as chaves.", de: "Menschliches Management, KI-Erstellungsstudio und Fan-CRM, vereint in einer einzigen Plattform, deren Schlüssel Sie behalten.", it: "Management umano, studio di creazione IA e CRM fan, riuniti in un'unica piattaforma di cui conservi le chiavi." },
+  "home.nouveau.maison1_num": { fr: "I, Management", en: "I, Management", es: "I, Management", "pt-BR": "I, Management", de: "I, Management", it: "I, Management" },
   "home.nouveau.maison1_title": { fr: "La représentation", en: "Representation", es: "La representación", "pt-BR": "A representação", de: "Die Vertretung", it: "La rappresentanza" },
-  "home.nouveau.maison1_desc": { fr: "Une équipe dédiée qui négocie, planifie et protège votre carrière — payée au résultat, jamais à l'opacité.", en: "A dedicated team that negotiates, plans and protects your career — paid on results, never on opacity.", es: "Un equipo dedicado que negocia, planifica y protege tu carrera — paga por resultados, nunca por opacidad.", "pt-BR": "Uma equipe dedicada que negocia, planeja e protege sua carreira — paga por resultados, nunca por opacidade.", de: "Ein engagiertes Team, das Ihre Karriere verhandelt, plant und schützt — bezahlt für Ergebnisse, nie für Intransparenz.", it: "Un team dedicato che negozia, pianifica e protegge la tua carriera — pagato sui risultati, mai sull'opacità." },
+  "home.nouveau.maison1_desc": { fr: "Une équipe dédiée qui négocie, planifie et protège votre carrière, payée au résultat, jamais à l'opacité.", en: "A dedicated team that negotiates, plans and protects your career, paid on results, never on opacity.", es: "Un equipo dedicado que negocia, planifica y protege tu carrera, paga por resultados, nunca por opacidad.", "pt-BR": "Uma equipe dedicada que negocia, planeja e protege sua carreira, paga por resultados, nunca por opacidade.", de: "Ein engagiertes Team, das Ihre Karriere verhandelt, plant und schützt, bezahlt für Ergebnisse, nie für Intransparenz.", it: "Un team dedicato che negozia, pianifica e protegge la tua carriera, pagato sui risultati, mai sull'opacità." },
   "home.nouveau.maison1_items": { fr: "Commission dégressive 30% → 10%|Contrat public, lisible en 10 minutes|Sortie en 30 jours, sans pénalité|Vos comptes restent les vôtres", en: "Decreasing commission 30% → 10%|Public contract, readable in 10 minutes|30-day exit, no penalty|Your accounts stay yours", es: "Comisión decreciente 30% → 10%|Contrato público, legible en 10 minutos|Salida en 30 días, sin penalidad|Tus cuentas siguen siendo tuyas", "pt-BR": "Comissão decrescente 30% → 10%|Contrato público, legível em 10 minutos|Saída em 30 dias, sem penalidade|Suas contas continuam suas", de: "Degressive Provision 30% → 10%|Öffentlicher Vertrag, in 10 Minuten lesbar|Austritt in 30 Tagen, ohne Strafe|Ihre Konten bleiben Ihre", it: "Commissione decrescente 30% → 10%|Contratto pubblico, leggibile in 10 minuti|Uscita in 30 giorni, senza penali|I tuoi conti restano tuoi" },
-  "home.nouveau.maison2_num": { fr: "II — Studio", en: "II — Studio", es: "II — Studio", "pt-BR": "II — Studio", de: "II — Studio", it: "II — Studio" },
+  "home.nouveau.maison2_num": { fr: "II, Studio", en: "II, Studio", es: "II, Studio", "pt-BR": "II, Studio", de: "II, Studio", it: "II, Studio" },
   "home.nouveau.maison2_title": { fr: "La création IA", en: "AI Creation", es: "La creación IA", "pt-BR": "A criação IA", de: "Die KI-Erstellung", it: "La creazione IA" },
-  "home.nouveau.maison2_desc": { fr: "Texte, image, vidéo, audio et avatars — un studio complet pour produire chaque jour sans équipe de production.", en: "Text, image, video, audio and avatars — a complete studio to produce every day without a production team.", es: "Texto, imagen, video, audio y avatares — un estudio completo para producir cada día sin equipo de producción.", "pt-BR": "Texto, imagem, vídeo, áudio e avatares — um estúdio completo para produzir todos os dias sem equipe de produção.", de: "Text, Bild, Video, Audio und Avatare — ein komplettes Studio für die tägliche Produktion ohne Produktionsteam.", it: "Testo, immagine, video, audio e avatar — uno studio completo per produrre ogni giorno senza team di produzione." },
+  "home.nouveau.maison2_desc": { fr: "Texte, image, vidéo, audio et avatars, un studio complet pour produire chaque jour sans équipe de production.", en: "Text, image, video, audio and avatars, a complete studio to produce every day without a production team.", es: "Texto, imagen, video, audio y avatares, un estudio completo para producir cada día sin equipo de producción.", "pt-BR": "Texto, imagem, vídeo, áudio e avatares, um estúdio completo para produzir todos os dias sem equipe de produção.", de: "Text, Bild, Video, Audio und Avatare, ein komplettes Studio für die tägliche Produktion ohne Produktionsteam.", it: "Testo, immagine, video, audio e avatar, uno studio completo per produrre ogni giorno senza team di produzione." },
   "home.nouveau.maison2_items": { fr: "Génération multi-format intégrée|Calendrier multi-créateurs|Déclinaison par plateforme en 1 clic|Votre voix, votre style, vos droits", en: "Integrated multi-format generation|Multi-creator calendar|One-click per-platform adaptation|Your voice, your style, your rights", es: "Generación multi-formato integrada|Calendario multi-creadores|Adaptación por plataforma en 1 clic|Tu voz, tu estilo, tus derechos", "pt-BR": "Geração multi-formato integrada|Calendário multi-criadores|Adaptação por plataforma em 1 clique|Sua voz, seu estilo, seus direitos", de: "Integrierte Multiformat-Generierung|Multi-Ersteller-Kalender|1-Klick-Plattformanpassung|Ihre Stimme, Ihr Stil, Ihre Rechte", it: "Generazione multi-formato integrata|Calendario multi-creatore|Adattamento per piattaforma in 1 clic|La tua voce, il tuo stile, i tuoi diritti" },
-  "home.nouveau.maison3_num": { fr: "III — Atlas", en: "III — Atlas", es: "III — Atlas", "pt-BR": "III — Atlas", de: "III — Atlas", it: "III — Atlas" },
+  "home.nouveau.maison3_num": { fr: "III, Atlas", en: "III, Atlas", es: "III, Atlas", "pt-BR": "III, Atlas", de: "III, Atlas", it: "III, Atlas" },
   "home.nouveau.maison3_title": { fr: "Le CRM fans", en: "The Fan CRM", es: "El CRM fans", "pt-BR": "O CRM fãs", de: "Das Fan-CRM", it: "Il CRM fan" },
-  "home.nouveau.maison3_desc": { fr: "Connaissez chaque fan : scoring, segmentation, campagnes et automatisations — vous gardez le contrôle des conversations.", en: "Know every fan: scoring, segmentation, campaigns and automations — you keep control of conversations.", es: "Conoce cada fan: scoring, segmentación, campañas y automatizaciones — tú mantienes el control de las conversaciones.", "pt-BR": "Conheça cada fã: scoring, segmentação, campanhas e automações — você mantém o controle das conversas.", de: "Jeden Fan kennen: Scoring, Segmentierung, Kampagnen und Automatisierungen — Sie behalten die Kontrolle über Gespräche.", it: "Conosci ogni fan: scoring, segmentazione, campagne e automazioni — mantieni il controllo delle conversazioni." },
+  "home.nouveau.maison3_desc": { fr: "Connaissez chaque fan : scoring, segmentation, campagnes et automatisations, vous gardez le contrôle des conversations.", en: "Know every fan: scoring, segmentation, campaigns and automations, you keep control of conversations.", es: "Conoce cada fan: scoring, segmentación, campañas y automatizaciones, tú mantienes el control de las conversaciones.", "pt-BR": "Conheça cada fã: scoring, segmentação, campanhas e automações, você mantém o controle das conversas.", de: "Jeden Fan kennen: Scoring, Segmentierung, Kampagnen und Automatisierungen, Sie behalten die Kontrolle über Gespräche.", it: "Conosci ogni fan: scoring, segmentazione, campagne e automazioni, mantieni il controllo delle conversazioni." },
   "home.nouveau.maison3_items": { fr: "Scoring & segmentation des fans|Chat Copilot IA supervisé par vous|Analytics unifiés toutes plateformes|Export complet CSV / JSON / PDF", en: "Fan scoring & segmentation|AI Chat Copilot supervised by you|Unified analytics across all platforms|Full CSV / JSON / PDF export", es: "Scoring & segmentación de fans|Chat Copilot IA supervisado por ti|Analíticas unificadas todas las plataformas|Exportación completa CSV / JSON / PDF", "pt-BR": "Scoring & segmentação de fãs|Chat Copilot IA supervisionado por você|Analytics unificados todas as plataformas|Exportação completa CSV / JSON / PDF", de: "Fan-Scoring & Segmentierung|KI-Chat-Copilot, von Ihnen überwacht|Einheitliche Analysen über alle Plattformen|Vollständiger CSV-/JSON-/PDF-Export", it: "Scoring & segmentazione fan|Chat Copilot IA supervisionato da te|Analytics unificati tutte le piattaforme|Esportazione completa CSV / JSON / PDF" },
 
   "home.nouveau.commissions_eyebrow": { fr: "Commissions transparentes", en: "Transparent commissions", es: "Comisiones transparentes", "pt-BR": "Comissões transparentes", de: "Transparente Provisionen", it: "Commissioni trasparenti" },
@@ -2089,17 +2224,17 @@ const messages: Messages = {
   "home.nouveau.commissions_desc": { fr: "Notre barème est marginal, comme l'impôt : chaque tranche a son taux, et le taux baisse à mesure que votre revenu monte. Il est public. C'est notre manifeste autant que notre modèle.", en: "Our scale is marginal, like income tax: each bracket has its rate, and the rate drops as your revenue rises. It's public. It's our manifesto as much as our model.", es: "Nuestra escala es marginal, como el impuesto: cada tramo tiene su tasa, y la tasa baja a medida que sube tu ingreso. Es pública. Es tanto nuestro manifiesto como nuestro modelo.", "pt-BR": "Nossa escala é marginal, como o imposto: cada faixa tem sua taxa, e a taxa cai à medida que sua receita sobe. É pública. É tanto nosso manifesto quanto nosso modelo.", de: "Unser Tarif ist marginal, wie die Einkommenssteuer: Jede Stufe hat ihren Satz, und der Satz sinkt, wenn Ihr Einkommen steigt. Er ist öffentlich. Er ist unser Manifest genauso wie unser Modell.", it: "Il nostro scaglione è marginale, come l'imposta: ogni scaglione ha la sua aliquota, e l'aliquota scende all'aumentare del tuo reddito. È pubblico. È il nostro manifesto tanto quanto il nostro modello." },
   "home.nouveau.simulator_label": { fr: "Simulateur", en: "Simulator", es: "Simulador", "pt-BR": "Simulador", de: "Simulator", it: "Simulatore" },
   "home.nouveau.simulator_month": { fr: "/ mois", en: "/ month", es: "/ mes", "pt-BR": "/ mês", de: "/ Monat", it: "/ mese" },
-  "home.nouveau.simulator_eff_rate": { fr: "Taux effectif Halo", en: "Halo effective rate", es: "Tasa efectiva Halo", "pt-BR": "Taxa efetiva Halo", de: "Effektiver Halo-Satz", it: "Tasso effettivo Halo" },
-  "home.nouveau.simulator_fee": { fr: "Commission Halo", en: "Halo commission", es: "Comisión Halo", "pt-BR": "Comissão Halo", de: "Halo-Provision", it: "Commissione Halo" },
+  "home.nouveau.simulator_eff_rate": { fr: "Taux effectif WTF", en: "WTF effective rate", es: "Tasa efectiva WTF", "pt-BR": "Taxa efetiva WTF", de: "Effektiver Halo-Satz", it: "Tasso effettivo WTF" },
+  "home.nouveau.simulator_fee": { fr: "Commission WTF", en: "WTF commission", es: "Comisión WTF", "pt-BR": "Comissão WTF", de: "Halo-Provision", it: "Commissione WTF" },
   "home.nouveau.simulator_keep": { fr: "Vous gardez", en: "You keep", es: "Te quedas", "pt-BR": "Você guarda", de: "Sie behalten", it: "Tieni" },
   "home.nouveau.simulator_saving": { fr: "Économisé vs agence à 50%", en: "Saved vs 50% agency", es: "Ahorrado vs agencia al 50%", "pt-BR": "Economizado vs agência a 50%", de: "Gespart vs. 50%-Agentur", it: "Risparmiato vs agenzia al 50%" },
-  "home.nouveau.simulator_tier1": { fr: "0 — 5 000 €", en: "0 — 5,000 €", es: "0 — 5.000 €", "pt-BR": "0 — 5.000 €", de: "0 — 5.000 €", it: "0 — 5.000 €" },
-  "home.nouveau.simulator_tier2": { fr: "5 000 — 20 000 €", en: "5,000 — 20,000 €", es: "5.000 — 20.000 €", "pt-BR": "5.000 — 20.000 €", de: "5.000 — 20.000 €", it: "5.000 — 20.000 €" },
-  "home.nouveau.simulator_tier3": { fr: "20 000 — 50 000 €", en: "20,000 — 50,000 €", es: "20.000 — 50.000 €", "pt-BR": "20.000 — 50.000 €", de: "20.000 — 50.000 €", it: "20.000 — 50.000 €" },
-  "home.nouveau.simulator_tier4": { fr: "50 000 — 150 000 €", en: "50,000 — 150,000 €", es: "50.000 — 150.000 €", "pt-BR": "50.000 — 150.000 €", de: "50.000 — 150.000 €", it: "50.000 — 150.000 €" },
+  "home.nouveau.simulator_tier1": { fr: "0, 5 000 €", en: "0, 5,000 €", es: "0, 5.000 €", "pt-BR": "0, 5.000 €", de: "0, 5.000 €", it: "0, 5.000 €" },
+  "home.nouveau.simulator_tier2": { fr: "5 000, 20 000 €", en: "5,000, 20,000 €", es: "5.000, 20.000 €", "pt-BR": "5.000, 20.000 €", de: "5.000, 20.000 €", it: "5.000, 20.000 €" },
+  "home.nouveau.simulator_tier3": { fr: "20 000, 50 000 €", en: "20,000, 50,000 €", es: "20.000, 50.000 €", "pt-BR": "20.000, 50.000 €", de: "20.000, 50.000 €", it: "20.000, 50.000 €" },
+  "home.nouveau.simulator_tier4": { fr: "50 000, 150 000 €", en: "50,000, 150,000 €", es: "50.000, 150.000 €", "pt-BR": "50.000, 150.000 €", de: "50.000, 150.000 €", it: "50.000, 150.000 €" },
   "home.nouveau.simulator_tier5": { fr: "150 000 € +", en: "150,000 € +", es: "150.000 € +", "pt-BR": "150.000 € +", de: "150.000 € +", it: "150.000 € +" },
 
-  "home.nouveau.compare_eyebrow": { fr: "Ce que Halo fait mieux", en: "What Halo does better", es: "Lo que Halo hace mejor", "pt-BR": "O que a Halo faz melhor", de: "Was Halo besser macht", it: "Cosa fa meglio Halo" },
+  "home.nouveau.compare_eyebrow": { fr: "Ce que WTF fait mieux", en: "What WTF does better", es: "Lo que WTF hace mejor", "pt-BR": "O que a WTF faz melhor", de: "Was WTF besser macht", it: "Cosa fa meglio WTF" },
   "home.nouveau.compare_title": { fr: "Pas de magie.", en: "No magic.", es: "Sin magia.", "pt-BR": "Sem mágica.", de: "Keine Magie.", it: "Niente magia." },
   "home.nouveau.compare_title_italic": { fr: "Une approche différente.", en: "A different approach.", es: "Un enfoque diferente.", "pt-BR": "Uma abordagem diferente.", de: "Ein anderer Ansatz.", it: "Un approccio diverso." },
   "home.nouveau.compare_col1_title": { fr: "Agence traditionnelle", en: "Traditional agency", es: "Agencia tradicional", "pt-BR": "Agência tradicional", de: "Traditionelle Agentur", it: "Agenzia tradizionale" },
@@ -2108,11 +2243,11 @@ const messages: Messages = {
   "home.nouveau.compare_col2_title": { fr: "Stack OFM classique", en: "Classic OFM stack", es: "Stack OFM clásico", "pt-BR": "Stack OFM clássico", de: "Klassischer OFM-Stack", it: "Stack OFM classico" },
   "home.nouveau.compare_col2_tag": { fr: "5 à 7 outils à recoller", en: "5 to 7 tools to piece together", es: "5 a 7 herramientas para unir", "pt-BR": "5 a 7 ferramentas para juntar", de: "5 bis 7 Tools zum Zusammenstückeln", it: "5 a 7 strumenti da incollare" },
   "home.nouveau.compare_col2_items": { fr: "500 à 1 200 € / mois d'outils|Canva + CapCut + ChatGPT séparément|Analytics éclatés par plateforme|Aucune protection juridique|0% de commission (flat fee)", en: "€500 to €1,200/month in tools|Canva + CapCut + ChatGPT separately|Analytics scattered per platform|No legal protection|0% commission (flat fee)", es: "500 € a 1.200 €/mes en herramientas|Canva + CapCut + ChatGPT por separado|Analíticas dispersas por plataforma|Sin protección legal|0% de comisión (tarifa plana)", "pt-BR": "500 € a 1.200 €/mês em ferramentas|Canva + CapCut + ChatGPT separadamente|Analytics dispersos por plataforma|Nenhuma proteção legal|0% de comissão (taxa fixa)", de: "500 € bis 1.200 €/Monat für Tools|Canva + CapCut + ChatGPT getrennt|Analysen pro Plattform verstreut|Kein Rechtsschutz|0% Provision (Pauschale)", it: "Da 500 € a 1.200 €/mese di strumenti|Canva + CapCut + ChatGPT separatamente|Analytics sparsi per piattaforma|Nessuna protezione legale|0% di commissione (canone fisso)" },
-  "home.nouveau.compare_col3_title": { fr: "Halo Talent", en: "Halo Talent", es: "Halo Talent", "pt-BR": "Halo Talent", de: "Halo Talent", it: "Halo Talent" },
+  "home.nouveau.compare_col3_title": { fr: "Where Talent Forms", en: "Where Talent Forms", es: "Where Talent Forms", "pt-BR": "Where Talent Forms", de: "Where Talent Forms", it: "Where Talent Forms" },
   "home.nouveau.compare_col3_tag": { fr: "Une maison, un seul outil", en: "One house, one tool", es: "Una casa, una sola herramienta", "pt-BR": "Uma casa, uma única ferramenta", de: "Ein Haus, ein Tool", it: "Una casa, un solo strumento" },
   "home.nouveau.compare_col3_items": { fr: "30% → 10% dégressif, barème public|Création IA texte · image · vidéo · audio|Atlas CRM + Chat Copilot supervisé|Bouclier Légal + base juridique|Sortie 30 jours · export total des données", en: "30% → 10% decreasing, public scale|AI creation text · image · video · audio|Atlas CRM + supervised Chat Copilot|Legal Shield + legal database|30-day exit · full data export", es: "30% → 10% decreciente, escala pública|Creación IA texto · imagen · video · audio|Atlas CRM + Chat Copilot supervisado|Escudo Legal + base legal|Salida 30 días · exportación total de datos", "pt-BR": "30% → 10% decrescente, escala pública|Criação IA texto · imagem · vídeo · áudio|Atlas CRM + Chat Copilot supervisionado|Escudo Legal + base jurídica|Saída 30 dias · exportação total de dados", de: "30% → 10% degressiv, öffentliche Skala|KI-Erstellung Text · Bild · Video · Audio|Atlas CRM + überwachter Chat Copilot|Rechtsschutz + Rechtsdatenbank|30-Tage-Austritt · vollständiger Datenexport", it: "30% → 10% decrescente, scala pubblica|Creazione IA testo · immagine · video · audio|Atlas CRM + Chat Copilot supervisionato|Scudo Legale + base legale|Uscita 30 giorni · esportazione totale dati" },
 
-  "home.nouveau.bouclier_eyebrow": { fr: "Bouclier Légal — gratuit", en: "Legal Shield — free", es: "Escudo Legal — gratis", "pt-BR": "Escudo Legal — grátis", de: "Rechtsschutz — kostenlos", it: "Scudo Legale — gratuito" },
+  "home.nouveau.bouclier_eyebrow": { fr: "Bouclier Légal, gratuit", en: "Legal Shield, free", es: "Escudo Legal, gratis", "pt-BR": "Escudo Legal, grátis", de: "Rechtsschutz, kostenlos", it: "Scudo Legale, gratuito" },
   "home.nouveau.bouclier_title": { fr: "Votre contrat d'agence cache peut-être", en: "Your agency contract may hide", es: "Tu contrato de agencia quizás esconde", "pt-BR": "Seu contrato de agência talvez esconde", de: "Ihr Agenturvertrag verbirgt vielleicht", it: "Il tuo contratto d'agenzia potrebbe nascondere" },
   "home.nouveau.bouclier_title_italic": { fr: "des clauses abusives.", en: "abusive clauses.", es: "cláusulas abusivas.", "pt-BR": "cláusulas abusivas.", de: "missbräuchliche Klauseln.", it: "clausole abusive." },
   "home.nouveau.bouclier_desc": { fr: "Importez votre contrat. Notre analyse détecte les clauses d'exclusivité abusives, les pénalités de sortie déguisées et les transferts de propriété de comptes. En 2 minutes, sans engagement, même si vous ne signez jamais chez nous.", en: "Import your contract. Our analysis detects abusive exclusivity clauses, disguised exit penalties and account ownership transfers. In 2 minutes, no obligation, even if you never sign with us.", es: "Importa tu contrato. Nuestro análisis detecta cláusulas de exclusividad abusivas, penalidades de salida disfrazadas y transferencias de propiedad de cuentas. En 2 minutos, sin compromiso, incluso si nunca firmas con nosotros.", "pt-BR": "Importe seu contrato. Nossa análise detecta cláusulas de exclusividade abusivas, penalidades de saída disfarçadas e transferências de propriedade de contas. Em 2 minutos, sem compromisso, mesmo que você nunca assine conosco.", de: "Importieren Sie Ihren Vertrag. Unsere Analyse erkennt missbräuchliche Exklusivitätsklauseln, getarnte Austrittsstrafen und Konteneigentumsübertragungen. In 2 Minuten, unverbindlich, selbst wenn Sie nie bei uns unterschreiben.", it: "Importa il tuo contratto. La nostra analisi rileva clausole di esclusiva abusive, penali di uscita mascherate e trasferimenti di proprietà dei conti. In 2 minuti, senza impegno, anche se non firmi mai con noi." },
@@ -2124,32 +2259,32 @@ const messages: Messages = {
   "home.nouveau.bouclier_line3_tag": { fr: "⚠ Critique", en: "⚠ Critical", es: "⚠ Crítico", "pt-BR": "⚠ Crítico", de: "⚠ Kritisch", it: "⚠ Critico" },
   "home.nouveau.bouclier_line4": { fr: "Reversement sous 30 jours", en: "Payment within 30 days", es: "Pago en 30 días", "pt-BR": "Pagamento em 30 dias", de: "Auszahlung innerhalb von 30 Tagen", it: "Pagamento entro 30 giorni" },
   "home.nouveau.bouclier_line4_tag": { fr: "✓ Conforme", en: "✓ Compliant", es: "✓ Conforme", "pt-BR": "✓ Conforme", de: "✓ Konform", it: "✓ Conforme" },
-  "home.nouveau.bouclier_score": { fr: "SCORE DE RISQUE : ÉLEVÉ — 3 CLAUSES À RENÉGOCIER", en: "RISK SCORE: HIGH — 3 CLAUSES TO RENEGOTIATE", es: "PUNTAJE DE RIESGO: ALTO — 3 CLÁUSULAS A RENEGOCIAR", "pt-BR": "PONTUAÇÃO DE RISCO: ALTA — 3 CLÁUSULAS A RENEGOCIAR", de: "RISIKOBEWERTUNG: HOCH — 3 KLAUSELN ZU NEUVERHANDELN", it: "PUNTEGGIO DI RISCHIO: ALTO — 3 CLAUSOLE DA RINEGOZIARE" },
+  "home.nouveau.bouclier_score": { fr: "SCORE DE RISQUE : ÉLEVÉ, 3 CLAUSES À RENÉGOCIER", en: "RISK SCORE: HIGH, 3 CLAUSES TO RENEGOTIATE", es: "PUNTAJE DE RIESGO: ALTO, 3 CLÁUSULAS A RENEGOCIAR", "pt-BR": "PONTUAÇÃO DE RISCO: ALTA, 3 CLÁUSULAS A RENEGOCIAR", de: "RISIKOBEWERTUNG: HOCH, 3 KLAUSELN ZU NEUVERHANDELN", it: "PUNTEGGIO DI RISCHIO: ALTO, 3 CLAUSOLE DA RINEGOZIARE" },
 
   "home.nouveau.depts_eyebrow": { fr: "Cinq départements", en: "Five departments", es: "Cinco departamentos", "pt-BR": "Cinco departamentos", de: "Fünf Abteilungen", it: "Cinque dipartimenti" },
   "home.nouveau.depts_title": { fr: "Chaque univers a", en: "Every universe has", es: "Cada universo tiene", "pt-BR": "Cada universo tem", de: "Jedes Universum hat", it: "Ogni universo ha" },
   "home.nouveau.depts_title_italic": { fr: "sa propre maison.", en: "its own house.", es: "su propia casa.", "pt-BR": "sua própria casa.", de: "sein eigenes Haus.", it: "la propria casa." },
   "home.nouveau.dept1_ix": { fr: "D·01", en: "D·01", es: "D·01", "pt-BR": "D·01", de: "D·01", it: "D·01" },
   "home.nouveau.dept1_title": { fr: "Musique & Spectacle Vivant", en: "Music & Live Performance", es: "Música & Espectáculos en Vivo", "pt-BR": "Música & Espetáculo ao Vivo", de: "Musik & Live-Performance", it: "Musica & Spettacolo dal Vivo" },
-  "home.nouveau.dept1_desc": { fr: "Musiciens, chanteurs, performers — de la scène au stream.", en: "Musicians, singers, performers — from stage to stream.", es: "Músicos, cantantes, performers — del escenario al stream.", "pt-BR": "Músicos, cantores, performers — do palco ao stream.", de: "Musiker, Sänger, Performer — von der Bühne zum Stream.", it: "Musicisti, cantanti, performer — dal palco allo stream." },
+  "home.nouveau.dept1_desc": { fr: "Musiciens, chanteurs, performers, de la scène au stream.", en: "Musicians, singers, performers, from stage to stream.", es: "Músicos, cantantes, performers, del escenario al stream.", "pt-BR": "Músicos, cantores, performers, do palco ao stream.", de: "Musiker, Sänger, Performer, von der Bühne zum Stream.", it: "Musicisti, cantanti, performer, dal palco allo stream." },
   "home.nouveau.dept2_ix": { fr: "D·02", en: "D·02", es: "D·02", "pt-BR": "D·02", de: "D·02", it: "D·02" },
   "home.nouveau.dept2_title": { fr: "Sport & Lifestyle", en: "Sports & Lifestyle", es: "Deporte & Lifestyle", "pt-BR": "Esporte & Lifestyle", de: "Sport & Lifestyle", it: "Sport & Lifestyle" },
-  "home.nouveau.dept2_desc": { fr: "Athlètes, coachs, créateurs lifestyle — l'image au niveau de la performance.", en: "Athletes, coaches, lifestyle creators — image at the level of performance.", es: "Atletas, entrenadores, creadores lifestyle — la imagen al nivel del rendimiento.", "pt-BR": "Atletas, treinadores, criadores lifestyle — a imagem no nível da performance.", de: "Athleten, Trainer, Lifestyle-Ersteller — Image auf dem Niveau der Leistung.", it: "Atleti, coach, creatori lifestyle — l'immagine al livello della performance." },
+  "home.nouveau.dept2_desc": { fr: "Athlètes, coachs, créateurs lifestyle, l'image au niveau de la performance.", en: "Athletes, coaches, lifestyle creators, image at the level of performance.", es: "Atletas, entrenadores, creadores lifestyle, la imagen al nivel del rendimiento.", "pt-BR": "Atletas, treinadores, criadores lifestyle, a imagem no nível da performance.", de: "Athleten, Trainer, Lifestyle-Ersteller, Image auf dem Niveau der Leistung.", it: "Atleti, coach, creatori lifestyle, l'immagine al livello della performance." },
   "home.nouveau.dept3_ix": { fr: "D·03", en: "D·03", es: "D·03", "pt-BR": "D·03", de: "D·03", it: "D·03" },
   "home.nouveau.dept3_title": { fr: "Business & Leadership", en: "Business & Leadership", es: "Business & Liderazgo", "pt-BR": "Business & Liderança", de: "Business & Führung", it: "Business & Leadership" },
-  "home.nouveau.dept3_desc": { fr: "Entrepreneurs, speakers, experts — une autorité qui se construit.", en: "Entrepreneurs, speakers, experts — authority that builds itself.", es: "Emprendedores, speakers, expertos — una autoridad que se construye.", "pt-BR": "Empreendedores, palestrantes, especialistas — uma autoridade que se constrói.", de: "Unternehmer, Redner, Experten — Autorität, die sich aufbaut.", it: "Imprenditori, speaker, esperti — un'autorità che si costruisce." },
+  "home.nouveau.dept3_desc": { fr: "Entrepreneurs, speakers, experts, une autorité qui se construit.", en: "Entrepreneurs, speakers, experts, authority that builds itself.", es: "Emprendedores, speakers, expertos, una autoridad que se construye.", "pt-BR": "Empreendedores, palestrantes, especialistas, uma autoridade que se constrói.", de: "Unternehmer, Redner, Experten, Autorität, die sich aufbaut.", it: "Imprenditori, speaker, esperti, un'autorità che si costruisce." },
   "home.nouveau.dept4_ix": { fr: "D·04", en: "D·04", es: "D·04", "pt-BR": "D·04", de: "D·04", it: "D·04" },
   "home.nouveau.dept4_title": { fr: "Créateurs Digitaux", en: "Digital Creators", es: "Creadores Digitales", "pt-BR": "Criadores Digitais", de: "Digitale Ersteller", it: "Creatori Digitali" },
-  "home.nouveau.dept4_desc": { fr: "Influenceurs, vidéastes, podcasteurs — multi-plateformes, une seule stratégie.", en: "Influencers, videographers, podcasters — multi-platform, single strategy.", es: "Influencers, videastas, podcasters — multi-plataformas, una sola estrategia.", "pt-BR": "Influenciadores, videomakers, podcasters — multi-plataformas, uma única estratégia.", de: "Influencer, Videomacher, Podcaster — Multiplattform, eine Strategie.", it: "Influencer, videomaker, podcaster — multi-piattaforma, un'unica strategia." },
+  "home.nouveau.dept4_desc": { fr: "Influenceurs, vidéastes, podcasteurs, multi-plateformes, une seule stratégie.", en: "Influencers, videographers, podcasters, multi-platform, single strategy.", es: "Influencers, videastas, podcasters, multi-plataformas, una sola estrategia.", "pt-BR": "Influenciadores, videomakers, podcasters, multi-plataformas, uma única estratégia.", de: "Influencer, Videomacher, Podcaster, Multiplattform, eine Strategie.", it: "Influencer, videomaker, podcaster, multi-piattaforma, un'unica strategia." },
   "home.nouveau.dept5_ix": { fr: "D·05", en: "D·05", es: "D·05", "pt-BR": "D·05", de: "D·05", it: "D·05" },
   "home.nouveau.dept5_title": { fr: "Talent Premium", en: "Premium Talent", es: "Talento Premium", "pt-BR": "Talento Premium", de: "Premium-Talent", it: "Talento Premium" },
-  "home.nouveau.dept5_desc": { fr: "Créateurs adultes — discrétion, protection juridique et croissance maîtrisée.", en: "Adult creators — discretion, legal protection and controlled growth.", es: "Creadores adultos — discreción, protección legal y crecimiento controlado.", "pt-BR": "Criadores adultos — discrição, proteção legal e crescimento controlado.", de: "Erwachsenen-Ersteller — Diskretion, Rechtsschutz und kontrolliertes Wachstum.", it: "Creatori adulti — discrezione, protezione legale e crescita controllata." },
+  "home.nouveau.dept5_desc": { fr: "Créateurs adultes, discrétion, protection juridique et croissance maîtrisée.", en: "Adult creators, discretion, legal protection and controlled growth.", es: "Creadores adultos, discreción, protección legal y crecimiento controlado.", "pt-BR": "Criadores adultos, discrição, proteção legal e crescimento controlado.", de: "Erwachsenen-Ersteller, Diskretion, Rechtsschutz und kontrolliertes Wachstum.", it: "Creatori adulti, discrezione, protezione legale e crescita controllata." },
 
   "home.nouveau.manifeste_eyebrow": { fr: "Manifeste", en: "Manifesto", es: "Manifiesto", "pt-BR": "Manifesto", de: "Manifest", it: "Manifesto" },
   "home.nouveau.manifeste_quote": { fr: "« Une maison qui réussit n'a pas besoin de retenir ses talents par contrat.", en: "« A successful house doesn't need to retain its talents through contracts.", es: "« Una casa que tiene éxito no necesita retener a sus talentos por contrato.", "pt-BR": "« Uma casa que tem sucesso não precisa reter seus talentos por contrato.", de: "« Ein erfolgreiches Haus muss seine Talente nicht durch Verträge binden.", it: "« Una casa che ha successo non ha bisogno di trattenere i suoi talenti con i contratti." },
   "home.nouveau.manifeste_quote_italic": { fr: "Elle les retient par ce qu'elle leur apporte.", en: "It retains them through what it brings them.", es: "Los retiene por lo que les aporta.", "pt-BR": "Ela os retém pelo que lhes oferece.", de: "Es hält sie durch das, was es ihnen bietet.", it: "Li trattiene con ciò che dà loro." },
   "home.nouveau.manifeste_quote_close": { fr: " »", en: " »", es: " »", "pt-BR": " »", de: " »", it: " »" },
-  "home.nouveau.manifeste_cite": { fr: "— Le manifeste Halo Talent", en: "— The Halo Talent manifesto", es: "— El manifiesto Halo Talent", "pt-BR": "— O manifesto Halo Talent", de: "— Das Halo-Talent-Manifest", it: "— Il manifesto Halo Talent" },
+  "home.nouveau.manifeste_cite": { fr: ",  Le manifeste Where Talent Forms", en: ",  The Where Talent Forms manifesto", es: ",  El manifiesto Where Talent Forms", "pt-BR": ",  O manifesto Where Talent Forms", de: ",  Das Halo-Talent-Manifest", it: ",  Il manifesto Where Talent Forms" },
 
   "home.nouveau.final_title": { fr: "Entrez dans", en: "Enter", es: "Entra en", "pt-BR": "Entre em", de: "Treten Sie ein in", it: "Entra in" },
   "home.nouveau.final_title_italic": { fr: "la maison.", en: "the house.", es: "la casa.", "pt-BR": "a casa.", de: "das Haus.", it: "la casa." },
@@ -2166,12 +2301,12 @@ const messages: Messages = {
   "home.nouveau.footer_newsletter_desc": { fr: "Restez informé des nouvelles de la maison.", en: "Stay informed about the house's news.", es: "Mantente informado de las novedades de la maison.", "pt-BR": "Fique informado sobre as novidades da casa.", de: "Bleiben Sie über Neuigkeiten des Hauses informiert.", it: "Rimani informato sulle novità della casa." },
   "home.nouveau.footer_newsletter_placeholder": { fr: "votre@email.com", en: "your@email.com", es: "tu@email.com", "pt-BR": "seu@email.com", de: "ihre@email.com", it: "tua@email.com" },
   "home.nouveau.footer_newsletter_cta": { fr: "S'inscrire", en: "Subscribe", es: "Suscribirse", "pt-BR": "Inscrever-se", de: "Anmelden", it: "Iscriviti" },
-  "home.nouveau.footer_copyright": { fr: "© 2026 Halo Talent. Tous droits réservés.", en: "© 2026 Halo Talent. All rights reserved.", es: "© 2026 Halo Talent. Todos los derechos reservados.", "pt-BR": "© 2026 Halo Talent. Todos os direitos reservados.", de: "© 2026 Halo Talent. Alle Rechte vorbehalten.", it: "© 2026 Halo Talent. Tutti i diritti riservati." },
-  "home.nouveau.footer_disclaimer": { fr: "Halo Talent ne fournit pas de conseil juridique.", en: "Halo Talent does not provide legal advice.", es: "Halo Talent no proporciona asesoramiento legal.", "pt-BR": "Halo Talent não fornece aconselhamento jurídico.", de: "Halo Talent bietet keine Rechtsberatung an.", it: "Halo Talent non fornisce consulenza legale." },
+  "home.nouveau.footer_copyright": { fr: "© 2026 Where Talent Forms. Tous droits réservés.", en: "© 2026 Where Talent Forms. All rights reserved.", es: "© 2026 Where Talent Forms. Todos los derechos reservados.", "pt-BR": "© 2026 Where Talent Forms. Todos os direitos reservados.", de: "© 2026 Where Talent Forms. Alle Rechte vorbehalten.", it: "© 2026 Where Talent Forms. Tutti i diritti riservati." },
+  "home.nouveau.footer_disclaimer": { fr: "Where Talent Forms ne fournit pas de conseil juridique.", en: "Where Talent Forms does not provide legal advice.", es: "Where Talent Forms no proporciona asesoramiento legal.", "pt-BR": "Where Talent Forms não fornece aconselhamento jurídico.", de: "Where Talent Forms bietet keine Rechtsberatung an.", it: "Where Talent Forms non fornisce consulenza legale." },
   "home.nouveau.footer_made_with": { fr: "Fait avec conviction.", en: "Made with conviction.", es: "Hecho con convicción.", "pt-BR": "Feito com convicção.", de: "Mit Überzeugung gemacht.", it: "Fatto con convinzione." },
 
   // ─── Footer Newsletter ───
-  "footer.newsletter.desc": { fr: "Recevez les mises à jour produit et guides Halo.", en: "Receive product updates and Halo guides.", es: "Recibe actualizaciones de producto y guías Halo.", "pt-BR": "Receba atualizações de produto e guias Halo.", de: "Erhalten Sie Produkt-Updates und Halo-Guides.", it: "Ricevi aggiornamenti prodotto e guide Halo." },
+  "footer.newsletter.desc": { fr: "Recevez les mises à jour produit et guides WTF.", en: "Receive product updates and WTF guides.", es: "Recibe actualizaciones de producto y guías WTF.", "pt-BR": "Receba atualizações de produto e guias WTF.", de: "Erhalten Sie Produkt-Updates und Halo-Guides.", it: "Ricevi aggiornamenti prodotto e guide WTF." },
   "footer.newsletter.success": { fr: "Merci pour votre inscription.", en: "Thank you for subscribing.", es: "Gracias por suscribirte.", "pt-BR": "Obrigado por se inscrever.", de: "Vielen Dank für Ihre Anmeldung.", it: "Grazie per esserti iscritto." },
   "footer.newsletter.error_email": { fr: "Email valide requis", en: "Valid email required", es: "Email válido requerido", "pt-BR": "Email válido obrigatório", de: "Gültige E-Mail erforderlich", it: "Email valida richiesta" },
   "footer.newsletter.error_generic": { fr: "Erreur lors de l'inscription.", en: "Error during subscription.", es: "Error durante la inscripción.", "pt-BR": "Erro durante a inscrição.", de: "Fehler bei der Anmeldung.", it: "Errore durante l'iscrizione." },

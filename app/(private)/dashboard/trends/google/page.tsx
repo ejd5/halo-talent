@@ -381,7 +381,7 @@ export default function GoogleTrendsPage() {
             }}
           >
             <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>
-              Évolution de l&apos;intérêt
+              Évolution de l'intérêt
             </h2>
             <div style={{ width: "100%", height: 256, position: "relative" }}>
               <ResponsiveContainer width="100%" height={256}>
@@ -587,7 +587,7 @@ export default function GoogleTrendsPage() {
             Cherche un mot-clé pour commencer
           </h2>
           <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.1)" }}>
-            Compare jusqu&apos;à 5 mots-clés avec l&apos;historique Google Trends
+            Compare jusqu'à 5 mots-clés avec l'historique Google Trends
           </p>
 
           <div className="mt-6 max-w-md">

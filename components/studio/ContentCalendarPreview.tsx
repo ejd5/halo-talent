@@ -92,14 +92,14 @@ export function ContentCalendarPreview() {
                       backgroundColor: `${PLATFORM_COLORS[post.platform] || "var(--text-tertiary)"}15`,
                       color: "var(--text-secondary)",
                     }}
-                    title={`${post.platform} · ${post.time} — ${t(STATUS_LABELS[post.status], l)}`}
+                    title={`${post.platform} · ${post.time}, ${t(STATUS_LABELS[post.status], l)}`}
                   >
                     {post.platform} {post.time}
                   </div>
                 ))}
                 {event.posts.length === 0 && (
                   <div className="text-[7px]" style={{ color: "var(--text-tertiary)" }}>
-                    —
+                    , 
                   </div>
                 )}
               </div>

@@ -240,7 +240,7 @@ export class ContentRecommender {
     ).length;
     if (consecutiveIgnored >= COOLDOWN.pauseAfterIgnored) {
       blockReasons.push(
-        `${consecutiveIgnored} PPV ignorés consécutifs — pause ${COOLDOWN.pauseDays}j recommandée`,
+        `${consecutiveIgnored} PPV ignorés consécutifs, pause ${COOLDOWN.pauseDays}j recommandée`,
       );
     }
 

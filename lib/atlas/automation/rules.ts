@@ -1,4 +1,4 @@
-// ─── Atlas Rules Engine v2 — Types ──────────────────────────
+// ─── Atlas Rules Engine v2, Types ──────────────────────────
 
 export type TriggerType =
   | "fan_created" | "fan_updated" | "fan_deleted"

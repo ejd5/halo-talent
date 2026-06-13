@@ -1,4 +1,4 @@
-// ─── Halo Lex — Streaming Helpers ─────────────────────────────
+// ─── WTF Lex, Streaming Helpers ─────────────────────────────
 // Utilitaires pour le streaming SSE (Server-Sent Events).
 
 /**

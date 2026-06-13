@@ -143,7 +143,7 @@ export function ContactForm() {
           className="mt-0.5 accent-[var(--or, #D8A95B)]"
         />
         <span className="text-xs leading-relaxed" style={{ color: "rgba(245, 240, 235, 0.5)" }}>
-          J&apos;accepte d&apos;être contacté(e) en réponse à ce message. Vos données ne seront pas utilisées à d&apos;autres fins.
+          J'accepte d'être contacté(e) en réponse à ce message. Vos données ne seront pas utilisées à d'autres fins.
         </span>
       </label>
 

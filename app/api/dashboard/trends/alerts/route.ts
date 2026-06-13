@@ -53,7 +53,7 @@ export async function GET(request: NextRequest) {
   }
 }
 
-// PATCH /api/dashboard/trends/alerts — mark alerts as read
+// PATCH /api/dashboard/trends/alerts, mark alerts as read
 export async function PATCH(request: NextRequest) {
   try {
     const supabase = await createClient();

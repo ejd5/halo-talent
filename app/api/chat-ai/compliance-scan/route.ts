@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
       fanReasons.push("Ce fan est marqué 'Ne pas contacter'.");
     }
     if (fanRiskFlags.includes("vulnerable_fan") && action !== "generate_draft") {
-      fanReasons.push("Fan détecté comme vulnérable — actions commerciales bloquées.");
+      fanReasons.push("Fan détecté comme vulnérable, actions commerciales bloquées.");
     }
 
     // 5. Aggregate result

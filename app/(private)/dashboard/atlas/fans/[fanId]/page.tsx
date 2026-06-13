@@ -248,8 +248,8 @@ function generateInsights(fan: AtlasFan, interactions: AtlasInteraction[], purch
         icon: "⚠️",
         title: `${daysSince} jours sans interaction`,
         description: daysSince > 30
-          ? "Risque de churn élevé — action de réengagement recommandée"
-          : "Intervalle anormal — envisager un message personnalisé",
+          ? "Risque de churn élevé, action de réengagement recommandée"
+          : "Intervalle anormal, envisager un message personnalisé",
       });
     }
   }
@@ -268,7 +268,7 @@ function generateInsights(fan: AtlasFan, interactions: AtlasInteraction[], purch
 }
 
 // ===================================================================
-//  LEFT COLUMN — Identity & Actions
+//  LEFT COLUMN, Identity & Actions
 // ===================================================================
 
 function IdentityCard({ fan }: { fan: AtlasFan }) {
@@ -421,11 +421,11 @@ function GeographyCard({ fan }: { fan: AtlasFan }) {
         </div>
         <div className="flex justify-between">
           <span style={{ color: "var(--text-primary)" }}>Timezone</span>
-          <span style={{ color: "var(--text-primary)" }}>{fan.timezone || "—"}</span>
+          <span style={{ color: "var(--text-primary)" }}>{fan.timezone || ", "}</span>
         </div>
         <div className="flex justify-between">
           <span style={{ color: "var(--text-primary)" }}>Langue</span>
-          <span style={{ color: "var(--text-primary)" }}>{fan.language === "fr" ? "Français" : fan.language === "en" ? "English" : fan.language || "—"}</span>
+          <span style={{ color: "var(--text-primary)" }}>{fan.language === "fr" ? "Français" : fan.language === "en" ? "English" : fan.language || ", "}</span>
         </div>
       </div>
     </div>
@@ -484,7 +484,7 @@ function InstaIcon(props: any) {
 }
 
 // ===================================================================
-//  CENTER COLUMN — Tabs & Content
+//  CENTER COLUMN, Tabs & Content
 // ===================================================================
 
 function TimelineTab({ events }: { events: TimelineEvent[] }) {
@@ -573,7 +573,7 @@ function ConversationsTab({ interactions }: { interactions: AtlasInteraction[] }
               {timeAgo(new Date(msg.occurred_at))}
             </span>
           </div>
-          <p className="text-sm" style={{ color: "var(--text-primary)" }}>{msg.content || msg.subject || "—"}</p>
+          <p className="text-sm" style={{ color: "var(--text-primary)" }}>{msg.content || msg.subject || ", "}</p>
         </div>
       ))}
     </div>
@@ -765,7 +765,7 @@ function DocumentsTab({ documents, fanId }: { documents: AtlasDocument[]; fanId:
 }
 
 // ===================================================================
-//  RIGHT COLUMN — Insights & Stats
+//  RIGHT COLUMN, Insights & Stats
 // ===================================================================
 
 function AiInsightsCard({ insights }: { insights: AiInsight[] }) {
@@ -1070,7 +1070,7 @@ function ExportDialog({ fan, open, onClose }: { fan: AtlasFan; open: boolean; on
 
   async function handleExport() {
     setExporting(true);
-    // Simulate export — in real app would trigger a server-side ZIP generation
+    // Simulate export, in real app would trigger a server-side ZIP generation
     setTimeout(() => {
       setExporting(false);
       onClose();
@@ -1122,7 +1122,7 @@ function DeleteDialog({ fan, open, onClose }: { fan: AtlasFan; open: boolean; on
           <CheckCircle size={32} style={{ color: "var(--success)" }} />
           <p className="text-sm mt-3 font-medium" style={{ color: "var(--text-primary)" }}>Données anonymisées</p>
           <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
-            Conforme RGPD — un log de suppression a été conservé
+            Conforme RGPD, un log de suppression a été conservé
           </p>
           <Link href="/dashboard/atlas/fans"
             className="mt-4 px-4 py-2 text-sm rounded-sm"

@@ -44,7 +44,7 @@ export function PublishModal({
               {blocks.map((block, i) => (
                 <div key={block.id} className="border border-[var(--color-border)]">
                   <div className="px-3 py-1.5 text-[10px] font-semibold uppercase tracking-wider opacity-30 bg-[var(--color-card)]">
-                    #{i + 1} — {BLOCK_LABELS[block.type]}
+                    #{i + 1}, {BLOCK_LABELS[block.type]}
                   </div>
                   <div className="max-h-[120px] overflow-hidden opacity-60">
                     <BlockPreview block={block} />

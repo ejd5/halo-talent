@@ -7,27 +7,27 @@ import { cn } from "@/lib/utils";
 // ─── Mock Data ──────────────────────────────────────────────
 
 const TRACKS = [
-  { id: "t1", title: "Maîtriser OnlyFans en 30 jours", description: "De la configuration à la monétisation avancée — un programme complet pour maximiser tes revenus.", modules: 12, duration: "30 jours", level: "Débutant", progress: 65, cover: "🎯", color: "var(--accent)" },
-  { id: "t2", title: "Stratégie Instagram pour créateurs", description: "Algorithme, Reels, Stories, collaborations — maîtrise toutes les ficelles d'Instagram.", modules: 8, duration: "3 semaines", level: "Intermédiaire", progress: 30, cover: "📸", color: "#E4405F" },
+  { id: "t1", title: "Maîtriser OnlyFans en 30 jours", description: "De la configuration à la monétisation avancée, un programme complet pour maximiser tes revenus.", modules: 12, duration: "30 jours", level: "Débutant", progress: 65, cover: "🎯", color: "var(--accent)" },
+  { id: "t2", title: "Stratégie Instagram pour créateurs", description: "Algorithme, Reels, Stories, collaborations, maîtrise toutes les ficelles d'Instagram.", modules: 8, duration: "3 semaines", level: "Intermédiaire", progress: 30, cover: "📸", color: "#E4405F" },
   { id: "t3", title: "Gestion financière du créateur", description: "Budget, épargne, optimisation fiscale et préparation de la retraite pour travailleurs indépendants.", modules: 6, duration: "2 semaines", level: "Tous niveaux", progress: 0, cover: "💰", color: "var(--success)" },
   { id: "t4", title: "Santé mentale et créateur", description: "Prévenir le burnout, gérer la pression des réseaux, construire une carrière durable.", modules: 10, duration: "4 semaines", level: "Tous niveaux", progress: 0, cover: "🌱", color: "#8B5CF6" },
-  { id: "t5", title: "Optimisation fiscale", description: "Déclarations, charges, TVA, statuts juridiques — tout pour optimiser ta fiscalité.", modules: 5, duration: "1 semaine", level: "Avancé", progress: 0, cover: "📊", color: "#3B82F6" },
+  { id: "t5", title: "Optimisation fiscale", description: "Déclarations, charges, TVA, statuts juridiques, tout pour optimiser ta fiscalité.", modules: 5, duration: "1 semaine", level: "Avancé", progress: 0, cover: "📊", color: "#3B82F6" },
 ];
 
 const ARTICLES = [
-  { id: "a1", title: "Comment créer un PPV qui convertit", excerpt: "Les 5 éléments d'un PPV irrésistible — analyse de 1000 posts performants.", category: "Stratégie", level: "Intermédiaire", duration: "8 min", likes: 47, saved: false },
+  { id: "a1", title: "Comment créer un PPV qui convertit", excerpt: "Les 5 éléments d'un PPV irrésistible, analyse de 1000 posts performants.", category: "Stratégie", level: "Intermédiaire", duration: "8 min", likes: 47, saved: false },
   { id: "a2", title: "Guide complet des hashtags 2026", excerpt: "Quels hashtags utiliser selon ta niche et ta taille de compte.", category: "Instagram", level: "Débutant", duration: "5 min", likes: 32, saved: true },
-  { id: "a3", title: "Optimiser son profil OnlyFans", excerpt: "Bio, cover, prix — chaque détail compte pour convertir un visiteur en abonné.", category: "OnlyFans", level: "Débutant", duration: "10 min", likes: 89, saved: false },
-  { id: "a4", title: "Faire ses propres photos sans photographe", excerpt: "Matos, lumière, posing — des résultats pros avec un budget serré.", category: "Production", level: "Débutant", duration: "12 min", likes: 56, saved: false },
+  { id: "a3", title: "Optimiser son profil OnlyFans", excerpt: "Bio, cover, prix, chaque détail compte pour convertir un visiteur en abonné.", category: "OnlyFans", level: "Débutant", duration: "10 min", likes: 89, saved: false },
+  { id: "a4", title: "Faire ses propres photos sans photographe", excerpt: "Matos, lumière, posing, des résultats pros avec un budget serré.", category: "Production", level: "Débutant", duration: "12 min", likes: 56, saved: false },
   { id: "a5", title: "Stratégie de cross-pub multi-plateformes", excerpt: "Comment utiliser chaque plateforme pour en nourrir une autre.", category: "Stratégie", level: "Avancé", duration: "15 min", likes: 23, saved: true },
   { id: "a6", title: "Gérer son stress avant un live", excerpt: "Exercices de respiration et préparation mentale pour les lives.", category: "Wellness", level: "Débutant", duration: "4 min", likes: 71, saved: false },
 ];
 
 const WEBINARS = [
-  { id: "w1", title: "Maximiser ses revenus OnlyFans en 2026", date: "2026-06-15", time: "18:00", speaker: "Sophie Martin — Top 0.1% OF", spots: 45, max_spots: 100, type: "upcoming" },
-  { id: "w2", title: "Instagram Reels : les nouvelles règles", date: "2026-06-22", time: "14:00", speaker: "Thomas Petit — Social Media Expert", spots: 72, max_spots: 100, type: "upcoming" },
-  { id: "w3", title: "Gestion fiscale pour créateurs", date: "2026-06-10", time: "11:00", speaker: "Marie Dubois — Experte-comptable", spots: 100, max_spots: 100, type: "replay", replay_url: "#" },
-  { id: "w4", title: "Prévenir le burnout du créateur", date: "2026-06-03", time: "19:00", speaker: "Dr. Laurent Blanc — Psychologue", spots: 100, max_spots: 100, type: "replay", replay_url: "#" },
+  { id: "w1", title: "Maximiser ses revenus OnlyFans en 2026", date: "2026-06-15", time: "18:00", speaker: "Sophie Martin, Top 0.1% OF", spots: 45, max_spots: 100, type: "upcoming" },
+  { id: "w2", title: "Instagram Reels : les nouvelles règles", date: "2026-06-22", time: "14:00", speaker: "Thomas Petit, Social Media Expert", spots: 72, max_spots: 100, type: "upcoming" },
+  { id: "w3", title: "Gestion fiscale pour créateurs", date: "2026-06-10", time: "11:00", speaker: "Marie Dubois, Experte-comptable", spots: 100, max_spots: 100, type: "replay", replay_url: "#" },
+  { id: "w4", title: "Prévenir le burnout du créateur", date: "2026-06-03", time: "19:00", speaker: "Dr. Laurent Blanc, Psychologue", spots: 100, max_spots: 100, type: "replay", replay_url: "#" },
 ];
 
 const CATEGORIES = ["Tout", "Stratégie", "OnlyFans", "Instagram", "TikTok", "Production", "Wellness", "Business"];
@@ -59,7 +59,7 @@ export default function LearnPage() {
     let response = "";
     if (q.includes("parcours") || q.includes("track") || q.includes("recommande")) {
       const track = TRACKS.find((t) => t.title.toLowerCase().includes(q)) ?? TRACKS[0];
-      response = `Je te recommande le parcours "${track.title}" — ${track.description} Il contient ${track.modules} modules sur ${track.duration}.`;
+      response = `Je te recommande le parcours "${track.title}", ${track.description} Il contient ${track.modules} modules sur ${track.duration}.`;
     } else if (q.includes("article") || q.includes("ressource")) {
       const article = ARTICLES.find((a) => a.title.toLowerCase().includes(q.replace("article", "").trim())) ?? ARTICLES[0];
       response = `L'article "${article.title}" est parfait pour toi : ${article.excerpt} (${article.duration} de lecture).`;
@@ -299,7 +299,7 @@ export default function LearnPage() {
             {mentorMessages.length === 0 ? (
               <div className="text-center py-6">
                 <GraduationCap size={24} className="mx-auto mb-2" style={{ color: "rgba(255, 255, 255, 0.08)" }} />
-                <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>Demande-moi une recommandation de parcours ou d&apos;article</p>
+                <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>Demande-moi une recommandation de parcours ou d'article</p>
               </div>
             ) : (
               mentorMessages.map((m, i) => (

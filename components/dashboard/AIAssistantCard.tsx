@@ -4,9 +4,9 @@ import Link from "next/link";
 import { Bot, Sparkles, ArrowRight } from "lucide-react";
 
 const suggestions = [
-  "Publie un Reel avant vendredi — ta niche est en pleine croissance cette semaine",
+  "Publie un Reel avant vendredi, ta niche est en pleine croissance cette semaine",
   "Optimise le prix de tes PPV : tes 5 derniers contenus à 15$ ont bien performé",
-  "Utilise le format Carrousel pour ton prochain post Instagram — 40% plus d'engagement",
+  "Utilise le format Carrousel pour ton prochain post Instagram, 40% plus d'engagement",
 ];
 
 export function AIAssistantCard() {
@@ -40,7 +40,7 @@ export function AIAssistantCard() {
             href="/dashboard/ai"
             className="inline-flex items-center gap-2 mt-6 text-xs uppercase tracking-[0.15em] text-accent hover:text-accent-hover transition-colors"
           >
-            Discuter avec l&apos;assistant <ArrowRight size={14} />
+            Discuter avec l'assistant <ArrowRight size={14} />
           </Link>
         </div>
       </div>

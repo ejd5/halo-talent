@@ -1,6 +1,6 @@
 /**
  * Minimal HTML → Markdown converter for CGU pages.
- * Not a full spec parser — handles the subset found in CGU/ToS pages.
+ * Not a full spec parser, handles the subset found in CGU/ToS pages.
  */
 
 export function htmlToMarkdown(html: string): string {

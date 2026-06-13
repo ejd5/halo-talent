@@ -46,7 +46,7 @@ export async function POST(request: Request) {
         });
         resetCount++;
       } else if (tier && tier.monthly_credits === null) {
-        // Icon tier — unlimited
+        // Icon tier, unlimited
         await supabase.from("credits_wallet").upsert({
           user_id: profile.id,
           current_balance: 999999,

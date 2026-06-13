@@ -1,7 +1,7 @@
 // ─── User API: Letter Request Tracking ────────────────────
-// GET  /api/lex/requests          — List my requests
-// GET  /api/lex/requests?id=X     — Single request with events
-// POST /api/lex/requests          — Create a new request
+// GET  /api/lex/requests         , List my requests
+// GET  /api/lex/requests?id=X    , Single request with events
+// POST /api/lex/requests         , Create a new request
 
 import { NextRequest } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";
@@ -114,7 +114,7 @@ export async function POST(request: NextRequest) {
     // Check if user has access to Lex
     if (!profile.plan || profile.plan === "creator") {
       return new Response(
-        JSON.stringify({ error: "Votre plan ne donne pas accès à Halo Lex. Passez à Premium ou supérieur." }),
+        JSON.stringify({ error: "Votre plan ne donne pas accès à WTF Lex. Passez à Premium ou supérieur." }),
         { status: 403 }
       );
     }

@@ -44,7 +44,7 @@ export default function MonitoringPage() {
             Monitoring
           </h1>
           <p className="text-sm mt-1" style={{ color: "var(--text-secondary)" }}>
-            État du système Halo Talent
+            État du système Where Talent Forms
           </p>
         </div>
         <div className="flex items-center gap-2">

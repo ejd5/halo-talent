@@ -14,7 +14,7 @@ export default function Page() {
         En construction
       </p>
       <div className="text-xs px-4 py-2 mb-8" style={{ background: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.3)" }}>
-        En construction — Disponible prochainement
+        En construction, Disponible prochainement
       </div>
       <Link href="/studio" className="flex items-center gap-1.5 text-xs transition-opacity hover:opacity-70" style={{ color: "var(--accent)" }}>
         <ArrowLeft size={14} />

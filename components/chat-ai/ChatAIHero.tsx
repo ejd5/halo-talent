@@ -391,7 +391,7 @@ export function ChatAIHero() {
       {/* Scanning line */}
       <ScanLine />
 
-      {/* Circular text — desktop only */}
+      {/* Circular text, desktop only */}
       <div className="hidden lg:block">
         <CircularText />
       </div>
@@ -423,7 +423,7 @@ export function ChatAIHero() {
               Sovereign Chat AI
             </span>
 
-            {/* H1 — split lines */}
+            {/* H1, split lines */}
             <HeroTitle />
 
             {/* Subtitle */}
@@ -437,7 +437,7 @@ export function ChatAIHero() {
               }}
             >
               Préparez des réponses, priorisez les conversations, recommandez des PPV,
-              contrôlez les risques et gardez une trace de chaque action — avec validation humaine.
+              contrôlez les risques et gardez une trace de chaque action, avec validation humaine.
             </p>
 
             {/* CTAs */}
@@ -490,13 +490,13 @@ export function ChatAIHero() {
             </p>
           </div>
 
-          {/* ── Orbital visual — desktop right ── */}
+          {/* ── Orbital visual, desktop right ── */}
           <div className="lg:col-span-2 hidden lg:flex justify-center items-center">
             <OrbitalSystem />
           </div>
         </div>
 
-        {/* ── Orbital visual — mobile/tablet below ── */}
+        {/* ── Orbital visual, mobile/tablet below ── */}
         <div className="lg:hidden mt-12 flex justify-center">
           <OrbitalSystem compact />
         </div>

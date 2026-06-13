@@ -430,7 +430,7 @@ function ListView({ items, onSelect, onToggleFavorite }: {
 }) {
   return (
     <>
-      {/* Desktop/Tablet: grid table — hidden on mobile */}
+      {/* Desktop/Tablet: grid table, hidden on mobile */}
       <div className="hidden sm:block overflow-x-auto">
         <div className="border border-[var(--color-border)] overflow-hidden" style={{ backgroundColor: "var(--color-card)" }}>
           {/* Header row */}
@@ -474,7 +474,7 @@ function ListView({ items, onSelect, onToggleFavorite }: {
               </div>
               {/* Mood */}
               <div style={{ color: "var(--text-tertiary)" }} className="text-[10px]">
-                {item.ai_mood ?? "—"}
+                {item.ai_mood ?? ", "}
               </div>
               {/* Date */}
               <div style={{ color: "var(--text-tertiary)" }} className="text-[10px]">

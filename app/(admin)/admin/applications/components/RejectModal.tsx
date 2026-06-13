@@ -12,10 +12,10 @@ type Props = {
 
 const rejectionTemplates = [
   {
-    label: "Standard — Poli mais clair",
+    label: "Standard, Poli mais clair",
     text: `Bonjour [Prénom],
 
-Nous vous remercions sincèrement pour le temps et l'énergie que vous avez consacrés à votre candidature auprès de Halo Talent.
+Nous vous remercions sincèrement pour le temps et l'énergie que vous avez consacrés à votre candidature auprès de Where Talent Forms.
 
 Après une étude approfondie de votre profil, nous avons pris la décision de ne pas donner suite à votre candidature pour le moment.
 
@@ -24,23 +24,23 @@ Cette décision n'est en rien un reflet de votre talent ou de votre potentiel. N
 Nous vous souhaitons beaucoup de succès dans vos projets créatifs.
 
 Bien cordialement,
-L'équipe Halo Talent`,
+L'équipe Where Talent Forms`,
   },
   {
-    label: "Encourageant — Pas le bon moment",
+    label: "Encourageant, Pas le bon moment",
     text: `Bonjour [Prénom],
 
-Merci beaucoup pour votre candidature et pour l'intérêt que vous portez à Halo Talent.
+Merci beaucoup pour votre candidature et pour l'intérêt que vous portez à Where Talent Forms.
 
 Nous sommes impressionnés par votre parcours, mais nous pensons que ce n'est pas encore le moment idéal pour un accompagnement. Nous vous invitons à retenter votre chance dans quelques mois, lorsque votre audience et vos revenus auront encore grandi.
 
 Nous restons à votre disposition pour un entretien conseil si vous le souhaitez.
 
 A très bientôt,
-L'équipe Halo Talent`,
+L'équipe Where Talent Forms`,
   },
   {
-    label: "Court — Candidature incomplète",
+    label: "Court, Candidature incomplète",
     text: `Bonjour [Prénom],
 
 Nous vous remercions pour votre candidature.
@@ -48,7 +48,7 @@ Nous vous remercions pour votre candidature.
 Après examen, nous avons constaté que votre dossier est incomplet. Nous vous invitons à postuler à nouveau avec des informations plus détaillées sur votre parcours et vos objectifs.
 
 Bien cordialement,
-L'équipe Halo Talent`,
+L'équipe Where Talent Forms`,
   },
 ];
 

@@ -1,4 +1,4 @@
-// ─── Halo Lex — Change Detector ────────────────────────────────
+// ─── WTF Lex, Change Detector ────────────────────────────────
 // Détection de changements via SHA-256 entre versions de documents.
 
 import crypto from "crypto";

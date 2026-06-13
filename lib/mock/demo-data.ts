@@ -103,7 +103,7 @@ export const PERSONA_CAPTIONS: Record<PersonaId, CaptionSuggestion> = {
     hashtags: ["#Exclusive", "#VIP", "#BehindTheScenes"],
   },
   manager: {
-    text: "📊 Tableau de bord de la semaine : 4 créateurs en progression, 2 campagnes à valider, 1 alerte compliance. Les outils Halo nous permettent de tout piloter en temps réel. Réunion d'équipe demain 10h pour préparer la stratégie juillet.",
+    text: "📊 Tableau de bord de la semaine : 4 créateurs en progression, 2 campagnes à valider, 1 alerte compliance. Les outils WTF nous permettent de tout piloter en temps réel. Réunion d'équipe demain 10h pour préparer la stratégie juillet.",
     platform: "Dashboard",
     hashtags: ["#Management", "#Pilotage", "#HaloAtlas"],
   },

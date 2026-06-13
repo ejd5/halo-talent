@@ -1,4 +1,4 @@
-// ─── Fan Memory Store — pgvector semantic search ──────────
+// ─── Fan Memory Store, pgvector semantic search ──────────
 // Stores and retrieves fan memories via vector embeddings.
 
 import { createClient } from "@/lib/supabase/server";

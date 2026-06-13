@@ -2,7 +2,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
 // GET /api/cron/atlas/daily-digest
-// Called daily at 8am — sends digest to all creators using Atlas
+// Called daily at 8am, sends digest to all creators using Atlas
 export async function GET(request: NextRequest) {
   try {
     const authHeader = request.headers.get("authorization");

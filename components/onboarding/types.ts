@@ -1,4 +1,4 @@
-/* ─── ADN Créatif — Onboarding Types ─── */
+/* ─── ADN Créatif, Onboarding Types ─── */
 
 export type VoiceTone =
   | "chaleureuse"

@@ -21,7 +21,7 @@ export function TrendCard({ trend, compact }: TrendCardProps) {
   const sources = isAggregated ? t.sources as TrendItem["source"][] : [t.source as TrendItem["source"]];
   const relevanceScore: number = isAggregated ? t.relevanceScore : t.score;
   const viralityScore: number = isAggregated ? t.viralityScore : t.score;
-  const oppWindow: string = isAggregated ? t.opportunityWindow : "—";
+  const oppWindow: string = isAggregated ? t.opportunityWindow : ", ";
 
   return (
     <div

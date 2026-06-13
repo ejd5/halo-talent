@@ -30,7 +30,7 @@ export function ChatAIMetricsGrid(props: Props) {
     { label: "Risque churn", value: props.churnRisk, icon: <AlertTriangle size={14} />, color: props.churnRisk > 3 ? "#f87171" : "#f59e0b" },
     { label: "Brouillons", value: props.pendingDrafts, icon: <FileText size={14} />, color: "#a78bfa", sub: "en attente" },
     { label: "Compliance", value: props.complianceAlerts, icon: <Shield size={14} />, color: props.complianceAlerts > 0 ? "#ef4444" : "#34d399", sub: props.complianceAlerts > 0 ? "alertes" : "OK" },
-    { label: "Revenus", value: "—", icon: <TrendingUp size={14} />, color: "rgba(245,240,235,0.25)", sub: "Tracking bientôt" },
+    { label: "Revenus", value: ", ", icon: <TrendingUp size={14} />, color: "rgba(245,240,235,0.25)", sub: "Tracking bientôt" },
   ];
 
   return (

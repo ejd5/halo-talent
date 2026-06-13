@@ -65,7 +65,7 @@ export const generateContentIdeas: Tool = {
     try {
       return JSON.parse(text);
     } catch {
-      return { ideas: text, note: "Raw text — JSON parsing failed" };
+      return { ideas: text, note: "Raw text, JSON parsing failed" };
     }
   },
 };

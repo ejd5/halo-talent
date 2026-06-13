@@ -76,7 +76,7 @@ export function ContentTab({ media, onAddMedia, onRemoveMedia, onSetMedia }: Con
           {dragOver ? "Dépose ici" : "Glisse des fichiers ou clique pour ajouter"}
         </p>
         <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.2)" }}>
-          Images, vidéos — jusqu'à 1 Go
+          Images, vidéos, jusqu'à 1 Go
         </p>
       </div>
 

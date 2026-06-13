@@ -2,7 +2,7 @@ import { LexInterface } from "@/components/halo-lex/LexInterface";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Halo Lex — Conseiller juridique IA",
+  title: "WTF Lex, Conseiller juridique IA",
   description: "Votre conseiller juridique IA spécialisé créateurs de contenu",
 };
 
@@ -14,11 +14,11 @@ export default function HaloLexPage() {
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
-              Halo Studio › Bouclier Légal › Halo Lex
+              WTF Studio › Bouclier Légal › WTF Lex
             </span>
           </div>
           <h1 className="text-2xl font-display font-semibold" style={{ color: "var(--text-primary)" }}>
-            Halo Lex
+            WTF Lex
           </h1>
         </div>
         <div className="flex items-center gap-3">

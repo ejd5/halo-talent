@@ -77,7 +77,7 @@ function parseArtifacts(content: string): { type: "idea" | "caption" | "hook" | 
     const parsed = JSON.parse(content);
     if (Array.isArray(parsed)) {
       const first = parsed[0];
-      if (first?.title && first?.description) return { type: "idea", items: parsed.map((i: any) => `${i.title}${i.description ? ` — ${i.description}` : ""}`) };
+      if (first?.title && first?.description) return { type: "idea", items: parsed.map((i: any) => `${i.title}${i.description ? `, ${i.description}` : ""}`) };
       if (typeof first === "string" && first.length < 200) return { type: "hook", items: parsed };
     }
     if (parsed?.hooks && Array.isArray(parsed.hooks)) return { type: "hook", items: parsed.hooks };
@@ -465,7 +465,7 @@ export function ContentStrategistChat() {
                 Content Strategist
               </p>
               <p className="text-sm mb-1" style={{ color: "var(--text-primary)" }}>
-                Je t&apos;aide à planifier, optimiser et programmer tes contenus
+                Je t'aide à planifier, optimiser et programmer tes contenus
               </p>
               <p className="text-sm mb-8" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Pose-moi une question ou clique sur une action rapide →

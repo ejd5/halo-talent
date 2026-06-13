@@ -46,9 +46,9 @@ Email: ________`,
         subtitle: "Double opt-in template pour SMS",
         content: `## SMS Marketing Consent (Double Opt-In)
 
-Step 1 — Opt-In: By checking this box and providing my phone number, I consent to receive SMS messages from [Creator Name].
+Step 1, Opt-In: By checking this box and providing my phone number, I consent to receive SMS messages from [Creator Name].
 
-Step 2 — Confirmation: I understand that I will receive a confirmation SMS and must reply "YES" to confirm my subscription.
+Step 2, Confirmation: I understand that I will receive a confirmation SMS and must reply "YES" to confirm my subscription.
 
 Message frequency: up to 5 messages per week.
 

@@ -124,7 +124,7 @@ const BOTTOM_ITEMS: SidebarItem[] = [
       { label: "Plateformes", href: "/studio/platforms", icon: Globe },
       { label: "Crédits IA", href: "/studio/credits", icon: Coins },
       { label: "Intégrations", href: "/dashboard/settings/integrations", icon: KeyRound },
-      { label: "BYOK — Clés API", href: "/studio/api-keys", icon: KeyRound },
+      { label: "BYOK, Clés API", href: "/studio/api-keys", icon: KeyRound },
     ],
   },
   {

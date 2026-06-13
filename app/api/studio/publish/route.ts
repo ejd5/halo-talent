@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Dispatch to all platforms in parallel
-    // Each platform runs independently — failures don't block others
+    // Each platform runs independently, failures don't block others
     const results = await Promise.allSettled(
       body.platforms.map((p) =>
         publishToPlatform(p.platform, p.subType, {
@@ -130,7 +130,7 @@ export async function POST(request: NextRequest) {
         created_at: new Date().toISOString(),
       });
     } catch {
-      // Non-blocking — logging failure shouldn't fail the request
+      // Non-blocking, logging failure shouldn't fail the request
     }
 
     return NextResponse.json(response);

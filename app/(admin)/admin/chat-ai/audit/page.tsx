@@ -88,10 +88,10 @@ export default function ChatAIAuditPage() {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 24 }}>
         <div>
           <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-            Audit Log — Chat AI
+            Audit Log, Chat AI
           </h1>
           <p style={{ fontSize: 11, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>
-            {total} événements d&apos;audit enregistrés
+            {total} événements d'audit enregistrés
           </p>
         </div>
         <button
@@ -146,7 +146,7 @@ export default function ChatAIAuditPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: 3 }}>
             {logs.length === 0 ? (
               <div style={{ padding: 32, textAlign: "center", color: "rgba(245,240,235,0.15)", fontSize: 12 }}>
-                Aucun événement d&apos;audit trouvé
+                Aucun événement d'audit trouvé
               </div>
             ) : (
               logs.map((log) => (

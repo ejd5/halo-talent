@@ -74,7 +74,7 @@ export function LexOnboardingModal({ locale = "fr", open, onClose, onStart }: Le
             style={{ background: "rgba(16,185,129,0.12)", color: "rgb(16,185,129)" }}
           >
             <Sparkles size={10} />
-            Halo Lex
+            WTF Lex
           </span>
 
           {/* Title */}

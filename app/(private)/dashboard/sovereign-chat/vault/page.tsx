@@ -134,7 +134,7 @@ function PriceOptimizeModal({
           <div>
             <div className="flex items-center gap-2">
               <Bot size={14} style={{ color: "var(--accent)" }} />
-              <h3 className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Optimisation IA — &quot;{product.name}&quot;</h3>
+              <h3 className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>Optimisation IA, &quot;{product.name}&quot;</h3>
             </div>
             <p className="text-[9px] mt-0.5" style={{ color: "rgba(245,240,235,0.3)" }}>
               Prix actuel: {product.price}€ · {product.total_sends} envois
@@ -214,7 +214,7 @@ function RecommendModal({
   const handleSendAll = async () => {
     setSending(true);
     const targetIds = recs.filter((r) => !r.cooldown?.blocked).map((r) => r.fan.id);
-    // Would trigger a Smart Messages campaign — for MVP, log and notify
+    // Would trigger a Smart Messages campaign, for MVP, log and notify
     await fetch("/api/sovereign-chat/smart-messages/generate", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -416,10 +416,10 @@ export default function VaultPage() {
             {!loading && <span className="text-[10px] px-1.5 py-0.5" style={{ backgroundColor: "rgba(199,91,57,0.1)", color: "var(--accent)" }}>{products.length} produits</span>}
           </div>
           <p className="text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
-            Recommandations intelligentes — quel contenu envoyer à quel fan
+            Recommandations intelligentes, quel contenu envoyer à quel fan
           </p>
           <Link href="/dashboard/sovereign-chat/ppv-copilot" className="inline-flex items-center gap-1 mt-2 text-[10px] font-medium py-1 px-2" style={{ color: "var(--accent)", background: "rgba(199,91,57,0.06)", borderRadius: 4, textDecoration: "none" }}>
-            <Bot size={10} /> PPV Copilot — stratégie IA avancée →
+            <Bot size={10} /> PPV Copilot, stratégie IA avancée →
           </Link>
         </div>
         <button onClick={() => setShowForm(!showForm)}

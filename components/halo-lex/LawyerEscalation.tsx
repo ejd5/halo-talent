@@ -50,7 +50,7 @@ export function LawyerEscalation({ locale = "fr", onClose }: LawyerEscalationPro
         ) : (
           <>
             <h2 className="text-xl font-semibold mb-2" style={{ color: "var(--text-primary)" }}>
-              {locale === "en" ? "Lawyer Network — Coming Soon" : "Réseau d'avocats — Bientôt disponible"}
+              {locale === "en" ? "Lawyer Network, Coming Soon" : "Réseau d'avocats, Bientôt disponible"}
             </h2>
             <p className="text-sm mb-6 max-w-md mx-auto leading-relaxed" style={{ color: "var(--text-secondary)" }}>
               {locale === "en"
@@ -92,8 +92,8 @@ export function LawyerEscalation({ locale = "fr", onClose }: LawyerEscalationPro
 
       <div className="mt-6 p-3 text-xs text-center" style={{ color: "var(--text-secondary)" }}>
         {locale === "en"
-          ? "Halo Lex provides general legal information. This does not constitute legal advice."
-          : "Halo Lex fournit une information juridique générale. Ne constitue pas un conseil juridique."}
+          ? "WTF Lex provides general legal information. This does not constitute legal advice."
+          : "WTF Lex fournit une information juridique générale. Ne constitue pas un conseil juridique."}
       </div>
     </div>
   );

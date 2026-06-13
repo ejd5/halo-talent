@@ -1,4 +1,4 @@
-// ─── Tracking Events — Chat AI ───────────────────────────
+// ─── Tracking Events, Chat AI ───────────────────────────
 // Lightweight event tracking. Logs to console + Supabase.
 // No third-party analytics services.
 
@@ -54,7 +54,7 @@ export async function trackEvent(
         session_id: payload.sessionId || null,
       });
     } catch (err) {
-      // Silent fallback — tracking should never break the app
+      // Silent fallback, tracking should never break the app
       console.warn("[Chat AI Tracking] Failed to persist event:", err);
     }
   }

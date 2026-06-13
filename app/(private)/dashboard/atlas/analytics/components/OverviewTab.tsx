@@ -24,7 +24,7 @@ export default function OverviewTab() {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      {/* KPI Band — 7 cards */}
+      {/* KPI Band, 7 cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-3">
         <KpiCard label="Fans actifs" value={data.activeFans.toLocaleString()} />
         <KpiCard label="Revenus Atlas" value={eur(data.totalRevenue)} accent />
@@ -35,7 +35,7 @@ export default function OverviewTab() {
         <KpiCard label="Churn" value={pct(data.churnRate)} sub="taux de perte" />
       </div>
 
-      {/* Revenue Chart — 12 months */}
+      {/* Revenue Chart, 12 months */}
       <Card title="Évolution des revenus attribués à Atlas">
         {(data.revenue12m?.length ?? 0) > 0 ? (
           <div className="h-64">

@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
     let videos: any[];
 
     if (keyword) {
-      // Search by keyword — use searchInNiche
+      // Search by keyword, use searchInNiche
       const items = await provider.searchInNiche(keyword, 7);
       videos = (items ?? []).map((item: any) => ({
         id: item.id?.videoId ?? "",

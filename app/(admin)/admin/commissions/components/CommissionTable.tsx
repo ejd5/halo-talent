@@ -93,7 +93,7 @@ export function CommissionTable({ rows, onAdjust, pendingAdjustments, onValidate
                         {row.adjustment.difference >= 0 ? "+" : ""}{formatEuro(row.adjustment.difference)}
                       </span>
                     ) : (
-                      <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>—</span>
+                      <span className="text-[10px] font-sans" style={{ color: "var(--text-secondary)" }}>, </span>
                     )}
                   </td>
                   <td className="py-3 px-4 text-xs font-sans font-semibold tabular-nums" style={{ color: "var(--accent)" }}>

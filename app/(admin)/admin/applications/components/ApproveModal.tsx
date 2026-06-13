@@ -12,10 +12,10 @@ type Props = {
 };
 
 const commissionTiers = [
-  { value: "10", label: "10% — Créateur établi (20k€+/mois)" },
-  { value: "15", label: "15% — Profil en croissance (8-20k€/mois)" },
-  { value: "20", label: "20% — Profil émergent (3-8k€/mois)" },
-  { value: "25", label: "25% — Démarrage (<3k€/mois)" },
+  { value: "10", label: "10%, Créateur établi (20k€+/mois)" },
+  { value: "15", label: "15%, Profil en croissance (8-20k€/mois)" },
+  { value: "20", label: "20%, Profil émergent (3-8k€/mois)" },
+  { value: "25", label: "25%, Démarrage (<3k€/mois)" },
 ];
 
 const managers = [

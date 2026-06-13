@@ -48,7 +48,7 @@ export function BlockPreview({ block }: { block: SiteBlock }) {
       return (
         <div className="p-8 text-center italic">
           <p className="text-base opacity-80 max-w-lg mx-auto">&ldquo;{(c.text as string) ?? ""}&rdquo;</p>
-          {c.author && <p className="text-xs opacity-40 mt-3">— {(c.author as string)}</p>}
+          {c.author && <p className="text-xs opacity-40 mt-3">,  {(c.author as string)}</p>}
         </div>
       );
 

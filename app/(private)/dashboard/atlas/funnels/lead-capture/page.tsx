@@ -93,7 +93,7 @@ export default function LeadCapturePage() {
   const totalViews = pages.reduce((s, p) => s + (p.views || 0), 0);
   const totalConvs = pages.reduce((s, p) => s + (p.conversions || 0), 0);
   const activePages = pages.filter((p) => p.status === "active").length;
-  const convRate = totalViews > 0 ? ((totalConvs / totalViews) * 100).toFixed(1) : "—";
+  const convRate = totalViews > 0 ? ((totalConvs / totalViews) * 100).toFixed(1) : ", ";
 
   return (
     <div className="space-y-5 animate-fade-in">
@@ -150,7 +150,7 @@ export default function LeadCapturePage() {
           <Layout size={36} style={{ color: "rgba(255,255,255,0.05)" }} />
           <p className="text-sm mt-4" style={{ color: "rgba(255,255,255,0.2)" }}>Aucune page de capture</p>
           <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.1)" }}>
-            Crée ta première page — link-in-bio, newsletter, ou pop-up d&apos;inscription
+            Crée ta première page, link-in-bio, newsletter, ou pop-up d'inscription
           </p>
           <button
             onClick={() => setShowTemplates(true)}
@@ -199,7 +199,7 @@ export default function LeadCapturePage() {
           {pages.map((page) => {
             const st = STATUS_STYLES[page.status] || STATUS_STYLES.draft;
             const TypeIcon = TYPE_ICONS[page.page_type] || Layout;
-            const convPct = page.views > 0 ? ((page.conversions / page.views) * 100).toFixed(1) : "—";
+            const convPct = page.views > 0 ? ((page.conversions / page.views) * 100).toFixed(1) : ", ";
             return (
               <div
                 key={page.id}

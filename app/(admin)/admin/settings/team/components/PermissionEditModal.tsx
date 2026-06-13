@@ -107,7 +107,7 @@ export function PermissionEditModal({
             </div>
             <div>
               <h2 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)" }}>
-                Permissions — {member.full_name}
+                Permissions, {member.full_name}
               </h2>
               <p className="text-[10px] opacity-40">{ROLE_LABELS[member.role]} · {member.email}</p>
             </div>
@@ -224,7 +224,7 @@ export function PermissionEditModal({
           <span className="text-[10px] opacity-30">
             {Object.keys(customPerms).length > 0
               ? `${Object.keys(customPerms).length} permission(s) personnalisée(s)`
-              : "Aucune permission personnalisée — valeurs par défaut du rôle"}
+              : "Aucune permission personnalisée, valeurs par défaut du rôle"}
           </span>
           <div className="flex items-center gap-2">
             <button

@@ -1,4 +1,4 @@
-// ─── Halo Lex — Chat API (Express mode) ──────────────────────
+// ─── WTF Lex, Chat API (Express mode) ──────────────────────
 // POST /api/lex/chat
 // Body: { messages, locale?, platforms?, newSession? }
 // Response: SSE stream via DeepSeek (with fallback to Claude)

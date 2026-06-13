@@ -15,7 +15,7 @@ export default function SocialInsightsPage() {
           Insights réseaux sociaux
         </h1>
         <p className="text-xs leading-relaxed" style={{ color: "rgba(245,240,235,0.4)" }}>
-          Analyses et métriques avancées sur les performances sociales et l&apos;engagement.
+          Analyses et métriques avancées sur les performances sociales et l'engagement.
         </p>
         <div className="flex items-center justify-center gap-1.5 mt-4 text-[10px]" style={{ color: "rgba(245,240,235,0.2)" }}>
           <Construction size={12} /> Bientôt disponible

@@ -282,7 +282,7 @@ export default function TemplatesPage() {
               </div>
               <div className="flex items-center gap-3 text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>
                 <span className="flex items-center gap-1"><TrendingUp size={10} /> {selectedTemplate.uses_count} utilisations</span>
-                {selectedTemplate.is_official && <span className="flex items-center gap-1" style={{ color: "var(--accent)" }}>Par Halo Talent</span>}
+                {selectedTemplate.is_official && <span className="flex items-center gap-1" style={{ color: "var(--accent)" }}>Par Where Talent Forms</span>}
               </div>
               <button onClick={() => handleUse(selectedTemplate)}
                 className="flex items-center justify-center gap-1.5 w-full px-4 py-2.5 text-xs font-medium rounded-sm transition-opacity hover:opacity-80"

@@ -4,7 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 // Default templates
 const DEFAULT_TEMPLATES = [
   {
-    name: "Digital Creator — 21 posts/semaine",
+    name: "Digital Creator, 21 posts/semaine",
     description: "Rythme intensif : 3 posts/jour sur 3 plateformes principales",
     profile_type: "digital_creator",
     weekly_schedule: {
@@ -19,7 +19,7 @@ const DEFAULT_TEMPLATES = [
     is_default: true,
   },
   {
-    name: "Artist — 2 posts/semaine + 1 live",
+    name: "Artist, 2 posts/semaine + 1 live",
     description: "Rythme modéré avec focus qualité et live engagement",
     profile_type: "artist",
     weekly_schedule: {
@@ -34,7 +34,7 @@ const DEFAULT_TEMPLATES = [
     is_default: true,
   },
   {
-    name: "Lifestyle — 14 posts/semaine",
+    name: "Lifestyle, 14 posts/semaine",
     description: "Mix stories quotidiennes + 2 reels/semaine + 1 vidéo longue",
     profile_type: "lifestyle",
     weekly_schedule: {

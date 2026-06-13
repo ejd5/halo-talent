@@ -33,7 +33,7 @@ export default function AtlasSettingsPage() {
       <Section title="Templates de messages" icon={Mail}>
         <p className="text-xs mb-3" style={{ color: "var(--text-primary)" }}>Les templates permettent de standardiser tes réponses automatiques</p>
         <TemplateRow name="Bienvenue" preview="Hey {name}! 🔥 So glad you joined..." />
-        <TemplateRow name="Relance 7 jours" preview="Hey {name}! 💫 Been a while — wanted to check in..." />
+        <TemplateRow name="Relance 7 jours" preview="Hey {name}! 💫 Been a while, wanted to check in..." />
         <TemplateRow name="Remerciement achat" preview="{name}! 🫶 Huge thank you for your support..." />
         <TemplateRow name="Anniversaire" preview="Happy birthday {name}! 🎂🎉 You deserve something special..." />
       </Section>

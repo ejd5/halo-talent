@@ -1,4 +1,4 @@
-// ─── Halo Sovereign Chat AI — TypeScript Types ────────────
+// ─── WTF Sovereign Chat AI, TypeScript Types ────────────
 // All interfaces, enums, and type aliases for the Chat AI module
 
 // ============================================================
@@ -187,7 +187,7 @@ export interface AIDraft {
   contextSources: ContextSource[];
   riskLevel: RiskLevel;
   complianceStatus: ComplianceStatus;
-  requiresValidation: true; // Always true — never auto-send
+  requiresValidation: true; // Always true, never auto-send
   model: DeepSeekModel;
   explanation: string;
   status: AIDraftStatus;

@@ -1,4 +1,4 @@
-// ─── Halo Lex — Intelligent Chunker ────────────────────────────
+// ─── WTF Lex, Intelligent Chunker ────────────────────────────
 // Stratégies de chunking adaptées au type de document juridique.
 
 import type { ChunkResult } from "./types";

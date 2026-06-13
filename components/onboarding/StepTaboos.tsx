@@ -40,7 +40,7 @@ export function StepTaboos({
         className="text-xl md:text-2xl font-bold mb-2 text-center"
         style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
       >
-        Y a-t-il des sujets que l&apos;IA ne doit JAMAIS aborder&nbsp;?
+        Y a-t-il des sujets que l'IA ne doit JAMAIS aborder&nbsp;?
       </h2>
       <p
         className="text-sm text-center mb-6"

@@ -112,7 +112,7 @@ export function BlogListPage() {
           filtered.map((post) => {
             const st = STATUS_LABELS[post.status];
             const date = post.published_at || post.scheduled_at || post.updated_at;
-            const d = date ? new Date(date).toLocaleDateString("fr-FR", { day: "numeric", month: "short" }) : "—";
+            const d = date ? new Date(date).toLocaleDateString("fr-FR", { day: "numeric", month: "short" }) : ", ";
             return (
               <div key={post.id} className="grid grid-cols-[1fr_120px_100px_140px_80px_80px] gap-4 px-5 py-3 items-center hover:bg-[var(--color-card)] transition-colors border-b border-[var(--color-border)] last:border-b-0">
                 <div>

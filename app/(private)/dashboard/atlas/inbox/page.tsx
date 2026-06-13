@@ -303,7 +303,7 @@ export default function InboxPage() {
 
   return (
     <div className="flex -m-4 md:-m-8 h-[calc(100vh-4rem)]" style={{ backgroundColor: "var(--color-base)" }}>
-      {/* ─── LEFT PANEL — Conversation List ─────────────── */}
+      {/* ─── LEFT PANEL, Conversation List ─────────────── */}
       <div className={`${mobileView === "conv" || mobileView === "profile" ? "hidden lg:flex" : "flex"} flex-col w-full lg:w-[340px] xl:w-[380px] shrink-0 border-r`} style={{ borderColor: "var(--color-border)" }}>
 
         {/* Header */}
@@ -408,7 +408,7 @@ export default function InboxPage() {
         </div>
       </div>
 
-      {/* ─── CENTER PANEL — Active Conversation ────────── */}
+      {/* ─── CENTER PANEL, Active Conversation ────────── */}
       <div className={`${mobileView === "list" || mobileView === "profile" ? "hidden lg:flex" : "flex"} flex-1 flex-col min-w-0`}>
         {!selectedFanId || !activeFan ? (
           <div className="flex-1 flex flex-col items-center justify-center px-8 text-center">
@@ -637,7 +637,7 @@ export default function InboxPage() {
         )}
       </div>
 
-      {/* ─── RIGHT PANEL — Fan Context ─────────────────── */}
+      {/* ─── RIGHT PANEL, Fan Context ─────────────────── */}
       <div className={`${mobileView === "profile" ? "flex" : "hidden"} xl:flex flex-col w-full sm:w-[360px] shrink-0 border-l overflow-y-auto`} style={{ borderColor: "var(--color-border)" }}>
         {!activeFan ? (
           <div className="flex flex-col items-center justify-center h-full px-6 text-center">

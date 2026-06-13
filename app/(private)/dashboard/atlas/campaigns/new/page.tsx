@@ -52,7 +52,7 @@ const BLOCK_TEMPLATES: Record<string, ContentBlock[]> = {
     { id: "t1", type: "text", content: "Je suis tellement content que tu aies rejoint mon univers. Prépare-toi à du contenu exclusif, des avant-premières et bien plus encore !", align: "left" },
     { id: "b1", type: "button", label: "Découvrir mon dernier post", url: "https://refundize.com/studio", align: "center" },
     { id: "d1", type: "divider" },
-    { id: "f1", type: "footer", content: "© 2026 — Merci de faire partie de l'aventure ✨", align: "center" },
+    { id: "f1", type: "footer", content: "© 2026, Merci de faire partie de l'aventure ✨", align: "center" },
   ],
   new_content: [
     { id: "h1", type: "header", content: "Nouveau contenu 🔥", align: "center" },
@@ -105,7 +105,7 @@ function NewCampaignWizard() {
   const [createdId, setCreatedId] = useState<string | null>(null);
   const [estimatedRecipients, setEstimatedRecipients] = useState<number | null>(null);
 
-  // Step 1 — Audience
+  // Step 1, Audience
   const [segments, setSegments] = useState<Segment[]>([]);
   const [selectedSegment, setSelectedSegment] = useState<string>("");
   const [customTier, setCustomTier] = useState<string[]>([]);
@@ -113,11 +113,11 @@ function NewCampaignWizard() {
   const [customMinScore, setCustomMinScore] = useState("");
   const [customCountry, setCustomCountry] = useState("");
 
-  // Step 2 — Type & Goal
+  // Step 2, Type & Goal
   const [campaignType, setCampaignType] = useState("newsletter");
   const [campaignGoal, setCampaignGoal] = useState("engagement");
 
-  // Step 3 — Content
+  // Step 3, Content
   const [subject, setSubject] = useState("");
   const [preheader, setPreheader] = useState("");
   const [fromName, setFromName] = useState("");
@@ -125,10 +125,10 @@ function NewCampaignWizard() {
   const [contentBlocks, setContentBlocks] = useState<ContentBlock[]>([]);
   const [previewMode, setPreviewMode] = useState<"desktop" | "mobile">("desktop");
 
-  // Step 4 — AI
+  // Step 4, AI
   const [personalizeAI, setPersonalizeAI] = useState(false);
 
-  // Step 5 — Send
+  // Step 5, Send
   const [scheduleType, setScheduleType] = useState<"now" | "later">("now");
   const [scheduleDate, setScheduleDate] = useState("");
   const [scheduleTime, setScheduleTime] = useState("");
@@ -281,7 +281,7 @@ function NewCampaignWizard() {
             Nouvelle campagne email
           </h1>
           <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
-            {STEPS.find((s) => s.num === step)?.label} — Étape {step}/5
+            {STEPS.find((s) => s.num === step)?.label}, Étape {step}/5
           </p>
         </div>
       </div>
@@ -395,7 +395,7 @@ function NewCampaignWizard() {
       {step === 2 && (
         <div className="space-y-6 max-w-2xl">
           <div>
-            <label className="text-sm font-medium mb-3 block" style={{ color: "var(--text-primary)" }}>Type d&apos;email</label>
+            <label className="text-sm font-medium mb-3 block" style={{ color: "var(--text-primary)" }}>Type d'email</label>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
               {TYPE_OPTIONS.map((opt) => (
                 <button
@@ -534,7 +534,7 @@ function NewCampaignWizard() {
               <div>
                 <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>Personnalisation IA</h3>
                 <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
-                  Chaque destinataire reçoit une variante personnalisée selon son tier, ses préférences, son historique d&apos;achats et sa langue.
+                  Chaque destinataire reçoit une variante personnalisée selon son tier, ses préférences, son historique d'achats et sa langue.
                 </p>
               </div>
               <button
@@ -611,7 +611,7 @@ function NewCampaignWizard() {
           {/* Throttling */}
           <div>
             <label className="text-sm font-medium mb-1 block" style={{ color: "var(--text-primary)" }}>Throttling</label>
-            <p className="text-xs mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>Étaler l&apos;envoi sur plusieurs heures pour éviter le spam flag</p>
+            <p className="text-xs mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>Étaler l'envoi sur plusieurs heures pour éviter le spam flag</p>
             <select value={throttleHours} onChange={(e) => setThrottleHours(parseInt(e.target.value))}
               className="text-sm px-3 py-2 rounded-sm outline-none"
               style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)", border: "1px solid transparent" }}>
@@ -629,7 +629,7 @@ function NewCampaignWizard() {
               <div>
                 <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>A/B Test</h3>
                 <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
-                  2 versions sur 20% de l&apos;audience, la gagnante envoyée aux 80% restants
+                  2 versions sur 20% de l'audience, la gagnante envoyée aux 80% restants
                 </p>
               </div>
               <button

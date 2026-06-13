@@ -57,7 +57,7 @@ export function CohortsTab() {
                           {val}%
                         </span>
                       ) : (
-                        <span className="opacity-10">—</span>
+                        <span className="opacity-10">, </span>
                       )}
                     </td>
                   );
@@ -82,11 +82,11 @@ export function CohortsTab() {
           </div>
           <div className="flex items-start gap-2 text-sm">
             <span className="text-[var(--danger)] mt-0.5">⚠️</span>
-            <p className="opacity-70">La première cohorte (2024-07) a la rétention la plus basse : <strong>{cohorts[0].retention.slice(-1)[0]}%</strong>. Les premiers mois étaient expérimentaux, le processus d&apos;onboarding n&apos;était pas encore rodé.</p>
+            <p className="opacity-70">La première cohorte (2024-07) a la rétention la plus basse : <strong>{cohorts[0].retention.slice(-1)[0]}%</strong>. Les premiers mois étaient expérimentaux, le processus d'onboarding n'était pas encore rodé.</p>
           </div>
           <div className="flex items-start gap-2 text-sm">
             <span className="text-[var(--text-secondary)] mt-0.5">📊</span>
-            <p className="opacity-70">Tendance générale : le taux de rétention s&apos;améliore de <strong>~5% par cohorte</strong> grâce aux processus mis en place et à la sélection plus rigoureuse des candidatures.</p>
+            <p className="opacity-70">Tendance générale : le taux de rétention s'améliore de <strong>~5% par cohorte</strong> grâce aux processus mis en place et à la sélection plus rigoureuse des candidatures.</p>
           </div>
         </div>
       </div>

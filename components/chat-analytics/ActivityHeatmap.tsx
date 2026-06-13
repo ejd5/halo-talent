@@ -155,7 +155,7 @@ export function ActivityHeatmap({ data, onCellClick }: {
               whiteSpace: "nowrap",
             }}
           >
-            {DAY_LABELS[tooltip.day]} {tooltip.hour}h — {tooltip.count} messages · {tooltip.revenue} €
+            {DAY_LABELS[tooltip.day]} {tooltip.hour}h, {tooltip.count} messages · {tooltip.revenue} €
           </div>
         )}
       </div>

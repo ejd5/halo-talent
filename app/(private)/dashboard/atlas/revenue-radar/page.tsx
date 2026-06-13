@@ -3,7 +3,7 @@ import { RevenueRadar } from "@/components/atlas/RevenueRadar";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Revenue Radar | Halo Atlas",
+  title: "Revenue Radar | WTF Atlas",
   description: "Identify and prioritize sales opportunities across your fan base.",
 };
 

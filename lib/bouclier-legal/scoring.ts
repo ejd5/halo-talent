@@ -1,4 +1,4 @@
-// ─── Bouclier Légal — Moteur de scoring ─────────────────
+// ─── Bouclier Légal, Moteur de scoring ─────────────────
 
 import type { RiskScore, RiskLevel, AnalyzedClause, AnalysisReport } from "./types";
 import { CLAUSE_GROUPS } from "./clauses-data";

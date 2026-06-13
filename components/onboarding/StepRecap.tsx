@@ -15,14 +15,14 @@ export function StepRecap({
   const pct = calcCompletion(state);
 
   const sections = [
-    { key: "voice" as const, label: "Voix 🎙️", value: state.voice?.isCustom ? state.voice.customDescription : state.voice?.tone ?? "—" },
-    { key: "style" as const, label: "Style 🎨", value: state.style ? `${state.style.styles.length} styles` : "—" },
-    { key: "audience" as const, label: "Audience 👥", value: state.audience ? `${state.audience.gender ?? "—"} · ${state.audience.ageRange ?? "—"}` : "—" },
-    { key: "platforms" as const, label: "Plateformes 📱", value: state.platforms ? `${state.platforms.platforms.length} plateforme${state.platforms.platforms.length > 1 ? "s" : ""}` : "—" },
-    { key: "content" as const, label: "Contenu 📸", value: state.content ? `${state.content.types.length} format${state.content.types.length > 1 ? "s" : ""}` : "—" },
-    { key: "taboos" as const, label: "Tabous 🚫", value: state.taboos ? `${state.taboos.tags.length + state.taboos.custom.length} limite${state.taboos.tags.length + state.taboos.custom.length > 1 ? "s" : ""}` : "—" },
-    { key: "goals" as const, label: "Objectifs 🎯", value: state.goals?.goalType ? state.goals.goalType === "custom" ? "Personnalisé" : state.goals.goalType : "—" },
-    { key: "examples" as const, label: "Exemples ✍️", value: state.examples ? `${state.examples.examples.length} exemple${state.examples.examples.length > 1 ? "s" : ""}` : "—" },
+    { key: "voice" as const, label: "Voix 🎙️", value: state.voice?.isCustom ? state.voice.customDescription : state.voice?.tone ?? ", " },
+    { key: "style" as const, label: "Style 🎨", value: state.style ? `${state.style.styles.length} styles` : ", " },
+    { key: "audience" as const, label: "Audience 👥", value: state.audience ? `${state.audience.gender ?? ", "} · ${state.audience.ageRange ?? ", "}` : ", " },
+    { key: "platforms" as const, label: "Plateformes 📱", value: state.platforms ? `${state.platforms.platforms.length} plateforme${state.platforms.platforms.length > 1 ? "s" : ""}` : ", " },
+    { key: "content" as const, label: "Contenu 📸", value: state.content ? `${state.content.types.length} format${state.content.types.length > 1 ? "s" : ""}` : ", " },
+    { key: "taboos" as const, label: "Tabous 🚫", value: state.taboos ? `${state.taboos.tags.length + state.taboos.custom.length} limite${state.taboos.tags.length + state.taboos.custom.length > 1 ? "s" : ""}` : ", " },
+    { key: "goals" as const, label: "Objectifs 🎯", value: state.goals?.goalType ? state.goals.goalType === "custom" ? "Personnalisé" : state.goals.goalType : ", " },
+    { key: "examples" as const, label: "Exemples ✍️", value: state.examples ? `${state.examples.examples.length} exemple${state.examples.examples.length > 1 ? "s" : ""}` : ", " },
   ] as const;
 
   return (
@@ -53,7 +53,7 @@ export function StepRecap({
           className="text-sm text-center mt-1"
           style={{ color: "var(--text-secondary)" }}
         >
-          Votre ADN est complet à {pct}% — vous pouvez toujours le modifier dans vos paramètres.
+          Votre ADN est complet à {pct}%, vous pouvez toujours le modifier dans vos paramètres.
         </p>
       </div>
 
@@ -83,13 +83,13 @@ export function StepRecap({
                   className="text-[10px] mt-0.5"
                   style={{ color: "var(--text-tertiary)" }}
                 >
-                  {typeof s.value === "string" ? s.value : "—"}
+                  {typeof s.value === "string" ? s.value : ", "}
                 </p>
               </div>
               {filled ? (
                 <span className="text-xs" style={{ color: "var(--accent)" }}>✓</span>
               ) : (
-                <span className="text-xs" style={{ color: "var(--text-tertiary)" }}>—</span>
+                <span className="text-xs" style={{ color: "var(--text-tertiary)" }}>, </span>
               )}
             </div>
           );

@@ -215,7 +215,7 @@ export function FanBrainPanel({
           <div className="grid grid-cols-2 gap-2">
             <KPI label="Total dépensé" value={`${fanBrain.ltv_predicted.toFixed(0)}€`} color="var(--accent)" />
             <KPI label="LTV prédite" value={`${(fanBrain.ltv_predicted * 1.4).toFixed(0)}€`} />
-            <KPI label="Dernier achat" value={fanBrain.updated_at ? new Date(fanBrain.updated_at).toLocaleDateString("fr-FR") : "—"} />
+            <KPI label="Dernier achat" value={fanBrain.updated_at ? new Date(fanBrain.updated_at).toLocaleDateString("fr-FR") : ", "} />
             <KPI
               label="Segment"
               value={fanBrain.segment === "whale" ? "🐋 Baleine" : fanBrain.segment === "tipper" ? "💰 Tip" : fanBrain.segment}

@@ -62,7 +62,7 @@ export function ContractsTab({ creatorId }: Props) {
                   <span style={{ color: "var(--text-secondary)" }}>Signé le :</span> {formatDate(contract.signed_date)}
                 </div>
                 <div>
-                  <span style={{ color: "var(--text-secondary)" }}>Expire le :</span> {contract.end_date ? formatDate(contract.end_date) : "—"}
+                  <span style={{ color: "var(--text-secondary)" }}>Expire le :</span> {contract.end_date ? formatDate(contract.end_date) : ", "}
                 </div>
               </div>
             </div>

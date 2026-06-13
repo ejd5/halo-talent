@@ -281,7 +281,7 @@ export default function GenerateImagePage() {
 
   return (
     <div className="flex gap-0 h-full animate-fade-in">
-      {/* ─── LEFT — Prompt Builder ─── */}
+      {/* ─── LEFT, Prompt Builder ─── */}
       <div className="w-80 shrink-0 overflow-y-auto p-4 space-y-4" style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}>
         <div>
           <h1 className="text-lg italic mb-1" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Images</h1>
@@ -357,7 +357,7 @@ export default function GenerateImagePage() {
         {/* Count */}
         <div>
           <label className="text-[10px] uppercase tracking-wider mb-1.5 block" style={{ color: "rgba(255,255,255,0.3)" }}>
-            Nombre d&apos;images · {count}
+            Nombre d'images · {count}
           </label>
           <div className="flex gap-1">
             {[1, 2, 4].map((n) => (
@@ -402,7 +402,7 @@ export default function GenerateImagePage() {
         </div>
       </div>
 
-      {/* ─── CENTER — Results ─── */}
+      {/* ─── CENTER, Results ─── */}
       <div className="flex-1 flex flex-col min-w-0">
         <div className="flex-1 overflow-y-auto p-4">
           {/* Final prompt */}
@@ -474,7 +474,7 @@ export default function GenerateImagePage() {
         </div>
       </div>
 
-      {/* ─── RIGHT — History ─── */}
+      {/* ─── RIGHT, History ─── */}
       <div className="w-64 shrink-0 overflow-y-auto p-4 space-y-3" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="flex items-center justify-between mb-2">
           <span className="text-[10px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>

@@ -1,5 +1,6 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { LegalDisclaimer } from "@/components/legal/LegalDisclaimer";
@@ -42,6 +43,25 @@ async function getArticles(): Promise<KnowledgeArticle[]> {
   } catch {
     return [];
   }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const articles = await getArticles();
+  const article = articles.find((a) => slugify(a.title) === slug);
+  if (!article) return { title: "Article introuvable, Where Talent Forms" };
+  return {
+    title: `${article.title}, Where Talent Forms`,
+    description: article.summary ?? "Article de la base de connaissances juridiques Where Talent Forms.",
+    openGraph: {
+      title: `${article.title}, Where Talent Forms`,
+      description: article.summary ?? "Article de la base de connaissances juridiques Where Talent Forms.",
+    },
+  };
 }
 
 export default async function LexArticlePage({

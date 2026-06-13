@@ -1,5 +1,5 @@
 // ─── User API: Letter Feedback ────────────────────────────
-// POST /api/lex/requests/feedback — Submit rating + comment
+// POST /api/lex/requests/feedback, Submit rating + comment
 
 import { NextRequest } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";

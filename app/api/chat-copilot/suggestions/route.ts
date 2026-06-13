@@ -34,7 +34,7 @@ export async function POST(request: NextRequest) {
         ? `Style: tonalité ${JSON.stringify((dna.voice_profile as Record<string, unknown>).tone)}, énergie: ${(dna.voice_profile as Record<string, unknown>).energy_level}`
         : null;
     } catch {
-      // Graceful fallback — continue without DNA context
+      // Graceful fallback, continue without DNA context
     }
 
     const prompt = buildSuggestionPrompt(fanBrain, messages || [], dnaContext);

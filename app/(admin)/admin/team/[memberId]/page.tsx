@@ -771,7 +771,7 @@ function AvailabilityTab({
                 {typeLabels[a.type] || a.type}
               </span>
               <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                {new Date(a.date_from).toLocaleDateString("fr-FR")} —{" "}
+                {new Date(a.date_from).toLocaleDateString("fr-FR")} , {" "}
                 {new Date(a.date_to).toLocaleDateString("fr-FR")}
               </span>
               {a.notes && (

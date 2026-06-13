@@ -9,11 +9,11 @@ const TRANSITION_MS = 1400;
 const CITIES = ["PARIS", "NEW YORK", "MILAN", "TOKYO"];
 
 const SLIDE_A = {
-  eyebrow: "Agence de talents — Fondée à Paris",
+  eyebrow: "Agence de talents, Fondée à Paris",
   lines: ["L'élégance", "est une", "stratégie."],
-  sub: "Halo Talent élève votre image, structure votre carrière et ouvre les portes qui comptent.",
+  sub: "Where Talent Forms élève votre image, structure votre carrière et ouvre les portes qui comptent.",
   ctas: [
-    { href: "/demo",    label: "Rejoindre Halo →", variant: "fill"    },
+    { href: "/demo",    label: "Rejoindre WTF →", variant: "fill"    },
     { href: "#about",   label: "Découvrir",          variant: "outline" },
   ],
 };
@@ -21,7 +21,7 @@ const SLIDE_A = {
 const SLIDE_B = {
   eyebrow: "Pour les créateurs qui pensent grand",
   lines: ["Votre contenu", "est une force.", "Structurons-la", "ensemble."],
-  sub: "Contrats clairs, commissions transparentes, protection totale. Votre carrière mérite mieux qu'un accord verbal.",
+  sub: "Contrats clairs, commissions transparentes, protection proactive. Votre carrière mérite mieux qu'un accord verbal.",
   ctas: [
     { href: "/apply",   label: "Postuler →",         variant: "outline" },
     { href: "/demo",    label: "Voir la démo →",      variant: "fill"    },
@@ -172,7 +172,7 @@ export function CoutureHero() {
       style={{ height: "100vh", background: TOKEN.noir }}
     >
       {/* ══════════════════════════════════════════════
-          SLIDE A — Texte GAUCHE · Vidéo DROITE
+          SLIDE A, Texte GAUCHE · Vidéo DROITE
           ══════════════════════════════════════════════ */}
       <div
         ref={slide1Ref}
@@ -222,7 +222,7 @@ export function CoutureHero() {
       </div>
 
       {/* ══════════════════════════════════════════════
-          SLIDE B — Vidéo GAUCHE (miroir) · Texte DROITE
+          SLIDE B, Vidéo GAUCHE (miroir) · Texte DROITE
           ══════════════════════════════════════════════ */}
       <div
         ref={slide2Ref}
@@ -430,7 +430,7 @@ function TextBlock({
         }}
       />
 
-      {/* Villes — en haut, pleine largeur */}
+      {/* Villes, en haut, pleine largeur */}
       <div
         style={{
           position: "absolute",
@@ -472,7 +472,7 @@ function TextBlock({
         ))}
       </div>
 
-      {/* Contenu principal — aligné en bas */}
+      {/* Contenu principal, aligné en bas */}
       <div
         style={{
           marginTop: "auto",
@@ -619,7 +619,7 @@ function TextBlock({
    SOUS-COMPOSANTS : MASQUES GRADIENT
    ═════════════════════════════════════════════════════ */
 
-/** Masque gauche de la vidéo — fondu organique côté texte */
+/** Masque gauche de la vidéo, fondu organique côté texte */
 function MaskLeft() {
   return (
     <div
@@ -641,7 +641,7 @@ function MaskLeft() {
   );
 }
 
-/** Masque droit de la vidéo — symétrique au masque gauche */
+/** Masque droit de la vidéo, symétrique au masque gauche */
 function MaskRight() {
   return (
     <div
@@ -663,7 +663,7 @@ function MaskRight() {
   );
 }
 
-/** Masque bas — cache logo Gemini + fondu naturel */
+/** Masque bas, cache logo Gemini + fondu naturel */
 function MaskBottom() {
   return (
     <div
@@ -687,7 +687,7 @@ function MaskBottom() {
   );
 }
 
-/** Masque haut subtil — fusion avec la navbar */
+/** Masque haut subtil, fusion avec la navbar */
 function MaskTopSubtle() {
   return (
     <div

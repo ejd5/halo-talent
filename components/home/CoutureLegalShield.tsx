@@ -87,7 +87,7 @@ export function CoutureLegalShield() {
               className="mb-10 text-[9px] uppercase tracking-[0.3em]"
               style={{ fontFamily: "var(--font-util), monospace", color: "rgba(12,10,8,0.4)" }}
             >
-              Extrait d&apos;analyse · contrat_agence.pdf
+              Extrait d'analyse · contrat_agence.pdf
             </div>
 
             <div className="flex flex-col">
@@ -135,7 +135,7 @@ export function CoutureLegalShield() {
               className="mt-10 text-[10px] uppercase tracking-[0.2em]"
               style={{ fontFamily: "var(--font-util), monospace", color: "var(--encre)" }}
             >
-              SCORE DE RISQUE : <span style={{ color: "var(--or)" }}>ÉLEVÉ</span> — 3 CLAUSES À RENÉGOCIER
+              SCORE DE RISQUE : <span style={{ color: "var(--or)" }}>ÉLEVÉ</span>, 3 CLAUSES À RENÉGOCIER
             </div>
           </motion.div>
         </div>

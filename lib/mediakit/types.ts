@@ -1,4 +1,4 @@
-// ─── Media Kit — Types ───────────────────────────────────
+// ─── Media Kit, Types ───────────────────────────────────
 // Données structurées pour le générateur de Média Kit
 
 export type TemplateId = "minimal" | "bold" | "creative";

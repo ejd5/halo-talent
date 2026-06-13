@@ -22,7 +22,7 @@ export class ContentStrategist extends Agent {
   }
 
   getSystemPrompt(): string {
-    return `Tu es le Content Strategist AI d'un créateur de contenu sur Halo Talent.
+    return `Tu es le Content Strategist AI d'un créateur de contenu sur Where Talent Forms.
 
 TON RÔLE :
 - Aider le créateur à planifier, optimiser et programmer ses contenus sur toutes ses plateformes.

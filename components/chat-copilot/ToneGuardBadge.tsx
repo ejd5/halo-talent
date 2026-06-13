@@ -37,7 +37,7 @@ export function ToneGuardBadge({
 
   const isBlocking = result.overall === "blocking";
 
-  // Pass state — show green verified badge
+  // Pass state, show green verified badge
   if (result.overall === "pass" || override) {
     return (
       <div className="flex items-center gap-1">
@@ -56,7 +56,7 @@ export function ToneGuardBadge({
     );
   }
 
-  // Blocking state — red badge, no override
+  // Blocking state, red badge, no override
   if (isBlocking) {
     return (
       <div className="relative" ref={tooltipRef}>
@@ -99,7 +99,7 @@ export function ToneGuardBadge({
     );
   }
 
-  // Warning state — orange badge with override
+  // Warning state, orange badge with override
   return (
     <div className="relative" ref={tooltipRef}>
       <button

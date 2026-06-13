@@ -13,12 +13,12 @@ type Draft = {
 };
 
 const DRAFTS: Draft[] = [
-  { id: "1", title: "Post Instagram — Nouveau produit", type: "image", platform: "Instagram", updatedAt: "Il y a 2h", href: "/studio/composer" },
-  { id: "2", title: "Script YouTube — Review matos", type: "text", platform: "YouTube", updatedAt: "Il y a 5h", href: "/studio/generate/text" },
-  { id: "3", title: "TikTok — Challenge tendance", type: "video", platform: "TikTok", updatedAt: "Hier", href: "/studio/edit/video" },
-  { id: "4", title: "Newsletter — Édition juin", type: "text", platform: "Email", updatedAt: "Hier", href: "/studio/composer" },
-  { id: "5", title: "Reel — Coulisses shooting", type: "video", platform: "Instagram", updatedAt: "Il y a 3j", href: "/studio/edit/video" },
-  { id: "6", title: "Story — Sondage engagement", type: "image", platform: "Instagram", updatedAt: "Il y a 4j", href: "/studio/composer" },
+  { id: "1", title: "Post Instagram, Nouveau produit", type: "image", platform: "Instagram", updatedAt: "Il y a 2h", href: "/studio/composer" },
+  { id: "2", title: "Script YouTube, Review matos", type: "text", platform: "YouTube", updatedAt: "Il y a 5h", href: "/studio/generate/text" },
+  { id: "3", title: "TikTok, Challenge tendance", type: "video", platform: "TikTok", updatedAt: "Hier", href: "/studio/edit/video" },
+  { id: "4", title: "Newsletter, Édition juin", type: "text", platform: "Email", updatedAt: "Hier", href: "/studio/composer" },
+  { id: "5", title: "Reel, Coulisses shooting", type: "video", platform: "Instagram", updatedAt: "Il y a 3j", href: "/studio/edit/video" },
+  { id: "6", title: "Story, Sondage engagement", type: "image", platform: "Instagram", updatedAt: "Il y a 4j", href: "/studio/composer" },
 ];
 
 const TYPE_ICONS = {

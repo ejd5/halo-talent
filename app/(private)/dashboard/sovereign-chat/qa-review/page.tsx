@@ -117,7 +117,7 @@ export default function QAReviewPage() {
             </h1>
           </div>
           <p className="text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
-            Revue des messages et brouillons signalés — validation humaine avant envoi
+            Revue des messages et brouillons signalés, validation humaine avant envoi
           </p>
         </div>
       </div>
@@ -247,7 +247,7 @@ export default function QAReviewPage() {
                         {item.message ? "Message" : item.draft ? `Brouillon · ${item.draft.objective || "sans objectif"} · ${item.draft.tone || "ton par défaut"}` : "Sans contenu"}
                       </p>
                       <p style={{ fontSize: 11, color: "rgba(245,240,235,0.5)", lineHeight: 1.4, margin: 0 }}>
-                        {(item.message?.text || item.draft?.text || "—").slice(0, 300)}
+                        {(item.message?.text || item.draft?.text || ", ").slice(0, 300)}
                         {(item.message?.text?.length || item.draft?.text?.length || 0) > 300 ? "…" : ""}
                       </p>
                     </div>

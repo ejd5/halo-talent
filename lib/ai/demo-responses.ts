@@ -1,4 +1,4 @@
-// ─── Demo Responses — Fallback quand DEEPSEEK_API_KEY absente ──
+// ─── Demo Responses, Fallback quand DEEPSEEK_API_KEY absente ──
 // Réponses mock crédibles pour démo sans clé API, badge "Demo Mode"
 
 import type { AIDraft, DeepSeekResponse, GenerateDraftOutput, PPVStrategyOutput, FanInsightOutput, ComplianceScanOutput } from "@/lib/types/chat-ai";
@@ -21,9 +21,9 @@ export function demoDraftResponse(input: {
 
   const texts: Record<string, string> = {
     fr: `Coucou ${fanName} ! 🌸 Je voulais te remercier pour ton soutien, ça me touche vraiment. J'ai préparé quelque chose de spécial pour toi cette semaine... je te tiens au courant très bientôt. Comment s'est passée ta journée ? 💫`,
-    en: `Hey ${fanName}! 🌸 Just wanted to thank you for your support — it really means a lot. I've got something special coming this week... stay tuned. How was your day? 💫`,
+    en: `Hey ${fanName}! 🌸 Just wanted to thank you for your support, it really means a lot. I've got something special coming this week... stay tuned. How was your day? 💫`,
     es: `¡Hola ${fanName}! 🌸 Solo quería agradecerte por tu apoyo, de verdad significa mucho. Tengo algo especial preparado para ti esta semana... atento. ¿Cómo estuvo tu día? 💫`,
-    de: `Hey ${fanName}! 🌸 Wollte dir nur kurz für deine Unterstützung danken — bedeutet mir wirklich viel. Hab diese Woche was Besonderes für dich... bleib gespannt. Wie war dein Tag? 💫`,
+    de: `Hey ${fanName}! 🌸 Wollte dir nur kurz für deine Unterstützung danken, bedeutet mir wirklich viel. Hab diese Woche was Besonderes für dich... bleib gespannt. Wie war dein Tag? 💫`,
   };
 
   const text = texts[lang] || texts.fr;
@@ -37,7 +37,7 @@ export function demoDraftResponse(input: {
       objective: input.objective,
       tone,
       contextSources: [
-        { type: "fan_brain", reference: `${fanName} — VIP, LTV 480€`, snippet: "Fan actif depuis 8 mois, répond bien aux messages personnalisés" },
+        { type: "fan_brain", reference: `${fanName}, VIP, LTV 480€`, snippet: "Fan actif depuis 8 mois, répond bien aux messages personnalisés" },
         { type: "playbook", reference: "Playbook Solo Standard", snippet: "Ton chaleureux, audace 3/5" },
       ],
       riskLevel: "low",
@@ -71,7 +71,7 @@ export function demoPPVResponse(): PPVStrategyOutput {
         minPrice: 14.99,
         maxPrice: 49.99,
         justification: "Fan VIP avec LTV élevée et historique d'achats PPV réguliers. Prix aligné sur ses derniers achats (20-30€). Marge de négociation possible jusqu'à 14.99€.",
-        fatigueRisk: "Faible — dernier achat PPV il y a 12 jours, pas de saturation détectée.",
+        fatigueRisk: "Faible, dernier achat PPV il y a 12 jours, pas de saturation détectée.",
         alreadySoldTo: [],
         conversionEstimate: "Estimation indicative non garantie : 60-70% de probabilité d'achat basée sur l'historique.",
         status: "draft",
@@ -117,10 +117,10 @@ export function demoComplianceScanResponse(): ComplianceScanOutput {
 export function demoDeepSeekResponse(model: "deepseek-v4-flash" | "deepseek-v4-pro", json?: boolean): DeepSeekResponse {
   const baseText = "[Demo Mode] Ceci est une réponse simulée. Ajoutez votre clé DEEPSEEK_API_KEY pour activer l'IA réelle.";
   return {
-    text: json ? JSON.stringify({ text: baseText, riskLevel: "low", complianceNotes: [], explanation: "Mode démonstration — réponse mock." }) : baseText,
+    text: json ? JSON.stringify({ text: baseText, riskLevel: "low", complianceNotes: [], explanation: "Mode démonstration, réponse mock." }) : baseText,
     model,
     tokensUsed: 0,
     latencyMs: 0,
-    parsed: json ? { text: baseText, riskLevel: "low", complianceNotes: [], explanation: "Mode démonstration — réponse mock." } : undefined,
+    parsed: json ? { text: baseText, riskLevel: "low", complianceNotes: [], explanation: "Mode démonstration, réponse mock." } : undefined,
   };
 }

@@ -64,7 +64,7 @@ export function PlatformsTab({ application }: Props) {
                 Abonnés estimés
               </p>
               <p className="text-xs font-sans mt-0.5" style={{ color: "#D0CCC6" }}>
-                {platformFollowers[platform] ?? "—"}
+                {platformFollowers[platform] ?? ", "}
               </p>
             </div>
           </div>

@@ -111,7 +111,7 @@ export async function checkAndDeductCredits(
 
   const cost = amount ?? getCreditCost(action);
 
-  // 2. Check BYOK — if user has their own key, no deduction
+  // 2. Check BYOK, if user has their own key, no deduction
   const byok = await hasByokForAction(supabase, userId, action);
   if (byok.hasByok) {
     return { success: true, remaining: -1, error: undefined };
@@ -130,7 +130,7 @@ export async function checkAndDeductCredits(
     .single();
 
   if (!wallet) {
-    // No wallet yet — they're on a free tier or not initialized
+    // No wallet yet, they're on a free tier or not initialized
     return { success: false, error: "insufficient_credits" };
   }
 
@@ -181,7 +181,7 @@ export async function grantMonthlyCredits(userId: string): Promise<void> {
     .single();
 
   if (!tier || tier.monthly_credits === null) {
-    // Icon tier or unknown — set unlimited-like balance
+    // Icon tier or unknown, set unlimited-like balance
     await supabase.from("credits_wallet").upsert({
       user_id: userId,
       current_balance: 999999,

@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { createClient } from "@/lib/supabase/server";
 
-// Tracking pixel — 1x1 transparent GIF
+// Tracking pixel, 1x1 transparent GIF
 const PIXEL = Buffer.from("R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7", "base64");
 
 export async function GET(request: NextRequest) {
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
         .eq("fan_id", recipientId)
         .is("opened_at", null);
     } catch {
-      // Silent — tracking pixel must never break
+      // Silent, tracking pixel must never break
     }
   }
 

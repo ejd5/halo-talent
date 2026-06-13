@@ -158,9 +158,9 @@ export const teamMembers: TeamMember[] = [
 
 export const auditLogs: AuditLogEntry[] = [
   { id: "log-1", actor: "Thomas Delacroix", action: "invite_member", target: "Sophie Laurent", details: "Invitation envoyée en tant que manager", created_at: "2026-06-01T10:00:00Z" },
-  { id: "log-2", actor: "Claire Moreau", action: "approve_application", target: "Nouveau créateur #24", details: "Candidature approuvée — département Music", created_at: "2026-06-02T14:30:00Z" },
+  { id: "log-2", actor: "Claire Moreau", action: "approve_application", target: "Nouveau créateur #24", details: "Candidature approuvée, département Music", created_at: "2026-06-02T14:30:00Z" },
   { id: "log-3", actor: "Alexandre Petit", action: "edit_contract", target: "Marc T.", details: "Taux de commission mis à jour 15% → 12%", created_at: "2026-06-03T09:15:00Z" },
-  { id: "log-4", actor: "Thomas Delacroix", action: "deactivate_member", target: "Lucas Rousseau", details: "Compte désactivé — fin de période d'essai", created_at: "2026-06-04T11:00:00Z" },
+  { id: "log-4", actor: "Thomas Delacroix", action: "deactivate_member", target: "Lucas Rousseau", details: "Compte désactivé, fin de période d'essai", created_at: "2026-06-04T11:00:00Z" },
   { id: "log-5", actor: "Sophie Laurent", action: "send_message", target: "Clara W.", details: "Message envoyé : briefing campagne été", created_at: "2026-06-05T16:00:00Z" },
   { id: "log-6", actor: "Claire Moreau", action: "export_data", target: "Analytics Q2", details: "Export CSV des revenus Q2 2026", created_at: "2026-06-06T08:00:00Z" },
   { id: "log-7", actor: "Thomas Delacroix", action: "manage_permissions", target: "Rôle Assistant", details: "Permission send_messages activée pour le rôle assistant", created_at: "2026-06-07T12:00:00Z" },

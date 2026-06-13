@@ -1,6 +1,6 @@
 "use client";
 
-// ─── Admin: Letter Queue — Concierge Workflow (32F-BIS) ──
+// ─── Admin: Letter Queue, Concierge Workflow (32F-BIS) ──
 // Workflow 4 étapes : Préparer → Rédiger → Valider → Livrer
 
 import { useState, useEffect, useCallback, useMemo } from "react";
@@ -276,7 +276,7 @@ export default function LetterQueuePage() {
                   </div>
                   <p className="text-[11px] truncate mt-0.5" style={{ color: "var(--text-secondary)" }}>{req.letter_type}</p>
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-[10px] truncate" style={{ color: "var(--text-tertiary)" }}>{req.users?.raw_user_meta_data?.first_name || "—"}</span>
+                    <span className="text-[10px] truncate" style={{ color: "var(--text-tertiary)" }}>{req.users?.raw_user_meta_data?.first_name || ", "}</span>
                     <span className="text-[10px]" style={{ color: dl.color }}>{dl.label}</span>
                   </div>
                 </button>

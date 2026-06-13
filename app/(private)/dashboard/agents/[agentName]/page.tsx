@@ -83,7 +83,7 @@ export default function AgentChatPage({
             <ArrowLeft size={12} /> Retour aux agents
           </Link>
           <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)" }}>Agent inconnu</h1>
-          <p className="text-sm opacity-40 mt-1">Cet agent n&apos;existe pas.</p>
+          <p className="text-sm opacity-40 mt-1">Cet agent n'existe pas.</p>
         </div>
       </div>
     );
@@ -128,7 +128,7 @@ export default function AgentChatPage({
 
       if (data.conversationId) {
         // The conversation ID is embedded in the agent, but we'd get it from agent.chat
-        // For now, we use a simple approach — we can extend later
+        // For now, we use a simple approach, we can extend later
       }
     } catch (err: any) {
       setError(err.message || "Une erreur est survenue.");

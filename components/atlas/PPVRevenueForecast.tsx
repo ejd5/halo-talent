@@ -50,7 +50,7 @@ export function PPVRevenueForecast({ forecast, hasSelection }: PPVRevenueForecas
         <KPIBox
           icon={<Target size={14} />}
           label={t("ppv_pricing.forecast.best_variant", l)}
-          value={forecast.bestVariant ? `Variante ${forecast.bestVariant}` : "—"}
+          value={forecast.bestVariant ? `Variante ${forecast.bestVariant}` : ", "}
           color="var(--accent)"
         />
         <KPIBox

@@ -125,7 +125,7 @@ export default function DevTestPage() {
         const userRes = await fetch("/api/chat-ai/conversations?limit=1");
         if (userRes.status === 401) {
           setSupabaseStatus("error");
-          log("Non authentifié — connecte-toi avec le compte demo");
+          log("Non authentifié, connecte-toi avec le compte demo");
           return;
         }
         setSupabaseStatus("connected");
@@ -184,7 +184,7 @@ export default function DevTestPage() {
         method: "POST",
       });
       const data = await res.json();
-      setApproveMsg(data.success ? "Approuvé — prêt à copier." : data.error || "Erreur");
+      setApproveMsg(data.success ? "Approuvé, prêt à copier." : data.error || "Erreur");
       log(data.success ? "Draft approuvé" : "Approbation bloquée: " + (data.error || "inconnu"));
       loadAuditLogs();
     } catch (e) {
@@ -230,7 +230,7 @@ export default function DevTestPage() {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
         <div>
           <h1 style={{ fontSize: 18, fontWeight: 700, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-            Halo Chat AI — Vertical Slice Test
+            WTF Chat AI, Vertical Slice Test
           </h1>
           <p style={{ fontSize: 11, color: "rgba(245,240,235,0.4)", marginTop: 2 }}>
             Test réel: Supabase → DeepSeek → Compliance → Audit
@@ -334,7 +334,7 @@ export default function DevTestPage() {
               {fan && (
                 <div style={{ ...card, marginBottom: 12, border: "1px solid rgba(245,240,235,0.05)" }}>
                   <div style={{ fontSize: 10, fontWeight: 600, color: "rgba(245,240,235,0.4)", marginBottom: 6, display: "flex", alignItems: "center", gap: 4 }}>
-                    <User size={10} /> Fan Brain — {fan.pseudonym}
+                    <User size={10} /> Fan Brain, {fan.pseudonym}
                   </div>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2px 12px", fontSize: 10 }}>
                     <span style={{ color: "rgba(245,240,235,0.3)" }}>Statut:</span>
@@ -395,7 +395,7 @@ export default function DevTestPage() {
                     <div style={{ ...card, border: "1px solid rgba(239,68,68,0.2)", background: "rgba(239,68,68,0.05)" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 8 }}>
                         <Shield size={14} color="#f87171" />
-                        <span style={{ fontSize: 12, fontWeight: 600, color: "#f87171" }}>BLOQUÉ — Conformité</span>
+                        <span style={{ fontSize: 12, fontWeight: 600, color: "#f87171" }}>BLOQUÉ, Conformité</span>
                       </div>
                       {(draftResult.reasons || []).map((r, i) => (
                         <div key={i} style={{ fontSize: 10, color: "rgba(245,240,235,0.5)", marginBottom: 2 }}>• {r}</div>
@@ -528,7 +528,7 @@ export default function DevTestPage() {
                 <div key={i}>{msg}</div>
               ))}
               {statusLog.length === 0 && (
-                <div style={{ color: "rgba(245,240,235,0.15)" }}>En attente d&apos;actions...</div>
+                <div style={{ color: "rgba(245,240,235,0.15)" }}>En attente d'actions...</div>
               )}
             </div>
           </div>

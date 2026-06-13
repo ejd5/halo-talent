@@ -44,7 +44,7 @@ const OFFICIAL_SOURCES: OfficialSource[] = [
   },
   {
     id: "cnil",
-    label: "CNIL — Actualités",
+    label: "CNIL, Actualités",
     jurisdiction: "fr",
     type: "rss",
     url: "https://www.cnil.fr/rss/actualites.xml",
@@ -220,7 +220,7 @@ Format : paragraphe concis, sans titre. Ne cite PAS textuellement la source, ref
 
       inserted++;
     } catch (err) {
-      // Log but continue — non-critical
+      // Log but continue, non-critical
       console.warn(`[official-sources] Skipped "${item.title}": ${err instanceof Error ? err.message : String(err)}`);
     }
   }

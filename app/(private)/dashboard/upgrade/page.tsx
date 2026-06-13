@@ -43,7 +43,7 @@ const PLANS = [
     tier: "elite",
     features: [
       "Tout le plan Premium",
-      "BYOK — Vos propres clés API",
+      "BYOK, Vos propres clés API",
       "Génération vidéo IA 4K",
       "Avatars parlants",
       "200 crédits IA / mois",

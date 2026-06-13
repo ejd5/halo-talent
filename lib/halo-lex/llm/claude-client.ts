@@ -1,4 +1,4 @@
-// ─── Halo Lex — Claude Client ─────────────────────────────────
+// ─── WTF Lex, Claude Client ─────────────────────────────────
 // Wrapper autour de l'API Anthropic Claude Opus 4.7.
 
 import type { LexMessage } from "../types";

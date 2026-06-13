@@ -1,4 +1,4 @@
-// ─── Bouclier Légal — Types ──────────────────────────────
+// ─── Bouclier Légal, Types ──────────────────────────────
 
 export type ClauseCategory =
   | "account_control"

@@ -34,7 +34,7 @@ const deadlines = [
 ];
 
 const suggestions = [
-  "Relancer Sarah K. — sa candidature est en attente depuis 6 jours.",
+  "Relancer Sarah K., sa candidature est en attente depuis 6 jours.",
   "Le taux d'engagement de Marc T. est en hausse de 18% ce mois. Envisager une augmentation de commission ?",
   "Le contrat d'Emma V. expire dans 14 jours. Planifier un entretien de renouvellement.",
   "Les revenus OnlyFans sont en hausse de 34% ce trimestre. Envisager un recrutement spécialisé.",

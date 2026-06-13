@@ -90,7 +90,7 @@ export async function GET(request: NextRequest) {
             digestText = top3
               .map(
                 (t, i) =>
-                  `${i + 1}. **${t.title}** — Score: ${t.score}/100, Momentum: ${t.momentum}%\n   Suggestion : Crée un contenu autour de "${t.query}"`,
+                  `${i + 1}. **${t.title}**, Score: ${t.score}/100, Momentum: ${t.momentum}%\n   Suggestion : Crée un contenu autour de "${t.query}"`,
               )
               .join("\n\n") + tiktokSection;
           }
@@ -98,7 +98,7 @@ export async function GET(request: NextRequest) {
           digestText = top3
             .map(
               (t, i) =>
-                `${i + 1}. **${t.title}** — Score: ${t.score}/100, Momentum: ${t.momentum}%`,
+                `${i + 1}. **${t.title}**, Score: ${t.score}/100, Momentum: ${t.momentum}%`,
             )
             .join("\n\n") + tiktokSection;
         }

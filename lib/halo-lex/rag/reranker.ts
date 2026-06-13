@@ -1,4 +1,4 @@
-// ─── Halo Lex — Reranker ──────────────────────────────────────
+// ─── WTF Lex, Reranker ──────────────────────────────────────
 // Re-ranking des résultats RAG par pertinence + complexité.
 
 import type { RagResult, RerankedResult } from "./types";

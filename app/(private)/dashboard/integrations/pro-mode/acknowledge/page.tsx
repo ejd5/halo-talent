@@ -76,7 +76,7 @@ export default function ProModeAcknowledgePage() {
             className="text-sm tracking-wider uppercase"
             style={{ color: "var(--accent)" }}
           >
-            Avant d&apos;accéder à cette zone
+            Avant d'accéder à cette zone
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function ProModeAcknowledgePage() {
               <div className="space-y-3 text-xs leading-relaxed">
                 <p style={{ color: "rgba(245,240,235,0.7)" }}>
                   Les outils présentés dans cette section sont des solutions
-                  tierces que vous pouvez choisir d&apos;utiliser de manière{" "}
+                  tierces que vous pouvez choisir d'utiliser de manière{" "}
                   <strong style={{ color: "var(--text-primary)" }}>
                     INDÉPENDANTE
                   </strong>{" "}
@@ -119,11 +119,11 @@ export default function ProModeAcknowledgePage() {
                   <strong style={{ color: "var(--text-primary)" }}>
                     NE GARANTIT PAS
                   </strong>{" "}
-                  leur conformité avec les conditions d&apos;utilisation des
+                  leur conformité avec les conditions d'utilisation des
                   plateformes (Meta, TikTok, OnlyFans, MYM, etc.).
                 </p>
                 <p style={{ color: "rgba(245,240,235,0.7)" }}>
-                  L&apos;utilisation de ces outils est sous{" "}
+                  L'utilisation de ces outils est sous{" "}
                   <strong style={{ color: "var(--text-primary)" }}>
                     VOTRE RESPONSABILITÉ
                   </strong>{" "}
@@ -136,7 +136,7 @@ export default function ProModeAcknowledgePage() {
                     Garantie Zero Ban
                   </strong>{" "}
                   <strong style={{ color: "var(--danger)" }}>NE COUVRE PAS</strong>{" "}
-                  les incidents résultant de l&apos;utilisation de ces outils
+                  les incidents résultant de l'utilisation de ces outils
                   tiers.
                 </p>
                 <div
@@ -149,7 +149,7 @@ export default function ProModeAcknowledgePage() {
                 >
                   <strong style={{ color: "var(--accent)" }}>Alternative légale :</strong>{" "}
                   Si vous souhaitez gérer plusieurs comptes de manière entièrement conforme,
-                  nous vous recommandons fortement d&apos;utiliser plutôt notre
+                  nous vous recommandons fortement d'utiliser plutôt notre
                   fonctionnalité{" "}
                   <Link
                     href="/dashboard/integrations"
@@ -241,7 +241,7 @@ export default function ProModeAcknowledgePage() {
             }}
           >
             <ArrowLeft size={12} />
-            Découvrir Co-management d&apos;abord
+            Découvrir Co-management d'abord
           </Link>
         </div>
 
@@ -250,7 +250,7 @@ export default function ProModeAcknowledgePage() {
           className="text-[9px] text-center mt-8"
           style={{ color: "rgba(245,240,235,0.15)" }}
         >
-          Version v1.0 — Dernière mise à jour : juin 2026
+          Version v1.0, Dernière mise à jour : juin 2026
         </p>
       </div>
     </div>

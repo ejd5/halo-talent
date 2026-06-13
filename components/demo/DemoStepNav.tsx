@@ -70,7 +70,7 @@ export function DemoStepNav({
       <div className="text-center mt-2">
         <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.3)" }}>
           {t("demo_new.step.count", l).replace("{n}", String(currentStep))}
-          {" — "}
+          {", "}
           <span style={{ color: "rgba(255,255,255,0.6)" }}>
             {currentStep >= 1 && currentStep <= DEMO_STEPS.length
               ? t(DEMO_STEPS[currentStep - 1].titleKey, l)

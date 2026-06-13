@@ -307,7 +307,7 @@ export function FanIntelligenceTable({
                     {/* 30d spend */}
                     <td className="px-3 py-2.5">
                       <span style={{ color: fan.spendLast30d > 0 ? "var(--success)" : "rgba(255,255,255,0.2)" }}>
-                        {fan.spendLast30d > 0 ? formatCurrency(fan.spendLast30d) : "—"}
+                        {fan.spendLast30d > 0 ? formatCurrency(fan.spendLast30d) : ", "}
                       </span>
                     </td>
 

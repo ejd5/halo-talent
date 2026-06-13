@@ -6,7 +6,7 @@ async function sendTelegramAlert(creatorId: string, message: string) {
   try {
     const { createClient } = await import("@/lib/supabase/server");
     const supabase = await createClient();
-    // Log alert — Telegram integration would go here
+    // Log alert, Telegram integration would go here
     await supabase.from("dm_flags").insert({
       creator_id: creatorId,
       dm_id: "alert",
@@ -112,11 +112,11 @@ export const categorizeMessage: Tool = {
     } else if (content.includes("menu") || content.includes("porno") || content.includes("sex") || content.includes("nude") || content.includes("hard")) {
       category = "suspicious";
       priority = 80;
-      reasons.push("Contenu explicite demandé — potentiellement suspicieux");
+      reasons.push("Contenu explicite demandé, potentiellement suspicieux");
     } else if (content.includes("@") || content.includes("http") || content.includes("link") || content.includes("clique")) {
       category = "suspicious";
       priority = 90;
-      reasons.push("Lien externe détecté — potentiel spam");
+      reasons.push("Lien externe détecté, potentiel spam");
     }
 
     return {
@@ -212,7 +212,7 @@ Retourne UNIQUEMENT le texte du draft, sans introduction ni commentaire.`,
       draft_content: draftText,
       creator_name: creatorName,
       message: "Brouillon créé. Le créateur doit le valider avant envoi.",
-      legal_notice: "Suggestion IA — À valider par " + creatorName,
+      legal_notice: "Suggestion IA, À valider par " + creatorName,
     };
   },
 };
@@ -419,8 +419,8 @@ export const draftDMResponse: Tool = {
     return {
       draft: response.content.filter((c) => c.type === "text").map((c) => c.text).join(""),
       platform: input.platform,
-      note: "Brouillon généré — à valider avant envoi",
-      legal_notice: "Suggestion IA — À valider par le créateur",
+      note: "Brouillon généré, à valider avant envoi",
+      legal_notice: "Suggestion IA, À valider par le créateur",
     };
   },
 };

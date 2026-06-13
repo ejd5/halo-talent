@@ -103,7 +103,7 @@ const STATUS_STYLES: Record<string, { label: string; color: string; bg: string }
 };
 
 /* ═══════════════════════════════════════════════════════════
-   PAGE — Funnel Editor
+   PAGE, Funnel Editor
    ═══════════════════════════════════════════════════════════ */
 export default function FunnelEditorPage({ params }: { params: Promise<{ id: string }> }) {
   const router = useRouter();

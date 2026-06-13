@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
         ? JSON.stringify(dna.voice_profile)
         : null;
     } catch {
-      // Graceful fallback — continue without DNA context
+      // Graceful fallback, continue without DNA context
     }
 
     const result: ToneCheckResult = checkTone(message.trim(), dnaContext);

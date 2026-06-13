@@ -131,7 +131,7 @@ export async function POST(
       success: true,
       draftId,
       status: "approved",
-      message: "Brouillon approuvé. Prêt à copier — aucun envoi automatique n'a été effectué.",
+      message: "Brouillon approuvé. Prêt à copier, aucun envoi automatique n'a été effectué.",
     });
   } catch (error) {
     console.error("[Chat AI] Draft approve POST error:", error);

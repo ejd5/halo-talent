@@ -121,7 +121,7 @@ export default function TikTokCreativePage() {
         : null;
 
       if (!endpoint) {
-        // Top Creators — placeholder
+        // Top Creators, placeholder
         setLoading(false);
         return;
       }
@@ -171,7 +171,7 @@ export default function TikTokCreativePage() {
             TikTok Creative Lab
           </h1>
           <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
-            Hashtags, sons et publicités tendances — Creative Center via Apify
+            Hashtags, sons et publicités tendances, Creative Center via Apify
           </p>
         </div>
         <FreshnessIndicator
@@ -308,7 +308,7 @@ export default function TikTokCreativePage() {
             <div className="flex flex-col items-center py-16 text-center">
               <Users size={32} style={{ color: "rgba(245,240,235,0.06)" }} />
               <p className="text-sm mt-3" style={{ color: "rgba(245,240,235,0.15)" }}>
-                Top Creators — bientôt disponible
+                Top Creators, bientôt disponible
               </p>
               <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.1)" }}>
                 Cette fonctionnalité arrivera dans une prochaine version

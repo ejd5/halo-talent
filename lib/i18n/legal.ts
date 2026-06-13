@@ -1,4 +1,4 @@
-// ─── Bouclier Légal — i18n translations (FR, EN, ES, PT, DE, IT) ───
+// ─── Bouclier Légal, i18n translations (FR, EN, ES, PT, DE, IT) ───
 
 export type Locale = "fr" | "en" | "es" | "pt" | "de" | "it";
 
@@ -9,12 +9,12 @@ export const LOCALES: Locale[] = ["fr", "en", "es", "pt", "de", "it"];
 const translations: Record<string, Record<Locale, string>> = {
   // ── Page title / SEO ──
   "seo.title": {
-    fr: "Contrat d'agence abusif ? Analysez gratuitement vos droits | Halo Talent",
-    en: "Abusive agency contract? Analyze your rights for free | Halo Talent",
-    es: "¿Contrato de agencia abusivo? Analiza tus derechos gratis | Halo Talent",
-    pt: "Contrato de agência abusivo? Analise seus direitos grátis | Halo Talent",
-    de: "Missbräuchlicher Agenturvertrag? Analysieren Sie Ihre Rechte kostenlos | Halo Talent",
-    it: "Contratto d'agenzia abusivo? Analizza i tuoi diritti gratuitamente | Halo Talent",
+    fr: "Contrat d'agence abusif ? Analysez gratuitement vos droits | Where Talent Forms",
+    en: "Abusive agency contract? Analyze your rights for free | Where Talent Forms",
+    es: "¿Contrato de agencia abusivo? Analiza tus derechos gratis | Where Talent Forms",
+    pt: "Contrato de agência abusivo? Analise seus direitos grátis | Where Talent Forms",
+    de: "Missbräuchlicher Agenturvertrag? Analysieren Sie Ihre Rechte kostenlos | Where Talent Forms",
+    it: "Contratto d'agenzia abusivo? Analizza i tuoi diritti gratuitamente | Where Talent Forms",
   },
   "seo.description": {
     fr: "Outil gratuit d'analyse de contrat pour créateurs OnlyFans, Fansly, MYM. Identifiez les clauses abusives et générez une lettre de mise en demeure.",
@@ -200,12 +200,12 @@ const translations: Record<string, Record<Locale, string>> = {
     it: "Descrivi una clausola che sembra abusiva ma non è elencata sopra...",
   },
   "form.clauses.agency_label": {
-    fr: "Nom de l'agence (optionnel — pour statistiques)",
-    en: "Agency name (optional — for statistics)",
-    es: "Nombre de la agencia (opcional — para estadísticas)",
-    pt: "Nome da agência (opcional — para estatísticas)",
-    de: "Agenturname (optional — für Statistiken)",
-    it: "Nome dell'agenzia (opzionale — per statistiche)",
+    fr: "Nom de l'agence (optionnel, pour statistiques)",
+    en: "Agency name (optional, for statistics)",
+    es: "Nombre de la agencia (opcional, para estadísticas)",
+    pt: "Nome da agência (opcional, para estatísticas)",
+    de: "Agenturname (optional, für Statistiken)",
+    it: "Nome dell'agenzia (opzionale, per statistiche)",
   },
   "form.clauses.agency_placeholder": {
     fr: "Ex: MyAgency Management",
@@ -420,12 +420,12 @@ const translations: Record<string, Record<Locale, string>> = {
 
   // ── Bottom CTA (result page) ──
   "result.bottom_cta.text": {
-    fr: "Vous méritez mieux. Chez Halo Talent, la commission baisse quand vous grandissez, le contrat est téléchargeable avant signature, et la sortie se fait en 30 jours.",
-    en: "You deserve better. At Halo Talent, commission decreases as you grow, the contract is downloadable before signing, and you can leave in 30 days.",
-    es: "Te mereces algo mejor. En Halo Talent, la comisión baja cuando creces, el contrato se descarga antes de firmar y puedes salir en 30 días.",
-    pt: "Você merece mais. Na Halo Talent, a comissão diminui quando você cresce, o contrato é baixável antes de assinar e a saída é em 30 dias.",
-    de: "Sie verdienen etwas Besseres. Bei Halo Talent sinkt die Provision, wenn Sie wachsen, der Vertrag ist vor Unterzeichnung herunterladbar und der Austritt erfolgt in 30 Tagen.",
-    it: "Meriti di meglio. Da Halo Talent, la commissione diminuisce quando cresci, il contratto è scaricabile prima della firma e l'uscita avviene in 30 giorni.",
+    fr: "Vous méritez mieux. Chez Where Talent Forms, la commission baisse quand vous grandissez, le contrat est téléchargeable avant signature, et la sortie se fait en 30 jours.",
+    en: "You deserve better. At Where Talent Forms, commission decreases as you grow, the contract is downloadable before signing, and you can leave in 30 days.",
+    es: "Te mereces algo mejor. En Where Talent Forms, la comisión baja cuando creces, el contrato se descarga antes de firmar y puedes salir en 30 días.",
+    pt: "Você merece mais. Na Where Talent Forms, a comissão diminui quando você cresce, o contrato é baixável antes de assinar e a saída é em 30 dias.",
+    de: "Sie verdienen etwas Besseres. Bei Where Talent Forms sinkt die Provision, wenn Sie wachsen, der Vertrag ist vor Unterzeichnung herunterladbar und der Austritt erfolgt in 30 Tagen.",
+    it: "Meriti di meglio. Da Where Talent Forms, la commissione diminuisce quando cresci, il contratto è scaricabile prima della firma e l'uscita avviene in 30 giorni.",
   },
   "result.bottom_cta.button": {
     fr: "DÉCOUVRIR NOTRE APPROCHE",
@@ -942,12 +942,12 @@ const translations: Record<string, Record<Locale, string>> = {
 
   // ── Contract-type page ──
   "contrat_type.title": {
-    fr: "Contrat type Halo Talent",
-    en: "Halo Talent Model Contract",
-    es: "Contrato tipo Halo Talent",
-    pt: "Contrato modelo Halo Talent",
-    de: "Halo Talent Mustervertrag",
-    it: "Contratto tipo Halo Talent",
+    fr: "Contrat type Where Talent Forms",
+    en: "Where Talent Forms Model Contract",
+    es: "Contrato tipo Where Talent Forms",
+    pt: "Contrato modelo Where Talent Forms",
+    de: "Where Talent Forms Mustervertrag",
+    it: "Contratto tipo Where Talent Forms",
   },
 
   // ── 404 / error ──

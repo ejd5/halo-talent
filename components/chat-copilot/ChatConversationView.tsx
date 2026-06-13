@@ -248,7 +248,7 @@ export function ChatConversationView({
       {/* Disclaimer */}
       <div className="px-3 py-1 text-center">
         <span className="text-[8px]" style={{ color: "var(--text-tertiary)" }}>
-          Suggestions IA — vérifiez avant d'envoyer
+          Suggestions IA, vérifiez avant d'envoyer
         </span>
       </div>
     </div>

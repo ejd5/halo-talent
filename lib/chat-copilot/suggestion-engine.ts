@@ -1,4 +1,4 @@
-// ─── Suggestion Engine — builds AI prompts and parses responses ──
+// ─── Suggestion Engine, builds AI prompts and parses responses ──
 // For generating QuickReplies, SuggestedActions, and ContextualAlerts
 
 import type {
@@ -49,10 +49,10 @@ export function buildSuggestionPrompt(
     `═══ CONTEXTE TEMPOREL ═══`,
     `Jour: ${day}`,
     `Heure: ${hour}h`,
-    hour >= 7 && hour < 12 ? "Matinée — ton frais et énergique" : "",
-    hour >= 12 && hour < 18 ? "Après-midi — ton décontracté" : "",
-    hour >= 18 && hour < 22 ? "Soirée — ton plus intime et cozy" : "",
-    hour >= 22 || hour < 7 ? "Nuit — ton doux et discret" : "",
+    hour >= 7 && hour < 12 ? "Matinée, ton frais et énergique" : "",
+    hour >= 12 && hour < 18 ? "Après-midi, ton décontracté" : "",
+    hour >= 18 && hour < 22 ? "Soirée, ton plus intime et cozy" : "",
+    hour >= 22 || hour < 7 ? "Nuit, ton doux et discret" : "",
     "",
     "═══ DERNIERS MESSAGES ═══",
     recentMessages || "Aucun message récent",
@@ -60,7 +60,7 @@ export function buildSuggestionPrompt(
     "═══ INSTRUCTIONS ═══",
     "Génère UNIQUEMENT un objet JSON valide (pas de markdown, pas de texte avant/après) avec ces 3 tableaux :",
     "",
-    "1. quickReplies — 3 réponses possibles que le créateur pourrait envoyer AU FAN.",
+    "1. quickReplies, 3 réponses possibles que le créateur pourrait envoyer AU FAN.",
     "   - Chaque réponse doit être DANS LE STYLE DU CRÉATEUR (naturelle, comme un message texte)",
     "   - Adaptée à la personnalité du fan et au contexte de la conversation",
     "   - Si le fan est flirty → réponses flirt mais PAS trop explicites",
@@ -69,15 +69,15 @@ export function buildSuggestionPrompt(
     "   - Ne JAMAIS promettre de contenu gratuit non sollicité",
     "   - Format: { \"quickReplies\": [{ \"id\": \"qr-1\", \"text\": \"...\", \"reasoning\": \"pourquoi cette réponse\" }] }",
     "",
-    "2. suggestedActions — 0-2 actions pertinentes pour ce fan (vide si aucune action pertinente) :",
-    "   - ppv: \"Proposer un PPV\" — si le fan achète régulièrement, suggérer un contenu avec prix adapté",
-    "   - re_engage: \"Relancer\" — si fan inactif >5 jours, message de relance",
-    "   - free_preview: \"Offrir un aperçu\" — si fan n'a jamais acheté, teaser gratuit",
-    "   - upsell: \"Upsell\" — si fan achète des petits PPV, suggérer contenu plus haut de gamme",
-    "   - churn_warning: \"Attention churn\" — si score churn >50 ou intention de résiliation",
+    "2. suggestedActions, 0-2 actions pertinentes pour ce fan (vide si aucune action pertinente) :",
+    "   - ppv: \"Proposer un PPV\", si le fan achète régulièrement, suggérer un contenu avec prix adapté",
+    "   - re_engage: \"Relancer\", si fan inactif >5 jours, message de relance",
+    "   - free_preview: \"Offrir un aperçu\", si fan n'a jamais acheté, teaser gratuit",
+    "   - upsell: \"Upsell\", si fan achète des petits PPV, suggérer contenu plus haut de gamme",
+    "   - churn_warning: \"Attention churn\", si score churn >50 ou intention de résiliation",
     "   - Format: { \"suggestedActions\": [{ \"id\": \"act-1\", \"type\": \"ppv\", \"icon\": \"💰\", \"title\": \"Proposer un PPV\", \"description\": \"...\", \"draftedMessage\": \"message pré-rédigé...\" }] }",
     "",
-    "3. alerts — 0-3 alertes contextuelles pertinentes :",
+    "3. alerts, 0-3 alertes contextuelles pertinentes :",
     "   - vip: Fan à fort potentiel",
     "   - churn: Risque de perte",
     "   - timing: Heure optimale pour certains types de contenu",
@@ -148,7 +148,7 @@ export function getMockSuggestions(): SuggestionSet {
         type: "timing",
         level: "info",
         message:
-          "Ce fan est plus actif en soirée (19h-22h) — c'est le bon moment pour lui envoyer du contenu exclusif",
+          "Ce fan est plus actif en soirée (19h-22h), c'est le bon moment pour lui envoyer du contenu exclusif",
       },
     ],
   };
@@ -204,7 +204,7 @@ export function getContextualMockSuggestions(
     ];
     suggestions.alerts.push({
       id: "alert-1", type: "vip", level: "success",
-      message: `${fanBrain.custom_name || "Ce fan"} a dépensé plus de ${fanBrain.ltv_predicted}€ — VIP à soigner absolument`,
+      message: `${fanBrain.custom_name || "Ce fan"} a dépensé plus de ${fanBrain.ltv_predicted}€, VIP à soigner absolument`,
     });
   } else if (segment === "churning" && churnScore > 50) {
     suggestions.suggestedActions = [
@@ -218,7 +218,7 @@ export function getContextualMockSuggestions(
     if (churnScore > 70) {
       suggestions.alerts.push({
         id: "alert-2", type: "churn", level: "warning",
-        message: `Dernière activité il y a ${daysSinceMessage} jours — risque de churn élevé (${churnScore}%)`,
+        message: `Dernière activité il y a ${daysSinceMessage} jours, risque de churn élevé (${churnScore}%)`,
         detail: "Prioriser le réengagement avec un message personnalisé et une offre douce.",
       });
     }
@@ -238,7 +238,7 @@ export function getContextualMockSuggestions(
   if (hour >= 19 && hour <= 22) {
     suggestions.alerts.push({
       id: "alert-time", type: "timing", level: "info",
-      message: "C'est le bon moment pour proposer du contenu exclusif — vos fans sont les plus actifs en soirée",
+      message: "C'est le bon moment pour proposer du contenu exclusif, vos fans sont les plus actifs en soirée",
     });
   }
 
@@ -246,7 +246,7 @@ export function getContextualMockSuggestions(
   if (sentiment === "declining" && churnScore > 50) {
     suggestions.alerts.push({
       id: "alert-taboo", type: "taboo", level: "info",
-      message: "Évite les messages trop pushy avec ce fan — il a besoin d'espace et de douceur",
+      message: "Évite les messages trop pushy avec ce fan, il a besoin d'espace et de douceur",
     });
   }
 

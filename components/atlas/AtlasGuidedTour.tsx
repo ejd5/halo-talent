@@ -28,7 +28,7 @@ export function AtlasGuidedTour({ autoStart = false }: { autoStart?: boolean }) 
             popover: {
               title: "Bienvenue dans Atlas",
               description:
-                "Faisons un tour rapide de l&apos;interface Atlas pour que vous repériez tout du premier coup d&apos;œil.",
+                "Faisons un tour rapide de l'interface Atlas pour que vous repériez tout du premier coup d'œil.",
               side: "over",
               showButtons: ["next", "close"],
             },
@@ -47,7 +47,7 @@ export function AtlasGuidedTour({ autoStart = false }: { autoStart?: boolean }) 
             popover: {
               title: "Inbox unifié",
               description:
-                "Tous vos messages (email, SMS, DM) arrivent ici. Répondez sans changer d&apos;onglet. Les brouillons IA vous proposent des réponses.",
+                "Tous vos messages (email, SMS, DM) arrivent ici. Répondez sans changer d'onglet. Les brouillons IA vous proposent des réponses.",
               side: "over",
             },
           },
@@ -56,7 +56,7 @@ export function AtlasGuidedTour({ autoStart = false }: { autoStart?: boolean }) 
             popover: {
               title: "Campagnes multi-canaux",
               description:
-                "Créez des campagnes email, SMS et push notifications en quelques clics. Atlas suit les taux d&apos;ouverture et de conversion.",
+                "Créez des campagnes email, SMS et push notifications en quelques clics. Atlas suit les taux d'ouverture et de conversion.",
               side: "over",
             },
           },
@@ -65,7 +65,7 @@ export function AtlasGuidedTour({ autoStart = false }: { autoStart?: boolean }) 
             popover: {
               title: "Funnels automatisés",
               description:
-                "Des tunnels de conversion prêts à l&apos;emploi. Welcome sequence, lead capture, ventes — tout est automatisé.",
+                "Des tunnels de conversion prêts à l'emploi. Welcome sequence, lead capture, ventes, tout est automatisé.",
               side: "over",
             },
           },
@@ -83,7 +83,7 @@ export function AtlasGuidedTour({ autoStart = false }: { autoStart?: boolean }) 
             popover: {
               title: "Analytics & ROI",
               description:
-                "Mesurez le ROI de chaque action Atlas : campagnes, funnels, règles. Visualisez l&apos;attribution, les cohortes, et les tendances.",
+                "Mesurez le ROI de chaque action Atlas : campagnes, funnels, règles. Visualisez l'attribution, les cohortes, et les tendances.",
               side: "over",
             },
           },
@@ -101,7 +101,7 @@ export function AtlasGuidedTour({ autoStart = false }: { autoStart?: boolean }) 
             popover: {
               title: "Raccourcis clavier",
               description:
-                "Cmd+A pour ouvrir l&apos;Atlas Launcher. Cmd+M pour l&apos;Inbox. Cmd+F pour chercher un fan. Cmd+N pour nouvelle campagne.",
+                "Cmd+A pour ouvrir l'Atlas Launcher. Cmd+M pour l'Inbox. Cmd+F pour chercher un fan. Cmd+N pour nouvelle campagne.",
               side: "over",
               showButtons: ["close"],
             },
@@ -134,7 +134,7 @@ export function AtlasTourButton() {
           element: "body",
           popover: {
             title: "Tour guidé Atlas",
-            description: "Découvrez les fonctionnalités principales d&apos;Atlas en un clin d&apos;œil.",
+            description: "Découvrez les fonctionnalités principales d'Atlas en un clin d'œil.",
             side: "over",
             showButtons: ["next", "close"],
           },
@@ -166,7 +166,7 @@ export function AtlasTourButton() {
           {
             element: "body",
             popover: {
-              title: "Règles d&apos;automatisation",
+              title: "Règles d'automatisation",
               description: "Automatisez vos actions CRM avec des règles conditionnelles puissantes.",
               side: "over",
             },
@@ -175,7 +175,7 @@ export function AtlasTourButton() {
             element: "body",
             popover: {
               title: "Analytics & ROI",
-              description: "Suivez vos performances, le ROI de chaque action, et l&apos;engagement de vos fans.",
+              description: "Suivez vos performances, le ROI de chaque action, et l'engagement de vos fans.",
               side: "over",
               showButtons: ["close"],
             },

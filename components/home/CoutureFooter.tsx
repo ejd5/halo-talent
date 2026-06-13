@@ -101,7 +101,7 @@ export function CoutureFooter() {
 
         {/* Links grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-12 mb-16"
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
@@ -119,7 +119,30 @@ export function CoutureFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[14px] transition-colors duration-300"
+                    className="text-[14px] transition-colors duration-300 hover:opacity-70"
+                    style={{ color: "var(--pierre)" }}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Ressources */}
+          <div>
+            <span
+              className="block mb-6 text-[10px] uppercase tracking-[0.22em]"
+              style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
+            >
+              Ressources
+            </span>
+            <ul style={{ listStyle: "none" }} className="space-y-3">
+              {FOOTER_LINKS.ressources.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="text-[14px] transition-colors duration-300 hover:opacity-70"
                     style={{ color: "var(--pierre)" }}
                   >
                     {link.label}
@@ -142,7 +165,7 @@ export function CoutureFooter() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[14px] transition-colors duration-300"
+                    className="text-[14px] transition-colors duration-300 hover:opacity-70"
                     style={{ color: "var(--pierre)" }}
                   >
                     {link.label}
@@ -198,7 +221,7 @@ export function CoutureFooter() {
             )}
             {nlStatus === "error" && (
               <p className="mt-2 text-[11px]" style={{ color: "var(--terre)" }}>
-                Erreur — réessayez.
+                Erreur, réessayez.
               </p>
             )}
           </div>
@@ -219,7 +242,7 @@ export function CoutureFooter() {
           transition={{ duration: 0.8, delay: 0.3 }}
         >
           <span>
-            &copy; {new Date().getFullYear()} Halo Talent. Tous droits réservés.
+            &copy; {new Date().getFullYear()} Where Talent Forms. Tous droits réservés.
           </span>
           <span>
             PARIS · NEW YORK · MILAN · TOKYO

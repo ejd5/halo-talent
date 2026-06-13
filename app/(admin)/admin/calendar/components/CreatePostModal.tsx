@@ -110,7 +110,7 @@ export function CreatePostModal({
                   {i + 1}
                 </span>
                 <span className={i <= step ? "opacity-70" : "opacity-20"}>{s}</span>
-                {i < STEPS.length - 1 && <span className="opacity-10 mx-1">—</span>}
+                {i < STEPS.length - 1 && <span className="opacity-10 mx-1">, </span>}
               </div>
             ))}
           </div>
@@ -251,7 +251,7 @@ export function CreatePostModal({
                 </div>
                 <p className="text-[11px] opacity-40 italic">
                   💡 Les meilleurs créneaux de publication varient selon la plateforme.
-                  Consultez l&apos;onglet Insights pour des recommandations.
+                  Consultez l'onglet Insights pour des recommandations.
                 </p>
               </div>
             )}

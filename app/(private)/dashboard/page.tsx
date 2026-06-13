@@ -290,7 +290,7 @@ export default function DashboardPage() {
                       Définissez votre ADN créatif
                     </h2>
                     <p className="text-sm mt-1.5 font-medium" style={{ color: "rgba(245,240,235,0.7)" }}>
-                      8 sections pour révéler votre identité, votre voix, votre style — et débloquer votre Studio personnalisé avec vos 6 agents IA.
+                      8 sections pour révéler votre identité, votre voix, votre style, et débloquer votre Studio personnalisé avec vos 6 agents IA.
                     </p>
                     <div className="flex items-center gap-4 mt-3 text-xs font-medium">
                       <span className="flex items-center gap-1" style={{ color: "var(--accent)" }}>Identité</span>
@@ -333,7 +333,7 @@ export default function DashboardPage() {
                       Atlas CRM
                     </h2>
                     <p className="text-sm mt-1.5 font-medium" style={{ color: "var(--text-primary)" }}>
-                      Gérez votre relation fan — scoring intelligent, campagnes automatisées, inbox unifié, funnels de conversion et modération IA.
+                      Gérez votre relation fan, scoring intelligent, campagnes automatisées, inbox unifié, funnels de conversion et modération IA.
                     </p>
                     <div className="flex items-center gap-4 mt-3 text-xs font-medium">
                       <span className="flex items-center gap-1" style={{ color: "var(--success)" }}>● Scoring & Tiers</span>

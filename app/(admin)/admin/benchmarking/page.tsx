@@ -352,7 +352,7 @@ function CohortsTab() {
   return (
     <div className="space-y-4">
       <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.02)", border: "1px solid rgba(245,240,235,0.04)" }}>
-        <p className="text-[9px] uppercase tracking-wider mb-3" style={{ color: "rgba(245,240,235,0.2)" }}>Retention curves — revenu moyen par créateur</p>
+        <p className="text-[9px] uppercase tracking-wider mb-3" style={{ color: "rgba(245,240,235,0.2)" }}>Retention curves, revenu moyen par créateur</p>
         <div className="space-y-3">
           {cohorts.slice(0, 6).map((c, i) => (
             <div key={c.cohort}>
@@ -463,7 +463,7 @@ function InsightsTab() {
           <div className="py-6 text-center">
             <Lightbulb size={24} style={{ color: "rgba(245,240,235,0.06)" }} />
             <p className="text-xs mt-2" style={{ color: "rgba(245,240,235,0.15)" }}>
-              L&apos;analyse hebdomadaire sera disponible après le premier cron
+              L'analyse hebdomadaire sera disponible après le premier cron
             </p>
             <p className="text-[9px] mt-1" style={{ color: "rgba(245,240,235,0.1)" }}>
               Configure CRON_SECRET et active le cron /api/cron/benchmarking/weekly-insights

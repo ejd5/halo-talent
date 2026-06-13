@@ -481,7 +481,7 @@ function NewSegmentPageInner() {
                 color: type === "smart" ? "var(--success)" : "rgba(245,240,235,0.3)",
               }}
             >
-              Auto (Smart) — Recalcul temps réel
+              Auto (Smart), Recalcul temps réel
             </button>
             <button
               onClick={() => setType("static")}
@@ -492,7 +492,7 @@ function NewSegmentPageInner() {
                 color: type === "static" ? "var(--accent)" : "rgba(245,240,235,0.3)",
               }}
             >
-              Manuel (Static) — Recalcul sur demande
+              Manuel (Static), Recalcul sur demande
             </button>
           </div>
         </div>

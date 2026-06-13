@@ -136,7 +136,7 @@ export async function POST(request: NextRequest) {
       const systemPrompt = `Tu es un assistant juridique spécialisé dans la rédaction de lettres et documents légaux pour la protection des créateurs de contenu.
 Tu rédiges des documents professionnels, juridiquement précis, et prêts à être utilisés.
 Utilise un ton ${letter_type === "platform_support" || letter_type === "account_recovery" ? "courtois et factuel" : "formel et ferme"}.
-N'invente pas d'articles de loi — utilise uniquement les références fournies.`;
+N'invente pas d'articles de loi, utilise uniquement les références fournies.`;
 
       const response = await anthropic.messages.create({
         model: "claude-sonnet-4-20250514",
@@ -243,9 +243,9 @@ Fait à [VILLE], le ${date}
     case "platform_support":
       return (
         base +
-        `**Demande d'assistance — Récupération de compte**
+        `**Demande d'assistance, Récupération de compte**
 
-Objet : Demande de restitution d'accès — Compte créateur ${platform}
+Objet : Demande de restitution d'accès, Compte créateur ${platform}
 
 À l'équipe de support ${platform},
 

@@ -46,27 +46,27 @@ export function AlertesJuridiquesTab({ locale }: { locale: string }) {
             {
               icon: FileText,
               title: "CGU OnlyFans 2026",
-              desc: "Mise à jour des conditions générales d'utilisation — section propriété du contenu",
+              desc: "Mise à jour des conditions générales d'utilisation, section propriété du contenu",
               tag: "CGU",
               color: "var(--accent)",
             },
             {
               icon: Scale,
-              title: "Loi française — Droits des créateurs",
+              title: "Loi française, Droits des créateurs",
               desc: "Proposition de loi visant à renforcer la protection des travailleurs de plateformes",
               tag: "Législation",
               color: "#3b82f6",
             },
             {
               icon: AlertTriangle,
-              title: "Décision de justice — Clause de non-concurrence",
+              title: "Décision de justice, Clause de non-concurrence",
               desc: "Tribunal de commerce : clause de non-concurrence sans compensation annulée",
               tag: "Jurisprudence",
               color: "#eab308",
             },
             {
               icon: BookOpen,
-              title: "Règlement européen — Transparence algorithmique",
+              title: "Règlement européen, Transparence algorithmique",
               desc: "Nouvelles obligations pour les plateformes concernant la recommandation de contenu",
               tag: "UE",
               color: "#22c55e",
@@ -137,7 +137,7 @@ export function AlertesJuridiquesTab({ locale }: { locale: string }) {
             {u.details?.clause_label && (
               <p className="text-xs mt-1" style={{ color: "var(--color-ink-secondary)" }}>
                 {u.details.clause_label}
-                {u.details.platform && <span className="opacity-60"> — {u.details.platform}</span>}
+                {u.details.platform && <span className="opacity-60">, {u.details.platform}</span>}
               </p>
             )}
             {u.details?.clause_description && (

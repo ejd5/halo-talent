@@ -31,7 +31,7 @@ export function TrackedLink({
       // fire-and-forget
       keepalive: true,
     }).catch(() => {
-      // silent — tracking must never break navigation
+      // silent, tracking must never break navigation
     });
   }, [eventName, href]);
 

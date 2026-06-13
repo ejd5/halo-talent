@@ -381,7 +381,7 @@ export default function GenerateTextPage() {
         {/* Brief */}
         <div>
           <label className="text-[10px] uppercase tracking-wider mb-1.5 block" style={{ color: "rgba(255,255,255,0.3)" }}>
-            Brief — décris ce que tu veux dire
+            Brief, décris ce que tu veux dire
           </label>
           <textarea
             value={brief}
@@ -488,7 +488,7 @@ export default function GenerateTextPage() {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
                   body: JSON.stringify({
-                    brief: `${brief} — reformulation de : "${v.text.slice(0, 100)}..."`,
+                    brief: `${brief}, reformulation de : "${v.text.slice(0, 100)}..."`,
                     type: contentType, platform, tone, length, count: 1,
                   }),
                 });

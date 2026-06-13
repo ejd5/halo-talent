@@ -80,7 +80,7 @@ export function RevokeModal({ coManagement, onClose, onRevoked }: RevokeModalPro
         <div className="flex items-center justify-between p-4 border-b" style={{ borderColor: "rgba(245,240,235,0.06)" }}>
           <div className="flex items-center gap-2">
             <AlertTriangle size={14} style={{ color: "var(--danger)" }} />
-            <span className="text-sm font-medium" style={{ color: "var(--danger)" }}>Révoquer l&apos;accès</span>
+            <span className="text-sm font-medium" style={{ color: "var(--danger)" }}>Révoquer l'accès</span>
           </div>
           <button onClick={onClose} className="transition-all hover:opacity-60">
             <X size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
@@ -127,7 +127,7 @@ export function RevokeModal({ coManagement, onClose, onRevoked }: RevokeModalPro
               className="mt-0.5 accent-[var(--danger)] shrink-0"
             />
             <span className="text-[10px]" style={{ color: confirmed ? "var(--text-primary)" : "rgba(245,240,235,0.3)" }}>
-              Je confirme avoir révoqué l&apos;accès sur la plateforme et je souhaite supprimer cette configuration
+              Je confirme avoir révoqué l'accès sur la plateforme et je souhaite supprimer cette configuration
             </span>
           </label>
 

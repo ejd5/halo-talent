@@ -1,12 +1,28 @@
-/* ─── Blog — Types ─── */
+/* ─── Blog, Types ─── */
 
-export type Category = "guides" | "juridique" | "outils" | "actualites";
+export type Category =
+  | "guides"
+  | "juridique"
+  | "outils"
+  | "actualites"
+  | "commissions"
+  | "ia-crm"
+  | "image-strategie"
+  | "protection"
+  | "departements"
+  | "guides-plateformes";
 
 export const CATEGORIES: { id: Category; label: string }[] = [
   { id: "guides", label: "Guides" },
   { id: "juridique", label: "Juridique" },
   { id: "outils", label: "Outils" },
   { id: "actualites", label: "Actualités" },
+  { id: "commissions", label: "Commissions" },
+  { id: "ia-crm", label: "IA & CRM" },
+  { id: "image-strategie", label: "Image & Stratégie" },
+  { id: "protection", label: "Protection" },
+  { id: "departements", label: "Départements" },
+  { id: "guides-plateformes", label: "Guides Plateformes" },
 ];
 
 export interface Article {

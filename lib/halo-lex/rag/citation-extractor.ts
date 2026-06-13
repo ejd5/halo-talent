@@ -1,4 +1,4 @@
-// ─── Halo Lex — Citation Extractor ────────────────────────────
+// ─── WTF Lex, Citation Extractor ────────────────────────────
 // Extrait les citations [Source: ...] du texte généré par Claude.
 
 import type { Citation } from "./types";
@@ -22,8 +22,8 @@ export function extractCitations(text: string): Citation[] {
     if (seen.has(full)) continue;
     seen.add(full);
 
-    // Parser le contenu : "Type, Référence — date"
-    const parts = full.split("—").map((p) => p.trim());
+    // Parser le contenu : "Type, Référence, date"
+    const parts = full.split(", ").map((p) => p.trim());
     const sourceName = parts[0] ?? full;
     const reference = parts.length > 1 ? parts[1] : extractReference(full);
 

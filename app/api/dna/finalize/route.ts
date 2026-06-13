@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     try {
       body = await request.json();
     } catch {
-      // No body or invalid JSON — use defaults
+      // No body or invalid JSON, use defaults
     }
     const creatorId = (body.creator_id as string) ?? user.id;
 

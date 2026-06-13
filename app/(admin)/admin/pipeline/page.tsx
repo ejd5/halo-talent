@@ -12,7 +12,7 @@ export default function PipelinePage() {
           </div>
         </div>
         <h1 className="text-lg font-semibold mb-2" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
-          Pipeline d&apos;acquisition
+          Pipeline d'acquisition
         </h1>
         <p className="text-xs leading-relaxed" style={{ color: "rgba(245,240,235,0.4)" }}>
           Cette page est en cours de construction. Elle affichera le pipeline complet

@@ -308,7 +308,7 @@ export default function CreditsPage() {
             style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }}
           >
             <KeyRound size={12} />
-            BYOK — Mes clés API
+            BYOK, Mes clés API
           </Link>
         </div>
 

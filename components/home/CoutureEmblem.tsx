@@ -1,4 +1,4 @@
-// CoutureEmblem — Original fleur de lys emblem, inline SVG.
+// CoutureEmblem, Original fleur de lys emblem, inline SVG.
 // Gold/champagne, subtle, no external assets.
 export function CoutureEmblem({
   size = 24,

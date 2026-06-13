@@ -229,7 +229,7 @@ export default function NewSmartMessageCampaignPage() {
           ) : segments.length === 0 ? (
             <div className="p-4 text-center">
               <p className="text-xs" style={{ color: "rgba(245,240,235,0.3)" }}>
-                Crée d&apos;abord un segment dans Smart Segments
+                Crée d'abord un segment dans Smart Segments
               </p>
               <Link
                 href="/dashboard/sovereign-chat/segments/new"
@@ -398,12 +398,12 @@ export default function NewSmartMessageCampaignPage() {
           {generatingSample ? (
             <>
               <div className="animate-spin w-8 h-8 mx-auto" style={{ border: "2px solid rgba(199,91,57,0.2)", borderTopColor: "var(--accent)", borderRadius: "50%" }} />
-              <p className="text-xs" style={{ color: "rgba(245,240,235,0.5)" }}>Génération de l&apos;échantillon test...</p>
+              <p className="text-xs" style={{ color: "rgba(245,240,235,0.5)" }}>Génération de l'échantillon test...</p>
             </>
           ) : (
             <div>
               <p className="text-xs" style={{ color: "rgba(245,240,235,0.3)" }}>
-                Prêt à générer l&apos;échantillon de test
+                Prêt à générer l'échantillon de test
               </p>
               <p className="text-[10px] mt-1" style={{ color: "rgba(245,240,235,0.2)" }}>
                 3 drafts seront générés pour 3 fans aléatoires du segment
@@ -417,7 +417,7 @@ export default function NewSmartMessageCampaignPage() {
       {step === 3 && sampleDrafts.length > 0 && (
         <div className="space-y-4">
           <h3 className="text-xs font-semibold" style={{ color: "var(--text-primary)" }}>
-            Échantillon test — Vérifie la direction
+            Échantillon test, Vérifie la direction
           </h3>
           <div className="space-y-2">
             {sampleDrafts.map((draft: any, i: number) => (
@@ -538,7 +538,7 @@ export default function NewSmartMessageCampaignPage() {
               className="text-[10px] font-semibold py-2 px-4 transition-all"
               style={{ backgroundColor: "var(--accent)", color: "var(--text-primary)" }}
             >
-              Générer l&apos;échantillon
+              Générer l'échantillon
               <ArrowRight size={10} className="inline ml-1" />
             </button>
           )}

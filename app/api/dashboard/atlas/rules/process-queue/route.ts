@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
   try {
     const supabase = await createClient();
 
-    // Auth check — either CRON secret or authenticated user
+    // Auth check, either CRON secret or authenticated user
     const authHeader = request.headers.get("authorization");
     const isCron = authHeader === `Bearer ${process.env.CRON_SECRET}`;
 

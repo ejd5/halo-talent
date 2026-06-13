@@ -38,7 +38,7 @@ function VelocityBadge({ diff }: { diff: number }) {
   }
   return (
     <span className="flex items-center gap-1 text-[10px]" style={{ color: "rgba(245,240,235,0.2)" }}>
-      <Minus size={10} /> —
+      <Minus size={10} /> , 
     </span>
   );
 }
@@ -130,7 +130,7 @@ export function HashtagsTab({ hashtags, onAnalyse, onAddToWatchlist }: Props) {
                     {h.industry}
                   </span>
                 ) : (
-                  <span style={{ color: "rgba(245,240,235,0.15)" }}>—</span>
+                  <span style={{ color: "rgba(245,240,235,0.15)" }}>, </span>
                 )}
               </td>
               <td className="py-2.5 px-3 text-center">

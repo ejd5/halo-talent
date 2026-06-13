@@ -2,7 +2,7 @@ import type { TikTokVideoParams, PublishResult, PublisherConstructor } from "./t
 
 const TIKTOK_API = "https://open.tiktokapis.com/v2";
 const POLL_INTERVAL = 3000;
-const MAX_POLL_WAIT = 180000; // 3 min — videos take time to process
+const MAX_POLL_WAIT = 180000; // 3 min, videos take time to process
 
 export class TikTokPublisher {
   private accessToken: string;

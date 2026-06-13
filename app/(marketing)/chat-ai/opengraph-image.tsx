@@ -70,7 +70,7 @@ export default function Image() {
             marginBottom: "40px",
           }}
         >
-          L&apos;IA prépare. L&apos;humain valide. Le créateur contrôle.
+          L'IA prépare. L'humain valide. Le créateur contrôle.
         </div>
 
         {/* Brand */}
@@ -84,7 +84,7 @@ export default function Image() {
             fontWeight: 500,
           }}
         >
-          Halo
+          WTF
           <span style={{ fontStyle: "italic", color: "#D8A95B" }}>
             Talent
           </span>

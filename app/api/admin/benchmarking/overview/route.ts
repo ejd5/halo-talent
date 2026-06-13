@@ -68,9 +68,9 @@ export async function GET() {
 
       return {
         id: c.id,
-        name: c.display_name || c.full_name || "—",
-        department: c.department || "—",
-        tier: c.commission_tier || "—",
+        name: c.display_name || c.full_name || ", ",
+        department: c.department || ", ",
+        tier: c.commission_tier || ", ",
         revenue: currentRevenue,
         prev_revenue: prevRevenue,
         growth,

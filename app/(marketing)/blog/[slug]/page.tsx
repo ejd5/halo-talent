@@ -1,14 +1,35 @@
-"use client";
-
-import { useParams } from "next/navigation";
+import type { Metadata } from "next";
 import { ARTICLES } from "@/lib/blog/data";
 import { BlogArticle } from "@/components/blog/BlogArticle";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 
-export default function BlogPostPage() {
-  const params = useParams();
-  const slug = params.slug as string;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const article = ARTICLES.find((a) => a.slug === slug);
+  if (!article) {
+    return { title: "Article introuvable, Where Talent Forms" };
+  }
+  return {
+    title: `${article.title}, Where Talent Forms`,
+    description: article.description,
+    openGraph: {
+      title: `${article.title}, Where Talent Forms`,
+      description: article.description,
+    },
+  };
+}
+
+export default async function BlogPostPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
   const article = ARTICLES.find((a) => a.slug === slug);
 
   if (!article) {
@@ -23,7 +44,7 @@ export default function BlogPostPage() {
               Article introuvable
             </h1>
             <p className="text-sm mb-6" style={{ color: "var(--text-secondary)" }}>
-              L&apos;article que vous cherchez n&apos;existe pas ou a été déplacé.
+              L'article que vous cherchez n'existe pas ou a été déplacé.
             </p>
             <Link
               href="/blog"

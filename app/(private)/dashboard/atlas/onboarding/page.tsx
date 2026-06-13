@@ -207,7 +207,7 @@ function StepWelcome() {
       </h1>
       <p className="text-sm max-w-lg mb-6" style={{ color: "rgba(245,240,235,0.5)" }}>
         Atlas est votre allié pour automatiser à 100% ce qui est légal dans votre relation fan.
-        CRM intelligent, campagnes multi-canaux, funnels automatisés, modération IA —
+        CRM intelligent, campagnes multi-canaux, funnels automatisés, modération IA , 
         tout est conçu pour vous faire gagner du temps sans risquer votre compte.
       </p>
 
@@ -215,8 +215,8 @@ function StepWelcome() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 w-full max-w-2xl mt-4">
         {[
           { icon: Users, title: "CRM Intelligent", desc: "Segmentez, scorez et fidélisez chaque fan automatiquement" },
-          { icon: Zap, title: "Automatisations", desc: "Règles, funnels, webhooks — tout s'automatise" },
-          { icon: Shield, title: "Conforme RGPD", desc: "RGPD, anti-spam, taux limites — protection anti-ban" },
+          { icon: Zap, title: "Automatisations", desc: "Règles, funnels, webhooks, tout s'automatise" },
+          { icon: Shield, title: "Conforme RGPD", desc: "RGPD, anti-spam, taux limites, protection anti-ban" },
         ].map((f) => (
           <div key={f.title} className="p-4 text-center" style={{ border: "1px solid rgba(245,240,235,0.06)", backgroundColor: "var(--bg-card)" }}>
             <f.icon size={20} style={{ color: "var(--accent)" }} className="mb-2" />
@@ -227,7 +227,7 @@ function StepWelcome() {
       </div>
 
       <p className="text-xs mt-8" style={{ color: "rgba(245,240,235,0.2)" }}>
-        Configuration rapide — environ 15 minutes
+        Configuration rapide, environ 15 minutes
       </p>
     </div>
   );
@@ -242,7 +242,7 @@ function StepPlatforms({ connected, onToggle }: { connected: string[]; onToggle:
         Connecter vos plateformes
       </h2>
       <p className="text-sm mb-6" style={{ color: "rgba(245,240,235,0.4)" }}>
-        Liez vos comptes pour qu&apos;Atlas puisse interagir avec vos fans partout.
+        Liez vos comptes pour qu'Atlas puisse interagir avec vos fans partout.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -297,7 +297,7 @@ function StepImport({ imported, onToggle }: { imported: string[]; onToggle: (id:
         Importer vos contacts
       </h2>
       <p className="text-sm mb-6" style={{ color: "rgba(245,240,235,0.4)" }}>
-        Importez vos fans existants depuis d&apos;autres outils ou fichiers.
+        Importez vos fans existants depuis d'autres outils ou fichiers.
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -374,7 +374,7 @@ function StepConsents({
             style={{ borderColor: "rgba(245,240,235,0.1)", color: "var(--text-primary)" }}
           />
           <p className="text-[10px] mt-1" style={{ color: "rgba(245,240,235,0.2)" }}>
-            Nécessaire pour l&apos;envoi d&apos;emails. DKIM/SPF à configurer dans votre DNS.
+            Nécessaire pour l'envoi d'emails. DKIM/SPF à configurer dans votre DNS.
           </p>
         </div>
 
@@ -535,7 +535,7 @@ function StepCompliance({ complete }: { complete: boolean }) {
     { label: "Anti-spam (loi CAN-SPAM)", status: "ok", detail: "Actif" },
     { label: "Rate limiting (RGPD)", status: "ok", detail: "Actif" },
     { label: "Lien de désabonnement", status: "ok", detail: "Ajouté aux campagnes" },
-    { label: "RGPD — Délégation de traitement", status: "warn", detail: "Contrat type à signer" },
+    { label: "RGPD, Délégation de traitement", status: "warn", detail: "Contrat type à signer" },
     { label: "DKIM/SPF vérifié", status: "warn", detail: "En attente de confirmation DNS" },
     { label: "Protection des données (DPA)", status: "pending", detail: "DPA à générer" },
   ];

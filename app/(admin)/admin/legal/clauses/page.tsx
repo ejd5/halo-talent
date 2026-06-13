@@ -153,7 +153,7 @@ export default function LegalClausesPage() {
             </h1>
           </div>
           <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-            {clauses.length} clauses — Références CGU et légales, seuil de sévérité
+            {clauses.length} clauses, Références CGU et légales, seuil de sévérité
           </p>
         </div>
         <button
@@ -214,7 +214,7 @@ export default function LegalClausesPage() {
                     <div className="flex flex-wrap gap-1">
                       {clause.cgu_references.length > 0 ? clause.cgu_references.slice(0, 2).map((r, i) => (
                         <span key={i} className="text-[10px] px-1.5 py-0.5 font-mono" style={{ background: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)" }}>{r}</span>
-                      )) : <span className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>—</span>}
+                      )) : <span className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>, </span>}
                       {clause.cgu_references.length > 2 && <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>+{clause.cgu_references.length - 2}</span>}
                     </div>
                   </td>
@@ -222,7 +222,7 @@ export default function LegalClausesPage() {
                     <div className="flex flex-wrap gap-1">
                       {clause.law_references.length > 0 ? clause.law_references.slice(0, 2).map((r, i) => (
                         <span key={i} className="text-[10px] px-1.5 py-0.5" style={{ background: "rgba(212,162,76,0.1)", color: "#D4A24C" }}>{r}</span>
-                      )) : <span className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>—</span>}
+                      )) : <span className="text-xs" style={{ color: "rgba(255,255,255,0.2)" }}>, </span>}
                       {clause.law_references.length > 2 && <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>+{clause.law_references.length - 2}</span>}
                     </div>
                   </td>

@@ -1,4 +1,4 @@
-// ─── Fan Brain — Types ─────────────────────────────────────
+// ─── Fan Brain, Types ─────────────────────────────────────
 // Persistent knowledge graph per fan for Chat Copilot
 
 export type FanSegment =

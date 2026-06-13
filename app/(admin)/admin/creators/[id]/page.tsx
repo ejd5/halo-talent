@@ -10,8 +10,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const creator = creators.find((c) => c.id === id);
   return {
     title: creator
-      ? `${creator.full_name} — Halo Talent Admin`
-      : "Créateur — Halo Talent Admin",
+      ? `${creator.full_name}, Where Talent Forms Admin`
+      : "Créateur, Where Talent Forms Admin",
   };
 }
 

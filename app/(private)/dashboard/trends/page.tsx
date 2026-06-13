@@ -84,7 +84,7 @@ export default function TrendsPage() {
             Intelligence des tendances
           </h1>
           <p className="text-sm mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
-            Google · YouTube · News — alimenté par Trend Spotter
+            Google · YouTube · News, alimenté par Trend Spotter
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -214,7 +214,7 @@ export default function TrendsPage() {
             </div>
           </div>
 
-          {/* Central widget — trending picks */}
+          {/* Central widget, trending picks */}
           <div className="mb-6">
             <div className="flex items-center gap-2 mb-3">
               <TrendingUp size={16} style={{ color: "var(--accent)" }} />
@@ -230,7 +230,7 @@ export default function TrendsPage() {
                 <div className="col-span-full flex flex-col items-center py-12 text-center">
                   <TrendingUp size={24} style={{ color: "rgba(245,240,235,0.1)" }} />
                   <p className="text-sm mt-3" style={{ color: "rgba(245,240,235,0.15)" }}>
-                    Aucune tendance pour l&apos;instant
+                    Aucune tendance pour l'instant
                   </p>
                   <p className="text-xs mt-1" style={{ color: "rgba(245,240,235,0.1)" }}>
                     Les tendances apparaîtront après analyse multi-sources
@@ -269,7 +269,7 @@ export default function TrendsPage() {
                   <div key={i} className="flex items-center justify-between py-1.5 text-xs" style={{ borderBottom: "1px solid rgba(245,240,235,0.03)" }}>
                     <span style={{ color: "var(--text-primary)" }}>{w.keyword}</span>
                     <span style={{ color: "rgba(245,240,235,0.3)" }}>
-                      {w.last_value !== null ? `Score: ${w.last_value}` : "—"}
+                      {w.last_value !== null ? `Score: ${w.last_value}` : ", "}
                     </span>
                   </div>
                 ))}

@@ -21,7 +21,7 @@ Retourne UNIQUEMENT un objet JSON strict au format :
     if (!apiKey) {
       return NextResponse.json({
         seo_title: title.slice(0, 60),
-        seo_description: `Découvrez ${title.toLowerCase()} - Un article Halo Talent sur le management créatif.`,
+        seo_description: `Découvrez ${title.toLowerCase()} - Un article Where Talent Forms sur le management créatif.`,
       });
     }
 
@@ -45,7 +45,7 @@ Retourne UNIQUEMENT un objet JSON strict au format :
   } catch {
     return NextResponse.json({
       seo_title: title.slice(0, 60),
-      seo_description: "Article Halo Talent",
+      seo_description: "Article Where Talent Forms",
     });
   }
 }

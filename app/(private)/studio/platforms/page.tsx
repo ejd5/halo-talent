@@ -207,8 +207,8 @@ export default function PlatformsPage() {
     } else if (errorParam) {
       const messages: Record<string, string> = {
         access_denied: "Connexion annulée",
-        invalid_state: "Erreur de sécurité — réessaie",
-        server_error: "Erreur serveur — réessaie",
+        invalid_state: "Erreur de sécurité, réessaie",
+        server_error: "Erreur serveur, réessaie",
         missing_params: "Paramètres manquants",
         db_error: "Erreur de sauvegarde",
       };
@@ -302,7 +302,7 @@ export default function PlatformsPage() {
             className="px-3 py-2 text-[10px] uppercase tracking-wider"
             style={{ background: "var(--bg-card)", color: "rgba(255,255,255,0.2)", borderBottom: "1px solid var(--border-default)" }}
           >
-            Accès manuel — Pas d'API publique
+            Accès manuel, Pas d'API publique
           </div>
 
           {/* Manual platforms (OF, MYM) */}

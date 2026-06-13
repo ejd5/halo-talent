@@ -171,7 +171,7 @@ export const getCompetitorPricing: Tool = {
         },
       },
       recommendation: `Dans la niche "${niche}", le prix d'abonnement moyen est de ${data.avg_subscription}€/mois. Les créateurs du top 10% facturent jusqu'à ${data.top_10_pct_subscription}€/mois.`,
-      source: "Halo Talent Market Data 2026",
+      source: "Where Talent Forms Market Data 2026",
     };
   },
 };
@@ -198,7 +198,7 @@ export const generatePromoStrategy: Tool = {
         name: "Promo de bienvenue",
         description: `Offre -25% sur le premier mois (${Math.round(price * 0.75)}€ au lieu de ${price}€)`,
         expected_impact: "+35% nouveaux abonnés sur 30 jours",
-        risk: "Faible — les nouveaux abonnés paient moins au départ",
+        risk: "Faible, les nouveaux abonnés paient moins au départ",
         duration_recommendation: "1 mois maximum",
       },
       retain: {
@@ -212,14 +212,14 @@ export const generatePromoStrategy: Tool = {
         name: "Campagne de réactivation",
         description: `Offre spéciale -40% pour les anciens abonnés : ${Math.round(price * 0.6)}€/mois pendant 3 mois`,
         expected_impact: "+15% de réactivation des abonnés perdus",
-        risk: "Moyen — peut dévaluer ta marque si trop fréquent",
+        risk: "Moyen, peut dévaluer ta marque si trop fréquent",
         duration_recommendation: "3 mois max, avec limite d'1 utilisation par abonné",
       },
       maximize_revenue: {
         name: "Bundle PPV + Abonnement",
         description: `Pack premium : abonnement à ${price}€ + 5 PPV exclusifs pour ${Math.round(price + 15)}€/mois`,
         expected_impact: "+40% ARPU (revenu moyen par abonné)",
-        risk: "Moyen — nécessite du contenu exclusif régulier",
+        risk: "Moyen, nécessite du contenu exclusif régulier",
         duration_recommendation: "Continu, avec rotation du contenu PPV",
       },
     };

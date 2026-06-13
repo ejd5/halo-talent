@@ -115,7 +115,7 @@ export default function AttributionTab() {
         </div>
       )}
 
-      {/* Fan journey — if a fan is selected */}
+      {/* Fan journey, if a fan is selected */}
       {(data?.fanJourney?.length ?? 0) > 0 && (
         <Card title="Parcours du fan">
           <div className="space-y-0">

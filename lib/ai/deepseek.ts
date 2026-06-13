@@ -1,5 +1,5 @@
-// ─── DeepSeek V4 Provider — Server-only ───────────────────
-// Caching client for Halo Sovereign Chat AI
+// ─── DeepSeek V4 Provider, Server-only ───────────────────
+// Caching client for WTF Sovereign Chat AI
 // Internal names: deepseek-v4-flash / deepseek-v4-pro
 // API names mapped internally via MODEL_API_NAMES
 

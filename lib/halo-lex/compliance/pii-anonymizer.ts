@@ -1,6 +1,6 @@
 // ─── PII Anonymization ────────────────────────────────────────
 // Anonymise les données personnelles avant envoi à DeepSeek
-// (hébergé en Chine — nécessaire pour la conformité RGPD)
+// (hébergé en Chine, nécessaire pour la conformité RGPD)
 
 export interface AnonymizationResult {
   anonymized: string;
@@ -35,7 +35,7 @@ export function anonymizePII(text: string): AnonymizationResult {
     }
   );
 
-  // Noms complets (prénom + nom — approximatif)
+  // Noms complets (prénom + nom, approximatif)
   anonymized = anonymized.replace(
     /\b([A-ZÉÈÊËÎÏÔÙÛÜÀÂÄÇ][a-zéèêëïîôöùûüàâäç]+)\s([A-ZÉÈÊËÎÏÔÙÛÜÀÂÄÇ][a-zéèêëïîôöùûüàâäç]+)\b/g,
     (match) => {
@@ -93,7 +93,7 @@ export function reAnonymize(text: string, existingMappings: Record<string, strin
 }
 
 /**
- * Désanonymise (restitue les données originales) — à utiliser
+ * Désanonymise (restitue les données originales), à utiliser
  * UNIQUEMENT pour afficher à l'utilisateur ou sauvegarder en base.
  */
 export function deanonymize(anonymized: string, mappings: Record<string, string>): string {

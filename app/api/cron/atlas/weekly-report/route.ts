@@ -60,10 +60,10 @@ export async function POST(req: NextRequest) {
         recommendations.push("Crée une campagne de lead capture pour recruter de nouveaux fans");
       }
       if ((s?.churn_rate ?? 0) > 10) {
-        recommendations.push("Ton taux de churn est élevé — lance une séquence win-back pour les fans inactifs");
+        recommendations.push("Ton taux de churn est élevé, lance une séquence win-back pour les fans inactifs");
       }
       if (totalRevenue > 0 && weeklyRevenue < totalRevenue / 4) {
-        recommendations.push("Les revenus de cette semaine sont en baisse — relance tes meilleurs segments");
+        recommendations.push("Les revenus de cette semaine sont en baisse, relance tes meilleurs segments");
       }
       if (recommendations.length === 0) {
         recommendations.push("Continue à entretenir tes fans whales avec des messages personnalisés");
@@ -73,8 +73,8 @@ export async function POST(req: NextRequest) {
       // Check for KPI alerts
       const alerts: string[] = [];
       if ((s?.churn_rate ?? 0) > 15) alerts.push(`Churn rate élevé : ${s.churn_rate}%`);
-      if (weeklyRevenue === 0 && totalRevenue > 0) alerts.push("Aucun revenu cette semaine — campagne nécessaire");
-      if ((s?.active_fans ?? 0) < 10) alerts.push("Base fans faible (< 10 actifs) — priorise l'acquisition");
+      if (weeklyRevenue === 0 && totalRevenue > 0) alerts.push("Aucun revenu cette semaine, campagne nécessaire");
+      if ((s?.active_fans ?? 0) < 10) alerts.push("Base fans faible (< 10 actifs), priorise l'acquisition");
 
       const report = {
         creator_id: creator.id,

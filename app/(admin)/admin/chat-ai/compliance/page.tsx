@@ -47,10 +47,10 @@ export default function ChatAICompliancePage() {
     <div style={{ padding: "24px 32px", maxWidth: 1400 }}>
       <div style={{ marginBottom: 24 }}>
         <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-          Conformité — Chat AI
+          Conformité, Chat AI
         </h1>
         <p style={{ fontSize: 11, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>
-          Vue d&apos;ensemble de la conformité IA
+          Vue d'ensemble de la conformité IA
         </p>
       </div>
 

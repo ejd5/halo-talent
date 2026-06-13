@@ -35,7 +35,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Notification admin — quand un webhook ou email de notification
+    // TODO: Notification admin, quand un webhook ou email de notification
     // est configuré, envoyer une alerte ici. Actuellement les messages sont
     // consultables uniquement via le dashboard admin Supabase.
     // Options futures : Resend (email), Telegram bot, Slack webhook.

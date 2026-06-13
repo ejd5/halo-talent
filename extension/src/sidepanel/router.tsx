@@ -10,6 +10,7 @@ import { ScriptsPage } from "./pages/ScriptsPage";
 import { AnalyticsPage } from "./pages/AnalyticsPage";
 import { SettingsPage } from "./pages/SettingsPage";
 import { OnboardingPage } from "./pages/OnboardingPage";
+import { RevenueRadarPage } from "./pages/RevenueRadarPage";
 
 export type Route =
   | "dashboard"
@@ -19,7 +20,8 @@ export type Route =
   | "scripts"
   | "analytics"
   | "settings"
-  | "onboarding";
+  | "onboarding"
+  | "revenue-radar";
 
 export interface RouteState {
   route: Route;
@@ -59,7 +61,10 @@ export function Router() {
       return <SettingsPage navigate={navigate} />;
     case "onboarding":
       return <OnboardingPage navigate={navigate} />;
+    case "revenue-radar":
+      return <RevenueRadarPage navigate={navigate} />;
     default:
       return <DashboardPage navigate={navigate} />;
   }
 }
+

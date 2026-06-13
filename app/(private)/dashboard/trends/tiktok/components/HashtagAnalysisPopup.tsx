@@ -146,7 +146,7 @@ export function HashtagAnalysisPopup({ hashtag, onClose }: Props) {
                     <MetricCard label="Croissance 7j" value={`+${data.metrics.growth_7d}%`} up />
                     <MetricCard label="Rank actuel" value={`#${data.metrics.current_rank}`} />
                   </div>
-                  {/* Growth chart — simplified */}
+                  {/* Growth chart, simplified */}
                   <div className="p-3" style={{ backgroundColor: "rgba(245,240,235,0.03)" }}>
                     <p className="text-[9px] uppercase tracking-wider mb-2" style={{ color: "rgba(245,240,235,0.2)" }}>
                       Croissance

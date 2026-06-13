@@ -336,7 +336,7 @@ export default function LegalKnowledgePage() {
                       {entry.category}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{entry.platform || "—"}</td>
+                  <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{entry.platform || ", "}</td>
                   <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{entry.jurisdiction}</td>
                   <td className="px-4 py-3">
                     <span className="text-xs font-medium px-2 py-0.5" style={{ background: `${severityColor(entry.severity_score)}20`, color: severityColor(entry.severity_score) }}>
@@ -455,7 +455,7 @@ export default function LegalKnowledgePage() {
                       <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{src.documentCount}</td>
                       <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{src.chunkCount}</td>
                       <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>
-                        {src.lastIngestedAt ? new Date(src.lastIngestedAt).toLocaleDateString("fr-FR") : "—"}
+                        {src.lastIngestedAt ? new Date(src.lastIngestedAt).toLocaleDateString("fr-FR") : ", "}
                       </td>
                       <td className="px-4 py-3">
                         {src.status === "done" ? (
@@ -499,7 +499,7 @@ export default function LegalKnowledgePage() {
                 <div>
                   <label className="block text-xs font-medium mb-1" style={{ color: "var(--text-secondary)" }}>Plateforme</label>
                   <select value={form.platform} onChange={(e) => setForm({ ...form, platform: e.target.value })} className="w-full text-sm px-3 py-2 outline-none" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid var(--border-default)", color: "var(--text-primary)" }}>
-                    <option value="">—</option>
+                    <option value="">, </option>
                     {PLATFORMS.map((p) => <option key={p} value={p}>{p}</option>)}
                   </select>
                 </div>

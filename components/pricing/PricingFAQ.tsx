@@ -14,7 +14,7 @@ const FAQS = [
   },
   {
     q: "Puis-je utiliser mes propres clés API ?",
-    a: "Oui, avec le plan Elite. BYOK (Bring Your Own Key) vous permet d'utiliser vos propres clés Anthropic, OpenAI, Replicate, ElevenLabs. Vous êtes facturé directement par ces fournisseurs, et Halo ne prend aucune commission sur vos usages BYOK.",
+    a: "Oui, avec le plan Elite. BYOK (Bring Your Own Key) vous permet d'utiliser vos propres clés Anthropic, OpenAI, Replicate, ElevenLabs. Vous êtes facturé directement par ces fournisseurs, et WTF ne prend aucune commission sur vos usages BYOK.",
   },
   {
     q: "Comment fonctionne la commission de management ?",

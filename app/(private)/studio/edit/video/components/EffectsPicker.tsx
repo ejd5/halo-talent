@@ -92,7 +92,7 @@ export function EffectsPicker({ onSelectTransition, onSelectFilter, currentTrans
           </div>
 
           <div className="px-2.5 py-2 text-[9px] rounded-sm" style={{ background: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.2)" }}>
-            Les filtres s&apos;appliquent au clip sélectionné dans la timeline
+            Les filtres s'appliquent au clip sélectionné dans la timeline
           </div>
         </div>
       </div>

@@ -46,7 +46,7 @@ export function MediaKitBuilder() {
 
       {/* Content */}
       <div className="flex-1 flex overflow-hidden">
-        {/* Left panel — Form */}
+        {/* Left panel, Form */}
         <div
           className={`${
             mobileFormOpen ? "flex" : "hidden"
@@ -56,7 +56,7 @@ export function MediaKitBuilder() {
           <MediaKitForm state={state} onStateChange={setState} />
         </div>
 
-        {/* Right panel — Preview */}
+        {/* Right panel, Preview */}
         <div
           className={`${
             mobileFormOpen ? "hidden" : "flex"

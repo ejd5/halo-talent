@@ -65,7 +65,7 @@ export function StepAudience({
       {/* Age */}
       <div className="mb-5">
         <p className="text-xs font-medium mb-2" style={{ color: "var(--text-tertiary)" }}>
-          Tranche d&apos;âge
+          Tranche d'âge
         </p>
         <div className="flex gap-2">
           {AGE_RANGES.map((a) => {
@@ -121,7 +121,7 @@ export function StepAudience({
       {/* Interests */}
       <div className="mb-2">
         <p className="text-xs font-medium mb-2" style={{ color: "var(--text-tertiary)" }}>
-          Centres d&apos;intérêt
+          Centres d'intérêt
         </p>
         <div className="flex flex-wrap gap-1.5">
           {INTEREST_TAGS.map((tag) => {

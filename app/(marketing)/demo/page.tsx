@@ -1,24 +1,17 @@
-import { Suspense } from "react";
-import { DemoShell } from "@/components/demo/DemoShell";
+import type { Metadata } from "next";
+import { DemoClient } from "./DemoClient";
 
-function LoadingSpinner() {
-  return (
-    <div className="flex items-center justify-center h-screen" style={{ backgroundColor: "#1A1614" }}>
-      <div className="flex flex-col items-center gap-3">
-        <div
-          className="w-5 h-5 rounded-full animate-spin"
-          style={{ border: "2px solid rgba(255,255,255,0.06)", borderTopColor: "var(--or, #D8A95B)" }}
-        />
-        <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>Chargement...</p>
-      </div>
-    </div>
-  );
-}
+export const metadata: Metadata = {
+  title: "Démo, Where Talent Forms",
+  description:
+    "Voir comment WTF peut structurer votre activité. 30 minutes gratuites et sans engagement pour explorer vos objectifs, découvrir les outils adaptés à votre profil, et repartir avec des recommandations concrètes.",
+  openGraph: {
+    title: "Démo, Voir comment WTF peut structurer votre activité | Where Talent Forms",
+    description:
+      "Démonstration personnalisée de 30 minutes. Explorez vos objectifs, découvrez les outils WTF adaptés à votre profil, repartez avec des recommandations concrètes. Gratuit, sans engagement.",
+  },
+};
 
 export default function DemoPage() {
-  return (
-    <Suspense fallback={<LoadingSpinner />}>
-      <DemoShell />
-    </Suspense>
-  );
+  return <DemoClient />;
 }

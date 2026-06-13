@@ -69,7 +69,7 @@ export function WellnessCoachChat() {
               </div>
               <p className="text-base font-semibold mb-2" style={{ color: "var(--text-primary)" }}>Wellness Coach</p>
               <p className="text-sm mb-1" style={{ color: "var(--text-primary)" }}>
-                Je veille sur ton équilibre. Comment te sens-tu aujourd&apos;hui ?
+                Je veille sur ton équilibre. Comment te sens-tu aujourd'hui ?
               </p>
               <p className="text-sm mb-6" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Fais un check-in rapide ou demande un conseil
@@ -166,7 +166,7 @@ export function WellnessCoachChat() {
           </div>
           <div className="p-3 border-t border-[var(--color-border])">
             <p className="text-[8px]" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
-              En cas d&apos;urgence : 3114 (prévention suicide) · 15 (SAMU) · 09 72 39 40 50 (SOS Amitié)
+              En cas d'urgence : 3114 (prévention suicide) · 15 (SAMU) · 09 72 39 40 50 (SOS Amitié)
             </p>
           </div>
         </div>

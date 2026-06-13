@@ -1,4 +1,4 @@
-// ─── Revenue Radar — Types + Mock Data ──────────────────────
+// ─── Revenue Radar, Types + Mock Data ──────────────────────
 
 import { mockFans } from "./atlas-fans";
 import type { FanIntel } from "./atlas-fans";
@@ -74,7 +74,7 @@ function generateInsight(fan: FanIntel): string {
   const insights: string[] = [];
 
   if (fan.churnRisk > 60) {
-    insights.push("Risque de désabonnement — agir dans les 48h");
+    insights.push("Risque de désabonnement, agir dans les 48h");
   }
   if (fan.relationshipScore > 80 && fan.purchasedContentIds.length > 3) {
     insights.push("Achète systématiquement les nouveautés");
@@ -89,7 +89,7 @@ function generateInsight(fan: FanIntel): string {
     }
   }
   if (fan.lifecycleStage === "dormant" || fan.lifecycleStage === "at-risk") {
-    insights.push("Baisse d'activité détectée — relance recommandée");
+    insights.push("Baisse d'activité détectée, relance recommandée");
   }
   if (fan.commercialScore > 70 && fan.spendLast30d > 200) {
     insights.push("Fort potentiel d'upsell mensuel");
@@ -98,12 +98,12 @@ function generateInsight(fan: FanIntel): string {
     insights.push("Consommateur régulier de contenu exclusif");
   }
   if (fan.commercialScore < 30 && fan.relationshipScore > 60) {
-    insights.push("Relation chaleureuse mais peu monétisée — opportunité PPV");
+    insights.push("Relation chaleureuse mais peu monétisée, opportunité PPV");
   }
 
   return insights.length > 0
     ? insights[Math.floor(Math.random() * insights.length)]
-    : "Profil standard — opportunité de monétisation";
+    : "Profil standard, opportunité de monétisation";
 }
 
 // ─── AI suggestion templates ────────────────────────────────

@@ -1,4 +1,4 @@
-// ─── Halo Lex — Ingestion Types ────────────────────────────────
+// ─── WTF Lex, Ingestion Types ────────────────────────────────
 
 export interface DocumentInput {
   sourceId: string;

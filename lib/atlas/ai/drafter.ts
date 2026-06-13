@@ -173,7 +173,7 @@ export class ComplianceDrafter {
     const text = JSON.stringify(context);
     const warnings: string[] = [];
 
-    // Hard limits — blocage immédiat
+    // Hard limits, blocage immédiat
     const hardLimits: { pattern: RegExp; reason: string }[] = [
       { pattern: /\bmineur|underage|teen|child\b/i, reason: "Référence à un mineur détectée" },
       { pattern: /\bviol|rape|forced|non-consent\b/i, reason: "Violence ou non-consentement détecté" },
@@ -186,7 +186,7 @@ export class ComplianceDrafter {
       }
     }
 
-    // Soft warnings — ne bloque pas mais avertit
+    // Soft warnings, ne bloque pas mais avertit
     const softWarnings: { pattern: RegExp; warning: string }[] = [
       { pattern: /\b(garanti|certain)\b.{0,20}(résultat|result|money|argent|profit)/i, warning: "Terme de garantie détecté" },
       { pattern: /\bargent\b.{0,30}\b(facile|rapide|sans effort)\b/i, warning: "Promesse financière irréaliste" },
@@ -283,7 +283,7 @@ export class ComplianceDrafter {
 ${this.platformRules(params.platform)}
 
 ⚠️ RÈGLES UNIVERSELLES :
-1. C'est un DRAFT — le créateur validera et enverra lui-même
+1. C'est un DRAFT, le créateur validera et enverra lui-même
 2. Utilise la VOIX du créateur sans prétendre être lui
 3. Pas de promesses fausses ou exagérées
 4. Reste authentique et aligné avec son ADN

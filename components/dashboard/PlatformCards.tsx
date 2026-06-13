@@ -205,7 +205,7 @@ export function PlatformCards() {
                   <div className="flex items-center justify-between text-sm">
                     <span className="text-ink-muted">Followers</span>
                     <span className="font-mono text-ink">
-                      {account.followers?.toLocaleString() || "—"}
+                      {account.followers?.toLocaleString() || ", "}
                     </span>
                   </div>
                   {account.monthly_revenue !== null && (

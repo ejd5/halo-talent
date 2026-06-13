@@ -37,10 +37,10 @@ const TONES = [
 ];
 
 const ESCALATION_LEVELS = [
-  { id: 1, label: "N1 — Simple demande" },
-  { id: 2, label: "N2 — Demande formelle" },
-  { id: 3, label: "N3 — Mise en demeure" },
-  { id: 4, label: "N4 — Pré-contentieux" },
+  { id: 1, label: "N1, Simple demande" },
+  { id: 2, label: "N2, Demande formelle" },
+  { id: 3, label: "N3, Mise en demeure" },
+  { id: 4, label: "N4, Pré-contentieux" },
 ];
 
 interface DocumentGeneratorProps {
@@ -282,7 +282,7 @@ export function DocumentGenerator({ locale = "fr", questionnaireId, context = {}
 
   return (
     <div className="flex gap-6 h-full">
-      {/* Panneau gauche (30%) — Personnalisation */}
+      {/* Panneau gauche (30%), Personnalisation */}
       <div className="w-[30%] shrink-0 p-4 overflow-y-auto space-y-4" style={{ borderRight: "1px solid var(--border-default)" }}>
         <h3 className="text-sm font-semibold" style={{ color: "var(--text-primary)" }}>
           {locale === "en" ? "Document settings" : "Configuration"}
@@ -406,7 +406,7 @@ export function DocumentGenerator({ locale = "fr", questionnaireId, context = {}
         )}
       </div>
 
-      {/* Panneau droit (70%) — Aperçu */}
+      {/* Panneau droit (70%), Aperçu */}
       <div className="flex-1 flex items-center justify-center p-8">
         {!content && !loading && (
           <div className="text-center">

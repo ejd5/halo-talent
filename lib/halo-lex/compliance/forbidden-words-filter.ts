@@ -17,7 +17,7 @@ const FORBIDDEN_TERMS: TermReplacement[] = [
   { forbidden: "vous devriez absolument", replacement: "il pourrait être pertinent de" },
   { forbidden: "vous devez", replacement: "il pourrait être pertinent de" },
   { forbidden: "vous devez impérativement", replacement: "selon le droit en vigueur" },
-  { forbidden: "avocat partenaire", replacement: "équipe Halo" },
+  { forbidden: "avocat partenaire", replacement: "équipe WTF" },
   { forbidden: "validé par un avocat", replacement: "validé par notre équipe" },
   { forbidden: "validé par des avocats", replacement: "validé par notre équipe" },
   { forbidden: "expert juridique", replacement: "notre équipe" },

@@ -50,7 +50,7 @@ export function moderateComment(
 }
 
 export function moderateDm(text: string): ModerationResult {
-  // For DMs, we're less strict — only block obvious spam/scams
+  // For DMs, we're less strict, only block obvious spam/scams
   if (!text || text.trim().length === 0) {
     return { approved: false, reason: "empty_content", confidence: 100 };
   }

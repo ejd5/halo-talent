@@ -77,7 +77,7 @@ function AtlasPage() {
             Atlas
           </h1>
           <p className="text-sm mt-1" style={{ color: "var(--color-ink-secondary)" }}>
-            Fan Relationship Manager — Automatise et personnalise tes relations fans
+            Fan Relationship Manager, Automatise et personnalise tes relations fans
           </p>
         </div>
         <div className="flex items-center gap-2">
@@ -94,7 +94,7 @@ function AtlasPage() {
       </div>
       <AtlasGuidedTour autoStart={showTour} />
 
-      {/* KPI Row — 5 cartes, même style que Studio */}
+      {/* KPI Row, 5 cartes, même style que Studio */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         <KpiCard label="Fans actifs" value={stats?.total ?? null} icon={Users} />
         <KpiCard label="Whales & VIP" value={whalesVip} icon={Zap} />
@@ -145,7 +145,7 @@ function AtlasPage() {
 
         {/* Colonne droite */}
         <div className="space-y-4">
-          {/* Actions rapides — liste verticale */}
+          {/* Actions rapides, liste verticale */}
           <div>
             <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>
               Actions rapides
@@ -180,7 +180,7 @@ function AtlasPage() {
   );
 }
 
-// ─── KPI Card — même style exact que Studio ────────────────────
+// ─── KPI Card, même style exact que Studio ────────────────────
 
 function KpiCard({ label, value, icon: Icon, isCurrency }: {
   label: string;
@@ -189,7 +189,7 @@ function KpiCard({ label, value, icon: Icon, isCurrency }: {
   isCurrency?: boolean;
 }) {
   const displayValue = (value === null || value === 0)
-    ? "—"
+    ? ", "
     : isCurrency
       ? formatEuro(value)
       : value.toLocaleString("fr-FR");
@@ -215,7 +215,7 @@ function KpiCard({ label, value, icon: Icon, isCurrency }: {
   );
 }
 
-// ─── Quick Action — liste verticale ────────────────────────────
+// ─── Quick Action, liste verticale ────────────────────────────
 
 function QuickAction({ icon: Icon, label, href, badge }: {
   icon: any; label: string; href: string; badge?: number;

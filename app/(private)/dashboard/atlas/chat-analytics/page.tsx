@@ -139,13 +139,13 @@ export default function ChatAnalyticsPage() {
         )}
       </div>
 
-      {/* ROW 1 — KPI Cards */}
+      {/* ROW 1, KPI Cards */}
       <ChatAnalyticsKPIs data={mockAnalyticsKPIs} />
 
-      {/* ROW 2 — Revenue Chart */}
+      {/* ROW 2, Revenue Chart */}
       <ChatRevenueChart data={mockRevenueDays} />
 
-      {/* ROW 3 — Two columns: Top Messages + AI Insights */}
+      {/* ROW 3, Two columns: Top Messages + AI Insights */}
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-4">
         <div className="lg:col-span-3">
           <TopMessages messages={mockTopMessages} />
@@ -155,10 +155,10 @@ export default function ChatAnalyticsPage() {
         </div>
       </div>
 
-      {/* ROW 4 — Chatter Performance Table (agency mode) */}
+      {/* ROW 4, Chatter Performance Table (agency mode) */}
       {AGENCY_MODE && <ChatterPerformanceTable data={mockChatterPerformance} />}
 
-      {/* ROW 5 — Activity Heatmap */}
+      {/* ROW 5, Activity Heatmap */}
       <ActivityHeatmap data={heatmapData} />
     </div>
   );

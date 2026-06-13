@@ -61,7 +61,7 @@ function calculateMarginal(revenue: number): MarginalResult {
 /* ─── Animated number display ─── */
 
 function AnimatedNumber({ value, suffix = "" }: { value: number; suffix?: string }) {
-  // Simple display with locale formatting — the value updates trigger re-render naturally
+  // Simple display with locale formatting, the value updates trigger re-render naturally
   return (
     <span className="tabular-nums">
       {value.toLocaleString("fr-FR")}{suffix}
@@ -140,7 +140,7 @@ export function CommissionSimulator() {
         </div>
         <div>
           <h3 className="text-sm font-bold" style={{ color: "var(--text-primary)" }}>
-            Simulez votre commission Halo
+            Simulez votre commission WTF
           </h3>
           <p className="text-[10px] mt-0.5" style={{ color: "var(--text-tertiary)" }}>
             Système marginal : plus vous grandissez, moins vous payez.
@@ -270,7 +270,7 @@ export function CommissionSimulator() {
         {/* ─── Results ─── */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <ResultCard
-            label="Commission Halo"
+            label="Commission WTF"
             value={halo.total}
             suffix=" €"
             color="var(--accent)"
@@ -311,7 +311,7 @@ export function CommissionSimulator() {
               maxVal={Math.max(traditional, halo.total)}
             />
             <ComparisonBar
-              label="Halo Talent"
+              label="Where Talent Forms"
               amount={halo.total}
               color="var(--accent)"
               maxVal={Math.max(traditional, halo.total)}
@@ -384,7 +384,7 @@ export function CommissionSimulator() {
 
         {/* ─── Disclaimer ─── */}
         <p className="text-[9px] leading-relaxed" style={{ color: "var(--text-tertiary)" }}>
-          Les commissions s&apos;appliquent par tranche (système marginal), pas sur le revenu total.
+          Les commissions s'appliquent par tranche (système marginal), pas sur le revenu total.
           Contrat résiliable sous 30 jours sans pénalité. Simulation indicative.
         </p>
       </div>

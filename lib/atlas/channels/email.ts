@@ -279,7 +279,7 @@ export const EMAIL_TEMPLATES: Record<string, CampaignContent> = {
       { type: "image", src: "" },
       { type: "button", label: "Découvrir mon dernier post", url: "https://refundize.com/studio", align: "center" },
       { type: "divider" },
-      { type: "footer", content: "© 2026 — Merci de faire partie de l'aventure ✨" },
+      { type: "footer", content: "© 2026, Merci de faire partie de l'aventure ✨" },
     ],
   },
   new_content: {
@@ -289,7 +289,7 @@ export const EMAIL_TEMPLATES: Record<string, CampaignContent> = {
       { type: "image", src: "" },
       { type: "button", label: "Voir le contenu →", url: "https://refundize.com/studio", align: "center" },
       { type: "divider" },
-      { type: "footer", content: "© 2026 — Tu reçois cet email car tu fais partie de ma communauté." },
+      { type: "footer", content: "© 2026, Tu reçois cet email car tu fais partie de ma communauté." },
     ],
   },
   promo_ppv: {
@@ -299,7 +299,7 @@ export const EMAIL_TEMPLATES: Record<string, CampaignContent> = {
       { type: "image", src: "" },
       { type: "button", label: "Voir l'offre", url: "https://refundize.com/studio", align: "center" },
       { type: "divider" },
-      { type: "footer", content: "© 2026 — Offre à durée limitée." },
+      { type: "footer", content: "© 2026, Offre à durée limitée." },
     ],
   },
   reengagement: {
@@ -308,7 +308,7 @@ export const EMAIL_TEMPLATES: Record<string, CampaignContent> = {
       { type: "text", content: "{{greeting}} {{first_name}},\n\nÇa fait un moment et je commençais à m'ennuyer. J'ai préparé plein de nouvelles surprises dont tu vas vouloir entendre parler.", align: "left" },
       { type: "button", label: "Revenir voir", url: "https://refundize.com/studio", align: "center" },
       { type: "divider" },
-      { type: "footer", content: "© 2026 — Tu reçois cet email car tu es un membre de ma communauté." },
+      { type: "footer", content: "© 2026, Tu reçois cet email car tu es un membre de ma communauté." },
     ],
   },
   birthday: {
@@ -317,7 +317,7 @@ export const EMAIL_TEMPLATES: Record<string, CampaignContent> = {
       { type: "text", content: "{{greeting}} {{first_name}},\n\nAujourd'hui c'est ton jour et je voulais te souhaiter un très joyeux anniversaire. J'ai un petit quelque chose de spécial pour toi...", align: "left" },
       { type: "button", label: "Mon cadeau 🎁", url: "https://refundize.com/studio", align: "center" },
       { type: "divider" },
-      { type: "footer", content: "© 2026 — Joyeux anniversaire de la part de toute l'équipe ! 🎉" },
+      { type: "footer", content: "© 2026, Joyeux anniversaire de la part de toute l'équipe ! 🎉" },
     ],
   },
 };

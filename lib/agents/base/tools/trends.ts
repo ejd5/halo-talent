@@ -34,13 +34,13 @@ export const searchYouTubeTrends: Tool = {
       return {
         source: "demo",
         trends: [
-          { title: `${input.query} — Day in the Life 2026`, channel: "TopCreator", published_at: new Date().toISOString(), views: 245000, likes: 18000 },
+          { title: `${input.query}, Day in the Life 2026`, channel: "TopCreator", published_at: new Date().toISOString(), views: 245000, likes: 18000 },
           { title: `${input.query} Transformation Challenge`, channel: "ViralStar", published_at: new Date().toISOString(), views: 189000, likes: 14200 },
-          { title: `${input.query} Q&A — Réponds à toutes vos questions`, channel: "InfluencerPro", published_at: new Date().toISOString(), views: 132000, likes: 9800 },
+          { title: `${input.query} Q&A, Réponds à toutes vos questions`, channel: "InfluencerPro", published_at: new Date().toISOString(), views: 132000, likes: 9800 },
           { title: `J'ai testé ${input.query} pendant 30 jours`, channel: "ChallengeTube", published_at: new Date().toISOString(), views: 89000, likes: 7200 },
           { title: `${input.query} Routine Matinale 2026`, channel: "DailyVlog", published_at: new Date().toISOString(), views: 67000, likes: 5400 },
         ],
-        note: "Mode démo — Configure YOUTUBE_API_KEY pour des données réelles.",
+        note: "Mode démo, Configure YOUTUBE_API_KEY pour des données réelles.",
       };
     }
 
@@ -102,7 +102,7 @@ export const searchTikTokTrends: Tool = {
     },
   },
   execute: async (input) => {
-    // TikTok API requires partnership — mock data
+    // TikTok API requires partnership, mock data
     const niche = input.niche ?? "general";
     const trendsByNiche: Record<string, any[]> = {
       fitness: [
@@ -130,7 +130,7 @@ export const searchTikTokTrends: Tool = {
       { sound: "Viral Audio 2026", uses: 120000, format: "Duet/Stitch", hashtag: "#viral", urgency: "high" },
     ];
 
-    return { source: "tiktok", niche, trends, note: "TikTok API limitée — données basées sur l'observation publique." };
+    return { source: "tiktok", niche, trends, note: "TikTok API limitée, données basées sur l'observation publique." };
   },
 };
 

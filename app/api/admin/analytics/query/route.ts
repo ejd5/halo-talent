@@ -137,7 +137,7 @@ export async function POST(request: NextRequest) {
     const messages: { role: string; content: any }[] = [
       {
         role: "system",
-        content: "You are an analytics assistant for Halo Talent, a creator management agency. Answer in French. Use the available tools to fetch data and provide clear, concise answers with numbers. If you need multiple data points, call tools sequentially.",
+        content: "You are an analytics assistant for Where Talent Forms, a creator management agency. Answer in French. Use the available tools to fetch data and provide clear, concise answers with numbers. If you need multiple data points, call tools sequentially.",
       },
       { role: "user", content: question },
     ];

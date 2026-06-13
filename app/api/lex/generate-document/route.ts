@@ -1,4 +1,4 @@
-// ─── Halo Lex — Document Generator API ─────────────────────────
+// ─── WTF Lex, Document Generator API ─────────────────────────
 // POST /api/lex/generate-document
 // Body: { documentType, platform, context, questionnaireId?, tone?, escalationLevel?, language? }
 // Response: { id, content, type, references }

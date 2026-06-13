@@ -1,5 +1,5 @@
 // ═══════════════════════════════════════════════════════════
-// COUTURE HOMEPAGE — Data
+// COUTURE HOMEPAGE, Data
 // Direction : éditorial magazine luxe + haute couture parisienne
 // ═══════════════════════════════════════════════════════════
 
@@ -7,7 +7,7 @@
 export const RAIL_LABELS = ["PARIS", "NEW YORK", "MILAN", "TOKYO"] as const;
 
 // --- Hero ---
-export const HERO_BADGE = "HALO TALENT — MAISON DE CRÉATION";
+export const HERO_BADGE = "WHERE TALENT FORMS, MAISON DE CRÉATION";
 export const HERO_TITLE = {
   line1: "Votre image.",
   line2: "Votre croissance.",
@@ -15,7 +15,7 @@ export const HERO_TITLE = {
   line4: "Votre contrôle.",
 };
 export const HERO_SUBTITLE =
-  "Halo Talent réunit management, IA, CRM, protection juridique et stratégie de croissance pour aider les créateurs à structurer leur activité sans perdre le contrôle.";
+  "Where Talent Forms réunit management, IA, CRM, protection juridique et stratégie de croissance pour aider les créateurs à structurer leur activité sans perdre le contrôle.";
 export const HERO_MICRO =
   "Pas une agence opaque. Pas un outil isolé. Une maison créative + un système d'exploitation.";
 export const HERO_REASSURANCE =
@@ -23,7 +23,7 @@ export const HERO_REASSURANCE =
 
 export const HERO_CTAS = [
   { label: "Demander une démo", href: "/demo", variant: "fill" as const },
-  { label: "Découvrir Halo", href: "#maison", variant: "outline" as const },
+  { label: "Découvrir WTF", href: "#maison", variant: "outline" as const },
   { label: "Explorer Chat AI", href: "/chat-ai", variant: "ghost" as const },
 ];
 
@@ -40,7 +40,7 @@ export const FLOATING_CARD_LABELS = [
   { label: "Studio IA", x: "80%", y: "10%", delay: 0.6 },
   { label: "Atlas CRM", x: "84%", y: "52%", delay: 0.3 },
   { label: "Chat AI", x: "10%", y: "60%", delay: 1.0 },
-  { label: "Halo Lex", x: "48%", y: "76%", delay: 0.5 },
+  { label: "WTF Lex", x: "48%", y: "76%", delay: 0.5 },
   { label: "Commissions", x: "54%", y: "18%", delay: 0.8 },
 ];
 
@@ -70,50 +70,119 @@ export const VIGNETTES: Vignette[] = [
     id: "management",
     num: "01",
     title: "Management",
-    desc: "Représentation, négociation, planification — une équipe dédiée payée au résultat, jamais à l'opacité.",
+    desc: "Représentation, négociation, planification, une équipe dédiée payée au résultat, jamais à l'opacité.",
     href: "/commissions",
   },
   {
     id: "studio",
     num: "02",
     title: "Studio IA",
-    desc: "Génération, retouche, montage assisté — créer plus vite sans perdre l'intention ni le style.",
+    desc: "Génération, retouche, montage assisté, créer plus vite sans perdre l'intention ni le style.",
     href: "/studio",
   },
   {
     id: "atlas",
     num: "03",
     title: "Atlas CRM",
-    desc: "Comprendre votre audience, segmenter, personnaliser, relancer — sans chatter à votre place.",
+    desc: "Comprendre votre audience, segmenter, personnaliser, relancer, sans chatter à votre place.",
     href: "/atlas",
   },
   {
     id: "chat",
     num: "04",
     title: "Sovereign Chat AI",
-    desc: "Assistant qui prépare, vérifie et structure — l'IA propose, l'humain valide, le créateur contrôle.",
+    desc: "Assistant qui prépare, vérifie et structure, l'IA propose, l'humain valide, le créateur contrôle.",
     href: "/chat-ai",
   },
   {
     id: "lex",
     num: "05",
-    title: "Halo Lex",
-    desc: "Analyse de contrats, veille juridique, conformité — structurer et documenter les risques.",
+    title: "WTF Lex",
+    desc: "Analyse de contrats, veille juridique, conformité, structurer et documenter les risques.",
     href: "/protection",
   },
   {
     id: "commissions",
     num: "06",
     title: "Commissions",
-    desc: "Un barème transparent et dégressif — plus vous générez, moins vous partagez.",
+    desc: "Un barème transparent et dégressif, plus vous générez, moins vous partagez.",
     href: "/commissions",
+  },
+];
+
+// --- Constat Section ---
+export const CONSTAT_TITLE = "Un marché qui a grandi plus vite que ses règles.";
+export const CONSTAT_SUBTITLE =
+  "L'économie des créateurs explose. Mais la qualité de l'accompagnement n'a pas suivi. Voici ce que nous avons observé, et ce que nous refusons de reproduire.";
+export const CONSTAT_ITEMS = [
+  {
+    label: "Multiplication des agences",
+    text: "Des centaines d'agences émergent chaque année, attirées par les revenus rapides. Beaucoup disparaissent aussi vite, laissant les créateurs sans suivi.",
+  },
+  {
+    label: "Promesses sans substance",
+    text: "\"Devenez riche en 90 jours.\" \"On vous rend viral.\" Des slogans qui attirent mais ne livrent rien, et érodent la confiance dans tout le secteur.",
+  },
+  {
+    label: "Rotation des talents",
+    text: "Les créateurs changent d'agence tous les 3 à 6 mois, lassés des promesses non tenues. Chaque rupture efface des mois de travail et de données.",
+  },
+  {
+    label: "Opacité organisée",
+    text: "La majorité des agences ne publient ni leurs tarifs, ni leurs méthodes, ni leurs résultats. Le créateur signe sans comprendre ce qu'on lui prélève.",
+  },
+  {
+    label: "Outils confisqués",
+    text: "Quand le créateur part, il perd l'accès aux outils, aux données, aux analytics. Une forme de rétention par privation qui n'a pas lieu d'être.",
+  },
+  {
+    label: "Contrats incompris",
+    text: "Clauses d'exclusivité abusives, durée indéterminée, cession de droits implicite. Le créateur s'engage parfois pour des années sans le savoir.",
+  },
+];
+
+// --- Comparison Table ---
+export const COMPARISON_TITLE = "Agence classique vs Where Talent Forms";
+export const COMPARISON_SUBTITLE = "Une comparaison factuelle, point par point. Pas de promesses, des différences objectives.";
+export const COMPARISON_ROWS = [
+  { label: "Commissions", classic: "30% à 50%, souvent opaques", halo: "Marginales, publiques, dégressives (30% → 10%)" },
+  { label: "Contrat", classic: "Exclusivité longue, clauses complexes", halo: "30 jours de préavis, données exportables" },
+  { label: "Outils", classic: "Propriétaires, perdus au départ", halo: "Dashboard, CRM, IA, accessibles en continu" },
+  { label: "Contrôle", classic: "L'agence décide, le créateur exécute", halo: "L'IA propose, l'humain valide, le créateur contrôle" },
+  { label: "Protection", classic: "Rare ou inexistante", halo: "Bouclier Légal, WTF Lex, CGU analysées" },
+  { label: "Données", classic: "Confisquées au départ", halo: "Exportables, suppression sous 30 jours" },
+  { label: "Stratégie", classic: "Court terme, tendances", halo: "Long terme, construction de marque" },
+  { label: "Équipe", classic: "Généraliste, turnover élevé", halo: "Spécialistes par département" },
+];
+
+// --- FAQ Homepage ---
+export const FAQ_HOMEPAGE = [
+  {
+    q: "Where Talent Forms est-il une agence ou un outil SaaS ?",
+    a: "Les deux, et c'est notre différence. Nous combinons une équipe de management humain (comme une agence) avec une suite d'outils technologiques (comme un SaaS) : CRM, IA, protection juridique, dashboard. Le tout dans une relation transparente, sans enfermement.",
+  },
+  {
+    q: "Que se passe-t-il si je veux partir ?",
+    a: "Vous partez quand vous voulez, avec un préavis de 30 jours. Vous récupérez toutes vos données, tous vos contenus, tous vos analytics. Rien n'est confisqué, rien n'est retenu. Votre indépendance est la condition de notre relation.",
+  },
+  {
+    q: "Est-ce que Where Talent Forms garantit des résultats ?",
+    a: "Non. Aucune agence sérieuse ne peut garantir des résultats. Nous apportons une stratégie, des outils, une équipe et une transparence totale. Les résultats dépendent de votre travail, de votre contenu et de votre audience. Nous gagnons quand vous gagnez, c'est notre seul engagement.",
+  },
+  {
+    q: "WTF Lex remplace-t-il un avocat ?",
+    a: "Non. WTF Lex est un outil d'aide à l'analyse et à la structuration de vos contrats. Il identifie les clauses à risque, prépare des dossiers, suit les changements de CGU. Mais il ne remplace pas un avocat pour les décisions juridiques importantes.",
+  },
+  {
+    q: "Pourquoi publier vos commissions ?",
+    a: "Parce que la transparence est notre meilleur argument. Dans un secteur où l'opacité est la norme, publier nos tarifs est un acte fondateur. Vous savez exactement ce que vous payez, comment c'est calculé, et ce que vous gardez.",
   },
 ];
 
 // --- Editorial Intro ---
 export const EDITORIAL_INTRO_TITLE = "Tout ce qu'il faut. Dans une seule maison.";
 export const EDITORIAL_INTRO_TEXT =
-  "Créer demande du temps. Protéger demande de la rigueur. Grandir demande de la clarté. Halo Talent rassemble management humain, intelligence artificielle, CRM et protection juridique dans un même écosystème pensé pour les créateurs ambitieux.";
+  "Créer demande du temps. Protéger demande de la rigueur. Grandir demande de la clarté. Where Talent Forms rassemble management humain, intelligence artificielle, CRM et protection juridique dans un même écosystème pensé pour les créateurs ambitieux.";
 
 // --- Services Grid ---
 export interface CoutureService {
@@ -152,7 +221,7 @@ export const SERVICES: CoutureService[] = [
   {
     id: "atlas",
     title: "Atlas CRM",
-    desc: "Comprendre, segmenter, relancer — avec précision.",
+    desc: "Comprendre, segmenter, relancer, avec précision.",
     capabilities: [
       "Segmentation d'audience",
       "Campagnes personnalisées",
@@ -175,7 +244,7 @@ export const SERVICES: CoutureService[] = [
   },
   {
     id: "lex",
-    title: "Halo Lex",
+    title: "WTF Lex",
     desc: "Structurer les risques, documenter les décisions.",
     capabilities: [
       "Analyse de contrats",
@@ -183,7 +252,7 @@ export const SERVICES: CoutureService[] = [
       "Suivi de conformité",
       "Pistes d'audit",
     ],
-    cta: { label: "Explorer Halo Lex", href: "/protection" },
+    cta: { label: "Explorer WTF Lex", href: "/protection" },
   },
   {
     id: "commissions",
@@ -223,7 +292,7 @@ export const CAROUSEL_SLIDES: CarouselSlide[] = [
     title: "Créateur premium",
     subtitle: "Votre marque grandit, vos enjeux aussi.",
     problem: "Contrats complexes, audience à segmenter, partenariats à sécuriser.",
-    system: "Halo Lex + Atlas CRM + Management stratégique.",
+    system: "WTF Lex + Atlas CRM + Management stratégique.",
     benefit: "Aide à structurer la croissance et documenter les décisions.",
   },
   {
@@ -239,7 +308,7 @@ export const CAROUSEL_SLIDES: CarouselSlide[] = [
     title: "Marque personnelle",
     subtitle: "Vous construisez une marque, pas seulement une audience.",
     problem: "Image à contrôler, deals à négocier, protection à assurer.",
-    system: "Direction d'image + Halo Lex + Atlas CRM.",
+    system: "Direction d'image + WTF Lex + Atlas CRM.",
     benefit: "Centralise les décisions et renforce la cohérence.",
   },
   {
@@ -255,7 +324,7 @@ export const CAROUSEL_SLIDES: CarouselSlide[] = [
     title: "Expansion internationale",
     subtitle: "Vous percez à l'international, les règles changent.",
     problem: "Contrats multi-juridictions, fiscalité complexe, audience fragmentée.",
-    system: "Halo Lex multi-droit + Atlas CRM global + Chat AI 6 langues.",
+    system: "WTF Lex multi-droit + Atlas CRM global + Chat AI 6 langues.",
     benefit: "Structure la conformité et facilite la coordination.",
   },
 ];
@@ -273,7 +342,7 @@ export const REASSURANCE_ITEMS: ReassuranceItem[] = [
   },
   {
     title: "Des outils connectés",
-    desc: "Studio IA, CRM, Chat AI, Legal — des modules qui communiquent entre eux, sans silos.",
+    desc: "Studio IA, CRM, Chat AI, Legal, des modules qui communiquent entre eux, sans silos.",
   },
   {
     title: "Des décisions documentées",
@@ -289,7 +358,7 @@ export const REASSURANCE_ITEMS: ReassuranceItem[] = [
   },
   {
     title: "Un accompagnement humain",
-    desc: "Des experts en management, droit et stratégie — pas des algorithmes seuls.",
+    desc: "Des experts en management, droit et stratégie, pas des algorithmes seuls.",
   },
 ];
 
@@ -297,14 +366,14 @@ export const REASSURANCE_ITEMS: ReassuranceItem[] = [
 export const STATEMENT_TITLE =
   "Nous ne suivons pas l'industrie. Nous construisons une maison plus juste.";
 export const STATEMENT_TEXT =
-  "Pas d'opacité sur les marges. Pas de contrats pièges. Pas de chatterie automatisée. Halo Talent est né d'une conviction : les créateurs méritent un management à la hauteur de leur ambition — transparent, exigeant, humain et technologique.";
+  "Pas d'opacité sur les marges. Pas de contrats pièges. Pas de chatterie automatisée. Where Talent Forms est né d'une conviction : les créateurs méritent un management à la hauteur de leur ambition, transparent, exigeant, humain et technologique.";
 
 // --- Commission Section (logic preserved from existing) ---
 export const COMMISSION_TITLE = "Pas 50%. Une logique plus juste.";
 export const COMMISSION_SUBTITLE =
-  "Notre barème est marginal et dégressif — vous ne payez le taux que sur la tranche concernée, pas sur la totalité.";
+  "Notre barème est marginal et dégressif, vous ne payez le taux que sur la tranche concernée, pas sur la totalité.";
 export const COMMISSION_DISCLAIMER =
-  "Les montants affichés sont indicatifs et basés sur le barème public Halo Talent. Aucun revenu n'est garanti.";
+  "Les montants affichés sont indicatifs et basés sur le barème public Where Talent Forms. Aucun revenu n'est garanti.";
 
 export const COMMISSION_TIERS = [
   { label: "0 € → 5 000 €", rate: "30%" },
@@ -317,32 +386,42 @@ export const COMMISSION_TIERS = [
 // --- Legal Shield Section ---
 export const LEGAL_SHIELD_TITLE = "Vos contrats, vos droits, votre contrôle.";
 export const LEGAL_SHIELD_TEXT =
-  "Halo Lex analyse vos contrats, surveille les clauses à risque et vous aide à documenter vos obligations — sans remplacer l'avocat.";
+  "WTF Lex analyse vos contrats, surveille les clauses à risque et vous aide à documenter vos obligations, sans remplacer l'avocat.";
 export const LEGAL_SHIELD_DISCLAIMER =
-  "Halo Talent ne fournit pas de conseil juridique. Halo Lex est un outil d'aide à la structuration, à la documentation et à la surveillance des risques contractuels. Consultez un avocat pour toute décision juridique.";
+  "Where Talent Forms ne fournit pas de conseil juridique. WTF Lex est un outil d'aide à la structuration, à la documentation et à la surveillance des risques contractuels. Consultez un avocat pour toute décision juridique.";
 
 // --- Footer ---
-export const FOOTER_WORDMARK = "Halo Talent";
+export const FOOTER_WORDMARK = "Where Talent Forms";
 export const FOOTER_TAGLINE =
   "La maison des créateurs qui construisent une marque, pas seulement une audience.";
 
 export const FOOTER_LINKS = {
   navigation: [
+    { label: "Qui nous sommes", href: "/qui-sommes-nous" },
     { label: "Manifeste", href: "/manifeste" },
+    { label: "Départements", href: "/departements" },
     { label: "Commissions", href: "/commissions" },
-    { label: "Bouclier Légal", href: "/protection" },
-    { label: "Chat AI", href: "/chat-ai" },
-    { label: "Studio", href: "/studio" },
-    { label: "Blog", href: "/blog" },
+    { label: "Tarifs", href: "/pricing" },
     { label: "Contact", href: "/contact" },
+  ],
+  ressources: [
+    { label: "Atlas CRM", href: "/atlas" },
+    { label: "Chat AI", href: "/chat-ai" },
+    { label: "WTF Lex", href: "/lex-ai" },
+    { label: "Bouclier Légal", href: "/protection" },
+    { label: "Blog", href: "/blog" },
+    { label: "Guides", href: "/guides" },
+    { label: "FAQ", href: "/faq" },
+    { label: "Glossaire", href: "/glossaire" },
   ],
   legal: [
     { label: "Mentions légales", href: "/mentions-legales" },
     { label: "Confidentialité", href: "/confidentialite" },
     { label: "CGU", href: "/cgu" },
     { label: "Contrat type", href: "/contrat-type" },
+    { label: "Comparaisons", href: "/comparaisons" },
   ],
 };
 
 export const NEWSLETTER_TEXT =
-  "Recevez les mises à jour produit et guides Halo.";
+  "Recevez les mises à jour produit et guides WTF.";

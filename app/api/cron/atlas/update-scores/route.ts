@@ -5,7 +5,7 @@ import type { FanInteraction, FanPurchase, FanTier } from "@/lib/atlas/crm/scori
 
 // ═══════════════════════════════════════════════
 // CRON: Update fan scores and tiers
-// Runs every hour — batch of 100 fans per run
+// Runs every hour, batch of 100 fans per run
 // Each fan is re-scored at least once per day
 // ═══════════════════════════════════════════════
 
@@ -20,7 +20,7 @@ export async function POST(request: Request) {
 
     const supabase = await createClient();
 
-    // Fetch fans needing update — oldest updated_at first
+    // Fetch fans needing update, oldest updated_at first
     const { data: fans, error: fanError } = await supabase
       .from("atlas_fans")
       .select("id, creator_id, first_seen_at, last_interaction_at, last_purchase_at, total_spent, purchases_count, avg_order_value, email, phone, username_onlyfans, username_instagram, username_tiktok, fan_score, fan_tier, status")

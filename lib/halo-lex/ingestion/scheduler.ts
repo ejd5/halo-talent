@@ -1,4 +1,4 @@
-// ─── Halo Lex — Scheduler ──────────────────────────────────────
+// ─── WTF Lex, Scheduler ──────────────────────────────────────
 // Déclencheur manuel pour le pipeline d'ingestion.
 // Utilisé par l'API admin et la CLI.
 

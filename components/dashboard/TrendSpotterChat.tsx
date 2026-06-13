@@ -404,7 +404,7 @@ export function TrendSpotterChat() {
             {messages.length === 0 && (
               <div className="text-center py-6">
                 <Search size={20} className="mx-auto mb-2" style={{ color: "rgba(255, 255, 255, 0.08)" }} />
-                <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>Demande-moi d&apos;analyser une tendance ou un sujet</p>
+                <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>Demande-moi d'analyser une tendance ou un sujet</p>
               </div>
             )}
             {messages.map((msg, i) => (
@@ -442,7 +442,7 @@ export function TrendSpotterChat() {
 
         {/* Stat card */}
         <div className="border border-[var(--color-border)] p-3" style={{ backgroundColor: "var(--color-card)" }}>
-          <p className="text-[10px] uppercase tracking-wider mb-2" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Quota API aujourd&apos;hui</p>
+          <p className="text-[10px] uppercase tracking-wider mb-2" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Quota API aujourd'hui</p>
           <div className="space-y-1.5">
             <div className="flex items-center justify-between text-[10px]">
               <span style={{ color: "rgba(255, 255, 255, 0.5)" }}>YouTube</span>

@@ -25,7 +25,7 @@ export function StudioLayoutClient({
         <StudioTopbar />
         {/* Spacer for fixed topbar */}
         <div className="shrink-0" style={{ height: 56 }} />
-        {/* Mobile hamburger — overlaid on topbar */}
+        {/* Mobile hamburger, overlaid on topbar */}
         <button
           onClick={() => setMobileOpen(true)}
           className="md:hidden fixed top-3 left-3 z-20 min-touch rounded-md"

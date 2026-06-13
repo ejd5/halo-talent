@@ -161,7 +161,7 @@ function MusicSection({ credits }: { credits: number | null }) {
     <div className="p-4 md:p-6 max-w-5xl mx-auto space-y-6">
       <div className="mb-2">
         <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Génération de musique</h1>
-        <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Crée de la musique libre de droits pour tes vidéos — Suno, Mubert, Stability Audio</p>
+        <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Crée de la musique libre de droits pour tes vidéos, Suno, Mubert, Stability Audio</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -369,7 +369,7 @@ function VoiceSection({ credits }: { credits: number | null }) {
       <div className="mb-2">
         <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Clonage vocal</h1>
         <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
-          Crée un modèle de ta voix avec ElevenLabs — voice-over, podcasts, narration
+          Crée un modèle de ta voix avec ElevenLabs, voice-over, podcasts, narration
         </p>
       </div>
 
@@ -381,13 +381,13 @@ function VoiceSection({ credits }: { credits: number | null }) {
           <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.3)" }}>
             En utilisant cette fonctionnalité, tu certifies que :
             · Tu clones ta PROPRE voix uniquement
-            · Tu n&apos;imiteras pas une personne publique sans consentement
+            · Tu n'imiteras pas une personne publique sans consentement
             · Tout usage abusif peut entraîner la suspension de ton compte
           </p>
           <button onClick={() => setAcceptedTerms(true)}
             className="flex items-center gap-1.5 px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80"
             style={{ background: "var(--accent)", color: "var(--text-primary)" }}>
-            <Check size={10} /> J&apos;accepte ces conditions
+            <Check size={10} /> J'accepte ces conditions
           </button>
         </div>
       )}
@@ -558,7 +558,7 @@ function TranscribeSection({ credits }: { credits: number | null }) {
     <div className="p-4 md:p-6 max-w-3xl mx-auto space-y-6">
       <div className="mb-2">
         <h1 className="text-xl italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Transcription & Sous-titres</h1>
-        <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Transcris l&apos;audio d&apos;une vidéo et génère des sous-titres SRT — Whisper API</p>
+        <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Transcris l'audio d'une vidéo et génère des sous-titres SRT, Whisper API</p>
       </div>
 
       <div className="space-y-3">
@@ -638,7 +638,7 @@ function TranscribeSection({ credits }: { credits: number | null }) {
 
         {!file && !result && (
           <p className="text-[9px] text-center py-4" style={{ color: "rgba(255,255,255,0.1)" }}>
-            Supporte MP3, WAV, MP4, MOV, etc. Jusqu&apos;à 25MB. Whisper API (~0.006$/min)
+            Supporte MP3, WAV, MP4, MOV, etc. Jusqu'à 25MB. Whisper API (~0.006$/min)
           </p>
         )}
       </div>

@@ -63,7 +63,7 @@ export default function HistoryPage() {
           <div className="flex flex-col items-center justify-center py-24">
             <History size={32} style={{ color: "rgba(255,255,255,0.06)" }} />
             <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.15)" }}>
-              Aucune image générée pour l&apos;instant
+              Aucune image générée pour l'instant
             </p>
             <Link
               href="/studio/generate/image"
@@ -144,7 +144,7 @@ export default function HistoryPage() {
         )}
       </div>
 
-      {/* Sidebar — selected image detail */}
+      {/* Sidebar, selected image detail */}
       {selected && (() => {
         const img = images.find((i) => i.id === selected);
         if (!img) return null;
@@ -156,7 +156,7 @@ export default function HistoryPage() {
             <div className="space-y-2 text-[10px]">
               <div>
                 <span className="block text-[9px] uppercase tracking-wider mb-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>Prompt</span>
-                <p style={{ color: "var(--text-primary)" }}>{img.prompt || "—"}</p>
+                <p style={{ color: "var(--text-primary)" }}>{img.prompt || ", "}</p>
               </div>
               <div className="flex justify-between">
                 <span className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Date</span>
@@ -164,11 +164,11 @@ export default function HistoryPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Provider</span>
-                <span style={{ color: "var(--text-primary)" }}>{img.provider || "—"}</span>
+                <span style={{ color: "var(--text-primary)" }}>{img.provider || ", "}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Modèle</span>
-                <span style={{ color: "var(--text-primary)" }}>{img.model || "—"}</span>
+                <span style={{ color: "var(--text-primary)" }}>{img.model || ", "}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-[9px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>Crédits</span>

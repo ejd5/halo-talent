@@ -65,7 +65,7 @@ export async function GET() {
       ? Math.max(1, Math.round((Date.now() - new Date(c.joined_at).getTime()) / (30 * 86400000)))
       : 1;
 
-    tierMap.get(tier)!.push({ id: c.id, name: c.display_name || c.full_name || "—", revenue, growth, months_since_joined: monthsSinceJoined, status: c.status, joined_at: c.joined_at });
+    tierMap.get(tier)!.push({ id: c.id, name: c.display_name || c.full_name || ", ", revenue, growth, months_since_joined: monthsSinceJoined, status: c.status, joined_at: c.joined_at });
   }
 
   const tiers = TIER_ORDER.map((name) => {
@@ -77,7 +77,7 @@ export async function GET() {
     return { name, count: members.length, avg_revenue: avgRevenue, avg_growth: avgGrowth, avg_months_in_tier: avgTimeToReach, members };
   });
 
-  // Calculate flows (who moved up/down — compare current vs historical assignment)
+  // Calculate flows (who moved up/down, compare current vs historical assignment)
   // For MVP, estimate flow from revenue changes
   const flows = TIER_ORDER.slice(0, -1).map((lower, i) => {
     const upper = TIER_ORDER[i + 1];

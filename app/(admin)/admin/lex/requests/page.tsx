@@ -268,8 +268,8 @@ export default function LexRequestsAdminPage() {
             if (!firstLoad && Notification.permission === "granted") {
               const userName = req.users?.raw_user_meta_data?.first_name || "Utilisateur";
               const priority = req.priority === "express" ? "🔥 " : "";
-              new Notification("Nouvelle demande Halo Lex", {
-                body: `${priority}${userName} — ${req.letter_type}`,
+              new Notification("Nouvelle demande WTF Lex", {
+                body: `${priority}${userName}, ${req.letter_type}`,
                 icon: "/favicon.ico",
                 tag: req.id,
               });
@@ -405,7 +405,7 @@ export default function LexRequestsAdminPage() {
               <span>·</span>
               <span>{counts.in_progress} en cours</span>
               <span>·</span>
-              <span>{counts.today} aujourd&apos;hui</span>
+              <span>{counts.today} aujourd'hui</span>
             </div>
           </div>
         </div>
@@ -432,7 +432,7 @@ export default function LexRequestsAdminPage() {
 
       {/* Main Split Layout */}
       <div className="flex flex-1 overflow-hidden">
-        {/* ─── LEFT PANEL (30%) — Queue ─── */}
+        {/* ─── LEFT PANEL (30%), Queue ─── */}
         <div className="w-[30%] flex flex-col shrink-0" style={{ borderRight: "1px solid var(--border-default)" }}>
           {/* Filters */}
           <div className="shrink-0 px-3 py-2 space-y-2" style={{ borderBottom: "1px solid var(--border-default)" }}>
@@ -543,13 +543,13 @@ export default function LexRequestsAdminPage() {
           </div>
         </div>
 
-        {/* ─── RIGHT PANEL (70%) — Detail ─── */}
+        {/* ─── RIGHT PANEL (70%), Detail ─── */}
         <div className="flex-1 overflow-y-auto custom-scrollbar">
           {!selectedRequest ? (
             <div className="flex flex-col items-center justify-center h-full text-center px-8">
               <FileText size={48} style={{ color: "var(--text-tertiary)" }} />
               <p className="text-sm mt-4 font-medium" style={{ color: "var(--text-secondary)" }}>Sélectionnez une demande</p>
-              <p className="text-xs mt-1" style={{ color: "var(--text-tertiary)" }}>Choisissez une demande dans la file d&apos;attente pour voir les détails</p>
+              <p className="text-xs mt-1" style={{ color: "var(--text-tertiary)" }}>Choisissez une demande dans la file d'attente pour voir les détails</p>
             </div>
           ) : (
             <div className="p-4 space-y-4">
@@ -609,15 +609,15 @@ export default function LexRequestsAdminPage() {
                   <div className="grid grid-cols-3 gap-3 text-xs">
                     <div>
                       <p style={{ color: "var(--text-tertiary)" }}>Nom</p>
-                      <p style={{ color: "var(--text-primary)" }}>{selectedRequest.users?.raw_user_meta_data?.first_name || "—"}</p>
+                      <p style={{ color: "var(--text-primary)" }}>{selectedRequest.users?.raw_user_meta_data?.first_name || ", "}</p>
                     </div>
                     <div>
                       <p style={{ color: "var(--text-tertiary)" }}>Email</p>
-                      <p style={{ color: "var(--text-primary)" }}>{selectedRequest.users?.email || "—"}</p>
+                      <p style={{ color: "var(--text-primary)" }}>{selectedRequest.users?.email || ", "}</p>
                     </div>
                     <div>
                       <p style={{ color: "var(--text-tertiary)" }}>Plateforme cible</p>
-                      <p style={{ color: "var(--text-primary)" }}>{selectedRequest.target_platform || "—"}</p>
+                      <p style={{ color: "var(--text-primary)" }}>{selectedRequest.target_platform || ", "}</p>
                     </div>
                     <div>
                       <p style={{ color: "var(--text-tertiary)" }}>Langue</p>
@@ -761,7 +761,7 @@ export default function LexRequestsAdminPage() {
                   </div>
                   <div>
                     <p className="text-xs mb-1" style={{ color: "var(--text-tertiary)" }}>Signature</p>
-                    <p className="text-sm" style={{ color: "var(--text-primary)" }}>L&apos;équipe Halo Talent (par défaut)</p>
+                    <p className="text-sm" style={{ color: "var(--text-primary)" }}>L'équipe Where Talent Forms (par défaut)</p>
                   </div>
                 </div>
               </details>
@@ -869,7 +869,7 @@ export default function LexRequestsAdminPage() {
               </button>
             </div>
             <p className="text-xs mb-4" style={{ color: "var(--text-secondary)" }}>
-              Précisez les informations manquantes. Le compte à rebours sera mis en pause jusqu&apos;à la réponse du client.
+              Précisez les informations manquantes. Le compte à rebours sera mis en pause jusqu'à la réponse du client.
               Le client recevra un email avec vos questions.
             </p>
             <textarea

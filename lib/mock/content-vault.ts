@@ -1,4 +1,4 @@
-// ─── Content Vault — Mock Data + Types ──────────────────────
+// ─── Content Vault, Mock Data + Types ──────────────────────
 
 export type ContentType = "image" | "video" | "audio" | "text" | "bundle";
 export type RightsStatus = "validated" | "pending" | "expired" | "disputed";
@@ -84,7 +84,7 @@ export const contentVaultAssets: ContentAsset[] = [
   // ═══ IMAGES (10) ═══
   {
     id: "asset-img-001",
-    title: "Séance photo exclusive — Tenue rouge",
+    title: "Séance photo exclusive, Tenue rouge",
     type: "image",
     thumbnail: "📸",
     platformAllowed: ["onlyfans", "fansly", "mym"],
@@ -115,7 +115,7 @@ export const contentVaultAssets: ContentAsset[] = [
   },
   {
     id: "asset-img-002",
-    title: "Photos plage — Collection été",
+    title: "Photos plage, Collection été",
     type: "image",
     thumbnail: "🏖️",
     platformAllowed: ["onlyfans", "fansly", "mym", "instagram"],
@@ -146,7 +146,7 @@ export const contentVaultAssets: ContentAsset[] = [
   },
   {
     id: "asset-img-003",
-    title: "Portrait noir et blanc — Série artistique",
+    title: "Portrait noir et blanc, Série artistique",
     type: "image",
     thumbnail: "🖤",
     platformAllowed: ["onlyfans", "instagram", "tiktok"],
@@ -171,11 +171,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-img-003-2", type: "preview", platform: "instagram", date: daysAgo(60), revenue: 0 },
     ],
     restrictions: [],
-    notes: ["Contenu promotionnel — utiliser pour acquisition"],
+    notes: ["Contenu promotionnel, utiliser pour acquisition"],
   },
   {
     id: "asset-img-004",
-    title: "Lingerie — Série dentelle noire",
+    title: "Lingerie, Série dentelle noire",
     type: "image",
     thumbnail: "🖤",
     platformAllowed: ["onlyfans", "fansly", "mym"],
@@ -202,11 +202,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-img-004-4", type: "campaign_include", platform: "onlyfans", date: daysAgo(30), revenue: 0 },
     ],
     restrictions: [],
-    notes: ["Top performer — attention à la fatigue (70%)", "Rotation recommandée"],
+    notes: ["Top performer, attention à la fatigue (70%)", "Rotation recommandée"],
   },
   {
     id: "asset-img-005",
-    title: "Behind the camera — Making-of photo",
+    title: "Behind the camera, Making-of photo",
     type: "image",
     thumbnail: "🎬",
     platformAllowed: ["onlyfans", "fansly", "instagram", "tiktok"],
@@ -228,11 +228,11 @@ export const contentVaultAssets: ContentAsset[] = [
     performanceScore: 30,
     usageHistory: [],
     restrictions: [],
-    notes: ["Jamais utilisé — bon pour warm-up ou acquisition"],
+    notes: ["Jamais utilisé, bon pour warm-up ou acquisition"],
   },
   {
     id: "asset-img-006",
-    title: "Yoga matinal — Daily routine",
+    title: "Yoga matinal, Daily routine",
     type: "image",
     thumbnail: "🧘",
     platformAllowed: ["onlyfans", "instagram", "tiktok", "fanvue"],
@@ -261,7 +261,7 @@ export const contentVaultAssets: ContentAsset[] = [
   },
   {
     id: "asset-img-007",
-    title: "Série cosplay — Personnage fantastique",
+    title: "Série cosplay, Personnage fantastique",
     type: "image",
     thumbnail: "🧝",
     platformAllowed: ["onlyfans", "fansly", "instagram", "tiktok"],
@@ -285,11 +285,11 @@ export const contentVaultAssets: ContentAsset[] = [
     restrictions: [
       { id: "rest-img-007-1", type: "expired_rights", detail: "Droits du personnage en attente de validation par la marque", isActive: true },
     ],
-    notes: ["Droits en attente — ne pas utiliser tant que non validé", "Contact marque en cours"],
+    notes: ["Droits en attente, ne pas utiliser tant que non validé", "Contact marque en cours"],
   },
   {
     id: "asset-img-008",
-    title: "Petit-déjeuner — Morning routine",
+    title: "Petit-déjeuner, Morning routine",
     type: "image",
     thumbnail: "☕",
     platformAllowed: ["onlyfans", "instagram", "tiktok", "fansly", "mym", "fanvue"],
@@ -318,7 +318,7 @@ export const contentVaultAssets: ContentAsset[] = [
   },
   {
     id: "asset-img-009",
-    title: "Série photos — Tenue latex rouge",
+    title: "Série photos, Tenue latex rouge",
     type: "image",
     thumbnail: "🔴",
     platformAllowed: ["onlyfans", "fansly", "mym"],
@@ -345,13 +345,13 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-img-009-4", type: "purchase", platform: "mym", date: daysAgo(1), revenue: 80 },
     ],
     restrictions: [
-      { id: "rest-img-009-1", type: "sensitive_content", detail: "Contenu fetish — vérifier âge minimum et consentement", isActive: true },
+      { id: "rest-img-009-1", type: "sensitive_content", detail: "Contenu fetish, vérifier âge minimum et consentement", isActive: true },
     ],
-    notes: ["Très haut revenu — contenu sensible, validation requise avant envoi"],
+    notes: ["Très haut revenu, contenu sensible, validation requise avant envoi"],
   },
   {
     id: "asset-img-010",
-    title: "Coucher de soleil — Plage privée",
+    title: "Coucher de soleil, Plage privée",
     type: "image",
     thumbnail: "🌅",
     platformAllowed: ["onlyfans", "fansly", "instagram", "tiktok", "mym", "fanvue"],
@@ -382,7 +382,7 @@ export const contentVaultAssets: ContentAsset[] = [
   // ═══ VIDEOS (8) ═══
   {
     id: "asset-vid-001",
-    title: "Behind-the-scenes — Tournage juin",
+    title: "Behind-the-scenes, Tournage juin",
     type: "video",
     thumbnail: "🎥",
     duration: 420,
@@ -409,11 +409,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-vid-001-3", type: "purchase", platform: "fansly", date: daysAgo(1), revenue: 35 },
     ],
     restrictions: [],
-    notes: ["Nouveau contenu — bonne traction initiale"],
+    notes: ["Nouveau contenu, bonne traction initiale"],
   },
   {
     id: "asset-vid-002",
-    title: "Tutoriel maquillage — Smoky eyes",
+    title: "Tutoriel maquillage, Smoky eyes",
     type: "video",
     thumbnail: "💄",
     duration: 600,
@@ -440,11 +440,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-vid-002-3", type: "preview", platform: "tiktok", date: daysAgo(40), revenue: 0 },
     ],
     restrictions: [],
-    notes: ["Bon contenu éducatif — rotation possible"],
+    notes: ["Bon contenu éducatif, rotation possible"],
   },
   {
     id: "asset-vid-003",
-    title: "Vidéo personnalisée — Message privé",
+    title: "Vidéo personnalisée, Message privé",
     type: "video",
     thumbnail: "🎬",
     duration: 180,
@@ -470,13 +470,13 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-vid-003-2", type: "purchase", platform: "onlyfans", date: daysAgo(1), revenue: 150, fanId: "f-042" },
     ],
     restrictions: [
-      { id: "rest-vid-003-1", type: "sensitive_content", detail: "Contenu personnalisé — ne pas redistribuer", isActive: true },
+      { id: "rest-vid-003-1", type: "sensitive_content", detail: "Contenu personnalisé, ne pas redistribuer", isActive: true },
     ],
-    notes: ["Contenu sur-mesure haut de gamme — diffusion limitée"],
+    notes: ["Contenu sur-mesure haut de gamme, diffusion limitée"],
   },
   {
     id: "asset-vid-004",
-    title: "Vlog quotidien — Ma journée type",
+    title: "Vlog quotidien, Ma journée type",
     type: "video",
     thumbnail: "📹",
     duration: 900,
@@ -502,11 +502,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-vid-004-2", type: "preview", platform: "instagram", date: daysAgo(55), revenue: 0 },
     ],
     restrictions: [],
-    notes: ["Contenu gratuit — bon pour acquisition et warm-up"],
+    notes: ["Contenu gratuit, bon pour acquisition et warm-up"],
   },
   {
     id: "asset-vid-005",
-    title: "Séance photo en direct — Replay",
+    title: "Séance photo en direct, Replay",
     type: "video",
     thumbnail: "📡",
     duration: 1800,
@@ -536,7 +536,7 @@ export const contentVaultAssets: ContentAsset[] = [
   },
   {
     id: "asset-vid-006",
-    title: "Striptease — Danse sensuelle",
+    title: "Striptease, Danse sensuelle",
     type: "video",
     thumbnail: "💃",
     duration: 300,
@@ -563,11 +563,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-vid-006-3", type: "purchase", platform: "mym", date: daysAgo(6), revenue: 70 },
     ],
     restrictions: [],
-    notes: ["Excellent revenu — fatigue élevée, rotation conseillée"],
+    notes: ["Excellent revenu, fatigue élevée, rotation conseillée"],
   },
   {
     id: "asset-vid-007",
-    title: "Interview — Mon parcours créateur",
+    title: "Interview, Mon parcours créateur",
     type: "video",
     thumbnail: "🎙️",
     duration: 2400,
@@ -597,7 +597,7 @@ export const contentVaultAssets: ContentAsset[] = [
   },
   {
     id: "asset-vid-008",
-    title: "TikTok dance challenge — Viral2026",
+    title: "TikTok dance challenge, Viral2026",
     type: "video",
     thumbnail: "📱",
     duration: 30,
@@ -622,13 +622,13 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-vid-008-1", type: "preview", platform: "tiktok", date: daysAgo(1), revenue: 0 },
     ],
     restrictions: [],
-    notes: ["Viral potentiel — surveiller les commentaires"],
+    notes: ["Viral potentiel, surveiller les commentaires"],
   },
 
   // ═══ AUDIO (5) ═══
   {
     id: "asset-aud-001",
-    title: "Message personnalisé — Bon anniversaire",
+    title: "Message personnalisé, Bon anniversaire",
     type: "audio",
     thumbnail: "🎂",
     duration: 120,
@@ -654,11 +654,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-aud-001-2", type: "purchase", platform: "onlyfans", date: daysAgo(4), revenue: 30, fanId: "f-032" },
     ],
     restrictions: [],
-    notes: ["Très demandé — scaling possible avec template"],
+    notes: ["Très demandé, scaling possible avec template"],
   },
   {
     id: "asset-aud-002",
-    title: "ASMR — Murmures relaxation",
+    title: "ASMR, Murmures relaxation",
     type: "audio",
     thumbnail: "🎧",
     duration: 600,
@@ -688,7 +688,7 @@ export const contentVaultAssets: ContentAsset[] = [
   },
   {
     id: "asset-aud-003",
-    title: "Podcast — Les coulisses du métier",
+    title: "Podcast, Les coulisses du métier",
     type: "audio",
     thumbnail: "🎙️",
     duration: 3600,
@@ -714,11 +714,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-aud-003-2", type: "preview", platform: "instagram", date: daysAgo(60), revenue: 0 },
     ],
     restrictions: [],
-    notes: ["Contenu authentique — bon pour le branding"],
+    notes: ["Contenu authentique, bon pour le branding"],
   },
   {
     id: "asset-aud-004",
-    title: "Sexting audio — Voix sensuelle",
+    title: "Sexting audio, Voix sensuelle",
     type: "audio",
     thumbnail: "🔥",
     duration: 180,
@@ -744,11 +744,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-aud-004-2", type: "purchase", platform: "fansly", date: daysAgo(5), revenue: 40 },
     ],
     restrictions: [],
-    notes: ["Fort taux de conversion — destiné audience brésilienne"],
+    notes: ["Fort taux de conversion, destiné audience brésilienne"],
   },
   {
     id: "asset-aud-005",
-    title: "Sons de la nature — Méditation guidée",
+    title: "Sons de la nature, Méditation guidée",
     type: "audio",
     thumbnail: "🌿",
     duration: 1200,
@@ -773,13 +773,13 @@ export const contentVaultAssets: ContentAsset[] = [
     restrictions: [
       { id: "rest-aud-005-1", type: "expired_rights", detail: "Droits d'utilisation des samples sonores en attente", isActive: true },
     ],
-    notes: ["Nouveau — droits sonores à vérifier avant publication"],
+    notes: ["Nouveau, droits sonores à vérifier avant publication"],
   },
 
   // ═══ TEXT (4) ═══
   {
     id: "asset-txt-001",
-    title: "Nouvelle érotique — Nuit à Paris",
+    title: "Nouvelle érotique, Nuit à Paris",
     type: "text",
     thumbnail: "📖",
     platformAllowed: ["onlyfans", "fansly", "mym", "fanvue"],
@@ -804,11 +804,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-txt-001-2", type: "purchase", platform: "fansly", date: daysAgo(13), revenue: 20 },
     ],
     restrictions: [],
-    notes: ["Bien noté — série à continuer"],
+    notes: ["Bien noté, série à continuer"],
   },
   {
     id: "asset-txt-002",
-    title: "Guide — 10 conseils pour photographes",
+    title: "Guide, 10 conseils pour photographes",
     type: "text",
     thumbnail: "📝",
     platformAllowed: ["onlyfans", "fansly", "instagram", "fanvue"],
@@ -837,7 +837,7 @@ export const contentVaultAssets: ContentAsset[] = [
   },
   {
     id: "asset-txt-003",
-    title: "Poème — Lune et Désir",
+    title: "Poème, Lune et Désir",
     type: "text",
     thumbnail: "🌙",
     platformAllowed: ["onlyfans", "fansly", "mym", "fanvue", "instagram"],
@@ -862,13 +862,13 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-txt-003-2", type: "purchase", platform: "fansly", date: daysAgo(78), revenue: 10 },
     ],
     restrictions: [
-      { id: "rest-txt-003-1", type: "expired_rights", detail: "Droits de publication arrivés à expiration — contacter l'éditeur", isActive: true },
+      { id: "rest-txt-003-1", type: "expired_rights", detail: "Droits de publication arrivés à expiration, contacter l'éditeur", isActive: true },
     ],
-    notes: ["Droits expirés — voir renouvellement avec l'éditeur"],
+    notes: ["Droits expirés, voir renouvellement avec l'éditeur"],
   },
   {
     id: "asset-txt-004",
-    title: "Script vidéo — Routine matinale",
+    title: "Script vidéo, Routine matinale",
     type: "text",
     thumbnail: "📄",
     platformAllowed: ["onlyfans", "fansly", "mym", "fanvue", "instagram", "tiktok"],
@@ -892,13 +892,13 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-txt-004-1", type: "send", platform: "onlyfans", date: daysAgo(3), revenue: 0 },
     ],
     restrictions: [],
-    notes: ["Script récent — prêt pour production vidéo"],
+    notes: ["Script récent, prêt pour production vidéo"],
   },
 
   // ═══ BUNDLES (3) ═══
   {
     id: "asset-bnd-001",
-    title: "VIP Pack — Juin 2026",
+    title: "VIP Pack, Juin 2026",
     type: "bundle",
     thumbnail: "🎁",
     platformAllowed: ["onlyfans", "fansly"],
@@ -924,11 +924,11 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-bnd-001-3", type: "purchase", platform: "fansly", date: daysAgo(1), revenue: 100 },
     ],
     restrictions: [],
-    notes: ["Pack mensuel — top performer absolu"],
+    notes: ["Pack mensuel, top performer absolu"],
   },
   {
     id: "asset-bnd-002",
-    title: "Summer Collection — 15 photos + 2 vidéos",
+    title: "Summer Collection, 15 photos + 2 vidéos",
     type: "bundle",
     thumbnail: "☀️",
     platformAllowed: ["onlyfans", "fansly", "mym"],
@@ -954,13 +954,13 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-bnd-002-3", type: "purchase", platform: "mym", date: daysAgo(18), revenue: 50 },
     ],
     restrictions: [
-      { id: "rest-bnd-002-1", type: "compliance_hold", detail: "Droits contestés par un tiers — ne pas distribuer", isActive: true },
+      { id: "rest-bnd-002-1", type: "compliance_hold", detail: "Droits contestés par un tiers, ne pas distribuer", isActive: true },
     ],
-    notes: ["LITIGE — ne pas utiliser en campagne", "Contacter avocat avant toute action"],
+    notes: ["LITIGE, ne pas utiliser en campagne", "Contacter avocat avant toute action"],
   },
   {
     id: "asset-bnd-003",
-    title: "Starter Pack — Découverte",
+    title: "Starter Pack, Découverte",
     type: "bundle",
     thumbnail: "🚀",
     platformAllowed: ["onlyfans", "fansly", "mym", "fanvue"],
@@ -985,9 +985,9 @@ export const contentVaultAssets: ContentAsset[] = [
       { id: "evt-bnd-003-2", type: "purchase", platform: "fanvue", date: daysAgo(10), revenue: 30 },
     ],
     restrictions: [
-      { id: "rest-bnd-003-1", type: "geo_block", detail: "Contenu restreint — disponible uniquement pour certains pays", isActive: true },
+      { id: "rest-bnd-003-1", type: "geo_block", detail: "Contenu restreint, disponible uniquement pour certains pays", isActive: true },
     ],
-    notes: ["Restriction géographique active — vérifier avant envoi"],
+    notes: ["Restriction géographique active, vérifier avant envoi"],
   },
 ];
 

@@ -66,7 +66,7 @@ export function StepClauses({
           Cochez les clauses présentes dans votre contrat
         </h2>
         <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-          Soyez honnête — l&apos;analyse n&apos;est visible que par vous
+          Soyez honnête, l'analyse n'est visible que par vous
         </p>
       </div>
 
@@ -111,7 +111,7 @@ export function StepClauses({
                 )}
               </div>
 
-              {/* Clauses — 2-column grid */}
+              {/* Clauses, 2-column grid */}
               <div className="p-3" style={{ backgroundColor: "var(--bg-primary)" }}>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {group.clauses.map((clause) => (
@@ -207,7 +207,7 @@ export function StepClauses({
                           }}
                         >
                           <p style={{ color: "var(--text-secondary)" }}>
-                            <span className="font-semibold">Pourquoi c&apos;est abusif :</span>{" "}
+                            <span className="font-semibold">Pourquoi c'est abusif :</span>{" "}
                             {clause.legalArgument}
                           </p>
                           {clause.legalRef && (
@@ -240,7 +240,7 @@ export function StepClauses({
           {checked.size} clause{checked.size !== 1 ? "s" : ""} cochée{checked.size !== 1 ? "s" : ""}
           {checked.size >= 3 && (
             <span className="ml-1" style={{ color: "#F59E0B" }}>
-              — analyse disponible
+             , analyse disponible
             </span>
           )}
         </span>

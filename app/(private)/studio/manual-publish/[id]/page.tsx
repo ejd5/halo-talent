@@ -195,7 +195,7 @@ export default function ManualPublishPage() {
             style={{ background: "rgba(212,175,55,0.06)", border: "1px solid rgba(212,175,55,0.15)", color: "var(--accent)" }}
           >
             PPV · {publication.content.ppv_price}€
-            {publication.content.ppv_message && ` — ${publication.content.ppv_message}`}
+            {publication.content.ppv_message && `, ${publication.content.ppv_message}`}
           </div>
         )}
 

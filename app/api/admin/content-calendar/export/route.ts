@@ -50,7 +50,7 @@ export async function GET(request: NextRequest) {
     let ical = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
-      "PRODID:-//Halo Talent//Content Calendar//FR",
+      "PRODID:-//Where Talent Forms//Content Calendar//FR",
       "CALSCALE:GREGORIAN",
     ];
 

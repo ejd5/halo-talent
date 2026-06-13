@@ -127,17 +127,17 @@ export default function ApiKeysPage() {
           <Link href="/studio" className="p-1 transition-opacity hover:opacity-70" style={{ color: "rgba(255,255,255,0.4)" }}>
             <ArrowLeft size={16} />
           </Link>
-          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>BYOK — Clés API</h1>
+          <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>BYOK, Clés API</h1>
         </div>
 
         {/* Info banner */}
         <div className="flex items-start gap-2.5 px-4 py-3 rounded-sm text-[10px]" style={{ background: "rgba(199,91,57,0.04)", border: "1px solid rgba(199,91,57,0.1)" }}>
           <Info size={14} style={{ color: "var(--accent)", marginTop: 1 }} />
           <div>
-            <p className="text-[11px] font-medium" style={{ color: "var(--accent)" }}>C&apos;est quoi le BYOK ?</p>
+            <p className="text-[11px] font-medium" style={{ color: "var(--accent)" }}>C'est quoi le BYOK ?</p>
             <p className="mt-1 leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>
-              Bring Your Own Key — tu utilises tes propres clés API des fournisseurs d&apos;IA.
-              Quand le BYOK est activé pour une catégorie, tes crédits Halo ne sont PAS déduits.
+              Bring Your Own Key, tu utilises tes propres clés API des fournisseurs d'IA.
+              Quand le BYOK est activé pour une catégorie, tes crédits WTF ne sont PAS déduits.
               Tu paies directement le fournisseur (Anthropic, Replicate, etc.).
               Idéal si tu as déjà un abonnement chez eux ou si tu génères beaucoup.
             </p>
@@ -167,7 +167,7 @@ export default function ApiKeysPage() {
                     </div>
                   </div>
                   <span className={`text-[9px] px-1.5 py-0.5 rounded-sm ${isEnabled ? "bg-green-500/10 text-green-400" : "bg-white/5 text-white/30"}`}>
-                    {isEnabled ? "BYOK actif" : "Crédits Halo"}
+                    {isEnabled ? "BYOK actif" : "Crédits WTF"}
                   </span>
                 </div>
 
@@ -227,7 +227,7 @@ export default function ApiKeysPage() {
                   >
                     <Shield size={10} />
                     {isEnabled
-                      ? "BYOK activé — tes crédits Halo ne sont pas déduits"
+                      ? "BYOK activé, tes crédits WTF ne sont pas déduits"
                       : "Activer BYOK pour utiliser ta clé (pas de déduction de crédits)"}
                   </button>
                 )}

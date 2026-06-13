@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ error: "Ce mot-clé est déjà surveillé" }, { status: 409 });
     }
 
-    // Check limit (10 for premium, 25 for elite — using 10 as default)
+    // Check limit (10 for premium, 25 for elite, using 10 as default)
     const { count } = await supabase
       .from("trends_watchlist")
       .select("*", { count: "exact", head: true })

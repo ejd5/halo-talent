@@ -1,6 +1,6 @@
 "use client";
 
-// ─── Media Kit — utilities ───
+// ─── Media Kit, utilities ───
 
 export function formatNumber(n: number): string {
   if (n >= 1000000) return `${(n / 1000000).toFixed(1)}M`;

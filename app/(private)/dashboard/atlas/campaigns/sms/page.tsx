@@ -96,7 +96,7 @@ export default function SMSCampaignsPage() {
         <div>
           <h1 className="text-2xl font-bold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>SMS Marketing</h1>
           <p className="text-sm mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>
-            Campagnes SMS — Opt-in obligatoire · Mention STOP requise
+            Campagnes SMS, Opt-in obligatoire · Mention STOP requise
           </p>
         </div>
         <button

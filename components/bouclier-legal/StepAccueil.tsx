@@ -18,7 +18,7 @@ export function StepAccueil({ onStart }: { onStart: () => void }) {
         className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight max-w-3xl mb-6"
         style={{ color: "var(--text-primary)" }}
       >
-        Votre contrat d&apos;agence vous protège-t-il vraiment&nbsp;?
+        Votre contrat d'agence vous protège-t-il vraiment&nbsp;?
       </h1>
 
       {/* Subtitle */}
@@ -48,7 +48,7 @@ export function StepAccueil({ onStart }: { onStart: () => void }) {
         <div className="flex items-start gap-2">
           <AlertTriangle size={14} className="shrink-0 mt-0.5" style={{ color: "var(--color-accent)" }} />
           <span>
-            Cet outil fournit une information générale et ne remplace pas l&apos;avis d&apos;un
+            Cet outil fournit une information générale et ne remplace pas l'avis d'un
             avocat. Les résultats sont basés sur une analyse automatisée de clauses
             courantes et ne constituent pas un conseil juridique.
           </span>
@@ -67,7 +67,7 @@ export function StepAccueil({ onStart }: { onStart: () => void }) {
           73%
         </span>
         <p className="text-sm mt-2" style={{ color: "var(--text-secondary)" }}>
-          des contrats d&apos;agence OFM contiennent{" "}
+          des contrats d'agence OFM contiennent{" "}
           <span className="font-semibold">au moins 1 clause abusive</span>
         </p>
       </div>

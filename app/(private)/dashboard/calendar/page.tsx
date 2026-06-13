@@ -102,7 +102,7 @@ export default function CalendarPage() {
           {!isCurrentMonth && (
             <button onClick={() => { setYear(now.getFullYear()); setMonth(now.getMonth()); }}
               className="text-[10px] px-2 py-1" style={{ color: "var(--accent)" }}>
-              Aujourd&apos;hui
+              Aujourd'hui
             </button>
           )}
         </div>

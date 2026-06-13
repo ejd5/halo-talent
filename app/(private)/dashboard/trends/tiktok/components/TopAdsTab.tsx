@@ -32,7 +32,7 @@ function formatCount(n: number): string {
 }
 
 function analysePattern(ad: TopAd): AdPattern {
-  // Mock pattern detection — in production would use Claude/ML
+  // Mock pattern detection, in production would use Claude/ML
   const hooks = ["Question choc", "Révélation inattendue", "Hook visuel 3s", "Story personnelle"];
   const formats = ["POV", "Story", "Tutoriel", "Before/After", "Testimonial"];
   const ctas = ["Lien en bio", "Swipe up", "Code promo", "Call to action direct"];
@@ -54,7 +54,7 @@ function AdPatternModal({ ad, onClose }: { ad: TopAd; onClose: () => void }) {
       >
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-sm font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
-            Pattern IA — {ad.brand_name}
+            Pattern IA, {ad.brand_name}
           </h3>
           <button onClick={onClose} className="p-1 hover:opacity-70" style={{ color: "rgba(245,240,235,0.2)" }}>
             <X size={14} />

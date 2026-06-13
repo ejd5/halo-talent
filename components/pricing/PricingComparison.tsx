@@ -48,7 +48,7 @@ export function PricingComparison() {
       {/* Studio comparison */}
       <div>
         <h3 className="text-sm font-bold mb-4" style={{ color: "var(--text-primary)" }}>
-          Studio IA — Comparatif des plans
+          Studio IA, Comparatif des plans
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full text-left" style={{ borderCollapse: "separate", borderSpacing: "0 2px" }}>
@@ -85,7 +85,7 @@ export function PricingComparison() {
       {/* Atlas comparison */}
       <div>
         <h3 className="text-sm font-bold mb-4" style={{ color: "var(--text-primary)" }}>
-          Atlas CRM — Comparatif des plans
+          Atlas CRM, Comparatif des plans
         </h3>
         <div className="overflow-x-auto">
           <table className="w-full text-left" style={{ borderCollapse: "separate", borderSpacing: "0 2px" }}>

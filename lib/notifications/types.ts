@@ -1,4 +1,4 @@
-/* ─── Notifications — Types ─── */
+/* ─── Notifications, Types ─── */
 
 export type NotifPriority = "urgent" | "important" | "info";
 

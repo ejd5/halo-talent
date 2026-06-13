@@ -8,10 +8,10 @@ export function buildVoiceProfilePrompt(
 ): string {
   return `Tu es un coach en branding personnel. À partir des réponses suivantes, génère un VOICE PROFILE structuré qu'un autre modèle d'IA pourra utiliser pour imiter parfaitement la voix de ce créateur.
 
-RÉPONSES DU CRÉATEUR — Section Identité :
+RÉPONSES DU CRÉATEUR, Section Identité :
 ${JSON.stringify(section1 ?? {}, null, 2)}
 
-RÉPONSES DU CRÉATEUR — Section Voice :
+RÉPONSES DU CRÉATEUR, Section Voice :
 ${JSON.stringify(section2 ?? {}, null, 2)}
 
 Retourne UNIQUEMENT un objet JSON valide, sans texte avant ni après, avec cette structure exacte :
@@ -60,10 +60,10 @@ export function buildStyleProfilePrompt(
 ): string {
   return `Tu es un directeur artistique spécialisé dans l'identité visuelle des créateurs de contenu. À partir des réponses suivantes, génère un STYLE PROFILE structuré.
 
-RÉPONSES DU CRÉATEUR — Section Esthétique :
+RÉPONSES DU CRÉATEUR, Section Esthétique :
 ${JSON.stringify(section4 ?? {}, null, 2)}
 
-RÉPONSES DU CRÉATEUR — Section Contenu :
+RÉPONSES DU CRÉATEUR, Section Contenu :
 ${JSON.stringify(section5 ?? {}, null, 2)}
 
 Retourne UNIQUEMENT un objet JSON valide, sans texte avant ni après, avec cette structure exacte :
@@ -87,7 +87,7 @@ export function buildAudienceProfilePrompt(
 ): string {
   return `Tu es un analyste d'audience spécialisé dans les communautés de créateurs de contenu. À partir des réponses suivantes, génère un AUDIENCE PROFILE structuré.
 
-RÉPONSES DU CRÉATEUR — Section Audience :
+RÉPONSES DU CRÉATEUR, Section Audience :
 ${JSON.stringify(section3 ?? {}, null, 2)}
 
 Retourne UNIQUEMENT un objet JSON valide, sans texte avant ni après, avec cette structure exacte :

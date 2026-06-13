@@ -1,6 +1,6 @@
 import type { BlueskyPostParams, PublishResult, PublisherConstructor } from "./types";
 
-// Bluesky uses AT Protocol — no OAuth, just API key / app password
+// Bluesky uses AT Protocol, no OAuth, just API key / app password
 // Uses @atproto/api SDK or direct HTTP to the PDS
 
 export class BlueskyPublisher {

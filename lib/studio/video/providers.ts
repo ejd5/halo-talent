@@ -118,7 +118,7 @@ export async function startVideoGeneration(params: {
     }
   }
 
-  // No API key — simulate
+  // No API key, simulate
   return simulateStart(params);
 }
 

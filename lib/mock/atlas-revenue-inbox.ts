@@ -1,4 +1,4 @@
-// ─── Revenue Inbox V1 — Mock Data ───
+// ─── Revenue Inbox V1, Mock Data ───
 
 export type RiskLevel = "low" | "medium" | "high" | "critical";
 export type Platform = "onlyfans" | "fansly" | "mym" | "fanvue" | "instagram" | "tiktok";
@@ -63,7 +63,7 @@ function daysAgo(d: number, h = 12): string {
 // ─── 15 Threads ───
 
 export const revenueThreads: RevenueThread[] = [
-  // ═══ 1-3: VIP/Whale — High intent ═══
+  // ═══ 1-3: VIP/Whale, High intent ═══
   {
     id: "thread-001",
     fanId: "fan-001",
@@ -88,7 +88,7 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "upsell_ppv",
     recommendedOffer: "ppv_video",
     aiSuggestedReply:
-      "Hey Marcus! The new video just dropped — exclusive 4K, 12 minutes. I saved you early access at $89.99 before it goes public next week. Want me to unlock it for you?",
+      "Hey Marcus! The new video just dropped, exclusive 4K, 12 minutes. I saved you early access at $89.99 before it goes public next week. Want me to unlock it for you?",
     aiReasoning:
       "Fan asked about new content. VIP tier with $2.8k spend in 30 days. Historical PPV conversion rate 78%. Recommend premium price point based on LTV bracket.",
     complianceWarning: null,
@@ -100,7 +100,7 @@ export const revenueThreads: RevenueThread[] = [
     messages: [
       { id: "m001-1", direction: "inbound", channel: "onlyfans", content: "That last video was incredible. You're amazing!", occurredAt: daysAgo(7, 14) },
       { id: "m001-2", direction: "outbound", channel: "onlyfans", content: "Thank you Marcus! I'm working on something even better for next week 😘", occurredAt: daysAgo(7, 13) },
-      { id: "m001-3", direction: "outbound", channel: "onlyfans", content: "Here's a preview of the new set — exclusive for you.", occurredAt: daysAgo(5, 10), isPPV: true, ppvAmount: 49.99, ppvName: "Golden Hour Preview" },
+      { id: "m001-3", direction: "outbound", channel: "onlyfans", content: "Here's a preview of the new set, exclusive for you.", occurredAt: daysAgo(5, 10), isPPV: true, ppvAmount: 49.99, ppvName: "Golden Hour Preview" },
       { id: "m001-4", direction: "inbound", channel: "onlyfans", content: "Love it! When can I get the full version?", occurredAt: daysAgo(5, 9) },
       { id: "m001-5", direction: "outbound", channel: "onlyfans", content: "Full set drops Friday. I'll save you the best price 💕", occurredAt: daysAgo(5, 8) },
       { id: "m001-6", direction: "inbound", channel: "onlyfans", content: "Purchased! Can't wait 🔥", occurredAt: daysAgo(2, 14), isPPV: true, ppvAmount: 89.99, ppvName: "Golden Hour Full Set" },
@@ -132,7 +132,7 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "promote_bundle",
     recommendedOffer: "bundle",
     aiSuggestedReply:
-      "Hi Luna! Absolutely — I can put together a custom bundle with both sets plus 3 exclusive BTS photos that haven't been released anywhere. $149 for the full package. Interested?",
+      "Hi Luna! Absolutely, I can put together a custom bundle with both sets plus 3 exclusive BTS photos that haven't been released anywhere. $149 for the full package. Interested?",
     aiReasoning:
       "Custom bundle request from VIP fan. Historical bundle AOV $120-180. Fan has purchased 4 bundles in last 60 days. Recommend premium custom package.",
     complianceWarning: null,
@@ -145,7 +145,7 @@ export const revenueThreads: RevenueThread[] = [
       { id: "m002-1", direction: "inbound", channel: "fansly", content: "The beach set is gorgeous! Do you have more from that shoot?", occurredAt: daysAgo(5, 16) },
       { id: "m002-2", direction: "outbound", channel: "fansly", content: "I do! There's a studio set from the same day. Want both?", occurredAt: daysAgo(5, 15) },
       { id: "m002-3", direction: "inbound", channel: "fansly", content: "Yes please! Can you bundle them?", occurredAt: daysAgo(5, 14) },
-      { id: "m002-4", direction: "outbound", channel: "fansly", content: "Bundle unlocked — Beach + Studio, $119. Enjoy! 🌊📸", occurredAt: daysAgo(4, 10), isPPV: true, ppvAmount: 119, ppvName: "Beach + Studio Bundle" },
+      { id: "m002-4", direction: "outbound", channel: "fansly", content: "Bundle unlocked, Beach + Studio, $119. Enjoy! 🌊📸", occurredAt: daysAgo(4, 10), isPPV: true, ppvAmount: 119, ppvName: "Beach + Studio Bundle" },
       { id: "m002-5", direction: "inbound", channel: "fansly", content: "Bought it! These are stunning. Can you do a custom bundle with the beach and studio sets?", occurredAt: ago(45) },
     ],
   },
@@ -173,7 +173,7 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "upsell_ppv",
     recommendedOffer: "ppv_video",
     aiSuggestedReply:
-      "¡Claro Carlos! Acabo de terminar un video nuevo — 15 minutos, luz natural, muy parecido al anterior. Lo tengo a 59.99€ para ti antes del lanzamiento oficial. ¿Te lo desbloqueo?",
+      "¡Claro Carlos! Acabo de terminar un video nuevo, 15 minutos, luz natural, muy parecido al anterior. Lo tengo a 59.99€ para ti antes del lanzamiento oficial. ¿Te lo desbloqueo?",
     aiReasoning:
       "Spanish-speaking fan requested similar content. Historical PPV conversion 65%. $1.4k spend last 30 days. Recommend mid-tier price aligned with previous purchases.",
     complianceWarning: null,
@@ -192,7 +192,7 @@ export const revenueThreads: RevenueThread[] = [
     ],
   },
 
-  // ═══ 4-6: Engaged — Medium-High Intent ═══
+  // ═══ 4-6: Engaged, Medium-High Intent ═══
   {
     id: "thread-004",
     fanId: "fan-004",
@@ -213,11 +213,11 @@ export const revenueThreads: RevenueThread[] = [
     unread: true,
     assignedTo: "Marc D.",
     tags: ["instagram_migrated", "curious", "new_buyer"],
-    lastMessagePreview: "Hey, I saw you're on OF too — is the content different there?",
+    lastMessagePreview: "Hey, I saw you're on OF too, is the content different there?",
     recommendedAction: "send_welcome",
     recommendedOffer: "subscription_upsell",
     aiSuggestedReply:
-      "Hey Alex! Yes — my OF has exclusive content that never goes on IG. Longer videos, behind-the-scenes, and custom requests. I actually have a 30% off your first month right now if you want to check it out?",
+      "Hey Alex! Yes, my OF has exclusive content that never goes on IG. Longer videos, behind-the-scenes, and custom requests. I actually have a 30% off your first month right now if you want to check it out?",
     aiReasoning:
       "Instagram follower curious about OF migration. Low friction opportunity to convert. Recommend subscription upsell with first-month discount. Historical IG→OF conversion rate 12%.",
     complianceWarning: null,
@@ -229,7 +229,7 @@ export const revenueThreads: RevenueThread[] = [
     messages: [
       { id: "m004-1", direction: "inbound", channel: "instagram", content: "Love your content! Do you post more on other platforms?", occurredAt: daysAgo(3, 10) },
       { id: "m004-2", direction: "outbound", channel: "instagram", content: "Thank you! Yes, my OF has exclusive content 😊", occurredAt: daysAgo(3, 9) },
-      { id: "m004-3", direction: "inbound", channel: "instagram", content: "Hey, I saw you're on OF too — is the content different there?", occurredAt: ago(120) },
+      { id: "m004-3", direction: "inbound", channel: "instagram", content: "Hey, I saw you're on OF too, is the content different there?", occurredAt: ago(120) },
     ],
   },
   {
@@ -258,7 +258,7 @@ export const revenueThreads: RevenueThread[] = [
     aiSuggestedReply:
       "Emma, du bist großartig! Weil du seit 4 Monaten dabei bist, habe ich ein exklusives Treue-Paket für dich: meine 3 beliebtesten Videos plus 2 unveröffentlichte Fotosets für 79€ statt 129€. Nur für dich!",
     aiReasoning:
-      "Loyal fan (4 months) asking for recognition. Recommend loyalty reward bundle at 40% discount to reinforce retention. German-speaking — reply in German.",
+      "Loyal fan (4 months) asking for recognition. Recommend loyalty reward bundle at 40% discount to reinforce retention. German-speaking, reply in German.",
     complianceWarning: null,
     alreadySentMediaIds: ["med-066", "med-089"],
     notes: ["Fan fidèle, répond bien aux offres de fidélité.", "Préfère les communications en allemand."],
@@ -295,9 +295,9 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "ask_feedback",
     recommendedOffer: "free_preview",
     aiSuggestedReply:
-      "Salut Nico ! Oui, j'ai tout une série en extérieur — forêt, plage, urbain. Je t'envoie un petit aperçu gratuit de ma dernière série forêt ? Si ça te plaît, je te fais un prix sur le set complet 🌿",
+      "Salut Nico ! Oui, j'ai tout une série en extérieur, forêt, plage, urbain. Je t'envoie un petit aperçu gratuit de ma dernière série forêt ? Si ça te plaît, je te fais un prix sur le set complet 🌿",
     aiReasoning:
-      "Fan showing interest in specific content type. Recommend free preview to re-engage and gauge interest before PPV offer. Low spend recently — re-warm before upselling.",
+      "Fan showing interest in specific content type. Recommend free preview to re-engage and gauge interest before PPV offer. Low spend recently, re-warm before upselling.",
     complianceWarning: null,
     alreadySentMediaIds: [],
     notes: ["Achète occasionnellement, besoin de réengagement."],
@@ -311,7 +311,7 @@ export const revenueThreads: RevenueThread[] = [
     ],
   },
 
-  // ═══ 7-8: Warm — Showing Purchase Intent ═══
+  // ═══ 7-8: Warm, Showing Purchase Intent ═══
   {
     id: "thread-007",
     fanId: "fan-007",
@@ -336,7 +336,7 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "upsell_ppv",
     recommendedOffer: "ppv_photo",
     aiSuggestedReply:
-      "Hey Tyler! I get it. How about this — I have a mini photo set (8 exclusives) at $24.99. Same vibe, smaller pack. If you like it, I can do a loyalty discount on the next one too. Sound fair?",
+      "Hey Tyler! I get it. How about this, I have a mini photo set (8 exclusives) at $24.99. Same vibe, smaller pack. If you like it, I can do a loyalty discount on the next one too. Sound fair?",
     aiReasoning:
       "Price-sensitive fan with genuine interest. Lower-tier PPV offer to meet budget while maintaining value. Mini set at 50% of full price keeps fan in ecosystem.",
     complianceWarning: null,
@@ -374,7 +374,7 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "send_welcome",
     recommendedOffer: "subscription_upsell",
     aiSuggestedReply:
-      "Welcome Priya! So happy to have you here 🎉 I post exclusive photo sets every Tuesday, behind-the-scenes videos on Fridays, and I do custom content for loyal fans. Check out my welcome bundle — 3 fan-favorite sets at 40% off to get you started!",
+      "Welcome Priya! So happy to have you here 🎉 I post exclusive photo sets every Tuesday, behind-the-scenes videos on Fridays, and I do custom content for loyal fans. Check out my welcome bundle, 3 fan-favorite sets at 40% off to get you started!",
     aiReasoning:
       "New subscriber, first engagement. Welcome message with value overview and soft upsell to welcome bundle. Build relationship before premium offers.",
     complianceWarning: null,
@@ -388,7 +388,7 @@ export const revenueThreads: RevenueThread[] = [
     ],
   },
 
-  // ═══ 9-10: At-Risk / Dormant — Win-Back ═══
+  // ═══ 9-10: At-Risk / Dormant, Win-Back ═══
   {
     id: "thread-009",
     fanId: "fan-009",
@@ -413,12 +413,12 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "win_back",
     recommendedOffer: "free_preview",
     aiSuggestedReply:
-      "Hey! Missed you around here 💫 I just dropped a new series that I think you'd love — it's the kind of cinematic style you always enjoyed. I saved you a free preview of the first video. No pressure, just wanted you to see what's new!",
+      "Hey! Missed you around here 💫 I just dropped a new series that I think you'd love, it's the kind of cinematic style you always enjoyed. I saved you a free preview of the first video. No pressure, just wanted you to see what's new!",
     aiReasoning:
       "Ex-whale dormant 45+ days. $6.2k LTV makes this high priority for re-engagement. Free preview with no hard sell to re-establish contact. If he views the preview, follow up with discounted PPV in 3 days.",
     complianceWarning: null,
     alreadySentMediaIds: ["med-001", "med-002", "med-003", "med-004", "med-005", "med-006", "med-007", "med-008"],
-    notes: ["Ex-whale, dépensait 1k+/mois. À réengager en douceur.", "Ne pas forcer — il revient toujours si on lui laisse de l'espace."],
+    notes: ["Ex-whale, dépensait 1k+/mois. À réengager en douceur.", "Ne pas forcer, il revient toujours si on lui laisse de l'espace."],
     fanValueScore: 85,
     relationshipScore: 25,
     complianceRiskScore: 8,
@@ -453,9 +453,9 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "re_engage",
     recommendedOffer: "custom_request",
     aiSuggestedReply:
-      "Ciao! Mi dispiace sentire questo. Dimmi — che tipo di contenuto ti piacerebbe vedere? Sto preparando nuove idee e mi farebbe piacere creare qualcosa di speciale per te. Che ne dici di un video personalizzato sui tuoi interessi?",
+      "Ciao! Mi dispiace sentire questo. Dimmi, che tipo di contenuto ti piacerebbe vedere? Sto preparando nuove idee e mi farebbe piacere creare qualcosa di speciale per te. Che ne dici di un video personalizzato sui tuoi interessi?",
     aiReasoning:
-      "At-risk fan expressing dissatisfaction. Spend dropped from €500/mo to €80. Direct engagement + custom offer to re-establish value before churn. Italian speaker — reply in Italian.",
+      "At-risk fan expressing dissatisfaction. Spend dropped from €500/mo to €80. Direct engagement + custom offer to re-establish value before churn. Italian speaker, reply in Italian.",
     complianceWarning: null,
     alreadySentMediaIds: ["med-051", "med-052", "med-053"],
     notes: ["Dépenses en chute libre depuis 2 mois.", "Offrir du sur-mesure pour le retenir."],
@@ -463,7 +463,7 @@ export const revenueThreads: RevenueThread[] = [
     relationshipScore: 20,
     complianceRiskScore: 18,
     messages: [
-      { id: "m010-1", direction: "outbound", channel: "onlyfans", content: "Ciao! Nuovo set fotografico disponibile — tema 'Dolce Vita' 🇮🇹", occurredAt: daysAgo(3, 6) },
+      { id: "m010-1", direction: "outbound", channel: "onlyfans", content: "Ciao! Nuovo set fotografico disponibile, tema 'Dolce Vita' 🇮🇹", occurredAt: daysAgo(3, 6) },
       { id: "m010-2", direction: "inbound", channel: "onlyfans", content: "Non so se rinnovo... i contenuti sono diventati un po' ripetitivi", occurredAt: daysAgo(3) },
     ],
   },
@@ -493,10 +493,10 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "compliance_hold",
     recommendedOffer: "subscription_upsell",
     aiSuggestedReply:
-      "I appreciate your enthusiasm, but I keep all interactions on-platform only. That's a hard boundary for me. I'd love to keep creating content for you here though — I just released a new video you might enjoy!",
+      "I appreciate your enthusiasm, but I keep all interactions on-platform only. That's a hard boundary for me. I'd love to keep creating content for you here though, I just released a new video you might enjoy!",
     aiReasoning:
-      "Fan requested IRL meeting — strict compliance hold. Never agree to offline meetings. Redirect to on-platform content. Flag for manager review if behavior continues.",
-    complianceWarning: "IRL meeting request — blocked per platform ToS. Do not acknowledge or negotiate offline contact.",
+      "Fan requested IRL meeting, strict compliance hold. Never agree to offline meetings. Redirect to on-platform content. Flag for manager review if behavior continues.",
+    complianceWarning: "IRL meeting request, blocked per platform ToS. Do not acknowledge or negotiate offline contact.",
     alreadySentMediaIds: ["med-033"],
     notes: ["A déjà testé les limites. Reste sur la plateforme.", "Remonter au manager si récidive."],
     fanValueScore: 40,
@@ -533,7 +533,7 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "compliance_hold",
     recommendedOffer: "free_preview",
     aiSuggestedReply:
-      "I'm sorry you feel that way. I'm here to create content that people enjoy, and I respect everyone's boundaries. If you're not happy, that's completely fine — I wish you the best.",
+      "I'm sorry you feel that way. I'm here to create content that people enjoy, and I respect everyone's boundaries. If you're not happy, that's completely fine, I wish you the best.",
     aiReasoning:
       "Hostile message with threat to report. De-escalation response. Do not engage further. Already escalated to manager. Consider blocking if behavior continues.",
     complianceWarning: "Threat to report account. Escalated to manager. Do not respond with anything that could be construed as harassment or provocation.",
@@ -549,7 +549,7 @@ export const revenueThreads: RevenueThread[] = [
     ],
   },
 
-  // ═══ 13-14: Cold Leads — Welcome ═══
+  // ═══ 13-14: Cold Leads, Welcome ═══
   {
     id: "thread-013",
     fanId: "fan-013",
@@ -574,12 +574,12 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "send_welcome",
     recommendedOffer: "free_preview",
     aiSuggestedReply:
-      "Oi! Seja muito bem-vindo(a)! 🎉 Eu posto conteúdo exclusivo toda terça e sexta. Pra começar, deixa eu te mandar um preview grátis do meu set mais popular — 'Cores do Brasil'. Se gostar, tenho o set completo com 20 fotos!",
+      "Oi! Seja muito bem-vindo(a)! 🎉 Eu posto conteúdo exclusivo toda terça e sexta. Pra começar, deixa eu te mandar um preview grátis do meu set mais popular, 'Cores do Brasil'. Se gostar, tenho o set completo com 20 fotos!",
     aiReasoning:
       "New subscriber from Brazil, zero spend history. Warm welcome with free preview to demonstrate value. Portuguese reply to build comfort. Soft upsell to first PPV after preview viewed.",
     complianceWarning: null,
     alreadySentMediaIds: [],
-    notes: ["Nouveau, à éduquer sur l'offre.", "Marché brésilien — adapter les prix."],
+    notes: ["Nouveau, à éduquer sur l'offre.", "Marché brésilien, adapter les prix."],
     fanValueScore: 5,
     relationshipScore: 10,
     complianceRiskScore: 12,
@@ -611,10 +611,10 @@ export const revenueThreads: RevenueThread[] = [
     recommendedAction: "send_welcome",
     recommendedOffer: "subscription_upsell",
     aiSuggestedReply:
-      "Thank you! Yes — I have way more on my other platforms. Longer videos, exclusive photos, and behind-the-scenes content. Check out the link in my TikTok bio for all the details!",
+      "Thank you! Yes, I have way more on my other platforms. Longer videos, exclusive photos, and behind-the-scenes content. Check out the link in my TikTok bio for all the details!",
     aiReasoning:
-      "TikTok follower asking about longer content. Direct to bio link for platform migration. Soft sell — don't hard sell on TikTok (platform ToS risk).",
-    complianceWarning: "TikTok platform — do not include direct links or explicit CTAs to adult platforms. Use bio link reference only.",
+      "TikTok follower asking about longer content. Direct to bio link for platform migration. Soft sell, don't hard sell on TikTok (platform ToS risk).",
+    complianceWarning: "TikTok platform, do not include direct links or explicit CTAs to adult platforms. Use bio link reference only.",
     alreadySentMediaIds: [],
     notes: ["Migration TikTok potentielle.", "Respecter les règles TikTok dans la réponse."],
     fanValueScore: 5,
@@ -663,7 +663,7 @@ export const revenueThreads: RevenueThread[] = [
       { id: "m015-1", direction: "inbound", channel: "onlyfans", content: "Your content is genuinely the best on this platform", occurredAt: daysAgo(3, 12) },
       { id: "m015-2", direction: "outbound", channel: "onlyfans", content: "That means so much! Thank you 💕", occurredAt: daysAgo(3, 11) },
       { id: "m015-3", direction: "inbound", channel: "onlyfans", content: "I'm serious. The production quality is unmatched", occurredAt: daysAgo(2, 10) },
-      { id: "m015-4", direction: "outbound", channel: "onlyfans", content: "I put a lot of work into it — really glad it shows!", occurredAt: daysAgo(2, 9) },
+      { id: "m015-4", direction: "outbound", channel: "onlyfans", content: "I put a lot of work into it, really glad it shows!", occurredAt: daysAgo(2, 9) },
       { id: "m015-5", direction: "inbound", channel: "onlyfans", content: "I want a custom 30-minute video. My budget is 2500. Can your manager approve?", occurredAt: ago(10) },
     ],
   },

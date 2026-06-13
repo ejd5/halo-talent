@@ -20,7 +20,7 @@ export function LexLandingSection({ locale = "fr" }: LexLandingSectionProps) {
     {
       icon: BookOpen,
       title: isEn ? "Legal base updated daily" : "Base juridique auto-actualisée quotidiennement",
-      desc: isEn ? "CGU from 8 platforms, French law, European regulations — updated every day." : "CGU de 8 plateformes, droit français, réglementation européenne — mis à jour chaque jour.",
+      desc: isEn ? "CGU from 8 platforms, French law, European regulations, updated every day." : "CGU de 8 plateformes, droit français, réglementation européenne, mis à jour chaque jour.",
     },
     {
       icon: FileText,
@@ -82,14 +82,14 @@ export function LexLandingSection({ locale = "fr" }: LexLandingSectionProps) {
           </h2>
           <p className="text-base md:text-lg mt-4 max-w-2xl mx-auto" style={{ color: "var(--text-secondary)" }}>
             {isEn
-              ? "Halo Lex is your first line of legal defense. A virtual lawyer available 24/7, powered by a legal base updated in real-time."
-              : "Halo Lex est votre première ligne de défense légale. Un avocat virtuel disponible 24/7, alimenté par une base juridique mise à jour en temps réel."}
+              ? "WTF Lex is your first line of legal defense. A virtual lawyer available 24/7, powered by a legal base updated in real-time."
+              : "WTF Lex est votre première ligne de défense légale. Un avocat virtuel disponible 24/7, alimenté par une base juridique mise à jour en temps réel."}
           </p>
         </div>
 
         {/* Main block 50/50 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-14">
-          {/* Left — Mockup / Visual */}
+          {/* Left, Mockup / Visual */}
           <div
             className="p-8 flex flex-col items-center justify-center min-h-[300px]"
             style={{
@@ -119,7 +119,7 @@ export function LexLandingSection({ locale = "fr" }: LexLandingSectionProps) {
             </div>
           </div>
 
-          {/* Right — Features */}
+          {/* Right, Features */}
           <div className="space-y-4">
             {features.map((f, i) => {
               const Icon = f.icon;
@@ -150,17 +150,17 @@ export function LexLandingSection({ locale = "fr" }: LexLandingSectionProps) {
           <p className="text-sm italic leading-relaxed" style={{ color: "var(--text-secondary)" }}>
             &ldquo;{isEn
               ? "Lex helped me recover my suspended OnlyFans account in 4 days. Without it, I would have lost 2 months of income."
-              : "Lex m&apos;a aidée à récupérer mon compte OnlyFans suspendu en 4 jours. Sans lui, j&apos;aurais perdu 2 mois de revenus."}&rdquo;
+              : "Lex m'a aidée à récupérer mon compte OnlyFans suspendu en 4 jours. Sans lui, j'aurais perdu 2 mois de revenus."}&rdquo;
           </p>
           <p className="text-xs mt-2 font-medium" style={{ color: "var(--text-primary)" }}>
-            — Sarah K., {isEn ? "creator" : "créatrice"}
+           , Sarah K., {isEn ? "creator" : "créatrice"}
           </p>
         </div>
 
         {/* Domains band */}
         <div className="text-center mb-10">
           <p className="text-xs font-medium mb-3" style={{ color: "var(--text-secondary)" }}>
-            {isEn ? "Halo Lex covers:" : "Halo Lex couvre :"}
+            {isEn ? "WTF Lex covers:" : "WTF Lex couvre :"}
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             {domains.map((d) => (
@@ -175,8 +175,8 @@ export function LexLandingSection({ locale = "fr" }: LexLandingSectionProps) {
           </div>
           <p className="text-[10px] mt-3" style={{ color: "var(--text-tertiary)" }}>
             {isEn
-              ? "Halo Lex provides general legal information. For complex cases, escalation to our partner lawyer network."
-              : "Halo Lex fournit une information juridique générale. Pour les cas complexes, escalade vers notre réseau d&apos;avocats partenaires."}
+              ? "WTF Lex provides general legal information. For complex cases, escalation to our partner lawyer network."
+              : "WTF Lex fournit une information juridique générale. Pour les cas complexes, escalade vers notre réseau d'avocats partenaires."}
           </p>
         </div>
 
@@ -187,7 +187,7 @@ export function LexLandingSection({ locale = "fr" }: LexLandingSectionProps) {
             className="inline-flex items-center gap-2 px-8 py-4 text-base font-semibold transition-all hover:scale-[1.02]"
             style={{ background: "var(--accent)", color: "#fff" }}
           >
-            {isEn ? "Discover Halo Lex" : "Découvrir Halo Lex"}
+            {isEn ? "Discover WTF Lex" : "Découvrir WTF Lex"}
             <ArrowRight size={18} />
           </Link>
         </div>

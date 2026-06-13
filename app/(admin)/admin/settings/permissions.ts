@@ -1,6 +1,6 @@
 import type { RolePermissions, Permission, Role, PermissionModule } from "./types";
 
-// Module grouping — each module groups related actions
+// Module grouping, each module groups related actions
 export const MODULES: Record<PermissionModule, { label: string; description: string; actions: string[] }> = {
   pilotage: {
     label: "Pilotage",

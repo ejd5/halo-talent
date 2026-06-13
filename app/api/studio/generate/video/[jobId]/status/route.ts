@@ -28,7 +28,7 @@ export async function GET(
 
     const j = job as any;
 
-    // Already completed or failed — return cached result
+    // Already completed or failed, return cached result
     if (j.status === "completed") {
       return NextResponse.json({
         status: "completed",

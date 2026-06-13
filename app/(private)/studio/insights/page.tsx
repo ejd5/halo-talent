@@ -362,7 +362,7 @@ function ApprentissageTab() {
             <button onClick={runAnalysis} disabled={feedbackLoading}
               className="flex items-center gap-1.5 mt-4 px-3 py-1.5 text-[10px] rounded-sm transition-opacity hover:opacity-80"
               style={{ background: "var(--accent)", color: "#FFF" }}>
-              <Zap size={10} /> Lancer l&apos;analyse
+              <Zap size={10} /> Lancer l'analyse
             </button>
           </div>
         ) : (
@@ -542,7 +542,7 @@ function AbTestsTab() {
           <Beaker size={28} style={{ color: "rgba(255,255,255,0.06)" }} />
           <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.15)" }}>Aucun test A/B</p>
           <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.1)" }}>
-            Crée ton premier test pour comparer deux versions d&apos;un contenu
+            Crée ton premier test pour comparer deux versions d'un contenu
           </p>
         </div>
       ) : (
@@ -608,10 +608,10 @@ function CreateAbTestForm({ onClose }: { onClose: () => void }) {
           ))}
         </select>
       </div>
-      <textarea value={variantAData} onChange={(e) => setVariantAData(e.target.value)} placeholder="Variante A — caption / description"
+      <textarea value={variantAData} onChange={(e) => setVariantAData(e.target.value)} placeholder="Variante A, caption / description"
         rows={2} className="w-full text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none resize-none"
         style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
-      <textarea value={variantBData} onChange={(e) => setVariantBData(e.target.value)} placeholder="Variante B — caption / description"
+      <textarea value={variantBData} onChange={(e) => setVariantBData(e.target.value)} placeholder="Variante B, caption / description"
         rows={2} className="w-full text-[10px] bg-transparent px-2 py-1.5 rounded-sm outline-none resize-none"
         style={{ border: "1px solid var(--border-default)", color: "var(--text-primary)" }} />
       <div className="flex gap-2 justify-end">
@@ -637,7 +637,7 @@ function AbTestCard({ test, onUpdate }: { test: AbTest; onUpdate: () => void }) 
     completed: "var(--success)",
     cancelled: "var(--danger)",
   };
-  const winnerLabel = test.winner === "a" ? "A" : test.winner === "b" ? "B" : test.winner === "draw" ? "Égalité" : "—";
+  const winnerLabel = test.winner === "a" ? "A" : test.winner === "b" ? "B" : test.winner === "draw" ? "Égalité" : ", ";
 
   return (
     <div className="rounded-sm p-3" style={{ border: "1px solid var(--border-default)", background: "var(--bg-card)" }}>
@@ -793,7 +793,7 @@ function RecommandationsTab() {
         {warnings.length > 0 && (
           <div className="rounded-sm p-3" style={{ border: "1px solid rgba(229,72,77,0.2)", background: "rgba(229,72,77,0.04)" }}>
             <h4 className="text-[10px] font-medium mb-2 flex items-center gap-1" style={{ color: "var(--danger)" }}>
-              <AlertTriangle size={10} /> Points d&apos;attention ({warnings.length})
+              <AlertTriangle size={10} /> Points d'attention ({warnings.length})
             </h4>
             <div className="space-y-1.5">
               {warnings.slice(0, 3).map((w) => (
@@ -834,7 +834,7 @@ function RecommandationsTab() {
             Lance le coaching pour obtenir des recommandations
           </p>
           <p className="text-[10px] mt-1" style={{ color: "rgba(255,255,255,0.1)" }}>
-            L&apos;analytics coach analyse tes performances et te suggère des actions
+            L'analytics coach analyse tes performances et te suggère des actions
           </p>
         </div>
       )}

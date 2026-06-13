@@ -11,7 +11,7 @@ function norm(locale: string): Locale {
 }
 
 function formatDate(dateStr: string | null): string {
-  if (!dateStr) return "—";
+  if (!dateStr) return ", ";
   const diff = Date.now() - new Date(dateStr).getTime();
   const days = Math.floor(diff / 86400000);
   if (days < 1) return "aujourd'hui";

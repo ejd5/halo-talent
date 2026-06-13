@@ -93,8 +93,8 @@ export async function POST(request: NextRequest) {
       return {
         id: c.id,
         name: c.display_name || c.full_name || c.email,
-        department: c.department || "—",
-        commission_tier: c.commission_tier || "—",
+        department: c.department || ", ",
+        commission_tier: c.commission_tier || ", ",
         revenue: currentRev,
         growth,
         active_fans: activeFans || 0,

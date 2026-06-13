@@ -1418,7 +1418,7 @@ export function computeSegments(fans: FanIntel[]): FanSegment[] {
   segments.push({
     id: "seg-potential",
     name: "Fort potentiel",
-    description: "Score commercial ≥ 70 mais dépenses < 500€ — gros potentiel à exploiter",
+    description: "Score commercial ≥ 70 mais dépenses < 500€, gros potentiel à exploiter",
     icon: "TrendingUp",
     fanIds: highPotential.map((f) => f.id),
   });
@@ -1428,7 +1428,7 @@ export function computeSegments(fans: FanIntel[]): FanSegment[] {
   segments.push({
     id: "seg-churn",
     name: "À risque churn",
-    description: "Score de risque d'attrition ≥ 60 — action urgente recommandée",
+    description: "Score de risque d'attrition ≥ 60, action urgente recommandée",
     icon: "AlertTriangle",
     fanIds: churnRisk.map((f) => f.id),
   });
@@ -1438,7 +1438,7 @@ export function computeSegments(fans: FanIntel[]): FanSegment[] {
   segments.push({
     id: "seg-no-consent",
     name: "Sans consentement",
-    description: "Fans sans consentement RGPD valide — campagne bloquée",
+    description: "Fans sans consentement RGPD valide, campagne bloquée",
     icon: "ShieldAlert",
     fanIds: noConsent.map((f) => f.id),
     blockedReason: "Présence de fans sans consentement RGPD valide dans ce segment",
@@ -1493,7 +1493,7 @@ export function computeSegments(fans: FanIntel[]): FanSegment[] {
   segments.push({
     id: "seg-sensitive",
     name: "Fans sensibles",
-    description: "Score de risque conformité ≥ 50 — vigilance requise",
+    description: "Score de risque conformité ≥ 50, vigilance requise",
     icon: "ShieldCheck",
     fanIds: sensitive.map((f) => f.id),
     blockedReason: "Présence de fans avec risque conformité élevé dans ce segment",
@@ -1504,7 +1504,7 @@ export function computeSegments(fans: FanIntel[]): FanSegment[] {
   segments.push({
     id: "seg-dnc",
     name: "Fans à ne pas contacter",
-    description: "Fans bloqués ou avec sujets interdits — ne jamais contacter",
+    description: "Fans bloqués ou avec sujets interdits, ne jamais contacter",
     icon: "UserX",
     fanIds: doNotContact.map((f) => f.id),
     blockedReason: "Ce segment contient des fans à ne pas contacter",

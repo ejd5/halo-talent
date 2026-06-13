@@ -45,7 +45,7 @@ export function CoutureReassurance() {
               letterSpacing: "-0.02em"
             }}
           >
-            Ce que Halo <span style={{ fontStyle: "italic", color: "var(--or)" }}>apporte.</span>
+            Ce que WTF <span style={{ fontStyle: "italic", color: "var(--or)" }}>apporte.</span>
           </h2>
         </motion.div>
 

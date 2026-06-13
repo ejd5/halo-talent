@@ -13,7 +13,7 @@ export async function GET() {
     email: "admin@halo-talent.com",
     password: "admin123",
     email_confirm: true,
-    user_metadata: { full_name: "Admin Halo" },
+    user_metadata: { full_name: "Admin WTF" },
   });
 
   if (createError) {

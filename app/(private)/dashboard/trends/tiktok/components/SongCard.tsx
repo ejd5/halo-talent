@@ -27,7 +27,7 @@ function formatCount(n: number): string {
 }
 
 function formatDuration(seconds?: number): string {
-  if (!seconds) return "—";
+  if (!seconds) return ", ";
   const m = Math.floor(seconds / 60);
   const s = seconds % 60;
   return `${m}:${String(s).padStart(2, "0")}`;

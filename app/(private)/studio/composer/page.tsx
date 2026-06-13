@@ -76,7 +76,7 @@ function ComposerContent() {
                 region: searchParams.get("region") || undefined,
               },
             });
-            dispatch({ type: "SET_CAPTION_TEXT", text: `${song.title} — essayez ce son ! #${hashtag || song.title.replace(/\s+/g, "")}` });
+            dispatch({ type: "SET_CAPTION_TEXT", text: `${song.title}, essayez ce son ! #${hashtag || song.title.replace(/\s+/g, "")}` });
           }
         })
         .catch(() => {})
@@ -90,7 +90,7 @@ function ComposerContent() {
   return (
     <div className="flex-1 flex flex-col animate-fade-in">
       <div className="flex-1 flex overflow-hidden">
-        {/* Left — Platform selector (320px) */}
+        {/* Left, Platform selector (320px) */}
         <div className="w-80 shrink-0 overflow-y-auto">
           <PlatformSelector
             platforms={state.platforms}
@@ -101,7 +101,7 @@ function ComposerContent() {
           />
         </div>
 
-        {/* Center — Content workspace (flexible) */}
+        {/* Center, Content workspace (flexible) */}
         <div className="flex-1 flex flex-col min-w-0 overflow-y-auto">
           {/* TikTok source banner */}
           {state.sourceMetadata && (
@@ -183,7 +183,7 @@ function ComposerContent() {
           )}
         </div>
 
-        {/* Right — Preview panel (340px) */}
+        {/* Right, Preview panel (340px) */}
         <div className="w-85 shrink-0 overflow-y-auto">
           <PreviewPanel
             platforms={state.platforms}

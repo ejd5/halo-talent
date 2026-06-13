@@ -1,4 +1,4 @@
-// ─── Halo Lex — Shared Types ──────────────────────────────────
+// ─── WTF Lex, Shared Types ──────────────────────────────────
 
 export type LexMessageRole = "user" | "assistant" | "system";
 

@@ -57,7 +57,7 @@ export default function SegmentsPage() {
       <div className="p-4 border border-[var(--color-border)]" style={{ backgroundColor: "var(--color-card)" }}>
         <h3 className="text-sm font-semibold mb-3" style={{ color: "var(--text-primary)" }}>Créer un segment personnalisé</h3>
         <p className="text-xs mb-4" style={{ color: "var(--text-primary)" }}>
-          Utilise l&apos;outil de filtrage avancé dans la page fans pour créer tes propres segments.
+          Utilise l'outil de filtrage avancé dans la page fans pour créer tes propres segments.
         </p>
         <Link
           href="/dashboard/atlas/fans"

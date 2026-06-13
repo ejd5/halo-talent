@@ -60,7 +60,7 @@ function NewsletterForm() {
     <div>
       <h5>Newsletter</h5>
       <p style={{ color: "var(--pierre, #9C9183)", fontSize: "14px", marginBottom: "18px" }}>
-        Recevez les mises à jour produit et guides Halo.
+        Recevez les mises à jour produit et guides WTF.
       </p>
       <form onSubmit={handleSubmit}>
         <div className="newsletter-line">
@@ -124,6 +124,7 @@ export function Footer() {
           <div>
             <h5>Navigation</h5>
             <ul>
+              <li><Link href="/qui-sommes-nous">Qui nous sommes</Link></li>
               <li><Link href="/manifeste">Manifeste</Link></li>
               <li><Link href="/commissions">Commissions</Link></li>
               <li><Link href="/protection">Bouclier Légal</Link></li>
@@ -150,8 +151,8 @@ export function Footer() {
         </div>
 
         <div className="foot-base">
-          <span>&copy; 2026 Halo Talent. Tous droits réservés.</span>
-          <span>Halo Talent ne fournit pas de conseil juridique. <em>Fait avec conviction.</em></span>
+          <span>&copy; 2026 Where Talent Forms. Tous droits réservés.</span>
+          <span>Where Talent Forms ne fournit pas de conseil juridique. <em>Fait avec conviction.</em></span>
         </div>
       </div>
     </footer>

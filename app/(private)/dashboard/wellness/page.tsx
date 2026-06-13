@@ -85,7 +85,7 @@ export default function WellnessPage() {
 
   const recommendations = score !== null && score < 50
     ? [
-        { icon: Moon, text: "Priorise ton sommeil cette semaine — 8h minimum" },
+        { icon: Moon, text: "Priorise ton sommeil cette semaine, 8h minimum" },
         { icon: Sun, text: "Essaie une marche de 20min en pleine journée" },
         { icon: Heart, text: "Prends un vrai jour off, sans écran" },
       ]
@@ -96,7 +96,7 @@ export default function WellnessPage() {
       ]
     : [
         { icon: Sparkles, text: "Super équilibre ! Partage tes tips avec la communauté" },
-        { icon: Heart, text: "Continue sur cette lancée — tu gères ton rythme" },
+        { icon: Heart, text: "Continue sur cette lancée, tu gères ton rythme" },
       ];
 
   return (
@@ -105,7 +105,7 @@ export default function WellnessPage() {
       <div className="flex items-center justify-between">
         <div>
           <h1 className="text-lg font-semibold" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>Bien-être</h1>
-          <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>Prends soin de toi — c&apos;est la clé d&apos;une carrière durable</p>
+          <p className="text-sm mt-1" style={{ color: "var(--text-primary)" }}>Prends soin de toi, c'est la clé d'une carrière durable</p>
         </div>
       </div>
 
@@ -114,14 +114,14 @@ export default function WellnessPage() {
         <div className="p-6 border border-[var(--color-border)] card-accent flex flex-col items-center justify-center" style={{ backgroundColor: "var(--color-card)" }}>
           <p className="text-xs uppercase tracking-wider mb-3" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Score bien-être</p>
           <div className="w-24 h-24 rounded-full border-4 flex items-center justify-center mb-2" style={{ borderColor: moodColor }}>
-            <span className="text-3xl font-bold font-mono" style={{ color: "var(--text-primary)" }}>{score ?? "—"}</span>
+            <span className="text-3xl font-bold font-mono" style={{ color: "var(--text-primary)" }}>{score ?? ", "}</span>
           </div>
           <p className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>
             {score !== null ? (score >= 70 ? "Équilibre 🌟" : score >= 50 ? "En progression 💪" : "À surveiller 🌱") : "Pas encore de données"}
           </p>
           <div className="flex items-center gap-4 mt-3 text-[10px]" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
-            <span>Moy. humeur : {avgMood ? `${avgMood.toFixed(1)}/10` : "—"}</span>
-            <span>Sommeil : {avgSleep !== null ? `${Math.round(avgSleep)}%` : "—"}</span>
+            <span>Moy. humeur : {avgMood ? `${avgMood.toFixed(1)}/10` : ", "}</span>
+            <span>Sommeil : {avgSleep !== null ? `${Math.round(avgSleep)}%` : ", "}</span>
           </div>
         </div>
 
@@ -144,7 +144,7 @@ export default function WellnessPage() {
               <div className="flex items-center gap-4 text-sm" style={{ color: "var(--text-primary)" }}>
                 <span>Humeur : {mood}/10</span>
                 <span>Sommeil : {sleepGood ? "Bien" : "Difficile"}</span>
-                {note && <span className="text-xs italic" style={{ color: "rgba(255, 255, 255, 0.5)" }}>— {note}</span>}
+                {note && <span className="text-xs italic" style={{ color: "rgba(255, 255, 255, 0.5)" }}>,  {note}</span>}
               </div>
               <button onClick={() => setCheckedIn(false)}
                 className="text-[10px] uppercase tracking-wider underline underline-offset-4 hover:opacity-70 transition-opacity"
@@ -156,7 +156,7 @@ export default function WellnessPage() {
             <div className="space-y-4">
               {/* Mood slider */}
               <div>
-                <p className="text-xs mb-2" style={{ color: "rgba(255, 255, 255, 0.5)" }}>Comment te sens-tu aujourd&apos;hui ?</p>
+                <p className="text-xs mb-2" style={{ color: "rgba(255, 255, 255, 0.5)" }}>Comment te sens-tu aujourd'hui ?</p>
                 <div className="flex items-center gap-3">
                   <span className="text-xs" style={{ color: "rgba(255, 255, 255, 0.25)" }}>1</span>
                   <input
@@ -193,7 +193,7 @@ export default function WellnessPage() {
 
               {/* Note */}
               <div>
-                <p className="text-xs mb-1" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Une chose qui t&apos;a fait plaisir ? (optionnel)</p>
+                <p className="text-xs mb-1" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Une chose qui t'a fait plaisir ? (optionnel)</p>
                 <input
                   type="text"
                   value={note}
@@ -218,10 +218,10 @@ export default function WellnessPage() {
 
         {/* History graph */}
         <div className="p-6 border border-[var(--color-border)] card-accent md:col-span-2" style={{ backgroundColor: "var(--color-card)" }}>
-          <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Évolution de l&apos;humeur (14 jours)</h2>
+          <h2 className="text-sm font-semibold mb-4" style={{ color: "var(--text-primary)" }}>Évolution de l'humeur (14 jours)</h2>
           {logs.length === 0 ? (
             <div className="flex items-center justify-center h-24">
-              <p className="text-xs" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Fais ton premier check-in pour voir l&apos;évolution</p>
+              <p className="text-xs" style={{ color: "rgba(255, 255, 255, 0.375)" }}>Fais ton premier check-in pour voir l'évolution</p>
             </div>
           ) : (
             <div className="flex items-end gap-2 h-24">
@@ -268,8 +268,8 @@ export default function WellnessPage() {
           </div>
           <div className="space-y-2 text-xs">
             {[
-              { label: "3114 — Prévention suicide", desc: "Appel gratuit 24h/24", urgent: true },
-              { label: "SOS Amitié", desc: "09 72 39 40 50 — 24h/24", urgent: true },
+              { label: "3114, Prévention suicide", desc: "Appel gratuit 24h/24", urgent: true },
+              { label: "SOS Amitié", desc: "09 72 39 40 50, 24h/24", urgent: true },
               { label: "Psy.fr", desc: "Trouver un psy près de chez vous" },
               { label: "Petit BamBou", desc: "Appli de méditation gratuite" },
             ].map((r, i) => (
@@ -281,7 +281,7 @@ export default function WellnessPage() {
             ))}
           </div>
           <p className="text-[8px] mt-3" style={{ color: "rgba(255, 255, 255, 0.19)" }}>
-            Tu n&apos;es pas seul·e. L&apos;équipe Halo est là pour toi.
+            Tu n'es pas seul·e. L'équipe WTF est là pour toi.
           </p>
         </div>
       </div>

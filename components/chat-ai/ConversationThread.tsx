@@ -131,7 +131,7 @@ export function ConversationThread({ messages, drafts, loading, onSelectDraft }:
               <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 4 }}>
                 <Bot size={12} style={{ color: draft.status === "blocked" ? "#f87171" : "#60a5fa" }} />
                 <span style={{ fontSize: 10, fontWeight: 600, color: "rgba(245,240,235,0.4)", textTransform: "uppercase" }}>
-                  Brouillon IA — {draft.objective}
+                  Brouillon IA, {draft.objective}
                 </span>
                 {draft.status === "blocked" && (
                   <span style={{ display: "flex", alignItems: "center", gap: 3, fontSize: 9, color: "#f87171" }}>

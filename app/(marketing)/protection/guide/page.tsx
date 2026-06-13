@@ -1,4 +1,16 @@
+import type { Metadata } from "next";
 import { BookOpen, ShieldCheck, AlertTriangle, ArrowRight, ExternalLink } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: "Guide pratique du créateur, Where Talent Forms",
+  description:
+    "Vos droits fondamentaux, les signaux d'alerte face à une agence, et les étapes pour reprendre le contrôle de votre compte et de vos revenus de créateur.",
+  openGraph: {
+    title: "Guide pratique du créateur, Where Talent Forms",
+    description:
+      "Droits fondamentaux, signaux d'alerte, étapes pratiques : tout ce qu'un créateur doit savoir pour protéger son activité.",
+  },
+};
 import Link from "next/link";
 import { LegalDisclaimer } from "@/components/legal/LegalDisclaimer";
 import { SourceTag } from "@/components/legal/SourceTag";
@@ -18,7 +30,7 @@ const STEPS = [
       "Contactez le support de la plateforme avec votre pièce d'identité pour vérifier votre identité",
       "Demandez la réinitialisation de l'email et du mot de passe si l'agence les détient",
       "Activez l'authentification à deux facteurs (2FA) immédiatement",
-      "Ne partagez plus jamais vos identifiants — utilisez des outils de délégation officiels si disponibles",
+      "Ne partagez plus jamais vos identifiants, utilisez des outils de délégation officiels si disponibles",
     ],
   },
   {
@@ -36,7 +48,7 @@ const STEPS = [
       "Vérifiez la clause de résiliation dans votre contrat (préavis, pénalités)",
       "Envoyez une lettre de résiliation recommandée avec accusé de réception",
       "Conservez une copie de tous les documents envoyés",
-      "Si l'agence conteste, ne cédez pas à la pression — les clauses abusives sont nulles",
+      "Si l'agence conteste, ne cédez pas à la pression, les clauses abusives sont nulles",
     ],
   },
   {
@@ -65,7 +77,7 @@ export default function GuidePage() {
           Guide pratique du créateur
         </h1>
         <p className="text-base" style={{ color: "var(--text-secondary)" }}>
-          Vos droits, les signaux d&apos;alerte, et les étapes pour reprendre le contrôle
+          Vos droits, les signaux d'alerte, et les étapes pour reprendre le contrôle
         </p>
       </div>
 
@@ -135,7 +147,7 @@ export default function GuidePage() {
       {/* Signaux d'alerte */}
       <section className="mb-10">
         <h2 className="text-lg font-bold mb-5" style={{ color: "var(--text-primary)" }}>
-          Signaux d&apos;alerte
+          Signaux d'alerte
         </h2>
         <div
           className="p-5"
@@ -203,7 +215,7 @@ export default function GuidePage() {
         <ShieldCheck size={24} style={{ color: "var(--color-accent)" }} className="mx-auto" />
         <div>
           <h3 className="text-base font-bold mb-1" style={{ color: "var(--text-primary)" }}>
-            Analysez votre contrat d&apos;agence
+            Analysez votre contrat d'agence
           </h3>
           <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
             Vérifiez si votre contrat contient des clauses abusives en 2 minutes
@@ -227,7 +239,7 @@ export default function GuidePage() {
               border: "1px solid var(--border-default)",
             }}
           >
-            Voir le contrat-type Halo
+            Voir le contrat-type WTF
             <ExternalLink size={16} />
           </Link>
         </div>

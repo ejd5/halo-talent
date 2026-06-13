@@ -1,4 +1,4 @@
-// ─── Seed Demo Data — 40 Fans ────────────────────────────
+// ─── Seed Demo Data, 40 Fans ────────────────────────────
 // Realistic, multilingual, covering all statuses
 
 import type { Fan } from "@/lib/types/chat-ai";

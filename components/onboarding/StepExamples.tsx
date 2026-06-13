@@ -41,8 +41,8 @@ export function StepExamples({
         className="text-sm text-center mb-6"
         style={{ color: "var(--text-secondary)", fontFamily: "var(--font-body)" }}
       >
-        Collez 2-3 messages ou captions dont vous êtes fier(ère). Cela aide l&apos;IA
-        à capturer votre style d&apos;écriture exact.
+        Collez 2-3 messages ou captions dont vous êtes fier(ère). Cela aide l'IA
+        à capturer votre style d'écriture exact.
       </p>
 
       <div className="space-y-3">

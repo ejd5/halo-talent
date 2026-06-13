@@ -43,7 +43,7 @@ export default function RevenueTab() {
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {/* Pie chart — breakdown by source */}
+        {/* Pie chart, breakdown by source */}
         <Card title="Décomposition par source">
           {(data.byChannel?.length ?? 0) > 0 ? (
             <div className="h-64 flex items-center">
@@ -85,7 +85,7 @@ export default function RevenueTab() {
           </div>
         </Card>
 
-        {/* Bar chart — campaign detail */}
+        {/* Bar chart, campaign detail */}
         <Card title="Détail par campagne">
           {(data.campaigns?.length ?? 0) > 0 ? (
             <div className="h-64">

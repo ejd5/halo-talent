@@ -26,7 +26,7 @@ export async function GET() {
         max_tokens: 1000,
         messages: [{
           role: "user",
-          content: `Génère un résumé exécutif hebdomadaire pour l'agence Halo Talent. Données actuelles :
+          content: `Génère un résumé exécutif hebdomadaire pour l'agence Where Talent Forms. Données actuelles :
 - 21 créateurs actifs, 18 actifs, 3 inactifs
 - Revenus totaux : 468 000€ brut, 385 600€ net
 - Top créateur : Clara W. (42 500€/mois)

@@ -12,10 +12,10 @@ function norm(locale: string): Locale {
 const LABEL_DETAILS: Record<SmartLabelType, { icon: React.ElementType; description: string }> = {
   already_sent: { icon: Rocket, description: "Ce média a déjà été envoyé à des fans" },
   already_sold: { icon: DollarSign, description: "Ce média a déjà généré des ventes" },
-  fatigue_risk: { icon: AlertTriangle, description: "Ce média a été utilisé récemment — alterner avec d'autres contenus" },
+  fatigue_risk: { icon: AlertTriangle, description: "Ce média a été utilisé récemment, alterner avec d'autres contenus" },
   reactivation_candidate: { icon: Rocket, description: "Ce média performant n'a pas été utilisé depuis longtemps" },
   vip_candidate: { icon: DollarSign, description: "Contenu premium à fort potentiel pour vos meilleurs fans" },
-  rights_issue: { icon: AlertTriangle, description: "Problème de droits détecté — vérifier avant utilisation" },
+  rights_issue: { icon: AlertTriangle, description: "Problème de droits détecté, vérifier avant utilisation" },
   sensitive: { icon: AlertTriangle, description: "Contenu nécessitant une validation avant envoi" },
 };
 

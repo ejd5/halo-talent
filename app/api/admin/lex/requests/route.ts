@@ -1,8 +1,8 @@
 // ─── Admin API: Letter Requests ───────────────────────────
-// GET    /api/admin/lex/requests        — List with filters
-// GET    /api/admin/lex/requests?id=X   — Single request detail
-// PUT    /api/admin/lex/requests        — Update status/notes
-// POST   /api/admin/lex/requests        — Create request (admin)
+// GET    /api/admin/lex/requests       , List with filters
+// GET    /api/admin/lex/requests?id=X  , Single request detail
+// PUT    /api/admin/lex/requests       , Update status/notes
+// POST   /api/admin/lex/requests       , Create request (admin)
 
 import { NextRequest } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";

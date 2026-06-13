@@ -162,7 +162,7 @@ export const logWellnessCheck: Tool = {
 
     const today = new Date().toISOString().slice(0, 10);
 
-    // Upsert — only one entry per day
+    // Upsert, only one entry per day
     const { data, error } = await supabase.from("wellness_logs").upsert({
       creator_id: creatorId,
       date: today,
@@ -271,7 +271,7 @@ export const escalateToHuman: Tool = {
       low: "Note transmise au manager.",
       medium: "Alerce transmise. Le manager sera informé.",
       high: "Alerte envoyée au manager. Attends un retour rapide.",
-      critical: "⚠️ ALERTE CRITIQUE — Le manager et l'équipe sont notifiés.",
+      critical: "⚠️ ALERTE CRITIQUE, Le manager et l'équipe sont notifiés.",
     };
 
     const crisisResources = input.urgency === "critical"
@@ -287,7 +287,7 @@ export const escalateToHuman: Tool = {
       urgency: input.urgency,
       message: urgencyMessages[input.urgency] ?? "Alerte transmise.",
       resources: crisisResources,
-      disclaimer: "Tu n'es pas seul·e. L'équipe Halo prend ça très au sérieux.",
+      disclaimer: "Tu n'es pas seul·e. L'équipe WTF prend ça très au sérieux.",
     };
   },
 };

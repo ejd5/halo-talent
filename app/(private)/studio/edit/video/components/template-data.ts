@@ -36,7 +36,7 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
   {
     id: "day-in-life",
     name: "Day in the life",
-    description: "Vlog rapide de 15s — routine quotidienne version TikTok",
+    description: "Vlog rapide de 15s, routine quotidienne version TikTok",
     duration: 15,
     aspectRatio: "9:16",
     icon: "🌅",
@@ -75,7 +75,7 @@ export const VIDEO_TEMPLATES: VideoTemplate[] = [
     compatibleDna: true,
     scenes: [
       { type: "text", startFrame: 0, duration: 150, props: { text: '"Le succès, c\'est de tomber sept fois, se relever huit."', x: 50, y: 40, fontSize: 32, color: "var(--text-primary)", fontFamily: "serif", animation: "fadeIn" } },
-      { type: "text", startFrame: 150, duration: 60, props: { text: "— Proverb", x: 50, y: 65, fontSize: 20, color: "rgba(255,255,255,0.5)", animation: "fadeIn" } },
+      { type: "text", startFrame: 150, duration: 60, props: { text: ",  Proverb", x: 50, y: 65, fontSize: 20, color: "rgba(255,255,255,0.5)", animation: "fadeIn" } },
       { type: "text", startFrame: 210, duration: 90, props: { text: "✨ halo-talent.com", x: 50, y: 85, fontSize: 16, color: "var(--accent)", animation: "slideUp" } },
     ],
   },

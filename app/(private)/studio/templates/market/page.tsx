@@ -73,7 +73,7 @@ export default function MarketPage() {
           <h1 className="text-lg italic" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Marketplace</h1>
         </div>
         <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.3)" }}>
-          Templates créés par la communauté Halo Talent · {templates.length} disponibles
+          Templates créés par la communauté Where Talent Forms · {templates.length} disponibles
         </p>
       </div>
 

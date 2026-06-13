@@ -15,7 +15,7 @@ export default function SocialSchedulerPage() {
           Planificateur
         </h1>
         <p className="text-xs leading-relaxed" style={{ color: "rgba(245,240,235,0.4)" }}>
-          Planification et programmation des publications sur l&apos;ensemble des réseaux sociaux.
+          Planification et programmation des publications sur l'ensemble des réseaux sociaux.
         </p>
         <div className="flex items-center justify-center gap-1.5 mt-4 text-[10px]" style={{ color: "rgba(245,240,235,0.2)" }}>
           <Construction size={12} /> Bientôt disponible

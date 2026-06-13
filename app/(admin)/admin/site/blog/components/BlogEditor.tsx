@@ -88,7 +88,7 @@ export function BlogEditor({
                   "Comment l'IA transforme le management créateur",
                   "5 secrets pour booster votre engagement",
                   "Le guide ultime des commissions transparentes",
-                  "Pourquoi les créateurs choisissent Halo Talent",
+                  "Pourquoi les créateurs choisissent Where Talent Forms",
                   "2026 : les tendances qui vont tout changer",
                 ];
                 alert("Titres suggérés par Claude IA :\n\n• " + suggestions.join("\n• "));
@@ -144,7 +144,7 @@ export function BlogEditor({
             <div className="flex items-center justify-between mb-1">
               <label className="text-[10px] font-semibold uppercase tracking-wider opacity-40">Contenu</label>
               <AIActionButton icon={<Wand2 size={12} />} label="Améliorer le contenu" onClick={() => {
-                const improved = form.content + "\n\n> Paragraphe amélioré par l'IA — ajoutez des transitions, des exemples concrets et une structure claire.";
+                const improved = form.content + "\n\n> Paragraphe amélioré par l'IA, ajoutez des transitions, des exemples concrets et une structure claire.";
                 update({ content: improved });
               }} />
             </div>

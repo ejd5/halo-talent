@@ -1,4 +1,4 @@
-// ─── AI Router — Task → Model Selection ──────────────────
+// ─── AI Router, Task → Model Selection ──────────────────
 // Routes tasks to deepseek-v4-flash (fast) or deepseek-v4-pro (reasoning)
 
 import type { DeepSeekModel, TaskType } from "@/lib/types/chat-ai";

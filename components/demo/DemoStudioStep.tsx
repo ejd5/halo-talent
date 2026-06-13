@@ -89,7 +89,7 @@ export function DemoStudioStep({ persona }: { persona: PersonaId }) {
       >
         <h3 className="text-sm font-medium mb-3 flex items-center gap-1.5" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
           <PenLine size={14} />
-          Studio IA — Caption
+          Studio IA, Caption
         </h3>
 
         <div className="flex gap-2 mb-3">

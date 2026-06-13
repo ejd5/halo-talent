@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 
-// ── RevealSection — scroll-triggered reveal ────────────────
+// ── RevealSection, scroll-triggered reveal ────────────────
 
 interface RevealSectionProps {
   children: ReactNode;
@@ -66,7 +66,7 @@ export function RevealSection({
   );
 }
 
-// ── SectionDivider — ambient separator between sections ────
+// ── SectionDivider, ambient separator between sections ────
 
 export function SectionDivider() {
   return (

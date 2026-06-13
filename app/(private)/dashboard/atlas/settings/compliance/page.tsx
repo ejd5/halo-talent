@@ -164,7 +164,7 @@ export default function CompliancePage() {
           Centre de Conformité
         </h1>
         <p className="text-sm mt-1" style={{ color: "var(--color-ink-secondary)" }}>
-          RGPD, CAN-SPAM, TCPA — tout est sous contrôle
+          RGPD, CAN-SPAM, TCPA, tout est sous contrôle
         </p>
       </div>
 

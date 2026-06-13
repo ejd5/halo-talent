@@ -85,7 +85,7 @@ export function PlatformLegalPage({ data }: { data: PlatformData }) {
       {/* Points d'attention CGU */}
       <section className="mb-10">
         <h2 className="text-lg font-bold mb-5" style={{ color: "var(--text-primary)" }}>
-          Points d&apos;attention dans les CGU
+          Points d'attention dans les CGU
         </h2>
         <div className="space-y-4">
           {data.cguPoints.map((point, i) => (
@@ -129,7 +129,7 @@ export function PlatformLegalPage({ data }: { data: PlatformData }) {
         <BookOpen size={24} style={{ color: "var(--color-accent)" }} className="mx-auto" />
         <div>
           <h3 className="text-base font-bold mb-1" style={{ color: "var(--text-primary)" }}>
-            Analysez votre contrat d&apos;agesse
+            Analysez votre contrat d'agesse
           </h3>
           <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
             Vérifiez si votre contrat contient des clauses abusives en 2 minutes

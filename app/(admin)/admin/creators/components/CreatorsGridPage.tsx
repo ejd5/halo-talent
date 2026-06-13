@@ -79,7 +79,7 @@ export function CreatorsGridPage() {
             Créateurs
           </p>
           <h1 className="font-display text-[32px] font-bold mt-1" style={{ color: "var(--text-primary)" }}>
-            Roster — {filtered.length} créateurs
+            Roster, {filtered.length} créateurs
           </h1>
         </div>
         <button

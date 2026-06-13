@@ -68,7 +68,7 @@ export async function POST(request: NextRequest) {
       success: true,
       credits_added: pack.credits,
       demo: true,
-      message: `${pack.credits} crédits ajoutés (mode démo — aucune facturation)`,
+      message: `${pack.credits} crédits ajoutés (mode démo, aucune facturation)`,
     });
   } catch (err) {
     console.error("[CREDITS PURCHASE] Error:", err);

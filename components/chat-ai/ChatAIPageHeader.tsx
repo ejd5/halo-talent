@@ -20,7 +20,7 @@ export function ChatAIPageHeader({ isActive, isPaused, demoMode, consentComplete
             fontSize: 22, fontWeight: 700, color: "var(--text-primary)",
             fontFamily: "var(--font-display)", letterSpacing: "-0.02em", marginBottom: 4,
           }}>
-            Halo Sovereign Chat AI
+            WTF Sovereign Chat AI
           </h1>
           <p style={{ fontSize: 12, color: "rgba(245,240,235,0.4)", maxWidth: 480 }}>
             Revenue Inbox, Fan Brain et brouillons IA validés humainement.

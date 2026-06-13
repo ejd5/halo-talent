@@ -1,6 +1,6 @@
 // ─── Fan Scoring Engine ─────────────────────────────────────
 // Calcule le score 0-100 et détermine le tier en temps réel
-// Scoring is CONFIDENTIAL — never exposed to fans
+// Scoring is CONFIDENTIAL, never exposed to fans
 
 import type { AtlasFan, FanTier } from "./fans";
 
@@ -45,10 +45,10 @@ export const TIER_THRESHOLDS = {
 // ─── Main scoring function ─────────────────────────────────
 //
 // Weight distribution:
-//   Purchases (40 pts)  — total spent, count, recency, AOV
-//   Engagement (30 pts) — frequency, recency, multi-channel
-//   Loyalty   (20 pts)  — tenure, consecutive purchase months
-//   Signals   (10 pts)  — positive interactions, referrals (future)
+//   Purchases (40 pts) , total spent, count, recency, AOV
+//   Engagement (30 pts), frequency, recency, multi-channel
+//   Loyalty   (20 pts) , tenure, consecutive purchase months
+//   Signals   (10 pts) , positive interactions, referrals (future)
 
 export function calculateFanScore(
   fan: Pick<AtlasFan, "total_spent" | "purchases_count" | "last_purchase_at" | "avg_order_value" | "first_seen_at" | "last_interaction_at" | "username_onlyfans" | "username_instagram" | "username_tiktok" | "email" | "phone">,
@@ -94,7 +94,7 @@ export function calculateFanScore(
   // ENGAGEMENT (30 pts max)
   // ══════════════════════════════════════════════
 
-  // Interaction frequency — last 30 days (0-15 pts)
+  // Interaction frequency, last 30 days (0-15 pts)
   const recentInteractions = interactions.filter((i) => {
     return daysBetween(i.occurred_at) < 30;
   }).length;
@@ -131,7 +131,7 @@ export function calculateFanScore(
   else if (daysSinceFirstSeen > 90) score += 3;
   else if (daysSinceFirstSeen > 30) score += 1;
 
-  // Loyalty streak — consecutive months with purchase (0-10 pts)
+  // Loyalty streak, consecutive months with purchase (0-10 pts)
   const streak = calculateMonthlyPurchaseStreak(purchases);
   score += Math.min(streak * 2, 10);
 
@@ -153,19 +153,19 @@ export function determineTier(
     ? daysBetween(lastInteractionAt)
     : Infinity;
 
-  // Churned override — no interaction for 90+ days
+  // Churned override, no interaction for 90+ days
   if (daysSinceLastInteraction > 90) return "churned";
 
-  // VIP — top spenders or near-perfect score
+  // VIP, top spenders or near-perfect score
   if (totalSpent > 3000 || score >= 90) return "vip";
 
-  // Whale — high spenders
+  // Whale, high spenders
   if (totalSpent > 1000 || score >= 75) return "whale";
 
-  // Engaged — active and has purchased
+  // Engaged, active and has purchased
   if (score >= 50 && completedPurchaseCount > 0) return "engaged";
 
-  // Warm — some activity but no purchase yet
+  // Warm, some activity but no purchase yet
   if (score >= 30) return "warm";
 
   return "cold";

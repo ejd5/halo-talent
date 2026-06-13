@@ -132,7 +132,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "L'agence a-t-elle des accords commerciaux avec ces outils ?",
-    r: "Oui. Nous percevons des commissions d'affiliation sur certains liens. Ces revenus financent les outils gratuits que nous offrons à notre communauté. Notre transparence est totale — chaque lien affilié est identifié.",
+    r: "Oui. Nous percevons des commissions d'affiliation sur certains liens. Ces revenus financent les outils gratuits que nous offrons à notre communauté. Notre transparence est totale, chaque lien affilié est identifié.",
   },
   {
     q: "Quelle est l'alternative légale ?",
@@ -249,8 +249,8 @@ function ToolCard({
             color: "rgba(245,240,235,0.4)",
           }}
         >
-          ⚠️ L&apos;utilisation de cet outil peut violer les CGU de Meta, TikTok,
-          ou OnlyFans selon votre cas d&apos;usage. Vérifiez avant utilisation.
+          ⚠️ L'utilisation de cet outil peut violer les CGU de Meta, TikTok,
+          ou OnlyFans selon votre cas d'usage. Vérifiez avant utilisation.
         </div>
       )}
 
@@ -370,7 +370,7 @@ export default function ProModePage() {
             Outils avancés
           </h1>
           <p className="text-sm mt-1" style={{ color: "rgba(245,240,235,0.4)" }}>
-            Documentation exploratoire — utilisation sous votre responsabilité
+            Documentation exploratoire, utilisation sous votre responsabilité
           </p>
         </div>
         <button
@@ -384,7 +384,7 @@ export default function ProModePage() {
         </button>
       </div>
 
-      {/* ═══ Category 1 — Anti-detect Browsers ═══ */}
+      {/* ═══ Category 1, Anti-detect Browsers ═══ */}
       <section>
         <div className="flex items-center gap-2 mb-1">
           <Globe size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
@@ -429,7 +429,7 @@ export default function ProModePage() {
         </div>
       </section>
 
-      {/* ═══ Category 2 — Residential Proxies ═══ */}
+      {/* ═══ Category 2, Residential Proxies ═══ */}
       <section>
         <div className="flex items-center gap-2 mb-1">
           <Shield size={14} style={{ color: "rgba(245,240,235,0.3)" }} />
@@ -445,8 +445,8 @@ export default function ProModePage() {
           style={{ color: "rgba(245,240,235,0.4)" }}
         >
           Les proxies résidentiels acheminent votre trafic via des IPs
-          appartenant à des fournisseurs d&apos;accès réels, rendant la
-          connexion indiscernable d&apos;un utilisateur classique. Essentiels
+          appartenant à des fournisseurs d'accès réels, rendant la
+          connexion indiscernable d'un utilisateur classique. Essentiels
           pour le multi-comptes à échelle.
         </p>
 
@@ -457,7 +457,7 @@ export default function ProModePage() {
         </div>
       </section>
 
-      {/* ═══ Category 3 — Engagement Automation (warning) ═══ */}
+      {/* ═══ Category 3, Engagement Automation (warning) ═══ */}
       <section>
         <div className="flex items-center gap-2 mb-1">
           <Zap size={14} style={{ color: "var(--danger)" }} />
@@ -465,7 +465,7 @@ export default function ProModePage() {
             className="text-base font-semibold"
             style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}
           >
-            Outils d&apos;engagement automatisé
+            Outils d'engagement automatisé
           </h2>
         </div>
         <div
@@ -583,12 +583,12 @@ export default function ProModePage() {
           className="text-[9px] text-center pt-2"
           style={{ color: "rgba(245,240,235,0.1)" }}
         >
-          Version v1.0 — Dernière mise à jour : juin 2026 —
+          Version v1.0, Dernière mise à jour : juin 2026 , 
           <button
             onClick={() => router.push("/dashboard/integrations/pro-mode/acknowledge")}
             className="underline underline-offset-2 hover:opacity-70 ml-1"
           >
-            Voir l&apos;historique du disclaimer
+            Voir l'historique du disclaimer
           </button>
         </p>
       </section>

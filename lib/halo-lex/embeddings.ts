@@ -1,4 +1,4 @@
-// ─── Halo Lex — Embeddings Service ─────────────────────────────
+// ─── WTF Lex, Embeddings Service ─────────────────────────────
 // Wrapper autour de Voyage AI pour la génération d'embeddings.
 // Fallback : embedding mock en développement.
 

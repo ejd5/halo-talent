@@ -188,7 +188,7 @@ export function MediaPreview({
                 <p className="text-[10px]" style={{ color: "rgba(255, 255, 255, 0.25)" }}>
                   {item.type === "audio" || item.type === "document"
                     ? "L'analyse IA n'est pas disponible pour ce type de fichier"
-                    : "En attente d'analyse — clique sur 'Analyser avec IA'"}
+                    : "En attente d'analyse, clique sur 'Analyser avec IA'"}
                 </p>
               </Section>
             )}
@@ -199,7 +199,7 @@ export function MediaPreview({
                 {item.moderation_safe ? (
                   <div className="flex items-center gap-1.5">
                     <CheckCircle size={10} style={{ color: "var(--success)" }} />
-                    <span className="text-[10px]" style={{ color: "var(--success)" }}>Contenu sûr — OK pour publication</span>
+                    <span className="text-[10px]" style={{ color: "var(--success)" }}>Contenu sûr, OK pour publication</span>
                   </div>
                 ) : (
                   <div className="space-y-1.5">

@@ -81,20 +81,20 @@ const playfairDisplay = Playfair_Display({
 
 export const metadata: Metadata = {
   title: {
-    default: "Halo Talent — Maison de création",
-    template: "%s — Halo Talent",
+    default: "Where Talent Forms, Maison de création",
+    template: "%s, Where Talent Forms",
   },
   description:
-    "Management, IA, CRM, protection juridique et stratégie de croissance. Halo Talent réunit tout ce dont un créateur a besoin dans une seule maison. Paris, New York, Milan, Tokyo.",
+    "Management, IA, CRM, protection juridique et stratégie de croissance. Where Talent Forms réunit tout ce dont un créateur a besoin dans une seule maison. Paris, New York, Milan, Tokyo.",
   robots: {
     index: true,
     follow: true,
   },
   openGraph: {
-    title: "Halo Talent — Maison de création",
+    title: "Where Talent Forms, Maison de création",
     description:
       "Management, IA, CRM, protection juridique et stratégie de croissance. Une maison pour les créateurs ambitieux.",
-    siteName: "Halo Talent",
+    siteName: "Where Talent Forms",
     locale: "fr_FR",
     type: "website",
   },

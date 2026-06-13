@@ -91,7 +91,7 @@ export default function MyTemplatesPage() {
         ) : templates.length === 0 ? (
           <div className="flex flex-col items-center py-16 text-center">
             <Layout size={28} style={{ color: "rgba(255,255,255,0.06)" }} />
-            <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.15)" }}>Tu n&apos;as pas encore créé de template</p>
+            <p className="text-xs mt-3" style={{ color: "rgba(255,255,255,0.15)" }}>Tu n'as pas encore créé de template</p>
             <Link href="/studio/composer"
               className="flex items-center gap-1.5 mt-4 px-4 py-2 text-xs rounded-sm transition-opacity hover:opacity-80"
               style={{ background: "var(--accent)", color: "var(--text-primary)" }}>

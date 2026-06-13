@@ -1,4 +1,4 @@
-// ─── Halo Lex — Enricher ───────────────────────────────────────
+// ─── WTF Lex, Enricher ───────────────────────────────────────
 // Enrichit chaque chunk via Claude Opus : résumé, tags, complexité.
 
 import type { ChunkResult, EnrichmentResult } from "./types";

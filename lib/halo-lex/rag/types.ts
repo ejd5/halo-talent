@@ -1,4 +1,4 @@
-// ─── Halo Lex — RAG Types ─────────────────────────────────────
+// ─── WTF Lex, RAG Types ─────────────────────────────────────
 // Types pour le système de Retrieval-Augmented Generation.
 
 export interface SearchQuery {

@@ -143,7 +143,7 @@ export function Sidebar({ mobileOpen, onClose }: { mobileOpen: boolean; onClose:
       {/* Logo */}
       <div className="px-5 py-4" style={{ borderBottom: "1px solid var(--border-default)" }}>
         <Link href="/dashboard" className="font-semibold text-sm" style={{ fontFamily: "var(--font-display)", color: "var(--text-primary)" }}>
-          Halo Talent
+          Where Talent Forms
         </Link>
       </div>
 

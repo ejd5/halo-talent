@@ -558,7 +558,7 @@ export default function EditVideoPage() {
           <div className="pointer-events-auto flex flex-col items-center gap-3 px-8 py-6 rounded-sm" style={{ background: "rgba(10,9,8,0.9)", border: "1px solid var(--border-default)" }}>
             <p className="text-sm" style={{ fontFamily: "var(--font-studio)", color: "var(--text-primary)" }}>Montage Vidéo</p>
             <p className="text-[10px] text-center max-w-xs" style={{ color: "rgba(255,255,255,0.3)" }}>
-              Importe une vidéo, une image ou de l&apos;audio pour commencer. Utilise un template ou ajoute du texte, des stickers, des effets.
+              Importe une vidéo, une image ou de l'audio pour commencer. Utilise un template ou ajoute du texte, des stickers, des effets.
             </p>
             <div className="flex gap-2">
               <button onClick={handleImportMedia} className="flex items-center gap-1.5 px-4 py-2 text-xs transition-opacity hover:opacity-80 rounded-sm" style={{ background: "var(--accent)", color: "var(--text-primary)" }}>

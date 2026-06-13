@@ -176,7 +176,7 @@ ALTER TABLE IF EXISTS creator_dna_versions ENABLE ROW LEVEL SECURITY;
       .eq("id", user.id)
       .single();
     if (!profile) {
-      diagnostics.push("No profile found — creating one");
+      diagnostics.push("No profile found, creating one");
       const { error: profileError } = await adminDb.from("profiles").insert({
         id: user.id,
         role: "creator",

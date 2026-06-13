@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
     } else if (revenue === 0) {
       insight = `Tu as ${fans} fans actifs mais aucun revenu attribué via Atlas. Active le tracking des conversions dans les paramètres pour mesurer ton ROI.`;
     } else if (roi && parseFloat(roi) > 100) {
-      insight = `Atlas a généré ${revenue.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })} avec un ROI de ${roi}%. Tes campagnes performantes méritent d'être scaling — augmente tes envois.`;
+      insight = `Atlas a généré ${revenue.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })} avec un ROI de ${roi}%. Tes campagnes performantes méritent d'être scaling, augmente tes envois.`;
     } else if (roi && parseFloat(roi) > 0) {
       insight = `Atlas génère ${revenue.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })} avec un ROI de ${roi}%. Pour améliorer, teste des segments plus précis et des follow-up automatisés.`;
     } else {

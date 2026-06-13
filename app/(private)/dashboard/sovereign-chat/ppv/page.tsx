@@ -46,7 +46,7 @@ function OverviewTab() {
           { label: "Unlock rate", value: `${kpi.unlock_rate || 0}%`, icon: Target, color: "var(--success)" },
           { label: "AOV PPV", value: `${kpi.aov || 0}€`, icon: DollarSign, color: "var(--text-primary)" },
           { label: "TTU moyen", value: `${kpi.avg_ttu_hours || 0}h`, icon: Clock, color: "rgba(245,240,235,0.5)" },
-          { label: "Top PPV", value: kpi.top_product || "—", icon: Zap, color: "var(--accent)" },
+          { label: "Top PPV", value: kpi.top_product || ", ", icon: Zap, color: "var(--accent)" },
         ].map((k, i) => (
           <div key={i} className="p-2.5" style={{backgroundColor:"rgba(245,240,235,0.02)", border:"1px solid rgba(245,240,235,0.04)"}}>
             <k.icon size={10} className="mb-1" style={{color: k.color}} />
@@ -83,7 +83,7 @@ function OverviewTab() {
       {/* Insight */}
       <div className="p-3 text-[10px] leading-relaxed" style={{backgroundColor:"rgba(199,91,57,0.04)", border:"1px solid rgba(199,91,57,0.1)", color:"rgba(245,240,235,0.5)"}}>
         <Zap size={12} className="inline mr-1" style={{color:"var(--accent)"}} />
-        <strong style={{color:"var(--accent)"}}>Rapport mensuel</strong> — {kpi.sends || 0} PPV envoyés, taux d&apos;unlock de {kpi.unlock_rate || 0}%, revenu total de {kpi.revenue || 0}€. {kpi.revenue_change > 0 ? `Hausse de ${kpi.revenue_change}% vs mois dernier.` : kpi.revenue_change < 0 ? `Baisse de ${Math.abs(kpi.revenue_change)}% vs mois dernier.` : "Stable vs mois dernier."}
+        <strong style={{color:"var(--accent)"}}>Rapport mensuel</strong>, {kpi.sends || 0} PPV envoyés, taux d'unlock de {kpi.unlock_rate || 0}%, revenu total de {kpi.revenue || 0}€. {kpi.revenue_change > 0 ? `Hausse de ${kpi.revenue_change}% vs mois dernier.` : kpi.revenue_change < 0 ? `Baisse de ${Math.abs(kpi.revenue_change)}% vs mois dernier.` : "Stable vs mois dernier."}
       </div>
     </div>
   );
@@ -128,7 +128,7 @@ function ProductsTab() {
 
   const sorted = [...products].sort((a, b) => b.total_revenue - a.total_revenue);
   const formatScore = (p: any) => {
-    if (p.total_sends === 0) return "—";
+    if (p.total_sends === 0) return ", ";
     const rate = p.total_unlocks / p.total_sends;
     return Math.round(rate * 100);
   };
@@ -292,7 +292,7 @@ function ScriptsTab() {
                 </div>
                 <div className="text-right shrink-0">
                   <p className="text-[10px] font-semibold" style={{color:s.avg_unlock_rate && s.avg_unlock_rate > 50 ? "var(--success)" : "rgba(245,240,235,0.5)"}}>
-                    {s.avg_unlock_rate ? `${s.avg_unlock_rate}%` : "—"}
+                    {s.avg_unlock_rate ? `${s.avg_unlock_rate}%` : ", "}
                   </p>
                   <p className="text-[7px]" style={{color:"rgba(245,240,235,0.15)"}}>unlock rate</p>
                 </div>
@@ -363,7 +363,7 @@ function FansTab() {
             { label: "PPV refusés", value: an.total_sends - an.total_unlocks },
             { label: "Conv. rate", value: `${an.conv_rate || 0}%` },
             { label: "Revenus PPV", value: `${an.total_revenue || 0}€` },
-            { label: "TTU moyen", value: an.avg_ttu_minutes ? `${an.avg_ttu_minutes}min` : "—" },
+            { label: "TTU moyen", value: an.avg_ttu_minutes ? `${an.avg_ttu_minutes}min` : ", " },
           ].map((s, i) => (
             <div key={i} className="p-2 text-center" style={{backgroundColor:"rgba(245,240,235,0.02)", border:"1px solid rgba(245,240,235,0.04)"}}>
               <p className="text-xs font-semibold" style={{color:"var(--text-primary)"}}>{s.value}</p>
@@ -450,7 +450,7 @@ function TTUTab() {
           <p className="text-[9px]" style={{color:"rgba(245,240,235,0.3)"}}>des unlocks en &lt;30 min</p>
         </div>
         <div className="p-2.5" style={{backgroundColor:"rgba(122,154,101,0.04)", border:"1px solid rgba(122,154,101,0.1)"}}>
-          <p className="text-lg font-semibold" style={{color:"var(--success)"}}>{ins.best_window || "—"}</p>
+          <p className="text-lg font-semibold" style={{color:"var(--success)"}}>{ins.best_window || ", "}</p>
           <p className="text-[9px]" style={{color:"rgba(245,240,235,0.3)"}}>meilleure fenêtre ({ins.best_window_rate || 0}%)</p>
         </div>
       </div>
@@ -592,7 +592,7 @@ export default function PPVPage() {
           </h1>
         </div>
         <p className="text-xs" style={{ color: "rgba(245,240,235,0.4)" }}>
-          Analyse granulaire des performances PPV — produits, scripts, fans, time-to-unlock, A/B tests
+          Analyse granulaire des performances PPV, produits, scripts, fans, time-to-unlock, A/B tests
         </p>
       </div>
 
@@ -630,7 +630,7 @@ export default function PPVPage() {
 
       {/* Manual tracking note */}
       <div className="p-2.5 text-[9px]" style={{backgroundColor:"rgba(199,91,57,0.04)", border:"1px solid rgba(199,91,57,0.1)", color:"rgba(245,240,235,0.3)"}}>
-        <strong style={{color:"var(--accent)"}}>🔵 Tracking manuel</strong> — Pour OnlyFans/MYM sans API, utilise la fiche fan pour logger les envois PPV et marquer les unlocks. Les A/B tests nécessitent 30+ envois par variant pour la significativité statistique.
+        <strong style={{color:"var(--accent)"}}>🔵 Tracking manuel</strong>, Pour OnlyFans/MYM sans API, utilise la fiche fan pour logger les envois PPV et marquer les unlocks. Les A/B tests nécessitent 30+ envois par variant pour la significativité statistique.
       </div>
     </div>
   );

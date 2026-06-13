@@ -12,7 +12,7 @@ function norm(locale: string): Locale {
 }
 
 function formatDate(dateStr: string): string {
-  if (!dateStr) return "—";
+  if (!dateStr) return ", ";
   return new Date(dateStr).toLocaleDateString("fr-FR", { day: "numeric", month: "short" });
 }
 

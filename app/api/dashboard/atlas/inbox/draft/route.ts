@@ -56,7 +56,7 @@ export async function POST(request: NextRequest) {
     const prompt = `Tu génères 3 suggestions de réponse pour un créateur de contenu qui parle à un fan.
 
 ⚠️ RÈGLES STRICTES (impératives) :
-1. Ce sont des SUGGESTIONS — le créateur les valide avant envoi.
+1. Ce sont des SUGGESTIONS, le créateur les valide avant envoi.
 2. JAMAIS de promesses irréalistes (rencontre IRL, sentiments, exclusivité).
 3. JAMAIS de contenu explicite.
 4. Max 1 mention discrète d'un produit.

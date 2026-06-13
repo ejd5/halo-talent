@@ -260,7 +260,7 @@ export function LexInterface({ locale = "fr", platforms = [], defaultTab = "chat
           </div>
 
           <div className="flex gap-4 flex-1 min-h-0">
-            {/* Left panel — Avatar + Quick questions */}
+            {/* Left panel, Avatar + Quick questions */}
             <div
               className={`w-[40%] md:w-[40%] flex flex-col gap-4 ${
                 showMobileChat ? "hidden md:flex" : "flex"
@@ -300,7 +300,7 @@ export function LexInterface({ locale = "fr", platforms = [], defaultTab = "chat
               <DisclaimerBanner locale={locale} compact />
             </div>
 
-            {/* Right panel — Chat */}
+            {/* Right panel, Chat */}
             <div
               className={`flex-1 flex flex-col ${
                 !showMobileChat ? "hidden md:flex" : "flex"

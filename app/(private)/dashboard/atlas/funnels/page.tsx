@@ -148,7 +148,7 @@ export default function FunnelsPage() {
           <Workflow size={36} style={{ color: "rgba(255,255,255,0.05)" }} />
           <p className="text-sm mt-4" style={{ color: "rgba(255,255,255,0.2)" }}>Aucun funnel de conversion</p>
           <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.1)" }}>
-            Automatise tes séquences email/SMS — welcome series, win-back, relance
+            Automatise tes séquences email/SMS, welcome series, win-back, relance
           </p>
           <div className="flex gap-2 mt-6">
             <button

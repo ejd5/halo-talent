@@ -212,13 +212,13 @@ export function ChatCopilot() {
   }, [handleSendMessage]);
 
   const handleQuickReplyEdit = useCallback((text: string) => {
-    // Text will be set in input — the QuickReply component handles this
+    // Text will be set in input, the QuickReply component handles this
     // by passing to parent; for now this is a no-op as input editing
     // is handled client-side in QuickReplies
   }, []);
 
   const handleQuickReplyFeedback = useCallback((_id: string, _relevant: boolean) => {
-    // Placeholder — would send feedback to analytics/AI service
+    // Placeholder, would send feedback to analytics/AI service
   }, []);
 
   const handleActionSend = useCallback((message: string) => {
@@ -226,11 +226,11 @@ export function ChatCopilot() {
   }, [handleSendMessage]);
 
   const handleActionEdit = useCallback((_message: string) => {
-    // Placeholder — would copy message to input field
+    // Placeholder, would copy message to input field
   }, []);
 
   const handleActionFeedback = useCallback((_id: string, _relevant: boolean) => {
-    // Placeholder — would send feedback to analytics/AI service
+    // Placeholder, would send feedback to analytics/AI service
   }, []);
 
   const handleAlertDismiss = useCallback((id: string) => {

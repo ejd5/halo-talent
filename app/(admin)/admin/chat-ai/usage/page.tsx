@@ -41,10 +41,10 @@ export default function ChatAIUsagePage() {
     <div style={{ padding: "24px 32px", maxWidth: 1400 }}>
       <div style={{ marginBottom: 24 }}>
         <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-          Usage — Chat AI
+          Usage, Chat AI
         </h1>
         <p style={{ fontSize: 11, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>
-          Statistiques d&apos;utilisation du module Sovereign Chat AI
+          Statistiques d'utilisation du module Sovereign Chat AI
         </p>
       </div>
 

@@ -1,4 +1,4 @@
-// ─── Media Kit — Mock Data ───────────────────────────────
+// ─── Media Kit, Mock Data ───────────────────────────────
 
 import type { MediaKitState } from "./types";
 

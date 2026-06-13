@@ -3,7 +3,7 @@ import { RevenueInbox } from "@/components/atlas/RevenueInbox";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Revenue Inbox | Halo Atlas",
+  title: "Revenue Inbox | WTF Atlas",
   description:
     "Prioritize conversations by revenue potential, purchase intent, and fan value.",
 };

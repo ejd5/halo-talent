@@ -142,7 +142,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
           {/* Step 1: Access level */}
           {step === 1 && (
             <div>
-              <h3 className="text-xs font-semibold mb-3" style={{ color: "var(--text-primary)" }}>Niveau d&apos;accès du manager</h3>
+              <h3 className="text-xs font-semibold mb-3" style={{ color: "var(--text-primary)" }}>Niveau d'accès du manager</h3>
               <div className="space-y-1.5">
                 {ACCESS_LEVELS.map((al) => (
                   <button
@@ -185,7 +185,7 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
                     <li><strong style={{ color: "var(--text-primary)" }}>1.</strong> Settings → Account → Switch to Professional → Business</li>
                     <li><strong style={{ color: "var(--text-primary)" }}>2.</strong> Lie ton compte à une Page Facebook (Settings → Sharing)</li>
                     <li><strong style={{ color: "var(--text-primary)" }}>3.</strong> Va sur business.facebook.com → Settings → People → Add People</li>
-                    <li><strong style={{ color: "var(--text-primary)" }}>4.</strong> Entre l&apos;email du manager, choisis Editor (recommandé)</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>4.</strong> Entre l'email du manager, choisis Editor (recommandé)</li>
                     <li><strong style={{ color: "var(--text-primary)" }}>5.</strong> Le manager reçoit une invitation par email</li>
                   </ol>
                 )}
@@ -194,20 +194,20 @@ export function OnboardingWizard({ onClose, onComplete }: OnboardingWizardProps)
                     <li><strong style={{ color: "var(--text-primary)" }}>1.</strong> Va sur ads.tiktok.com → crée un compte Business Center</li>
                     <li><strong style={{ color: "var(--text-primary)" }}>2.</strong> Business Center → Assets → TikTok Accounts → Add</li>
                     <li><strong style={{ color: "var(--text-primary)" }}>3.</strong> Business Center → User Management → Members → Invite</li>
-                    <li><strong style={{ color: "var(--text-primary)" }}>4.</strong> Entre l&apos;email, choisis Operator (recommandé)</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>4.</strong> Entre l'email, choisis Operator (recommandé)</li>
                   </ol>
                 )}
                 {platform === "youtube" && (
                   <ol className="space-y-2" style={{ color: "rgba(245,240,235,0.5)" }}>
                     <li><strong style={{ color: "var(--text-primary)" }}>1.</strong> Assure-toi que ta chaîne est un Brand Account</li>
                     <li><strong style={{ color: "var(--text-primary)" }}>2.</strong> Settings → Permissions → Manage permissions</li>
-                    <li><strong style={{ color: "var(--text-primary)" }}>3.</strong> Add permissions → entre l&apos;email du manager</li>
+                    <li><strong style={{ color: "var(--text-primary)" }}>3.</strong> Add permissions → entre l'email du manager</li>
                     <li><strong style={{ color: "var(--text-primary)" }}>4.</strong> Choisis Manager (recommandé)</li>
                   </ol>
                 )}
                 {platform === "onlyfans" && (
                   <div className="space-y-2" style={{ color: "rgba(245,240,235,0.5)" }}>
-                    <p>Pas de co-management officiel. Utilise un gestionnaire de mots de passe (Bitwarden Teams, 1Password Teams) pour partager l&apos;accès en toute sécurité.</p>
+                    <p>Pas de co-management officiel. Utilise un gestionnaire de mots de passe (Bitwarden Teams, 1Password Teams) pour partager l'accès en toute sécurité.</p>
                     <p className="text-[9px]" style={{ color: "var(--accent)" }}>⚠ Active la 2FA et change le mot de passe à chaque départ.</p>
                   </div>
                 )}

@@ -1,7 +1,7 @@
-// ─── Halo Lex — Lawyer Escalation API ─────────────────────────
-// GET  /api/lex/escalation/partners — Liste des avocats partenaires
-// POST /api/lex/escalation          — Déclenche une escalade
-// POST /api/lex/escalation/consultation — Crée une consultation
+// ─── WTF Lex, Lawyer Escalation API ─────────────────────────
+// GET  /api/lex/escalation/partners, Liste des avocats partenaires
+// POST /api/lex/escalation         , Déclenche une escalade
+// POST /api/lex/escalation/consultation, Crée une consultation
 
 import { NextRequest, NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";
@@ -37,7 +37,7 @@ export async function GET(request: NextRequest) {
       return NextResponse.json({ consultations: data || [] });
     }
 
-    // MVP: Escalade avocat désactivée — retourne liste vide
+    // MVP: Escalade avocat désactivée, retourne liste vide
     // Réactiver en Phase 2 (mois 6+) avec vrais partenaires
     return NextResponse.json({
       partners: [],
@@ -176,5 +176,5 @@ ${questionnaire.problem_description || "Description non fournie."}
 **OBJECTIFS**
 ${(questionnaire.objectives as string[] || []).join(", ") || "Non spécifiés"}
 
-**Note :** Brief généré automatiquement par Halo Lex.`;
+**Note :** Brief généré automatiquement par WTF Lex.`;
 }

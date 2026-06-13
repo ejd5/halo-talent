@@ -318,7 +318,7 @@ export default function GenerateVideoPage() {
 
   return (
     <div className="flex gap-0 h-full animate-fade-in">
-      {/* ═══ LEFT — Config Panel ═══ */}
+      {/* ═══ LEFT, Config Panel ═══ */}
       <div className="w-80 shrink-0 overflow-y-auto p-4 space-y-4" style={{ borderRight: "1px solid rgba(255,255,255,0.06)" }}>
         {/* Header */}
         <div>
@@ -559,7 +559,7 @@ export default function GenerateVideoPage() {
         </div>
       </div>
 
-      {/* ═══ CENTER — Video Player / Results ═══ */}
+      {/* ═══ CENTER, Video Player / Results ═══ */}
       <div className="flex-1 flex flex-col min-w-0">
         <div className="flex-1 overflow-y-auto p-4">
 
@@ -631,7 +631,7 @@ export default function GenerateVideoPage() {
             </div>
           )}
 
-          {/* Completed — Video player */}
+          {/* Completed, Video player */}
           {jobStatus === "completed" && videoUrl && (
             <div className="flex flex-col items-center gap-4">
               <div
@@ -702,7 +702,7 @@ export default function GenerateVideoPage() {
             </div>
           )}
 
-          {/* Failed state (no current error message — already handled above) */}
+          {/* Failed state (no current error message, already handled above) */}
           {jobStatus === "failed" && !error && (
             <div className="flex flex-col items-center justify-center py-24 gap-3">
               <div className="w-14 h-14 flex items-center justify-center" style={{ background: "rgba(229,72,77,0.1)" }}>
@@ -718,7 +718,7 @@ export default function GenerateVideoPage() {
         </div>
       </div>
 
-      {/* ═══ RIGHT — History ═══ */}
+      {/* ═══ RIGHT, History ═══ */}
       <div className="w-64 shrink-0 overflow-y-auto p-4 space-y-2" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
         <div className="flex items-center justify-between mb-2">
           <span className="text-[10px] uppercase tracking-wider" style={{ color: "rgba(255,255,255,0.3)" }}>
@@ -790,7 +790,7 @@ export default function GenerateVideoPage() {
               className="flex items-center justify-center gap-1 py-1.5 text-[9px] transition-opacity hover:opacity-70"
               style={{ color: "rgba(255,255,255,0.3)" }}
             >
-              Voir tout l&apos;historique
+              Voir tout l'historique
             </Link>
           </div>
         )}

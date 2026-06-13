@@ -154,7 +154,7 @@ export default function LegalAnalysesPage() {
             </h1>
           </div>
           <p className="text-sm" style={{ color: "var(--text-secondary)" }}>
-            {analyses.length} analyses — Détection des clauses abusives dans les contrats créateurs
+            {analyses.length} analyses, Détection des clauses abusives dans les contrats créateurs
           </p>
         </div>
       </div>
@@ -162,7 +162,7 @@ export default function LegalAnalysesPage() {
       {/* ───── 5 Charts Grid ───── */}
       {stats && (
         <div className="grid grid-cols-3 gap-4 mb-8">
-          {/* 1. Line chart — daily trend (col-span-2) */}
+          {/* 1. Line chart, daily trend (col-span-2) */}
           <div className="col-span-2">
             <ChartCard icon={TrendingUp} title="Analyses par jour (30j)">
               <ResponsiveContainer width="100%" height={200}>
@@ -177,7 +177,7 @@ export default function LegalAnalysesPage() {
             </ChartCard>
           </div>
 
-          {/* 2. Pie chart — platform breakdown (col-span-1) */}
+          {/* 2. Pie chart, platform breakdown (col-span-1) */}
           <div className="col-span-1">
             <ChartCard icon={Globe} title="Par plateforme">
               <ResponsiveContainer width="100%" height={200}>
@@ -201,7 +201,7 @@ export default function LegalAnalysesPage() {
             </ChartCard>
           </div>
 
-          {/* 3. Horizontal bar chart — top 10 clauses (col-span-2) */}
+          {/* 3. Horizontal bar chart, top 10 clauses (col-span-2) */}
           <div className="col-span-2">
             <ChartCard icon={ListChecks} title="Top 10 clauses les plus cochées">
               <ResponsiveContainer width="100%" height={220}>
@@ -230,7 +230,7 @@ export default function LegalAnalysesPage() {
             </ChartCard>
           </div>
 
-          {/* 4. Gauge chart — average danger score (col-span-1) */}
+          {/* 4. Gauge chart, average danger score (col-span-1) */}
           <div className="col-span-1">
             <ChartCard icon={Gauge} title="Score moyen de dangerosité">
               <div className="flex flex-col items-center justify-center h-full pt-2">
@@ -270,7 +270,7 @@ export default function LegalAnalysesPage() {
             </ChartCard>
           </div>
 
-          {/* 5. Funnel chart — conversion pipeline (col-span-3) */}
+          {/* 5. Funnel chart, conversion pipeline (col-span-3) */}
           <div className="col-span-3">
             <ChartCard icon={Funnel} title="Entonnoir de conversion">
               <div className="flex items-end justify-center gap-6 pt-2 pb-1">
@@ -357,16 +357,16 @@ export default function LegalAnalysesPage() {
               {analyses.map((a) => (
                 <tr key={a.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
                   <td className="px-4 py-3 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
-                    {a.created_at ? new Date(a.created_at).toLocaleDateString("fr-FR") : "—"}
+                    {a.created_at ? new Date(a.created_at).toLocaleDateString("fr-FR") : ", "}
                   </td>
                   <td className="px-4 py-3 text-sm" style={{ color: "var(--text-primary)" }}>{a.platform}</td>
-                  <td className="px-4 py-3 text-sm font-medium" style={{ color: "var(--text-primary)" }}>{a.total_score ?? "—"}</td>
+                  <td className="px-4 py-3 text-sm font-medium" style={{ color: "var(--text-primary)" }}>{a.total_score ?? ", "}</td>
                   <td className="px-4 py-3">
                     <span className="text-xs font-medium px-2 py-0.5" style={{ background: `${RISK_COLORS[a.risk_level] || "#666"}20`, color: RISK_COLORS[a.risk_level] || "#666" }}>
                       {a.risk_level}
                     </span>
                   </td>
-                  <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{a.agency_name || "—"}</td>
+                  <td className="px-4 py-3 text-sm" style={{ color: "var(--text-secondary)" }}>{a.agency_name || ", "}</td>
                   <td className="px-4 py-3 text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>
                     {a.clauses_checked?.length ?? 0} clauses
                   </td>
@@ -417,7 +417,7 @@ export default function LegalAnalysesPage() {
                 </div>
                 <div>
                   <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Score</span>
-                  <p className="font-semibold" style={{ color: "var(--text-primary)" }}>{detail.total_score ?? "—"}/100</p>
+                  <p className="font-semibold" style={{ color: "var(--text-primary)" }}>{detail.total_score ?? ", "}/100</p>
                 </div>
                 <div>
                   <span className="text-xs" style={{ color: "rgba(255,255,255,0.4)" }}>Risque</span>
@@ -465,7 +465,7 @@ export default function LegalAnalysesPage() {
                   <div className="space-y-1">
                     {detail.letters.map((l) => (
                       <div key={l.id} className="text-sm" style={{ color: "var(--text-secondary)" }}>
-                        {l.letter_type} — {new Date(l.created_at).toLocaleDateString("fr-FR")}
+                        {l.letter_type}, {new Date(l.created_at).toLocaleDateString("fr-FR")}
                       </div>
                     ))}
                   </div>

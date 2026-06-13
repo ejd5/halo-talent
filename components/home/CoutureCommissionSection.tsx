@@ -186,7 +186,7 @@ export function CoutureCommissionSection() {
                     className="text-[9px] uppercase tracking-[0.25em] mb-3"
                     style={{ fontFamily: "var(--font-util), monospace", color: "rgba(244, 238, 227, 0.5)" }}
                   >
-                    Commission Halo
+                    Commission WTF
                   </div>
                   <div
                     style={{ 

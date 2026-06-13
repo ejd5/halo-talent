@@ -217,7 +217,7 @@ function PriceSimulator() {
             </span>
           </div>
           <p className="text-[10px] pt-1" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
-            Simulation basée sur un modèle d&apos;élasticité standard. Les résultats réels peuvent varier.
+            Simulation basée sur un modèle d'élasticité standard. Les résultats réels peuvent varier.
           </p>
         </div>
       )}
@@ -333,7 +333,7 @@ export function PricingAdvisorChat() {
                 Pricing Advisor
               </p>
               <p className="text-sm mb-1" style={{ color: "var(--text-primary)" }}>
-                J&apos;optimise ta stratégie de prix pour maximiser tes revenus
+                J'optimise ta stratégie de prix pour maximiser tes revenus
               </p>
               <p className="text-sm mb-8" style={{ color: "rgba(255, 255, 255, 0.375)" }}>
                 Pose une question ou utilise le simulateur →

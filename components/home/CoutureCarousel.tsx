@@ -45,7 +45,7 @@ export function CoutureCarousel() {
             className="block mb-6 text-[10px] uppercase tracking-[0.34em]"
             style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
           >
-            Cas d&apos;usage
+            Cas d'usage
           </span>
           <h2 
             style={{
@@ -118,7 +118,7 @@ export function CoutureCarousel() {
                     className="text-[9px] uppercase tracking-[0.25em] block mb-3"
                     style={{ fontFamily: "var(--font-util), monospace", color: "var(--or)" }}
                   >
-                    Système Halo
+                    Système WTF
                   </span>
                   <p className="text-[14px] leading-relaxed" style={{ color: "var(--encre)" }}>{slide.system}</p>
                 </div>

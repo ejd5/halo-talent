@@ -17,7 +17,7 @@ const DISCLAIMER_CONTENT: Record<
   agency: {
     icon: Scale,
     title: "Avertissement juridique",
-    body: "Les informations présentées sur cette page sont fournies à titre indicatif seulement. Elles ne constituent pas un avis juridique et ne peuvent pas être utilisées comme tel. Chaque contrat d'agence est unique. Nous vous recommandons de consulter un avocat spécialisé en droit des créateurs numériques avant de signer tout document. Halo Talent ne peut être tenu responsable des décisions prises sur la base de ces informations.",
+    body: "Les informations présentées sur cette page sont fournies à titre indicatif seulement. Elles ne constituent pas un avis juridique et ne peuvent pas être utilisées comme tel. Chaque contrat d'agence est unique. Nous vous recommandons de consulter un avocat spécialisé en droit des créateurs numériques avant de signer tout document. Where Talent Forms ne peut être tenu responsable des décisions prises sur la base de ces informations.",
   },
   letter: {
     icon: FileText,
@@ -27,8 +27,8 @@ const DISCLAIMER_CONTENT: Record<
   },
   full: {
     icon: Info,
-    title: "Mentions légales — Bouclier Légal",
-    body: "L'outil Bouclier Légal est un service d'information automatisé proposé par Halo Talent. Il ne constitue pas une activité de conseil juridique au sens de la loi n°71-1130 du 31 décembre 1971. Les analyses sont générées par intelligence artificielle sur la base de données juridiques publiques et de CGU de plateformes. Ces informations peuvent être incomplètes ou ne pas refléter l'état le plus récent du droit. En utilisant cet outil, vous reconnaissez que Halo Talent n'est pas un cabinet d'avocats et que l'utilisation du service se fait sous votre seule responsabilité.",
+    title: "Mentions légales, Bouclier Légal",
+    body: "L'outil Bouclier Légal est un service d'information automatisé proposé par Where Talent Forms. Il ne constitue pas une activité de conseil juridique au sens de la loi n°71-1130 du 31 décembre 1971. Les analyses sont générées par intelligence artificielle sur la base de données juridiques publiques et de CGU de plateformes. Ces informations peuvent être incomplètes ou ne pas refléter l'état le plus récent du droit. En utilisant cet outil, vous reconnaissez que Where Talent Forms n'est pas un cabinet d'avocats et que l'utilisation du service se fait sous votre seule responsabilité.",
   },
 };
 
