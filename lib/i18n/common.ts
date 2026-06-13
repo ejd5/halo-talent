@@ -40,6 +40,13 @@ const messages: Messages = {
   "mega.tarifs": { fr: "Tarifs", en: "Pricing", es: "Precios", "pt-BR": "Preços", de: "Preise", it: "Prezzi" },
   "mega.ressources": { fr: "Ressources", en: "Resources", es: "Recursos", "pt-BR": "Recursos", de: "Ressourcen", it: "Risorse" },
   "mega.contact": { fr: "Contact", en: "Contact", es: "Contacto", "pt-BR": "Contato", de: "Kontakt", it: "Contatto" },
+  "mega.solutions": { fr: "Solutions", en: "Solutions", es: "Soluciones", "pt-BR": "Soluções", de: "Lösungen", it: "Soluzioni" },
+  "mega.juridique": { fr: "Juridique", en: "Legal", es: "Jurídico", "pt-BR": "Jurídico", de: "Recht", it: "Giuridico" },
+  "mega.atlas_crm_desc": { fr: "CRM intelligent pour la gestion de vos fans", en: "Smart CRM for fan management", es: "CRM inteligente para gestión de fans", "pt-BR": "CRM inteligente para gestão de fãs", de: "Intelligentes CRM für Fan-Management", it: "CRM intelligente per gestione fan" },
+  "mega.chat_ai_desc": { fr: "IA conversationnelle avec validation humaine", en: "Conversational AI with human validation", es: "IA conversacional con validación humana", "pt-BR": "IA conversacional com validação humana", de: "Konversations-KI mit menschlicher Validierung", it: "IA conversazionale con validazione umana" },
+  "mega.wtf_companion_desc": { fr: "Extension Chrome pour booster vos revenus", en: "Chrome extension to boost your revenue", es: "Extensión Chrome para aumentar ingresos", "pt-BR": "Extensão Chrome para aumentar receitas", de: "Chrome-Erweiterung für mehr Umsatz", it: "Estensione Chrome per aumentare i ricavi" },
+  "mega.lex_desc": { fr: "IA juridique et gestion de contrats", en: "Legal AI and contract management", es: "IA jurídica y gestión de contratos", "pt-BR": "IA jurídica e gestão de contratos", de: "Rechts-KI und Vertragsmanagement", it: "IA giuridica e gestione contratti" },
+  "mega.protection_desc": { fr: "Protection multi-plateforme de vos comptes", en: "Multi-platform account protection", es: "Protección multi-plataforma de cuentas", "pt-BR": "Proteção multi-plataforma de contas", de: "Plattformübergreifender Kontoschutz", it: "Protezione account multi-piattaforma" },
   // Qui nous sommes
   "mega.notre_histoire": { fr: "Notre histoire", en: "Our story", es: "Nuestra historia", "pt-BR": "Nossa história", de: "Unsere Geschichte", it: "La nostra storia" },
   "mega.notre_histoire_desc": { fr: "Pourquoi Where Talent Forms existe", en: "Why Where Talent Forms exists", es: "Por qué existe Where Talent Forms", "pt-BR": "Por que a Where Talent Forms existe", de: "Warum es Where Talent Forms gibt", it: "Perché Where Talent Forms esiste" },

@@ -36,8 +36,8 @@ const TOKEN = {
   noir:     "#0A0806",
   encre:    "#0E0C0A",
   ivoire:   "#F4EFE7",
-  or:       "#C8A66E",
-  orPale:   "#D4B880",
+  or:       "var(--or)",
+  orPale:   "var(--or-clair)",
   pierre:   "rgba(239,232,220,0.5)",
 };
 
