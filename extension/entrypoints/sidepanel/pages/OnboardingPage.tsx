@@ -26,8 +26,8 @@ const STEPS = [
   {
     id: "connect",
     icon: LogIn,
-    title: "Connectez votre compte Halo",
-    description: "Liez votre compte Halo Talent pour synchroniser vos fans, votre vault et vos scripts.",
+    title: "Connectez votre compte WTF",
+    description: "Liez votre compte WTF pour synchroniser vos fans, votre vault et vos scripts.",
   },
   {
     id: "platforms",
@@ -39,7 +39,7 @@ const STEPS = [
     id: "ready",
     icon: Check,
     title: "C'est prêt !",
-    description: "Halo Companion est configuré. Ouvrez une plateforme supportée et le Companion s'activera automatiquement.",
+    description: "WTF Companion est configuré. Ouvrez une plateforme supportée et le Companion s'activera automatiquement.",
   },
 ] as const;
 
@@ -66,7 +66,7 @@ export function OnboardingPage({ navigate }: Props) {
   };
 
   const handleConnect = () => {
-    chrome.tabs.create({ url: "https://app.halotalent.com/login?source=extension" });
+    chrome.tabs.create({ url: "http://localhost:3001/login?source=extension" });
   };
 
   return (
@@ -120,7 +120,7 @@ export function OnboardingPage({ navigate }: Props) {
             className="flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold mb-4 transition-all hover:opacity-90"
             style={{ backgroundColor: "var(--accent)", color: "#fff" }}>
             <LogIn size={16} />
-            Se connecter à Halo
+            Se connecter à WTF
           </button>
         )}
 
@@ -163,7 +163,7 @@ export function OnboardingPage({ navigate }: Props) {
           <button onClick={handleNext}
             className="flex items-center gap-1 px-5 py-2.5 rounded-xl text-[12px] font-semibold transition-all hover:opacity-90"
             style={{ backgroundColor: "var(--accent)", color: "#fff" }}>
-            {isLast ? "Ouvrir Halo Companion" : "Continuer"}
+            {isLast ? "Ouvrir WTF Companion" : "Continuer"}
             {!isLast && <ChevronRight size={14} />}
           </button>
         </div>
@@ -175,7 +175,7 @@ export function OnboardingPage({ navigate }: Props) {
           style={{ backgroundColor: "var(--bg-surface)", border: "1px solid var(--border-default)" }}>
           <Shield size={14} className="shrink-0 mt-0.5" style={{ color: "var(--accent)" }} />
           <p className="text-[9px] leading-relaxed" style={{ color: "var(--text-tertiary)" }}>
-            Halo Companion lit les informations visibles sur les plateformes que vous utilisez, avec votre consentement.
+            WTF Companion lit les informations visibles sur les plateformes que vous utilisez, avec votre consentement.
             Aucune donnée n'est partagée avec des tiers. Aucune action n'est effectuée automatiquement.
             Vous gardez le contrôle total.
           </p>

@@ -84,45 +84,8 @@ export default defineConfig({
     build: {
       // Target Chrome 120+ (supports top-level await, private fields, etc.)
       target: "chrome120",
-
-      // Tree-shaking
-      rollupOptions: {
-        treeshake: {
-          preset: "recommended",
-          moduleSideEffects: (id) => {
-            // Don't tree-shake CSS side effects
-            if (id.endsWith(".css")) return true;
-            return false;
-          },
-        },
-        output: {
-          // Manual chunk splitting to keep content-script lean
-          manualChunks: (id) => {
-            if (id.includes("src/content-scripts/overlays")) {
-              return "content-overlays";
-            }
-            if (id.includes("src/content-scripts/adapters")) {
-              return "content-adapters";
-            }
-            if (id.includes("src/content-scripts")) {
-              return "content-core";
-            }
-            if (id.includes("src/sidepanel")) {
-              return "sidepanel";
-            }
-            if (id.includes("src/popup")) {
-              return "popup";
-            }
-            if (id.includes("src/lib") || id.includes("src/types")) {
-              return "shared";
-            }
-          },
-        },
-      },
-
       // Size budgets (warnings in dev)
       chunkSizeWarningLimit: 200,
-
       // Minify in production using default esbuild
       minify: process.env.NODE_ENV === "production" ? "esbuild" : false,
     },

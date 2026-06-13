@@ -40,7 +40,6 @@ export default function Popup() {
     <div
       style={{
         width: 320,
-        minHeight: 380,
         backgroundColor: "#0A0A0B",
         color: "#F5F0EB",
         fontFamily: "Inter, -apple-system, sans-serif",
@@ -188,7 +187,7 @@ export default function Popup() {
         }}
       >
         <button
-          onClick={() => chrome.tabs.create({ url: "https://app.halotalent.com/dashboard" })}
+          onClick={() => chrome.tabs.create({ url: "http://localhost:3001/dashboard" })}
           style={{
             flex: 1,
             padding: "7px",
