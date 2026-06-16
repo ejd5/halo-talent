@@ -14,7 +14,7 @@ import { CoutureCommissionSection } from "@/components/home/CoutureCommissionSec
 import { CoutureLegalShield } from "@/components/home/CoutureLegalShield";
 
 export const metadata: Metadata = {
-  title: "Where Talent Forms, Maison de management créatif",
+  title: "Maison de management créatif",
   description:
     "Where Talent Forms réunit management, IA, CRM, protection juridique et stratégie de croissance pour aider les créateurs à structurer leur activité sans perdre le contrôle. Paris, New York, Milan, Tokyo.",
   openGraph: {
