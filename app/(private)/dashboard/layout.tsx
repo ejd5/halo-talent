@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { Header } from "@/components/dashboard/Header";
 import { CommandPalette } from "@/components/ui/CommandPalette";
@@ -13,6 +14,18 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const pathname = usePathname();
+  const isAtlasPreview = pathname === "/dashboard/atlas-preview";
+
+  if (isAtlasPreview) {
+    return (
+      <div className="min-h-screen" data-theme="dark">
+        {children}
+        <CommandPalette />
+        <KeyboardShortcuts />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen" data-theme="dark" style={{ backgroundColor: "var(--bg-primary)" }}>
