@@ -53,7 +53,7 @@ export const searchYouTubeTrends: Tool = {
       if (!data.items) return { source: "youtube", trends: [], error: "No results" };
 
       const videoIds = data.items.map((i: any) => i.id.videoId).filter(Boolean).join(",");
-      let statsMap: Record<string, any> = {};
+      const statsMap: Record<string, any> = {};
 
       if (videoIds) {
         const statsUrl = `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoIds}&key=${apiKey}`;

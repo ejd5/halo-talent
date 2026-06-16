@@ -85,7 +85,7 @@ export function anonymizePII(text: string): AnonymizationResult {
  * Réanonymise un texte avec les mêmes mappings (pour les messages suivants).
  */
 export function reAnonymize(text: string, existingMappings: Record<string, string>): string {
-  let result = text;
+  const result = text;
   for (const [placeholder] of Object.entries(existingMappings)) {
     // Ne pas ré-anonymiser les placeholders déjà présents
   }

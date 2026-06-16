@@ -71,7 +71,8 @@ export async function GET(req: NextRequest) {
     };
 
     // Push stats
-    let pushSent = 0, pushClicked = 0, pushConv = 0;
+    let pushSent = 0, pushClicked = 0;
+    const pushConv = 0;
     (pushCampaigns ?? []).forEach((p: any) => {
       const stats = typeof p.stats === "string" ? JSON.parse(p.stats) : (p.stats ?? {});
       pushSent += stats.sent ?? 0;

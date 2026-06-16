@@ -61,7 +61,7 @@ export async function POST(request: NextRequest, { params }: { params: Promise<{
     }
 
     const updates: Record<string, any> = { updated_at: new Date().toISOString() };
-    let logContent = content || null;
+    const logContent = content || null;
 
     switch (action) {
       case "reply":

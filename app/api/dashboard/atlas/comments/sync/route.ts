@@ -153,7 +153,7 @@ async function checkAutoReplyRules(creatorId: string, commentData: any, analysis
 
       if (!match) continue;
 
-      let statusUpdate: Record<string, any> = { updated_at: new Date().toISOString() };
+      const statusUpdate: Record<string, any> = { updated_at: new Date().toISOString() };
 
       for (const action of rule.actions) {
         if (!action.enabled) continue;

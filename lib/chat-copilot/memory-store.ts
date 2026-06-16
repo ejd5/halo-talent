@@ -81,7 +81,7 @@ export class MemoryStore {
       return this.textSearch(query);
     }
 
-    let dbQuery = supabase.rpc("match_fan_memories", {
+    const dbQuery = supabase.rpc("match_fan_memories", {
       p_fan_id: this.fanId,
       p_creator_id: this.creatorId,
       p_embedding: embedding,

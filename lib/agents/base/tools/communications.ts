@@ -94,7 +94,7 @@ export const categorizeMessage: Tool = {
     const content = (dm.content ?? "").toLowerCase();
     let category = "regular";
     let priority = 30;
-    let reasons: string[] = [];
+    const reasons: string[] = [];
 
     // Auto-categorize based on content patterns
     if (content.includes("prix") || content.includes("combien") || content.includes("cost") || content.includes("acheter") || content.includes("buy")) {
