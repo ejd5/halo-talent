@@ -68,3 +68,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Erreur lors de l'upload" }, { status: 500 });
   }
 }
+
+// Increase body size limit for file uploads
+export const config = {
+  api: {
+    bodyParser: false,
+    responseLimit: "100mb",
+  },
+};

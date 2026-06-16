@@ -101,7 +101,7 @@ function splitByBoundary(
     const start = boundaries[i].index;
     const end =
       i + 1 < boundaries.length ? boundaries[i + 1].index : text.length;
-    const chunkText = text.slice(start, end).trim();
+    let chunkText = text.slice(start, end).trim();
 
     // Si le chunk est trop grand, sous-diviser
     if (chunkText.length > options.maxChunkSize) {

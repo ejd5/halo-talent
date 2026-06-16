@@ -34,7 +34,7 @@ function mockRequest(body: unknown): NextRequest {
  * Call .resolve(value) at the end to set the final resolution value.
  */
 function queryChain(resolveValue?: unknown) {
-  const resolve = resolveValue;
+  let resolve = resolveValue;
   const chain: Record<string, ReturnType<typeof vi.fn>> = {
     select: vi.fn(() => chain),
     in: vi.fn(() => chain),

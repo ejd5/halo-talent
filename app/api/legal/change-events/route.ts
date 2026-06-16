@@ -61,7 +61,7 @@ export async function GET(request: NextRequest) {
       ?.filter((e) => e.new_snapshot_id)
       .map((e) => e.new_snapshot_id) || [];
 
-    const snapshotUrls: Record<string, string> = {};
+    let snapshotUrls: Record<string, string> = {};
     if (snapshotIds.length > 0) {
       const { data: snapshots } = await supabase
         .from("legal_source_snapshots")

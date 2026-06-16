@@ -4,7 +4,7 @@
  */
 
 export function htmlToMarkdown(html: string): string {
-  const md = html
+  let md = html
 
     // Strip unwanted blocks
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, "")

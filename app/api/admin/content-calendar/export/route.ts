@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
 
   // iCal export
   if (format === "ical") {
-    const ical = [
+    let ical = [
       "BEGIN:VCALENDAR",
       "VERSION:2.0",
       "PRODID:-//Where Talent Forms//Content Calendar//FR",

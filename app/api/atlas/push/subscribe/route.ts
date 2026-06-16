@@ -27,7 +27,7 @@ export async function POST(request: Request) {
     }
 
     // Find or create fan from handle
-    const fanId: string | null = null;
+    let fanId: string | null = null;
 
     // Store subscription
     const { data: sub, error: upsertError } = await supabase

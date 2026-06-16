@@ -11,7 +11,7 @@ export async function GET(request: NextRequest) {
   const to = url.searchParams.get("to");
 
   // Get all active creators with their recent calendar activity
-  const creatorQuery = supabase
+  let creatorQuery = supabase
     .from("profiles")
     .select("id, full_name, display_name, email, avatar_url, department")
     .eq("role", "creator")
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
   if (!creators) return NextResponse.json({ creators: [] });
 
   // Get event counts per creator for the period
-  const eventQuery = supabase
+  let eventQuery = supabase
     .from("content_calendar_events")
     .select("creator_id, status")
     .gte("scheduled_for", from || new Date().toISOString().slice(0, 10))
