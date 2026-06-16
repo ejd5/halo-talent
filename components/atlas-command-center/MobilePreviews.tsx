@@ -4,9 +4,9 @@ import { Sparkline } from "./charts";
 
 function PhoneFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative h-[430px] w-[214px] rounded-[34px] border border-[#3a342d] bg-[#03070b] p-2 shadow-[0_18px_60px_rgba(0,0,0,0.55)]">
-      <div className="absolute left-1/2 top-3 z-10 h-4 w-20 -translate-x-1/2 rounded-full bg-black" />
-      <div className="h-full overflow-hidden rounded-[27px] border border-white/5 bg-[radial-gradient(circle_at_50%_0%,rgba(224,173,74,0.13),transparent_35%),#071018] px-3 py-5 text-[#f8efe1]">
+    <div className="relative h-[390px] w-[190px] shrink-0 rounded-[30px] border border-[#3a342d] bg-[#03070b] p-2 shadow-[0_16px_48px_rgba(0,0,0,0.45)]">
+      <div className="absolute left-1/2 top-3 z-10 h-3.5 w-16 -translate-x-1/2 rounded-full bg-black" />
+      <div className="h-full overflow-hidden rounded-[24px] border border-white/5 bg-[radial-gradient(circle_at_50%_0%,rgba(224,173,74,0.13),transparent_35%),#071018] px-3 py-5 text-[#f8efe1]">
         {children}
       </div>
     </div>
@@ -15,7 +15,7 @@ function PhoneFrame({ children }: { children: React.ReactNode }) {
 
 export function MobilePreviews() {
   return (
-    <div className="flex gap-5 overflow-x-auto pb-2 xl:overflow-visible">
+    <div className="flex max-w-full flex-wrap justify-center gap-3 overflow-hidden pb-1">
       <PhoneFrame>
         <div className="mb-4 flex items-center justify-between text-[10px]"><strong>Command Center</strong><Bell size={12} /></div>
         <div className="mb-3 rounded-xl border border-white/10 bg-white/[0.035] p-2 text-[9px] text-[#aeb5bd]">Jun 16 – Jun 22 <ArrowRight size={10} className="inline" /></div>
