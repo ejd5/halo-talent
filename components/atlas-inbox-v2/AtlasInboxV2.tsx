@@ -10,6 +10,10 @@ import {
   Bell, MoreHorizontal, Plus, Filter, ArrowRight,
   ArrowLeft, Activity, Copy, ExternalLink, RefreshCcw,
   Edit3, ThumbsUp, ThumbsDown, Loader, Image, Inbox,
+  Sliders, GitBranch, Layers, BookOpen, Ban,
+  UserCog, Megaphone, Video, Lightbulb, Brain,
+  Cpu, MessageSquare, Percent, TrendingDown,
+  Sparkles, Radio, Palette,
 } from "lucide-react";
 import {
   mockConversations, mockPricingScenarios, mockSavedSegments,
@@ -17,6 +21,9 @@ import {
   mockFeedPosts, mockDMs, mockCampaigns, mockFanJourneyStages,
   mockOpportunities, mockTeamMembers, mockTeamActivity,
   mockComplianceItems, mockSafetyReasons, mockGuardSettings,
+  mockAiCoreSettings, mockHandoffRules, mockPpvLadderScripts,
+  mockMessageLedger, mockBannedKeywords, mockCreatorProfile,
+  mockNotifications, mockAiReels, mockEmployeeStats, mockFeatureRequests,
   NAV_GROUPS, FAN_TIER_LABELS, FAN_TIER_COLORS,
   STATUS_LABELS, STATUS_COLORS, PLATFORM_LABELS,
   OPPORTUNITY_STAGE_LABELS, OPPORTUNITY_STAGE_COLORS,
@@ -25,6 +32,10 @@ import {
   TRIGGER_EVENT_LABELS, TRIGGER_ACTION_LABELS,
   GUARD_CATEGORY_LABELS, RISK_CATEGORY_LABELS,
   AVAILABLE_FILTER_FIELDS,
+  AI_CORE_MODE_LABELS, AI_CORE_MODE_COLORS, HANDOFF_ACTION_LABELS,
+  BANNED_CATEGORY_LABELS, BANNED_APPLIES_TO_LABELS, CREATOR_TONE_LABELS,
+  NOTIF_TYPE_LABELS, NOTIF_CHANNEL_LABELS, REEL_PLATFORM_LABELS,
+  FEATURE_CATEGORY_LABELS, FEATURE_STATUS_LABELS,
   formatEuro, formatRelative,
   type SectionId, type AIConversation, type AIDraft,
   type PricingScenario, type CampaignBuild,
@@ -33,6 +44,11 @@ import {
   type TrackingLink, type TeamMember,
   type ComplianceReviewItem, type SafetyGuardSetting,
   type SafetyReason, type FanFilter, type SavedSegment,
+  type AiCoreSettings, type HandoffRuleGroup,
+  type PpvLadderScript, type MessageLedgerEntry,
+  type BannedKeyword, type CreatorProfile,
+  type NotificationItem, type AiReel,
+  type EmployeeStats, type FeatureRequest,
 } from "./data";
 
 // ═══ Main Component ═══════════════════════════════════════
@@ -60,10 +76,10 @@ export function AtlasInboxV2() {
         >
           {!sidebarCollapsed && (
             <div className="flex-1 min-w-0">
-              <h1 className="text-[11px] font-display font-semibold tracking-wider" style={{ color: "var(--text-primary)" }}>
-                ATLAS INBOX
+              <h1 className="text-[12px] font-display font-semibold tracking-widest" style={{ color: "var(--text-primary)" }}>
+                ATLAS<span style={{ color: "var(--accent)" }}>.</span>OS
               </h1>
-              <p className="text-[9px] mt-0.5 tracking-wide" style={{ color: "var(--accent)" }}>V2 — Sales Engine</p>
+              <p className="text-[8px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.2)" }}>Agency OS</p>
             </div>
           )}
           <button
@@ -126,7 +142,7 @@ export function AtlasInboxV2() {
             >
               <ShieldCheck size={11} style={{ color: "var(--accent)" }} />
               <span className="text-[9px] font-medium" style={{ color: "var(--accent)" }}>
-                IA propose → Humain valide
+                Compliance-first Creator OS
               </span>
             </div>
           </div>
@@ -149,6 +165,15 @@ export function AtlasInboxV2() {
           {activeSection === "compliance_review" && <ComplianceReviewSection />}
           {activeSection === "why_atlas_safer" && <WhyAtlasSaferSection />}
           {activeSection === "safety_guard" && <SafetyGuardSection />}
+          {activeSection === "ai_core_settings" && <AiCoreSettingsSection />}
+          {activeSection === "hybrid_handoff" && <HybridHandoffSection />}
+          {activeSection === "script_builder" && <ScriptBuilderSection />}
+          {activeSection === "message_ledger" && <MessageLedgerSection />}
+          {activeSection === "banned_keywords" && <BannedKeywordsSection />}
+          {activeSection === "creator_profile" && <CreatorProfileSection />}
+          {activeSection === "notifications_center" && <NotificationsCenterSection />}
+          {activeSection === "creative_engine" && <CreativeEngineSection />}
+          {activeSection === "roadmap" && <RoadmapSection />}
         </div>
       </main>
     </div>
@@ -159,7 +184,9 @@ export function AtlasInboxV2() {
 
 function SalesEngineSection() {
   const [conversations] = useState<AIConversation[]>(mockConversations);
-  const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [selectedId, setSelectedId] = useState<string | null>(
+    () => conversations.length > 0 ? conversations[0].id : null,
+  );
   const [generatingId, setGeneratingId] = useState<string | null>(null);
   const [approvedIds, setApprovedIds] = useState<Set<string>>(new Set());
   const [rejectedIds, setRejectedIds] = useState<Set<string>>(new Set());
@@ -557,12 +584,12 @@ function PricingLabSection() {
   return (
     <div className="p-6 space-y-6">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Pricing & Commission Simulator</h2>
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Simule les prix et commissions pour maximiser ton revenu net</p>
+        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Dynamic Pricing & Negotiation Engine</h2>
+        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Simule les prix, commissions et marges de négociation pour maximiser le revenu net</p>
       </div>
 
       {/* Product selector */}
-      <div className="grid grid-cols-3 gap-2">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-2">
         {mockPricingScenarios.map((p) => (
           <button
             key={p.id}
@@ -677,6 +704,53 @@ function PricingLabSection() {
               {conversions} ventes × {formatEuro(netRevenue)} net = {formatEuro(totalNet)}
             </p>
           </div>
+        </div>
+      </div>
+
+      {/* Negotiation Confidence Panel */}
+      <div className="grid grid-cols-4 gap-3">
+        <div className="col-span-3 p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+          <h3 className="text-[10px] font-medium tracking-wider uppercase mb-3" style={{ color: "rgba(255,255,255,0.18)" }}>Négociation Engine</h3>
+          <div className="grid grid-cols-4 gap-4">
+            <div>
+              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>Prix plancher</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--danger)" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</p>
+              <p className="text-[8px] mt-0.5" style={{ color: "rgba(255,255,255,0.15)" }}>Minimum viable</p>
+            </div>
+            <div>
+              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>Prix optimal</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--accent)" }}>{formatEuro(selectedProduct.suggestedPriceMid)}</p>
+              <p className="text-[8px] mt-0.5" style={{ color: "rgba(255,255,255,0.15)" }}>Max conversion</p>
+            </div>
+            <div>
+              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>Marge de négo</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--success)" }}>{formatEuro(selectedProduct.suggestedPriceHigh - selectedProduct.suggestedPriceLow)}</p>
+              <p className="text-[8px] mt-0.5" style={{ color: "rgba(255,255,255,0.15)" }}>{((1 - selectedProduct.suggestedPriceLow / selectedProduct.suggestedPriceHigh) * 100).toFixed(0)}% de flex</p>
+            </div>
+            <div>
+              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>Confiance</p>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <span className="text-sm font-mono font-semibold" style={{ color: price >= selectedProduct.suggestedPriceMid ? "var(--success)" : "var(--warning)" }}>
+                  {price >= selectedProduct.suggestedPriceMid ? "Élevée" : "Modérée"}
+                </span>
+              </div>
+              <div className="w-full h-1 rounded-full mt-1" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
+                <div className="h-full rounded-full" style={{
+                  width: `${Math.min(100, ((price - selectedProduct.suggestedPriceLow) / (selectedProduct.suggestedPriceHigh - selectedProduct.suggestedPriceLow)) * 100)}%`,
+                  backgroundColor: price >= selectedProduct.suggestedPriceMid ? "var(--success)" : "var(--warning)",
+                }} />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="p-4 rounded-sm border flex flex-col justify-center" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
+          <p className="text-[9px] mb-1" style={{ color: "rgba(255,255,255,0.2)" }}>Recommandation IA</p>
+          <p className="text-[11px] font-medium leading-relaxed" style={{ color: "var(--accent)" }}>
+            {price >= selectedProduct.suggestedPriceMid
+              ? "Prix optimal. Bon équilibre conversion/revenu. Marge confortable."
+              : "Baisser le prix augmente les conversions. Attention à la rentabilité."}
+          </p>
+          <p className="text-[9px] mt-2" style={{ color: "rgba(255,255,255,0.12)" }}>Basé sur {selectedProduct.audienceSize} fans</p>
         </div>
       </div>
     </div>
@@ -1406,7 +1480,7 @@ function OpportunityQueueSection() {
         </select>
       </div>
 
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         {stages.map((stage) => {
           const items = opsByStage(stage);
           return (
@@ -1457,6 +1531,7 @@ function OpportunityQueueSection() {
 function TeamControlRoomSection() {
   const [members] = useState<TeamMember[]>(mockTeamMembers);
   const [activities] = useState(mockTeamActivity);
+  const [employeeStats] = useState<EmployeeStats[]>(mockEmployeeStats);
 
   const statusDot = (status: TeamMember["status"]) => {
     const color = status === "online" ? "var(--success)" : status === "away" ? "#F59E0B" : "var(--text-tertiary)";
@@ -1480,7 +1555,7 @@ function TeamControlRoomSection() {
       </div>
 
       {/* Team member cards */}
-      <div className="grid grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         {members.map((member) => (
           <div key={member.id} className="p-4 rounded-sm border text-center" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
             <div className="flex justify-center mb-2">
@@ -1527,6 +1602,71 @@ function TeamControlRoomSection() {
             );
           })}
         </div>
+      </div>
+
+      {/* Employee Statistics / Golden Ratio */}
+      <div>
+        <h3 className="text-[11px] font-medium mb-3 flex items-center gap-2" style={{ color: "rgba(255,255,255,0.2)" }}>
+          <Star size={11} style={{ color: "var(--accent)" }} /> Employee Statistics — Golden Ratio
+        </h3>
+        <div className="rounded-sm border overflow-hidden overflow-x-auto" style={{ borderColor: "var(--border-default)" }}>
+          <table className="w-full min-w-[800px]">
+            <thead>
+              <tr style={{ borderBottom: "1px solid var(--border-default)" }}>
+                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Employé</th>
+                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Rôle</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>CA généré</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Convs.</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Approuvés</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Taux appro.</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Tps réponse</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>CA/conv</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Golden Ratio</th>
+              </tr>
+            </thead>
+            <tbody>
+              {employeeStats.map((emp) => (
+                <tr key={emp.memberId} className="transition-colors hover:bg-white/[0.02]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                  <td className="px-3 py-2.5">
+                    <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{emp.name}</span>
+                  </td>
+                  <td className="px-3 py-2.5">
+                    <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.3)" }}>{emp.role}</span>
+                  </td>
+                  <td className="px-3 py-2.5 text-right">
+                    <span className="text-[11px] font-mono" style={{ color: emp.revenueGenerated > 0 ? "var(--success)" : "rgba(255,255,255,0.2)" }}>
+                      {emp.revenueGenerated > 0 ? formatEuro(emp.revenueGenerated) : "—"}
+                    </span>
+                  </td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "var(--text-primary)" }}>{emp.conversationsHandled}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>{emp.draftsApproved}/{emp.draftsApproved + emp.draftsRejected}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: emp.approvalRate > 80 ? "var(--success)" : emp.approvalRate > 65 ? "var(--accent)" : "var(--warning)" }}>
+                    {emp.approvalRate.toFixed(1)}%
+                  </td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "rgba(255,255,255,0.3)" }}>{emp.avgResponseTime}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "var(--accent)" }}>{emp.revenuePerConversation > 0 ? formatEuro(emp.revenuePerConversation) : "—"}</td>
+                  <td className="px-3 py-2.5 text-right">
+                    <div className="flex items-center justify-end gap-2">
+                      <span className="text-[12px] font-mono font-semibold"
+                        style={{ color: emp.goldenRatio >= 80 ? "var(--success)" : emp.goldenRatio >= 60 ? "var(--accent)" : "var(--warning)" }}>
+                        {emp.goldenRatio}
+                      </span>
+                      <div className="w-10 h-1.5 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.06)" }}>
+                        <div className="h-full rounded-full" style={{
+                          width: `${Math.min(100, emp.goldenRatio)}%`,
+                          backgroundColor: emp.goldenRatio >= 80 ? "var(--success)" : emp.goldenRatio >= 60 ? "var(--accent)" : "var(--warning)",
+                        }} />
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p className="text-[9px] mt-2" style={{ color: "rgba(255,255,255,0.12)" }}>
+          Golden Ratio = (Taux d&apos;approbation × CA/conversation) / Temps de réponse. Score &gt; 80 = Excellent, 60-80 = Bon, &lt; 60 = À améliorer.
+        </p>
       </div>
     </div>
   );
@@ -1770,6 +1910,898 @@ function SafetyGuardSection() {
           </div>
         );
       })}
+    </div>
+  );
+}
+
+// ═══ 14. AI Core Settings ═════════════════════════════════
+
+function AiCoreSettingsSection() {
+  const [settings, setSettings] = useState<AiCoreSettings>(mockAiCoreSettings);
+  const modes: AiCoreSettings["mode"][] = ["manual_only", "ai_draft_assist", "hybrid_qualification", "full_ai_simulation"];
+
+  const updateMode = (mode: AiCoreSettings["mode"]) => {
+    setSettings((prev) => ({ ...prev, mode }));
+  };
+
+  const toggle = (key: keyof AiCoreSettings) => {
+    if (typeof settings[key] === "boolean") {
+      setSettings((prev) => ({ ...prev, [key]: !prev[key] }));
+    }
+  };
+
+  return (
+    <div className="p-6 space-y-6">
+      <div>
+        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>AI Core Settings</h2>
+        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Configure le niveau d&apos;assistance IA pour les conversations</p>
+      </div>
+
+      {/* Mode selector */}
+      <div className="space-y-2">
+        <h3 className="text-[10px] font-medium tracking-wider uppercase" style={{ color: "rgba(255,255,255,0.18)" }}>Mode opératoire</h3>
+        <div className="grid grid-cols-2 gap-2">
+          {modes.map((mode) => (
+            <button
+              key={mode}
+              onClick={() => updateMode(mode)}
+              className="text-left p-4 rounded-sm border transition-all"
+              style={{
+                backgroundColor: settings.mode === mode ? `${AI_CORE_MODE_COLORS[mode]}10` : "var(--bg-card)",
+                borderColor: settings.mode === mode ? AI_CORE_MODE_COLORS[mode] : "var(--border-default)",
+              }}
+            >
+              <div className="flex items-center gap-2 mb-1.5">
+                <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: AI_CORE_MODE_COLORS[mode] }} />
+                <span className="text-[11px] font-medium capitalize" style={{ color: "var(--text-primary)" }}>
+                  {mode.replace(/_/g, " ")}
+                </span>
+                {settings.mode === mode && (
+                  <CheckCircle size={12} style={{ color: AI_CORE_MODE_COLORS[mode], marginLeft: "auto" }} />
+                )}
+              </div>
+              <p className="text-[10px] leading-relaxed" style={{ color: "rgba(255,255,255,0.3)" }}>
+                {AI_CORE_MODE_LABELS[mode]}
+              </p>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Configuration options */}
+      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+        <h3 className="text-[10px] font-medium tracking-wider uppercase mb-3" style={{ color: "rgba(255,255,255,0.18)" }}>Paramètres IA</h3>
+        {([
+          { key: "autoGenerateOnNewMessage" as const, label: "Auto-génération sur nouveau message", desc: "L'IA génère des brouillons dès qu'un nouveau message arrive" },
+          { key: "requireHumanApproval" as const, label: "Approbation humaine obligatoire", desc: "Chaque brouillon IA doit être validé avant envoi" },
+          { key: "simulationPreviewOnly" as const, label: "Mode simulation uniquement", desc: "L'IA génère mais rien n'est envoyable — preview pure" },
+        ]).map((opt) => (
+          <div key={opt.key} className="flex items-center justify-between py-1.5">
+            <div className="flex-1 min-w-0 mr-4">
+              <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{opt.label}</span>
+              <p className="text-[9px] mt-0.5" style={{ color: "rgba(255,255,255,0.2)" }}>{opt.desc}</p>
+            </div>
+            <button
+              onClick={() => toggle(opt.key)}
+              className="w-9 h-5 rounded-full transition-colors relative shrink-0"
+              style={{ backgroundColor: settings[opt.key] ? "var(--accent)" : "rgba(255,255,255,0.1)" }}
+            >
+              <div className="w-3.5 h-3.5 rounded-full absolute top-[3px] transition-all bg-white"
+                style={{ left: settings[opt.key] ? "18px" : "3px" }} />
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Advanced */}
+      <div className="p-4 rounded-sm border space-y-2" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+        <div className="flex items-center justify-between">
+          <span className="text-[11px]" style={{ color: "var(--text-primary)" }}>Temperature du modèle</span>
+          <span className="text-[11px] font-mono" style={{ color: "var(--accent)" }}>{settings.modelTemperature.toFixed(1)}</span>
+        </div>
+        <input type="range" min="0" max="1.5" step="0.1" value={settings.modelTemperature}
+          onChange={(e) => setSettings((prev) => ({ ...prev, modelTemperature: Number(e.target.value) }))}
+          className="w-full accent-[var(--accent)]" />
+        <div className="flex items-center justify-between text-[9px]" style={{ color: "rgba(255,255,255,0.15)" }}>
+          <span>Précis (0)</span><span>Créatif (1.5)</span>
+        </div>
+        <div className="flex items-center gap-1.5 pt-2 mt-2 border-t" style={{ borderColor: "var(--border-default)" }}>
+          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.2)" }}>Langues:</span>
+          {settings.languages.map((l) => (
+            <span key={l} className="text-[9px] px-1.5 py-0.5 rounded-sm uppercase" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>{l}</span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══ 15. Hybrid Handoff Rules ═════════════════════════════
+
+function HybridHandoffSection() {
+  const [groups, setGroups] = useState<HandoffRuleGroup[]>(mockHandoffRules);
+
+  const toggleRule = (groupId: string, ruleId: string) => {
+    setGroups((prev) => prev.map((g) =>
+      g.id === groupId ? { ...g, rules: g.rules.map((r) => r.id === ruleId ? { ...r, isEnabled: !r.isEnabled } : r) } : g,
+    ));
+  };
+
+  return (
+    <div className="p-6 space-y-6">
+      <div>
+        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Hybrid Handoff Rules</h2>
+        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Définis quand les conversations doivent être gérées par un humain ou assistées par l&apos;IA</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        {groups.map((group) => (
+          <div key={group.id} className="rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+            <div className="px-4 py-2.5 border-b flex items-center justify-between" style={{ borderColor: "var(--border-default)" }}>
+              <h3 className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{group.label}</h3>
+              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-sm" style={{
+                backgroundColor: group.logic === "AND" ? "rgba(143,181,138,0.1)" : "rgba(216,169,91,0.1)",
+                color: group.logic === "AND" ? "var(--success)" : "var(--accent)",
+              }}>
+                {group.logic}
+              </span>
+            </div>
+            <div className="p-3 space-y-1.5">
+              {group.rules.map((rule) => (
+                <div key={rule.id} className="flex items-center gap-3 py-1.5 px-2 rounded-sm hover:bg-white/[0.02]">
+                  <button
+                    onClick={() => toggleRule(group.id, rule.id)}
+                    className="w-8 h-4.5 rounded-full transition-colors relative shrink-0"
+                    style={{ backgroundColor: rule.isEnabled ? "var(--accent)" : "rgba(255,255,255,0.1)" }}
+                  >
+                    <div className="w-3 h-3 rounded-full absolute top-[3px] transition-all bg-white"
+                      style={{ left: rule.isEnabled ? "17px" : "3px" }} />
+                  </button>
+                  <div className="flex-1 min-w-0">
+                    <span className="text-[11px] block" style={{ color: rule.isEnabled ? "var(--text-primary)" : "rgba(255,255,255,0.3)" }}>{rule.name}</span>
+                    <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>
+                      {rule.condition.replace(/_/g, " ")} {rule.operator} {rule.value}
+                    </span>
+                  </div>
+                  <span className="text-[8px] px-1.5 py-0.5 rounded-sm shrink-0"
+                    style={{ backgroundColor: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.3)" }}>
+                    {HANDOFF_ACTION_LABELS[rule.action]}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div className="p-3 rounded-sm border" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
+        <p className="text-[10px] flex items-center gap-1.5" style={{ color: "var(--accent)" }}>
+          <Brain size={12} /> AND = toutes les règles doivent matcher · OR = au moins une règle doit matcher
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ═══ 16. Script Builder / PPV Ladder ═══════════════════════
+
+function ScriptBuilderSection() {
+  const [scripts] = useState<PpvLadderScript[]>(mockPpvLadderScripts);
+  const [selectedScriptId, setSelectedScriptId] = useState(scripts[0]?.id || null);
+  const [expandedStepId, setExpandedStepId] = useState<string | null>(null);
+
+  const script = scripts.find((s) => s.id === selectedScriptId) || null;
+
+  return (
+    <div className="p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Script Builder / PPV Ladder</h2>
+          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Crée des entonnoirs PPV progressifs avec étapes et templates</p>
+        </div>
+        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>
+          <Plus size={12} /> Nouveau script
+        </button>
+      </div>
+
+      {/* Script selector */}
+      <div className="flex items-center gap-2 flex-wrap">
+        {scripts.map((s) => (
+          <button key={s.id} onClick={() => setSelectedScriptId(s.id)}
+            className="text-left px-4 py-2.5 rounded-sm border transition-all"
+            style={{
+              backgroundColor: selectedScriptId === s.id ? "rgba(216,169,91,0.06)" : "var(--bg-card)",
+              borderColor: selectedScriptId === s.id ? "var(--accent)" : "var(--border-default)",
+            }}>
+            <span className="text-[11px] font-medium block" style={{ color: "var(--text-primary)" }}>{s.name}</span>
+            <span className="text-[9px] mt-0.5 block" style={{ color: "rgba(255,255,255,0.25)" }}>
+              {s.totalSteps} étapes · {FAN_TIER_LABELS[s.targetTier]} · {formatEuro(s.estimatedRevenue)}
+            </span>
+          </button>
+        ))}
+      </div>
+
+      {script && (
+        <div className="space-y-4">
+          {/* Header KPIs */}
+          <div className="grid grid-cols-4 gap-3">
+            {[
+              { label: "Étapes", value: script.totalSteps.toString(), color: "var(--text-primary)" },
+              { label: "Taux de conversion", value: `${script.conversionRate}%`, color: "var(--accent)" },
+              { label: "Revenu estimé", value: formatEuro(script.estimatedRevenue), color: "var(--success)" },
+              { label: "Statut", value: script.isActive ? "Actif" : "Inactif", color: script.isActive ? "var(--success)" : "var(--text-tertiary)" },
+            ].map((kpi) => (
+              <div key={kpi.label} className="p-3 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+                <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>{kpi.label}</p>
+                <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: kpi.color }}>{kpi.value}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Ladder steps */}
+          <div className="rounded-sm border overflow-hidden" style={{ borderColor: "var(--border-default)" }}>
+            {script.steps.map((step, i) => {
+              const isExpanded = expandedStepId === step.id;
+              const isLast = i === script.steps.length - 1;
+              const typeColors: Record<string, string> = {
+                free_teaser: "#3B82F6", ppv_step: "var(--accent)", upsell: "#8B5CF6", cta: "var(--success)",
+              };
+              return (
+                <div key={step.id}>
+                  <button
+                    onClick={() => setExpandedStepId(isExpanded ? null : step.id)}
+                    className="w-full text-left px-4 py-3 flex items-center gap-4 transition-colors hover:bg-white/[0.01]"
+                    style={{ borderBottom: isLast ? "none" : "1px solid rgba(255,255,255,0.04)" }}
+                  >
+                    <span className="w-6 h-6 rounded-sm flex items-center justify-center text-[10px] font-mono font-semibold shrink-0"
+                      style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)" }}>
+                      {step.order}
+                    </span>
+                    <span className="text-[8px] px-1.5 py-0.5 rounded-sm font-medium uppercase shrink-0"
+                      style={{ backgroundColor: `${typeColors[step.type]}15`, color: typeColors[step.type] }}>
+                      {step.type.replace(/_/g, " ")}
+                    </span>
+                    <span className="flex-1 text-[11px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{step.title}</span>
+                    {step.price !== null && (
+                      <span className="text-[11px] font-mono font-semibold shrink-0" style={{ color: "var(--accent)" }}>{formatEuro(step.price)}</span>
+                    )}
+                    {step.isRequired && (
+                      <span className="text-[8px] px-1 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: "rgba(232,99,74,0.1)", color: "var(--danger)" }}>Requis</span>
+                    )}
+                    <ChevronRight size={12} style={{ color: "rgba(255,255,255,0.2)", transform: isExpanded ? "rotate(90deg)" : undefined }} />
+                  </button>
+                  {isExpanded && (
+                    <div className="px-10 pb-4 border-t mx-4 pt-3" style={{ borderColor: "var(--border-default)" }}>
+                      <p className="text-[11px] leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.4)" }}>{step.content}</p>
+                      <div className="flex items-center gap-4 text-[10px]">
+                        <span style={{ color: "rgba(255,255,255,0.2)" }}>
+                          Délai après précédent: <span style={{ color: "rgba(255,255,255,0.4)" }}>{step.delayAfterPrevious}</span>
+                        </span>
+                        <div className="flex items-center gap-1.5 ml-auto">
+                          <button className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.25)" }}>Déplacer</button>
+                          <button className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(59,130,246,0.1)", color: "#3B82F6" }}>Modifier</button>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+
+          {/* Mock CTA preview */}
+          <div className="p-4 rounded-sm border text-center" style={{ backgroundColor: "rgba(143,181,138,0.03)", borderColor: "rgba(143,181,138,0.1)" }}>
+            <p className="text-[10px] mb-1" style={{ color: "rgba(255,255,255,0.2)" }}>CTA final mock</p>
+            <p className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>
+              Merci pour ton soutien ! Les offres exclusives expirent dans 24h 🔥
+            </p>
+            <p className="text-[9px] mt-1" style={{ color: "rgba(255,255,255,0.15)" }}>Ce message sera envoyé 72h après l'étape précédente</p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ═══ 17. Message Ledger ══════════════════════════════════
+
+function MessageLedgerSection() {
+  const [entries] = useState<MessageLedgerEntry[]>(mockMessageLedger);
+  const [statusFilter, setStatusFilter] = useState("");
+
+  const filtered = statusFilter ? entries.filter((e) => e.status === statusFilter) : entries;
+
+  const statusColors: Record<string, string> = {
+    draft: "var(--accent)", approved: "var(--success)", sent: "#3B82F6", flagged: "var(--warning)",
+  };
+
+  return (
+    <div className="p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Message Ledger</h2>
+          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Registre complet de tous les messages envoyés et reçus</p>
+        </div>
+        <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
+          className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
+          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: statusFilter ? "var(--text-primary)" : "rgba(255,255,255,0.3)", border: "1px solid rgba(255,255,255,0.08)" }}>
+          <option value="">Tous les statuts</option>
+          <option value="draft">Brouillons</option>
+          <option value="approved">Approuvés</option>
+          <option value="sent">Envoyés</option>
+          <option value="flagged">Signalés</option>
+        </select>
+      </div>
+
+      <div className="rounded-sm border overflow-hidden overflow-x-auto" style={{ borderColor: "var(--border-default)" }}>
+        <table className="w-full min-w-[700px]">
+          <thead>
+            <tr style={{ borderBottom: "1px solid var(--border-default)" }}>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Fan</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Message</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Direction</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Créateur</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Statut</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Revenu</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Date</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map((entry) => (
+              <tr key={entry.id} className="transition-colors hover:bg-white/[0.02]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                <td className="px-4 py-2.5">
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{entry.fanName}</span>
+                    <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: `${FAN_TIER_COLORS[entry.fanTier]}20`, color: FAN_TIER_COLORS[entry.fanTier] }}>
+                      {FAN_TIER_LABELS[entry.fanTier]}
+                    </span>
+                  </div>
+                </td>
+                <td className="px-4 py-2.5">
+                  <span className="text-[11px] line-clamp-1 max-w-[220px]" style={{ color: "rgba(255,255,255,0.4)" }}>{entry.contentPreview}</span>
+                </td>
+                <td className="px-4 py-2.5">
+                  <span className="text-[10px] flex items-center gap-1" style={{ color: entry.direction === "inbound" ? "#3B82F6" : "var(--accent)" }}>
+                    {entry.direction === "inbound" ? <ArrowLeft size={10} /> : <ArrowRight size={10} />}
+                    {entry.direction === "inbound" ? "Entrant" : "Sortant"}
+                  </span>
+                </td>
+                <td className="px-4 py-2.5">
+                  <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.35)" }}>{entry.creatorName}</span>
+                </td>
+                <td className="px-4 py-2.5">
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[entry.status]}15`, color: statusColors[entry.status] }}>
+                    {entry.status === "draft" ? "Brouillon" : entry.status === "approved" ? "Approuvé" : entry.status === "sent" ? "Envoyé" : "Signalé"}
+                  </span>
+                </td>
+                <td className="px-4 py-2.5 text-right">
+                  <span className="text-[11px] font-mono" style={{ color: entry.revenue ? "var(--success)" : "rgba(255,255,255,0.2)" }}>
+                    {entry.revenue ? formatEuro(entry.revenue) : "—"}
+                  </span>
+                </td>
+                <td className="px-4 py-2.5 text-right">
+                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.2)" }}>{formatRelative(entry.createdAt)}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="flex items-center gap-4 text-[10px]">
+        <span style={{ color: "rgba(255,255,255,0.2)" }}>
+          {entries.filter((e) => e.status === "sent").length} envoyés · {entries.filter((e) => e.status === "draft").length} brouillons · {entries.filter((e) => e.status === "flagged").length} signalés
+        </span>
+      </div>
+    </div>
+  );
+}
+
+// ═══ 18. Banned Keywords ════════════════════════════════
+
+function BannedKeywordsSection() {
+  const [keywords, setKeywords] = useState<BannedKeyword[]>(mockBannedKeywords);
+  const [newKeyword, setNewKeyword] = useState("");
+
+  const toggleKeyword = (id: string) => {
+    setKeywords((prev) => prev.map((k) => k.id === id ? { ...k, isEnabled: !k.isEnabled } : k));
+  };
+
+  const severityColors: Record<string, string> = {
+    critical: "var(--danger)", high: "var(--warning)", medium: "#F59E0B", low: "var(--text-tertiary)",
+  };
+
+  return (
+    <div className="p-6 space-y-6">
+      <div>
+        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Banned Keywords & Safety Rules</h2>
+        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Mots-clés interdits appliqués aux brouillons IA, templates et messages manuels</p>
+      </div>
+
+      {/* Add custom keyword */}
+      <div className="flex items-center gap-2">
+        <input value={newKeyword} onChange={(e) => setNewKeyword(e.target.value)}
+          placeholder="Ajouter un mot-clé personnalisé..."
+          className="flex-1 text-[11px] px-3 py-2 rounded-sm outline-none bg-transparent"
+          style={{ color: "var(--text-primary)", border: "1px solid rgba(255,255,255,0.08)" }}
+          onKeyDown={(e) => { if (e.key === "Enter" && newKeyword.trim()) {
+            setKeywords((prev) => [{ id: `bk-custom-${Date.now()}`, keyword: newKeyword.trim(), category: "custom", severity: "medium", appliesTo: ["drafts", "manual"], replacement: null, isEnabled: true, createdAt: new Date().toISOString() }, ...prev]);
+            setNewKeyword("");
+          }}} />
+        <button
+          onClick={() => { if (newKeyword.trim()) {
+            setKeywords((prev) => [{ id: `bk-custom-${Date.now()}`, keyword: newKeyword.trim(), category: "custom", severity: "medium", appliesTo: ["drafts", "manual"], replacement: null, isEnabled: true, createdAt: new Date().toISOString() }, ...prev]);
+            setNewKeyword("");
+          }}}
+          disabled={!newKeyword.trim()}
+          className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm transition-all disabled:opacity-30"
+          style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>
+          <Plus size={12} /> Ajouter
+        </button>
+      </div>
+
+      {/* Keywords table */}
+      <div className="rounded-sm border overflow-hidden" style={{ borderColor: "var(--border-default)" }}>
+        <table className="w-full">
+          <thead>
+            <tr style={{ borderBottom: "1px solid var(--border-default)" }}>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Mot-clé</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Catégorie</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Sévérité</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Appliqué à</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Remplacement</th>
+              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.2)" }}>Actif</th>
+            </tr>
+          </thead>
+          <tbody>
+            {keywords.map((kw) => (
+              <tr key={kw.id} className="transition-colors hover:bg-white/[0.02]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)", opacity: kw.isEnabled ? 1 : 0.5 }}>
+                <td className="px-4 py-2.5">
+                  <code className="text-[11px] font-mono px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)" }}>{kw.keyword}</code>
+                </td>
+                <td className="px-4 py-2.5">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded-sm" style={{
+                    backgroundColor: kw.category === "system" ? "rgba(232,99,74,0.08)" : "rgba(59,130,246,0.08)",
+                    color: kw.category === "system" ? "var(--danger)" : "#3B82F6",
+                  }}>{BANNED_CATEGORY_LABELS[kw.category]}</span>
+                </td>
+                <td className="px-4 py-2.5">
+                  <span className="text-[10px] font-medium capitalize" style={{ color: severityColors[kw.severity] }}>{kw.severity}</span>
+                </td>
+                <td className="px-4 py-2.5">
+                  <div className="flex items-center gap-1">
+                    {kw.appliesTo.map((a) => (
+                      <span key={a} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.25)" }}>
+                        {BANNED_APPLIES_TO_LABELS[a]}
+                      </span>
+                    ))}
+                  </div>
+                </td>
+                <td className="px-4 py-2.5">
+                  <span className="text-[10px]" style={{ color: kw.replacement ? "var(--success)" : "rgba(255,255,255,0.15)" }}>
+                    {kw.replacement || "— (bloqué)"}
+                  </span>
+                </td>
+                <td className="px-4 py-2.5 text-center">
+                  <button onClick={() => toggleKeyword(kw.id)}
+                    className="w-8 h-4.5 rounded-full transition-colors relative"
+                    style={{ backgroundColor: kw.isEnabled ? "var(--accent)" : "rgba(255,255,255,0.1)" }}>
+                    <div className="w-3 h-3 rounded-full absolute top-[3px] transition-all bg-white"
+                      style={{ left: kw.isEnabled ? "17px" : "3px" }} />
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+// ═══ 19. Creator Intelligence Profile ══════════════════════
+
+function CreatorProfileSection() {
+  const [profile] = useState<CreatorProfile>(mockCreatorProfile);
+
+  return (
+    <div className="p-6 space-y-6">
+      <div>
+        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Creator Intelligence Profile</h2>
+        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Profil IA de la créatrice — persona, limites, règles et préférences</p>
+      </div>
+
+      <div className="grid grid-cols-3 gap-6">
+        {/* Left column — Persona card */}
+        <div className="space-y-4">
+          <div className="p-5 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-12 h-12 rounded-sm flex items-center justify-center text-lg font-semibold" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)", border: "1px solid rgba(216,169,91,0.2)" }}>
+                <UserCog size={22} />
+              </div>
+              <div>
+                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>Persona</h3>
+                <p className="text-[10px] mt-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>{profile.persona}</p>
+              </div>
+            </div>
+            <div className="space-y-2 text-[11px]">
+              <div className="flex justify-between"><span style={{ color: "rgba(255,255,255,0.2)" }}>Timezone</span><span style={{ color: "rgba(255,255,255,0.4)" }}>{profile.timezone}</span></div>
+              <div className="flex justify-between"><span style={{ color: "rgba(255,255,255,0.2)" }}>Horaires actifs</span><span style={{ color: "rgba(255,255,255,0.4)" }}>{profile.activeHours}</span></div>
+              <div className="flex justify-between"><span style={{ color: "rgba(255,255,255,0.2)" }}>Ton</span>
+                <span className="px-1.5 py-0.5 rounded-sm text-[10px]" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>{CREATOR_TONE_LABELS[profile.tone]}</span>
+              </div>
+              <div className="flex justify-between"><span style={{ color: "rgba(255,255,255,0.2)" }}>Langues</span>
+                <span style={{ color: "var(--text-primary)" }}>{profile.languages.map((l) => l.toUpperCase()).join(", ")}</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Platforms */}
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+            <h3 className="text-[10px] font-medium mb-2" style={{ color: "rgba(255,255,255,0.2)" }}>Plateformes actives</h3>
+            <div className="flex flex-wrap gap-1.5">
+              {profile.platforms.map((p) => (
+                <span key={p} className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.4)" }}>
+                  {PLATFORM_LABELS[p]}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Center — Bio */}
+        <div className="space-y-4">
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+            <h3 className="text-[10px] font-medium mb-2" style={{ color: "rgba(255,255,255,0.2)" }}>Bio</h3>
+            <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{profile.bio}</p>
+          </div>
+          {/* Boundaries */}
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(232,99,74,0.04)", borderColor: "rgba(232,99,74,0.1)" }}>
+            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "var(--danger)" }}>
+              <AlertTriangle size={10} /> Limites strictes
+            </h3>
+            <ul className="space-y-1">
+              {profile.boundaries.map((b, i) => (
+                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  <X size={10} style={{ color: "var(--danger)", marginTop: "1px", flexShrink: 0 }} /> {b}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Right — Do / Don't */}
+        <div className="space-y-4">
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(143,181,138,0.04)", borderColor: "rgba(143,181,138,0.1)" }}>
+            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "var(--success)" }}>
+              <CheckCircle size={10} /> À faire
+            </h3>
+            <ul className="space-y-1">
+              {profile.doRules.map((r, i) => (
+                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  <CheckCircle size={10} style={{ color: "var(--success)", marginTop: "1px", flexShrink: 0 }} /> {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(201,106,74,0.04)", borderColor: "rgba(201,106,74,0.1)" }}>
+            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "var(--warning)" }}>
+              <Ban size={10} /> À ne pas faire
+            </h3>
+            <ul className="space-y-1">
+              {profile.dontRules.map((r, i) => (
+                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  <Ban size={10} style={{ color: "var(--warning)", marginTop: "1px", flexShrink: 0 }} /> {r}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ═══ 20. Notifications Center ════════════════════════════
+
+function NotificationsCenterSection() {
+  const [notifications, setNotifications] = useState<NotificationItem[]>(mockNotifications);
+  const [typeFilter, setTypeFilter] = useState("");
+
+  const filtered = typeFilter ? notifications.filter((n) => n.type === typeFilter) : notifications;
+  const unreadCount = notifications.filter((n) => !n.isRead).length;
+
+  const markRead = (id: string) => {
+    setNotifications((prev) => prev.map((n) => n.id === id ? { ...n, isRead: true } : n));
+  };
+
+  const markAllRead = () => {
+    setNotifications((prev) => prev.map((n) => ({ ...n, isRead: true })));
+  };
+
+  const priorityColors: Record<string, string> = {
+    high: "var(--danger)", medium: "var(--warning)", low: "var(--text-tertiary)",
+  };
+
+  return (
+    <div className="p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Notifications Center</h2>
+          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>
+            {unreadCount} non lues sur {notifications.length} notifications
+          </p>
+        </div>
+        <div className="flex items-center gap-2">
+          <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}
+            className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
+            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: typeFilter ? "var(--text-primary)" : "rgba(255,255,255,0.3)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            <option value="">Tous les types</option>
+            {Object.entries(NOTIF_TYPE_LABELS).map(([key, label]) => (
+              <option key={key} value={key}>{label}</option>
+            ))}
+          </select>
+          {unreadCount > 0 && (
+            <button onClick={markAllRead} className="text-[10px] px-2.5 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.3)" }}>
+              Tout marquer lu
+            </button>
+          )}
+        </div>
+      </div>
+
+      <div className="space-y-1.5">
+        {filtered.map((notif) => (
+          <button key={notif.id} onClick={() => markRead(notif.id)}
+            className="w-full text-left flex items-start gap-4 px-4 py-3 rounded-sm border transition-all"
+            style={{
+              backgroundColor: notif.isRead ? "transparent" : "rgba(216,169,91,0.03)",
+              borderColor: notif.isRead ? "rgba(255,255,255,0.04)" : "rgba(216,169,91,0.1)",
+            }}>
+            <div className="flex items-center gap-2 w-[100px] shrink-0">
+              {!notif.isRead && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--accent)" }} />}
+              <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${priorityColors[notif.priority]}15`, color: priorityColors[notif.priority] }}>
+                {notif.priority === "high" ? "Haute" : notif.priority === "medium" ? "Moy." : "Basse"}
+              </span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center gap-2 mb-0.5">
+                <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.25)" }}>
+                  {NOTIF_TYPE_LABELS[notif.type]}
+                </span>
+                <span className="text-[11px] font-medium" style={{ color: notif.isRead ? "rgba(255,255,255,0.5)" : "var(--text-primary)" }}>
+                  {notif.title}
+                </span>
+                {notif.revenue !== null && (
+                  <span className="text-[10px] font-mono ml-auto shrink-0" style={{ color: "var(--success)" }}>+{formatEuro(notif.revenue)}</span>
+                )}
+              </div>
+              <p className="text-[10px] truncate" style={{ color: "rgba(255,255,255,0.25)" }}>{notif.description}</p>
+              <div className="flex items-center gap-3 mt-1.5">
+                <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.15)" }}>{formatRelative(notif.timestamp)}</span>
+                <div className="flex items-center gap-1">
+                  {notif.channels.map((ch) => (
+                    <span key={ch} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.02)", color: "rgba(255,255,255,0.15)" }}>
+                      {NOTIF_CHANNEL_LABELS[ch]}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// ═══ 21. Creative Engine / AI Reels ════════════════════════
+
+function CreativeEngineSection() {
+  const [reels] = useState<AiReel[]>(mockAiReels);
+  const [selectedReelId, setSelectedReelId] = useState<string | null>(null);
+
+  const selectedReel = reels.find((r) => r.id === selectedReelId) || null;
+
+  const statusColors: Record<string, string> = {
+    draft: "var(--accent)", reviewed: "#8B5CF6", approved: "var(--success)", published: "#3B82F6",
+  };
+
+  const statusLabels: Record<string, string> = {
+    draft: "Brouillon", reviewed: "Révisé", approved: "Approuvé", published: "Publié",
+  };
+
+  return (
+    <div className="p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Creative Engine / AI Reels</h2>
+          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Scripts Reels/TikTok générés par IA — preview seulement, approbation humaine obligatoire</p>
+        </div>
+      </div>
+
+      {/* Warning banner */}
+      <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-sm"
+        style={{ backgroundColor: "rgba(216,169,91,0.06)", border: "1px dashed rgba(216,169,91,0.15)" }}>
+        <Sparkles size={12} style={{ color: "var(--accent)" }} />
+        <span className="text-[10px] font-medium" style={{ color: "var(--accent)" }}>IA propose → Humain valide → Créatrice publie. Aucune publication automatique.</span>
+      </div>
+
+      <div className="grid grid-cols-2 gap-4">
+        {reels.map((reel) => (
+          <button key={reel.id} onClick={() => setSelectedReelId(selectedReelId === reel.id ? null : reel.id)}
+            className="text-left p-4 rounded-sm border transition-all"
+            style={{
+              backgroundColor: selectedReelId === reel.id ? "rgba(216,169,91,0.04)" : "var(--bg-card)",
+              borderColor: selectedReelId === reel.id ? "rgba(216,169,91,0.2)" : "var(--border-default)",
+            }}>
+            <div className="flex items-center justify-between mb-2">
+              <div className="flex items-center gap-2">
+                <Video size={14} style={{ color: "var(--accent)" }} />
+                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{reel.title}</h3>
+              </div>
+              <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[reel.status]}15`, color: statusColors[reel.status] }}>
+                {statusLabels[reel.status]}
+              </span>
+            </div>
+
+            {selectedReelId === reel.id && (
+              <div className="mt-3 space-y-3 pt-3 border-t" style={{ borderColor: "var(--border-default)" }}>
+                <div className="grid grid-cols-3 gap-2 text-[10px]">
+                  <div><span style={{ color: "rgba(255,255,255,0.2)" }}>Plateforme</span>
+                    <p style={{ color: "rgba(255,255,255,0.4)" }}>{REEL_PLATFORM_LABELS[reel.platform]}</p></div>
+                  <div><span style={{ color: "rgba(255,255,255,0.2)" }}>Durée</span>
+                    <p style={{ color: "rgba(255,255,255,0.4)" }}>{reel.duration}</p></div>
+                  <div><span style={{ color: "rgba(255,255,255,0.2)" }}>Score viral</span>
+                    <p className="font-mono font-semibold" style={{ color: reel.viralScore > 85 ? "var(--success)" : "var(--accent)" }}>{reel.viralScore}/100</p></div>
+                </div>
+
+                <div className="space-y-2">
+                  <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(59,130,246,0.06)" }}>
+                    <span className="text-[9px] font-medium" style={{ color: "#3B82F6" }}>HOOK</span>
+                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{reel.hook}</p>
+                  </div>
+                  <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.02)" }}>
+                    <span className="text-[9px] font-medium" style={{ color: "rgba(255,255,255,0.3)" }}>BODY</span>
+                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{reel.body}</p>
+                  </div>
+                  <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(143,181,138,0.04)" }}>
+                    <span className="text-[9px] font-medium" style={{ color: "var(--success)" }}>CTA</span>
+                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{reel.cta}</p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 pt-2 border-t" style={{ borderColor: "var(--border-default)" }}>
+                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.15)" }}>Trend: {reel.trendAlignment}</span>
+                  {reel.reviewedBy && (
+                    <span className="text-[9px] ml-auto" style={{ color: "rgba(255,255,255,0.2)" }}>Relu par {reel.reviewedBy}</span>
+                  )}
+                </div>
+                <div className="flex items-center gap-2">
+                  <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(143,181,138,0.1)", color: "var(--success)" }}>
+                    <CheckCircle size={10} /> Approuver
+                  </button>
+                  <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(59,130,246,0.1)", color: "#3B82F6" }}>
+                    <Edit3 size={10} /> Modifier
+                  </button>
+                  <button className="text-[10px] px-2 py-1" style={{ color: "rgba(255,255,255,0.2)" }}>Ignorer</button>
+                </div>
+              </div>
+            )}
+
+            {selectedReelId !== reel.id && (
+              <>
+                <p className="text-[10px] mt-1.5 line-clamp-2" style={{ color: "rgba(255,255,255,0.3)" }}>{reel.description}</p>
+                <div className="flex items-center gap-3 mt-2 text-[9px]">
+                  <span style={{ color: "rgba(255,255,255,0.15)" }}>{REEL_PLATFORM_LABELS[reel.platform]}</span>
+                  <span style={{ color: "rgba(255,255,255,0.15)" }}>{reel.duration}</span>
+                  <span className="font-mono" style={{ color: "var(--accent)" }}>Viral: {reel.viralScore}</span>
+                </div>
+              </>
+            )}
+          </button>
+        ))}
+      </div>
+
+      {/* Consent reminder */}
+      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "rgba(255,255,255,0.01)", borderColor: "rgba(255,255,255,0.04)" }}>
+        <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.12)" }}>
+          Toute publication nécessite l&apos;approbation explicite de la créatrice. L&apos;IA ne publie jamais automatiquement.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+// ═══ 22. Roadmap / Feature Requests ════════════════════════
+
+function RoadmapSection() {
+  const [features] = useState<FeatureRequest[]>(mockFeatureRequests);
+  const [categoryFilter, setCategoryFilter] = useState("");
+  const [votedIds, setVotedIds] = useState<Set<string>>(new Set());
+
+  const filtered = categoryFilter ? features.filter((f) => f.category === categoryFilter) : features;
+
+  const handleUpvote = (id: string) => {
+    setVotedIds((prev) => { const next = new Set(prev); if (next.has(id)) next.delete(id); else next.add(id); return next; });
+  };
+
+  const statusColors: Record<string, string> = {
+    planned: "#3B82F6", in_progress: "var(--accent)", shipped: "var(--success)", under_review: "#8B5CF6",
+  };
+
+  return (
+    <div className="p-6 space-y-6">
+      <div className="flex items-center justify-between">
+        <div>
+          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Roadmap & Feature Requests</h2>
+          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.3)" }}>Suggestions et demandes de fonctionnalités par la communauté d&apos;agences</p>
+        </div>
+        <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}
+          className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
+          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: categoryFilter ? "var(--text-primary)" : "rgba(255,255,255,0.3)", border: "1px solid rgba(255,255,255,0.08)" }}>
+          <option value="">Toutes les catégories</option>
+          {Object.entries(FEATURE_CATEGORY_LABELS).map(([key, label]) => (
+            <option key={key} value={key}>{label}</option>
+          ))}
+        </select>
+      </div>
+
+      {/* Top agency requests highlight */}
+      <div className="flex items-center gap-2">
+        <span className="text-[10px] font-medium px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>
+          Top demandes agences
+        </span>
+        <div className="h-px flex-1" style={{ backgroundColor: "rgba(255,255,255,0.04)" }} />
+      </div>
+
+      <div className="space-y-2">
+        {filtered.map((feature) => {
+          const hasVoted = votedIds.has(feature.id);
+          return (
+            <div key={feature.id} className="flex items-start gap-4 p-4 rounded-sm border"
+              style={{ backgroundColor: "var(--bg-card)", borderColor: feature.agencyRequest ? "rgba(216,169,91,0.1)" : "var(--border-default)" }}>
+              {/* Upvote */}
+              <button onClick={() => handleUpvote(feature.id)}
+                className="flex flex-col items-center px-2 py-1.5 rounded-sm transition-all shrink-0 min-w-[40px]"
+                style={{
+                  backgroundColor: hasVoted ? "rgba(216,169,91,0.1)" : "rgba(255,255,255,0.02)",
+                  color: hasVoted ? "var(--accent)" : "rgba(255,255,255,0.2)",
+                  border: `1px solid ${hasVoted ? "rgba(216,169,91,0.2)" : "rgba(255,255,255,0.04)"}`,
+                }}>
+                <ThumbsUp size={14} />
+                <span className="text-[11px] font-mono font-semibold mt-0.5">{feature.upvotes + (hasVoted ? 1 : 0)}</span>
+              </button>
+
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1">
+                  <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{feature.title}</h3>
+                  {feature.agencyRequest && (
+                    <span className="text-[8px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>
+                      Demande agence
+                    </span>
+                  )}
+                </div>
+                <p className="text-[10px] mb-2" style={{ color: "rgba(255,255,255,0.3)" }}>{feature.description}</p>
+                <div className="flex items-center gap-3">
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[feature.status]}15`, color: statusColors[feature.status] }}>
+                    {FEATURE_STATUS_LABELS[feature.status]}
+                  </span>
+                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.15)" }}>{FEATURE_CATEGORY_LABELS[feature.category]}</span>
+                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.12)" }}>{feature.requestedBy}</span>
+                  <span className="text-[9px] ml-auto" style={{ color: "rgba(255,255,255,0.1)" }}>{formatRelative(feature.createdAt)}</span>
+                </div>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Submit idea */}
+      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "rgba(255,255,255,0.01)", borderColor: "rgba(255,255,255,0.04)" }}>
+        <button className="flex items-center gap-1.5 mx-auto text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>
+          <Lightbulb size={12} /> Proposer une idée
+        </button>
+      </div>
     </div>
   );
 }
