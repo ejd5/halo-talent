@@ -17,18 +17,43 @@ import {
   WalletCards,
 } from "lucide-react";
 
-export const atlasNavItems = [
-  { label: "Command Center", icon: LayoutDashboard },
-  { label: "Revenue", icon: CircleDollarSign },
-  { label: "Fans Intelligence", icon: Brain },
-  { label: "Chatters", icon: MessageCircle },
-  { label: "Campaigns", icon: Radio },
-  { label: "CRM", icon: Users },
-  { label: "Creator Health", icon: HeartPulse },
-  { label: "AI Growth Radar", icon: Sparkles },
-  { label: "Analytics", icon: BarChart3 },
-  { label: "Alerts & Opportunities", icon: AlertTriangle },
-  { label: "Settings", icon: Settings },
+export const atlasNavGroups = [
+  {
+    label: "Command",
+    items: [
+      { label: "Command Center", icon: LayoutDashboard, badge: "Hot" },
+      { label: "Alerts & Opportunities", icon: AlertTriangle, badge: "3" },
+    ],
+  },
+  {
+    label: "Revenue",
+    items: [
+      { label: "Revenue", icon: CircleDollarSign },
+      { label: "Analytics", icon: BarChart3 },
+      { label: "Campaigns", icon: Radio, badge: "Live" },
+    ],
+  },
+  {
+    label: "CRM",
+    items: [
+      { label: "Fans Intelligence", icon: Brain },
+      { label: "Chatters", icon: MessageCircle },
+      { label: "CRM", icon: Users },
+      { label: "Creator Health", icon: HeartPulse },
+    ],
+  },
+  {
+    label: "AI",
+    items: [
+      { label: "AI Growth Radar", icon: Sparkles, badge: "AI" },
+    ],
+  },
+  {
+    label: "System",
+    items: [
+      { label: "Settings", icon: Settings },
+    ],
+  },
 ];
 
 export const kpis = [
@@ -58,10 +83,37 @@ export const sourceBreakdown = [
   { label: "Other", value: 3, color: "#8c929b" },
 ];
 
+export const priorityActions = [
+  {
+    priority: "P1",
+    title: "Send personalized PPV offer to 25 high-value fans",
+    estimatedGain: "€1,230",
+    confidence: "94%",
+    reason: "25 VIP buyers are online now, bought premium content in the last 14 days, and have above-average ARPU.",
+    cta: "Launch Offer",
+  },
+  {
+    priority: "P2",
+    title: "Win back 12 inactive VIP fans",
+    estimatedGain: "€2,450",
+    confidence: "88%",
+    reason: "These fans dropped after high spend weeks; personalized comeback bundles convert best in this cohort.",
+    cta: "Start Win Back",
+  },
+  {
+    priority: "P3",
+    title: "Launch bundle offer for fans with high purchase intent",
+    estimatedGain: "€3,120",
+    confidence: "82%",
+    reason: "Intent score is elevated after saves, profile visits, and message replies during the last 24 hours.",
+    cta: "Create Bundle",
+  },
+];
+
 export const opportunities = [
-  { title: "Re-engage 85 inactive fans", detail: "Potential: €2,450", tone: "mint" },
-  { title: "Launch ‘Summer Exclusive’ PPV", detail: "Potential: €3,120", tone: "rose" },
-  { title: "3 chatters underperforming", detail: "View details", tone: "gold" },
+  { title: "Re-engage inactive fans", detail: "12 VIP fans ready", tone: "mint" },
+  { title: "Launch PPV bundle", detail: "High intent segment", tone: "rose" },
+  { title: "Coach 3 chatters", detail: "Conversion below target", tone: "gold" },
 ];
 
 export const topChatters = [
@@ -89,11 +141,11 @@ export const healthScores = [
 ];
 
 export const crmFans = [
-  { fan: "@Alexis93", segment: "VIP", spent: "€2,450", active: "2 min ago", score: 95, action: "Message", avatar: "A" },
-  { fan: "@KingMat", segment: "High Spender", spent: "€1,980", active: "15 min ago", score: 92, action: "Message", avatar: "K" },
-  { fan: "@Tony_Off", segment: "Regular", spent: "€1,750", active: "1 day ago", score: 78, action: "Message", avatar: "T" },
-  { fan: "@Jameson", segment: "New", spent: "€1,490", active: "3 hours ago", score: 65, action: "Message", avatar: "J" },
-  { fan: "@HunterX", segment: "At Risk", spent: "€1,320", active: "7 days ago", score: 40, action: "Win Back", avatar: "H" },
+  { fan: "@Alexis93", segment: "VIP", spent: "€2,450", active: "2 min ago", score: 95, nextBestAction: "Send €79 PPV preview", action: "Offer", avatar: "A" },
+  { fan: "@KingMat", segment: "High Spender", spent: "€1,980", active: "15 min ago", score: 92, nextBestAction: "Upsell private bundle", action: "Offer", avatar: "K" },
+  { fan: "@Tony_Off", segment: "Regular", spent: "€1,750", active: "1 day ago", score: 78, nextBestAction: "Message with new drop", action: "Message", avatar: "T" },
+  { fan: "@Jameson", segment: "New", spent: "€1,490", active: "3 hours ago", score: 65, nextBestAction: "Send welcome sequence", action: "Message", avatar: "J" },
+  { fan: "@HunterX", segment: "At Risk", spent: "€1,320", active: "7 days ago", score: 40, nextBestAction: "Win back with VIP credit", action: "Win Back", avatar: "H" },
 ];
 
 export const campaignBars = [
@@ -106,12 +158,20 @@ export const campaignBars = [
   { day: "Jun 22", revenue: 1020, conversions: 560 },
 ];
 
+export const campaignSummary = {
+  name: "Summer Exclusive",
+  status: "Live campaign",
+  performance: "117% vs goal",
+  roi: "4.8x ROI",
+  recommendation: "Increase spend on VIP and High Spender segments; pause cold audience after 18:00.",
+};
+
 export const campaignStats = [
   { label: "Sent", value: "12,450" },
   { label: "Opened", value: "8,920", sub: "71.6%" },
   { label: "Clicked", value: "4,320", sub: "34.7%" },
   { label: "Converted", value: "1,890", sub: "15.2%" },
-  { label: "Converted", value: "€6,230", sub: "revenue" },
+  { label: "Revenue", value: "€6,230", sub: "converted" },
 ];
 
 export const mobileKpis = [
