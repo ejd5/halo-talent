@@ -11,7 +11,8 @@ import {
   GitBranch, FileText, Layers, BookOpen, Ban,
   UserCog, Megaphone, Video, Lightbulb, Brain,
   Cpu, MessageSquare, Palette, ThumbsUp, Percent,
-  TrendingDown, Sparkles, Radio,
+  TrendingDown, Sparkles, Radio, Info, CheckCircle,
+  X, ChevronRight, ChevronDown, Menu, Shield,
 } from "lucide-react";
 
 // ═══ Helpers ═══════════════════════════════════════════════
@@ -36,6 +37,51 @@ function formatRelative(dateStr: string): string {
   if (hours < 24) return `${hours}h`;
   return `${Math.floor(hours / 24)}j`;
 }
+
+// ═══ Onboarding ════════════════════════════════════════════
+
+interface OnboardingStep {
+  id: string;
+  label: string;
+  description: string;
+  sectionTarget: SectionId | null;
+  icon: ComponentType<{ size?: number; className?: string; style?: CSSProperties }>;
+}
+
+const ONBOARDING_STEPS: OnboardingStep[] = [
+  { id: "step1", label: "Configure AI safety", description: "Définir les barrières de sécurité et les modes IA", sectionTarget: "safety_guard", icon: Lock },
+  { id: "step2", label: "Create first PPV script", description: "Créer un entonnoir PPV pour automatiser les ventes", sectionTarget: "script_builder", icon: Layers },
+  { id: "step3", label: "Review handoff rules", description: "Configurer quand l'IA passe la main à l'humain", sectionTarget: "hybrid_handoff", icon: GitBranch },
+  { id: "step4", label: "Invite first chatter", description: "Ajouter un membre de l'équipe de vente", sectionTarget: "team_control", icon: Users },
+  { id: "step5", label: "Check compliance queue", description: "Vérifier les alertes conformité en attente", sectionTarget: "compliance_review", icon: ShieldCheck },
+];
+
+// ═══ Section Descriptions ═════════════════════════════════════
+
+const SECTION_DESCRIPTIONS: Record<SectionId, string> = {
+  sales_engine: "L'IA génère des brouillons de réponses pour chaque fan. Tu relis, modifies si besoin, puis valides l'envoi. Aucun message ne part sans ton approbation explicite.",
+  campaign_builder: "Crée des campagnes marketing multi-étapes avec templates et planification. Visualise le flow avant lancement.",
+  opportunity_queue: "L'IA identifie les opportunités de vente (upsell, cross-sell, réengagement) et les priorise par potentiel de revenu.",
+  pricing_lab: "Teste différents scénarios de prix pour maximiser le revenu sans perdre de fans. Simulation de pricing PPV avec taux de conversion.",
+  tracking_links: "Génère des liens traqués pour mesurer la performance de chaque canal d'acquisition.",
+  lists_builder: "Crée des segments dynamiques de fans basés sur plus de 30 critères comportementaux et transactionnels.",
+  fan_journey: "Visualise le parcours de tes fans, de la découverte à l'ambassadeur, avec les taux de conversion par étape.",
+  automation_triggers: "Configure des actions automatiques basées sur des événements (anniversaire, silence, achat...).",
+  browser_mock: "Simule l'apparence de tes messages sur les plateformes avant envoi. Aucune connexion réelle.",
+  team_control: "Supervise l'activité de ton équipe, les performances, et le Golden Ratio de chaque membre.",
+  compliance_review: "Les contenus à risque sont automatiquement détectés et placés en file d'attente pour révision humaine.",
+  why_atlas_safer: "Découvre pourquoi le modèle Atlas (IA propose, humain valide, humain envoie) est le plus sûr du marché.",
+  safety_guard: "Configure les barrières de sécurité qui bloquent automatiquement les contenus interdits et protègent tes comptes.",
+  ai_core_settings: "Choisis le niveau d'assistance IA : manuel, brouillons, hybride ou simulation complète. L'envoi reste toujours humain.",
+  hybrid_handoff: "Définis les règles qui déterminent quand une conversation passe de l'IA à un humain (seuils, segments, conditions).",
+  script_builder: "Crée des entonnoirs PPV progressifs avec étapes, prix et délais. Templates réutilisables par ton équipe.",
+  message_ledger: "Registre complet de tous les messages envoyés et reçus, avec statuts et revenus associés.",
+  banned_keywords: "Liste des mots et expressions interdits dans les brouillons IA et messages manuels. Appliqué à tous les canaux.",
+  creator_profile: "Profil IA de la créatrice : persona, ton, limites strictes, règles éditoriales et préférences.",
+  notifications_center: "Toutes les alertes et notifications (achats, messages, conformité, milestones) centralisées.",
+  creative_engine: "L'IA génère des scripts Reels/TikTok basés sur les tendances. Approbation humaine obligatoire avant publication.",
+  roadmap: "Propositions de fonctionnalités par la communauté d'agences. Vote pour prioriser les développements.",
+};
 
 // ═══ Shared Types ══════════════════════════════════════════
 
@@ -1441,6 +1487,7 @@ export interface NavSection {
   id: SectionId;
   label: string;
   icon: ComponentType<{ size?: number; className?: string; style?: CSSProperties }>;
+  description?: string;
 }
 
 export interface NavGroup {
@@ -1452,68 +1499,68 @@ export const NAV_GROUPS: NavGroup[] = [
   {
     label: "INBOX",
     sections: [
-      { id: "sales_engine", label: "AI Sales Engine", icon: MessageCircle },
-      { id: "message_ledger", label: "Message Ledger", icon: BookOpen },
+            { id: "sales_engine", label: "AI Sales Engine", icon: MessageCircle, description: "Priorise les conversations qui peuvent générer du revenu" },
+            { id: "message_ledger", label: "Message Ledger", icon: BookOpen, description: "Historique des brouillons, validations et messages envoyés" },
     ],
   },
   {
     label: "AI SALES ENGINE",
     sections: [
-      { id: "opportunity_queue", label: "Opportunity Queue", icon: Target },
-      { id: "lists_builder", label: "Dynamic Lists", icon: List },
-      { id: "script_builder", label: "Script Builder / PPV", icon: Layers },
+            { id: "opportunity_queue", label: "Opportunity Queue", icon: Target, description: "Kanban des opportunités de vente détectées par l'IA" },
+            { id: "lists_builder", label: "Dynamic Lists", icon: List, description: "Segments de fans dynamiques basés sur 30+ critères" },
+            { id: "script_builder", label: "Script Builder / PPV", icon: Layers, description: "Entonnoirs PPV progressifs avec étapes et pricing" },
     ],
   },
   {
     label: "CAMPAIGNS",
     sections: [
-      { id: "campaign_builder", label: "Campaign Builder", icon: Send },
-      { id: "creative_engine", label: "Creative Engine / Reels", icon: Video },
+            { id: "campaign_builder", label: "Campaign Builder", icon: Send, description: "Campagnes marketing multi-étapes avec templates" },
+            { id: "creative_engine", label: "Creative Engine / Reels", icon: Video, description: "Scripts Reels/TikTok générés par IA, validation humaine" },
     ],
   },
   {
     label: "SCRIPTS",
     sections: [
-      { id: "pricing_lab", label: "Dynamic Pricing", icon: DollarSign },
-      { id: "hybrid_handoff", label: "Hybrid Handoff Rules", icon: GitBranch },
-      { id: "ai_core_settings", label: "AI Core Settings", icon: Sliders },
+            { id: "pricing_lab", label: "Dynamic Pricing", icon: DollarSign, description: "Simule les offres PPV selon l'intention d'achat" },
+            { id: "hybrid_handoff", label: "Hybrid Handoff Rules", icon: GitBranch, description: "Définit quand l'IA passe le relais à un chatter humain" },
+            { id: "ai_core_settings", label: "AI Core Settings", icon: Sliders, description: "Contrôle le niveau d'assistance IA, sans envoi automatique" },
     ],
   },
   {
     label: "VAULT",
     sections: [
-      { id: "creator_profile", label: "Creator Profile", icon: UserCog },
-      { id: "banned_keywords", label: "Banned Keywords", icon: Ban },
-      { id: "tracking_links", label: "Tracking & Attribution", icon: Link },
-      { id: "fan_journey", label: "Fan Journey", icon: TrendingUp },
+            { id: "creator_profile", label: "Creator Profile", icon: UserCog, description: "Persona, ton, limites et règles de la créatrice" },
+            { id: "banned_keywords", label: "Banned Keywords", icon: Ban, description: "Mots interdits bloqués dans les brouillons et messages" },
+            { id: "tracking_links", label: "Tracking & Attribution", icon: Link, description: "Liens traqués et performance par canal d'acquisition" },
+            { id: "fan_journey", label: "Fan Journey", icon: TrendingUp, description: "Parcours fan : découverte → achat → ambassadeur" },
     ],
   },
   {
     label: "TEAM",
     sections: [
-      { id: "team_control", label: "Team Control Room", icon: Users },
-      { id: "notifications_center", label: "Notifications Center", icon: Bell },
+            { id: "team_control", label: "Team Control Room", icon: Users, description: "Activité, perfs et Golden Ratio de chaque chatter" },
+            { id: "notifications_center", label: "Notifications Center", icon: Bell, description: "Alertes achats, messages, conformité et milestones" },
     ],
   },
   {
     label: "SAFETY",
     sections: [
-      { id: "compliance_review", label: "Compliance Review", icon: ShieldCheck },
-      { id: "safety_guard", label: "Safety Guard", icon: Lock },
-      { id: "automation_triggers", label: "Automation Triggers", icon: Workflow },
-      { id: "why_atlas_safer", label: "Why Atlas is Safer", icon: Eye },
+            { id: "compliance_review", label: "Compliance Review", icon: ShieldCheck, description: "Contenus à risque détectés, file d'attente de révision humaine" },
+            { id: "safety_guard", label: "Safety Guard", icon: Lock, description: "Barrières qui bloquent promesses interdites, impersonation et risques" },
+            { id: "automation_triggers", label: "Automation Triggers", icon: Workflow, description: "Actions automatiques sur événements (anniversaire, silence, achat)" },
+            { id: "why_atlas_safer", label: "Why Atlas is Safer", icon: Eye, description: "Pourquoi le modèle Atlas est le plus sûr du marché" },
     ],
   },
   {
     label: "SETTINGS",
     sections: [
-      { id: "browser_mock", label: "Browser Workspace", icon: Globe },
+            { id: "browser_mock", label: "Browser Workspace", icon: Globe, description: "Simule l'apparence des messages sur les plateformes" },
     ],
   },
   {
     label: "ROADMAP",
     sections: [
-      { id: "roadmap", label: "Feature Requests", icon: Lightbulb },
+            { id: "roadmap", label: "Feature Requests", icon: Lightbulb, description: "Propositions de la communauté, vote pour prioriser" },
     ],
   },
 ];
@@ -1522,7 +1569,7 @@ export type {
   AiCoreMode, AiCoreSettings, HandoffRule, HandoffRuleGroup,
   PpvLadderStep, PpvLadderScript, MessageLedgerEntry, BannedKeyword,
   CreatorProfile, NotificationItem, NotificationChannel, AiReel,
-  EmployeeStats, FeatureRequest,
+  EmployeeStats, FeatureRequest, OnboardingStep,
 };
 export {
   AI_CORE_MODE_LABELS, AI_CORE_MODE_COLORS, HANDOFF_ACTION_LABELS,
@@ -1532,5 +1579,6 @@ export {
   mockAiCoreSettings, mockHandoffRules, mockPpvLadderScripts,
   mockMessageLedger, mockBannedKeywords, mockCreatorProfile,
   mockNotifications, mockAiReels, mockEmployeeStats, mockFeatureRequests,
+  ONBOARDING_STEPS, SECTION_DESCRIPTIONS,
 };
 export { formatEuro, formatRelative, ago, daysAgo };
