@@ -1,5 +1,5 @@
 import { ArrowRight, Bell, ChevronLeft, Home, MessageCircle, Users } from "lucide-react";
-import { mobileKpis, opportunities } from "./data";
+import { mobileKpis, priorityActions } from "./data";
 import { Sparkline } from "./charts";
 
 function PhoneFrame({ children }: { children: React.ReactNode }) {
@@ -35,17 +35,16 @@ export function MobilePreviews() {
         <div className="mb-4 flex items-center gap-2 text-[10px]"><ChevronLeft size={13} /><strong>AI Growth Radar</strong></div>
         <div className="rounded-xl border border-[#c99a3d]/20 bg-[#211c14] p-3">
           <p className="mb-2 text-[9px] text-[#d7b25c]">Today’s Top Action</p>
-          <strong className="text-[12px]">25 high-value fans</strong>
-          <p className="mt-1 text-[9px] text-[#aeb5bd]">Send a personalized offer</p>
-          <p className="mt-2 text-[9px] text-[#f2bf57]">Est. revenue: €1,230</p>
-          <button className="mt-3 w-full rounded-lg bg-[#5a431e] py-2 text-[10px] text-[#f8e5b6]">View Fans</button>
+          <strong className="text-[12px]">{priorityActions[0].title}</strong>
+          <p className="mt-2 text-[9px] text-[#f2bf57]">Gain {priorityActions[0].estimatedGain} · AI {priorityActions[0].confidence}</p>
+          <button className="mt-3 w-full rounded-lg bg-[#5a431e] py-2 text-[10px] text-[#f8e5b6]">{priorityActions[0].cta}</button>
         </div>
-        <p className="mb-2 mt-5 text-[10px] text-[#f8efe1]">More Opportunities</p>
+        <p className="mb-2 mt-4 text-[10px] text-[#f8efe1]">Priority Queue</p>
         <div className="space-y-2">
-          {opportunities.map((opportunity) => (
-            <div key={opportunity.title} className="rounded-xl border border-white/10 bg-white/[0.04] p-3">
-              <p className="text-[10px]">{opportunity.title}</p>
-              <p className="text-[9px] text-[#aeb5bd]">{opportunity.detail}</p>
+          {priorityActions.slice(1).map((action) => (
+            <div key={action.title} className="rounded-xl border border-white/10 bg-white/[0.04] p-2.5">
+              <p className="truncate text-[10px]">{action.title}</p>
+              <p className="text-[9px] text-[#aeb5bd]">{action.estimatedGain} · {action.confidence}</p>
             </div>
           ))}
         </div>
