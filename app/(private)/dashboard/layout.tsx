@@ -15,7 +15,7 @@ export default function DashboardLayout({
 }) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
-  const isAtlasPreview = pathname === "/dashboard/atlas-preview";
+  const isAtlasPreview = pathname === "/dashboard/atlas-preview" || pathname === "/dashboard/atlas";
 
   if (isAtlasPreview) {
     return (
