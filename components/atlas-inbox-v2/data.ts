@@ -915,14 +915,14 @@ export const RISK_CATEGORY_LABELS: Record<ComplianceReviewItem["riskCategory"], 
 };
 
 export const mockComplianceItems: ComplianceReviewItem[] = [
-  { id: "cr1", type: "message", content: "Draft pour HotShot23: réponse à demande IRL — refuse fermement, redirige vers contenu", riskScore: 85, riskCategory: "boundary", flaggedBy: "ai", status: "pending", reviewer: null, notes: "Demande IRL répétée. Vérifier le ton de la réponse." },
-  { id: "cr2", type: "ppv_content", content: "Vidéo 'Late Night Vibes' — vérifier les droits de la musique de fond (claim automatique)", riskScore: 60, riskCategory: "copyright", flaggedBy: "platform", status: "pending", reviewer: null, notes: "Détection automatique OF. Remplacer ou licence." },
-  { id: "cr3", type: "campaign", content: "Campagne 'Pack Fidélité Q2' — musique vidéo #3 flagged", riskScore: 50, riskCategory: "copyright", flaggedBy: "platform", status: "escalated", reviewer: "Thomas R.", notes: "En attente de licence ou remplacement piste audio." },
-  { id: "cr4", type: "message", content: "Draft pour Emma_W: 'exklusives Treue-Paket' — vérifier pricing conforme CGU", riskScore: 25, riskCategory: "pricing", flaggedBy: "ai", status: "approved", reviewer: "Sophie L.", notes: "Prix conforme, pas de problème." },
-  { id: "cr5", type: "fan_request", content: "MegaSpender_Dubai demande custom 30min à $2500 — approbation manager + vérification âge", riskScore: 70, riskCategory: "tos", flaggedBy: "ai", status: "pending", reviewer: null, notes: "Vérifier âge fan + limites de prix plateforme." },
-  { id: "cr6", type: "message", content: "Draft pour DarkKnight42: message de réengagement — éviter language trop commercial (spam risk)", riskScore: 30, riskCategory: "language", flaggedBy: "ai", status: "approved", reviewer: "Sophie L.", notes: "Ton OK, soft re-engagement." },
-  { id: "cr7", type: "ppv_content", content: "Photo set 'Golden Hour' — vérifier qu'aucune métadonnée de localisation n'est présente", riskScore: 45, riskCategory: "tos", flaggedBy: "human", status: "pending", reviewer: null, notes: "Check EXIF avant publication." },
-  { id: "cr8", type: "message", content: "Draft pour K-Pop_Fan: lien TikTok → OF — vérifier conformité CGU TikTok", riskScore: 55, riskCategory: "tos", flaggedBy: "ai", status: "pending", reviewer: null, notes: "Pas de lien direct. Utiliser 'lien dans la bio'." },
+  { id: "cr1", type: "message", content: "Draft pour HotShot23: réponse à demande IRL — refuse fermement, redirige vers contenu", riskScore: 85, riskCategory: "boundary", flaggedBy: "ai", status: "pending", createdAt: ago(25), reviewer: null, notes: "Demande IRL répétée. Vérifier le ton de la réponse." },
+  { id: "cr2", type: "ppv_content", content: "Vidéo 'Late Night Vibes' — vérifier les droits de la musique de fond (claim automatique)", riskScore: 60, riskCategory: "copyright", flaggedBy: "platform", status: "pending", createdAt: daysAgo(2), reviewer: null, notes: "Détection automatique OF. Remplacer ou licence." },
+  { id: "cr3", type: "campaign", content: "Campagne 'Pack Fidélité Q2' — musique vidéo #3 flagged", riskScore: 50, riskCategory: "copyright", flaggedBy: "platform", status: "escalated", createdAt: daysAgo(3), reviewer: "Thomas R.", notes: "En attente de licence ou remplacement piste audio." },
+  { id: "cr4", type: "message", content: "Draft pour Emma_W: 'exklusives Treue-Paket' — vérifier pricing conforme CGU", riskScore: 25, riskCategory: "pricing", flaggedBy: "ai", status: "approved", createdAt: daysAgo(1), reviewer: "Sophie L.", notes: "Prix conforme, pas de problème." },
+  { id: "cr5", type: "fan_request", content: "MegaSpender_Dubai demande custom 30min à $2500 — approbation manager + vérification âge", riskScore: 70, riskCategory: "tos", flaggedBy: "ai", status: "pending", createdAt: ago(60), reviewer: null, notes: "Vérifier âge fan + limites de prix plateforme." },
+  { id: "cr6", type: "message", content: "Draft pour DarkKnight42: message de réengagement — éviter language trop commercial (spam risk)", riskScore: 30, riskCategory: "language", flaggedBy: "ai", status: "approved", createdAt: daysAgo(2), reviewer: "Sophie L.", notes: "Ton OK, soft re-engagement." },
+  { id: "cr7", type: "ppv_content", content: "Photo set 'Golden Hour' — vérifier qu'aucune métadonnée de localisation n'est présente", riskScore: 45, riskCategory: "tos", flaggedBy: "human", status: "pending", createdAt: daysAgo(1), reviewer: null, notes: "Check EXIF avant publication." },
+  { id: "cr8", type: "message", content: "Draft pour K-Pop_Fan: lien TikTok → OF — vérifier conformité CGU TikTok", riskScore: 55, riskCategory: "tos", flaggedBy: "ai", status: "pending", createdAt: daysAgo(1, 6), reviewer: null, notes: "Pas de lien direct. Utiliser 'lien dans la bio'." },
 ];
 
 // ═══ 12. Why Atlas is safer ════════════════════════════════
@@ -952,7 +952,7 @@ export interface SafetyGuardSetting {
   description: string;
   enabled: boolean;
   severity: "low" | "medium" | "high" | "critical";
-  category: "content" | "pricing" | "frequency" | "language" | "boundary";
+  category: "content" | "pricing" | "frequency" | "language" | "boundary" | "tos";
   adminOnly: boolean;
 }
 
@@ -962,6 +962,7 @@ export const GUARD_CATEGORY_LABELS: Record<SafetyGuardSetting["category"], strin
   frequency: "Fréquence",
   language: "Langage",
   boundary: "Limites",
+  tos: "CGU",
 };
 
 export const mockGuardSettings: SafetyGuardSetting[] = [
