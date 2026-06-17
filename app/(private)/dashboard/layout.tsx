@@ -16,10 +16,21 @@ export default function DashboardLayout({
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
   const isAtlasPreview = pathname === "/dashboard/atlas-preview";
+  const isAtlasInboxV2 = pathname === "/dashboard/atlas/inbox-v2";
 
   if (isAtlasPreview) {
     return (
       <div className="min-h-screen" data-theme="dark">
+        {children}
+        <CommandPalette />
+        <KeyboardShortcuts />
+      </div>
+    );
+  }
+
+  if (isAtlasInboxV2) {
+    return (
+      <div className="min-h-screen" data-theme="light">
         {children}
         <CommandPalette />
         <KeyboardShortcuts />
