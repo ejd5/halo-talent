@@ -72,51 +72,51 @@ export function AtlasInboxV2() {
 
   return (
     <div
-      className="flex flex-col lg:flex-row h-[calc(100vh-4rem)] overflow-hidden -m-4 md:-m-8 max-w-full"
-      style={{ backgroundColor: "var(--bg-primary, #0C0A08)", overflowX: "hidden" }}
+      className="flex flex-col lg:flex-row h-screen overflow-hidden max-w-full"
+      style={{ backgroundColor: "#F6F1E8", overflowX: "hidden" }}
     >
       {/* Mobile sidebar toggle */}
       <button
         onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
         className="lg:hidden flex items-center gap-2 px-4 py-2 text-[11px] border-b shrink-0"
-        style={{ borderColor: "var(--border-default)", color: "rgba(255,255,255,0.35)" }}
+        style={{ borderColor: "#E5D7C3", color: "#7A6E63" }}
       >
         <Menu size={14} />
         <span>Menu</span>
-        <span className="text-[9px] ml-auto" style={{ color: "var(--accent)" }}>{activeSection}</span>
+        <span className="text-[9px] ml-auto" style={{ color: "#C9973F" }}>{activeSection}</span>
       </button>
 
-      {/* ─── Sidebar ──────────────────────────────────── */}
+      {/* ─── Sidebar (Dark) ────────────────────────────── */}
       <aside
         className={`${
-          sidebarCollapsed ? "w-[48px]" : "w-[200px]"
+          sidebarCollapsed ? "w-[48px]" : "w-[220px]"
         } shrink-0 flex-col border-r transition-all duration-200 hidden lg:flex`}
-        style={{ borderColor: "var(--border-default)" }}
+        style={{ backgroundColor: "#110D09", borderColor: "rgba(255,255,255,0.06)" }}
       >
         {/* Header */}
         <div
           className="flex items-center gap-2 px-4 py-3.5 border-b shrink-0"
-          style={{ borderColor: "var(--border-default)" }}
+          style={{ borderColor: "rgba(255,255,255,0.06)" }}
         >
           {!sidebarCollapsed && (
             <div className="flex-1 min-w-0">
-              <h1 className="text-[12px] font-display font-semibold tracking-widest" style={{ color: "var(--text-primary)" }}>
-                ATLAS<span style={{ color: "var(--accent)" }}>.</span>OS
+              <h1 className="text-[14px] font-display font-semibold tracking-widest" style={{ color: "#F4EEE3" }}>
+                ATLAS<span style={{ color: "#C9973F" }}>.</span>OS
               </h1>
-              <p className="text-[8px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.28)" }}>Agency OS</p>
+              <p className="text-[9px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>Agency OS</p>
             </div>
           )}
           <button
             onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
             className="p-1 rounded-sm hover:bg-white/[0.04] transition-colors shrink-0"
-            style={{ color: "rgba(255,255,255,0.35)" }}
+            style={{ color: "rgba(255,255,255,0.30)" }}
           >
             {sidebarCollapsed ? <ChevronRight size={14} /> : <ChevronRight size={14} className="rotate-180" />}
           </button>
         </div>
 
         {/* Nav Groups */}
-        <div className="flex-1 py-2">
+        <div className="flex-1 py-2 overflow-y-auto">
           {NAV_GROUPS.map((group) => {
             const isCollapsed = collapsedGroups.has(group.label);
             return (
@@ -124,8 +124,8 @@ export function AtlasInboxV2() {
               {!sidebarCollapsed && (
                 <button
                   onClick={() => toggleGroup(group.label)}
-                  className="w-full flex items-center gap-1 text-[9px] font-medium tracking-widest px-4 py-1.5 hover:bg-white/[0.02] transition-colors"
-                  style={{ color: "rgba(255,255,255,0.18)" }}
+                  className="w-full flex items-center gap-1 text-[10px] font-medium tracking-widest px-4 py-1.5 hover:bg-white/[0.02] transition-colors"
+                  style={{ color: "rgba(255,255,255,0.20)" }}
                 >
                   <span className="flex-1 text-left">{group.label}</span>
                   <ChevronDown size={10} style={{ transform: isCollapsed ? "rotate(-90deg)" : undefined, transition: "transform 0.15s" }} />
@@ -143,17 +143,17 @@ export function AtlasInboxV2() {
                       sidebarCollapsed ? "px-3 py-2.5 justify-center" : "px-4 py-2"
                     }`}
                     style={{
-                      backgroundColor: isActive ? "rgba(216,169,91,0.08)" : "transparent",
-                      borderLeft: isActive ? "2px solid var(--accent)" : "2px solid transparent",
-                      color: isActive ? "var(--text-primary)" : "rgba(255,255,255,0.35)",
+                      backgroundColor: isActive ? "rgba(201,151,63,0.10)" : "transparent",
+                      borderLeft: isActive ? "2px solid #C9973F" : "2px solid transparent",
+                      color: isActive ? "#F4EEE3" : "rgba(255,255,255,0.35)",
                     }}
                   >
-                    <Icon size={14} style={{ color: isActive ? "var(--accent)" : "rgba(255,255,255,0.35)" }} />
+                    <Icon size={14} style={{ color: isActive ? "#C9973F" : "rgba(255,255,255,0.30)" }} />
                     {!sidebarCollapsed && (
-                      <span className="text-[11px] font-medium truncate">{section.label}</span>
+                      <span className="text-[12px] font-medium truncate">{section.label}</span>
                     )}
                     {isActive && !sidebarCollapsed && (
-                      <div className="ml-auto w-1 h-1 rounded-full" style={{ backgroundColor: "var(--accent)" }} />
+                      <div className="ml-auto w-1 h-1 rounded-full" style={{ backgroundColor: "#C9973F" }} />
                     )}
                   </button>
                 );
@@ -165,13 +165,13 @@ export function AtlasInboxV2() {
 
         {/* Footer badge */}
         {!sidebarCollapsed && (
-          <div className="px-4 py-3 border-t" style={{ borderColor: "var(--border-default)" }}>
+          <div className="px-4 py-3 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
             <div
               className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-sm"
-              style={{ backgroundColor: "rgba(216,169,91,0.06)" }}
+              style={{ backgroundColor: "rgba(201,151,63,0.08)" }}
             >
-              <ShieldCheck size={11} style={{ color: "var(--accent)" }} />
-              <span className="text-[9px] font-medium" style={{ color: "var(--accent)" }}>
+              <ShieldCheck size={11} style={{ color: "#C9973F" }} />
+              <span className="text-[10px] font-medium" style={{ color: "#C9973F" }}>
                 Compliance-first Creator OS
               </span>
             </div>
@@ -180,16 +180,41 @@ export function AtlasInboxV2() {
       </aside>
 
       {/* ─── Content Area ─────────────────────────────── */}
-      <main className="flex-1 overflow-y-auto">
+      <main className="flex-1 flex flex-col overflow-y-auto" style={{ backgroundColor: "#F6F1E8" }}>
+        {/* Topbar */}
+        <div className="shrink-0 px-6 py-4 border-b" style={{ backgroundColor: "#FFFBF4", borderColor: "#E5D7C3" }}>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-[28px] font-display font-semibold tracking-tight" style={{ color: "#17120C" }}>
+                Atlas Inbox
+              </h1>
+              <p className="text-[14px] mt-0.5" style={{ color: "#6E6257" }}>
+                AI-assisted sales workspace. Human approval required before every send.
+              </p>
+            </div>
+            <div className="flex items-center gap-3 text-[12px] font-medium">
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#EDF5EF", color: "#2F7D4E" }}>
+                <ShieldCheck size={13} /> No auto-send
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#EDF5EF", color: "#2F7D4E" }}>
+                <Lock size={13} /> No scraping
+              </span>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#EDF5EF", color: "#2F7D4E" }}>
+                <UserCheck size={13} /> Human approved
+              </span>
+            </div>
+          </div>
+        </div>
+
         {/* Safety banner */}
-        <div className="flex items-center justify-center gap-4 lg:gap-6 px-4 py-1.5 border-b"
-          style={{ backgroundColor: "rgba(143,181,138,0.03)", borderColor: "rgba(143,181,138,0.06)" }}>
-          <span className="text-[10px] flex items-center gap-1.5" style={{ color: "rgba(255,255,255,0.4)" }}>
-            <ShieldCheck size={10} style={{ color: "var(--success)" }} /> IA propose, humain valide
+        <div className="flex items-center justify-center gap-4 lg:gap-6 px-4 py-1.5 border-b shrink-0"
+          style={{ backgroundColor: "#EDF5EF", borderColor: "rgba(47,125,78,0.15)" }}>
+          <span className="text-[12px] flex items-center gap-1.5 font-medium" style={{ color: "#2F7D4E" }}>
+            <ShieldCheck size={12} /> IA propose, humain valide
           </span>
-          <span className="text-[10px] hidden sm:inline" style={{ color: "rgba(255,255,255,0.28)" }}>Aucun envoi automatique</span>
-          <span className="text-[10px] hidden sm:inline" style={{ color: "rgba(255,255,255,0.28)" }}>Pas de scraping</span>
-          <span className="text-[10px] hidden sm:inline" style={{ color: "rgba(255,255,255,0.28)" }}>Pas d'usurpation</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#6E6257" }}>Aucun envoi automatique</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#6E6257" }}>Pas de scraping</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#6E6257" }}>Pas d'usurpation</span>
         </div>
 
         {/* Onboarding: Launch Atlas OS */}
@@ -253,16 +278,16 @@ function AtlasLaunchBlock({
     <div className="mx-5 mt-5 p-5 rounded-sm border" style={{ backgroundColor: "rgba(216,169,91,0.03)", borderColor: "rgba(216,169,91,0.1)" }}>
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-sm font-display font-semibold flex items-center gap-2" style={{ color: "var(--text-primary)" }}>
-            <Sparkles size={14} style={{ color: "var(--accent)" }} />
+          <h2 className="text-sm font-display font-semibold flex items-center gap-2" style={{ color: "#17120C" }}>
+            <Sparkles size={14} style={{ color: "#C9973F" }} />
             Launch Atlas OS
           </h2>
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.35)" }}>
+          <p className="text-[11px] mt-1" style={{ color: "#7A6E63" }}>
             {completedSteps.size}/{steps.length} étapes complétées — configurez votre espace pour démarrer
           </p>
         </div>
         {completedSteps.size === steps.length && (
-          <button onClick={onDismiss} className="p-1 rounded-sm hover:bg-white/[0.04]" style={{ color: "var(--text-tertiary)" }}>
+          <button onClick={onDismiss} className="p-1 rounded-sm hover:bg-black/[0.03]" style={{ color: "#9A8D7C" }}>
             <X size={14} />
           </button>
         )}
@@ -274,28 +299,28 @@ function AtlasLaunchBlock({
           return (
             <div key={step.id}
               className="w-full flex items-center gap-3 px-3 py-2.5 rounded-sm transition-colors cursor-pointer"
-              style={{ backgroundColor: isComplete ? "rgba(143,181,138,0.04)" : "rgba(255,255,255,0.02)" }}
+              style={{ backgroundColor: isComplete ? "rgba(47,125,78,0.04)" : "#F5F2EB" }}
               onClick={() => onToggleStep(step.id)}
             >
               <div className="w-5 h-5 rounded-sm flex items-center justify-center shrink-0" style={{
-                backgroundColor: isComplete ? "rgba(143,181,138,0.12)" : "rgba(255,255,255,0.06)",
-                color: isComplete ? "var(--success)" : "rgba(255,255,255,0.35)",
+                backgroundColor: isComplete ? "rgba(47,125,78,0.12)" : "#E8E2DA",
+                color: isComplete ? "#2F7D4E" : "#7A6E63",
               }}>
                 {isComplete ? <CheckCircle size={12} /> : <span className="text-[10px] font-mono">{i + 1}</span>}
               </div>
               <div className="flex-1 min-w-0">
                 <span className="text-[11px] font-medium" style={{
-                  color: isComplete ? "var(--text-secondary)" : "var(--text-primary)",
+                  color: isComplete ? "#6E6257" : "#17120C",
                   textDecoration: isComplete ? "line-through" : "none",
                 }}>
                   {step.label}
                 </span>
-                <p className="text-[9px] mt-0.5 truncate" style={{ color: "rgba(255,255,255,0.28)" }}>{step.description}</p>
+                <p className="text-[9px] mt-0.5 truncate" style={{ color: "#9A8D7C" }}>{step.description}</p>
               </div>
               {step.sectionTarget && !isComplete && (
                 <button onClick={(e) => { e.stopPropagation(); onNavigate(step.sectionTarget!); }}
                   className="text-[10px] px-2 py-1 rounded-sm shrink-0 transition-colors hover:opacity-80"
-                  style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}
+                  style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}
                 >
                   Configurer
                 </button>
@@ -316,15 +341,15 @@ function SectionInfoBar({ description }: { description: string }) {
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center gap-2 text-[10px] py-2 px-3 rounded-sm transition-colors"
-        style={{ backgroundColor: "rgba(216,169,91,0.03)", color: "rgba(255,255,255,0.35)", border: "1px solid rgba(216,169,91,0.06)" }}
+        style={{ backgroundColor: "rgba(216,169,91,0.03)", color: "#7A6E63", border: "1px solid rgba(216,169,91,0.06)" }}
       >
-        <Info size={12} style={{ color: "var(--accent)" }} />
+        <Info size={12} style={{ color: "#C9973F" }} />
         <span className="flex-1 text-left">Comment ça marche</span>
         <ChevronRight size={10} style={{ transform: expanded ? "rotate(90deg)" : undefined, transition: "transform 0.15s" }} />
       </button>
       {expanded && (
         <div className="px-3 pb-3 pt-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.02)" }}>
-          <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{description}</p>
+          <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{description}</p>
         </div>
       )}
     </div>
@@ -391,22 +416,22 @@ function SalesEngineSection() {
   return (
     <div className="flex h-full">
       {/* Conv list */}
-      <div className="w-[280px] shrink-0 border-r flex flex-col" style={{ borderColor: "var(--border-default)" }}>
-        <div className="p-4 border-b shrink-0" style={{ borderColor: "var(--border-default)" }}>
+      <div className="w-[280px] shrink-0 border-r flex flex-col" style={{ borderColor: "#E5D7C3" }}>
+        <div className="p-4 border-b shrink-0" style={{ borderColor: "#E5D7C3" }}>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold font-display" style={{ color: "var(--text-primary)" }}>Sales Engine</h2>
-            <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.35)" }}>
+            <h2 className="text-sm font-semibold font-display" style={{ color: "#17120C" }}>Sales Engine</h2>
+            <span className="text-[10px]" style={{ color: "#7A6E63" }}>
               {conversations.length} conversations
             </span>
           </div>
           <div className="relative">
-            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2" style={{ color: "rgba(255,255,255,0.28)" }} />
+            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2" style={{ color: "#9A8D7C" }} />
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Rechercher un fan..."
               className="w-full pl-8 pr-3 py-1.5 text-[11px] rounded-sm outline-none bg-transparent"
-              style={{ color: "var(--text-primary)", border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ color: "#17120C", border: "1px solid #E0D8CF" }}
             />
           </div>
         </div>
@@ -418,33 +443,33 @@ function SalesEngineSection() {
               className="w-full text-left px-4 py-3 transition-colors"
               style={{
                 backgroundColor: selectedId === conv.id ? "rgba(216,169,91,0.06)" : "transparent",
-                borderLeft: selectedId === conv.id ? "2px solid var(--accent)" : "2px solid transparent",
+                borderLeft: selectedId === conv.id ? "2px solid #C9973F" : "2px solid transparent",
               }}
             >
               <div className="flex items-start gap-2.5">
                 <div
                   className="w-8 h-8 rounded-sm flex items-center justify-center text-xs font-semibold shrink-0"
-                  style={{ backgroundColor: `${FAN_TIER_COLORS[conv.fanTier]}20`, color: FAN_TIER_COLORS[conv.fanTier], border: "1px solid rgba(255,255,255,0.06)" }}
+                  style={{ backgroundColor: `${FAN_TIER_COLORS[conv.fanTier]}20`, color: FAN_TIER_COLORS[conv.fanTier], border: "1px solid #E8E2DA" }}
                 >
                   {conv.fanName.charAt(0)}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[12px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{conv.fanName}</span>
-                    <span className="text-[9px] shrink-0" style={{ color: "rgba(255,255,255,0.28)" }}>{formatRelative(conv.lastActivity)}</span>
+                    <span className="text-[12px] font-medium truncate" style={{ color: "#17120C" }}>{conv.fanName}</span>
+                    <span className="text-[9px] shrink-0" style={{ color: "#9A8D7C" }}>{formatRelative(conv.lastActivity)}</span>
                   </div>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="text-[9px] px-1.5 py-0.5 rounded-sm font-medium" style={{ backgroundColor: `${FAN_TIER_COLORS[conv.fanTier]}20`, color: FAN_TIER_COLORS[conv.fanTier] }}>
                       {FAN_TIER_LABELS[conv.fanTier]}
                     </span>
-                    <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.40)" }}>{PLATFORM_LABELS[conv.platform]}</span>
+                    <span className="text-[9px]" style={{ color: "#6E6257" }}>{PLATFORM_LABELS[conv.platform]}</span>
                   </div>
-                  <p className="text-[11px] mt-1.5 leading-relaxed line-clamp-1" style={{ color: "rgba(255,255,255,0.35)" }}>
+                  <p className="text-[11px] mt-1.5 leading-relaxed line-clamp-1" style={{ color: "#7A6E63" }}>
                     {conv.lastMessagePreview}
                   </p>
                   <div className="flex items-center gap-2 mt-1.5">
                     {conv.complianceFlags.length > 0 && (
-                      <span className="flex items-center gap-0.5 text-[9px]" style={{ color: "var(--warning)" }}>
+                      <span className="flex items-center gap-0.5 text-[9px]" style={{ color: "#B7791F" }}>
                         <AlertTriangle size={9} /> {conv.complianceFlags.length}
                       </span>
                     )}
@@ -455,7 +480,7 @@ function SalesEngineSection() {
                       {STATUS_LABELS[conv.status]}
                     </span>
                     {conv.unread && (
-                      <span className="w-1.5 h-1.5 rounded-full ml-auto" style={{ backgroundColor: "var(--accent)" }} />
+                      <span className="w-1.5 h-1.5 rounded-full ml-auto" style={{ backgroundColor: "#C9973F" }} />
                     )}
                   </div>
                 </div>
@@ -470,30 +495,30 @@ function SalesEngineSection() {
         <SectionInfoBar description={SECTION_DESCRIPTIONS["sales_engine"]} />
         {!selectedConv ? (
           <div className="flex-1 flex flex-col items-center justify-center">
-            <MessageCircle size={32} style={{ color: "rgba(255,255,255,0.04)" }} />
-            <p className="text-sm mt-3 font-medium" style={{ color: "rgba(255,255,255,0.22)" }}>Sélectionne une conversation</p>
-            <p className="text-xs mt-1" style={{ color: "rgba(255,255,255,0.08)" }}>L&apos;IA te proposera des suggestions de réponse</p>
+            <MessageCircle size={32} style={{ color: "#F0EBE3" }} />
+            <p className="text-sm mt-3 font-medium" style={{ color: "#AEA294" }}>Sélectionne une conversation</p>
+            <p className="text-xs mt-1" style={{ color: "#E0D8CF" }}>L&apos;IA te proposera des suggestions de réponse</p>
           </div>
         ) : (
           <>
             {/* Conversation Header */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b shrink-0" style={{ borderColor: "var(--border-default)" }}>
-              <div className="w-9 h-9 rounded-sm flex items-center justify-center text-xs font-semibold shrink-0" style={{ backgroundColor: `${FAN_TIER_COLORS[selectedConv.fanTier]}20`, color: FAN_TIER_COLORS[selectedConv.fanTier], border: "1px solid rgba(255,255,255,0.06)" }}>
+            <div className="flex items-center gap-3 px-4 py-3 border-b shrink-0" style={{ borderColor: "#E5D7C3" }}>
+              <div className="w-9 h-9 rounded-sm flex items-center justify-center text-xs font-semibold shrink-0" style={{ backgroundColor: `${FAN_TIER_COLORS[selectedConv.fanTier]}20`, color: FAN_TIER_COLORS[selectedConv.fanTier], border: "1px solid #E8E2DA" }}>
                 {selectedConv.fanName.charAt(0)}
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium truncate" style={{ color: "var(--text-primary)" }}>{selectedConv.fanName}</span>
+                  <span className="text-sm font-medium truncate" style={{ color: "#17120C" }}>{selectedConv.fanName}</span>
                   <span className="text-[10px] px-1.5 py-0.5 rounded-sm font-medium" style={{ backgroundColor: `${FAN_TIER_COLORS[selectedConv.fanTier]}20`, color: FAN_TIER_COLORS[selectedConv.fanTier] }}>
                     {FAN_TIER_LABELS[selectedConv.fanTier]}
                   </span>
                 </div>
-                <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.35)" }}>
+                <span className="text-[10px]" style={{ color: "#7A6E63" }}>
                   {PLATFORM_LABELS[selectedConv.platform]} · {formatEuro(selectedConv.totalSpent)} dépensé · Score {selectedConv.intentScore}/100
                 </span>
               </div>
               {selectedConv.complianceFlags.length > 0 && (
-                <span className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(201,106,74,0.1)", color: "var(--warning)" }}>
+                <span className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(183,121,31,0.1)", color: "#B7791F" }}>
                   <AlertTriangle size={10} /> {selectedConv.complianceFlags.join(", ")}
                 </span>
               )}
@@ -506,18 +531,18 @@ function SalesEngineSection() {
                   <div
                     className="max-w-[70%] rounded-sm px-3.5 py-2.5"
                     style={{
-                      backgroundColor: msg.direction === "inbound" ? "rgba(255,255,255,0.05)" : "rgba(216,169,91,0.12)",
+                      backgroundColor: msg.direction === "inbound" ? "#EDE7DF" : "rgba(216,169,91,0.12)",
                       borderBottomLeftRadius: msg.direction === "inbound" ? 0 : undefined,
                       borderBottomRightRadius: msg.direction === "outbound" ? 0 : undefined,
                     }}
                   >
-                    <p className="text-[13px] leading-relaxed break-words" style={{ color: "var(--text-primary)" }}>{msg.content}</p>
+                    <p className="text-[13px] leading-relaxed break-words" style={{ color: "#17120C" }}>{msg.content}</p>
                     <div className="flex items-center gap-1.5 mt-1.5">
-                      <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>
+                      <span className="text-[9px]" style={{ color: "#9A8D7C" }}>
                         {new Date(msg.occurredAt).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}
                       </span>
                       {msg.aiGenerated && (
-                        <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>IA</span>
+                        <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>IA</span>
                       )}
                     </div>
                   </div>
@@ -528,11 +553,11 @@ function SalesEngineSection() {
               {selectedConv.drafts.length > 0 && (
                 <div className="space-y-2.5 mt-6 mb-2">
                   <div className="flex items-center gap-2">
-                    <div className="h-px flex-1" style={{ backgroundColor: "rgba(255,255,255,0.06)" }} />
-                    <span className="text-[10px] font-medium flex items-center gap-1" style={{ color: "var(--accent)" }}>
+                    <div className="h-px flex-1" style={{ backgroundColor: "#E8E2DA" }} />
+                    <span className="text-[10px] font-medium flex items-center gap-1" style={{ color: "#C9973F" }}>
                       <Zap size={10} /> Brouillons IA · {selectedConv.drafts.length} suggestions
                     </span>
-                    <div className="h-px flex-1" style={{ backgroundColor: "rgba(255,255,255,0.06)" }} />
+                    <div className="h-px flex-1" style={{ backgroundColor: "#E8E2DA" }} />
                   </div>
                   {selectedConv.drafts.map((draft) => (
                     <DraftCard
@@ -556,19 +581,19 @@ function SalesEngineSection() {
 
               {generatingId === selectedConv.id && (
                 <div className="flex justify-center py-4">
-                  <Loader size={16} className="animate-spin" style={{ color: "var(--accent)" }} />
+                  <Loader size={16} className="animate-spin" style={{ color: "#C9973F" }} />
                 </div>
               )}
             </div>
 
             {/* Action Bar */}
-            <div className="px-4 py-3 border-t shrink-0" style={{ borderColor: "var(--border-default)" }}>
+            <div className="px-4 py-3 border-t shrink-0" style={{ borderColor: "#E5D7C3" }}>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => handleGenerate(selectedConv.id)}
                   disabled={generatingId === selectedConv.id || selectedConv.drafts.length === 0}
                   className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-                  style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}
+                  style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}
                 >
                   {generatingId === selectedConv.id ? (
                     <><Loader size={13} className="animate-spin" /> Génération...</>
@@ -576,7 +601,7 @@ function SalesEngineSection() {
                     <><Zap size={13} /> Régénérer les drafts IA</>
                   )}
                 </button>
-                <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>
+                <span className="text-[9px]" style={{ color: "#AEA294" }}>
                   IA propose → tu relis → tu valides → envoi humain
                 </span>
               </div>
@@ -606,19 +631,19 @@ function DraftCard({
   onEditTextChange: (text: string) => void;
 }) {
   const approachColors: Record<string, string> = {
-    chaleureuse: "var(--success)",
-    directe: "var(--accent)",
-    joueuse: "#F59E0B",
-    professionnelle: "#3B82F6",
-    complice: "#8B5CF6",
+    chaleureuse: "#2F7D4E",
+    directe: "#C9973F",
+    joueuse: "#B45309",
+    professionnelle: "#1D4ED8",
+    complice: "#6D28D9",
   };
 
   if (isApproved) {
     return (
-      <div className="p-3 rounded-sm border" style={{ backgroundColor: "rgba(143,181,138,0.06)", borderColor: "rgba(143,181,138,0.15)" }}>
+      <div className="p-3 rounded-sm border" style={{ backgroundColor: "rgba(47,125,78,0.06)", borderColor: "rgba(47,125,78,0.15)" }}>
         <div className="flex items-center gap-1.5">
-          <CheckCircle size={13} style={{ color: "var(--success)" }} />
-          <span className="text-[11px] font-medium" style={{ color: "var(--success)" }}>Approuvé — prêt à envoyer</span>
+          <CheckCircle size={13} style={{ color: "#2F7D4E" }} />
+          <span className="text-[11px] font-medium" style={{ color: "#2F7D4E" }}>Approuvé — prêt à envoyer</span>
         </div>
       </div>
     );
@@ -628,8 +653,8 @@ function DraftCard({
     <div
       className="p-3.5 rounded-sm border transition-all"
       style={{
-        backgroundColor: "var(--bg-card)",
-        borderColor: isRejected ? "rgba(255,255,255,0.06)" : "rgba(216,169,91,0.15)",
+        backgroundColor: "#FFFFFF",
+        borderColor: isRejected ? "#E8E2DA" : "rgba(216,169,91,0.15)",
         opacity: isRejected ? 0.4 : 1,
       }}
     >
@@ -637,11 +662,11 @@ function DraftCard({
         <div className="flex items-center gap-2">
           <span
             className="text-[9px] font-medium px-1.5 py-0.5 rounded-sm capitalize"
-            style={{ backgroundColor: `${approachColors[draft.approach] || "rgba(255,255,255,0.05)"}20`, color: approachColors[draft.approach] || "rgba(255,255,255,0.4)" }}
+            style={{ backgroundColor: `${approachColors[draft.approach] || "#EDE7DF"}20`, color: approachColors[draft.approach] || "#6E6257" }}
           >
             {draft.approach}
           </span>
-          <span className="text-[9px] flex items-center gap-1" style={{ color: "rgba(255,255,255,0.28)" }}>
+          <span className="text-[9px] flex items-center gap-1" style={{ color: "#9A8D7C" }}>
             <TrendingUp size={9} /> {draft.estimatedEngagement}% engagement est.
           </span>
         </div>
@@ -652,26 +677,26 @@ function DraftCard({
           value={editText}
           onChange={(e) => onEditTextChange(e.target.value)}
           className="w-full bg-transparent text-[13px] leading-relaxed rounded-sm p-2 outline-none resize-none"
-          style={{ color: "var(--text-primary)", border: "1px solid rgba(216,169,91,0.3)", minHeight: "80px" }}
+          style={{ color: "#17120C", border: "1px solid rgba(216,169,91,0.3)", minHeight: "80px" }}
           rows={3}
         />
       ) : (
-        <p className="text-[13px] leading-relaxed" style={{ color: "var(--text-primary)" }}>{draft.draftText}</p>
+        <p className="text-[13px] leading-relaxed" style={{ color: "#17120C" }}>{draft.draftText}</p>
       )}
 
       {draft.aiWarning && (
-        <p className="text-[10px] mt-1.5 flex items-center gap-1" style={{ color: "var(--warning)" }}>
+        <p className="text-[10px] mt-1.5 flex items-center gap-1" style={{ color: "#B7791F" }}>
           <AlertTriangle size={10} /> {draft.aiWarning}
         </p>
       )}
 
-      <div className="flex items-center gap-2 mt-2.5 pt-2.5 border-t" style={{ borderColor: "var(--border-default)" }}>
+      <div className="flex items-center gap-2 mt-2.5 pt-2.5 border-t" style={{ borderColor: "#E5D7C3" }}>
         {isEditing ? (
           <>
-            <button onClick={onSaveEdit} className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(143,181,138,0.1)", color: "var(--success)" }}>
+            <button onClick={onSaveEdit} className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}>
               <CheckCircle size={12} /> Sauver
             </button>
-            <button onClick={onCancelEdit} className="text-[11px] px-2 py-1" style={{ color: "rgba(255,255,255,0.35)" }}>
+            <button onClick={onCancelEdit} className="text-[11px] px-2 py-1" style={{ color: "#7A6E63" }}>
               Annuler
             </button>
           </>
@@ -681,7 +706,7 @@ function DraftCard({
               onClick={onApprove}
               disabled={isGenerating}
               className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm transition-colors"
-              style={{ backgroundColor: "rgba(143,181,138,0.1)", color: "var(--success)" }}
+              style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}
             >
               <CheckCircle size={12} /> Approuver et envoyer
             </button>
@@ -689,7 +714,7 @@ function DraftCard({
               onClick={onEdit}
               disabled={isGenerating}
               className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm transition-colors"
-              style={{ backgroundColor: "rgba(59,130,246,0.1)", color: "#3B82F6" }}
+              style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}
             >
               <Edit3 size={12} /> Modifier
             </button>
@@ -697,7 +722,7 @@ function DraftCard({
               onClick={onReject}
               disabled={isGenerating}
               className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm transition-colors"
-              style={{ color: "rgba(255,255,255,0.40)" }}
+              style={{ color: "#6E6257" }}
             >
               <X size={12} /> Refuser ce brouillon
             </button>
@@ -736,9 +761,9 @@ function PricingLabSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Dynamic Pricing & Negotiation Engine</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Dynamic Pricing & Negotiation Engine</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["pricing_lab"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Simule les prix, commissions et marges de négociation pour maximiser le revenu net</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Simule les prix, commissions et marges de négociation pour maximiser le revenu net</p>
       </div>
 
       {/* Product selector */}
@@ -749,36 +774,36 @@ function PricingLabSection() {
             onClick={() => handleProductChange(p.id)}
             className="text-left p-3 rounded-sm border transition-all"
             style={{
-              backgroundColor: selectedProduct.id === p.id ? "rgba(216,169,91,0.06)" : "var(--bg-card)",
-              borderColor: selectedProduct.id === p.id ? "var(--accent)" : "var(--border-default)",
+              backgroundColor: selectedProduct.id === p.id ? "rgba(216,169,91,0.06)" : "#FFFFFF",
+              borderColor: selectedProduct.id === p.id ? "#C9973F" : "#E5D7C3",
             }}
           >
-            <span className="text-[11px] font-medium block" style={{ color: "var(--text-primary)" }}>{p.productName}</span>
-            <span className="text-[9px] mt-1 block" style={{ color: "rgba(255,255,255,0.40)" }}>{p.type.replace(/_/g, " ")} · {p.audienceSize} fans</span>
+            <span className="text-[11px] font-medium block" style={{ color: "#17120C" }}>{p.productName}</span>
+            <span className="text-[9px] mt-1 block" style={{ color: "#6E6257" }}>{p.type.replace(/_/g, " ")} · {p.audienceSize} fans</span>
           </button>
         ))}
       </div>
 
       <div className="grid grid-cols-3 gap-6">
         {/* Price slider */}
-        <div className="col-span-2 space-y-4 p-5 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+        <div className="col-span-2 space-y-4 p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>Prix de vente</span>
+            <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>Prix de vente</span>
             <div className="flex items-center gap-1">
               <button
                 onClick={() => { setPrice(selectedProduct.suggestedPriceLow); setPriceLevel("low"); }}
                 className={`text-[10px] px-2 py-1 rounded-sm ${priceLevel === "low" ? "" : ""}`}
-                style={{ backgroundColor: priceLevel === "low" ? "rgba(59,130,246,0.15)" : "rgba(255,255,255,0.04)", color: priceLevel === "low" ? "#3B82F6" : "rgba(255,255,255,0.40)" }}
+                style={{ backgroundColor: priceLevel === "low" ? "rgba(29,77,216,0.15)" : "#F0EBE3", color: priceLevel === "low" ? "#1D4ED8" : "#6E6257" }}
               >Bas</button>
               <button
                 onClick={() => { setPrice(selectedProduct.suggestedPriceMid); setPriceLevel("mid"); }}
                 className={`text-[10px] px-2 py-1 rounded-sm`}
-                style={{ backgroundColor: priceLevel === "mid" ? "rgba(216,169,91,0.15)" : "rgba(255,255,255,0.04)", color: priceLevel === "mid" ? "var(--accent)" : "rgba(255,255,255,0.40)" }}
+                style={{ backgroundColor: priceLevel === "mid" ? "rgba(216,169,91,0.15)" : "#F0EBE3", color: priceLevel === "mid" ? "#C9973F" : "#6E6257" }}
               >Moyen</button>
               <button
                 onClick={() => { setPrice(selectedProduct.suggestedPriceHigh); setPriceLevel("high"); }}
                 className={`text-[10px] px-2 py-1 rounded-sm`}
-                style={{ backgroundColor: priceLevel === "high" ? "rgba(143,181,138,0.15)" : "rgba(255,255,255,0.04)", color: priceLevel === "high" ? "var(--success)" : "rgba(255,255,255,0.40)" }}
+                style={{ backgroundColor: priceLevel === "high" ? "rgba(47,125,78,0.15)" : "#F0EBE3", color: priceLevel === "high" ? "#2F7D4E" : "#6E6257" }}
               >Haut</button>
             </div>
           </div>
@@ -790,70 +815,70 @@ function PricingLabSection() {
             step={0.01}
             value={price}
             onChange={(e) => { setPrice(Number(e.target.value)); setPriceLevel("mid"); }}
-            className="w-full accent-[var(--accent)]"
+            className="w-full accent-[#C9973F]"
           />
 
           <div className="flex items-center justify-between text-[11px]">
-            <span style={{ color: "rgba(255,255,255,0.40)" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</span>
-            <span className="text-lg font-semibold font-mono" style={{ color: "var(--accent)" }}>{formatEuro(price)}</span>
-            <span style={{ color: "rgba(255,255,255,0.40)" }}>{formatEuro(selectedProduct.suggestedPriceHigh)}</span>
+            <span style={{ color: "#6E6257" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</span>
+            <span className="text-lg font-semibold font-mono" style={{ color: "#C9973F" }}>{formatEuro(price)}</span>
+            <span style={{ color: "#6E6257" }}>{formatEuro(selectedProduct.suggestedPriceHigh)}</span>
           </div>
 
           {/* Revenue breakdown */}
-          <div className="grid grid-cols-4 gap-3 mt-4 pt-4 border-t" style={{ borderColor: "var(--border-default)" }}>
+          <div className="grid grid-cols-4 gap-3 mt-4 pt-4 border-t" style={{ borderColor: "#E5D7C3" }}>
             <div className="text-center">
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>Frais plateforme</p>
-              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--text-primary)" }}>{formatEuro(platformFeeAmount)}</p>
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>{(selectedProduct.platformFee * 100).toFixed(0)}%</p>
+              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Frais plateforme</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(platformFeeAmount)}</p>
+              <p className="text-[9px]" style={{ color: "#AEA294" }}>{(selectedProduct.platformFee * 100).toFixed(0)}%</p>
             </div>
             <div className="text-center">
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>Coût base</p>
-              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--text-primary)" }}>{formatEuro(selectedProduct.costBase)}</p>
+              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Coût base</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(selectedProduct.costBase)}</p>
             </div>
             <div className="text-center">
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>Net / vente</p>
-              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--success)" }}>{formatEuro(netRevenue)}</p>
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>{margin.toFixed(0)}% marge</p>
+              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Net / vente</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(netRevenue)}</p>
+              <p className="text-[9px]" style={{ color: "#AEA294" }}>{margin.toFixed(0)}% marge</p>
             </div>
             <div className="text-center">
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>Ventes estimées</p>
-              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--text-primary)" }}>{conversions}</p>
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>{((conversions / selectedProduct.audienceSize) * 100).toFixed(1)}% de l&apos;audience</p>
+              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Ventes estimées</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{conversions}</p>
+              <p className="text-[9px]" style={{ color: "#AEA294" }}>{((conversions / selectedProduct.audienceSize) * 100).toFixed(1)}% de l&apos;audience</p>
             </div>
           </div>
         </div>
 
         {/* Commission tiers + totals */}
         <div className="space-y-4">
-          <div className="p-5 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-            <h3 className="text-[11px] font-medium mb-3" style={{ color: "var(--text-primary)" }}>Tiers de commission</h3>
+          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+            <h3 className="text-[11px] font-medium mb-3" style={{ color: "#17120C" }}>Tiers de commission</h3>
             <div className="space-y-2">
               {selectedProduct.commissionTiers.map((tier) => {
                 const isActive = totalRevenue >= tier.threshold;
                 return (
                   <div key={tier.label} className="flex items-center justify-between text-[11px] py-1.5 px-2 rounded-sm"
                     style={{ backgroundColor: isActive ? "rgba(216,169,91,0.06)" : "transparent" }}>
-                    <span style={{ color: isActive ? "var(--text-primary)" : "rgba(255,255,255,0.40)" }}>{tier.label}</span>
-                    <span style={{ color: isActive ? "var(--accent)" : "rgba(255,255,255,0.28)" }}>{(tier.rate * 100).toFixed(0)}% · &gt;{formatEuro(tier.threshold)}</span>
+                    <span style={{ color: isActive ? "#17120C" : "#6E6257" }}>{tier.label}</span>
+                    <span style={{ color: isActive ? "#C9973F" : "#9A8D7C" }}>{(tier.rate * 100).toFixed(0)}% · &gt;{formatEuro(tier.threshold)}</span>
                   </div>
                 );
               })}
             </div>
-            <div className="mt-3 pt-3 border-t" style={{ borderColor: "var(--border-default)" }}>
+            <div className="mt-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
               <div className="flex items-center justify-between">
-                <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.35)" }}>Tier actuel</span>
-                <span className="text-[11px] font-semibold" style={{ color: "var(--accent)" }}>{currentTier.label} ({(currentTier.rate * 100).toFixed(0)}%)</span>
+                <span className="text-[10px]" style={{ color: "#7A6E63" }}>Tier actuel</span>
+                <span className="text-[11px] font-semibold" style={{ color: "#C9973F" }}>{currentTier.label} ({(currentTier.rate * 100).toFixed(0)}%)</span>
               </div>
             </div>
           </div>
 
           {/* Totals */}
-          <div className="p-5 rounded-sm border" style={{ backgroundColor: "rgba(143,181,138,0.04)", borderColor: "rgba(143,181,138,0.1)" }}>
-            <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>Revenu brut estimé</p>
-            <p className="text-xl font-mono font-semibold mt-0.5" style={{ color: "var(--text-primary)" }}>{formatEuro(totalRevenue)}</p>
-            <p className="text-[10px] mt-2" style={{ color: "rgba(255,255,255,0.28)" }}>Revenu net estimé</p>
-            <p className="text-xl font-mono font-semibold mt-0.5" style={{ color: "var(--success)" }}>{formatEuro(totalNet)}</p>
-            <p className="text-[9px] mt-2" style={{ color: "rgba(255,255,255,0.22)" }}>
+          <div className="p-5 rounded-sm border" style={{ backgroundColor: "rgba(47,125,78,0.04)", borderColor: "rgba(47,125,78,0.1)" }}>
+            <p className="text-[10px]" style={{ color: "#9A8D7C" }}>Revenu brut estimé</p>
+            <p className="text-xl font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(totalRevenue)}</p>
+            <p className="text-[10px] mt-2" style={{ color: "#9A8D7C" }}>Revenu net estimé</p>
+            <p className="text-xl font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(totalNet)}</p>
+            <p className="text-[9px] mt-2" style={{ color: "#AEA294" }}>
               {conversions} ventes × {formatEuro(netRevenue)} net = {formatEuro(totalNet)}
             </p>
           </div>
@@ -862,48 +887,48 @@ function PricingLabSection() {
 
       {/* Negotiation Confidence Panel */}
       <div className="grid grid-cols-4 gap-3">
-        <div className="col-span-3 p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-          <h3 className="text-[10px] font-medium tracking-wider uppercase mb-3" style={{ color: "rgba(255,255,255,0.18)" }}>Négociation Engine</h3>
+        <div className="col-span-3 p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+          <h3 className="text-[10px] font-medium tracking-wider uppercase mb-3" style={{ color: "#BFB5A7" }}>Négociation Engine</h3>
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>Prix plancher</p>
-              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--danger)" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</p>
-              <p className="text-[8px] mt-0.5" style={{ color: "rgba(255,255,255,0.22)" }}>Minimum viable</p>
+              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Prix plancher</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#C54A3A" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</p>
+              <p className="text-[8px] mt-0.5" style={{ color: "#AEA294" }}>Minimum viable</p>
             </div>
             <div>
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>Prix optimal</p>
-              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--accent)" }}>{formatEuro(selectedProduct.suggestedPriceMid)}</p>
-              <p className="text-[8px] mt-0.5" style={{ color: "rgba(255,255,255,0.22)" }}>Max conversion</p>
+              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Prix optimal</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{formatEuro(selectedProduct.suggestedPriceMid)}</p>
+              <p className="text-[8px] mt-0.5" style={{ color: "#AEA294" }}>Max conversion</p>
             </div>
             <div>
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>Marge de négo</p>
-              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "var(--success)" }}>{formatEuro(selectedProduct.suggestedPriceHigh - selectedProduct.suggestedPriceLow)}</p>
-              <p className="text-[8px] mt-0.5" style={{ color: "rgba(255,255,255,0.22)" }}>{((1 - selectedProduct.suggestedPriceLow / selectedProduct.suggestedPriceHigh) * 100).toFixed(0)}% de flex</p>
+              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Marge de négo</p>
+              <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(selectedProduct.suggestedPriceHigh - selectedProduct.suggestedPriceLow)}</p>
+              <p className="text-[8px] mt-0.5" style={{ color: "#AEA294" }}>{((1 - selectedProduct.suggestedPriceLow / selectedProduct.suggestedPriceHigh) * 100).toFixed(0)}% de flex</p>
             </div>
             <div>
-              <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>Confiance</p>
+              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Confiance</p>
               <div className="flex items-center gap-1.5 mt-0.5">
-                <span className="text-sm font-mono font-semibold" style={{ color: price >= selectedProduct.suggestedPriceMid ? "var(--success)" : "var(--warning)" }}>
+                <span className="text-sm font-mono font-semibold" style={{ color: price >= selectedProduct.suggestedPriceMid ? "#2F7D4E" : "#B7791F" }}>
                   {price >= selectedProduct.suggestedPriceMid ? "Élevée" : "Modérée"}
                 </span>
               </div>
-              <div className="w-full h-1 rounded-full mt-1" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
+              <div className="w-full h-1 rounded-full mt-1" style={{ backgroundColor: "#E0D8CF" }}>
                 <div className="h-full rounded-full" style={{
                   width: `${Math.min(100, ((price - selectedProduct.suggestedPriceLow) / (selectedProduct.suggestedPriceHigh - selectedProduct.suggestedPriceLow)) * 100)}%`,
-                  backgroundColor: price >= selectedProduct.suggestedPriceMid ? "var(--success)" : "var(--warning)",
+                  backgroundColor: price >= selectedProduct.suggestedPriceMid ? "#2F7D4E" : "#B7791F",
                 }} />
               </div>
             </div>
           </div>
         </div>
         <div className="p-4 rounded-sm border flex flex-col justify-center" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
-          <p className="text-[9px] mb-1" style={{ color: "rgba(255,255,255,0.28)" }}>Recommandation IA</p>
-          <p className="text-[11px] font-medium leading-relaxed" style={{ color: "var(--accent)" }}>
+          <p className="text-[9px] mb-1" style={{ color: "#9A8D7C" }}>Recommandation IA</p>
+          <p className="text-[11px] font-medium leading-relaxed" style={{ color: "#C9973F" }}>
             {price >= selectedProduct.suggestedPriceMid
               ? "Prix optimal. Bon équilibre conversion/revenu. Marge confortable."
               : "Baisser le prix augmente les conversions. Attention à la rentabilité."}
           </p>
-          <p className="text-[9px] mt-2" style={{ color: "rgba(255,255,255,0.18)" }}>Basé sur {selectedProduct.audienceSize} fans</p>
+          <p className="text-[9px] mt-2" style={{ color: "#BFB5A7" }}>Basé sur {selectedProduct.audienceSize} fans</p>
         </div>
       </div>
     </div>
@@ -945,19 +970,19 @@ function ListsBuilderSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Dynamic Lists Builder</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Dynamic Lists Builder</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["lists_builder"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Crée des segments de fans dynamiques avec filtres pour campagnes ciblées</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Crée des segments de fans dynamiques avec filtres pour campagnes ciblées</p>
       </div>
 
       {/* Filter builder */}
-      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
         <div className="flex items-center gap-2 flex-wrap">
           <select
             value={newFilterField}
             onChange={(e) => { setNewFilterField(e.target.value); setNewFilterOp(""); }}
             className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: newFilterField ? "var(--text-primary)" : "rgba(255,255,255,0.40)", border: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ backgroundColor: "#F0EBE3", color: newFilterField ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}
           >
             <option value="">Champ...</option>
             {AVAILABLE_FILTER_FIELDS.map((f) => (
@@ -970,7 +995,7 @@ function ListsBuilderSection() {
               value={newFilterOp}
               onChange={(e) => setNewFilterOp(e.target.value)}
               className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-              style={{ backgroundColor: "rgba(255,255,255,0.04)", color: newFilterOp ? "var(--text-primary)" : "rgba(255,255,255,0.40)", border: "1px solid rgba(255,255,255,0.08)" }}
+              style={{ backgroundColor: "#F0EBE3", color: newFilterOp ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}
             >
               <option value="">Opérateur...</option>
               {currentField.operators.map((op) => (
@@ -984,7 +1009,7 @@ function ListsBuilderSection() {
             onChange={(e) => setNewFilterValue(e.target.value)}
             placeholder={currentField?.hint || "Valeur..."}
             className="flex-1 min-w-[120px] text-[11px] px-2.5 py-1.5 rounded-sm outline-none bg-transparent"
-            style={{ color: "var(--text-primary)", border: "1px solid rgba(255,255,255,0.08)" }}
+            style={{ color: "#17120C", border: "1px solid #E0D8CF" }}
             onKeyDown={(e) => { if (e.key === "Enter") addFilter(); }}
           />
 
@@ -992,7 +1017,7 @@ function ListsBuilderSection() {
             onClick={addFilter}
             disabled={!newFilterField || !newFilterOp || !newFilterValue}
             className="flex items-center gap-1.5 text-[11px] px-3 py-1.5 rounded-sm transition-all disabled:opacity-30"
-            style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}
+            style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}
           >
             <Plus size={12} /> Ajouter
           </button>
@@ -1006,21 +1031,21 @@ function ListsBuilderSection() {
                 const fieldLabel = AVAILABLE_FILTER_FIELDS.find((af) => af.field === f.field)?.label || f.field;
                 return (
                   <span key={f.id} className="flex items-center gap-1.5 text-[10px] px-2.5 py-1 rounded-sm"
-                    style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>
+                    style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
                     {fieldLabel} {f.operator} {f.value}
-                    <button onClick={() => removeFilter(f.id)} style={{ color: "rgba(255,255,255,0.40)" }}><X size={10} /></button>
+                    <button onClick={() => removeFilter(f.id)} style={{ color: "#6E6257" }}><X size={10} /></button>
                   </span>
                 );
               })}
             </div>
-            <div className="flex items-center gap-4 pt-2 border-t" style={{ borderColor: "var(--border-default)" }}>
-              <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.40)" }}>
-                Fans estimés: <span className="font-semibold font-mono" style={{ color: "var(--text-primary)" }}>{estimatedFans}</span>
+            <div className="flex items-center gap-4 pt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
+              <span className="text-[11px]" style={{ color: "#6E6257" }}>
+                Fans estimés: <span className="font-semibold font-mono" style={{ color: "#17120C" }}>{estimatedFans}</span>
               </span>
-              <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.40)" }}>
-                Revenu potentiel: <span className="font-semibold font-mono" style={{ color: "var(--accent)" }}>{formatEuro(estimatedFans * 45)}</span>
+              <span className="text-[11px]" style={{ color: "#6E6257" }}>
+                Revenu potentiel: <span className="font-semibold font-mono" style={{ color: "#C9973F" }}>{formatEuro(estimatedFans * 45)}</span>
               </span>
-              <button className="text-[10px] px-2.5 py-1 rounded-sm ml-auto" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>
+              <button className="text-[10px] px-2.5 py-1 rounded-sm ml-auto" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
                 Sauvegarder le segment
               </button>
             </div>
@@ -1030,28 +1055,28 @@ function ListsBuilderSection() {
 
       {/* Saved segments */}
       <div>
-        <h3 className="text-[11px] font-medium mb-3" style={{ color: "rgba(255,255,255,0.35)" }}>Segments sauvegardés</h3>
+        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#7A6E63" }}>Segments sauvegardés</h3>
         <div className="grid grid-cols-2 gap-3">
           {savedSegments.map((seg) => (
-            <div key={seg.id} className="p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+            <div key={seg.id} className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
               <div className="flex items-center justify-between mb-2">
-                <h4 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{seg.name}</h4>
-                <span className="text-[11px] font-mono font-semibold" style={{ color: "var(--accent)" }}>{seg.fanCount}</span>
+                <h4 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{seg.name}</h4>
+                <span className="text-[11px] font-mono font-semibold" style={{ color: "#C9973F" }}>{seg.fanCount}</span>
               </div>
-              <p className="text-[10px] mb-2" style={{ color: "rgba(255,255,255,0.40)" }}>{seg.description}</p>
+              <p className="text-[10px] mb-2" style={{ color: "#6E6257" }}>{seg.description}</p>
               <div className="flex items-center gap-1.5 flex-wrap">
                 {seg.filters.slice(0, 3).map((f, i) => (
-                  <span key={i} className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.35)" }}>
+                  <span key={i} className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#7A6E63" }}>
                     {f.field} {f.operator} {f.value}
                   </span>
                 ))}
                 {seg.filters.length > 3 && (
-                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>+{seg.filters.length - 3}</span>
+                  <span className="text-[9px]" style={{ color: "#9A8D7C" }}>+{seg.filters.length - 3}</span>
                 )}
               </div>
-              <div className="flex items-center justify-between mt-3 pt-3 border-t" style={{ borderColor: "var(--border-default)" }}>
-                <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>{formatEuro(seg.estimatedRevenue)} potentiel</span>
-                <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>Créé {formatRelative(seg.createdAt)}</span>
+              <div className="flex items-center justify-between mt-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
+                <span className="text-[9px]" style={{ color: "#9A8D7C" }}>{formatEuro(seg.estimatedRevenue)} potentiel</span>
+                <span className="text-[9px]" style={{ color: "#AEA294" }}>Créé {formatRelative(seg.createdAt)}</span>
               </div>
             </div>
           ))}
@@ -1074,48 +1099,48 @@ function AutomationTriggersSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Automation Triggers</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Automation Triggers</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["automation_triggers"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Règles WHEN → THEN pour automatiser les actions de vente</p>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Règles WHEN → THEN pour automatiser les actions de vente</p>
         </div>
-        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>
+        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
           <Plus size={12} /> Nouvelle règle
         </button>
       </div>
 
-      <div className="rounded-sm border overflow-hidden" style={{ borderColor: "var(--border-default)" }}>
+      <div className="rounded-sm border overflow-hidden" style={{ borderColor: "#E5D7C3" }}>
         <table className="w-full">
           <thead>
-            <tr style={{ borderBottom: "1px solid var(--border-default)" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Règle</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>WHEN</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>IF</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>THEN</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Statut</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Déclenché</th>
+            <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Règle</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>WHEN</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>IF</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>THEN</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Statut</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Déclenché</th>
             </tr>
           </thead>
           <tbody>
             {rules.map((rule) => (
-              <tr key={rule.id} className="transition-colors hover:bg-white/[0.02]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+              <tr key={rule.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3" }}>
                 <td className="px-4 py-3">
-                  <span className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{rule.name}</span>
+                  <span className="text-[12px] font-medium" style={{ color: "#17120C" }}>{rule.name}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[11px] font-mono" style={{ color: "rgba(255,255,255,0.4)" }}>{TRIGGER_EVENT_LABELS[rule.when]}</span>
+                  <span className="text-[11px] font-mono" style={{ color: "#6E6257" }}>{TRIGGER_EVENT_LABELS[rule.when]}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <code className="text-[10px] px-1.5 py-0.5 rounded-sm font-mono" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.35)" }}>{rule.condition}</code>
+                  <code className="text-[10px] px-1.5 py-0.5 rounded-sm font-mono" style={{ backgroundColor: "#F0EBE3", color: "#7A6E63" }}>{rule.condition}</code>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[11px]" style={{ color: "var(--accent)" }}>{TRIGGER_ACTION_LABELS[rule.then]}</span>
-                  <p className="text-[9px] mt-0.5" style={{ color: "rgba(255,255,255,0.28)" }}>{rule.thenDetail}</p>
+                  <span className="text-[11px]" style={{ color: "#C9973F" }}>{TRIGGER_ACTION_LABELS[rule.then]}</span>
+                  <p className="text-[9px] mt-0.5" style={{ color: "#9A8D7C" }}>{rule.thenDetail}</p>
                 </td>
                 <td className="px-4 py-3">
                   <button
                     onClick={() => toggleRule(rule.id)}
                     className="w-9 h-5 rounded-full transition-colors relative"
-                    style={{ backgroundColor: rule.isEnabled ? "var(--accent)" : "rgba(255,255,255,0.1)" }}
+                    style={{ backgroundColor: rule.isEnabled ? "#C9973F" : "#D5CDC3" }}
                   >
                     <div
                       className="w-3.5 h-3.5 rounded-full absolute top-[3px] transition-all"
@@ -1124,9 +1149,9 @@ function AutomationTriggersSection() {
                   </button>
                 </td>
                 <td className="px-4 py-3 text-right">
-                  <span className="text-[11px] font-mono" style={{ color: "rgba(255,255,255,0.40)" }}>{rule.triggeredCount}</span>
+                  <span className="text-[11px] font-mono" style={{ color: "#6E6257" }}>{rule.triggeredCount}</span>
                   {rule.lastTriggered && (
-                    <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>{formatRelative(rule.lastTriggered)}</p>
+                    <p className="text-[9px]" style={{ color: "#AEA294" }}>{formatRelative(rule.lastTriggered)}</p>
                   )}
                 </td>
               </tr>
@@ -1158,62 +1183,62 @@ function TrackingLinksSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Tracking Links & Attribution</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Tracking Links & Attribution</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["tracking_links"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Suis les clics, conversions et revenus par lien de tracking</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Suis les clics, conversions et revenus par lien de tracking</p>
       </div>
 
       {/* KPI cards */}
       <div className="grid grid-cols-4 gap-3">
         {[
-          { label: "Clics totaux", value: totalClicks.toLocaleString(), color: "var(--text-primary)" },
-          { label: "Conversions", value: totalConversions.toLocaleString(), color: "var(--success)" },
-          { label: "Taux de conversion", value: `${avgRate.toFixed(1)}%`, color: "var(--accent)" },
-          { label: "Revenu attribué", value: formatEuro(totalRevenue), color: "var(--success)" },
+          { label: "Clics totaux", value: totalClicks.toLocaleString(), color: "#17120C" },
+          { label: "Conversions", value: totalConversions.toLocaleString(), color: "#2F7D4E" },
+          { label: "Taux de conversion", value: `${avgRate.toFixed(1)}%`, color: "#C9973F" },
+          { label: "Revenu attribué", value: formatEuro(totalRevenue), color: "#2F7D4E" },
         ].map((kpi) => (
-          <div key={kpi.label} className="p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-            <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>{kpi.label}</p>
+          <div key={kpi.label} className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+            <p className="text-[10px]" style={{ color: "#9A8D7C" }}>{kpi.label}</p>
             <p className="text-lg font-mono font-semibold mt-1" style={{ color: kpi.color }}>{kpi.value}</p>
           </div>
         ))}
       </div>
 
       {/* Links table */}
-      <div className="rounded-sm border overflow-hidden" style={{ borderColor: "var(--border-default)" }}>
+      <div className="rounded-sm border overflow-hidden" style={{ borderColor: "#E5D7C3" }}>
         <table className="w-full">
           <thead>
-            <tr style={{ borderBottom: "1px solid var(--border-default)" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Nom</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Campagne</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Plateforme</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Clics</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Conv.</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Taux</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Revenu</th>
-              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Copier</th>
+            <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Nom</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Campagne</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Plateforme</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Clics</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Conv.</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Taux</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Revenu</th>
+              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Copier</th>
             </tr>
           </thead>
           <tbody>
             {links.map((link) => (
-              <tr key={link.id} className="transition-colors hover:bg-white/[0.02]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+              <tr key={link.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3" }}>
                 <td className="px-4 py-3">
-                  <span className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{link.name}</span>
+                  <span className="text-[12px] font-medium" style={{ color: "#17120C" }}>{link.name}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>{link.campaign}</span>
+                  <span className="text-[11px]" style={{ color: "#6E6257" }}>{link.campaign}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[10px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.35)" }}>{PLATFORM_LABELS[link.platform]}</span>
+                  <span className="text-[10px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#7A6E63" }}>{PLATFORM_LABELS[link.platform]}</span>
                 </td>
-                <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "var(--text-primary)" }}>{link.clicks.toLocaleString()}</td>
-                <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "var(--success)" }}>{link.conversions}</td>
-                <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "var(--accent)" }}>{link.conversionRate.toFixed(1)}%</td>
-                <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "var(--text-primary)" }}>{formatEuro(link.revenue)}</td>
+                <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "#17120C" }}>{link.clicks.toLocaleString()}</td>
+                <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "#2F7D4E" }}>{link.conversions}</td>
+                <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "#C9973F" }}>{link.conversionRate.toFixed(1)}%</td>
+                <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "#17120C" }}>{formatEuro(link.revenue)}</td>
                 <td className="px-4 py-3 text-center">
                   <button
                     onClick={() => handleCopy(link.url, link.id)}
                     className="p-1.5 rounded-sm transition-colors"
-                    style={{ color: copiedId === link.id ? "var(--success)" : "rgba(255,255,255,0.28)" }}
+                    style={{ color: copiedId === link.id ? "#2F7D4E" : "#9A8D7C" }}
                   >
                     {copiedId === link.id ? <CheckCircle size={12} /> : <Copy size={12} />}
                   </button>
@@ -1236,22 +1261,22 @@ function BrowserMockSection() {
   return (
     <div className="p-5 space-y-4 h-full flex flex-col">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Browser Workspace</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Browser Workspace</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["browser_mock"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Mock — Interface de navigation simulée des plateformes</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Mock — Interface de navigation simulée des plateformes</p>
       </div>
 
       {/* Mock watermark banner */}
       <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-sm"
-        style={{ backgroundColor: "rgba(201,106,74,0.08)", border: "1px dashed rgba(201,106,74,0.2)" }}>
-        <AlertTriangle size={12} style={{ color: "var(--warning)" }} />
-        <span className="text-[10px] font-medium" style={{ color: "var(--warning)" }}>MOCK — Aucune donnée réelle. Aucune connexion aux plateformes.</span>
+        style={{ backgroundColor: "rgba(183,121,31,0.08)", border: "1px dashed rgba(183,121,31,0.2)" }}>
+        <AlertTriangle size={12} style={{ color: "#B7791F" }} />
+        <span className="text-[10px] font-medium" style={{ color: "#B7791F" }}>MOCK — Aucune donnée réelle. Aucune connexion aux plateformes.</span>
       </div>
 
       {/* Browser chrome */}
-      <div className="flex-1 rounded-sm border overflow-hidden flex flex-col" style={{ borderColor: "var(--border-default)" }}>
+      <div className="flex-1 rounded-sm border overflow-hidden flex flex-col" style={{ borderColor: "#E5D7C3" }}>
         {/* Tabs */}
-        <div className="flex items-center border-b" style={{ borderColor: "var(--border-default)", backgroundColor: "rgba(255,255,255,0.02)" }}>
+        <div className="flex items-center border-b" style={{ borderColor: "#E5D7C3", backgroundColor: "#F5F2EB" }}>
           {mockBrowserTabs.map((tab) => {
             const isActive = activeTabId === tab.id;
             return (
@@ -1260,9 +1285,9 @@ function BrowserMockSection() {
                 onClick={() => setActiveTabId(tab.id)}
                 className="flex items-center gap-1.5 text-[11px] px-4 py-2 transition-colors"
                 style={{
-                  backgroundColor: isActive ? "var(--bg-card)" : "transparent",
-                  color: isActive ? "var(--text-primary)" : "rgba(255,255,255,0.40)",
-                  borderBottom: isActive ? "2px solid var(--accent)" : "2px solid transparent",
+                  backgroundColor: isActive ? "#FFFFFF" : "transparent",
+                  color: isActive ? "#17120C" : "#6E6257",
+                  borderBottom: isActive ? "2px solid #C9973F" : "2px solid transparent",
                 }}
               >
                 <Globe size={11} />
@@ -1273,14 +1298,14 @@ function BrowserMockSection() {
         </div>
 
         {/* URL bar */}
-        <div className="flex items-center gap-2 px-3 py-2 border-b" style={{ borderColor: "var(--border-default)", backgroundColor: "rgba(255,255,255,0.02)" }}>
+        <div className="flex items-center gap-2 px-3 py-2 border-b" style={{ borderColor: "#E5D7C3", backgroundColor: "#F5F2EB" }}>
           <div className="flex items-center gap-1">
-            <button className="p-0.5 opacity-30"><ArrowLeft size={12} style={{ color: "rgba(255,255,255,0.40)" }} /></button>
-            <button className="p-0.5 opacity-30"><ArrowRight size={12} style={{ color: "rgba(255,255,255,0.40)" }} /></button>
-            <button className="p-0.5"><RefreshCcw size={12} style={{ color: "rgba(255,255,255,0.40)" }} /></button>
+            <button className="p-0.5 opacity-30"><ArrowLeft size={12} style={{ color: "#6E6257" }} /></button>
+            <button className="p-0.5 opacity-30"><ArrowRight size={12} style={{ color: "#6E6257" }} /></button>
+            <button className="p-0.5"><RefreshCcw size={12} style={{ color: "#6E6257" }} /></button>
           </div>
-          <div className="flex-1 flex items-center gap-1.5 px-3 py-1 rounded-sm text-[10px] font-mono" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.40)" }}>
-            <Lock size={10} style={{ color: "var(--success)" }} />
+          <div className="flex-1 flex items-center gap-1.5 px-3 py-1 rounded-sm text-[10px] font-mono" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
+            <Lock size={10} style={{ color: "#2F7D4E" }} />
             {activeTab.url}
           </div>
         </div>
@@ -1289,20 +1314,20 @@ function BrowserMockSection() {
         <div className="flex-1 overflow-y-auto p-4 grid grid-cols-2 gap-4">
           {/* Feed posts */}
           <div className="space-y-3">
-            <p className="text-[10px] font-medium" style={{ color: "rgba(255,255,255,0.28)" }}>Posts récents</p>
+            <p className="text-[10px] font-medium" style={{ color: "#9A8D7C" }}>Posts récents</p>
             {mockFeedPosts.map((post) => (
-              <div key={post.id} className="p-3 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+              <div key={post.id} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
                 <div className="flex items-center gap-1.5 mb-1.5">
-                  <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{post.author}</span>
+                  <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{post.author}</span>
                   {post.isPpv && (
-                    <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>PPV {post.ppvPrice ? `$${post.ppvPrice}` : ""}</span>
+                    <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>PPV {post.ppvPrice ? `$${post.ppvPrice}` : ""}</span>
                   )}
                 </div>
-                <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{post.content}</p>
+                <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{post.content}</p>
                 <div className="flex items-center gap-3 mt-2">
-                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>❤ {post.likes}</span>
-                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>💬 {post.comments}</span>
-                  <span className="text-[9px] ml-auto" style={{ color: "rgba(255,255,255,0.22)" }}>{post.timeAgo}</span>
+                  <span className="text-[9px]" style={{ color: "#9A8D7C" }}>❤ {post.likes}</span>
+                  <span className="text-[9px]" style={{ color: "#9A8D7C" }}>💬 {post.comments}</span>
+                  <span className="text-[9px] ml-auto" style={{ color: "#AEA294" }}>{post.timeAgo}</span>
                 </div>
               </div>
             ))}
@@ -1310,23 +1335,23 @@ function BrowserMockSection() {
 
           {/* DMs */}
           <div className="space-y-3">
-            <p className="text-[10px] font-medium" style={{ color: "rgba(255,255,255,0.28)" }}>Messages directs</p>
+            <p className="text-[10px] font-medium" style={{ color: "#9A8D7C" }}>Messages directs</p>
             {mockDMs.map((dm) => (
               <div key={dm.id} className="p-3 rounded-sm border transition-colors"
                 style={{
-                  backgroundColor: dm.isUnread ? "rgba(216,169,91,0.04)" : "var(--bg-card)",
-                  borderColor: dm.isUnread ? "rgba(216,169,91,0.15)" : "var(--border-default)",
+                  backgroundColor: dm.isUnread ? "rgba(216,169,91,0.04)" : "#FFFFFF",
+                  borderColor: dm.isUnread ? "rgba(216,169,91,0.15)" : "#E5D7C3",
                 }}>
                 <div className="flex items-center justify-between mb-1">
                   <div className="flex items-center gap-1.5">
-                    {dm.isUnread && <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "var(--accent)" }} />}
-                    <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{dm.from}</span>
+                    {dm.isUnread && <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#C9973F" }} />}
+                    <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{dm.from}</span>
                   </div>
-                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>{dm.timeAgo}</span>
+                  <span className="text-[9px]" style={{ color: "#AEA294" }}>{dm.timeAgo}</span>
                 </div>
-                <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{dm.content}</p>
+                <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{dm.content}</p>
                 {dm.hasPPVInterest && (
-                  <span className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm mt-1.5" style={{ backgroundColor: "rgba(143,181,138,0.1)", color: "var(--success)" }}>
+                  <span className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm mt-1.5" style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}>
                     Intérêt PPV détecté
                   </span>
                 )}
@@ -1352,9 +1377,9 @@ function CampaignBuilderSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Campaign Builder</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Campaign Builder</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["campaign_builder"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Crée et lance des campagnes de vente en 6 étapes</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Crée et lance des campagnes de vente en 6 étapes</p>
       </div>
 
       {/* Campaign selector */}
@@ -1365,15 +1390,15 @@ function CampaignBuilderSection() {
             onClick={() => { setSelectedCampaignId(c.id); setCurrentStep(c.currentStep); }}
             className="text-left px-3 py-2 rounded-sm border transition-all"
             style={{
-              backgroundColor: selectedCampaignId === c.id ? "rgba(216,169,91,0.06)" : "var(--bg-card)",
-              borderColor: selectedCampaignId === c.id ? "var(--accent)" : "var(--border-default)",
+              backgroundColor: selectedCampaignId === c.id ? "rgba(216,169,91,0.06)" : "#FFFFFF",
+              borderColor: selectedCampaignId === c.id ? "#C9973F" : "#E5D7C3",
             }}
           >
-            <span className="text-[11px] font-medium block" style={{ color: "var(--text-primary)" }}>{c.name}</span>
-            <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.40)" }}>{CAMPAIGN_TYPE_LABELS[c.type]}</span>
+            <span className="text-[11px] font-medium block" style={{ color: "#17120C" }}>{c.name}</span>
+            <span className="text-[9px]" style={{ color: "#6E6257" }}>{CAMPAIGN_TYPE_LABELS[c.type]}</span>
           </button>
         ))}
-        <button className="flex items-center gap-1 text-[10px] px-3 py-2 rounded-sm" style={{ color: "rgba(255,255,255,0.35)", border: "1px dashed rgba(255,255,255,0.1)" }}>
+        <button className="flex items-center gap-1 text-[10px] px-3 py-2 rounded-sm" style={{ color: "#7A6E63", border: "1px dashed #D5CDC3" }}>
           <Plus size={11} /> Nouvelle
         </button>
       </div>
@@ -1392,15 +1417,15 @@ function CampaignBuilderSection() {
                     onClick={() => setCurrentStep(step)}
                     className="flex-1 text-center px-2 py-2 rounded-sm text-[10px] font-medium transition-all"
                     style={{
-                      backgroundColor: isActive ? "rgba(216,169,91,0.12)" : isDone ? "rgba(143,181,138,0.06)" : "transparent",
-                      color: isActive ? "var(--accent)" : isDone ? "var(--success)" : "rgba(255,255,255,0.28)",
+                      backgroundColor: isActive ? "rgba(216,169,91,0.12)" : isDone ? "rgba(47,125,78,0.06)" : "transparent",
+                      color: isActive ? "#C9973F" : isDone ? "#2F7D4E" : "#9A8D7C",
                     }}
                   >
                     {isDone ? <CheckCircle size={10} className="inline mr-1" /> : null}
                     {CAMPAIGN_STEP_LABELS[step]}
                   </button>
                   {!isLast && (
-                    <div className="w-4 h-px" style={{ backgroundColor: isDone ? "var(--success)" : "rgba(255,255,255,0.08)" }} />
+                    <div className="w-4 h-px" style={{ backgroundColor: isDone ? "#2F7D4E" : "#E0D8CF" }} />
                   )}
                 </div>
               );
@@ -1408,18 +1433,18 @@ function CampaignBuilderSection() {
           </div>
 
           {/* Step content */}
-          <div className="p-5 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
             {currentStep === "audience" && (
               <div className="space-y-3">
-                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>Audience</h3>
+                <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Audience</h3>
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
-                    <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>Segment</span>
-                    <p className="text-[12px] font-medium mt-0.5" style={{ color: "var(--text-primary)" }}>{campaign.audience.segmentName}</p>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
+                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Segment</span>
+                    <p className="text-[12px] font-medium mt-0.5" style={{ color: "#17120C" }}>{campaign.audience.segmentName}</p>
                   </div>
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
-                    <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>Fans ciblés</span>
-                    <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "var(--accent)" }}>{campaign.audience.fanCount}</p>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
+                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Fans ciblés</span>
+                    <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{campaign.audience.fanCount}</p>
                   </div>
                 </div>
               </div>
@@ -1427,11 +1452,11 @@ function CampaignBuilderSection() {
 
             {currentStep === "content" && (
               <div className="space-y-3">
-                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>Contenu</h3>
-                <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
-                  <p className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{campaign.content.productName}</p>
-                  <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.4)" }}>{campaign.content.description}</p>
-                  <span className="inline-block text-[9px] px-1.5 py-0.5 rounded-sm mt-2" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.40)" }}>
+                <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Contenu</h3>
+                <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
+                  <p className="text-[12px] font-medium" style={{ color: "#17120C" }}>{campaign.content.productName}</p>
+                  <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>{campaign.content.description}</p>
+                  <span className="inline-block text-[9px] px-1.5 py-0.5 rounded-sm mt-2" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
                     {campaign.content.mediaCount} médias
                   </span>
                 </div>
@@ -1440,19 +1465,19 @@ function CampaignBuilderSection() {
 
             {currentStep === "pricing" && (
               <div className="space-y-3">
-                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>Tarification</h3>
+                <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Tarification</h3>
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
-                    <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>Prix de base</span>
-                    <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "var(--text-primary)" }}>{formatEuro(campaign.pricing.basePrice)}</p>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
+                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Prix de base</span>
+                    <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(campaign.pricing.basePrice)}</p>
                   </div>
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)" }}>
-                    <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>Remise</span>
-                    <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "var(--accent)" }}>{campaign.pricing.discountPercent}%</p>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
+                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Remise</span>
+                    <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{campaign.pricing.discountPercent}%</p>
                   </div>
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(143,181,138,0.04)" }}>
-                    <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>Revenu estimé</span>
-                    <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "var(--success)" }}>{formatEuro(campaign.pricing.expectedRevenue)}</p>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.04)" }}>
+                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Revenu estimé</span>
+                    <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(campaign.pricing.expectedRevenue)}</p>
                   </div>
                 </div>
               </div>
@@ -1460,24 +1485,24 @@ function CampaignBuilderSection() {
 
             {currentStep === "compliance" && (
               <div className="space-y-3">
-                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>Conformité</h3>
+                <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Conformité</h3>
                 <div className="p-4 rounded-sm" style={{
-                  backgroundColor: campaign.complianceStatus === "passed" ? "rgba(143,181,138,0.06)" :
-                    campaign.complianceStatus === "flagged" ? "rgba(201,106,74,0.06)" : "rgba(255,255,255,0.02)",
-                  borderColor: campaign.complianceStatus === "passed" ? "rgba(143,181,138,0.15)" :
-                    campaign.complianceStatus === "flagged" ? "rgba(201,106,74,0.15)" : "rgba(255,255,255,0.06)",
+                  backgroundColor: campaign.complianceStatus === "passed" ? "rgba(47,125,78,0.06)" :
+                    campaign.complianceStatus === "flagged" ? "rgba(183,121,31,0.06)" : "#F5F2EB",
+                  borderColor: campaign.complianceStatus === "passed" ? "rgba(47,125,78,0.15)" :
+                    campaign.complianceStatus === "flagged" ? "rgba(183,121,31,0.15)" : "#E8E2DA",
                   border: "1px solid",
                 }}>
                   <div className="flex items-center gap-2">
-                    {campaign.complianceStatus === "passed" ? <CheckCircle size={16} style={{ color: "var(--success)" }} /> :
-                      campaign.complianceStatus === "flagged" ? <AlertTriangle size={16} style={{ color: "var(--warning)" }} /> :
-                      <Clock size={16} style={{ color: "rgba(255,255,255,0.40)" }} />}
-                    <span className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>
+                    {campaign.complianceStatus === "passed" ? <CheckCircle size={16} style={{ color: "#2F7D4E" }} /> :
+                      campaign.complianceStatus === "flagged" ? <AlertTriangle size={16} style={{ color: "#B7791F" }} /> :
+                      <Clock size={16} style={{ color: "#6E6257" }} />}
+                    <span className="text-[12px] font-medium" style={{ color: "#17120C" }}>
                       {campaign.complianceStatus === "passed" ? "Conforme" : campaign.complianceStatus === "flagged" ? "Problème détecté" : "En attente de vérification"}
                     </span>
                   </div>
                   {campaign.complianceNotes && (
-                    <p className="text-[11px] mt-2 ml-7" style={{ color: "rgba(255,255,255,0.35)" }}>{campaign.complianceNotes}</p>
+                    <p className="text-[11px] mt-2 ml-7" style={{ color: "#7A6E63" }}>{campaign.complianceNotes}</p>
                   )}
                 </div>
               </div>
@@ -1485,8 +1510,8 @@ function CampaignBuilderSection() {
 
             {currentStep === "review" && (
               <div className="space-y-3">
-                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>Résumé de la campagne</h3>
-                <div className="space-y-2 p-4 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.02)" }}>
+                <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Résumé de la campagne</h3>
+                <div className="space-y-2 p-4 rounded-sm" style={{ backgroundColor: "#F5F2EB" }}>
                   {[
                     { label: "Type", value: CAMPAIGN_TYPE_LABELS[campaign.type] },
                     { label: "Audience", value: `${campaign.audience.segmentName} (${campaign.audience.fanCount} fans)` },
@@ -1494,9 +1519,9 @@ function CampaignBuilderSection() {
                     { label: "Prix", value: `${formatEuro(campaign.pricing.basePrice)} (-${campaign.pricing.discountPercent}%)` },
                     { label: "Conformité", value: campaign.complianceStatus },
                   ].map((item) => (
-                    <div key={item.label} className="flex items-center justify-between text-[11px] py-1.5 border-b" style={{ borderColor: "rgba(255,255,255,0.04)" }}>
-                      <span style={{ color: "rgba(255,255,255,0.35)" }}>{item.label}</span>
-                      <span style={{ color: "var(--text-primary)" }}>{item.value}</span>
+                    <div key={item.label} className="flex items-center justify-between text-[11px] py-1.5 border-b" style={{ borderColor: "#F0EBE3" }}>
+                      <span style={{ color: "#7A6E63" }}>{item.label}</span>
+                      <span style={{ color: "#17120C" }}>{item.value}</span>
                     </div>
                   ))}
                 </div>
@@ -1505,10 +1530,10 @@ function CampaignBuilderSection() {
 
             {currentStep === "launch" && (
               <div className="text-center py-8">
-                <Send size={28} style={{ color: "var(--accent)" }} />
-                <h3 className="text-sm font-semibold mt-3" style={{ color: "var(--text-primary)" }}>Prêt à lancer</h3>
-                <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Tout est vérifié. La campagne sera envoyée à {campaign.audience.fanCount} fans.</p>
-                <button className="mt-4 px-4 py-2 rounded-sm text-[11px] font-medium" style={{ backgroundColor: "var(--accent)", color: "var(--bg-primary)" }}>
+                <Send size={28} style={{ color: "#C9973F" }} />
+                <h3 className="text-sm font-semibold mt-3" style={{ color: "#17120C" }}>Prêt à lancer</h3>
+                <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Tout est vérifié. La campagne sera envoyée à {campaign.audience.fanCount} fans.</p>
+                <button className="mt-4 px-4 py-2 rounded-sm text-[11px] font-medium" style={{ backgroundColor: "#C9973F", color: "#FFFFFF" }}>
                   Lancer la campagne
                 </button>
               </div>
@@ -1521,7 +1546,7 @@ function CampaignBuilderSection() {
               onClick={() => { const prev = CAMPAIGN_STEP_ORDER[stepIndex - 1]; if (prev) setCurrentStep(prev); }}
               disabled={stepIndex === 0}
               className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm transition-opacity disabled:opacity-20"
-              style={{ color: "rgba(255,255,255,0.40)" }}
+              style={{ color: "#6E6257" }}
             >
               <ArrowLeft size={12} /> Précédent
             </button>
@@ -1529,7 +1554,7 @@ function CampaignBuilderSection() {
               onClick={() => { const next = CAMPAIGN_STEP_ORDER[stepIndex + 1]; if (next) setCurrentStep(next); }}
               disabled={stepIndex === CAMPAIGN_STEP_ORDER.length - 1}
               className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm transition-opacity disabled:opacity-20"
-              style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}
+              style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}
             >
               Suivant <ArrowRight size={12} />
             </button>
@@ -1551,9 +1576,9 @@ function FanJourneySection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Fan Journey</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Fan Journey</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["fan_journey"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Visualise le parcours fan de la découverte à l&apos;ambassadeur</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Visualise le parcours fan de la découverte à l&apos;ambassadeur</p>
       </div>
 
       <div className="space-y-3">
@@ -1562,38 +1587,38 @@ function FanJourneySection() {
           const barWidth = (stage.fanCount / maxFans) * 100;
           return (
             <div key={stage.id}>
-              <div className="flex items-center gap-4 p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-                <div className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(216,169,91,0.1)", color: "var(--accent)" }}>
+              <div className="flex items-center gap-4 p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+                <div className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(216,169,91,0.1)", color: "#C9973F" }}>
                   <Icon size={18} />
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{stage.name}</h3>
+                    <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{stage.name}</h3>
                     <div className="flex items-center gap-3 text-[10px]">
-                      <span className="font-mono font-semibold" style={{ color: "var(--accent)" }}>{stage.fanCount.toLocaleString()} fans</span>
-                      <span style={{ color: "rgba(255,255,255,0.40)" }}>{stage.avgDaysInStage}j en moyenne</span>
-                      <span style={{ color: "var(--success)" }}>{formatEuro(stage.avgRevenueInStage)}/fan</span>
+                      <span className="font-mono font-semibold" style={{ color: "#C9973F" }}>{stage.fanCount.toLocaleString()} fans</span>
+                      <span style={{ color: "#6E6257" }}>{stage.avgDaysInStage}j en moyenne</span>
+                      <span style={{ color: "#2F7D4E" }}>{formatEuro(stage.avgRevenueInStage)}/fan</span>
                     </div>
                   </div>
-                  <p className="text-[10px] mb-2" style={{ color: "rgba(255,255,255,0.40)" }}>{stage.description}</p>
+                  <p className="text-[10px] mb-2" style={{ color: "#6E6257" }}>{stage.description}</p>
                   {/* Bar */}
-                  <div className="h-1.5 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.05)", width: "100%" }}>
+                  <div className="h-1.5 rounded-full" style={{ backgroundColor: "#EDE7DF", width: "100%" }}>
                     <div
                       className="h-full rounded-full transition-all"
-                      style={{ width: `${barWidth}%`, backgroundColor: "var(--accent)", opacity: 0.6 + (i * 0.08) }}
+                      style={{ width: `${barWidth}%`, backgroundColor: "#C9973F", opacity: 0.6 + (i * 0.08) }}
                     />
                   </div>
                 </div>
                 {i < stages.length - 1 && stage.conversionToNext > 0 && (
                   <div className="text-center shrink-0 px-4">
-                    <p className="text-lg font-mono font-semibold" style={{ color: "var(--accent)" }}>{stage.conversionToNext}%</p>
-                    <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>→ {stages[i + 1].name}</p>
+                    <p className="text-lg font-mono font-semibold" style={{ color: "#C9973F" }}>{stage.conversionToNext}%</p>
+                    <p className="text-[9px]" style={{ color: "#9A8D7C" }}>→ {stages[i + 1].name}</p>
                   </div>
                 )}
               </div>
               {i < stages.length - 1 && (
                 <div className="flex justify-center py-1">
-                  <ArrowRight size={14} style={{ color: "rgba(255,255,255,0.1)", transform: "rotate(90deg)" }} />
+                  <ArrowRight size={14} style={{ color: "#D5CDC3", transform: "rotate(90deg)" }} />
                 </div>
               )}
             </div>
@@ -1623,15 +1648,15 @@ function OpportunityQueueSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Opportunity Queue</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Opportunity Queue</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["opportunity_queue"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>File d&apos;opportunités de vente priorisées par l&apos;IA</p>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>File d&apos;opportunités de vente priorisées par l&apos;IA</p>
         </div>
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
           className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: typeFilter ? "var(--text-primary)" : "rgba(255,255,255,0.40)", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ backgroundColor: "#F0EBE3", color: typeFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}
         >
           <option value="">Tous les types</option>
           {Object.entries(OPPORTUNITY_TYPE_LABELS).map(([key, label]) => (
@@ -1644,34 +1669,34 @@ function OpportunityQueueSection() {
         {stages.map((stage) => {
           const items = opsByStage(stage);
           return (
-            <div key={stage} className="rounded-sm border" style={{ borderColor: "var(--border-default)", backgroundColor: "rgba(255,255,255,0.01)" }}>
-              <div className="px-3 py-2.5 border-b flex items-center justify-between" style={{ borderColor: "var(--border-default)" }}>
-                <span className="text-[10px] font-medium" style={{ color: "rgba(255,255,255,0.40)" }}>{OPPORTUNITY_STAGE_LABELS[stage]}</span>
+            <div key={stage} className="rounded-sm border" style={{ borderColor: "#E5D7C3", backgroundColor: "#F8F5F0" }}>
+              <div className="px-3 py-2.5 border-b flex items-center justify-between" style={{ borderColor: "#E5D7C3" }}>
+                <span className="text-[10px] font-medium" style={{ color: "#6E6257" }}>{OPPORTUNITY_STAGE_LABELS[stage]}</span>
                 <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${OPPORTUNITY_STAGE_COLORS[stage]}20`, color: OPPORTUNITY_STAGE_COLORS[stage] }}>
                   {items.length}
                 </span>
               </div>
               <div className="p-2 space-y-2 max-h-[400px] overflow-y-auto">
                 {items.map((op) => (
-                  <div key={op.id} className="p-3 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+                  <div key={op.id} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
                     <div className="flex items-center justify-between mb-1.5">
-                      <span className="text-[11px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{op.fanName}</span>
+                      <span className="text-[11px] font-medium truncate" style={{ color: "#17120C" }}>{op.fanName}</span>
                       <span className="text-[9px] px-1.5 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: `${OPPORTUNITY_TYPE_COLORS[op.type]}20`, color: OPPORTUNITY_TYPE_COLORS[op.type] }}>
                         {OPPORTUNITY_TYPE_LABELS[op.type]}
                       </span>
                     </div>
-                    <p className="text-[10px] leading-relaxed line-clamp-2 mb-2" style={{ color: "rgba(255,255,255,0.35)" }}>{op.aiSuggestion}</p>
-                    <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: "var(--border-default)" }}>
-                      <span className="text-[10px] font-mono font-semibold" style={{ color: "var(--accent)" }}>{formatEuro(op.potentialRevenue)}</span>
+                    <p className="text-[10px] leading-relaxed line-clamp-2 mb-2" style={{ color: "#7A6E63" }}>{op.aiSuggestion}</p>
+                    <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
+                      <span className="text-[10px] font-mono font-semibold" style={{ color: "#C9973F" }}>{formatEuro(op.potentialRevenue)}</span>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>{op.confidence}%</span>
-                        <span className="w-8 h-1 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.08)" }}>
-                          <div className="h-full rounded-full" style={{ width: `${op.confidence}%`, backgroundColor: op.confidence > 75 ? "var(--success)" : op.confidence > 50 ? "var(--accent)" : "var(--warning)" }} />
+                        <span className="text-[9px]" style={{ color: "#9A8D7C" }}>{op.confidence}%</span>
+                        <span className="w-8 h-1 rounded-full" style={{ backgroundColor: "#E0D8CF" }}>
+                          <div className="h-full rounded-full" style={{ width: `${op.confidence}%`, backgroundColor: op.confidence > 75 ? "#2F7D4E" : op.confidence > 50 ? "#C9973F" : "#B7791F" }} />
                         </span>
                       </div>
                     </div>
                     {op.deadline && (
-                      <div className="flex items-center gap-1 mt-1.5 text-[9px]" style={{ color: "var(--warning)" }}>
+                      <div className="flex items-center gap-1 mt-1.5 text-[9px]" style={{ color: "#B7791F" }}>
                         <Clock size={9} /> Échéance {formatRelative(op.deadline)}
                       </div>
                     )}
@@ -1694,7 +1719,7 @@ function TeamControlRoomSection() {
   const [employeeStats] = useState<EmployeeStats[]>(mockEmployeeStats);
 
   const statusDot = (status: TeamMember["status"]) => {
-    const color = status === "online" ? "var(--success)" : status === "away" ? "#F59E0B" : "var(--text-tertiary)";
+    const color = status === "online" ? "#2F7D4E" : status === "away" ? "#B45309" : "#9A8D7C";
     return <span className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />;
   };
 
@@ -1705,60 +1730,60 @@ function TeamControlRoomSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Team Control Room</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Team Control Room</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["team_control"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Vue d&apos;ensemble de l&apos;activité de l&apos;équipe</p>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Vue d&apos;ensemble de l&apos;activité de l&apos;équipe</p>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span style={{ color: "rgba(255,255,255,0.35)" }}>{totalActive} conversations actives</span>
-          <span className="font-mono font-semibold" style={{ color: "var(--success)" }}>{formatEuro(totalRevenue)} généré</span>
+          <span style={{ color: "#7A6E63" }}>{totalActive} conversations actives</span>
+          <span className="font-mono font-semibold" style={{ color: "#2F7D4E" }}>{formatEuro(totalRevenue)} généré</span>
         </div>
       </div>
 
       {/* Team member cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
         {members.map((member) => (
-          <div key={member.id} className="p-4 rounded-sm border text-center" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+          <div key={member.id} className="p-4 rounded-sm border text-center" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
             <div className="flex justify-center mb-2">
-              <div className="w-12 h-12 rounded-sm flex items-center justify-center text-sm font-semibold relative" style={{ backgroundColor: "rgba(255,255,255,0.06)", color: "rgba(255,255,255,0.4)", border: "1px solid rgba(255,255,255,0.06)" }}>
+              <div className="w-12 h-12 rounded-sm flex items-center justify-center text-sm font-semibold relative" style={{ backgroundColor: "#E8E2DA", color: "#6E6257", border: "1px solid #E8E2DA" }}>
                 {member.name.charAt(0)}
                 <span className="absolute -bottom-0.5 -right-0.5">{statusDot(member.status)}</span>
               </div>
             </div>
-            <p className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{member.name}</p>
-            <p className="text-[9px] mt-0.5 capitalize" style={{ color: "rgba(255,255,255,0.35)" }}>{member.role}</p>
-            <div className="grid grid-cols-2 gap-1 mt-3 pt-3 border-t" style={{ borderColor: "var(--border-default)" }}>
+            <p className="text-[11px] font-medium" style={{ color: "#17120C" }}>{member.name}</p>
+            <p className="text-[9px] mt-0.5 capitalize" style={{ color: "#7A6E63" }}>{member.role}</p>
+            <div className="grid grid-cols-2 gap-1 mt-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
               <div>
-                <p className="text-[8px]" style={{ color: "rgba(255,255,255,0.22)" }}>Actives</p>
-                <p className="text-[11px] font-mono font-semibold mt-0.5" style={{ color: "var(--text-primary)" }}>{member.conversationsActive}</p>
+                <p className="text-[8px]" style={{ color: "#AEA294" }}>Actives</p>
+                <p className="text-[11px] font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{member.conversationsActive}</p>
               </div>
               <div>
-                <p className="text-[8px]" style={{ color: "rgba(255,255,255,0.22)" }}>Drafts</p>
-                <p className="text-[11px] font-mono font-semibold mt-0.5" style={{ color: "var(--accent)" }}>{member.draftsReady}</p>
+                <p className="text-[8px]" style={{ color: "#AEA294" }}>Drafts</p>
+                <p className="text-[11px] font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{member.draftsReady}</p>
               </div>
             </div>
-            <p className="text-[10px] font-mono font-semibold mt-2" style={{ color: "var(--success)" }}>{formatEuro(member.revenueGenerated)}</p>
+            <p className="text-[10px] font-mono font-semibold mt-2" style={{ color: "#2F7D4E" }}>{formatEuro(member.revenueGenerated)}</p>
           </div>
         ))}
       </div>
 
       {/* Activity feed */}
       <div>
-        <h3 className="text-[11px] font-medium mb-3" style={{ color: "rgba(255,255,255,0.28)" }}>Activité récente</h3>
+        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#9A8D7C" }}>Activité récente</h3>
         <div className="space-y-1.5">
           {activities.slice(0, 10).map((activity) => {
             const member = members.find((m) => m.id === activity.memberId);
             return (
-              <div key={activity.id} className="flex items-center gap-3 px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.02)" }}>
-                <span className="text-[10px] font-medium w-[80px] shrink-0 truncate" style={{ color: "rgba(255,255,255,0.4)" }}>
+              <div key={activity.id} className="flex items-center gap-3 px-3 py-2 rounded-sm" style={{ backgroundColor: "#F5F2EB" }}>
+                <span className="text-[10px] font-medium w-[80px] shrink-0 truncate" style={{ color: "#6E6257" }}>
                   {member?.name || "—"}
                 </span>
-                <span className="text-[10px] w-[140px] shrink-0 truncate" style={{ color: "rgba(255,255,255,0.40)" }}>{activity.action}</span>
-                <span className="text-[10px] flex-1 truncate" style={{ color: "rgba(255,255,255,0.28)" }}>{activity.detail}</span>
+                <span className="text-[10px] w-[140px] shrink-0 truncate" style={{ color: "#6E6257" }}>{activity.action}</span>
+                <span className="text-[10px] flex-1 truncate" style={{ color: "#9A8D7C" }}>{activity.detail}</span>
                 {activity.revenue !== null && (
-                  <span className="text-[10px] font-mono shrink-0" style={{ color: "var(--success)" }}>+{formatEuro(activity.revenue)}</span>
+                  <span className="text-[10px] font-mono shrink-0" style={{ color: "#2F7D4E" }}>+{formatEuro(activity.revenue)}</span>
                 )}
-                <span className="text-[9px] shrink-0" style={{ color: "rgba(255,255,255,0.22)" }}>{formatRelative(activity.timestamp)}</span>
+                <span className="text-[9px] shrink-0" style={{ color: "#AEA294" }}>{formatRelative(activity.timestamp)}</span>
               </div>
             );
           })}
@@ -1767,55 +1792,55 @@ function TeamControlRoomSection() {
 
       {/* Employee Statistics / Golden Ratio */}
       <div>
-        <h3 className="text-[11px] font-medium mb-3 flex items-center gap-2" style={{ color: "rgba(255,255,255,0.28)" }}>
-          <Star size={11} style={{ color: "var(--accent)" }} /> Employee Statistics — Golden Ratio
+        <h3 className="text-[11px] font-medium mb-3 flex items-center gap-2" style={{ color: "#9A8D7C" }}>
+          <Star size={11} style={{ color: "#C9973F" }} /> Employee Statistics — Golden Ratio
         </h3>
-        <div className="rounded-sm border overflow-hidden overflow-x-auto" style={{ borderColor: "var(--border-default)" }}>
+        <div className="rounded-sm border overflow-hidden overflow-x-auto" style={{ borderColor: "#E5D7C3" }}>
           <table className="w-full min-w-[800px]">
             <thead>
-              <tr style={{ borderBottom: "1px solid var(--border-default)" }}>
-                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Employé</th>
-                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Rôle</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>CA généré</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Convs.</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Approuvés</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Taux appro.</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Tps réponse</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>CA/conv</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Golden Ratio</th>
+              <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
+                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Employé</th>
+                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Rôle</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>CA généré</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Convs.</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Approuvés</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Taux appro.</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Tps réponse</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>CA/conv</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Golden Ratio</th>
               </tr>
             </thead>
             <tbody>
               {employeeStats.map((emp) => (
-                <tr key={emp.memberId} className="transition-colors hover:bg-white/[0.02]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+                <tr key={emp.memberId} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3" }}>
                   <td className="px-3 py-2.5">
-                    <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{emp.name}</span>
+                    <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{emp.name}</span>
                   </td>
                   <td className="px-3 py-2.5">
-                    <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.40)" }}>{emp.role}</span>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F3EEE8", color: "#6E6257" }}>{emp.role}</span>
                   </td>
                   <td className="px-3 py-2.5 text-right">
-                    <span className="text-[11px] font-mono" style={{ color: emp.revenueGenerated > 0 ? "var(--success)" : "rgba(255,255,255,0.28)" }}>
+                    <span className="text-[11px] font-mono" style={{ color: emp.revenueGenerated > 0 ? "#2F7D4E" : "#9A8D7C" }}>
                       {emp.revenueGenerated > 0 ? formatEuro(emp.revenueGenerated) : "—"}
                     </span>
                   </td>
-                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "var(--text-primary)" }}>{emp.conversationsHandled}</td>
-                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "rgba(255,255,255,0.4)" }}>{emp.draftsApproved}/{emp.draftsApproved + emp.draftsRejected}</td>
-                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: emp.approvalRate > 80 ? "var(--success)" : emp.approvalRate > 65 ? "var(--accent)" : "var(--warning)" }}>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#17120C" }}>{emp.conversationsHandled}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#6E6257" }}>{emp.draftsApproved}/{emp.draftsApproved + emp.draftsRejected}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: emp.approvalRate > 80 ? "#2F7D4E" : emp.approvalRate > 65 ? "#C9973F" : "#B7791F" }}>
                     {emp.approvalRate.toFixed(1)}%
                   </td>
-                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "rgba(255,255,255,0.40)" }}>{emp.avgResponseTime}</td>
-                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "var(--accent)" }}>{emp.revenuePerConversation > 0 ? formatEuro(emp.revenuePerConversation) : "—"}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#6E6257" }}>{emp.avgResponseTime}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#C9973F" }}>{emp.revenuePerConversation > 0 ? formatEuro(emp.revenuePerConversation) : "—"}</td>
                   <td className="px-3 py-2.5 text-right">
                     <div className="flex items-center justify-end gap-2">
                       <span className="text-[12px] font-mono font-semibold"
-                        style={{ color: emp.goldenRatio >= 80 ? "var(--success)" : emp.goldenRatio >= 60 ? "var(--accent)" : "var(--warning)" }}>
+                        style={{ color: emp.goldenRatio >= 80 ? "#2F7D4E" : emp.goldenRatio >= 60 ? "#C9973F" : "#B7791F" }}>
                         {emp.goldenRatio}
                       </span>
-                      <div className="w-10 h-1.5 rounded-full" style={{ backgroundColor: "rgba(255,255,255,0.06)" }}>
+                      <div className="w-10 h-1.5 rounded-full" style={{ backgroundColor: "#E8E2DA" }}>
                         <div className="h-full rounded-full" style={{
                           width: `${Math.min(100, emp.goldenRatio)}%`,
-                          backgroundColor: emp.goldenRatio >= 80 ? "var(--success)" : emp.goldenRatio >= 60 ? "var(--accent)" : "var(--warning)",
+                          backgroundColor: emp.goldenRatio >= 80 ? "#2F7D4E" : emp.goldenRatio >= 60 ? "#C9973F" : "#B7791F",
                         }} />
                       </div>
                     </div>
@@ -1825,7 +1850,7 @@ function TeamControlRoomSection() {
             </tbody>
           </table>
         </div>
-        <p className="text-[9px] mt-2" style={{ color: "rgba(255,255,255,0.18)" }}>
+        <p className="text-[9px] mt-2" style={{ color: "#BFB5A7" }}>
           Golden Ratio = (Taux d&apos;approbation × CA/conversation) / Temps de réponse. Score &gt; 80 = Excellent, 60-80 = Bon, &lt; 60 = À améliorer.
         </p>
       </div>
@@ -1854,15 +1879,15 @@ function ComplianceReviewSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Compliance Review Queue</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Compliance Review Queue</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["compliance_review"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Contenus et messages nécessitant une révision humaine</p>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Contenus et messages nécessitant une révision humaine</p>
         </div>
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
           className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: categoryFilter ? "var(--text-primary)" : "rgba(255,255,255,0.40)", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ backgroundColor: "#F0EBE3", color: categoryFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}
         >
           <option value="">Toutes les catégories</option>
           {Object.entries(RISK_CATEGORY_LABELS).map(([key, label]) => (
@@ -1874,9 +1899,9 @@ function ComplianceReviewSection() {
       <div className="space-y-2">
         {filtered.map((item) => {
           const isExpanded = expandedId === item.id;
-          const riskColor = item.riskScore > 70 ? "var(--danger)" : item.riskScore > 40 ? "var(--warning)" : "var(--success)";
+          const riskColor = item.riskScore > 70 ? "#C54A3A" : item.riskScore > 40 ? "#B7791F" : "#2F7D4E";
           return (
-            <div key={item.id} className="rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: isExpanded ? "rgba(216,169,91,0.15)" : "var(--border-default)" }}>
+            <div key={item.id} className="rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: isExpanded ? "rgba(216,169,91,0.15)" : "#E5D7C3" }}>
               <button
                 onClick={() => setExpandedId(isExpanded ? null : item.id)}
                 className="w-full text-left px-4 py-3 flex items-center gap-4"
@@ -1885,45 +1910,45 @@ function ComplianceReviewSection() {
                   <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-sm" style={{ backgroundColor: `${riskColor}15`, color: riskColor }}>
                     {item.riskScore}/100
                   </span>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.40)" }}>
+                  <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
                     {RISK_CATEGORY_LABELS[item.riskCategory]}
                   </span>
                 </div>
-                <span className="flex-1 text-[11px] truncate" style={{ color: "var(--text-primary)" }}>{item.content}</span>
+                <span className="flex-1 text-[11px] truncate" style={{ color: "#17120C" }}>{item.content}</span>
                 <span className="text-[9px] px-1.5 py-0.5 rounded-sm shrink-0"
                   style={{
                     backgroundColor: item.status === "pending" ? "rgba(216,169,91,0.1)" :
-                      item.status === "approved" ? "rgba(143,181,138,0.1)" :
-                      item.status === "escalated" ? "rgba(201,106,74,0.1)" : "rgba(255,255,255,0.03)",
-                    color: item.status === "pending" ? "var(--accent)" :
-                      item.status === "approved" ? "var(--success)" :
-                      item.status === "escalated" ? "var(--warning)" : "rgba(255,255,255,0.40)",
+                      item.status === "approved" ? "rgba(47,125,78,0.1)" :
+                      item.status === "escalated" ? "rgba(183,121,31,0.1)" : "#F3EEE8",
+                    color: item.status === "pending" ? "#C9973F" :
+                      item.status === "approved" ? "#2F7D4E" :
+                      item.status === "escalated" ? "#B7791F" : "#6E6257",
                   }}>
                   {item.status === "pending" ? "En attente" : item.status === "approved" ? "Approuvé" : item.status === "escalated" ? "Escaladé" : "Rejeté"}
                 </span>
-                <ChevronRight size={12} style={{ color: "rgba(255,255,255,0.28)", transform: isExpanded ? "rotate(90deg)" : undefined }} />
+                <ChevronRight size={12} style={{ color: "#9A8D7C", transform: isExpanded ? "rotate(90deg)" : undefined }} />
               </button>
 
               {isExpanded && (
-                <div className="px-4 pb-4 border-t pt-3" style={{ borderColor: "var(--border-default)" }}>
+                <div className="px-4 pb-4 border-t pt-3" style={{ borderColor: "#E5D7C3" }}>
                   <div className="grid grid-cols-2 gap-3 mb-3 text-[10px]">
                     <div>
-                      <span style={{ color: "rgba(255,255,255,0.28)" }}>Détecté par: </span>
-                      <span style={{ color: "rgba(255,255,255,0.4)" }}>{item.flaggedBy === "ai" ? "IA" : item.flaggedBy === "human" ? "Humain" : "Plateforme"}</span>
+                      <span style={{ color: "#9A8D7C" }}>Détecté par: </span>
+                      <span style={{ color: "#6E6257" }}>{item.flaggedBy === "ai" ? "IA" : item.flaggedBy === "human" ? "Humain" : "Plateforme"}</span>
                     </div>
                     <div>
-                      <span style={{ color: "rgba(255,255,255,0.28)" }}>Créé: </span>
-                      <span style={{ color: "rgba(255,255,255,0.4)" }}>{formatRelative(item.createdAt)}</span>
+                      <span style={{ color: "#9A8D7C" }}>Créé: </span>
+                      <span style={{ color: "#6E6257" }}>{formatRelative(item.createdAt)}</span>
                     </div>
                     {item.reviewer && (
                       <div>
-                        <span style={{ color: "rgba(255,255,255,0.28)" }}>Réviseur: </span>
-                        <span style={{ color: "rgba(255,255,255,0.4)" }}>{item.reviewer}</span>
+                        <span style={{ color: "#9A8D7C" }}>Réviseur: </span>
+                        <span style={{ color: "#6E6257" }}>{item.reviewer}</span>
                       </div>
                     )}
                   </div>
                   {item.notes && (
-                    <p className="text-[10px] mb-3 p-2 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.02)", color: "rgba(255,255,255,0.40)" }}>
+                    <p className="text-[10px] mb-3 p-2 rounded-sm" style={{ backgroundColor: "#F5F2EB", color: "#6E6257" }}>
                       Notes: {item.notes}
                     </p>
                   )}
@@ -1933,21 +1958,21 @@ function ComplianceReviewSection() {
                         <button
                           onClick={() => handleAction(item.id, "approved")}
                           className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm"
-                          style={{ backgroundColor: "rgba(143,181,138,0.1)", color: "var(--success)" }}
+                          style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}
                         >
                           <CheckCircle size={12} /> Approuver (conforme)
                         </button>
                         <button
                           onClick={() => handleAction(item.id, "rejected")}
                           className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm"
-                          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.4)" }}
+                          style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}
                         >
                           <X size={12} /> Rejeter (non conforme)
                         </button>
                         <button
                           onClick={() => handleAction(item.id, "escalated")}
                           className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm"
-                          style={{ backgroundColor: "rgba(201,106,74,0.1)", color: "var(--warning)" }}
+                          style={{ backgroundColor: "rgba(183,121,31,0.1)", color: "#B7791F" }}
                         >
                           <AlertTriangle size={12} /> Escalader au manager
                         </button>
@@ -1973,23 +1998,23 @@ function WhyAtlasSaferSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Why Atlas is Safer</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Why Atlas is Safer</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["why_atlas_safer"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Pourquoi les créatrices choisissent Atlas pour gérer leurs ventes en toute sécurité</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Pourquoi les créatrices choisissent Atlas pour gérer leurs ventes en toute sécurité</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         {reasons.map((reason) => {
           const Icon = iconMap[reason.icon] || ShieldCheck;
           return (
-            <div key={reason.id} className="p-5 rounded-sm border flex gap-4" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-              <div className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(216,169,91,0.1)", color: "var(--accent)" }}>
+            <div key={reason.id} className="p-5 rounded-sm border flex gap-4" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+              <div className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(216,169,91,0.1)", color: "#C9973F" }}>
                 <Icon size={18} />
               </div>
               <div>
-                <h3 className="text-[12px] font-medium mb-1" style={{ color: "var(--text-primary)" }}>{reason.title}</h3>
-                <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{reason.description}</p>
-                <p className="text-[11px] font-semibold mt-2 flex items-center gap-1" style={{ color: "var(--accent)" }}>
+                <h3 className="text-[12px] font-medium mb-1" style={{ color: "#17120C" }}>{reason.title}</h3>
+                <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{reason.description}</p>
+                <p className="text-[11px] font-semibold mt-2 flex items-center gap-1" style={{ color: "#C9973F" }}>
                   <CheckCircle size={10} /> {reason.highlight}
                 </p>
               </div>
@@ -2000,8 +2025,8 @@ function WhyAtlasSaferSection() {
 
       {/* Bottom CTA */}
       <div className="p-4 rounded-sm border text-center" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
-        <p className="text-[12px] font-medium mb-1" style={{ color: "var(--text-primary)" }}>IA propose → Humain vérifie → Humain valide → Envoi humain</p>
-        <p className="text-[10px]" style={{ color: "rgba(255,255,255,0.40)" }}>Aucun envoi automatique. 100% des messages sont validés par un humain.</p>
+        <p className="text-[12px] font-medium mb-1" style={{ color: "#17120C" }}>IA propose → Humain vérifie → Humain valide → Envoi humain</p>
+        <p className="text-[10px]" style={{ color: "#6E6257" }}>Aucun envoi automatique. 100% des messages sont validés par un humain.</p>
       </div>
     </div>
   );
@@ -2025,44 +2050,44 @@ function SafetyGuardSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Safety Guard</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Safety Guard</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["safety_guard"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Barrières de sécurité configurables pour protéger la créatrice</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Barrières de sécurité configurables pour protéger la créatrice</p>
       </div>
 
       {categories.map((category) => {
         const categorySettings = settings.filter((s) => s.category === category);
         return (
           <div key={category} className="space-y-2">
-            <h3 className="text-[10px] font-medium tracking-wider uppercase" style={{ color: "rgba(255,255,255,0.18)" }}>
+            <h3 className="text-[10px] font-medium tracking-wider uppercase" style={{ color: "#BFB5A7" }}>
               {GUARD_CATEGORY_LABELS[category] || category}
             </h3>
             {categorySettings.map((setting) => (
-              <div key={setting.id} className="flex items-center gap-4 px-4 py-3 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+              <div key={setting.id} className="flex items-center gap-4 px-4 py-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{setting.name}</span>
+                    <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{setting.name}</span>
                     <span className="text-[8px] px-1.5 py-0.5 rounded-sm font-medium"
                       style={{
-                        backgroundColor: setting.severity === "critical" ? "rgba(232,99,74,0.12)" :
-                          setting.severity === "high" ? "rgba(201,106,74,0.1)" :
-                          setting.severity === "medium" ? "rgba(245,158,11,0.1)" : "rgba(255,255,255,0.03)",
-                        color: setting.severity === "critical" ? "var(--danger)" :
-                          setting.severity === "high" ? "var(--warning)" :
-                          setting.severity === "medium" ? "#F59E0B" : "rgba(255,255,255,0.40)",
+                        backgroundColor: setting.severity === "critical" ? "rgba(197,74,58,0.12)" :
+                          setting.severity === "high" ? "rgba(183,121,31,0.1)" :
+                          setting.severity === "medium" ? "rgba(245,158,11,0.1)" : "#F3EEE8",
+                        color: setting.severity === "critical" ? "#C54A3A" :
+                          setting.severity === "high" ? "#B7791F" :
+                          setting.severity === "medium" ? "#B45309" : "#6E6257",
                       }}>
                       {setting.severity}
                     </span>
                     {setting.adminOnly && (
-                      <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.28)" }}>Admin only</span>
+                      <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#9A8D7C" }}>Admin only</span>
                     )}
                   </div>
-                  <p className="text-[10px] mt-0.5" style={{ color: "rgba(255,255,255,0.40)" }}>{setting.description}</p>
+                  <p className="text-[10px] mt-0.5" style={{ color: "#6E6257" }}>{setting.description}</p>
                 </div>
                 <button
                   onClick={() => toggleSetting(setting.id)}
                   className={`w-9 h-5 rounded-full transition-colors relative shrink-0 ${setting.adminOnly ? "cursor-not-allowed" : ""}`}
-                  style={{ backgroundColor: setting.enabled ? "var(--accent)" : "rgba(255,255,255,0.1)", opacity: setting.adminOnly ? 0.6 : 1 }}
+                  style={{ backgroundColor: setting.enabled ? "#C9973F" : "#D5CDC3", opacity: setting.adminOnly ? 0.6 : 1 }}
                 >
                   <div
                     className="w-3.5 h-3.5 rounded-full absolute top-[3px] transition-all"
@@ -2097,14 +2122,14 @@ function AiCoreSettingsSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>AI Core Settings</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>AI Core Settings</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["ai_core_settings"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Configure le niveau d&apos;assistance IA pour les conversations</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Configure le niveau d&apos;assistance IA pour les conversations</p>
       </div>
 
       {/* Mode selector */}
       <div className="space-y-2">
-        <h3 className="text-[10px] font-medium tracking-wider uppercase" style={{ color: "rgba(255,255,255,0.18)" }}>Mode opératoire</h3>
+        <h3 className="text-[10px] font-medium tracking-wider uppercase" style={{ color: "#BFB5A7" }}>Mode opératoire</h3>
         <div className="grid grid-cols-2 gap-2">
           {modes.map((mode) => (
             <button
@@ -2112,20 +2137,20 @@ function AiCoreSettingsSection() {
               onClick={() => updateMode(mode)}
               className="text-left p-4 rounded-sm border transition-all"
               style={{
-                backgroundColor: settings.mode === mode ? `${AI_CORE_MODE_COLORS[mode]}10` : "var(--bg-card)",
-                borderColor: settings.mode === mode ? AI_CORE_MODE_COLORS[mode] : "var(--border-default)",
+                backgroundColor: settings.mode === mode ? `${AI_CORE_MODE_COLORS[mode]}10` : "#FFFFFF",
+                borderColor: settings.mode === mode ? AI_CORE_MODE_COLORS[mode] : "#E5D7C3",
               }}
             >
               <div className="flex items-center gap-2 mb-1.5">
                 <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: AI_CORE_MODE_COLORS[mode] }} />
-                <span className="text-[11px] font-medium capitalize" style={{ color: "var(--text-primary)" }}>
+                <span className="text-[11px] font-medium capitalize" style={{ color: "#17120C" }}>
                   {mode.replace(/_/g, " ")}
                 </span>
                 {settings.mode === mode && (
                   <CheckCircle size={12} style={{ color: AI_CORE_MODE_COLORS[mode], marginLeft: "auto" }} />
                 )}
               </div>
-              <p className="text-[10px] leading-relaxed" style={{ color: "rgba(255,255,255,0.40)" }}>
+              <p className="text-[10px] leading-relaxed" style={{ color: "#6E6257" }}>
                 {AI_CORE_MODE_LABELS[mode]}
               </p>
             </button>
@@ -2134,8 +2159,8 @@ function AiCoreSettingsSection() {
       </div>
 
       {/* Configuration options */}
-      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-        <h3 className="text-[10px] font-medium tracking-wider uppercase mb-3" style={{ color: "rgba(255,255,255,0.18)" }}>Paramètres IA</h3>
+      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+        <h3 className="text-[10px] font-medium tracking-wider uppercase mb-3" style={{ color: "#BFB5A7" }}>Paramètres IA</h3>
         {([
           { key: "autoGenerateOnNewMessage" as const, label: "Auto-génération sur nouveau message", desc: "L'IA génère des brouillons dès qu'un nouveau message arrive" },
           { key: "requireHumanApproval" as const, label: "Approbation humaine obligatoire", desc: "Chaque brouillon IA doit être validé avant envoi" },
@@ -2143,13 +2168,13 @@ function AiCoreSettingsSection() {
         ]).map((opt) => (
           <div key={opt.key} className="flex items-center justify-between py-1.5">
             <div className="flex-1 min-w-0 mr-4">
-              <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{opt.label}</span>
-              <p className="text-[9px] mt-0.5" style={{ color: "rgba(255,255,255,0.28)" }}>{opt.desc}</p>
+              <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{opt.label}</span>
+              <p className="text-[9px] mt-0.5" style={{ color: "#9A8D7C" }}>{opt.desc}</p>
             </div>
             <button
               onClick={() => toggle(opt.key)}
               className="w-9 h-5 rounded-full transition-colors relative shrink-0"
-              style={{ backgroundColor: settings[opt.key] ? "var(--accent)" : "rgba(255,255,255,0.1)" }}
+              style={{ backgroundColor: settings[opt.key] ? "#C9973F" : "#D5CDC3" }}
             >
               <div className="w-3.5 h-3.5 rounded-full absolute top-[3px] transition-all bg-white"
                 style={{ left: settings[opt.key] ? "18px" : "3px" }} />
@@ -2159,21 +2184,21 @@ function AiCoreSettingsSection() {
       </div>
 
       {/* Advanced */}
-      <div className="p-4 rounded-sm border space-y-2" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+      <div className="p-4 rounded-sm border space-y-2" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
         <div className="flex items-center justify-between">
-          <span className="text-[11px]" style={{ color: "var(--text-primary)" }}>Temperature du modèle</span>
-          <span className="text-[11px] font-mono" style={{ color: "var(--accent)" }}>{settings.modelTemperature.toFixed(1)}</span>
+          <span className="text-[11px]" style={{ color: "#17120C" }}>Temperature du modèle</span>
+          <span className="text-[11px] font-mono" style={{ color: "#C9973F" }}>{settings.modelTemperature.toFixed(1)}</span>
         </div>
         <input type="range" min="0" max="1.5" step="0.1" value={settings.modelTemperature}
           onChange={(e) => setSettings((prev) => ({ ...prev, modelTemperature: Number(e.target.value) }))}
-          className="w-full accent-[var(--accent)]" />
-        <div className="flex items-center justify-between text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>
+          className="w-full accent-[#C9973F]" />
+        <div className="flex items-center justify-between text-[9px]" style={{ color: "#AEA294" }}>
           <span>Précis (0)</span><span>Créatif (1.5)</span>
         </div>
-        <div className="flex items-center gap-1.5 pt-2 mt-2 border-t" style={{ borderColor: "var(--border-default)" }}>
-          <span className="text-[10px]" style={{ color: "rgba(255,255,255,0.28)" }}>Langues:</span>
+        <div className="flex items-center gap-1.5 pt-2 mt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
+          <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Langues:</span>
           {settings.languages.map((l) => (
-            <span key={l} className="text-[9px] px-1.5 py-0.5 rounded-sm uppercase" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>{l}</span>
+            <span key={l} className="text-[9px] px-1.5 py-0.5 rounded-sm uppercase" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>{l}</span>
           ))}
         </div>
       </div>
@@ -2195,42 +2220,42 @@ function HybridHandoffSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Hybrid Handoff Rules</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Hybrid Handoff Rules</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["hybrid_handoff"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Définis quand les conversations doivent être gérées par un humain ou assistées par l&apos;IA</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Définis quand les conversations doivent être gérées par un humain ou assistées par l&apos;IA</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         {groups.map((group) => (
-          <div key={group.id} className="rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-            <div className="px-4 py-2.5 border-b flex items-center justify-between" style={{ borderColor: "var(--border-default)" }}>
-              <h3 className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{group.label}</h3>
+          <div key={group.id} className="rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+            <div className="px-4 py-2.5 border-b flex items-center justify-between" style={{ borderColor: "#E5D7C3" }}>
+              <h3 className="text-[11px] font-medium" style={{ color: "#17120C" }}>{group.label}</h3>
               <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-sm" style={{
-                backgroundColor: group.logic === "AND" ? "rgba(143,181,138,0.1)" : "rgba(216,169,91,0.1)",
-                color: group.logic === "AND" ? "var(--success)" : "var(--accent)",
+                backgroundColor: group.logic === "AND" ? "rgba(47,125,78,0.1)" : "rgba(216,169,91,0.1)",
+                color: group.logic === "AND" ? "#2F7D4E" : "#C9973F",
               }}>
                 {group.logic}
               </span>
             </div>
             <div className="p-3 space-y-1.5">
               {group.rules.map((rule) => (
-                <div key={rule.id} className="flex items-center gap-3 py-1.5 px-2 rounded-sm hover:bg-white/[0.02]">
+                <div key={rule.id} className="flex items-center gap-3 py-1.5 px-2 rounded-sm hover:bg-black/[0.02]">
                   <button
                     onClick={() => toggleRule(group.id, rule.id)}
                     className="w-8 h-4.5 rounded-full transition-colors relative shrink-0"
-                    style={{ backgroundColor: rule.isEnabled ? "var(--accent)" : "rgba(255,255,255,0.1)" }}
+                    style={{ backgroundColor: rule.isEnabled ? "#C9973F" : "#D5CDC3" }}
                   >
                     <div className="w-3 h-3 rounded-full absolute top-[3px] transition-all bg-white"
                       style={{ left: rule.isEnabled ? "17px" : "3px" }} />
                   </button>
                   <div className="flex-1 min-w-0">
-                    <span className="text-[11px] block" style={{ color: rule.isEnabled ? "var(--text-primary)" : "rgba(255,255,255,0.40)" }}>{rule.name}</span>
-                    <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>
+                    <span className="text-[11px] block" style={{ color: rule.isEnabled ? "#17120C" : "#6E6257" }}>{rule.name}</span>
+                    <span className="text-[9px]" style={{ color: "#9A8D7C" }}>
                       {rule.condition.replace(/_/g, " ")} {rule.operator} {rule.value}
                     </span>
                   </div>
                   <span className="text-[8px] px-1.5 py-0.5 rounded-sm shrink-0"
-                    style={{ backgroundColor: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.40)" }}>
+                    style={{ backgroundColor: "#F3EEE8", color: "#6E6257" }}>
                     {HANDOFF_ACTION_LABELS[rule.action]}
                   </span>
                 </div>
@@ -2241,7 +2266,7 @@ function HybridHandoffSection() {
       </div>
 
       <div className="p-3 rounded-sm border" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
-        <p className="text-[10px] flex items-center gap-1.5" style={{ color: "var(--accent)" }}>
+        <p className="text-[10px] flex items-center gap-1.5" style={{ color: "#C9973F" }}>
           <Brain size={12} /> AND = toutes les règles doivent matcher · OR = au moins une règle doit matcher
         </p>
       </div>
@@ -2262,11 +2287,11 @@ function ScriptBuilderSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Script Builder / PPV Ladder</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Script Builder / PPV Ladder</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["script_builder"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Crée des entonnoirs PPV progressifs avec étapes et templates</p>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Crée des entonnoirs PPV progressifs avec étapes et templates</p>
         </div>
-        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>
+        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
           <Plus size={12} /> Créer un script PPV
         </button>
       </div>
@@ -2277,11 +2302,11 @@ function ScriptBuilderSection() {
           <button key={s.id} onClick={() => setSelectedScriptId(s.id)}
             className="text-left px-4 py-2.5 rounded-sm border transition-all"
             style={{
-              backgroundColor: selectedScriptId === s.id ? "rgba(216,169,91,0.06)" : "var(--bg-card)",
-              borderColor: selectedScriptId === s.id ? "var(--accent)" : "var(--border-default)",
+              backgroundColor: selectedScriptId === s.id ? "rgba(216,169,91,0.06)" : "#FFFFFF",
+              borderColor: selectedScriptId === s.id ? "#C9973F" : "#E5D7C3",
             }}>
-            <span className="text-[11px] font-medium block" style={{ color: "var(--text-primary)" }}>{s.name}</span>
-            <span className="text-[9px] mt-0.5 block" style={{ color: "rgba(255,255,255,0.35)" }}>
+            <span className="text-[11px] font-medium block" style={{ color: "#17120C" }}>{s.name}</span>
+            <span className="text-[9px] mt-0.5 block" style={{ color: "#7A6E63" }}>
               {s.totalSteps} étapes · {FAN_TIER_LABELS[s.targetTier]} · {formatEuro(s.estimatedRevenue)}
             </span>
           </button>
@@ -2293,60 +2318,60 @@ function ScriptBuilderSection() {
           {/* Header KPIs */}
           <div className="grid grid-cols-4 gap-3">
             {[
-              { label: "Étapes", value: script.totalSteps.toString(), color: "var(--text-primary)" },
-              { label: "Taux de conversion", value: `${script.conversionRate}%`, color: "var(--accent)" },
-              { label: "Revenu estimé", value: formatEuro(script.estimatedRevenue), color: "var(--success)" },
-              { label: "Statut", value: script.isActive ? "Actif" : "Inactif", color: script.isActive ? "var(--success)" : "var(--text-tertiary)" },
+              { label: "Étapes", value: script.totalSteps.toString(), color: "#17120C" },
+              { label: "Taux de conversion", value: `${script.conversionRate}%`, color: "#C9973F" },
+              { label: "Revenu estimé", value: formatEuro(script.estimatedRevenue), color: "#2F7D4E" },
+              { label: "Statut", value: script.isActive ? "Actif" : "Inactif", color: script.isActive ? "#2F7D4E" : "#9A8D7C" },
             ].map((kpi) => (
-              <div key={kpi.label} className="p-3 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-                <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>{kpi.label}</p>
+              <div key={kpi.label} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+                <p className="text-[9px]" style={{ color: "#9A8D7C" }}>{kpi.label}</p>
                 <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: kpi.color }}>{kpi.value}</p>
               </div>
             ))}
           </div>
 
           {/* Ladder steps */}
-          <div className="rounded-sm border overflow-hidden" style={{ borderColor: "var(--border-default)" }}>
+          <div className="rounded-sm border overflow-hidden" style={{ borderColor: "#E5D7C3" }}>
             {script.steps.map((step, i) => {
               const isExpanded = expandedStepId === step.id;
               const isLast = i === script.steps.length - 1;
               const typeColors: Record<string, string> = {
-                free_teaser: "#3B82F6", ppv_step: "var(--accent)", upsell: "#8B5CF6", cta: "var(--success)",
+                free_teaser: "#1D4ED8", ppv_step: "#C9973F", upsell: "#6D28D9", cta: "#2F7D4E",
               };
               return (
                 <div key={step.id}>
                   <button
                     onClick={() => setExpandedStepId(isExpanded ? null : step.id)}
-                    className="w-full text-left px-4 py-3 flex items-center gap-4 transition-colors hover:bg-white/[0.01]"
-                    style={{ borderBottom: isLast ? "none" : "1px solid rgba(255,255,255,0.04)" }}
+                    className="w-full text-left px-4 py-3 flex items-center gap-4 transition-colors hover:bg-black/[0.02]"
+                    style={{ borderBottom: isLast ? "none" : "1px solid #F0EBE3" }}
                   >
                     <span className="w-6 h-6 rounded-sm flex items-center justify-center text-[10px] font-mono font-semibold shrink-0"
-                      style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.5)" }}>
+                      style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
                       {step.order}
                     </span>
                     <span className="text-[8px] px-1.5 py-0.5 rounded-sm font-medium uppercase shrink-0"
                       style={{ backgroundColor: `${typeColors[step.type]}15`, color: typeColors[step.type] }}>
                       {step.type.replace(/_/g, " ")}
                     </span>
-                    <span className="flex-1 text-[11px] font-medium truncate" style={{ color: "var(--text-primary)" }}>{step.title}</span>
+                    <span className="flex-1 text-[11px] font-medium truncate" style={{ color: "#17120C" }}>{step.title}</span>
                     {step.price !== null && (
-                      <span className="text-[11px] font-mono font-semibold shrink-0" style={{ color: "var(--accent)" }}>{formatEuro(step.price)}</span>
+                      <span className="text-[11px] font-mono font-semibold shrink-0" style={{ color: "#C9973F" }}>{formatEuro(step.price)}</span>
                     )}
                     {step.isRequired && (
-                      <span className="text-[8px] px-1 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: "rgba(232,99,74,0.1)", color: "var(--danger)" }}>Requis</span>
+                      <span className="text-[8px] px-1 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: "rgba(197,74,58,0.1)", color: "#C54A3A" }}>Requis</span>
                     )}
-                    <ChevronRight size={12} style={{ color: "rgba(255,255,255,0.28)", transform: isExpanded ? "rotate(90deg)" : undefined }} />
+                    <ChevronRight size={12} style={{ color: "#9A8D7C", transform: isExpanded ? "rotate(90deg)" : undefined }} />
                   </button>
                   {isExpanded && (
-                    <div className="px-10 pb-4 border-t mx-4 pt-3" style={{ borderColor: "var(--border-default)" }}>
-                      <p className="text-[11px] leading-relaxed mb-3" style={{ color: "rgba(255,255,255,0.4)" }}>{step.content}</p>
+                    <div className="px-10 pb-4 border-t mx-4 pt-3" style={{ borderColor: "#E5D7C3" }}>
+                      <p className="text-[11px] leading-relaxed mb-3" style={{ color: "#6E6257" }}>{step.content}</p>
                       <div className="flex items-center gap-4 text-[10px]">
-                        <span style={{ color: "rgba(255,255,255,0.28)" }}>
-                          Délai après précédent: <span style={{ color: "rgba(255,255,255,0.4)" }}>{step.delayAfterPrevious}</span>
+                        <span style={{ color: "#9A8D7C" }}>
+                          Délai après précédent: <span style={{ color: "#6E6257" }}>{step.delayAfterPrevious}</span>
                         </span>
                         <div className="flex items-center gap-1.5 ml-auto">
-                          <button className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.35)" }}>Déplacer</button>
-                          <button className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(59,130,246,0.1)", color: "#3B82F6" }}>Modifier</button>
+                          <button className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#7A6E63" }}>Déplacer</button>
+                          <button className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}>Modifier</button>
                         </div>
                       </div>
                     </div>
@@ -2357,12 +2382,12 @@ function ScriptBuilderSection() {
           </div>
 
           {/* Mock CTA preview */}
-          <div className="p-4 rounded-sm border text-center" style={{ backgroundColor: "rgba(143,181,138,0.03)", borderColor: "rgba(143,181,138,0.1)" }}>
-            <p className="text-[10px] mb-1" style={{ color: "rgba(255,255,255,0.28)" }}>CTA final mock</p>
-            <p className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>
+          <div className="p-4 rounded-sm border text-center" style={{ backgroundColor: "rgba(47,125,78,0.03)", borderColor: "rgba(47,125,78,0.1)" }}>
+            <p className="text-[10px] mb-1" style={{ color: "#9A8D7C" }}>CTA final mock</p>
+            <p className="text-[12px] font-medium" style={{ color: "#17120C" }}>
               Merci pour ton soutien ! Les offres exclusives expirent dans 24h 🔥
             </p>
-            <p className="text-[9px] mt-1" style={{ color: "rgba(255,255,255,0.22)" }}>Ce message sera envoyé 72h après l'étape précédente</p>
+            <p className="text-[9px] mt-1" style={{ color: "#AEA294" }}>Ce message sera envoyé 72h après l'étape précédente</p>
           </div>
         </div>
       )}
@@ -2379,20 +2404,20 @@ function MessageLedgerSection() {
   const filtered = statusFilter ? entries.filter((e) => e.status === statusFilter) : entries;
 
   const statusColors: Record<string, string> = {
-    draft: "var(--accent)", approved: "var(--success)", sent: "#3B82F6", flagged: "var(--warning)",
+    draft: "#C9973F", approved: "#2F7D4E", sent: "#1D4ED8", flagged: "#B7791F",
   };
 
   return (
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Message Ledger</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Message Ledger</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["message_ledger"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Registre complet de tous les messages envoyés et reçus</p>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Registre complet de tous les messages envoyés et reçus</p>
         </div>
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
           className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: statusFilter ? "var(--text-primary)" : "rgba(255,255,255,0.40)", border: "1px solid rgba(255,255,255,0.08)" }}>
+          style={{ backgroundColor: "#F0EBE3", color: statusFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}>
           <option value="">Tous les statuts</option>
           <option value="draft">Brouillons</option>
           <option value="approved">Approuvés</option>
@@ -2401,41 +2426,41 @@ function MessageLedgerSection() {
         </select>
       </div>
 
-      <div className="rounded-sm border overflow-hidden overflow-x-auto" style={{ borderColor: "var(--border-default)" }}>
+      <div className="rounded-sm border overflow-hidden overflow-x-auto" style={{ borderColor: "#E5D7C3" }}>
         <table className="w-full min-w-[700px]">
           <thead>
-            <tr style={{ borderBottom: "1px solid var(--border-default)" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Fan</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Message</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Direction</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Créateur</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Statut</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Revenu</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Date</th>
+            <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Fan</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Message</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Direction</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Créateur</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Statut</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Revenu</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Date</th>
             </tr>
           </thead>
           <tbody>
             {filtered.map((entry) => (
-              <tr key={entry.id} className="transition-colors hover:bg-white/[0.02]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)" }}>
+              <tr key={entry.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3" }}>
                 <td className="px-4 py-2.5">
                   <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-medium" style={{ color: "var(--text-primary)" }}>{entry.fanName}</span>
+                    <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{entry.fanName}</span>
                     <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: `${FAN_TIER_COLORS[entry.fanTier]}20`, color: FAN_TIER_COLORS[entry.fanTier] }}>
                       {FAN_TIER_LABELS[entry.fanTier]}
                     </span>
                   </div>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[11px] line-clamp-1 max-w-[220px]" style={{ color: "rgba(255,255,255,0.4)" }}>{entry.contentPreview}</span>
+                  <span className="text-[11px] line-clamp-1 max-w-[220px]" style={{ color: "#6E6257" }}>{entry.contentPreview}</span>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[10px] flex items-center gap-1" style={{ color: entry.direction === "inbound" ? "#3B82F6" : "var(--accent)" }}>
+                  <span className="text-[10px] flex items-center gap-1" style={{ color: entry.direction === "inbound" ? "#1D4ED8" : "#C9973F" }}>
                     {entry.direction === "inbound" ? <ArrowLeft size={10} /> : <ArrowRight size={10} />}
                     {entry.direction === "inbound" ? "Entrant" : "Sortant"}
                   </span>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[11px]" style={{ color: "rgba(255,255,255,0.35)" }}>{entry.creatorName}</span>
+                  <span className="text-[11px]" style={{ color: "#7A6E63" }}>{entry.creatorName}</span>
                 </td>
                 <td className="px-4 py-2.5">
                   <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[entry.status]}15`, color: statusColors[entry.status] }}>
@@ -2443,12 +2468,12 @@ function MessageLedgerSection() {
                   </span>
                 </td>
                 <td className="px-4 py-2.5 text-right">
-                  <span className="text-[11px] font-mono" style={{ color: entry.revenue ? "var(--success)" : "rgba(255,255,255,0.28)" }}>
+                  <span className="text-[11px] font-mono" style={{ color: entry.revenue ? "#2F7D4E" : "#9A8D7C" }}>
                     {entry.revenue ? formatEuro(entry.revenue) : "—"}
                   </span>
                 </td>
                 <td className="px-4 py-2.5 text-right">
-                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.28)" }}>{formatRelative(entry.createdAt)}</span>
+                  <span className="text-[9px]" style={{ color: "#9A8D7C" }}>{formatRelative(entry.createdAt)}</span>
                 </td>
               </tr>
             ))}
@@ -2457,7 +2482,7 @@ function MessageLedgerSection() {
       </div>
 
       <div className="flex items-center gap-4 text-[10px]">
-        <span style={{ color: "rgba(255,255,255,0.28)" }}>
+        <span style={{ color: "#9A8D7C" }}>
           {entries.filter((e) => e.status === "sent").length} envoyés · {entries.filter((e) => e.status === "draft").length} brouillons · {entries.filter((e) => e.status === "flagged").length} signalés
         </span>
       </div>
@@ -2476,15 +2501,15 @@ function BannedKeywordsSection() {
   };
 
   const severityColors: Record<string, string> = {
-    critical: "var(--danger)", high: "var(--warning)", medium: "#F59E0B", low: "var(--text-tertiary)",
+    critical: "#C54A3A", high: "#B7791F", medium: "#B45309", low: "#9A8D7C",
   };
 
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Banned Keywords & Safety Rules</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Banned Keywords & Safety Rules</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["banned_keywords"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Mots-clés interdits appliqués aux brouillons IA, templates et messages manuels</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Mots-clés interdits appliqués aux brouillons IA, templates et messages manuels</p>
       </div>
 
       {/* Add custom keyword */}
@@ -2492,7 +2517,7 @@ function BannedKeywordsSection() {
         <input value={newKeyword} onChange={(e) => setNewKeyword(e.target.value)}
           placeholder="Ajouter un mot-clé personnalisé..."
           className="flex-1 text-[11px] px-3 py-2 rounded-sm outline-none bg-transparent"
-          style={{ color: "var(--text-primary)", border: "1px solid rgba(255,255,255,0.08)" }}
+          style={{ color: "#17120C", border: "1px solid #E0D8CF" }}
           onKeyDown={(e) => { if (e.key === "Enter" && newKeyword.trim()) {
             setKeywords((prev) => [{ id: `bk-custom-${Date.now()}`, keyword: newKeyword.trim(), category: "custom", severity: "medium", appliesTo: ["drafts", "manual"], replacement: null, isEnabled: true, createdAt: new Date().toISOString() }, ...prev]);
             setNewKeyword("");
@@ -2504,34 +2529,34 @@ function BannedKeywordsSection() {
           }}}
           disabled={!newKeyword.trim()}
           className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm transition-all disabled:opacity-30"
-          style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>
+          style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
           <Plus size={12} /> Ajouter
         </button>
       </div>
 
       {/* Keywords table */}
-      <div className="rounded-sm border overflow-hidden" style={{ borderColor: "var(--border-default)" }}>
+      <div className="rounded-sm border overflow-hidden" style={{ borderColor: "#E5D7C3" }}>
         <table className="w-full">
           <thead>
-            <tr style={{ borderBottom: "1px solid var(--border-default)" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Mot-clé</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Catégorie</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Sévérité</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Appliqué à</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Remplacement</th>
-              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "rgba(255,255,255,0.28)" }}>Actif</th>
+            <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Mot-clé</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Catégorie</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Sévérité</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Appliqué à</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Remplacement</th>
+              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Actif</th>
             </tr>
           </thead>
           <tbody>
             {keywords.map((kw) => (
-              <tr key={kw.id} className="transition-colors hover:bg-white/[0.02]" style={{ borderBottom: "1px solid rgba(255,255,255,0.04)", opacity: kw.isEnabled ? 1 : 0.5 }}>
+              <tr key={kw.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3", opacity: kw.isEnabled ? 1 : 0.5 }}>
                 <td className="px-4 py-2.5">
-                  <code className="text-[11px] font-mono px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "var(--text-primary)" }}>{kw.keyword}</code>
+                  <code className="text-[11px] font-mono px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#17120C" }}>{kw.keyword}</code>
                 </td>
                 <td className="px-4 py-2.5">
                   <span className="text-[10px] px-1.5 py-0.5 rounded-sm" style={{
-                    backgroundColor: kw.category === "system" ? "rgba(232,99,74,0.08)" : "rgba(59,130,246,0.08)",
-                    color: kw.category === "system" ? "var(--danger)" : "#3B82F6",
+                    backgroundColor: kw.category === "system" ? "rgba(197,74,58,0.08)" : "rgba(29,77,216,0.08)",
+                    color: kw.category === "system" ? "#C54A3A" : "#1D4ED8",
                   }}>{BANNED_CATEGORY_LABELS[kw.category]}</span>
                 </td>
                 <td className="px-4 py-2.5">
@@ -2540,21 +2565,21 @@ function BannedKeywordsSection() {
                 <td className="px-4 py-2.5">
                   <div className="flex items-center gap-1">
                     {kw.appliesTo.map((a) => (
-                      <span key={a} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.35)" }}>
+                      <span key={a} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F3EEE8", color: "#7A6E63" }}>
                         {BANNED_APPLIES_TO_LABELS[a]}
                       </span>
                     ))}
                   </div>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[10px]" style={{ color: kw.replacement ? "var(--success)" : "rgba(255,255,255,0.22)" }}>
+                  <span className="text-[10px]" style={{ color: kw.replacement ? "#2F7D4E" : "#AEA294" }}>
                     {kw.replacement || "— (bloqué)"}
                   </span>
                 </td>
                 <td className="px-4 py-2.5 text-center">
                   <button onClick={() => toggleKeyword(kw.id)}
                     className="w-8 h-4.5 rounded-full transition-colors relative"
-                    style={{ backgroundColor: kw.isEnabled ? "var(--accent)" : "rgba(255,255,255,0.1)" }}>
+                    style={{ backgroundColor: kw.isEnabled ? "#C9973F" : "#D5CDC3" }}>
                     <div className="w-3 h-3 rounded-full absolute top-[3px] transition-all bg-white"
                       style={{ left: kw.isEnabled ? "17px" : "3px" }} />
                   </button>
@@ -2576,42 +2601,42 @@ function CreatorProfileSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Creator Intelligence Profile</h2>
+        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Creator Intelligence Profile</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["creator_profile"]} />
-        <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Profil IA de la créatrice — persona, limites, règles et préférences</p>
+        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Profil IA de la créatrice — persona, limites, règles et préférences</p>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
         {/* Left column — Persona card */}
         <div className="space-y-4">
-          <div className="p-5 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
+          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 rounded-sm flex items-center justify-center text-lg font-semibold" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)", border: "1px solid rgba(216,169,91,0.2)" }}>
+              <div className="w-12 h-12 rounded-sm flex items-center justify-center text-lg font-semibold" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F", border: "1px solid rgba(216,169,91,0.2)" }}>
                 <UserCog size={22} />
               </div>
               <div>
-                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>Persona</h3>
-                <p className="text-[10px] mt-0.5" style={{ color: "rgba(255,255,255,0.40)" }}>{profile.persona}</p>
+                <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Persona</h3>
+                <p className="text-[10px] mt-0.5" style={{ color: "#6E6257" }}>{profile.persona}</p>
               </div>
             </div>
             <div className="space-y-2 text-[11px]">
-              <div className="flex justify-between"><span style={{ color: "rgba(255,255,255,0.28)" }}>Timezone</span><span style={{ color: "rgba(255,255,255,0.4)" }}>{profile.timezone}</span></div>
-              <div className="flex justify-between"><span style={{ color: "rgba(255,255,255,0.28)" }}>Horaires actifs</span><span style={{ color: "rgba(255,255,255,0.4)" }}>{profile.activeHours}</span></div>
-              <div className="flex justify-between"><span style={{ color: "rgba(255,255,255,0.28)" }}>Ton</span>
-                <span className="px-1.5 py-0.5 rounded-sm text-[10px]" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>{CREATOR_TONE_LABELS[profile.tone]}</span>
+              <div className="flex justify-between"><span style={{ color: "#9A8D7C" }}>Timezone</span><span style={{ color: "#6E6257" }}>{profile.timezone}</span></div>
+              <div className="flex justify-between"><span style={{ color: "#9A8D7C" }}>Horaires actifs</span><span style={{ color: "#6E6257" }}>{profile.activeHours}</span></div>
+              <div className="flex justify-between"><span style={{ color: "#9A8D7C" }}>Ton</span>
+                <span className="px-1.5 py-0.5 rounded-sm text-[10px]" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>{CREATOR_TONE_LABELS[profile.tone]}</span>
               </div>
-              <div className="flex justify-between"><span style={{ color: "rgba(255,255,255,0.28)" }}>Langues</span>
-                <span style={{ color: "var(--text-primary)" }}>{profile.languages.map((l) => l.toUpperCase()).join(", ")}</span>
+              <div className="flex justify-between"><span style={{ color: "#9A8D7C" }}>Langues</span>
+                <span style={{ color: "#17120C" }}>{profile.languages.map((l) => l.toUpperCase()).join(", ")}</span>
               </div>
             </div>
           </div>
 
           {/* Platforms */}
-          <div className="p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-            <h3 className="text-[10px] font-medium mb-2" style={{ color: "rgba(255,255,255,0.28)" }}>Plateformes actives</h3>
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+            <h3 className="text-[10px] font-medium mb-2" style={{ color: "#9A8D7C" }}>Plateformes actives</h3>
             <div className="flex flex-wrap gap-1.5">
               {profile.platforms.map((p) => (
-                <span key={p} className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.4)" }}>
+                <span key={p} className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
                   {PLATFORM_LABELS[p]}
                 </span>
               ))}
@@ -2621,19 +2646,19 @@ function CreatorProfileSection() {
 
         {/* Center — Bio */}
         <div className="space-y-4">
-          <div className="p-4 rounded-sm border" style={{ backgroundColor: "var(--bg-card)", borderColor: "var(--border-default)" }}>
-            <h3 className="text-[10px] font-medium mb-2" style={{ color: "rgba(255,255,255,0.28)" }}>Bio</h3>
-            <p className="text-[11px] leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{profile.bio}</p>
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+            <h3 className="text-[10px] font-medium mb-2" style={{ color: "#9A8D7C" }}>Bio</h3>
+            <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{profile.bio}</p>
           </div>
           {/* Boundaries */}
-          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(232,99,74,0.04)", borderColor: "rgba(232,99,74,0.1)" }}>
-            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "var(--danger)" }}>
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(197,74,58,0.04)", borderColor: "rgba(197,74,58,0.1)" }}>
+            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#C54A3A" }}>
               <AlertTriangle size={10} /> Limites strictes
             </h3>
             <ul className="space-y-1">
               {profile.boundaries.map((b, i) => (
-                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  <X size={10} style={{ color: "var(--danger)", marginTop: "1px", flexShrink: 0 }} /> {b}
+                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "#7A6E63" }}>
+                  <X size={10} style={{ color: "#C54A3A", marginTop: "1px", flexShrink: 0 }} /> {b}
                 </li>
               ))}
             </ul>
@@ -2642,26 +2667,26 @@ function CreatorProfileSection() {
 
         {/* Right — Do / Don't */}
         <div className="space-y-4">
-          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(143,181,138,0.04)", borderColor: "rgba(143,181,138,0.1)" }}>
-            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "var(--success)" }}>
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(47,125,78,0.04)", borderColor: "rgba(47,125,78,0.1)" }}>
+            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#2F7D4E" }}>
               <CheckCircle size={10} /> À faire
             </h3>
             <ul className="space-y-1">
               {profile.doRules.map((r, i) => (
-                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  <CheckCircle size={10} style={{ color: "var(--success)", marginTop: "1px", flexShrink: 0 }} /> {r}
+                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "#7A6E63" }}>
+                  <CheckCircle size={10} style={{ color: "#2F7D4E", marginTop: "1px", flexShrink: 0 }} /> {r}
                 </li>
               ))}
             </ul>
           </div>
-          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(201,106,74,0.04)", borderColor: "rgba(201,106,74,0.1)" }}>
-            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "var(--warning)" }}>
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(183,121,31,0.04)", borderColor: "rgba(183,121,31,0.1)" }}>
+            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#B7791F" }}>
               <Ban size={10} /> À ne pas faire
             </h3>
             <ul className="space-y-1">
               {profile.dontRules.map((r, i) => (
-                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "rgba(255,255,255,0.35)" }}>
-                  <Ban size={10} style={{ color: "var(--warning)", marginTop: "1px", flexShrink: 0 }} /> {r}
+                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "#7A6E63" }}>
+                  <Ban size={10} style={{ color: "#B7791F", marginTop: "1px", flexShrink: 0 }} /> {r}
                 </li>
               ))}
             </ul>
@@ -2690,30 +2715,30 @@ function NotificationsCenterSection() {
   };
 
   const priorityColors: Record<string, string> = {
-    high: "var(--danger)", medium: "var(--warning)", low: "var(--text-tertiary)",
+    high: "#C54A3A", medium: "#B7791F", low: "#9A8D7C",
   };
 
   return (
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Notifications Center</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Notifications Center</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["notifications_center"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>
             {unreadCount} non lues sur {notifications.length} notifications
           </p>
         </div>
         <div className="flex items-center gap-2">
           <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}
             className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-            style={{ backgroundColor: "rgba(255,255,255,0.04)", color: typeFilter ? "var(--text-primary)" : "rgba(255,255,255,0.40)", border: "1px solid rgba(255,255,255,0.08)" }}>
+            style={{ backgroundColor: "#F0EBE3", color: typeFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}>
             <option value="">Tous les types</option>
             {Object.entries(NOTIF_TYPE_LABELS).map(([key, label]) => (
               <option key={key} value={key}>{label}</option>
             ))}
           </select>
           {unreadCount > 0 && (
-            <button onClick={markAllRead} className="text-[10px] px-2.5 py-1.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.04)", color: "rgba(255,255,255,0.40)" }}>
+            <button onClick={markAllRead} className="text-[10px] px-2.5 py-1.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
               Marquer tout comme lu
             </button>
           )}
@@ -2726,32 +2751,32 @@ function NotificationsCenterSection() {
             className="w-full text-left flex items-start gap-4 px-4 py-3 rounded-sm border transition-all"
             style={{
               backgroundColor: notif.isRead ? "transparent" : "rgba(216,169,91,0.03)",
-              borderColor: notif.isRead ? "rgba(255,255,255,0.04)" : "rgba(216,169,91,0.1)",
+              borderColor: notif.isRead ? "#F0EBE3" : "rgba(216,169,91,0.1)",
             }}>
             <div className="flex items-center gap-2 w-[100px] shrink-0">
-              {!notif.isRead && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "var(--accent)" }} />}
+              {!notif.isRead && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#C9973F" }} />}
               <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${priorityColors[notif.priority]}15`, color: priorityColors[notif.priority] }}>
                 {notif.priority === "high" ? "Haute" : notif.priority === "medium" ? "Moy." : "Basse"}
               </span>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.03)", color: "rgba(255,255,255,0.35)" }}>
+                <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F3EEE8", color: "#7A6E63" }}>
                   {NOTIF_TYPE_LABELS[notif.type]}
                 </span>
-                <span className="text-[11px] font-medium" style={{ color: notif.isRead ? "rgba(255,255,255,0.5)" : "var(--text-primary)" }}>
+                <span className="text-[11px] font-medium" style={{ color: notif.isRead ? "#6E6257" : "#17120C" }}>
                   {notif.title}
                 </span>
                 {notif.revenue !== null && (
-                  <span className="text-[10px] font-mono ml-auto shrink-0" style={{ color: "var(--success)" }}>+{formatEuro(notif.revenue)}</span>
+                  <span className="text-[10px] font-mono ml-auto shrink-0" style={{ color: "#2F7D4E" }}>+{formatEuro(notif.revenue)}</span>
                 )}
               </div>
-              <p className="text-[10px] truncate" style={{ color: "rgba(255,255,255,0.35)" }}>{notif.description}</p>
+              <p className="text-[10px] truncate" style={{ color: "#7A6E63" }}>{notif.description}</p>
               <div className="flex items-center gap-3 mt-1.5">
-                <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>{formatRelative(notif.timestamp)}</span>
+                <span className="text-[9px]" style={{ color: "#AEA294" }}>{formatRelative(notif.timestamp)}</span>
                 <div className="flex items-center gap-1">
                   {notif.channels.map((ch) => (
-                    <span key={ch} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.02)", color: "rgba(255,255,255,0.22)" }}>
+                    <span key={ch} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F5F2EB", color: "#AEA294" }}>
                       {NOTIF_CHANNEL_LABELS[ch]}
                     </span>
                   ))}
@@ -2774,7 +2799,7 @@ function CreativeEngineSection() {
   const selectedReel = reels.find((r) => r.id === selectedReelId) || null;
 
   const statusColors: Record<string, string> = {
-    draft: "var(--accent)", reviewed: "#8B5CF6", approved: "var(--success)", published: "#3B82F6",
+    draft: "#C9973F", reviewed: "#6D28D9", approved: "#2F7D4E", published: "#1D4ED8",
   };
 
   const statusLabels: Record<string, string> = {
@@ -2785,17 +2810,17 @@ function CreativeEngineSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Creative Engine / AI Reels</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Creative Engine / AI Reels</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["creative_engine"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Scripts Reels/TikTok générés par IA — preview seulement, approbation humaine obligatoire</p>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Scripts Reels/TikTok générés par IA — preview seulement, approbation humaine obligatoire</p>
         </div>
       </div>
 
       {/* Warning banner */}
       <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-sm"
         style={{ backgroundColor: "rgba(216,169,91,0.06)", border: "1px dashed rgba(216,169,91,0.15)" }}>
-        <Sparkles size={12} style={{ color: "var(--accent)" }} />
-        <span className="text-[10px] font-medium" style={{ color: "var(--accent)" }}>IA propose → Humain valide → Créatrice publie. Aucune publication automatique.</span>
+        <Sparkles size={12} style={{ color: "#C9973F" }} />
+        <span className="text-[10px] font-medium" style={{ color: "#C9973F" }}>IA propose → Humain valide → Créatrice publie. Aucune publication automatique.</span>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -2803,13 +2828,13 @@ function CreativeEngineSection() {
           <button key={reel.id} onClick={() => setSelectedReelId(selectedReelId === reel.id ? null : reel.id)}
             className="text-left p-4 rounded-sm border transition-all"
             style={{
-              backgroundColor: selectedReelId === reel.id ? "rgba(216,169,91,0.04)" : "var(--bg-card)",
-              borderColor: selectedReelId === reel.id ? "rgba(216,169,91,0.2)" : "var(--border-default)",
+              backgroundColor: selectedReelId === reel.id ? "rgba(216,169,91,0.04)" : "#FFFFFF",
+              borderColor: selectedReelId === reel.id ? "rgba(216,169,91,0.2)" : "#E5D7C3",
             }}>
             <div className="flex items-center justify-between mb-2">
               <div className="flex items-center gap-2">
-                <Video size={14} style={{ color: "var(--accent)" }} />
-                <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{reel.title}</h3>
+                <Video size={14} style={{ color: "#C9973F" }} />
+                <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{reel.title}</h3>
               </div>
               <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[reel.status]}15`, color: statusColors[reel.status] }}>
                 {statusLabels[reel.status]}
@@ -2817,56 +2842,56 @@ function CreativeEngineSection() {
             </div>
 
             {selectedReelId === reel.id && (
-              <div className="mt-3 space-y-3 pt-3 border-t" style={{ borderColor: "var(--border-default)" }}>
+              <div className="mt-3 space-y-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
                 <div className="grid grid-cols-3 gap-2 text-[10px]">
-                  <div><span style={{ color: "rgba(255,255,255,0.28)" }}>Plateforme</span>
-                    <p style={{ color: "rgba(255,255,255,0.4)" }}>{REEL_PLATFORM_LABELS[reel.platform]}</p></div>
-                  <div><span style={{ color: "rgba(255,255,255,0.28)" }}>Durée</span>
-                    <p style={{ color: "rgba(255,255,255,0.4)" }}>{reel.duration}</p></div>
-                  <div><span style={{ color: "rgba(255,255,255,0.28)" }}>Score viral</span>
-                    <p className="font-mono font-semibold" style={{ color: reel.viralScore > 85 ? "var(--success)" : "var(--accent)" }}>{reel.viralScore}/100</p></div>
+                  <div><span style={{ color: "#9A8D7C" }}>Plateforme</span>
+                    <p style={{ color: "#6E6257" }}>{REEL_PLATFORM_LABELS[reel.platform]}</p></div>
+                  <div><span style={{ color: "#9A8D7C" }}>Durée</span>
+                    <p style={{ color: "#6E6257" }}>{reel.duration}</p></div>
+                  <div><span style={{ color: "#9A8D7C" }}>Score viral</span>
+                    <p className="font-mono font-semibold" style={{ color: reel.viralScore > 85 ? "#2F7D4E" : "#C9973F" }}>{reel.viralScore}/100</p></div>
                 </div>
 
                 <div className="space-y-2">
-                  <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(59,130,246,0.06)" }}>
-                    <span className="text-[9px] font-medium" style={{ color: "#3B82F6" }}>HOOK</span>
-                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{reel.hook}</p>
+                  <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.06)" }}>
+                    <span className="text-[9px] font-medium" style={{ color: "#1D4ED8" }}>HOOK</span>
+                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "#6E6257" }}>{reel.hook}</p>
                   </div>
-                  <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(255,255,255,0.02)" }}>
-                    <span className="text-[9px] font-medium" style={{ color: "rgba(255,255,255,0.40)" }}>BODY</span>
-                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "rgba(255,255,255,0.4)" }}>{reel.body}</p>
+                  <div className="p-2 rounded-sm" style={{ backgroundColor: "#F5F2EB" }}>
+                    <span className="text-[9px] font-medium" style={{ color: "#6E6257" }}>BODY</span>
+                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "#6E6257" }}>{reel.body}</p>
                   </div>
-                  <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(143,181,138,0.04)" }}>
-                    <span className="text-[9px] font-medium" style={{ color: "var(--success)" }}>CTA</span>
-                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "rgba(255,255,255,0.5)" }}>{reel.cta}</p>
+                  <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.04)" }}>
+                    <span className="text-[9px] font-medium" style={{ color: "#2F7D4E" }}>CTA</span>
+                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "#6E6257" }}>{reel.cta}</p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-2 pt-2 border-t" style={{ borderColor: "var(--border-default)" }}>
-                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>Trend: {reel.trendAlignment}</span>
+                <div className="flex items-center gap-2 pt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
+                  <span className="text-[9px]" style={{ color: "#AEA294" }}>Trend: {reel.trendAlignment}</span>
                   {reel.reviewedBy && (
-                    <span className="text-[9px] ml-auto" style={{ color: "rgba(255,255,255,0.28)" }}>Relu par {reel.reviewedBy}</span>
+                    <span className="text-[9px] ml-auto" style={{ color: "#9A8D7C" }}>Relu par {reel.reviewedBy}</span>
                   )}
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(143,181,138,0.1)", color: "var(--success)" }}>
+                  <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}>
                     <CheckCircle size={10} /> Approuver le script
                   </button>
-                  <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(59,130,246,0.1)", color: "#3B82F6" }}>
+                  <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}>
                     <Edit3 size={10} /> Modifier
                   </button>
-                  <button className="text-[10px] px-2 py-1" style={{ color: "rgba(255,255,255,0.28)" }}>Ignorer</button>
+                  <button className="text-[10px] px-2 py-1" style={{ color: "#9A8D7C" }}>Ignorer</button>
                 </div>
               </div>
             )}
 
             {selectedReelId !== reel.id && (
               <>
-                <p className="text-[10px] mt-1.5 line-clamp-2" style={{ color: "rgba(255,255,255,0.40)" }}>{reel.description}</p>
+                <p className="text-[10px] mt-1.5 line-clamp-2" style={{ color: "#6E6257" }}>{reel.description}</p>
                 <div className="flex items-center gap-3 mt-2 text-[9px]">
-                  <span style={{ color: "rgba(255,255,255,0.22)" }}>{REEL_PLATFORM_LABELS[reel.platform]}</span>
-                  <span style={{ color: "rgba(255,255,255,0.22)" }}>{reel.duration}</span>
-                  <span className="font-mono" style={{ color: "var(--accent)" }}>Viral: {reel.viralScore}</span>
+                  <span style={{ color: "#AEA294" }}>{REEL_PLATFORM_LABELS[reel.platform]}</span>
+                  <span style={{ color: "#AEA294" }}>{reel.duration}</span>
+                  <span className="font-mono" style={{ color: "#C9973F" }}>Viral: {reel.viralScore}</span>
                 </div>
               </>
             )}
@@ -2875,8 +2900,8 @@ function CreativeEngineSection() {
       </div>
 
       {/* Consent reminder */}
-      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "rgba(255,255,255,0.01)", borderColor: "rgba(255,255,255,0.04)" }}>
-        <p className="text-[9px]" style={{ color: "rgba(255,255,255,0.18)" }}>
+      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "#F8F5F0", borderColor: "#F0EBE3" }}>
+        <p className="text-[9px]" style={{ color: "#BFB5A7" }}>
           Toute publication nécessite l&apos;approbation explicite de la créatrice. L&apos;IA ne publie jamais automatiquement.
         </p>
       </div>
@@ -2898,20 +2923,20 @@ function RoadmapSection() {
   };
 
   const statusColors: Record<string, string> = {
-    planned: "#3B82F6", in_progress: "var(--accent)", shipped: "var(--success)", under_review: "#8B5CF6",
+    planned: "#1D4ED8", in_progress: "#C9973F", shipped: "#2F7D4E", under_review: "#6D28D9",
   };
 
   return (
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-sm font-display font-semibold" style={{ color: "var(--text-primary)" }}>Roadmap & Feature Requests</h2>
+          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Roadmap & Feature Requests</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["roadmap"]} />
-          <p className="text-[11px] mt-1" style={{ color: "rgba(255,255,255,0.40)" }}>Suggestions et demandes de fonctionnalités par la communauté d&apos;agences</p>
+          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Suggestions et demandes de fonctionnalités par la communauté d&apos;agences</p>
         </div>
         <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}
           className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "rgba(255,255,255,0.04)", color: categoryFilter ? "var(--text-primary)" : "rgba(255,255,255,0.40)", border: "1px solid rgba(255,255,255,0.08)" }}>
+          style={{ backgroundColor: "#F0EBE3", color: categoryFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}>
           <option value="">Toutes les catégories</option>
           {Object.entries(FEATURE_CATEGORY_LABELS).map(([key, label]) => (
             <option key={key} value={key}>{label}</option>
@@ -2921,10 +2946,10 @@ function RoadmapSection() {
 
       {/* Top agency requests highlight */}
       <div className="flex items-center gap-2">
-        <span className="text-[10px] font-medium px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>
+        <span className="text-[10px] font-medium px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
           Top demandes agences
         </span>
-        <div className="h-px flex-1" style={{ backgroundColor: "rgba(255,255,255,0.04)" }} />
+        <div className="h-px flex-1" style={{ backgroundColor: "#F0EBE3" }} />
       </div>
 
       <div className="space-y-2">
@@ -2932,14 +2957,14 @@ function RoadmapSection() {
           const hasVoted = votedIds.has(feature.id);
           return (
             <div key={feature.id} className="flex items-start gap-4 p-4 rounded-sm border"
-              style={{ backgroundColor: "var(--bg-card)", borderColor: feature.agencyRequest ? "rgba(216,169,91,0.1)" : "var(--border-default)" }}>
+              style={{ backgroundColor: "#FFFFFF", borderColor: feature.agencyRequest ? "rgba(216,169,91,0.1)" : "#E5D7C3" }}>
               {/* Upvote */}
               <button onClick={() => handleUpvote(feature.id)}
                 className="flex flex-col items-center px-2 py-1.5 rounded-sm transition-all shrink-0 min-w-[40px]"
                 style={{
-                  backgroundColor: hasVoted ? "rgba(216,169,91,0.1)" : "rgba(255,255,255,0.02)",
-                  color: hasVoted ? "var(--accent)" : "rgba(255,255,255,0.28)",
-                  border: `1px solid ${hasVoted ? "rgba(216,169,91,0.2)" : "rgba(255,255,255,0.04)"}`,
+                  backgroundColor: hasVoted ? "rgba(216,169,91,0.1)" : "#F5F2EB",
+                  color: hasVoted ? "#C9973F" : "#9A8D7C",
+                  border: `1px solid ${hasVoted ? "rgba(216,169,91,0.2)" : "#F0EBE3"}`,
                 }}>
                 <ThumbsUp size={14} />
                 <span className="text-[11px] font-mono font-semibold mt-0.5">{feature.upvotes + (hasVoted ? 1 : 0)}</span>
@@ -2947,21 +2972,21 @@ function RoadmapSection() {
 
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2 mb-1">
-                  <h3 className="text-[12px] font-medium" style={{ color: "var(--text-primary)" }}>{feature.title}</h3>
+                  <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{feature.title}</h3>
                   {feature.agencyRequest && (
-                    <span className="text-[8px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "var(--accent)" }}>
+                    <span className="text-[8px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
                       Demande agence
                     </span>
                   )}
                 </div>
-                <p className="text-[10px] mb-2" style={{ color: "rgba(255,255,255,0.40)" }}>{feature.description}</p>
+                <p className="text-[10px] mb-2" style={{ color: "#6E6257" }}>{feature.description}</p>
                 <div className="flex items-center gap-3">
                   <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[feature.status]}15`, color: statusColors[feature.status] }}>
                     {FEATURE_STATUS_LABELS[feature.status]}
                   </span>
-                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.22)" }}>{FEATURE_CATEGORY_LABELS[feature.category]}</span>
-                  <span className="text-[9px]" style={{ color: "rgba(255,255,255,0.18)" }}>{feature.requestedBy}</span>
-                  <span className="text-[9px] ml-auto" style={{ color: "rgba(255,255,255,0.1)" }}>{formatRelative(feature.createdAt)}</span>
+                  <span className="text-[9px]" style={{ color: "#AEA294" }}>{FEATURE_CATEGORY_LABELS[feature.category]}</span>
+                  <span className="text-[9px]" style={{ color: "#BFB5A7" }}>{feature.requestedBy}</span>
+                  <span className="text-[9px] ml-auto" style={{ color: "#D5CDC3" }}>{formatRelative(feature.createdAt)}</span>
                 </div>
               </div>
             </div>
@@ -2970,8 +2995,8 @@ function RoadmapSection() {
       </div>
 
       {/* Submit idea */}
-      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "rgba(255,255,255,0.01)", borderColor: "rgba(255,255,255,0.04)" }}>
-        <button className="flex items-center gap-1.5 mx-auto text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "var(--accent)" }}>
+      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "#F8F5F0", borderColor: "#F0EBE3" }}>
+        <button className="flex items-center gap-1.5 mx-auto text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
           <Lightbulb size={12} /> Soumettre une idée
         </button>
       </div>

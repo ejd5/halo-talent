@@ -98,12 +98,12 @@ export const FAN_TIER_LABELS: Record<FanTier, string> = {
 };
 
 export const FAN_TIER_COLORS: Record<FanTier, string> = {
-  whale: "var(--accent)",
-  vip: "#F59E0B",
-  engaged: "var(--success)",
-  new: "#3B82F6",
-  at_risk: "var(--warning)",
-  dormant: "var(--text-tertiary)",
+  whale: "#C9973F",
+  vip: "#B45309",
+  engaged: "#2F7D4E",
+  new: "#1D4ED8",
+  at_risk: "#B7791F",
+  dormant: "#9A8D7C",
 };
 
 export const PLATFORM_LABELS: Record<Platform, string> = {
@@ -129,12 +129,12 @@ export const STATUS_LABELS: Record<ConversationStatus, string> = {
 };
 
 export const STATUS_COLORS: Record<ConversationStatus, string> = {
-  ai_draft_ready: "var(--accent)",
-  human_reviewing: "#8B5CF6",
-  approved: "var(--success)",
-  sent: "#3B82F6",
-  rejected: "var(--text-tertiary)",
-  waiting: "var(--text-tertiary)",
+  ai_draft_ready: "#C9973F",
+  human_reviewing: "#6D28D9",
+  approved: "#2F7D4E",
+  sent: "#1D4ED8",
+  rejected: "#9A8D7C",
+  waiting: "#9A8D7C",
 };
 
 export interface AIMessage {
@@ -184,11 +184,11 @@ const APPROACH_LABELS: Record<string, string> = {
 };
 
 const APPROACH_COLORS: Record<string, string> = {
-  chaleureuse: "var(--success)",
-  directe: "var(--accent)",
-  joueuse: "#F59E0B",
-  professionnelle: "#3B82F6",
-  complice: "#8B5CF6",
+  chaleureuse: "#2F7D4E",
+  directe: "#C9973F",
+  joueuse: "#B45309",
+  professionnelle: "#1D4ED8",
+  complice: "#6D28D9",
 };
 
 export const mockConversations: AIConversation[] = [
@@ -841,11 +841,11 @@ export const OPPORTUNITY_STAGE_LABELS: Record<OpportunityStage, string> = {
 };
 
 export const OPPORTUNITY_STAGE_COLORS: Record<OpportunityStage, string> = {
-  to_review: "var(--accent)",
-  in_progress: "#8B5CF6",
-  sent: "#3B82F6",
-  converted: "var(--success)",
-  dismissed: "var(--text-tertiary)",
+  to_review: "#C9973F",
+  in_progress: "#6D28D9",
+  sent: "#1D4ED8",
+  converted: "#2F7D4E",
+  dismissed: "#9A8D7C",
 };
 
 export const OPPORTUNITY_TYPE_LABELS: Record<OpportunityType, string> = {
@@ -858,12 +858,12 @@ export const OPPORTUNITY_TYPE_LABELS: Record<OpportunityType, string> = {
 };
 
 export const OPPORTUNITY_TYPE_COLORS: Record<OpportunityType, string> = {
-  ppv_upsell: "#3B82F6",
-  reengage: "#F59E0B",
-  upsell_sub: "#8B5CF6",
-  custom_request: "var(--accent)",
-  tip_ask: "var(--success)",
-  welcome_new: "var(--text-tertiary)",
+  ppv_upsell: "#1D4ED8",
+  reengage: "#B45309",
+  upsell_sub: "#6D28D9",
+  custom_request: "#C9973F",
+  tip_ask: "#2F7D4E",
+  welcome_new: "#9A8D7C",
 };
 
 export interface SalesOpportunity {
@@ -1040,10 +1040,10 @@ const AI_CORE_MODE_LABELS: Record<AiCoreMode, string> = {
 };
 
 const AI_CORE_MODE_COLORS: Record<AiCoreMode, string> = {
-  manual_only: "var(--text-tertiary)",
-  ai_draft_assist: "var(--accent)",
-  hybrid_qualification: "#8B5CF6",
-  full_ai_simulation: "#3B82F6",
+  manual_only: "#9A8D7C",
+  ai_draft_assist: "#C9973F",
+  hybrid_qualification: "#6D28D9",
+  full_ai_simulation: "#1D4ED8",
 };
 
 interface AiCoreSettings {
