@@ -7,7 +7,11 @@ import {
   Users, ShieldCheck, Zap, Target, Link, Globe,
   List, Workflow, BarChart3, UserCheck, AlertTriangle,
   Eye, Lock, Settings, FileCheck, Activity, Play,
-  Mail, Smartphone, Bell, Image, Clock,
+  Mail, Smartphone, Bell, Image, Clock, Sliders,
+  GitBranch, FileText, Layers, BookOpen, Ban,
+  UserCog, Megaphone, Video, Lightbulb, Brain,
+  Cpu, MessageSquare, Palette, ThumbsUp, Percent,
+  TrendingDown, Sparkles, Radio,
 } from "lucide-react";
 
 // ═══ Helpers ═══════════════════════════════════════════════
@@ -978,6 +982,435 @@ export const mockGuardSettings: SafetyGuardSetting[] = [
   { id: "gs10", name: "Protection mineurs", description: "Vérification renforcée de l'âge des fans pour tout contenu sensible", enabled: true, severity: "critical", category: "tos", adminOnly: true },
 ];
 
+// ═══ 14. AI Core Settings ═══════════════════════════════════
+
+type AiCoreMode = "manual_only" | "ai_draft_assist" | "hybrid_qualification" | "full_ai_simulation";
+
+const AI_CORE_MODE_LABELS: Record<AiCoreMode, string> = {
+  manual_only: "Manual Only — Aucune IA, 100% humain",
+  ai_draft_assist: "AI Draft Assist — L'IA suggère, l'humain valide",
+  hybrid_qualification: "Hybrid Qualification — IA qualifie + draft, humain approuve",
+  full_ai_simulation: "Full AI Simulation — Preview only, aucun envoi",
+};
+
+const AI_CORE_MODE_COLORS: Record<AiCoreMode, string> = {
+  manual_only: "var(--text-tertiary)",
+  ai_draft_assist: "var(--accent)",
+  hybrid_qualification: "#8B5CF6",
+  full_ai_simulation: "#3B82F6",
+};
+
+interface AiCoreSettings {
+  mode: AiCoreMode;
+  autoGenerateOnNewMessage: boolean;
+  maxDraftsPerConversation: number;
+  requireHumanApproval: boolean;
+  simulationPreviewOnly: boolean;
+  modelTemperature: number;
+  languages: string[];
+}
+
+const mockAiCoreSettings: AiCoreSettings = {
+  mode: "ai_draft_assist",
+  autoGenerateOnNewMessage: true,
+  maxDraftsPerConversation: 3,
+  requireHumanApproval: true,
+  simulationPreviewOnly: false,
+  modelTemperature: 0.7,
+  languages: ["fr", "en", "es", "de"],
+};
+
+// ═══ 15. Hybrid Handoff Rules ════════════════════════════════
+
+interface HandoffRule {
+  id: string;
+  name: string;
+  condition: "spend_threshold" | "subscription_age" | "vip_segment" | "custom";
+  operator: ">" | "<" | ">=" | "<=" | "=";
+  value: string;
+  action: "human_only" | "ai_suggest" | "ai_full" | "flag_review";
+  isEnabled: boolean;
+}
+
+interface HandoffRuleGroup {
+  id: string;
+  label: string;
+  logic: "AND" | "OR";
+  rules: HandoffRule[];
+}
+
+const HANDOFF_ACTION_LABELS: Record<HandoffRule["action"], string> = {
+  human_only: "Humain uniquement",
+  ai_suggest: "IA suggère",
+  ai_full: "IA gère (preview)",
+  flag_review: "Marquer révision",
+};
+
+const mockHandoffRules: HandoffRuleGroup[] = [
+  {
+    id: "hg1", label: "Gros dépensiers", logic: "OR",
+    rules: [
+      { id: "hr1", name: "Dépenses > 5 000€", condition: "spend_threshold", operator: ">", value: "5000", action: "human_only", isEnabled: true },
+      { id: "hr2", name: "VIP depuis 6+ mois", condition: "subscription_age", operator: ">=", value: "180", action: "human_only", isEnabled: true },
+    ],
+  },
+  {
+    id: "hg2", label: "Nouveaux fans", logic: "AND",
+    rules: [
+      { id: "hr3", name: "Abonnement < 30j", condition: "subscription_age", operator: "<", value: "30", action: "ai_suggest", isEnabled: true },
+      { id: "hr4", name: "Dépenses < 500€", condition: "spend_threshold", operator: "<", value: "500", action: "ai_suggest", isEnabled: true },
+    ],
+  },
+  {
+    id: "hg3", label: "Fans à risque", logic: "OR",
+    rules: [
+      { id: "hr5", name: "Segment VIP inactif 30j", condition: "vip_segment", operator: "=", value: "at_risk", action: "flag_review", isEnabled: true },
+      { id: "hr6", name: "Dépenses en baisse -50%", condition: "custom", operator: "<", value: "-50", action: "flag_review", isEnabled: true },
+    ],
+  },
+  {
+    id: "hg4", label: "Demandes custom complexes", logic: "AND",
+    rules: [
+      { id: "hr7", name: "Custom > 500€", condition: "spend_threshold", operator: ">", value: "500", action: "human_only", isEnabled: true },
+      { id: "hr8", name: "Fan non-VIP", condition: "vip_segment", operator: "=", value: "non_vip", action: "human_only", isEnabled: false },
+    ],
+  },
+];
+
+// ═══ 16. Script Builder / PPV Ladder ═════════════════════════
+
+interface PpvLadderStep {
+  id: string;
+  order: number;
+  type: "free_teaser" | "ppv_step" | "upsell" | "cta";
+  title: string;
+  content: string;
+  price: number | null;
+  delayAfterPrevious: string;
+  isRequired: boolean;
+}
+
+interface PpvLadderScript {
+  id: string;
+  name: string;
+  description: string;
+  targetTier: FanTier;
+  totalSteps: number;
+  estimatedRevenue: number;
+  conversionRate: number;
+  isActive: boolean;
+  steps: PpvLadderStep[];
+}
+
+const ppvSteps1: PpvLadderStep[] = [
+  { id: "ps1-1", order: 1, type: "free_teaser", title: "Teaser gratuit — Photo preview", content: "Hey ! J'ai préparé un shooting exclusif rien que pour mes fans fidèles. Regarde ce petit aperçu gratuit 👇", price: null, delayAfterPrevious: "0h", isRequired: true },
+  { id: "ps1-2", order: 2, type: "ppv_step", title: "PPV Step 1 — Mini set (8 photos)", content: "Le set complet est dispo ! 8 photos exclusives, lumière naturelle. Prix early access réservé aux premiers.", price: 19.99, delayAfterPrevious: "4h", isRequired: true },
+  { id: "ps1-3", order: 3, type: "ppv_step", title: "PPV Step 2 — Set complet (20 photos + BTS)", content: "Tu as aimé le mini set ? Le pack complet avec 20 photos et les coulisses du shooting est prêt. Qualité 4K.", price: 49.99, delayAfterPrevious: "24h", isRequired: false },
+  { id: "ps1-4", order: 4, type: "upsell", title: "Upsell — Bundle fidélité", content: "Vu que tu es un fan engagé, j'ai un bundle spécial : les 3 derniers shootings + 2 vidéos inédites. Offre limitée.", price: 89.99, delayAfterPrevious: "48h", isRequired: false },
+  { id: "ps1-5", order: 5, type: "cta", title: "CTA final — Rappel + remerciement", content: "Merci pour ton soutien ! Les offres exclusives expirent dans 24h. Reste connecté pour la suite 🔥", price: null, delayAfterPrevious: "72h", isRequired: false },
+];
+
+const ppvSteps2: PpvLadderStep[] = [
+  { id: "ps2-1", order: 1, type: "free_teaser", title: "Teaser — Preview vidéo 15s", content: "Salut ! Nouveau contenu en préparation. Un petit extrait de 15 secondes pour te donner l'eau à la bouche 🎬", price: null, delayAfterPrevious: "0h", isRequired: true },
+  { id: "ps2-2", order: 2, type: "ppv_step", title: "PPV — Vidéo 5min", content: "La vidéo complète de 5 minutes est disponible. Qualité cinéma, scénario exclusif. Early access à prix réduit.", price: 29.99, delayAfterPrevious: "6h", isRequired: true },
+  { id: "ps2-3", order: 3, type: "ppv_step", title: "PPV Premium — Vidéo 15min + photos", content: "Version longue 15 minutes + 10 photos exclusives du tournage. Contenu jamais publié ailleurs.", price: 69.99, delayAfterPrevious: "24h", isRequired: false },
+  { id: "ps2-4", order: 4, type: "cta", title: "CTA — Dernière chance", content: "Dernière chance pour l'offre premium ! Les prix remontent dans 12h. Prochaine sortie dans 2 semaines.", price: null, delayAfterPrevious: "72h", isRequired: false },
+];
+
+const mockPpvLadderScripts: PpvLadderScript[] = [
+  { id: "pps1", name: "Photo Set — Ladder Standard", description: "Entonnoir PPV progressif pour lancement de set photo", targetTier: "engaged", totalSteps: 5, estimatedRevenue: 2450, conversionRate: 12.5, isActive: true, steps: ppvSteps1 },
+  { id: "pps2", name: "Vidéo Cinéma — Ladder Premium", description: "Entonnoir PPV 2 niveaux pour contenu vidéo premium", targetTier: "vip", totalSteps: 4, estimatedRevenue: 4800, conversionRate: 8.2, isActive: true, steps: ppvSteps2 },
+  { id: "pps3", name: "Welcome — Ladder Nouveaux", description: "Séquence d'accueil pour nouveaux abonnés", targetTier: "new", totalSteps: 3, estimatedRevenue: 1200, conversionRate: 22.0, isActive: false, steps: [ppvSteps1[0], ppvSteps1[1], ppvSteps1[4]] },
+];
+
+// ═══ 17. Message Ledger ══════════════════════════════════════
+
+interface MessageLedgerEntry {
+  id: string;
+  fanName: string;
+  fanTier: FanTier;
+  contentPreview: string;
+  direction: "inbound" | "outbound";
+  creatorName: string;
+  status: "draft" | "approved" | "sent" | "flagged";
+  revenue: number | null;
+  channel: string;
+  createdAt: string;
+  approvedBy: string | null;
+}
+
+const mockMessageLedger: MessageLedgerEntry[] = [
+  { id: "ml1", fanName: "MarcusR", fanTier: "whale", contentPreview: "Hey Marcus! The new video just dropped — exclusive 4K...", direction: "outbound", creatorName: "Sophie L.", status: "sent", revenue: 89.99, channel: "OF", createdAt: daysAgo(1), approvedBy: "Sophie L." },
+  { id: "ml2", fanName: "LunaStar", fanTier: "vip", contentPreview: "Hi Luna! Absolutely, I can put together a custom bundle...", direction: "outbound", creatorName: "Sophie L.", status: "approved", revenue: 149, channel: "Fansly", createdAt: daysAgo(1, 4), approvedBy: "Sophie L." },
+  { id: "ml3", fanName: "CarlosM", fanTier: "engaged", contentPreview: "¡Claro Carlos! Acabo de terminar un video nuevo...", direction: "outbound", creatorName: "Marc D.", status: "draft", revenue: 59.99, channel: "OF", createdAt: ago(30), approvedBy: null },
+  { id: "ml4", fanName: "HotShot23", fanTier: "engaged", contentPreview: "I appreciate your enthusiasm, but I keep all interactions...", direction: "outbound", creatorName: "Sophie L.", status: "flagged", revenue: null, channel: "OF", createdAt: ago(25), approvedBy: null },
+  { id: "ml5", fanName: "Emma_W", fanTier: "engaged", contentPreview: "Emma, du bist großartig! Weil du seit 4 Monaten...", direction: "outbound", creatorName: "Léa K.", status: "sent", revenue: 79, channel: "OF", createdAt: daysAgo(2), approvedBy: "Sophie L." },
+  { id: "ml6", fanName: "MegaSpender_Dubai", fanTier: "whale", contentPreview: "Wow, thank you for this incredible offer! Because this is...", direction: "outbound", creatorName: "Sophie L.", status: "approved", revenue: 2500, channel: "OF", createdAt: daysAgo(1), approvedBy: "Sophie L." },
+  { id: "ml7", fanName: "Tyler_J", fanTier: "engaged", contentPreview: "Hey Tyler! I get it. How about a mini photo set...", direction: "outbound", creatorName: "Marc D.", status: "sent", revenue: 24.99, channel: "OF", createdAt: daysAgo(1, 12), approvedBy: "Marc D." },
+  { id: "ml8", fanName: "Priya_K", fanTier: "new", contentPreview: "Welcome Priya! So happy to have you 🎉 I post exclusive...", direction: "outbound", creatorName: "Léa K.", status: "sent", revenue: 34.99, channel: "Fanvue", createdAt: daysAgo(1), approvedBy: "Léa K." },
+  { id: "ml9", fanName: "DarkKnight42", fanTier: "dormant", contentPreview: "Hey! Missed you around here 💫 I just dropped a new series...", direction: "outbound", creatorName: "Julie M.", status: "draft", revenue: null, channel: "OF", createdAt: daysAgo(2), approvedBy: null },
+  { id: "ml10", fanName: "MarcusR", fanTier: "whale", contentPreview: "That last video was incredible!", direction: "inbound", creatorName: "—", status: "sent", revenue: null, channel: "OF", createdAt: daysAgo(5), approvedBy: null },
+  { id: "ml11", fanName: "Nico_Art", fanTier: "new", contentPreview: "Salut ! Tu fais des shootings photo en extérieur ?", direction: "inbound", creatorName: "—", status: "sent", revenue: null, channel: "MYM", createdAt: ago(90), approvedBy: null },
+  { id: "ml12", fanName: "LunaStar", fanTier: "vip", contentPreview: "Can you do a custom bundle with the beach and studio...", direction: "inbound", creatorName: "—", status: "sent", revenue: null, channel: "Fansly", createdAt: ago(45), approvedBy: null },
+];
+
+// ═══ 18. Banned Keywords / Safety Rules ══════════════════════
+
+interface BannedKeyword {
+  id: string;
+  keyword: string;
+  category: "system" | "custom";
+  severity: "critical" | "high" | "medium" | "low";
+  appliesTo: ("drafts" | "templates" | "manual")[];
+  replacement: string | null;
+  isEnabled: boolean;
+  createdAt: string;
+}
+
+const BANNED_CATEGORY_LABELS: Record<BannedKeyword["category"], string> = {
+  system: "Système",
+  custom: "Personnalisé",
+};
+
+const BANNED_APPLIES_TO_LABELS: Record<string, string> = {
+  drafts: "Brouillons IA",
+  templates: "Templates",
+  manual: "Messages manuels",
+};
+
+const mockBannedKeywords: BannedKeyword[] = [
+  { id: "bk1", keyword: "meet", category: "system", severity: "critical", appliesTo: ["drafts", "templates", "manual"], replacement: "interagir sur la plateforme", isEnabled: true, createdAt: daysAgo(90) },
+  { id: "bk2", keyword: "WhatsApp", category: "system", severity: "critical", appliesTo: ["drafts", "templates", "manual"], replacement: "messagerie de la plateforme", isEnabled: true, createdAt: daysAgo(90) },
+  { id: "bk3", keyword: "phone number", category: "system", severity: "high", appliesTo: ["drafts", "templates", "manual"], replacement: null, isEnabled: true, createdAt: daysAgo(90) },
+  { id: "bk4", keyword: "Instagram", category: "custom", severity: "high", appliesTo: ["drafts", "manual"], replacement: "réseau social", isEnabled: true, createdAt: daysAgo(30) },
+  { id: "bk5", keyword: "discount", category: "custom", severity: "medium", appliesTo: ["drafts"], replacement: "offre spéciale", isEnabled: true, createdAt: daysAgo(14) },
+  { id: "bk6", keyword: "free", category: "custom", severity: "medium", appliesTo: ["drafts", "templates"], replacement: "offert", isEnabled: true, createdAt: daysAgo(7) },
+  { id: "bk7", keyword: "address", category: "system", severity: "critical", appliesTo: ["drafts", "templates", "manual"], replacement: null, isEnabled: true, createdAt: daysAgo(90) },
+  { id: "bk8", keyword: "PayPal", category: "system", severity: "high", appliesTo: ["drafts", "templates", "manual"], replacement: "paiement via la plateforme", isEnabled: true, createdAt: daysAgo(90) },
+  { id: "bk9", keyword: "irl", category: "system", severity: "critical", appliesTo: ["drafts", "templates", "manual"], replacement: null, isEnabled: true, createdAt: daysAgo(90) },
+  { id: "bk10", keyword: "baby", category: "custom", severity: "low", appliesTo: ["drafts"], replacement: null, isEnabled: false, createdAt: daysAgo(45) },
+];
+
+// ═══ 19. Creator Intelligence Profile ════════════════════════
+
+interface CreatorProfile {
+  id: string;
+  persona: string;
+  timezone: string;
+  activeHours: string;
+  languages: string[];
+  tone: "chaleureux" | "professionnel" | "joueuse" | "intime" | "minimal";
+  boundaries: string[];
+  doRules: string[];
+  dontRules: string[];
+  platforms: Platform[];
+  bio: string;
+}
+
+const CREATOR_TONE_LABELS: Record<CreatorProfile["tone"], string> = {
+  chaleureux: "Chaleureux",
+  professionnel: "Professionnel",
+  joueuse: "Joueuse",
+  intime: "Intime",
+  minimal: "Minimal",
+};
+
+const mockCreatorProfile: CreatorProfile = {
+  id: "cp1",
+  persona: "Créatrice lifestyle & bien-être, 28 ans, Paris",
+  timezone: "Europe/Paris (UTC+2)",
+  activeHours: "10h-13h, 15h-19h, 21h-23h",
+  languages: ["fr", "en"],
+  tone: "chaleureux",
+  boundaries: [
+    "Pas de rencontre IRL",
+    "Pas de partage d'informations personnelles",
+    "Pas de contenu hors plateforme",
+    "Respect des limites de prix minimum",
+  ],
+  doRules: [
+    "Toujours remercier les fans fidèles",
+    "Proposer des offres personnalisées aux whales",
+    "Utiliser le ton chaleureux pour les premiers messages",
+    "Partager des aperçus exclusifs en premier",
+  ],
+  dontRules: [
+    "Ne jamais répondre aux demandes de rencontre",
+    "Ne pas partager de numéro de téléphone",
+    "Ne pas faire de prix en dessous du minimum",
+    "Ne pas spammer les fans inactifs",
+  ],
+  platforms: ["OF", "Fansly", "IG", "TT"],
+  bio: "Créatrice de contenu lifestyle depuis 3 ans. Spécialisée en photographie naturelle et bien-être. Communauté de 15k+ fans fidèles.",
+};
+
+// ═══ 20. Notifications Center ════════════════════════════════
+
+type NotificationChannel = "in_app" | "email" | "push" | "slack";
+
+interface NotificationItem {
+  id: string;
+  type: "purchase" | "new_message" | "handover" | "new_subscriber" | "draft_ready" | "compliance_flag" | "revenue_milestone";
+  title: string;
+  description: string;
+  timestamp: string;
+  isRead: boolean;
+  priority: "high" | "medium" | "low";
+  channels: NotificationChannel[];
+  revenue: number | null;
+}
+
+const NOTIF_TYPE_LABELS: Record<NotificationItem["type"], string> = {
+  purchase: "Achat",
+  new_message: "Nouveau message",
+  handover: "Transfert",
+  new_subscriber: "Nouvel abonné",
+  draft_ready: "Brouillon IA prêt",
+  compliance_flag: "Alerte conformité",
+  revenue_milestone: "Palier de revenu",
+};
+
+const NOTIF_CHANNEL_LABELS: Record<NotificationChannel, string> = {
+  in_app: "In-app",
+  email: "Email",
+  push: "Push",
+  slack: "Slack",
+};
+
+const mockNotifications: NotificationItem[] = [
+  { id: "not1", type: "purchase", title: "MarcusR a acheté le PPV 4K", description: "Achat de 89.99€ — Vidéo 'Cinematic BTS'", timestamp: ago(15), isRead: false, priority: "high", channels: ["in_app", "email"], revenue: 89.99 },
+  { id: "not2", type: "new_message", title: "Nouveau message de LunaStar", description: "Demande de bundle personnalisé beach+studio", timestamp: ago(45), isRead: false, priority: "medium", channels: ["in_app"], revenue: null },
+  { id: "not3", type: "handover", title: "MegaSpender_Dubai transféré à Sophie", description: "Custom request 2 500€ — approbation manager", timestamp: ago(60), isRead: true, priority: "high", channels: ["in_app", "push", "slack"], revenue: 2500 },
+  { id: "not4", type: "new_subscriber", title: "3 nouveaux abonnés aujourd'hui", description: "Priya_K (Fanvue), Alex_1996 (OF), K-Pop_Fan (OF)", timestamp: daysAgo(1), isRead: true, priority: "low", channels: ["in_app", "email"], revenue: null },
+  { id: "not5", type: "draft_ready", title: "Brouillons IA prêts — 5 conversations", description: "Drafts générés pour MarcusR, CarlosM, Emma_W, Tyler_J, Priya_K", timestamp: ago(5), isRead: false, priority: "medium", channels: ["in_app"], revenue: null },
+  { id: "not6", type: "compliance_flag", title: "⚠️ Alerte conformité — HotShot23", description: "Demande IRL détectée — révision humaine obligatoire", timestamp: ago(25), isRead: false, priority: "high", channels: ["in_app", "push", "email", "slack"], revenue: null },
+  { id: "not7", type: "revenue_milestone", title: "Palier 15 000€ atteint ce mois ! 🎉", description: "+23% vs mois dernier. Top performer: Sophie L.", timestamp: daysAgo(2), isRead: true, priority: "medium", channels: ["in_app", "email", "slack"], revenue: 15000 },
+  { id: "not8", type: "purchase", title: "LunaStar a acheté le bundle 149€", description: "Bundle personnalisé beach+studio+BTS", timestamp: daysAgo(1), isRead: true, priority: "high", channels: ["in_app", "email"], revenue: 149 },
+  { id: "not9", type: "new_message", title: "Nouveau message de CarlosM", description: "Demande contenu en espagnol", timestamp: ago(30), isRead: true, priority: "low", channels: ["in_app"], revenue: null },
+  { id: "not10", type: "draft_ready", title: "Brouillon prêt — DarkKnight42", description: "Message de réengagement soft pour fan dormant", timestamp: daysAgo(1), isRead: true, priority: "low", channels: ["in_app"], revenue: null },
+  { id: "not11", type: "compliance_flag", title: "⚠️ Copyright musique — Vidéo #3", description: "Campagne 'Pack Fidélité Q2' — piste audio à vérifier", timestamp: daysAgo(3), isRead: true, priority: "high", channels: ["in_app", "email"], revenue: null },
+  { id: "not12", type: "handover", title: "3 conversations réassignées à Léa K.", description: "Round-robin automatique — charge équilibrée", timestamp: daysAgo(1, 8), isRead: true, priority: "low", channels: ["in_app"], revenue: null },
+];
+
+// ═══ 21. Creative Engine / AI Reels ═══════════════════════════
+
+interface AiReel {
+  id: string;
+  title: string;
+  description: string;
+  platform: "IG" | "TT" | "YT_Shorts";
+  duration: string;
+  hook: string;
+  body: string;
+  cta: string;
+  viralScore: number;
+  trendAlignment: string;
+  status: "draft" | "reviewed" | "approved" | "published";
+  reviewedBy: string | null;
+  createdAt: string;
+  thumbnailConcept: string;
+}
+
+const REEL_PLATFORM_LABELS: Record<AiReel["platform"], string> = {
+  IG: "Instagram Reels",
+  TT: "TikTok",
+  YT_Shorts: "YouTube Shorts",
+};
+
+const mockAiReels: AiReel[] = [
+  {
+    id: "ar1", title: "Morning Routine — Behind the Content", description: "Aperçu authentique du processus créatif matinal", platform: "IG",
+    hook: "Tu te demandes comment je crée mon contenu ? Voici les coulisses de ma morning routine ✨", body: "Plan de la vidéo : 1) Réveil et setup lumière naturelle, 2) Sélection des tenues pour le shooting, 3) Test des angles caméra, 4) Premier clic du jour, 5) Résultat final vs making-of",
+    cta: "Abonne-toi pour voir le résultat complet sur ma plateforme 🔗 lien en bio", duration: "45s", viralScore: 87, trendAlignment: "Morning routines, BTS creator, Authentic content", status: "draft", reviewedBy: null, createdAt: daysAgo(2), thumbnailConcept: "Split screen — gauche: pyjama/cheveux en désordre, droite: maquillée/prête, texte 'The Glow Up'",
+  },
+  {
+    id: "ar2", title: "PPV Teaser — Golden Hour Set", description: "Teaser cinématique pour le nouveau set photo", platform: "TT",
+    hook: "POV : Tu viens de découvrir le set photo le plus attendu de l'année 🔥", body: "Montage rapide des 5 meilleurs clichés du set Golden Hour, transition fluides, musique tendance. Texte overlay : 'Golden Hour Collection — Disponible maintenant'",
+    cta: "Lien dans ma bio pour le set complet 💛", duration: "30s", viralScore: 92, trendAlignment: "POV trend, Cinematic transitions, Photo dump", status: "reviewed", reviewedBy: "Sophie L.", createdAt: daysAgo(4), thumbnailConcept: "Photo la plus striking du set avec filtre doré et texte 'GOLDEN HOUR' en typo élégante",
+  },
+  {
+    id: "ar3", title: "Fan Q&A — They Asked, I Answered", description: "Réponse aux questions les plus demandées par les fans", platform: "TT",
+    hook: "Vous m'avez posé 500+ questions... voici les réponses aux 5 plus demandées 💬", body: "Questions: 1) Comment j'ai commencé, 2) Mon setup photo, 3) Combien de temps pour un shooting, 4) Mes inspirations, 5) Conseils pour débuter. Format: face cam, ton authentique, fond neutre.",
+    cta: "Plus de contenu exclusif sur ma page 👆", duration: "60s", viralScore: 75, trendAlignment: "Q&A format, Transparency trend", status: "draft", reviewedBy: null, createdAt: daysAgo(1), thumbnailConcept: "Photo portrait souriante avec bulles de questions en overlay",
+  },
+  {
+    id: "ar4", title: "The BTS No One Sees", description: "Les coulisses drôles et les ratés du shooting", platform: "IG",
+    hook: "Ce que les fans ne voient jamais... Les coulisses (pas toujours glamour) d'un shooting photo 😂", body: "Compilation des moments drôles: trébucher sur le décor, le vent qui ruine la coiffure, les poses ratées, le chat qui entre dans le cadre. Ton humoristique et authentique.",
+    cta: "Le résultat final (bien meilleur!) est dispo sur mon profil 🤍", duration: "35s", viralScore: 95, trendAlignment: "BTS fails, Relatable content, Bloopers", status: "reviewed", reviewedBy: "Sophie L.", createdAt: daysAgo(5), thumbnailConcept: "Photo drôle d'un 'raté' avec texte 'Expectation vs Reality'",
+  },
+];
+
+// ═══ 22. Employee Statistics / Golden Ratio ══════════════════
+
+interface EmployeeStats {
+  memberId: string;
+  name: string;
+  role: string;
+  revenueGenerated: number;
+  conversationsHandled: number;
+  draftsApproved: number;
+  draftsRejected: number;
+  approvalRate: number;
+  avgResponseTime: string;
+  goldenRatio: number;
+  messagesSent: number;
+  revenuePerConversation: number;
+}
+
+const mockEmployeeStats: EmployeeStats[] = [
+  { memberId: "tm1", name: "Sophie L.", role: "Manager", revenueGenerated: 14500, conversationsHandled: 45, draftsApproved: 38, draftsRejected: 7, approvalRate: 84.4, avgResponseTime: "12min", goldenRatio: 92, messagesSent: 128, revenuePerConversation: 322 },
+  { memberId: "tm2", name: "Marc D.", role: "Chatter", revenueGenerated: 6800, conversationsHandled: 32, draftsApproved: 22, draftsRejected: 10, approvalRate: 68.8, avgResponseTime: "28min", goldenRatio: 71, messagesSent: 95, revenuePerConversation: 212 },
+  { memberId: "tm5", name: "Léa K.", role: "Chatter", revenueGenerated: 8900, conversationsHandled: 38, draftsApproved: 31, draftsRejected: 7, approvalRate: 81.6, avgResponseTime: "18min", goldenRatio: 78, messagesSent: 112, revenuePerConversation: 234 },
+  { memberId: "tm3", name: "Julie M.", role: "Chatter", revenueGenerated: 4200, conversationsHandled: 22, draftsApproved: 15, draftsRejected: 7, approvalRate: 68.2, avgResponseTime: "35min", goldenRatio: 58, messagesSent: 64, revenuePerConversation: 191 },
+  { memberId: "tm4", name: "Thomas R.", role: "Compliance", revenueGenerated: 0, conversationsHandled: 0, draftsApproved: 12, draftsRejected: 3, approvalRate: 80.0, avgResponseTime: "N/A", goldenRatio: 0, messagesSent: 0, revenuePerConversation: 0 },
+];
+
+// ═══ 23. Roadmap / Feature Requests ══════════════════════════
+
+interface FeatureRequest {
+  id: string;
+  title: string;
+  description: string;
+  category: "ai" | "automation" | "compliance" | "revenue" | "team" | "platforms" | "creative";
+  upvotes: number;
+  status: "planned" | "in_progress" | "shipped" | "under_review";
+  requestedBy: string;
+  createdAt: string;
+  agencyRequest: boolean;
+}
+
+const FEATURE_CATEGORY_LABELS: Record<FeatureRequest["category"], string> = {
+  ai: "IA",
+  automation: "Automation",
+  compliance: "Conformité",
+  revenue: "Revenu",
+  team: "Équipe",
+  platforms: "Plateformes",
+  creative: "Création",
+};
+
+const FEATURE_STATUS_LABELS: Record<FeatureRequest["status"], string> = {
+  planned: "Planifié",
+  in_progress: "En cours",
+  shipped: "Livré",
+  under_review: "En revue",
+};
+
+const mockFeatureRequests: FeatureRequest[] = [
+  { id: "fr1", title: "Multi-plateforme OF + Fansly + MYM", description: "Gérer toutes les plateformes depuis une seule interface unifiée", category: "platforms", upvotes: 89, status: "in_progress", requestedBy: "Top 10 agences", createdAt: daysAgo(60), agencyRequest: true },
+  { id: "fr2", title: "Auto-translation des drafts IA", description: "Traduction automatique des brouillons dans la langue du fan", category: "ai", upvotes: 67, status: "planned", requestedBy: "Agences internationales", createdAt: daysAgo(45), agencyRequest: true },
+  { id: "fr3", title: "Dashboard revenu temps réel par chatter", description: "Voir le CA généré par chaque membre de l'équipe en direct", category: "revenue", upvotes: 54, status: "under_review", requestedBy: "Managers d'agence", createdAt: daysAgo(30), agencyRequest: true },
+  { id: "fr4", title: "IA Reels — Génération automatique", description: "Génération de scripts Reels/TikTok basés sur les tendances", category: "creative", upvotes: 48, status: "in_progress", requestedBy: "Créatrices solo", createdAt: daysAgo(20), agencyRequest: false },
+  { id: "fr5", title: "Rapports PDF automatiques hebdomadaires", description: "Génération et envoi automatique de rapports de performance", category: "revenue", upvotes: 43, status: "planned", requestedBy: "Agences", createdAt: daysAgo(35), agencyRequest: true },
+  { id: "fr6", title: "Détection de sentiments avancée", description: "Analyse du ton et de l'humeur des fans dans les messages", category: "ai", upvotes: 38, status: "under_review", requestedBy: "Chatters", createdAt: daysAgo(25), agencyRequest: false },
+  { id: "fr7", title: "Intégration calendrier éditorial", description: "Planifier les drops et campagnes sur un calendrier visuel", category: "automation", upvotes: 35, status: "planned", requestedBy: "Créatrices", createdAt: daysAgo(15), agencyRequest: false },
+  { id: "fr8", title: "Mode vacances intelligent", description: "Désactiver temporairement l'IA et activer un répondeur automatique", category: "automation", upvotes: 29, status: "under_review", requestedBy: "Créatrices solo", createdAt: daysAgo(10), agencyRequest: false },
+  { id: "fr9", title: "Split testing des messages IA", description: "A/B test automatique de deux versions d'un même message", category: "ai", upvotes: 27, status: "planned", requestedBy: "Agences", createdAt: daysAgo(12), agencyRequest: true },
+  { id: "fr10", title: "Export données fans (GDPR compliant)", description: "Export complet des données fans au format CSV/JSON", category: "compliance", upvotes: 22, status: "shipped", requestedBy: "Top 5 agences", createdAt: daysAgo(50), agencyRequest: true },
+  { id: "fr11", title: "Template builder visuel", description: "Créer des templates de messages avec un éditeur visuel drag-and-drop", category: "creative", upvotes: 19, status: "under_review", requestedBy: "Équipes marketing", createdAt: daysAgo(8), agencyRequest: false },
+  { id: "fr12", title: "Whale prediction score", description: "Score prédictif identifiant les fans susceptibles de devenir whales", category: "ai", upvotes: 16, status: "in_progress", requestedBy: "Data analysts", createdAt: daysAgo(5), agencyRequest: false },
+];
+
 // ═══ Section Navigation Config ═════════════════════════════
 
 export type SectionId =
@@ -993,7 +1426,16 @@ export type SectionId =
   | "team_control"
   | "compliance_review"
   | "why_atlas_safer"
-  | "safety_guard";
+  | "safety_guard"
+  | "ai_core_settings"
+  | "hybrid_handoff"
+  | "script_builder"
+  | "message_ledger"
+  | "banned_keywords"
+  | "creator_profile"
+  | "notifications_center"
+  | "creative_engine"
+  | "roadmap";
 
 export interface NavSection {
   id: SectionId;
@@ -1008,48 +1450,87 @@ export interface NavGroup {
 
 export const NAV_GROUPS: NavGroup[] = [
   {
-    label: "VENTES",
+    label: "INBOX",
     sections: [
       { id: "sales_engine", label: "AI Sales Engine", icon: MessageCircle },
-      { id: "campaign_builder", label: "Campaign Builder", icon: Send },
+      { id: "message_ledger", label: "Message Ledger", icon: BookOpen },
+    ],
+  },
+  {
+    label: "AI SALES ENGINE",
+    sections: [
       { id: "opportunity_queue", label: "Opportunity Queue", icon: Target },
-    ],
-  },
-  {
-    label: "REVENU",
-    sections: [
-      { id: "pricing_lab", label: "Pricing Lab", icon: DollarSign },
-      { id: "tracking_links", label: "Tracking & Attribution", icon: Link },
-    ],
-  },
-  {
-    label: "AUDIENCE",
-    sections: [
       { id: "lists_builder", label: "Dynamic Lists", icon: List },
+      { id: "script_builder", label: "Script Builder / PPV", icon: Layers },
+    ],
+  },
+  {
+    label: "CAMPAIGNS",
+    sections: [
+      { id: "campaign_builder", label: "Campaign Builder", icon: Send },
+      { id: "creative_engine", label: "Creative Engine / Reels", icon: Video },
+    ],
+  },
+  {
+    label: "SCRIPTS",
+    sections: [
+      { id: "pricing_lab", label: "Dynamic Pricing", icon: DollarSign },
+      { id: "hybrid_handoff", label: "Hybrid Handoff Rules", icon: GitBranch },
+      { id: "ai_core_settings", label: "AI Core Settings", icon: Sliders },
+    ],
+  },
+  {
+    label: "VAULT",
+    sections: [
+      { id: "creator_profile", label: "Creator Profile", icon: UserCog },
+      { id: "banned_keywords", label: "Banned Keywords", icon: Ban },
+      { id: "tracking_links", label: "Tracking & Attribution", icon: Link },
       { id: "fan_journey", label: "Fan Journey", icon: TrendingUp },
     ],
   },
   {
-    label: "AUTOMATION",
+    label: "TEAM",
     sections: [
+      { id: "team_control", label: "Team Control Room", icon: Users },
+      { id: "notifications_center", label: "Notifications Center", icon: Bell },
+    ],
+  },
+  {
+    label: "SAFETY",
+    sections: [
+      { id: "compliance_review", label: "Compliance Review", icon: ShieldCheck },
+      { id: "safety_guard", label: "Safety Guard", icon: Lock },
       { id: "automation_triggers", label: "Automation Triggers", icon: Workflow },
+      { id: "why_atlas_safer", label: "Why Atlas is Safer", icon: Eye },
+    ],
+  },
+  {
+    label: "SETTINGS",
+    sections: [
       { id: "browser_mock", label: "Browser Workspace", icon: Globe },
     ],
   },
   {
-    label: "ÉQUIPE",
+    label: "ROADMAP",
     sections: [
-      { id: "team_control", label: "Team Control Room", icon: Users },
-    ],
-  },
-  {
-    label: "SÉCURITÉ",
-    sections: [
-      { id: "compliance_review", label: "Compliance Review", icon: ShieldCheck },
-      { id: "why_atlas_safer", label: "Why Atlas is Safer", icon: Eye },
-      { id: "safety_guard", label: "Safety Guard", icon: Lock },
+      { id: "roadmap", label: "Feature Requests", icon: Lightbulb },
     ],
   },
 ];
 
+export type {
+  AiCoreMode, AiCoreSettings, HandoffRule, HandoffRuleGroup,
+  PpvLadderStep, PpvLadderScript, MessageLedgerEntry, BannedKeyword,
+  CreatorProfile, NotificationItem, NotificationChannel, AiReel,
+  EmployeeStats, FeatureRequest,
+};
+export {
+  AI_CORE_MODE_LABELS, AI_CORE_MODE_COLORS, HANDOFF_ACTION_LABELS,
+  BANNED_CATEGORY_LABELS, BANNED_APPLIES_TO_LABELS, CREATOR_TONE_LABELS,
+  NOTIF_TYPE_LABELS, NOTIF_CHANNEL_LABELS, REEL_PLATFORM_LABELS,
+  FEATURE_CATEGORY_LABELS, FEATURE_STATUS_LABELS,
+  mockAiCoreSettings, mockHandoffRules, mockPpvLadderScripts,
+  mockMessageLedger, mockBannedKeywords, mockCreatorProfile,
+  mockNotifications, mockAiReels, mockEmployeeStats, mockFeatureRequests,
+};
 export { formatEuro, formatRelative, ago, daysAgo };
