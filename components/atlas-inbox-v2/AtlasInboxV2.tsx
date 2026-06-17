@@ -79,11 +79,11 @@ export function AtlasInboxV2() {
       <button
         onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
         className="lg:hidden flex items-center gap-2 px-4 py-2 text-[11px] border-b shrink-0"
-        style={{ borderColor: "#E5D7C3", color: "#7A6E63" }}
+        style={{ borderColor: "#E5D7C3", color: "#5F5145" }}
       >
         <Menu size={14} />
         <span>Menu</span>
-        <span className="text-[9px] ml-auto" style={{ color: "#C9973F" }}>{activeSection}</span>
+        <span className="text-[12px] ml-auto" style={{ color: "#C9973F" }}>{activeSection}</span>
       </button>
 
       {/* ─── Sidebar (Dark) ────────────────────────────── */}
@@ -103,7 +103,7 @@ export function AtlasInboxV2() {
               <h1 className="text-[14px] font-display font-semibold tracking-widest" style={{ color: "#F4EEE3" }}>
                 ATLAS<span style={{ color: "#C9973F" }}>.</span>OS
               </h1>
-              <p className="text-[9px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>Agency OS</p>
+              <p className="text-[12px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>Agency OS</p>
             </div>
           )}
           <button
@@ -171,7 +171,7 @@ export function AtlasInboxV2() {
               style={{ backgroundColor: "rgba(201,151,63,0.08)" }}
             >
               <ShieldCheck size={11} style={{ color: "#C9973F" }} />
-              <span className="text-[10px] font-medium" style={{ color: "#C9973F" }}>
+              <span className="text-[13px] font-medium" style={{ color: "#C9973F" }}>
                 Compliance-first Creator OS
               </span>
             </div>
@@ -182,24 +182,24 @@ export function AtlasInboxV2() {
       {/* ─── Content Area ─────────────────────────────── */}
       <main className="flex-1 flex flex-col overflow-y-auto" style={{ backgroundColor: "#F6F1E8" }}>
         {/* Topbar */}
-        <div className="shrink-0 px-6 py-4 border-b" style={{ backgroundColor: "#FFFBF4", borderColor: "#E5D7C3" }}>
+        <div className="shrink-0 px-6 py-4 border-b" style={{ backgroundColor: "#FFFBF4", borderColor: "#E5D7C3", boxShadow: "0 1px 2px rgba(23,18,12,0.03)" }}>
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-[28px] font-display font-semibold tracking-tight" style={{ color: "#17120C" }}>
                 Atlas Inbox
               </h1>
-              <p className="text-[14px] mt-0.5" style={{ color: "#6E6257" }}>
+              <p className="text-[14px] mt-0.5" style={{ color: "#5F5145" }}>
                 AI-assisted sales workspace. Human approval required before every send.
               </p>
             </div>
             <div className="flex items-center gap-3 text-[12px] font-medium">
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#EDF5EF", color: "#2F7D4E" }}>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#E8F2EA", color: "#2F7D4E" }}>
                 <ShieldCheck size={13} /> No auto-send
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#EDF5EF", color: "#2F7D4E" }}>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#E8F2EA", color: "#2F7D4E" }}>
                 <Lock size={13} /> No scraping
               </span>
-              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#EDF5EF", color: "#2F7D4E" }}>
+              <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#E8F2EA", color: "#2F7D4E" }}>
                 <UserCheck size={13} /> Human approved
               </span>
             </div>
@@ -208,13 +208,13 @@ export function AtlasInboxV2() {
 
         {/* Safety banner */}
         <div className="flex items-center justify-center gap-4 lg:gap-6 px-4 py-1.5 border-b shrink-0"
-          style={{ backgroundColor: "#EDF5EF", borderColor: "rgba(47,125,78,0.15)" }}>
-          <span className="text-[12px] flex items-center gap-1.5 font-medium" style={{ color: "#2F7D4E" }}>
-            <ShieldCheck size={12} /> IA propose, humain valide
+          style={{ backgroundColor: "#F8F6F2", borderColor: "#E5D7C3" }}>
+          <span className="text-[12px] flex items-center gap-1.5 font-medium" style={{ color: "#5F5145" }}>
+            <ShieldCheck size={12} style={{ color: "#C9973F" }} /> IA propose, humain valide
           </span>
-          <span className="text-[12px] hidden sm:inline" style={{ color: "#6E6257" }}>Aucun envoi automatique</span>
-          <span className="text-[12px] hidden sm:inline" style={{ color: "#6E6257" }}>Pas de scraping</span>
-          <span className="text-[12px] hidden sm:inline" style={{ color: "#6E6257" }}>Pas d'usurpation</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>Aucun envoi automatique</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>Pas de scraping</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>Pas d'usurpation</span>
         </div>
 
         {/* Onboarding: Launch Atlas OS */}
@@ -274,60 +274,49 @@ function AtlasLaunchBlock({
   onDismiss: () => void;
 }) {
   if (steps.length === 0) return null;
+  const done = completedSteps.size;
+  const total = steps.length;
+  const pct = Math.round((done / total) * 100);
   return (
-    <div className="mx-5 mt-5 p-5 rounded-sm border" style={{ backgroundColor: "rgba(216,169,91,0.03)", borderColor: "rgba(216,169,91,0.1)" }}>
-      <div className="flex items-center justify-between mb-4">
-        <div>
-          <h2 className="text-sm font-display font-semibold flex items-center gap-2" style={{ color: "#17120C" }}>
-            <Sparkles size={14} style={{ color: "#C9973F" }} />
-            Launch Atlas OS
-          </h2>
-          <p className="text-[11px] mt-1" style={{ color: "#7A6E63" }}>
-            {completedSteps.size}/{steps.length} étapes complétées — configurez votre espace pour démarrer
-          </p>
+    <div className="mx-4 mt-3 px-4 py-2.5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
+      <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2 shrink-0">
+          <Sparkles size={14} style={{ color: "#C9973F" }} />
+          <span className="text-[13px] font-semibold" style={{ color: "#17120C" }}>Get Started</span>
+          <span className="text-[12px] font-mono" style={{ color: "#5F5145" }}>{done}/{total}</span>
         </div>
-        {completedSteps.size === steps.length && (
-          <button onClick={onDismiss} className="p-1 rounded-sm hover:bg-black/[0.03]" style={{ color: "#9A8D7C" }}>
+        {/* Progress bar */}
+        <div className="h-1 flex-1 rounded-full min-w-[60px]" style={{ backgroundColor: "#EAE2D7" }}>
+          <div className="h-full rounded-full transition-all" style={{ width: `${pct}%`, backgroundColor: pct === 100 ? "#2F7D4E" : "#C9973F" }} />
+        </div>
+        {/* Compact step pills */}
+        <div className="flex items-center gap-1.5 flex-wrap shrink-0">
+          {steps.map((step, i) => {
+            const Icon = step.icon;
+            const isComplete = completedSteps.has(step.id);
+            return (
+              <button
+                key={step.id}
+                onClick={() => onToggleStep(step.id)}
+                className="flex items-center gap-1 px-2 py-1 rounded-sm text-[12px] font-medium transition-colors"
+                title={step.description}
+                style={{
+                  backgroundColor: isComplete ? "#E8F2EA" : "#F2EDE4",
+                  color: isComplete ? "#2F7D4E" : "#5F5145",
+                  textDecoration: isComplete ? "line-through" : "none",
+                }}
+              >
+                {isComplete ? <CheckCircle size={11} /> : <Icon size={11} />}
+                {step.label}
+              </button>
+            );
+          })}
+        </div>
+        {done === total && (
+          <button onClick={onDismiss} className="p-1 rounded-sm hover:bg-black/[0.04] shrink-0" style={{ color: "#5F5145" }}>
             <X size={14} />
           </button>
         )}
-      </div>
-      <div className="space-y-2">
-        {steps.map((step, i) => {
-          const Icon = step.icon;
-          const isComplete = completedSteps.has(step.id);
-          return (
-            <div key={step.id}
-              className="w-full flex items-center gap-3 px-3 py-2.5 rounded-sm transition-colors cursor-pointer"
-              style={{ backgroundColor: isComplete ? "rgba(47,125,78,0.04)" : "#F5F2EB" }}
-              onClick={() => onToggleStep(step.id)}
-            >
-              <div className="w-5 h-5 rounded-sm flex items-center justify-center shrink-0" style={{
-                backgroundColor: isComplete ? "rgba(47,125,78,0.12)" : "#E8E2DA",
-                color: isComplete ? "#2F7D4E" : "#7A6E63",
-              }}>
-                {isComplete ? <CheckCircle size={12} /> : <span className="text-[10px] font-mono">{i + 1}</span>}
-              </div>
-              <div className="flex-1 min-w-0">
-                <span className="text-[11px] font-medium" style={{
-                  color: isComplete ? "#6E6257" : "#17120C",
-                  textDecoration: isComplete ? "line-through" : "none",
-                }}>
-                  {step.label}
-                </span>
-                <p className="text-[9px] mt-0.5 truncate" style={{ color: "#9A8D7C" }}>{step.description}</p>
-              </div>
-              {step.sectionTarget && !isComplete && (
-                <button onClick={(e) => { e.stopPropagation(); onNavigate(step.sectionTarget!); }}
-                  className="text-[10px] px-2 py-1 rounded-sm shrink-0 transition-colors hover:opacity-80"
-                  style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}
-                >
-                  Configurer
-                </button>
-              )}
-            </div>
-          );
-        })}
       </div>
     </div>
   );
@@ -341,7 +330,7 @@ function SectionInfoBar({ description }: { description: string }) {
       <button
         onClick={() => setExpanded(!expanded)}
         className="w-full flex items-center gap-2 text-[10px] py-2 px-3 rounded-sm transition-colors"
-        style={{ backgroundColor: "rgba(216,169,91,0.03)", color: "#7A6E63", border: "1px solid rgba(216,169,91,0.06)" }}
+        style={{ backgroundColor: "#FFFBF4", color: "#5F5145", border: "1px solid #E5D7C3" }}
       >
         <Info size={12} style={{ color: "#C9973F" }} />
         <span className="flex-1 text-left">Comment ça marche</span>
@@ -349,7 +338,7 @@ function SectionInfoBar({ description }: { description: string }) {
       </button>
       {expanded && (
         <div className="px-3 pb-3 pt-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.02)" }}>
-          <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{description}</p>
+          <p className="text-[11px] leading-relaxed" style={{ color: "#5F5145" }}>{description}</p>
         </div>
       )}
     </div>
@@ -416,22 +405,22 @@ function SalesEngineSection() {
   return (
     <div className="flex h-full">
       {/* Conv list */}
-      <div className="w-[280px] shrink-0 border-r flex flex-col" style={{ borderColor: "#E5D7C3" }}>
+      <div className="w-[300px] shrink-0 border-r flex flex-col" style={{ borderColor: "#E5D7C3", backgroundColor: "#FFFBF4" }}>
         <div className="p-4 border-b shrink-0" style={{ borderColor: "#E5D7C3" }}>
           <div className="flex items-center justify-between mb-3">
-            <h2 className="text-sm font-semibold font-display" style={{ color: "#17120C" }}>Sales Engine</h2>
-            <span className="text-[10px]" style={{ color: "#7A6E63" }}>
-              {conversations.length} conversations
+            <h2 className="text-[20px] font-semibold font-display" style={{ color: "#17120C" }}>Sales Engine</h2>
+            <span className="text-[13px] font-medium px-2 py-0.5 rounded-sm" style={{ backgroundColor: "#F2EDE4", color: "#5F5145" }}>
+              {conversations.length}
             </span>
           </div>
           <div className="relative">
-            <Search size={13} className="absolute left-2.5 top-1/2 -translate-y-1/2" style={{ color: "#9A8D7C" }} />
+            <Search size={14} className="absolute left-2.5 top-1/2 -translate-y-1/2" style={{ color: "#5F5145" }} />
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Rechercher un fan..."
-              className="w-full pl-8 pr-3 py-1.5 text-[11px] rounded-sm outline-none bg-transparent"
-              style={{ color: "#17120C", border: "1px solid #E0D8CF" }}
+              className="w-full pl-8 pr-3 py-2 text-[14px] rounded-sm outline-none"
+              style={{ color: "#17120C", backgroundColor: "#F6F1E8", border: "1px solid #E5D7C3" }}
             />
           </div>
         </div>
@@ -440,47 +429,48 @@ function SalesEngineSection() {
             <button
               key={conv.id}
               onClick={() => setSelectedId(conv.id)}
-              className="w-full text-left px-4 py-3 transition-colors"
+              className="w-full text-left px-4 py-3 transition-colors border-b"
               style={{
-                backgroundColor: selectedId === conv.id ? "rgba(216,169,91,0.06)" : "transparent",
-                borderLeft: selectedId === conv.id ? "2px solid #C9973F" : "2px solid transparent",
+                backgroundColor: selectedId === conv.id ? "#F6F1E8" : "transparent",
+                borderLeft: selectedId === conv.id ? "3px solid #C9973F" : "3px solid transparent",
+                borderColor: selectedId === conv.id ? "#E5D7C3" : "#F2EDE4",
               }}
             >
               <div className="flex items-start gap-2.5">
                 <div
-                  className="w-8 h-8 rounded-sm flex items-center justify-center text-xs font-semibold shrink-0"
-                  style={{ backgroundColor: `${FAN_TIER_COLORS[conv.fanTier]}20`, color: FAN_TIER_COLORS[conv.fanTier], border: "1px solid #E8E2DA" }}
+                  className="w-9 h-9 rounded-sm flex items-center justify-center font-semibold shrink-0"
+                  style={{ backgroundColor: `${FAN_TIER_COLORS[conv.fanTier]}18`, color: FAN_TIER_COLORS[conv.fanTier], border: "1px solid #E5D7C3" }}
                 >
                   {conv.fanName.charAt(0)}
                 </div>
                 <div className="min-w-0 flex-1">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-[12px] font-medium truncate" style={{ color: "#17120C" }}>{conv.fanName}</span>
-                    <span className="text-[9px] shrink-0" style={{ color: "#9A8D7C" }}>{formatRelative(conv.lastActivity)}</span>
+                    <span className="text-[14px] font-semibold truncate" style={{ color: "#17120C" }}>{conv.fanName}</span>
+                    <span className="text-[11px] shrink-0" style={{ color: "#5F5145" }}>{formatRelative(conv.lastActivity)}</span>
                   </div>
                   <div className="flex items-center gap-1.5 mt-0.5">
-                    <span className="text-[9px] px-1.5 py-0.5 rounded-sm font-medium" style={{ backgroundColor: `${FAN_TIER_COLORS[conv.fanTier]}20`, color: FAN_TIER_COLORS[conv.fanTier] }}>
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-sm font-medium" style={{ backgroundColor: `${FAN_TIER_COLORS[conv.fanTier]}18`, color: FAN_TIER_COLORS[conv.fanTier] }}>
                       {FAN_TIER_LABELS[conv.fanTier]}
                     </span>
-                    <span className="text-[9px]" style={{ color: "#6E6257" }}>{PLATFORM_LABELS[conv.platform]}</span>
+                    <span className="text-[11px]" style={{ color: "#5F5145" }}>{PLATFORM_LABELS[conv.platform]}</span>
                   </div>
-                  <p className="text-[11px] mt-1.5 leading-relaxed line-clamp-1" style={{ color: "#7A6E63" }}>
+                  <p className="text-[13px] mt-1.5 leading-relaxed line-clamp-1" style={{ color: "#5F5145" }}>
                     {conv.lastMessagePreview}
                   </p>
                   <div className="flex items-center gap-2 mt-1.5">
                     {conv.complianceFlags.length > 0 && (
-                      <span className="flex items-center gap-0.5 text-[9px]" style={{ color: "#B7791F" }}>
-                        <AlertTriangle size={9} /> {conv.complianceFlags.length}
+                      <span className="flex items-center gap-0.5 text-[10px] font-medium" style={{ color: "#B7791F" }}>
+                        <AlertTriangle size={10} /> {conv.complianceFlags.length}
                       </span>
                     )}
                     <span
-                      className="text-[9px] px-1.5 py-0.5 rounded-sm font-medium"
-                      style={{ backgroundColor: `${STATUS_COLORS[conv.status]}15`, color: STATUS_COLORS[conv.status] }}
+                      className="text-[11px] px-2 py-0.5 rounded-sm font-medium"
+                      style={{ backgroundColor: `${STATUS_COLORS[conv.status]}18`, color: STATUS_COLORS[conv.status] }}
                     >
                       {STATUS_LABELS[conv.status]}
                     </span>
                     {conv.unread && (
-                      <span className="w-1.5 h-1.5 rounded-full ml-auto" style={{ backgroundColor: "#C9973F" }} />
+                      <span className="w-2 h-2 rounded-full ml-auto" style={{ backgroundColor: "#C9973F" }} />
                     )}
                   </div>
                 </div>
@@ -492,57 +482,58 @@ function SalesEngineSection() {
 
       {/* Center: Messages + Drafts */}
       <div className="flex-1 flex flex-col min-w-0">
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["sales_engine"]} />
         {!selectedConv ? (
           <div className="flex-1 flex flex-col items-center justify-center">
-            <MessageCircle size={32} style={{ color: "#F0EBE3" }} />
-            <p className="text-sm mt-3 font-medium" style={{ color: "#AEA294" }}>Sélectionne une conversation</p>
-            <p className="text-xs mt-1" style={{ color: "#E0D8CF" }}>L&apos;IA te proposera des suggestions de réponse</p>
+            <MessageCircle size={32} style={{ color: "#EBE3D7" }} />
+            <p className="text-sm mt-3 font-medium" style={{ color: "#5F5145" }}>Sélectionne une conversation</p>
+            <p className="text-xs mt-1" style={{ color: "#D9CCBB" }}>L&apos;IA te proposera des suggestions de réponse</p>
           </div>
         ) : (
           <>
             {/* Conversation Header */}
-            <div className="flex items-center gap-3 px-4 py-3 border-b shrink-0" style={{ borderColor: "#E5D7C3" }}>
-              <div className="w-9 h-9 rounded-sm flex items-center justify-center text-xs font-semibold shrink-0" style={{ backgroundColor: `${FAN_TIER_COLORS[selectedConv.fanTier]}20`, color: FAN_TIER_COLORS[selectedConv.fanTier], border: "1px solid #E8E2DA" }}>
+            <div className="flex items-center gap-3 px-5 py-3 border-b shrink-0" style={{ borderColor: "#E5D7C3", backgroundColor: "#FFFBF4" }}>
+              <div className="w-10 h-10 rounded-sm flex items-center justify-center font-semibold shrink-0" style={{ backgroundColor: `${FAN_TIER_COLORS[selectedConv.fanTier]}18`, color: FAN_TIER_COLORS[selectedConv.fanTier], border: "1px solid #E5D7C3" }}>
                 {selectedConv.fanName.charAt(0)}
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-sm font-medium truncate" style={{ color: "#17120C" }}>{selectedConv.fanName}</span>
-                  <span className="text-[10px] px-1.5 py-0.5 rounded-sm font-medium" style={{ backgroundColor: `${FAN_TIER_COLORS[selectedConv.fanTier]}20`, color: FAN_TIER_COLORS[selectedConv.fanTier] }}>
+                  <span className="text-[16px] font-semibold truncate" style={{ color: "#17120C" }}>{selectedConv.fanName}</span>
+                  <span className="text-[12px] px-2 py-0.5 rounded-sm font-medium" style={{ backgroundColor: `${FAN_TIER_COLORS[selectedConv.fanTier]}18`, color: FAN_TIER_COLORS[selectedConv.fanTier] }}>
                     {FAN_TIER_LABELS[selectedConv.fanTier]}
                   </span>
                 </div>
-                <span className="text-[10px]" style={{ color: "#7A6E63" }}>
+                <span className="text-[13px]" style={{ color: "#5F5145" }}>
                   {PLATFORM_LABELS[selectedConv.platform]} · {formatEuro(selectedConv.totalSpent)} dépensé · Score {selectedConv.intentScore}/100
                 </span>
               </div>
               {selectedConv.complianceFlags.length > 0 && (
-                <span className="flex items-center gap-1 text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(183,121,31,0.1)", color: "#B7791F" }}>
-                  <AlertTriangle size={10} /> {selectedConv.complianceFlags.join(", ")}
+                <span className="flex items-center gap-1 text-[12px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(183,121,31,0.08)", color: "#B7791F" }}>
+                  <AlertTriangle size={12} /> {selectedConv.complianceFlags.join(", ")}
                 </span>
               )}
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3">
+            <div className="flex-1 overflow-y-auto px-5 py-4 space-y-3" style={{ backgroundColor: "#F6F1E8" }}>
               {selectedConv.messages.map((msg) => (
                 <div key={msg.id} className={`flex ${msg.direction === "inbound" ? "justify-start" : "justify-end"}`}>
                   <div
-                    className="max-w-[70%] rounded-sm px-3.5 py-2.5"
+                    className="max-w-[70%] rounded-sm px-4 py-3"
                     style={{
-                      backgroundColor: msg.direction === "inbound" ? "#EDE7DF" : "rgba(216,169,91,0.12)",
+                      backgroundColor: msg.direction === "inbound" ? "#FFFFFF" : "rgba(201,151,63,0.12)",
+                      border: msg.direction === "inbound" ? "1px solid #E5D7C3" : "1px solid rgba(201,151,63,0.15)",
                       borderBottomLeftRadius: msg.direction === "inbound" ? 0 : undefined,
                       borderBottomRightRadius: msg.direction === "outbound" ? 0 : undefined,
+                      boxShadow: "0 1px 2px rgba(23,18,12,0.03)",
                     }}
                   >
-                    <p className="text-[13px] leading-relaxed break-words" style={{ color: "#17120C" }}>{msg.content}</p>
-                    <div className="flex items-center gap-1.5 mt-1.5">
-                      <span className="text-[9px]" style={{ color: "#9A8D7C" }}>
+                    <p className="text-[14px] leading-relaxed break-words" style={{ color: "#17120C" }}>{msg.content}</p>
+                    <div className="flex items-center gap-1.5 mt-2">
+                      <span className="text-[11px]" style={{ color: "#5F5145" }}>
                         {new Date(msg.occurredAt).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" })}
                       </span>
                       {msg.aiGenerated && (
-                        <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>IA</span>
+                        <span className="text-[13px] px-1.5 py-0.5 rounded-sm font-medium" style={{ backgroundColor: "rgba(201,151,63,0.12)", color: "#C9973F" }}>IA</span>
                       )}
                     </div>
                   </div>
@@ -552,12 +543,12 @@ function SalesEngineSection() {
               {/* AI Drafts Section */}
               {selectedConv.drafts.length > 0 && (
                 <div className="space-y-2.5 mt-6 mb-2">
-                  <div className="flex items-center gap-2">
-                    <div className="h-px flex-1" style={{ backgroundColor: "#E8E2DA" }} />
-                    <span className="text-[10px] font-medium flex items-center gap-1" style={{ color: "#C9973F" }}>
-                      <Zap size={10} /> Brouillons IA · {selectedConv.drafts.length} suggestions
+                  <div className="flex items-center gap-3">
+                    <div className="h-px flex-1" style={{ backgroundColor: "#E5D7C3" }} />
+                    <span className="text-[13px] font-semibold flex items-center gap-1.5" style={{ color: "#C9973F" }}>
+                      <Zap size={13} /> Brouillons IA · {selectedConv.drafts.length} suggestions
                     </span>
-                    <div className="h-px flex-1" style={{ backgroundColor: "#E8E2DA" }} />
+                    <div className="h-px flex-1" style={{ backgroundColor: "#E5D7C3" }} />
                   </div>
                   {selectedConv.drafts.map((draft) => (
                     <DraftCard
@@ -587,21 +578,21 @@ function SalesEngineSection() {
             </div>
 
             {/* Action Bar */}
-            <div className="px-4 py-3 border-t shrink-0" style={{ borderColor: "#E5D7C3" }}>
-              <div className="flex items-center gap-2">
+            <div className="px-5 py-3 border-t shrink-0" style={{ borderColor: "#E5D7C3", backgroundColor: "#FFFBF4" }}>
+              <div className="flex items-center gap-3">
                 <button
                   onClick={() => handleGenerate(selectedConv.id)}
                   disabled={generatingId === selectedConv.id || selectedConv.drafts.length === 0}
-                  className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm transition-all disabled:opacity-40 disabled:cursor-not-allowed"
-                  style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}
+                  className="flex items-center gap-2 text-[14px] px-4 py-2.5 rounded-sm font-semibold transition-all disabled:opacity-40 disabled:cursor-not-allowed"
+                  style={{ backgroundColor: "#C9973F", color: "#FFFFFF" }}
                 >
                   {generatingId === selectedConv.id ? (
-                    <><Loader size={13} className="animate-spin" /> Génération...</>
+                    <><Loader size={15} className="animate-spin" /> Génération...</>
                   ) : (
-                    <><Zap size={13} /> Régénérer les drafts IA</>
+                    <><Zap size={15} /> Régénérer les drafts IA</>
                   )}
                 </button>
-                <span className="text-[9px]" style={{ color: "#AEA294" }}>
+                <span className="text-[12px]" style={{ color: "#5F5145" }}>
                   IA propose → tu relis → tu valides → envoi humain
                 </span>
               </div>
@@ -640,10 +631,10 @@ function DraftCard({
 
   if (isApproved) {
     return (
-      <div className="p-3 rounded-sm border" style={{ backgroundColor: "rgba(47,125,78,0.06)", borderColor: "rgba(47,125,78,0.15)" }}>
-        <div className="flex items-center gap-1.5">
-          <CheckCircle size={13} style={{ color: "#2F7D4E" }} />
-          <span className="text-[11px] font-medium" style={{ color: "#2F7D4E" }}>Approuvé — prêt à envoyer</span>
+      <div className="p-3 rounded-sm border" style={{ backgroundColor: "#E8F2EA", borderColor: "rgba(47,125,78,0.15)", boxShadow: "0 1px 2px rgba(23,18,12,0.02)" }}>
+        <div className="flex items-center gap-2">
+          <CheckCircle size={14} style={{ color: "#2F7D4E" }} />
+          <span className="text-[13px] font-semibold" style={{ color: "#2F7D4E" }}>Approuvé — prêt à envoyer</span>
         </div>
       </div>
     );
@@ -651,23 +642,24 @@ function DraftCard({
 
   return (
     <div
-      className="p-3.5 rounded-sm border transition-all"
+      className="p-4 rounded-sm border transition-all"
       style={{
         backgroundColor: "#FFFFFF",
-        borderColor: isRejected ? "#E8E2DA" : "rgba(216,169,91,0.15)",
+        borderColor: isRejected ? "#E0D5C5" : "rgba(201,151,63,0.2)",
+        boxShadow: isRejected ? "none" : "0 1px 3px rgba(23,18,12,0.04)",
         opacity: isRejected ? 0.4 : 1,
       }}
     >
-      <div className="flex items-center justify-between mb-2">
+      <div className="flex items-center justify-between mb-2.5">
         <div className="flex items-center gap-2">
           <span
-            className="text-[9px] font-medium px-1.5 py-0.5 rounded-sm capitalize"
-            style={{ backgroundColor: `${approachColors[draft.approach] || "#EDE7DF"}20`, color: approachColors[draft.approach] || "#6E6257" }}
+            className="text-[12px] font-semibold px-2 py-0.5 rounded-sm capitalize"
+            style={{ backgroundColor: `${approachColors[draft.approach] || "#EAE2D7"}20`, color: approachColors[draft.approach] || "#5F5145" }}
           >
             {draft.approach}
           </span>
-          <span className="text-[9px] flex items-center gap-1" style={{ color: "#9A8D7C" }}>
-            <TrendingUp size={9} /> {draft.estimatedEngagement}% engagement est.
+          <span className="text-[12px] flex items-center gap-1 font-medium" style={{ color: "#5F5145" }}>
+            <TrendingUp size={12} /> {draft.estimatedEngagement}% engagement est.
           </span>
         </div>
       </div>
@@ -676,27 +668,27 @@ function DraftCard({
         <textarea
           value={editText}
           onChange={(e) => onEditTextChange(e.target.value)}
-          className="w-full bg-transparent text-[13px] leading-relaxed rounded-sm p-2 outline-none resize-none"
-          style={{ color: "#17120C", border: "1px solid rgba(216,169,91,0.3)", minHeight: "80px" }}
+          className="w-full bg-transparent text-[14px] leading-relaxed rounded-sm p-2 outline-none resize-none"
+          style={{ color: "#17120C", border: "1px solid rgba(201,151,63,0.3)", minHeight: "80px", backgroundColor: "#FFFBF4" }}
           rows={3}
         />
       ) : (
-        <p className="text-[13px] leading-relaxed" style={{ color: "#17120C" }}>{draft.draftText}</p>
+        <p className="text-[14px] leading-relaxed" style={{ color: "#17120C" }}>{draft.draftText}</p>
       )}
 
       {draft.aiWarning && (
-        <p className="text-[10px] mt-1.5 flex items-center gap-1" style={{ color: "#B7791F" }}>
-          <AlertTriangle size={10} /> {draft.aiWarning}
+        <p className="text-[12px] mt-2 flex items-center gap-1 font-medium" style={{ color: "#B7791F" }}>
+          <AlertTriangle size={12} /> {draft.aiWarning}
         </p>
       )}
 
-      <div className="flex items-center gap-2 mt-2.5 pt-2.5 border-t" style={{ borderColor: "#E5D7C3" }}>
+      <div className="flex items-center gap-2 mt-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
         {isEditing ? (
           <>
-            <button onClick={onSaveEdit} className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}>
-              <CheckCircle size={12} /> Sauver
+            <button onClick={onSaveEdit} className="flex items-center gap-1.5 text-[13px] px-3 py-1.5 rounded-sm font-semibold" style={{ backgroundColor: "#2F7D4E", color: "#FFFFFF" }}>
+              <CheckCircle size={13} /> Sauver
             </button>
-            <button onClick={onCancelEdit} className="text-[11px] px-2 py-1" style={{ color: "#7A6E63" }}>
+            <button onClick={onCancelEdit} className="text-[13px] px-3 py-1.5 font-medium" style={{ color: "#5F5145" }}>
               Annuler
             </button>
           </>
@@ -705,26 +697,26 @@ function DraftCard({
             <button
               onClick={onApprove}
               disabled={isGenerating}
-              className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm transition-colors"
-              style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}
+              className="flex items-center gap-1.5 text-[13px] px-3 py-1.5 rounded-sm font-semibold transition-colors"
+              style={{ backgroundColor: "#2F7D4E", color: "#FFFFFF" }}
             >
-              <CheckCircle size={12} /> Approuver et envoyer
+              <CheckCircle size={13} /> Approuver et envoyer
             </button>
             <button
               onClick={onEdit}
               disabled={isGenerating}
-              className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm transition-colors"
-              style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}
+              className="flex items-center gap-1.5 text-[13px] px-3 py-1.5 rounded-sm font-medium transition-colors"
+              style={{ backgroundColor: "rgba(29,77,216,0.08)", color: "#1D4ED8" }}
             >
-              <Edit3 size={12} /> Modifier
+              <Edit3 size={13} /> Modifier
             </button>
             <button
               onClick={onReject}
               disabled={isGenerating}
-              className="flex items-center gap-1 text-[11px] px-2.5 py-1 rounded-sm transition-colors"
-              style={{ color: "#6E6257" }}
+              className="flex items-center gap-1.5 text-[13px] px-3 py-1.5 rounded-sm font-medium transition-colors"
+              style={{ color: "#5F5145" }}
             >
-              <X size={12} /> Refuser ce brouillon
+              <X size={13} /> Refuser
             </button>
           </>
         )}
@@ -761,9 +753,9 @@ function PricingLabSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Dynamic Pricing & Negotiation Engine</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Dynamic Pricing & Negotiation Engine</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["pricing_lab"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Simule les prix, commissions et marges de négociation pour maximiser le revenu net</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Simule les prix, commissions et marges de négociation pour maximiser le revenu net</p>
       </div>
 
       {/* Product selector */}
@@ -779,31 +771,31 @@ function PricingLabSection() {
             }}
           >
             <span className="text-[11px] font-medium block" style={{ color: "#17120C" }}>{p.productName}</span>
-            <span className="text-[9px] mt-1 block" style={{ color: "#6E6257" }}>{p.type.replace(/_/g, " ")} · {p.audienceSize} fans</span>
+            <span className="text-[12px] mt-1 block" style={{ color: "#5F5145" }}>{p.type.replace(/_/g, " ")} · {p.audienceSize} fans</span>
           </button>
         ))}
       </div>
 
       <div className="grid grid-cols-3 gap-6">
         {/* Price slider */}
-        <div className="col-span-2 space-y-4 p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+        <div className="col-span-2 space-y-4 p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
           <div className="flex items-center justify-between">
             <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>Prix de vente</span>
             <div className="flex items-center gap-1">
               <button
                 onClick={() => { setPrice(selectedProduct.suggestedPriceLow); setPriceLevel("low"); }}
                 className={`text-[10px] px-2 py-1 rounded-sm ${priceLevel === "low" ? "" : ""}`}
-                style={{ backgroundColor: priceLevel === "low" ? "rgba(29,77,216,0.15)" : "#F0EBE3", color: priceLevel === "low" ? "#1D4ED8" : "#6E6257" }}
+                style={{ backgroundColor: priceLevel === "low" ? "rgba(29,77,216,0.15)" : "#EBE3D7", color: priceLevel === "low" ? "#1D4ED8" : "#6E6257" }}
               >Bas</button>
               <button
                 onClick={() => { setPrice(selectedProduct.suggestedPriceMid); setPriceLevel("mid"); }}
                 className={`text-[10px] px-2 py-1 rounded-sm`}
-                style={{ backgroundColor: priceLevel === "mid" ? "rgba(216,169,91,0.15)" : "#F0EBE3", color: priceLevel === "mid" ? "#C9973F" : "#6E6257" }}
+                style={{ backgroundColor: priceLevel === "mid" ? "rgba(216,169,91,0.15)" : "#EBE3D7", color: priceLevel === "mid" ? "#C9973F" : "#6E6257" }}
               >Moyen</button>
               <button
                 onClick={() => { setPrice(selectedProduct.suggestedPriceHigh); setPriceLevel("high"); }}
                 className={`text-[10px] px-2 py-1 rounded-sm`}
-                style={{ backgroundColor: priceLevel === "high" ? "rgba(47,125,78,0.15)" : "#F0EBE3", color: priceLevel === "high" ? "#2F7D4E" : "#6E6257" }}
+                style={{ backgroundColor: priceLevel === "high" ? "rgba(47,125,78,0.15)" : "#EBE3D7", color: priceLevel === "high" ? "#2F7D4E" : "#6E6257" }}
               >Haut</button>
             </div>
           </div>
@@ -819,38 +811,38 @@ function PricingLabSection() {
           />
 
           <div className="flex items-center justify-between text-[11px]">
-            <span style={{ color: "#6E6257" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</span>
+            <span style={{ color: "#5F5145" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</span>
             <span className="text-lg font-semibold font-mono" style={{ color: "#C9973F" }}>{formatEuro(price)}</span>
-            <span style={{ color: "#6E6257" }}>{formatEuro(selectedProduct.suggestedPriceHigh)}</span>
+            <span style={{ color: "#5F5145" }}>{formatEuro(selectedProduct.suggestedPriceHigh)}</span>
           </div>
 
           {/* Revenue breakdown */}
           <div className="grid grid-cols-4 gap-3 mt-4 pt-4 border-t" style={{ borderColor: "#E5D7C3" }}>
             <div className="text-center">
-              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Frais plateforme</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>Frais plateforme</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(platformFeeAmount)}</p>
-              <p className="text-[9px]" style={{ color: "#AEA294" }}>{(selectedProduct.platformFee * 100).toFixed(0)}%</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{(selectedProduct.platformFee * 100).toFixed(0)}%</p>
             </div>
             <div className="text-center">
-              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Coût base</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>Coût base</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(selectedProduct.costBase)}</p>
             </div>
             <div className="text-center">
-              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Net / vente</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>Net / vente</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(netRevenue)}</p>
-              <p className="text-[9px]" style={{ color: "#AEA294" }}>{margin.toFixed(0)}% marge</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{margin.toFixed(0)}% marge</p>
             </div>
             <div className="text-center">
-              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Ventes estimées</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>Ventes estimées</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{conversions}</p>
-              <p className="text-[9px]" style={{ color: "#AEA294" }}>{((conversions / selectedProduct.audienceSize) * 100).toFixed(1)}% de l&apos;audience</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{((conversions / selectedProduct.audienceSize) * 100).toFixed(1)}% de l&apos;audience</p>
             </div>
           </div>
         </div>
 
         {/* Commission tiers + totals */}
         <div className="space-y-4">
-          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
             <h3 className="text-[11px] font-medium mb-3" style={{ color: "#17120C" }}>Tiers de commission</h3>
             <div className="space-y-2">
               {selectedProduct.commissionTiers.map((tier) => {
@@ -859,14 +851,14 @@ function PricingLabSection() {
                   <div key={tier.label} className="flex items-center justify-between text-[11px] py-1.5 px-2 rounded-sm"
                     style={{ backgroundColor: isActive ? "rgba(216,169,91,0.06)" : "transparent" }}>
                     <span style={{ color: isActive ? "#17120C" : "#6E6257" }}>{tier.label}</span>
-                    <span style={{ color: isActive ? "#C9973F" : "#9A8D7C" }}>{(tier.rate * 100).toFixed(0)}% · &gt;{formatEuro(tier.threshold)}</span>
+                    <span style={{ color: isActive ? "#C9973F" : "#6E6257" }}>{(tier.rate * 100).toFixed(0)}% · &gt;{formatEuro(tier.threshold)}</span>
                   </div>
                 );
               })}
             </div>
             <div className="mt-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
               <div className="flex items-center justify-between">
-                <span className="text-[10px]" style={{ color: "#7A6E63" }}>Tier actuel</span>
+                <span className="text-[13px]" style={{ color: "#5F5145" }}>Tier actuel</span>
                 <span className="text-[11px] font-semibold" style={{ color: "#C9973F" }}>{currentTier.label} ({(currentTier.rate * 100).toFixed(0)}%)</span>
               </div>
             </div>
@@ -874,11 +866,11 @@ function PricingLabSection() {
 
           {/* Totals */}
           <div className="p-5 rounded-sm border" style={{ backgroundColor: "rgba(47,125,78,0.04)", borderColor: "rgba(47,125,78,0.1)" }}>
-            <p className="text-[10px]" style={{ color: "#9A8D7C" }}>Revenu brut estimé</p>
+            <p className="text-[13px]" style={{ color: "#5F5145" }}>Revenu brut estimé</p>
             <p className="text-xl font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(totalRevenue)}</p>
-            <p className="text-[10px] mt-2" style={{ color: "#9A8D7C" }}>Revenu net estimé</p>
+            <p className="text-[13px] mt-2" style={{ color: "#5F5145" }}>Revenu net estimé</p>
             <p className="text-xl font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(totalNet)}</p>
-            <p className="text-[9px] mt-2" style={{ color: "#AEA294" }}>
+            <p className="text-[12px] mt-2" style={{ color: "#5F5145" }}>
               {conversions} ventes × {formatEuro(netRevenue)} net = {formatEuro(totalNet)}
             </p>
           </div>
@@ -887,32 +879,32 @@ function PricingLabSection() {
 
       {/* Negotiation Confidence Panel */}
       <div className="grid grid-cols-4 gap-3">
-        <div className="col-span-3 p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
-          <h3 className="text-[10px] font-medium tracking-wider uppercase mb-3" style={{ color: "#BFB5A7" }}>Négociation Engine</h3>
+        <div className="col-span-3 p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
+          <h3 className="text-[13px] font-medium tracking-wider uppercase mb-3" style={{ color: "#8A7E72" }}>Négociation Engine</h3>
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Prix plancher</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>Prix plancher</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#C54A3A" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</p>
-              <p className="text-[8px] mt-0.5" style={{ color: "#AEA294" }}>Minimum viable</p>
+              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>Minimum viable</p>
             </div>
             <div>
-              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Prix optimal</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>Prix optimal</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{formatEuro(selectedProduct.suggestedPriceMid)}</p>
-              <p className="text-[8px] mt-0.5" style={{ color: "#AEA294" }}>Max conversion</p>
+              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>Max conversion</p>
             </div>
             <div>
-              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Marge de négo</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>Marge de négo</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(selectedProduct.suggestedPriceHigh - selectedProduct.suggestedPriceLow)}</p>
-              <p className="text-[8px] mt-0.5" style={{ color: "#AEA294" }}>{((1 - selectedProduct.suggestedPriceLow / selectedProduct.suggestedPriceHigh) * 100).toFixed(0)}% de flex</p>
+              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>{((1 - selectedProduct.suggestedPriceLow / selectedProduct.suggestedPriceHigh) * 100).toFixed(0)}% de flex</p>
             </div>
             <div>
-              <p className="text-[9px]" style={{ color: "#9A8D7C" }}>Confiance</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>Confiance</p>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="text-sm font-mono font-semibold" style={{ color: price >= selectedProduct.suggestedPriceMid ? "#2F7D4E" : "#B7791F" }}>
                   {price >= selectedProduct.suggestedPriceMid ? "Élevée" : "Modérée"}
                 </span>
               </div>
-              <div className="w-full h-1 rounded-full mt-1" style={{ backgroundColor: "#E0D8CF" }}>
+              <div className="w-full h-1 rounded-full mt-1" style={{ backgroundColor: "#D9CCBB" }}>
                 <div className="h-full rounded-full" style={{
                   width: `${Math.min(100, ((price - selectedProduct.suggestedPriceLow) / (selectedProduct.suggestedPriceHigh - selectedProduct.suggestedPriceLow)) * 100)}%`,
                   backgroundColor: price >= selectedProduct.suggestedPriceMid ? "#2F7D4E" : "#B7791F",
@@ -922,13 +914,13 @@ function PricingLabSection() {
           </div>
         </div>
         <div className="p-4 rounded-sm border flex flex-col justify-center" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
-          <p className="text-[9px] mb-1" style={{ color: "#9A8D7C" }}>Recommandation IA</p>
+          <p className="text-[12px] mb-1" style={{ color: "#5F5145" }}>Recommandation IA</p>
           <p className="text-[11px] font-medium leading-relaxed" style={{ color: "#C9973F" }}>
             {price >= selectedProduct.suggestedPriceMid
               ? "Prix optimal. Bon équilibre conversion/revenu. Marge confortable."
               : "Baisser le prix augmente les conversions. Attention à la rentabilité."}
           </p>
-          <p className="text-[9px] mt-2" style={{ color: "#BFB5A7" }}>Basé sur {selectedProduct.audienceSize} fans</p>
+          <p className="text-[12px] mt-2" style={{ color: "#8A7E72" }}>Basé sur {selectedProduct.audienceSize} fans</p>
         </div>
       </div>
     </div>
@@ -970,19 +962,19 @@ function ListsBuilderSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Dynamic Lists Builder</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Dynamic Lists Builder</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["lists_builder"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Crée des segments de fans dynamiques avec filtres pour campagnes ciblées</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Crée des segments de fans dynamiques avec filtres pour campagnes ciblées</p>
       </div>
 
       {/* Filter builder */}
-      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
         <div className="flex items-center gap-2 flex-wrap">
           <select
             value={newFilterField}
             onChange={(e) => { setNewFilterField(e.target.value); setNewFilterOp(""); }}
-            className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-            style={{ backgroundColor: "#F0EBE3", color: newFilterField ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}
+            className="text-[14px] px-3 py-2 rounded-sm outline-none"
+            style={{ backgroundColor: "#EBE3D7", color: newFilterField ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}
           >
             <option value="">Champ...</option>
             {AVAILABLE_FILTER_FIELDS.map((f) => (
@@ -994,8 +986,8 @@ function ListsBuilderSection() {
             <select
               value={newFilterOp}
               onChange={(e) => setNewFilterOp(e.target.value)}
-              className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-              style={{ backgroundColor: "#F0EBE3", color: newFilterOp ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}
+              className="text-[14px] px-3 py-2 rounded-sm outline-none"
+              style={{ backgroundColor: "#EBE3D7", color: newFilterOp ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}
             >
               <option value="">Opérateur...</option>
               {currentField.operators.map((op) => (
@@ -1009,7 +1001,7 @@ function ListsBuilderSection() {
             onChange={(e) => setNewFilterValue(e.target.value)}
             placeholder={currentField?.hint || "Valeur..."}
             className="flex-1 min-w-[120px] text-[11px] px-2.5 py-1.5 rounded-sm outline-none bg-transparent"
-            style={{ color: "#17120C", border: "1px solid #E0D8CF" }}
+            style={{ color: "#17120C", border: "1px solid #D9CCBB" }}
             onKeyDown={(e) => { if (e.key === "Enter") addFilter(); }}
           />
 
@@ -1017,7 +1009,7 @@ function ListsBuilderSection() {
             onClick={addFilter}
             disabled={!newFilterField || !newFilterOp || !newFilterValue}
             className="flex items-center gap-1.5 text-[11px] px-3 py-1.5 rounded-sm transition-all disabled:opacity-30"
-            style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}
+            style={{ backgroundColor: "#C9973F", color: "#FFFFFF" }}
           >
             <Plus size={12} /> Ajouter
           </button>
@@ -1033,19 +1025,19 @@ function ListsBuilderSection() {
                   <span key={f.id} className="flex items-center gap-1.5 text-[10px] px-2.5 py-1 rounded-sm"
                     style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
                     {fieldLabel} {f.operator} {f.value}
-                    <button onClick={() => removeFilter(f.id)} style={{ color: "#6E6257" }}><X size={10} /></button>
+                    <button onClick={() => removeFilter(f.id)} style={{ color: "#5F5145" }}><X size={10} /></button>
                   </span>
                 );
               })}
             </div>
             <div className="flex items-center gap-4 pt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
-              <span className="text-[11px]" style={{ color: "#6E6257" }}>
+              <span className="text-[11px]" style={{ color: "#5F5145" }}>
                 Fans estimés: <span className="font-semibold font-mono" style={{ color: "#17120C" }}>{estimatedFans}</span>
               </span>
-              <span className="text-[11px]" style={{ color: "#6E6257" }}>
+              <span className="text-[11px]" style={{ color: "#5F5145" }}>
                 Revenu potentiel: <span className="font-semibold font-mono" style={{ color: "#C9973F" }}>{formatEuro(estimatedFans * 45)}</span>
               </span>
-              <button className="text-[10px] px-2.5 py-1 rounded-sm ml-auto" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
+              <button className="text-[13px] px-2.5 py-1 rounded-sm ml-auto" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
                 Sauvegarder le segment
               </button>
             </div>
@@ -1055,28 +1047,28 @@ function ListsBuilderSection() {
 
       {/* Saved segments */}
       <div>
-        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#7A6E63" }}>Segments sauvegardés</h3>
+        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#5F5145" }}>Segments sauvegardés</h3>
         <div className="grid grid-cols-2 gap-3">
           {savedSegments.map((seg) => (
-            <div key={seg.id} className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+            <div key={seg.id} className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
               <div className="flex items-center justify-between mb-2">
                 <h4 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{seg.name}</h4>
                 <span className="text-[11px] font-mono font-semibold" style={{ color: "#C9973F" }}>{seg.fanCount}</span>
               </div>
-              <p className="text-[10px] mb-2" style={{ color: "#6E6257" }}>{seg.description}</p>
+              <p className="text-[13px] mb-2" style={{ color: "#5F5145" }}>{seg.description}</p>
               <div className="flex items-center gap-1.5 flex-wrap">
                 {seg.filters.slice(0, 3).map((f, i) => (
-                  <span key={i} className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#7A6E63" }}>
+                  <span key={i} className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
                     {f.field} {f.operator} {f.value}
                   </span>
                 ))}
                 {seg.filters.length > 3 && (
-                  <span className="text-[9px]" style={{ color: "#9A8D7C" }}>+{seg.filters.length - 3}</span>
+                  <span className="text-[12px]" style={{ color: "#5F5145" }}>+{seg.filters.length - 3}</span>
                 )}
               </div>
               <div className="flex items-center justify-between mt-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
-                <span className="text-[9px]" style={{ color: "#9A8D7C" }}>{formatEuro(seg.estimatedRevenue)} potentiel</span>
-                <span className="text-[9px]" style={{ color: "#AEA294" }}>Créé {formatRelative(seg.createdAt)}</span>
+                <span className="text-[12px]" style={{ color: "#5F5145" }}>{formatEuro(seg.estimatedRevenue)} potentiel</span>
+                <span className="text-[12px]" style={{ color: "#5F5145" }}>Créé {formatRelative(seg.createdAt)}</span>
               </div>
             </div>
           ))}
@@ -1099,11 +1091,11 @@ function AutomationTriggersSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Automation Triggers</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Automation Triggers</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["automation_triggers"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Règles WHEN → THEN pour automatiser les actions de vente</p>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Règles WHEN → THEN pour automatiser les actions de vente</p>
         </div>
-        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
+        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
           <Plus size={12} /> Nouvelle règle
         </button>
       </div>
@@ -1112,35 +1104,35 @@ function AutomationTriggersSection() {
         <table className="w-full">
           <thead>
             <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Règle</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>WHEN</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>IF</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>THEN</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Statut</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Déclenché</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Règle</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>WHEN</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>IF</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>THEN</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Statut</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Déclenché</th>
             </tr>
           </thead>
           <tbody>
             {rules.map((rule) => (
-              <tr key={rule.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3" }}>
+              <tr key={rule.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #EBE3D7" }}>
                 <td className="px-4 py-3">
                   <span className="text-[12px] font-medium" style={{ color: "#17120C" }}>{rule.name}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[11px] font-mono" style={{ color: "#6E6257" }}>{TRIGGER_EVENT_LABELS[rule.when]}</span>
+                  <span className="text-[11px] font-mono" style={{ color: "#5F5145" }}>{TRIGGER_EVENT_LABELS[rule.when]}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <code className="text-[10px] px-1.5 py-0.5 rounded-sm font-mono" style={{ backgroundColor: "#F0EBE3", color: "#7A6E63" }}>{rule.condition}</code>
+                  <code className="text-[13px] px-1.5 py-0.5 rounded-sm font-mono" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>{rule.condition}</code>
                 </td>
                 <td className="px-4 py-3">
                   <span className="text-[11px]" style={{ color: "#C9973F" }}>{TRIGGER_ACTION_LABELS[rule.then]}</span>
-                  <p className="text-[9px] mt-0.5" style={{ color: "#9A8D7C" }}>{rule.thenDetail}</p>
+                  <p className="text-[12px] mt-0.5" style={{ color: "#5F5145" }}>{rule.thenDetail}</p>
                 </td>
                 <td className="px-4 py-3">
                   <button
                     onClick={() => toggleRule(rule.id)}
                     className="w-9 h-5 rounded-full transition-colors relative"
-                    style={{ backgroundColor: rule.isEnabled ? "#C9973F" : "#D5CDC3" }}
+                    style={{ backgroundColor: rule.isEnabled ? "#C9973F" : "#B8ADA0" }}
                   >
                     <div
                       className="w-3.5 h-3.5 rounded-full absolute top-[3px] transition-all"
@@ -1149,9 +1141,9 @@ function AutomationTriggersSection() {
                   </button>
                 </td>
                 <td className="px-4 py-3 text-right">
-                  <span className="text-[11px] font-mono" style={{ color: "#6E6257" }}>{rule.triggeredCount}</span>
+                  <span className="text-[11px] font-mono" style={{ color: "#5F5145" }}>{rule.triggeredCount}</span>
                   {rule.lastTriggered && (
-                    <p className="text-[9px]" style={{ color: "#AEA294" }}>{formatRelative(rule.lastTriggered)}</p>
+                    <p className="text-[12px]" style={{ color: "#5F5145" }}>{formatRelative(rule.lastTriggered)}</p>
                   )}
                 </td>
               </tr>
@@ -1183,9 +1175,9 @@ function TrackingLinksSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Tracking Links & Attribution</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Tracking Links & Attribution</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["tracking_links"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Suis les clics, conversions et revenus par lien de tracking</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Suis les clics, conversions et revenus par lien de tracking</p>
       </div>
 
       {/* KPI cards */}
@@ -1196,8 +1188,8 @@ function TrackingLinksSection() {
           { label: "Taux de conversion", value: `${avgRate.toFixed(1)}%`, color: "#C9973F" },
           { label: "Revenu attribué", value: formatEuro(totalRevenue), color: "#2F7D4E" },
         ].map((kpi) => (
-          <div key={kpi.label} className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
-            <p className="text-[10px]" style={{ color: "#9A8D7C" }}>{kpi.label}</p>
+          <div key={kpi.label} className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
+            <p className="text-[13px]" style={{ color: "#5F5145" }}>{kpi.label}</p>
             <p className="text-lg font-mono font-semibold mt-1" style={{ color: kpi.color }}>{kpi.value}</p>
           </div>
         ))}
@@ -1208,27 +1200,27 @@ function TrackingLinksSection() {
         <table className="w-full">
           <thead>
             <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Nom</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Campagne</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Plateforme</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Clics</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Conv.</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Taux</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Revenu</th>
-              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Copier</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Nom</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Campagne</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Plateforme</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Clics</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Conv.</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Taux</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Revenu</th>
+              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Copier</th>
             </tr>
           </thead>
           <tbody>
             {links.map((link) => (
-              <tr key={link.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3" }}>
+              <tr key={link.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #EBE3D7" }}>
                 <td className="px-4 py-3">
                   <span className="text-[12px] font-medium" style={{ color: "#17120C" }}>{link.name}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[11px]" style={{ color: "#6E6257" }}>{link.campaign}</span>
+                  <span className="text-[11px]" style={{ color: "#5F5145" }}>{link.campaign}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[10px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#7A6E63" }}>{PLATFORM_LABELS[link.platform]}</span>
+                  <span className="text-[13px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>{PLATFORM_LABELS[link.platform]}</span>
                 </td>
                 <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "#17120C" }}>{link.clicks.toLocaleString()}</td>
                 <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "#2F7D4E" }}>{link.conversions}</td>
@@ -1238,7 +1230,7 @@ function TrackingLinksSection() {
                   <button
                     onClick={() => handleCopy(link.url, link.id)}
                     className="p-1.5 rounded-sm transition-colors"
-                    style={{ color: copiedId === link.id ? "#2F7D4E" : "#9A8D7C" }}
+                    style={{ color: copiedId === link.id ? "#2F7D4E" : "#6E6257" }}
                   >
                     {copiedId === link.id ? <CheckCircle size={12} /> : <Copy size={12} />}
                   </button>
@@ -1261,22 +1253,22 @@ function BrowserMockSection() {
   return (
     <div className="p-5 space-y-4 h-full flex flex-col">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Browser Workspace</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Browser Workspace</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["browser_mock"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Mock — Interface de navigation simulée des plateformes</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Mock — Interface de navigation simulée des plateformes</p>
       </div>
 
       {/* Mock watermark banner */}
       <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-sm"
         style={{ backgroundColor: "rgba(183,121,31,0.08)", border: "1px dashed rgba(183,121,31,0.2)" }}>
         <AlertTriangle size={12} style={{ color: "#B7791F" }} />
-        <span className="text-[10px] font-medium" style={{ color: "#B7791F" }}>MOCK — Aucune donnée réelle. Aucune connexion aux plateformes.</span>
+        <span className="text-[13px] font-medium" style={{ color: "#B7791F" }}>MOCK — Aucune donnée réelle. Aucune connexion aux plateformes.</span>
       </div>
 
       {/* Browser chrome */}
       <div className="flex-1 rounded-sm border overflow-hidden flex flex-col" style={{ borderColor: "#E5D7C3" }}>
         {/* Tabs */}
-        <div className="flex items-center border-b" style={{ borderColor: "#E5D7C3", backgroundColor: "#F5F2EB" }}>
+        <div className="flex items-center border-b" style={{ borderColor: "#E5D7C3", backgroundColor: "#F2EDE4" }}>
           {mockBrowserTabs.map((tab) => {
             const isActive = activeTabId === tab.id;
             return (
@@ -1298,13 +1290,13 @@ function BrowserMockSection() {
         </div>
 
         {/* URL bar */}
-        <div className="flex items-center gap-2 px-3 py-2 border-b" style={{ borderColor: "#E5D7C3", backgroundColor: "#F5F2EB" }}>
+        <div className="flex items-center gap-2 px-3 py-2 border-b" style={{ borderColor: "#E5D7C3", backgroundColor: "#F2EDE4" }}>
           <div className="flex items-center gap-1">
-            <button className="p-0.5 opacity-30"><ArrowLeft size={12} style={{ color: "#6E6257" }} /></button>
-            <button className="p-0.5 opacity-30"><ArrowRight size={12} style={{ color: "#6E6257" }} /></button>
-            <button className="p-0.5"><RefreshCcw size={12} style={{ color: "#6E6257" }} /></button>
+            <button className="p-0.5 opacity-30"><ArrowLeft size={12} style={{ color: "#5F5145" }} /></button>
+            <button className="p-0.5 opacity-30"><ArrowRight size={12} style={{ color: "#5F5145" }} /></button>
+            <button className="p-0.5"><RefreshCcw size={12} style={{ color: "#5F5145" }} /></button>
           </div>
-          <div className="flex-1 flex items-center gap-1.5 px-3 py-1 rounded-sm text-[10px] font-mono" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
+          <div className="flex-1 flex items-center gap-1.5 px-3 py-1 rounded-sm text-[10px] font-mono" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
             <Lock size={10} style={{ color: "#2F7D4E" }} />
             {activeTab.url}
           </div>
@@ -1314,20 +1306,20 @@ function BrowserMockSection() {
         <div className="flex-1 overflow-y-auto p-4 grid grid-cols-2 gap-4">
           {/* Feed posts */}
           <div className="space-y-3">
-            <p className="text-[10px] font-medium" style={{ color: "#9A8D7C" }}>Posts récents</p>
+            <p className="text-[13px] font-medium" style={{ color: "#5F5145" }}>Posts récents</p>
             {mockFeedPosts.map((post) => (
-              <div key={post.id} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+              <div key={post.id} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{post.author}</span>
                   {post.isPpv && (
-                    <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>PPV {post.ppvPrice ? `$${post.ppvPrice}` : ""}</span>
+                    <span className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>PPV {post.ppvPrice ? `$${post.ppvPrice}` : ""}</span>
                   )}
                 </div>
-                <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{post.content}</p>
+                <p className="text-[11px] leading-relaxed" style={{ color: "#5F5145" }}>{post.content}</p>
                 <div className="flex items-center gap-3 mt-2">
-                  <span className="text-[9px]" style={{ color: "#9A8D7C" }}>❤ {post.likes}</span>
-                  <span className="text-[9px]" style={{ color: "#9A8D7C" }}>💬 {post.comments}</span>
-                  <span className="text-[9px] ml-auto" style={{ color: "#AEA294" }}>{post.timeAgo}</span>
+                  <span className="text-[12px]" style={{ color: "#5F5145" }}>❤ {post.likes}</span>
+                  <span className="text-[12px]" style={{ color: "#5F5145" }}>💬 {post.comments}</span>
+                  <span className="text-[12px] ml-auto" style={{ color: "#5F5145" }}>{post.timeAgo}</span>
                 </div>
               </div>
             ))}
@@ -1335,7 +1327,7 @@ function BrowserMockSection() {
 
           {/* DMs */}
           <div className="space-y-3">
-            <p className="text-[10px] font-medium" style={{ color: "#9A8D7C" }}>Messages directs</p>
+            <p className="text-[13px] font-medium" style={{ color: "#5F5145" }}>Messages directs</p>
             {mockDMs.map((dm) => (
               <div key={dm.id} className="p-3 rounded-sm border transition-colors"
                 style={{
@@ -1347,9 +1339,9 @@ function BrowserMockSection() {
                     {dm.isUnread && <span className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: "#C9973F" }} />}
                     <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{dm.from}</span>
                   </div>
-                  <span className="text-[9px]" style={{ color: "#AEA294" }}>{dm.timeAgo}</span>
+                  <span className="text-[12px]" style={{ color: "#5F5145" }}>{dm.timeAgo}</span>
                 </div>
-                <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{dm.content}</p>
+                <p className="text-[11px] leading-relaxed" style={{ color: "#5F5145" }}>{dm.content}</p>
                 {dm.hasPPVInterest && (
                   <span className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm mt-1.5" style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}>
                     Intérêt PPV détecté
@@ -1377,9 +1369,9 @@ function CampaignBuilderSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Campaign Builder</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Campaign Builder</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["campaign_builder"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Crée et lance des campagnes de vente en 6 étapes</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Crée et lance des campagnes de vente en 6 étapes</p>
       </div>
 
       {/* Campaign selector */}
@@ -1395,10 +1387,10 @@ function CampaignBuilderSection() {
             }}
           >
             <span className="text-[11px] font-medium block" style={{ color: "#17120C" }}>{c.name}</span>
-            <span className="text-[9px]" style={{ color: "#6E6257" }}>{CAMPAIGN_TYPE_LABELS[c.type]}</span>
+            <span className="text-[12px]" style={{ color: "#5F5145" }}>{CAMPAIGN_TYPE_LABELS[c.type]}</span>
           </button>
         ))}
-        <button className="flex items-center gap-1 text-[10px] px-3 py-2 rounded-sm" style={{ color: "#7A6E63", border: "1px dashed #D5CDC3" }}>
+        <button className="flex items-center gap-1 text-[10px] px-3 py-2 rounded-sm" style={{ color: "#5F5145", border: "1px dashed #B8ADA0" }}>
           <Plus size={11} /> Nouvelle
         </button>
       </div>
@@ -1418,14 +1410,14 @@ function CampaignBuilderSection() {
                     className="flex-1 text-center px-2 py-2 rounded-sm text-[10px] font-medium transition-all"
                     style={{
                       backgroundColor: isActive ? "rgba(216,169,91,0.12)" : isDone ? "rgba(47,125,78,0.06)" : "transparent",
-                      color: isActive ? "#C9973F" : isDone ? "#2F7D4E" : "#9A8D7C",
+                      color: isActive ? "#C9973F" : isDone ? "#2F7D4E" : "#6E6257",
                     }}
                   >
                     {isDone ? <CheckCircle size={10} className="inline mr-1" /> : null}
                     {CAMPAIGN_STEP_LABELS[step]}
                   </button>
                   {!isLast && (
-                    <div className="w-4 h-px" style={{ backgroundColor: isDone ? "#2F7D4E" : "#E0D8CF" }} />
+                    <div className="w-4 h-px" style={{ backgroundColor: isDone ? "#2F7D4E" : "#D9CCBB" }} />
                   )}
                 </div>
               );
@@ -1433,17 +1425,17 @@ function CampaignBuilderSection() {
           </div>
 
           {/* Step content */}
-          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
             {currentStep === "audience" && (
               <div className="space-y-3">
                 <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Audience</h3>
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
-                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Segment</span>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F1EBE2" }}>
+                    <span className="text-[13px]" style={{ color: "#5F5145" }}>Segment</span>
                     <p className="text-[12px] font-medium mt-0.5" style={{ color: "#17120C" }}>{campaign.audience.segmentName}</p>
                   </div>
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
-                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Fans ciblés</span>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F1EBE2" }}>
+                    <span className="text-[13px]" style={{ color: "#5F5145" }}>Fans ciblés</span>
                     <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{campaign.audience.fanCount}</p>
                   </div>
                 </div>
@@ -1453,10 +1445,10 @@ function CampaignBuilderSection() {
             {currentStep === "content" && (
               <div className="space-y-3">
                 <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Contenu</h3>
-                <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
+                <div className="p-3 rounded-sm" style={{ backgroundColor: "#F1EBE2" }}>
                   <p className="text-[12px] font-medium" style={{ color: "#17120C" }}>{campaign.content.productName}</p>
-                  <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>{campaign.content.description}</p>
-                  <span className="inline-block text-[9px] px-1.5 py-0.5 rounded-sm mt-2" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
+                  <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{campaign.content.description}</p>
+                  <span className="inline-block text-[9px] px-1.5 py-0.5 rounded-sm mt-2" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
                     {campaign.content.mediaCount} médias
                   </span>
                 </div>
@@ -1467,16 +1459,16 @@ function CampaignBuilderSection() {
               <div className="space-y-3">
                 <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Tarification</h3>
                 <div className="grid grid-cols-3 gap-3">
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
-                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Prix de base</span>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F1EBE2" }}>
+                    <span className="text-[13px]" style={{ color: "#5F5145" }}>Prix de base</span>
                     <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(campaign.pricing.basePrice)}</p>
                   </div>
-                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F3EEE8" }}>
-                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Remise</span>
+                  <div className="p-3 rounded-sm" style={{ backgroundColor: "#F1EBE2" }}>
+                    <span className="text-[13px]" style={{ color: "#5F5145" }}>Remise</span>
                     <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{campaign.pricing.discountPercent}%</p>
                   </div>
                   <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.04)" }}>
-                    <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Revenu estimé</span>
+                    <span className="text-[13px]" style={{ color: "#5F5145" }}>Revenu estimé</span>
                     <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(campaign.pricing.expectedRevenue)}</p>
                   </div>
                 </div>
@@ -1488,21 +1480,21 @@ function CampaignBuilderSection() {
                 <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Conformité</h3>
                 <div className="p-4 rounded-sm" style={{
                   backgroundColor: campaign.complianceStatus === "passed" ? "rgba(47,125,78,0.06)" :
-                    campaign.complianceStatus === "flagged" ? "rgba(183,121,31,0.06)" : "#F5F2EB",
+                    campaign.complianceStatus === "flagged" ? "rgba(183,121,31,0.06)" : "#F2EDE4",
                   borderColor: campaign.complianceStatus === "passed" ? "rgba(47,125,78,0.15)" :
-                    campaign.complianceStatus === "flagged" ? "rgba(183,121,31,0.15)" : "#E8E2DA",
+                    campaign.complianceStatus === "flagged" ? "rgba(183,121,31,0.15)" : "#E0D5C5",
                   border: "1px solid",
                 }}>
                   <div className="flex items-center gap-2">
                     {campaign.complianceStatus === "passed" ? <CheckCircle size={16} style={{ color: "#2F7D4E" }} /> :
                       campaign.complianceStatus === "flagged" ? <AlertTriangle size={16} style={{ color: "#B7791F" }} /> :
-                      <Clock size={16} style={{ color: "#6E6257" }} />}
+                      <Clock size={16} style={{ color: "#5F5145" }} />}
                     <span className="text-[12px] font-medium" style={{ color: "#17120C" }}>
                       {campaign.complianceStatus === "passed" ? "Conforme" : campaign.complianceStatus === "flagged" ? "Problème détecté" : "En attente de vérification"}
                     </span>
                   </div>
                   {campaign.complianceNotes && (
-                    <p className="text-[11px] mt-2 ml-7" style={{ color: "#7A6E63" }}>{campaign.complianceNotes}</p>
+                    <p className="text-[11px] mt-2 ml-7" style={{ color: "#5F5145" }}>{campaign.complianceNotes}</p>
                   )}
                 </div>
               </div>
@@ -1511,7 +1503,7 @@ function CampaignBuilderSection() {
             {currentStep === "review" && (
               <div className="space-y-3">
                 <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Résumé de la campagne</h3>
-                <div className="space-y-2 p-4 rounded-sm" style={{ backgroundColor: "#F5F2EB" }}>
+                <div className="space-y-2 p-4 rounded-sm" style={{ backgroundColor: "#F2EDE4" }}>
                   {[
                     { label: "Type", value: CAMPAIGN_TYPE_LABELS[campaign.type] },
                     { label: "Audience", value: `${campaign.audience.segmentName} (${campaign.audience.fanCount} fans)` },
@@ -1519,8 +1511,8 @@ function CampaignBuilderSection() {
                     { label: "Prix", value: `${formatEuro(campaign.pricing.basePrice)} (-${campaign.pricing.discountPercent}%)` },
                     { label: "Conformité", value: campaign.complianceStatus },
                   ].map((item) => (
-                    <div key={item.label} className="flex items-center justify-between text-[11px] py-1.5 border-b" style={{ borderColor: "#F0EBE3" }}>
-                      <span style={{ color: "#7A6E63" }}>{item.label}</span>
+                    <div key={item.label} className="flex items-center justify-between text-[11px] py-1.5 border-b" style={{ borderColor: "#EBE3D7" }}>
+                      <span style={{ color: "#5F5145" }}>{item.label}</span>
                       <span style={{ color: "#17120C" }}>{item.value}</span>
                     </div>
                   ))}
@@ -1532,7 +1524,7 @@ function CampaignBuilderSection() {
               <div className="text-center py-8">
                 <Send size={28} style={{ color: "#C9973F" }} />
                 <h3 className="text-sm font-semibold mt-3" style={{ color: "#17120C" }}>Prêt à lancer</h3>
-                <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Tout est vérifié. La campagne sera envoyée à {campaign.audience.fanCount} fans.</p>
+                <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Tout est vérifié. La campagne sera envoyée à {campaign.audience.fanCount} fans.</p>
                 <button className="mt-4 px-4 py-2 rounded-sm text-[11px] font-medium" style={{ backgroundColor: "#C9973F", color: "#FFFFFF" }}>
                   Lancer la campagne
                 </button>
@@ -1546,7 +1538,7 @@ function CampaignBuilderSection() {
               onClick={() => { const prev = CAMPAIGN_STEP_ORDER[stepIndex - 1]; if (prev) setCurrentStep(prev); }}
               disabled={stepIndex === 0}
               className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm transition-opacity disabled:opacity-20"
-              style={{ color: "#6E6257" }}
+              style={{ color: "#5F5145" }}
             >
               <ArrowLeft size={12} /> Précédent
             </button>
@@ -1554,7 +1546,7 @@ function CampaignBuilderSection() {
               onClick={() => { const next = CAMPAIGN_STEP_ORDER[stepIndex + 1]; if (next) setCurrentStep(next); }}
               disabled={stepIndex === CAMPAIGN_STEP_ORDER.length - 1}
               className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm transition-opacity disabled:opacity-20"
-              style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}
+              style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}
             >
               Suivant <ArrowRight size={12} />
             </button>
@@ -1576,9 +1568,9 @@ function FanJourneySection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Fan Journey</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Fan Journey</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["fan_journey"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Visualise le parcours fan de la découverte à l&apos;ambassadeur</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Visualise le parcours fan de la découverte à l&apos;ambassadeur</p>
       </div>
 
       <div className="space-y-3">
@@ -1587,7 +1579,7 @@ function FanJourneySection() {
           const barWidth = (stage.fanCount / maxFans) * 100;
           return (
             <div key={stage.id}>
-              <div className="flex items-center gap-4 p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+              <div className="flex items-center gap-4 p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
                 <div className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(216,169,91,0.1)", color: "#C9973F" }}>
                   <Icon size={18} />
                 </div>
@@ -1596,13 +1588,13 @@ function FanJourneySection() {
                     <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{stage.name}</h3>
                     <div className="flex items-center gap-3 text-[10px]">
                       <span className="font-mono font-semibold" style={{ color: "#C9973F" }}>{stage.fanCount.toLocaleString()} fans</span>
-                      <span style={{ color: "#6E6257" }}>{stage.avgDaysInStage}j en moyenne</span>
+                      <span style={{ color: "#5F5145" }}>{stage.avgDaysInStage}j en moyenne</span>
                       <span style={{ color: "#2F7D4E" }}>{formatEuro(stage.avgRevenueInStage)}/fan</span>
                     </div>
                   </div>
-                  <p className="text-[10px] mb-2" style={{ color: "#6E6257" }}>{stage.description}</p>
+                  <p className="text-[13px] mb-2" style={{ color: "#5F5145" }}>{stage.description}</p>
                   {/* Bar */}
-                  <div className="h-1.5 rounded-full" style={{ backgroundColor: "#EDE7DF", width: "100%" }}>
+                  <div className="h-1.5 rounded-full" style={{ backgroundColor: "#EAE2D7", width: "100%" }}>
                     <div
                       className="h-full rounded-full transition-all"
                       style={{ width: `${barWidth}%`, backgroundColor: "#C9973F", opacity: 0.6 + (i * 0.08) }}
@@ -1612,13 +1604,13 @@ function FanJourneySection() {
                 {i < stages.length - 1 && stage.conversionToNext > 0 && (
                   <div className="text-center shrink-0 px-4">
                     <p className="text-lg font-mono font-semibold" style={{ color: "#C9973F" }}>{stage.conversionToNext}%</p>
-                    <p className="text-[9px]" style={{ color: "#9A8D7C" }}>→ {stages[i + 1].name}</p>
+                    <p className="text-[12px]" style={{ color: "#5F5145" }}>→ {stages[i + 1].name}</p>
                   </div>
                 )}
               </div>
               {i < stages.length - 1 && (
                 <div className="flex justify-center py-1">
-                  <ArrowRight size={14} style={{ color: "#D5CDC3", transform: "rotate(90deg)" }} />
+                  <ArrowRight size={14} style={{ color: "#B8ADA0", transform: "rotate(90deg)" }} />
                 </div>
               )}
             </div>
@@ -1648,15 +1640,15 @@ function OpportunityQueueSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Opportunity Queue</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Opportunity Queue</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["opportunity_queue"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>File d&apos;opportunités de vente priorisées par l&apos;IA</p>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>File d&apos;opportunités de vente priorisées par l&apos;IA</p>
         </div>
         <select
           value={typeFilter}
           onChange={(e) => setTypeFilter(e.target.value)}
-          className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "#F0EBE3", color: typeFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}
+          className="text-[14px] px-3 py-2 rounded-sm outline-none"
+          style={{ backgroundColor: "#EBE3D7", color: typeFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}
         >
           <option value="">Tous les types</option>
           {Object.entries(OPPORTUNITY_TYPE_LABELS).map(([key, label]) => (
@@ -1669,28 +1661,28 @@ function OpportunityQueueSection() {
         {stages.map((stage) => {
           const items = opsByStage(stage);
           return (
-            <div key={stage} className="rounded-sm border" style={{ borderColor: "#E5D7C3", backgroundColor: "#F8F5F0" }}>
+            <div key={stage} className="rounded-sm border" style={{ borderColor: "#E5D7C3", backgroundColor: "#F5F1EB" }}>
               <div className="px-3 py-2.5 border-b flex items-center justify-between" style={{ borderColor: "#E5D7C3" }}>
-                <span className="text-[10px] font-medium" style={{ color: "#6E6257" }}>{OPPORTUNITY_STAGE_LABELS[stage]}</span>
-                <span className="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${OPPORTUNITY_STAGE_COLORS[stage]}20`, color: OPPORTUNITY_STAGE_COLORS[stage] }}>
+                <span className="text-[13px] font-medium" style={{ color: "#5F5145" }}>{OPPORTUNITY_STAGE_LABELS[stage]}</span>
+                <span className="text-[13px] font-mono font-semibold px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${OPPORTUNITY_STAGE_COLORS[stage]}20`, color: OPPORTUNITY_STAGE_COLORS[stage] }}>
                   {items.length}
                 </span>
               </div>
               <div className="p-2 space-y-2 max-h-[400px] overflow-y-auto">
                 {items.map((op) => (
-                  <div key={op.id} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+                  <div key={op.id} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-[11px] font-medium truncate" style={{ color: "#17120C" }}>{op.fanName}</span>
-                      <span className="text-[9px] px-1.5 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: `${OPPORTUNITY_TYPE_COLORS[op.type]}20`, color: OPPORTUNITY_TYPE_COLORS[op.type] }}>
+                      <span className="text-[12px] px-1.5 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: `${OPPORTUNITY_TYPE_COLORS[op.type]}20`, color: OPPORTUNITY_TYPE_COLORS[op.type] }}>
                         {OPPORTUNITY_TYPE_LABELS[op.type]}
                       </span>
                     </div>
-                    <p className="text-[10px] leading-relaxed line-clamp-2 mb-2" style={{ color: "#7A6E63" }}>{op.aiSuggestion}</p>
+                    <p className="text-[13px] leading-relaxed line-clamp-2 mb-2" style={{ color: "#5F5145" }}>{op.aiSuggestion}</p>
                     <div className="flex items-center justify-between pt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
-                      <span className="text-[10px] font-mono font-semibold" style={{ color: "#C9973F" }}>{formatEuro(op.potentialRevenue)}</span>
+                      <span className="text-[13px] font-mono font-semibold" style={{ color: "#C9973F" }}>{formatEuro(op.potentialRevenue)}</span>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-[9px]" style={{ color: "#9A8D7C" }}>{op.confidence}%</span>
-                        <span className="w-8 h-1 rounded-full" style={{ backgroundColor: "#E0D8CF" }}>
+                        <span className="text-[12px]" style={{ color: "#5F5145" }}>{op.confidence}%</span>
+                        <span className="w-8 h-1 rounded-full" style={{ backgroundColor: "#D9CCBB" }}>
                           <div className="h-full rounded-full" style={{ width: `${op.confidence}%`, backgroundColor: op.confidence > 75 ? "#2F7D4E" : op.confidence > 50 ? "#C9973F" : "#B7791F" }} />
                         </span>
                       </div>
@@ -1719,7 +1711,7 @@ function TeamControlRoomSection() {
   const [employeeStats] = useState<EmployeeStats[]>(mockEmployeeStats);
 
   const statusDot = (status: TeamMember["status"]) => {
-    const color = status === "online" ? "#2F7D4E" : status === "away" ? "#B45309" : "#9A8D7C";
+    const color = status === "online" ? "#2F7D4E" : status === "away" ? "#B45309" : "#6E6257";
     return <span className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />;
   };
 
@@ -1730,12 +1722,12 @@ function TeamControlRoomSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Team Control Room</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Team Control Room</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["team_control"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Vue d&apos;ensemble de l&apos;activité de l&apos;équipe</p>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Vue d&apos;ensemble de l&apos;activité de l&apos;équipe</p>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
-          <span style={{ color: "#7A6E63" }}>{totalActive} conversations actives</span>
+          <span style={{ color: "#5F5145" }}>{totalActive} conversations actives</span>
           <span className="font-mono font-semibold" style={{ color: "#2F7D4E" }}>{formatEuro(totalRevenue)} généré</span>
         </div>
       </div>
@@ -1743,47 +1735,47 @@ function TeamControlRoomSection() {
       {/* Team member cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
         {members.map((member) => (
-          <div key={member.id} className="p-4 rounded-sm border text-center" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+          <div key={member.id} className="p-4 rounded-sm border text-center" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
             <div className="flex justify-center mb-2">
-              <div className="w-12 h-12 rounded-sm flex items-center justify-center text-sm font-semibold relative" style={{ backgroundColor: "#E8E2DA", color: "#6E6257", border: "1px solid #E8E2DA" }}>
+              <div className="w-12 h-12 rounded-sm flex items-center justify-center text-sm font-semibold relative" style={{ backgroundColor: "#E0D5C5", color: "#5F5145", border: "1px solid #E0D5C5" }}>
                 {member.name.charAt(0)}
                 <span className="absolute -bottom-0.5 -right-0.5">{statusDot(member.status)}</span>
               </div>
             </div>
             <p className="text-[11px] font-medium" style={{ color: "#17120C" }}>{member.name}</p>
-            <p className="text-[9px] mt-0.5 capitalize" style={{ color: "#7A6E63" }}>{member.role}</p>
+            <p className="text-[12px] mt-0.5 capitalize" style={{ color: "#5F5145" }}>{member.role}</p>
             <div className="grid grid-cols-2 gap-1 mt-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
               <div>
-                <p className="text-[8px]" style={{ color: "#AEA294" }}>Actives</p>
+                <p className="text-[11px]" style={{ color: "#5F5145" }}>Actives</p>
                 <p className="text-[11px] font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{member.conversationsActive}</p>
               </div>
               <div>
-                <p className="text-[8px]" style={{ color: "#AEA294" }}>Drafts</p>
+                <p className="text-[11px]" style={{ color: "#5F5145" }}>Drafts</p>
                 <p className="text-[11px] font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{member.draftsReady}</p>
               </div>
             </div>
-            <p className="text-[10px] font-mono font-semibold mt-2" style={{ color: "#2F7D4E" }}>{formatEuro(member.revenueGenerated)}</p>
+            <p className="text-[13px] font-mono font-semibold mt-2" style={{ color: "#2F7D4E" }}>{formatEuro(member.revenueGenerated)}</p>
           </div>
         ))}
       </div>
 
       {/* Activity feed */}
       <div>
-        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#9A8D7C" }}>Activité récente</h3>
+        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#5F5145" }}>Activité récente</h3>
         <div className="space-y-1.5">
           {activities.slice(0, 10).map((activity) => {
             const member = members.find((m) => m.id === activity.memberId);
             return (
-              <div key={activity.id} className="flex items-center gap-3 px-3 py-2 rounded-sm" style={{ backgroundColor: "#F5F2EB" }}>
-                <span className="text-[10px] font-medium w-[80px] shrink-0 truncate" style={{ color: "#6E6257" }}>
+              <div key={activity.id} className="flex items-center gap-3 px-3 py-2 rounded-sm" style={{ backgroundColor: "#F2EDE4" }}>
+                <span className="text-[13px] font-medium w-[80px] shrink-0 truncate" style={{ color: "#5F5145" }}>
                   {member?.name || "—"}
                 </span>
-                <span className="text-[10px] w-[140px] shrink-0 truncate" style={{ color: "#6E6257" }}>{activity.action}</span>
-                <span className="text-[10px] flex-1 truncate" style={{ color: "#9A8D7C" }}>{activity.detail}</span>
+                <span className="text-[13px] w-[140px] shrink-0 truncate" style={{ color: "#5F5145" }}>{activity.action}</span>
+                <span className="text-[13px] flex-1 truncate" style={{ color: "#5F5145" }}>{activity.detail}</span>
                 {activity.revenue !== null && (
-                  <span className="text-[10px] font-mono shrink-0" style={{ color: "#2F7D4E" }}>+{formatEuro(activity.revenue)}</span>
+                  <span className="text-[13px] font-mono shrink-0" style={{ color: "#2F7D4E" }}>+{formatEuro(activity.revenue)}</span>
                 )}
-                <span className="text-[9px] shrink-0" style={{ color: "#AEA294" }}>{formatRelative(activity.timestamp)}</span>
+                <span className="text-[12px] shrink-0" style={{ color: "#5F5145" }}>{formatRelative(activity.timestamp)}</span>
               </div>
             );
           })}
@@ -1792,44 +1784,44 @@ function TeamControlRoomSection() {
 
       {/* Employee Statistics / Golden Ratio */}
       <div>
-        <h3 className="text-[11px] font-medium mb-3 flex items-center gap-2" style={{ color: "#9A8D7C" }}>
+        <h3 className="text-[11px] font-medium mb-3 flex items-center gap-2" style={{ color: "#5F5145" }}>
           <Star size={11} style={{ color: "#C9973F" }} /> Employee Statistics — Golden Ratio
         </h3>
         <div className="rounded-sm border overflow-hidden overflow-x-auto" style={{ borderColor: "#E5D7C3" }}>
           <table className="w-full min-w-[800px]">
             <thead>
               <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
-                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Employé</th>
-                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Rôle</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>CA généré</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Convs.</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Approuvés</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Taux appro.</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Tps réponse</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>CA/conv</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#9A8D7C" }}>Golden Ratio</th>
+                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Employé</th>
+                <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Rôle</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>CA généré</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Convs.</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Approuvés</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Taux appro.</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Tps réponse</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>CA/conv</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Golden Ratio</th>
               </tr>
             </thead>
             <tbody>
               {employeeStats.map((emp) => (
-                <tr key={emp.memberId} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3" }}>
+                <tr key={emp.memberId} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #EBE3D7" }}>
                   <td className="px-3 py-2.5">
                     <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{emp.name}</span>
                   </td>
                   <td className="px-3 py-2.5">
-                    <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F3EEE8", color: "#6E6257" }}>{emp.role}</span>
+                    <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F1EBE2", color: "#5F5145" }}>{emp.role}</span>
                   </td>
                   <td className="px-3 py-2.5 text-right">
-                    <span className="text-[11px] font-mono" style={{ color: emp.revenueGenerated > 0 ? "#2F7D4E" : "#9A8D7C" }}>
+                    <span className="text-[11px] font-mono" style={{ color: emp.revenueGenerated > 0 ? "#2F7D4E" : "#6E6257" }}>
                       {emp.revenueGenerated > 0 ? formatEuro(emp.revenueGenerated) : "—"}
                     </span>
                   </td>
                   <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#17120C" }}>{emp.conversationsHandled}</td>
-                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#6E6257" }}>{emp.draftsApproved}/{emp.draftsApproved + emp.draftsRejected}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#5F5145" }}>{emp.draftsApproved}/{emp.draftsApproved + emp.draftsRejected}</td>
                   <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: emp.approvalRate > 80 ? "#2F7D4E" : emp.approvalRate > 65 ? "#C9973F" : "#B7791F" }}>
                     {emp.approvalRate.toFixed(1)}%
                   </td>
-                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#6E6257" }}>{emp.avgResponseTime}</td>
+                  <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#5F5145" }}>{emp.avgResponseTime}</td>
                   <td className="px-3 py-2.5 text-right font-mono text-[11px]" style={{ color: "#C9973F" }}>{emp.revenuePerConversation > 0 ? formatEuro(emp.revenuePerConversation) : "—"}</td>
                   <td className="px-3 py-2.5 text-right">
                     <div className="flex items-center justify-end gap-2">
@@ -1837,7 +1829,7 @@ function TeamControlRoomSection() {
                         style={{ color: emp.goldenRatio >= 80 ? "#2F7D4E" : emp.goldenRatio >= 60 ? "#C9973F" : "#B7791F" }}>
                         {emp.goldenRatio}
                       </span>
-                      <div className="w-10 h-1.5 rounded-full" style={{ backgroundColor: "#E8E2DA" }}>
+                      <div className="w-10 h-1.5 rounded-full" style={{ backgroundColor: "#E0D5C5" }}>
                         <div className="h-full rounded-full" style={{
                           width: `${Math.min(100, emp.goldenRatio)}%`,
                           backgroundColor: emp.goldenRatio >= 80 ? "#2F7D4E" : emp.goldenRatio >= 60 ? "#C9973F" : "#B7791F",
@@ -1850,7 +1842,7 @@ function TeamControlRoomSection() {
             </tbody>
           </table>
         </div>
-        <p className="text-[9px] mt-2" style={{ color: "#BFB5A7" }}>
+        <p className="text-[12px] mt-2" style={{ color: "#8A7E72" }}>
           Golden Ratio = (Taux d&apos;approbation × CA/conversation) / Temps de réponse. Score &gt; 80 = Excellent, 60-80 = Bon, &lt; 60 = À améliorer.
         </p>
       </div>
@@ -1879,15 +1871,15 @@ function ComplianceReviewSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Compliance Review Queue</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Compliance Review Queue</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["compliance_review"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Contenus et messages nécessitant une révision humaine</p>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Contenus et messages nécessitant une révision humaine</p>
         </div>
         <select
           value={categoryFilter}
           onChange={(e) => setCategoryFilter(e.target.value)}
-          className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "#F0EBE3", color: categoryFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}
+          className="text-[14px] px-3 py-2 rounded-sm outline-none"
+          style={{ backgroundColor: "#EBE3D7", color: categoryFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}
         >
           <option value="">Toutes les catégories</option>
           {Object.entries(RISK_CATEGORY_LABELS).map(([key, label]) => (
@@ -1907,48 +1899,48 @@ function ComplianceReviewSection() {
                 className="w-full text-left px-4 py-3 flex items-center gap-4"
               >
                 <div className="flex items-center gap-2 w-[120px] shrink-0">
-                  <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-sm" style={{ backgroundColor: `${riskColor}15`, color: riskColor }}>
+                  <span className="text-[13px] font-mono font-semibold px-2 py-0.5 rounded-sm" style={{ backgroundColor: `${riskColor}15`, color: riskColor }}>
                     {item.riskScore}/100
                   </span>
-                  <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
+                  <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
                     {RISK_CATEGORY_LABELS[item.riskCategory]}
                   </span>
                 </div>
                 <span className="flex-1 text-[11px] truncate" style={{ color: "#17120C" }}>{item.content}</span>
-                <span className="text-[9px] px-1.5 py-0.5 rounded-sm shrink-0"
+                <span className="text-[12px] px-1.5 py-0.5 rounded-sm shrink-0"
                   style={{
                     backgroundColor: item.status === "pending" ? "rgba(216,169,91,0.1)" :
                       item.status === "approved" ? "rgba(47,125,78,0.1)" :
-                      item.status === "escalated" ? "rgba(183,121,31,0.1)" : "#F3EEE8",
+                      item.status === "escalated" ? "rgba(183,121,31,0.1)" : "#F1EBE2",
                     color: item.status === "pending" ? "#C9973F" :
                       item.status === "approved" ? "#2F7D4E" :
                       item.status === "escalated" ? "#B7791F" : "#6E6257",
                   }}>
                   {item.status === "pending" ? "En attente" : item.status === "approved" ? "Approuvé" : item.status === "escalated" ? "Escaladé" : "Rejeté"}
                 </span>
-                <ChevronRight size={12} style={{ color: "#9A8D7C", transform: isExpanded ? "rotate(90deg)" : undefined }} />
+                <ChevronRight size={12} style={{ color: "#5F5145", transform: isExpanded ? "rotate(90deg)" : undefined }} />
               </button>
 
               {isExpanded && (
                 <div className="px-4 pb-4 border-t pt-3" style={{ borderColor: "#E5D7C3" }}>
                   <div className="grid grid-cols-2 gap-3 mb-3 text-[10px]">
                     <div>
-                      <span style={{ color: "#9A8D7C" }}>Détecté par: </span>
-                      <span style={{ color: "#6E6257" }}>{item.flaggedBy === "ai" ? "IA" : item.flaggedBy === "human" ? "Humain" : "Plateforme"}</span>
+                      <span style={{ color: "#5F5145" }}>Détecté par: </span>
+                      <span style={{ color: "#5F5145" }}>{item.flaggedBy === "ai" ? "IA" : item.flaggedBy === "human" ? "Humain" : "Plateforme"}</span>
                     </div>
                     <div>
-                      <span style={{ color: "#9A8D7C" }}>Créé: </span>
-                      <span style={{ color: "#6E6257" }}>{formatRelative(item.createdAt)}</span>
+                      <span style={{ color: "#5F5145" }}>Créé: </span>
+                      <span style={{ color: "#5F5145" }}>{formatRelative(item.createdAt)}</span>
                     </div>
                     {item.reviewer && (
                       <div>
-                        <span style={{ color: "#9A8D7C" }}>Réviseur: </span>
-                        <span style={{ color: "#6E6257" }}>{item.reviewer}</span>
+                        <span style={{ color: "#5F5145" }}>Réviseur: </span>
+                        <span style={{ color: "#5F5145" }}>{item.reviewer}</span>
                       </div>
                     )}
                   </div>
                   {item.notes && (
-                    <p className="text-[10px] mb-3 p-2 rounded-sm" style={{ backgroundColor: "#F5F2EB", color: "#6E6257" }}>
+                    <p className="text-[13px] mb-3 p-2 rounded-sm" style={{ backgroundColor: "#F2EDE4", color: "#5F5145" }}>
                       Notes: {item.notes}
                     </p>
                   )}
@@ -1965,7 +1957,7 @@ function ComplianceReviewSection() {
                         <button
                           onClick={() => handleAction(item.id, "rejected")}
                           className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm"
-                          style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}
+                          style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}
                         >
                           <X size={12} /> Rejeter (non conforme)
                         </button>
@@ -1998,22 +1990,22 @@ function WhyAtlasSaferSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Why Atlas is Safer</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Why Atlas is Safer</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["why_atlas_safer"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Pourquoi les créatrices choisissent Atlas pour gérer leurs ventes en toute sécurité</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Pourquoi les créatrices choisissent Atlas pour gérer leurs ventes en toute sécurité</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         {reasons.map((reason) => {
           const Icon = iconMap[reason.icon] || ShieldCheck;
           return (
-            <div key={reason.id} className="p-5 rounded-sm border flex gap-4" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+            <div key={reason.id} className="p-5 rounded-sm border flex gap-4" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
               <div className="w-10 h-10 rounded-sm flex items-center justify-center shrink-0" style={{ backgroundColor: "rgba(216,169,91,0.1)", color: "#C9973F" }}>
                 <Icon size={18} />
               </div>
               <div>
                 <h3 className="text-[12px] font-medium mb-1" style={{ color: "#17120C" }}>{reason.title}</h3>
-                <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{reason.description}</p>
+                <p className="text-[11px] leading-relaxed" style={{ color: "#5F5145" }}>{reason.description}</p>
                 <p className="text-[11px] font-semibold mt-2 flex items-center gap-1" style={{ color: "#C9973F" }}>
                   <CheckCircle size={10} /> {reason.highlight}
                 </p>
@@ -2026,7 +2018,7 @@ function WhyAtlasSaferSection() {
       {/* Bottom CTA */}
       <div className="p-4 rounded-sm border text-center" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
         <p className="text-[12px] font-medium mb-1" style={{ color: "#17120C" }}>IA propose → Humain vérifie → Humain valide → Envoi humain</p>
-        <p className="text-[10px]" style={{ color: "#6E6257" }}>Aucun envoi automatique. 100% des messages sont validés par un humain.</p>
+        <p className="text-[13px]" style={{ color: "#5F5145" }}>Aucun envoi automatique. 100% des messages sont validés par un humain.</p>
       </div>
     </div>
   );
@@ -2050,28 +2042,28 @@ function SafetyGuardSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Safety Guard</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Safety Guard</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["safety_guard"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Barrières de sécurité configurables pour protéger la créatrice</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Barrières de sécurité configurables pour protéger la créatrice</p>
       </div>
 
       {categories.map((category) => {
         const categorySettings = settings.filter((s) => s.category === category);
         return (
           <div key={category} className="space-y-2">
-            <h3 className="text-[10px] font-medium tracking-wider uppercase" style={{ color: "#BFB5A7" }}>
+            <h3 className="text-[13px] font-medium tracking-wider uppercase" style={{ color: "#8A7E72" }}>
               {GUARD_CATEGORY_LABELS[category] || category}
             </h3>
             {categorySettings.map((setting) => (
-              <div key={setting.id} className="flex items-center gap-4 px-4 py-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+              <div key={setting.id} className="flex items-center gap-4 px-4 py-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{setting.name}</span>
-                    <span className="text-[8px] px-1.5 py-0.5 rounded-sm font-medium"
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-sm font-medium"
                       style={{
                         backgroundColor: setting.severity === "critical" ? "rgba(197,74,58,0.12)" :
                           setting.severity === "high" ? "rgba(183,121,31,0.1)" :
-                          setting.severity === "medium" ? "rgba(245,158,11,0.1)" : "#F3EEE8",
+                          setting.severity === "medium" ? "rgba(245,158,11,0.1)" : "#F1EBE2",
                         color: setting.severity === "critical" ? "#C54A3A" :
                           setting.severity === "high" ? "#B7791F" :
                           setting.severity === "medium" ? "#B45309" : "#6E6257",
@@ -2079,15 +2071,15 @@ function SafetyGuardSection() {
                       {setting.severity}
                     </span>
                     {setting.adminOnly && (
-                      <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#9A8D7C" }}>Admin only</span>
+                      <span className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>Admin only</span>
                     )}
                   </div>
-                  <p className="text-[10px] mt-0.5" style={{ color: "#6E6257" }}>{setting.description}</p>
+                  <p className="text-[13px] mt-0.5" style={{ color: "#5F5145" }}>{setting.description}</p>
                 </div>
                 <button
                   onClick={() => toggleSetting(setting.id)}
                   className={`w-9 h-5 rounded-full transition-colors relative shrink-0 ${setting.adminOnly ? "cursor-not-allowed" : ""}`}
-                  style={{ backgroundColor: setting.enabled ? "#C9973F" : "#D5CDC3", opacity: setting.adminOnly ? 0.6 : 1 }}
+                  style={{ backgroundColor: setting.enabled ? "#C9973F" : "#B8ADA0", opacity: setting.adminOnly ? 0.6 : 1 }}
                 >
                   <div
                     className="w-3.5 h-3.5 rounded-full absolute top-[3px] transition-all"
@@ -2122,14 +2114,14 @@ function AiCoreSettingsSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>AI Core Settings</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>AI Core Settings</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["ai_core_settings"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Configure le niveau d&apos;assistance IA pour les conversations</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Configure le niveau d&apos;assistance IA pour les conversations</p>
       </div>
 
       {/* Mode selector */}
       <div className="space-y-2">
-        <h3 className="text-[10px] font-medium tracking-wider uppercase" style={{ color: "#BFB5A7" }}>Mode opératoire</h3>
+        <h3 className="text-[13px] font-medium tracking-wider uppercase" style={{ color: "#8A7E72" }}>Mode opératoire</h3>
         <div className="grid grid-cols-2 gap-2">
           {modes.map((mode) => (
             <button
@@ -2150,7 +2142,7 @@ function AiCoreSettingsSection() {
                   <CheckCircle size={12} style={{ color: AI_CORE_MODE_COLORS[mode], marginLeft: "auto" }} />
                 )}
               </div>
-              <p className="text-[10px] leading-relaxed" style={{ color: "#6E6257" }}>
+              <p className="text-[13px] leading-relaxed" style={{ color: "#5F5145" }}>
                 {AI_CORE_MODE_LABELS[mode]}
               </p>
             </button>
@@ -2159,8 +2151,8 @@ function AiCoreSettingsSection() {
       </div>
 
       {/* Configuration options */}
-      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
-        <h3 className="text-[10px] font-medium tracking-wider uppercase mb-3" style={{ color: "#BFB5A7" }}>Paramètres IA</h3>
+      <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
+        <h3 className="text-[13px] font-medium tracking-wider uppercase mb-3" style={{ color: "#8A7E72" }}>Paramètres IA</h3>
         {([
           { key: "autoGenerateOnNewMessage" as const, label: "Auto-génération sur nouveau message", desc: "L'IA génère des brouillons dès qu'un nouveau message arrive" },
           { key: "requireHumanApproval" as const, label: "Approbation humaine obligatoire", desc: "Chaque brouillon IA doit être validé avant envoi" },
@@ -2169,12 +2161,12 @@ function AiCoreSettingsSection() {
           <div key={opt.key} className="flex items-center justify-between py-1.5">
             <div className="flex-1 min-w-0 mr-4">
               <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{opt.label}</span>
-              <p className="text-[9px] mt-0.5" style={{ color: "#9A8D7C" }}>{opt.desc}</p>
+              <p className="text-[12px] mt-0.5" style={{ color: "#5F5145" }}>{opt.desc}</p>
             </div>
             <button
               onClick={() => toggle(opt.key)}
               className="w-9 h-5 rounded-full transition-colors relative shrink-0"
-              style={{ backgroundColor: settings[opt.key] ? "#C9973F" : "#D5CDC3" }}
+              style={{ backgroundColor: settings[opt.key] ? "#C9973F" : "#B8ADA0" }}
             >
               <div className="w-3.5 h-3.5 rounded-full absolute top-[3px] transition-all bg-white"
                 style={{ left: settings[opt.key] ? "18px" : "3px" }} />
@@ -2184,7 +2176,7 @@ function AiCoreSettingsSection() {
       </div>
 
       {/* Advanced */}
-      <div className="p-4 rounded-sm border space-y-2" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+      <div className="p-4 rounded-sm border space-y-2" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
         <div className="flex items-center justify-between">
           <span className="text-[11px]" style={{ color: "#17120C" }}>Temperature du modèle</span>
           <span className="text-[11px] font-mono" style={{ color: "#C9973F" }}>{settings.modelTemperature.toFixed(1)}</span>
@@ -2192,13 +2184,13 @@ function AiCoreSettingsSection() {
         <input type="range" min="0" max="1.5" step="0.1" value={settings.modelTemperature}
           onChange={(e) => setSettings((prev) => ({ ...prev, modelTemperature: Number(e.target.value) }))}
           className="w-full accent-[#C9973F]" />
-        <div className="flex items-center justify-between text-[9px]" style={{ color: "#AEA294" }}>
+        <div className="flex items-center justify-between text-[9px]" style={{ color: "#5F5145" }}>
           <span>Précis (0)</span><span>Créatif (1.5)</span>
         </div>
         <div className="flex items-center gap-1.5 pt-2 mt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
-          <span className="text-[10px]" style={{ color: "#9A8D7C" }}>Langues:</span>
+          <span className="text-[13px]" style={{ color: "#5F5145" }}>Langues:</span>
           {settings.languages.map((l) => (
-            <span key={l} className="text-[9px] px-1.5 py-0.5 rounded-sm uppercase" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>{l}</span>
+            <span key={l} className="text-[12px] px-1.5 py-0.5 rounded-sm uppercase" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>{l}</span>
           ))}
         </div>
       </div>
@@ -2220,17 +2212,17 @@ function HybridHandoffSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Hybrid Handoff Rules</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Hybrid Handoff Rules</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["hybrid_handoff"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Définis quand les conversations doivent être gérées par un humain ou assistées par l&apos;IA</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Définis quand les conversations doivent être gérées par un humain ou assistées par l&apos;IA</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
         {groups.map((group) => (
-          <div key={group.id} className="rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+          <div key={group.id} className="rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
             <div className="px-4 py-2.5 border-b flex items-center justify-between" style={{ borderColor: "#E5D7C3" }}>
               <h3 className="text-[11px] font-medium" style={{ color: "#17120C" }}>{group.label}</h3>
-              <span className="text-[9px] font-mono px-1.5 py-0.5 rounded-sm" style={{
+              <span className="text-[12px] font-mono px-1.5 py-0.5 rounded-sm" style={{
                 backgroundColor: group.logic === "AND" ? "rgba(47,125,78,0.1)" : "rgba(216,169,91,0.1)",
                 color: group.logic === "AND" ? "#2F7D4E" : "#C9973F",
               }}>
@@ -2243,19 +2235,19 @@ function HybridHandoffSection() {
                   <button
                     onClick={() => toggleRule(group.id, rule.id)}
                     className="w-8 h-4.5 rounded-full transition-colors relative shrink-0"
-                    style={{ backgroundColor: rule.isEnabled ? "#C9973F" : "#D5CDC3" }}
+                    style={{ backgroundColor: rule.isEnabled ? "#C9973F" : "#B8ADA0" }}
                   >
                     <div className="w-3 h-3 rounded-full absolute top-[3px] transition-all bg-white"
                       style={{ left: rule.isEnabled ? "17px" : "3px" }} />
                   </button>
                   <div className="flex-1 min-w-0">
                     <span className="text-[11px] block" style={{ color: rule.isEnabled ? "#17120C" : "#6E6257" }}>{rule.name}</span>
-                    <span className="text-[9px]" style={{ color: "#9A8D7C" }}>
+                    <span className="text-[12px]" style={{ color: "#5F5145" }}>
                       {rule.condition.replace(/_/g, " ")} {rule.operator} {rule.value}
                     </span>
                   </div>
-                  <span className="text-[8px] px-1.5 py-0.5 rounded-sm shrink-0"
-                    style={{ backgroundColor: "#F3EEE8", color: "#6E6257" }}>
+                  <span className="text-[11px] px-1.5 py-0.5 rounded-sm shrink-0"
+                    style={{ backgroundColor: "#F1EBE2", color: "#5F5145" }}>
                     {HANDOFF_ACTION_LABELS[rule.action]}
                   </span>
                 </div>
@@ -2266,7 +2258,7 @@ function HybridHandoffSection() {
       </div>
 
       <div className="p-3 rounded-sm border" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
-        <p className="text-[10px] flex items-center gap-1.5" style={{ color: "#C9973F" }}>
+        <p className="text-[13px] flex items-center gap-1.5" style={{ color: "#C9973F" }}>
           <Brain size={12} /> AND = toutes les règles doivent matcher · OR = au moins une règle doit matcher
         </p>
       </div>
@@ -2287,11 +2279,11 @@ function ScriptBuilderSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Script Builder / PPV Ladder</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Script Builder / PPV Ladder</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["script_builder"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Crée des entonnoirs PPV progressifs avec étapes et templates</p>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Crée des entonnoirs PPV progressifs avec étapes et templates</p>
         </div>
-        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
+        <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
           <Plus size={12} /> Créer un script PPV
         </button>
       </div>
@@ -2306,7 +2298,7 @@ function ScriptBuilderSection() {
               borderColor: selectedScriptId === s.id ? "#C9973F" : "#E5D7C3",
             }}>
             <span className="text-[11px] font-medium block" style={{ color: "#17120C" }}>{s.name}</span>
-            <span className="text-[9px] mt-0.5 block" style={{ color: "#7A6E63" }}>
+            <span className="text-[12px] mt-0.5 block" style={{ color: "#5F5145" }}>
               {s.totalSteps} étapes · {FAN_TIER_LABELS[s.targetTier]} · {formatEuro(s.estimatedRevenue)}
             </span>
           </button>
@@ -2321,10 +2313,10 @@ function ScriptBuilderSection() {
               { label: "Étapes", value: script.totalSteps.toString(), color: "#17120C" },
               { label: "Taux de conversion", value: `${script.conversionRate}%`, color: "#C9973F" },
               { label: "Revenu estimé", value: formatEuro(script.estimatedRevenue), color: "#2F7D4E" },
-              { label: "Statut", value: script.isActive ? "Actif" : "Inactif", color: script.isActive ? "#2F7D4E" : "#9A8D7C" },
+              { label: "Statut", value: script.isActive ? "Actif" : "Inactif", color: script.isActive ? "#2F7D4E" : "#6E6257" },
             ].map((kpi) => (
-              <div key={kpi.label} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
-                <p className="text-[9px]" style={{ color: "#9A8D7C" }}>{kpi.label}</p>
+              <div key={kpi.label} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
+                <p className="text-[12px]" style={{ color: "#5F5145" }}>{kpi.label}</p>
                 <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: kpi.color }}>{kpi.value}</p>
               </div>
             ))}
@@ -2343,13 +2335,13 @@ function ScriptBuilderSection() {
                   <button
                     onClick={() => setExpandedStepId(isExpanded ? null : step.id)}
                     className="w-full text-left px-4 py-3 flex items-center gap-4 transition-colors hover:bg-black/[0.02]"
-                    style={{ borderBottom: isLast ? "none" : "1px solid #F0EBE3" }}
+                    style={{ borderBottom: isLast ? "none" : "1px solid #EBE3D7" }}
                   >
                     <span className="w-6 h-6 rounded-sm flex items-center justify-center text-[10px] font-mono font-semibold shrink-0"
-                      style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
+                      style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
                       {step.order}
                     </span>
-                    <span className="text-[8px] px-1.5 py-0.5 rounded-sm font-medium uppercase shrink-0"
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-sm font-medium uppercase shrink-0"
                       style={{ backgroundColor: `${typeColors[step.type]}15`, color: typeColors[step.type] }}>
                       {step.type.replace(/_/g, " ")}
                     </span>
@@ -2358,20 +2350,20 @@ function ScriptBuilderSection() {
                       <span className="text-[11px] font-mono font-semibold shrink-0" style={{ color: "#C9973F" }}>{formatEuro(step.price)}</span>
                     )}
                     {step.isRequired && (
-                      <span className="text-[8px] px-1 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: "rgba(197,74,58,0.1)", color: "#C54A3A" }}>Requis</span>
+                      <span className="text-[11px] px-1 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: "rgba(197,74,58,0.1)", color: "#C54A3A" }}>Requis</span>
                     )}
-                    <ChevronRight size={12} style={{ color: "#9A8D7C", transform: isExpanded ? "rotate(90deg)" : undefined }} />
+                    <ChevronRight size={12} style={{ color: "#5F5145", transform: isExpanded ? "rotate(90deg)" : undefined }} />
                   </button>
                   {isExpanded && (
                     <div className="px-10 pb-4 border-t mx-4 pt-3" style={{ borderColor: "#E5D7C3" }}>
-                      <p className="text-[11px] leading-relaxed mb-3" style={{ color: "#6E6257" }}>{step.content}</p>
+                      <p className="text-[11px] leading-relaxed mb-3" style={{ color: "#5F5145" }}>{step.content}</p>
                       <div className="flex items-center gap-4 text-[10px]">
-                        <span style={{ color: "#9A8D7C" }}>
-                          Délai après précédent: <span style={{ color: "#6E6257" }}>{step.delayAfterPrevious}</span>
+                        <span style={{ color: "#5F5145" }}>
+                          Délai après précédent: <span style={{ color: "#5F5145" }}>{step.delayAfterPrevious}</span>
                         </span>
                         <div className="flex items-center gap-1.5 ml-auto">
-                          <button className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#7A6E63" }}>Déplacer</button>
-                          <button className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}>Modifier</button>
+                          <button className="text-[13px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>Déplacer</button>
+                          <button className="text-[13px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}>Modifier</button>
                         </div>
                       </div>
                     </div>
@@ -2383,11 +2375,11 @@ function ScriptBuilderSection() {
 
           {/* Mock CTA preview */}
           <div className="p-4 rounded-sm border text-center" style={{ backgroundColor: "rgba(47,125,78,0.03)", borderColor: "rgba(47,125,78,0.1)" }}>
-            <p className="text-[10px] mb-1" style={{ color: "#9A8D7C" }}>CTA final mock</p>
+            <p className="text-[13px] mb-1" style={{ color: "#5F5145" }}>CTA final mock</p>
             <p className="text-[12px] font-medium" style={{ color: "#17120C" }}>
               Merci pour ton soutien ! Les offres exclusives expirent dans 24h 🔥
             </p>
-            <p className="text-[9px] mt-1" style={{ color: "#AEA294" }}>Ce message sera envoyé 72h après l'étape précédente</p>
+            <p className="text-[12px] mt-1" style={{ color: "#5F5145" }}>Ce message sera envoyé 72h après l'étape précédente</p>
           </div>
         </div>
       )}
@@ -2411,13 +2403,13 @@ function MessageLedgerSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Message Ledger</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Message Ledger</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["message_ledger"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Registre complet de tous les messages envoyés et reçus</p>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Registre complet de tous les messages envoyés et reçus</p>
         </div>
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
-          className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "#F0EBE3", color: statusFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}>
+          className="text-[14px] px-3 py-2 rounded-sm outline-none"
+          style={{ backgroundColor: "#EBE3D7", color: statusFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}>
           <option value="">Tous les statuts</option>
           <option value="draft">Brouillons</option>
           <option value="approved">Approuvés</option>
@@ -2430,50 +2422,50 @@ function MessageLedgerSection() {
         <table className="w-full min-w-[700px]">
           <thead>
             <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Fan</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Message</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Direction</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Créateur</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Statut</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Revenu</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Date</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Fan</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Message</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Direction</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Créateur</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Statut</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Revenu</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Date</th>
             </tr>
           </thead>
           <tbody>
             {filtered.map((entry) => (
-              <tr key={entry.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3" }}>
+              <tr key={entry.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #EBE3D7" }}>
                 <td className="px-4 py-2.5">
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{entry.fanName}</span>
-                    <span className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: `${FAN_TIER_COLORS[entry.fanTier]}20`, color: FAN_TIER_COLORS[entry.fanTier] }}>
+                    <span className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: `${FAN_TIER_COLORS[entry.fanTier]}20`, color: FAN_TIER_COLORS[entry.fanTier] }}>
                       {FAN_TIER_LABELS[entry.fanTier]}
                     </span>
                   </div>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[11px] line-clamp-1 max-w-[220px]" style={{ color: "#6E6257" }}>{entry.contentPreview}</span>
+                  <span className="text-[11px] line-clamp-1 max-w-[220px]" style={{ color: "#5F5145" }}>{entry.contentPreview}</span>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[10px] flex items-center gap-1" style={{ color: entry.direction === "inbound" ? "#1D4ED8" : "#C9973F" }}>
+                  <span className="text-[13px] flex items-center gap-1" style={{ color: entry.direction === "inbound" ? "#1D4ED8" : "#C9973F" }}>
                     {entry.direction === "inbound" ? <ArrowLeft size={10} /> : <ArrowRight size={10} />}
                     {entry.direction === "inbound" ? "Entrant" : "Sortant"}
                   </span>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[11px]" style={{ color: "#7A6E63" }}>{entry.creatorName}</span>
+                  <span className="text-[11px]" style={{ color: "#5F5145" }}>{entry.creatorName}</span>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[entry.status]}15`, color: statusColors[entry.status] }}>
+                  <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[entry.status]}15`, color: statusColors[entry.status] }}>
                     {entry.status === "draft" ? "Brouillon" : entry.status === "approved" ? "Approuvé" : entry.status === "sent" ? "Envoyé" : "Signalé"}
                   </span>
                 </td>
                 <td className="px-4 py-2.5 text-right">
-                  <span className="text-[11px] font-mono" style={{ color: entry.revenue ? "#2F7D4E" : "#9A8D7C" }}>
+                  <span className="text-[11px] font-mono" style={{ color: entry.revenue ? "#2F7D4E" : "#6E6257" }}>
                     {entry.revenue ? formatEuro(entry.revenue) : "—"}
                   </span>
                 </td>
                 <td className="px-4 py-2.5 text-right">
-                  <span className="text-[9px]" style={{ color: "#9A8D7C" }}>{formatRelative(entry.createdAt)}</span>
+                  <span className="text-[12px]" style={{ color: "#5F5145" }}>{formatRelative(entry.createdAt)}</span>
                 </td>
               </tr>
             ))}
@@ -2482,7 +2474,7 @@ function MessageLedgerSection() {
       </div>
 
       <div className="flex items-center gap-4 text-[10px]">
-        <span style={{ color: "#9A8D7C" }}>
+        <span style={{ color: "#5F5145" }}>
           {entries.filter((e) => e.status === "sent").length} envoyés · {entries.filter((e) => e.status === "draft").length} brouillons · {entries.filter((e) => e.status === "flagged").length} signalés
         </span>
       </div>
@@ -2501,15 +2493,15 @@ function BannedKeywordsSection() {
   };
 
   const severityColors: Record<string, string> = {
-    critical: "#C54A3A", high: "#B7791F", medium: "#B45309", low: "#9A8D7C",
+    critical: "#C54A3A", high: "#B7791F", medium: "#B45309", low: "#6E6257",
   };
 
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Banned Keywords & Safety Rules</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Banned Keywords & Safety Rules</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["banned_keywords"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Mots-clés interdits appliqués aux brouillons IA, templates et messages manuels</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Mots-clés interdits appliqués aux brouillons IA, templates et messages manuels</p>
       </div>
 
       {/* Add custom keyword */}
@@ -2517,7 +2509,7 @@ function BannedKeywordsSection() {
         <input value={newKeyword} onChange={(e) => setNewKeyword(e.target.value)}
           placeholder="Ajouter un mot-clé personnalisé..."
           className="flex-1 text-[11px] px-3 py-2 rounded-sm outline-none bg-transparent"
-          style={{ color: "#17120C", border: "1px solid #E0D8CF" }}
+          style={{ color: "#17120C", border: "1px solid #D9CCBB" }}
           onKeyDown={(e) => { if (e.key === "Enter" && newKeyword.trim()) {
             setKeywords((prev) => [{ id: `bk-custom-${Date.now()}`, keyword: newKeyword.trim(), category: "custom", severity: "medium", appliesTo: ["drafts", "manual"], replacement: null, isEnabled: true, createdAt: new Date().toISOString() }, ...prev]);
             setNewKeyword("");
@@ -2529,7 +2521,7 @@ function BannedKeywordsSection() {
           }}}
           disabled={!newKeyword.trim()}
           className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm transition-all disabled:opacity-30"
-          style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
+          style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
           <Plus size={12} /> Ajouter
         </button>
       </div>
@@ -2539,47 +2531,47 @@ function BannedKeywordsSection() {
         <table className="w-full">
           <thead>
             <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Mot-clé</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Catégorie</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Sévérité</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Appliqué à</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Remplacement</th>
-              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#9A8D7C" }}>Actif</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Mot-clé</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Catégorie</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Sévérité</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Appliqué à</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Remplacement</th>
+              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Actif</th>
             </tr>
           </thead>
           <tbody>
             {keywords.map((kw) => (
-              <tr key={kw.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #F0EBE3", opacity: kw.isEnabled ? 1 : 0.5 }}>
+              <tr key={kw.id} className="transition-colors hover:bg-black/[0.02]" style={{ borderBottom: "1px solid #EBE3D7", opacity: kw.isEnabled ? 1 : 0.5 }}>
                 <td className="px-4 py-2.5">
-                  <code className="text-[11px] font-mono px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#17120C" }}>{kw.keyword}</code>
+                  <code className="text-[11px] font-mono px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#17120C" }}>{kw.keyword}</code>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[10px] px-1.5 py-0.5 rounded-sm" style={{
+                  <span className="text-[13px] px-1.5 py-0.5 rounded-sm" style={{
                     backgroundColor: kw.category === "system" ? "rgba(197,74,58,0.08)" : "rgba(29,77,216,0.08)",
                     color: kw.category === "system" ? "#C54A3A" : "#1D4ED8",
                   }}>{BANNED_CATEGORY_LABELS[kw.category]}</span>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[10px] font-medium capitalize" style={{ color: severityColors[kw.severity] }}>{kw.severity}</span>
+                  <span className="text-[13px] font-medium capitalize" style={{ color: severityColors[kw.severity] }}>{kw.severity}</span>
                 </td>
                 <td className="px-4 py-2.5">
                   <div className="flex items-center gap-1">
                     {kw.appliesTo.map((a) => (
-                      <span key={a} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F3EEE8", color: "#7A6E63" }}>
+                      <span key={a} className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F1EBE2", color: "#5F5145" }}>
                         {BANNED_APPLIES_TO_LABELS[a]}
                       </span>
                     ))}
                   </div>
                 </td>
                 <td className="px-4 py-2.5">
-                  <span className="text-[10px]" style={{ color: kw.replacement ? "#2F7D4E" : "#AEA294" }}>
+                  <span className="text-[13px]" style={{ color: kw.replacement ? "#2F7D4E" : "#5F5145" }}>
                     {kw.replacement || "— (bloqué)"}
                   </span>
                 </td>
                 <td className="px-4 py-2.5 text-center">
                   <button onClick={() => toggleKeyword(kw.id)}
                     className="w-8 h-4.5 rounded-full transition-colors relative"
-                    style={{ backgroundColor: kw.isEnabled ? "#C9973F" : "#D5CDC3" }}>
+                    style={{ backgroundColor: kw.isEnabled ? "#C9973F" : "#B8ADA0" }}>
                     <div className="w-3 h-3 rounded-full absolute top-[3px] transition-all bg-white"
                       style={{ left: kw.isEnabled ? "17px" : "3px" }} />
                   </button>
@@ -2601,42 +2593,42 @@ function CreatorProfileSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Creator Intelligence Profile</h2>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Creator Intelligence Profile</h2>
         <SectionInfoBar description={SECTION_DESCRIPTIONS["creator_profile"]} />
-        <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Profil IA de la créatrice — persona, limites, règles et préférences</p>
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Profil IA de la créatrice — persona, limites, règles et préférences</p>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
         {/* Left column — Persona card */}
         <div className="space-y-4">
-          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
+          <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
             <div className="flex items-center gap-3 mb-4">
               <div className="w-12 h-12 rounded-sm flex items-center justify-center text-lg font-semibold" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F", border: "1px solid rgba(216,169,91,0.2)" }}>
                 <UserCog size={22} />
               </div>
               <div>
                 <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Persona</h3>
-                <p className="text-[10px] mt-0.5" style={{ color: "#6E6257" }}>{profile.persona}</p>
+                <p className="text-[13px] mt-0.5" style={{ color: "#5F5145" }}>{profile.persona}</p>
               </div>
             </div>
             <div className="space-y-2 text-[11px]">
-              <div className="flex justify-between"><span style={{ color: "#9A8D7C" }}>Timezone</span><span style={{ color: "#6E6257" }}>{profile.timezone}</span></div>
-              <div className="flex justify-between"><span style={{ color: "#9A8D7C" }}>Horaires actifs</span><span style={{ color: "#6E6257" }}>{profile.activeHours}</span></div>
-              <div className="flex justify-between"><span style={{ color: "#9A8D7C" }}>Ton</span>
+              <div className="flex justify-between"><span style={{ color: "#5F5145" }}>Timezone</span><span style={{ color: "#5F5145" }}>{profile.timezone}</span></div>
+              <div className="flex justify-between"><span style={{ color: "#5F5145" }}>Horaires actifs</span><span style={{ color: "#5F5145" }}>{profile.activeHours}</span></div>
+              <div className="flex justify-between"><span style={{ color: "#5F5145" }}>Ton</span>
                 <span className="px-1.5 py-0.5 rounded-sm text-[10px]" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>{CREATOR_TONE_LABELS[profile.tone]}</span>
               </div>
-              <div className="flex justify-between"><span style={{ color: "#9A8D7C" }}>Langues</span>
+              <div className="flex justify-between"><span style={{ color: "#5F5145" }}>Langues</span>
                 <span style={{ color: "#17120C" }}>{profile.languages.map((l) => l.toUpperCase()).join(", ")}</span>
               </div>
             </div>
           </div>
 
           {/* Platforms */}
-          <div className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
-            <h3 className="text-[10px] font-medium mb-2" style={{ color: "#9A8D7C" }}>Plateformes actives</h3>
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
+            <h3 className="text-[13px] font-medium mb-2" style={{ color: "#5F5145" }}>Plateformes actives</h3>
             <div className="flex flex-wrap gap-1.5">
               {profile.platforms.map((p) => (
-                <span key={p} className="text-[10px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
+                <span key={p} className="text-[13px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
                   {PLATFORM_LABELS[p]}
                 </span>
               ))}
@@ -2646,18 +2638,18 @@ function CreatorProfileSection() {
 
         {/* Center — Bio */}
         <div className="space-y-4">
-          <div className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3" }}>
-            <h3 className="text-[10px] font-medium mb-2" style={{ color: "#9A8D7C" }}>Bio</h3>
-            <p className="text-[11px] leading-relaxed" style={{ color: "#6E6257" }}>{profile.bio}</p>
+          <div className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
+            <h3 className="text-[13px] font-medium mb-2" style={{ color: "#5F5145" }}>Bio</h3>
+            <p className="text-[11px] leading-relaxed" style={{ color: "#5F5145" }}>{profile.bio}</p>
           </div>
           {/* Boundaries */}
           <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(197,74,58,0.04)", borderColor: "rgba(197,74,58,0.1)" }}>
-            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#C54A3A" }}>
+            <h3 className="text-[13px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#C54A3A" }}>
               <AlertTriangle size={10} /> Limites strictes
             </h3>
             <ul className="space-y-1">
               {profile.boundaries.map((b, i) => (
-                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "#7A6E63" }}>
+                <li key={i} className="text-[13px] flex items-start gap-1.5" style={{ color: "#5F5145" }}>
                   <X size={10} style={{ color: "#C54A3A", marginTop: "1px", flexShrink: 0 }} /> {b}
                 </li>
               ))}
@@ -2668,24 +2660,24 @@ function CreatorProfileSection() {
         {/* Right — Do / Don't */}
         <div className="space-y-4">
           <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(47,125,78,0.04)", borderColor: "rgba(47,125,78,0.1)" }}>
-            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#2F7D4E" }}>
+            <h3 className="text-[13px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#2F7D4E" }}>
               <CheckCircle size={10} /> À faire
             </h3>
             <ul className="space-y-1">
               {profile.doRules.map((r, i) => (
-                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "#7A6E63" }}>
+                <li key={i} className="text-[13px] flex items-start gap-1.5" style={{ color: "#5F5145" }}>
                   <CheckCircle size={10} style={{ color: "#2F7D4E", marginTop: "1px", flexShrink: 0 }} /> {r}
                 </li>
               ))}
             </ul>
           </div>
           <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(183,121,31,0.04)", borderColor: "rgba(183,121,31,0.1)" }}>
-            <h3 className="text-[10px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#B7791F" }}>
+            <h3 className="text-[13px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#B7791F" }}>
               <Ban size={10} /> À ne pas faire
             </h3>
             <ul className="space-y-1">
               {profile.dontRules.map((r, i) => (
-                <li key={i} className="text-[10px] flex items-start gap-1.5" style={{ color: "#7A6E63" }}>
+                <li key={i} className="text-[13px] flex items-start gap-1.5" style={{ color: "#5F5145" }}>
                   <Ban size={10} style={{ color: "#B7791F", marginTop: "1px", flexShrink: 0 }} /> {r}
                 </li>
               ))}
@@ -2715,30 +2707,30 @@ function NotificationsCenterSection() {
   };
 
   const priorityColors: Record<string, string> = {
-    high: "#C54A3A", medium: "#B7791F", low: "#9A8D7C",
+    high: "#C54A3A", medium: "#B7791F", low: "#6E6257",
   };
 
   return (
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Notifications Center</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Notifications Center</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["notifications_center"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>
             {unreadCount} non lues sur {notifications.length} notifications
           </p>
         </div>
         <div className="flex items-center gap-2">
           <select value={typeFilter} onChange={(e) => setTypeFilter(e.target.value)}
-            className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-            style={{ backgroundColor: "#F0EBE3", color: typeFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}>
+            className="text-[14px] px-3 py-2 rounded-sm outline-none"
+            style={{ backgroundColor: "#EBE3D7", color: typeFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}>
             <option value="">Tous les types</option>
             {Object.entries(NOTIF_TYPE_LABELS).map(([key, label]) => (
               <option key={key} value={key}>{label}</option>
             ))}
           </select>
           {unreadCount > 0 && (
-            <button onClick={markAllRead} className="text-[10px] px-2.5 py-1.5 rounded-sm" style={{ backgroundColor: "#F0EBE3", color: "#6E6257" }}>
+            <button onClick={markAllRead} className="text-[13px] px-2.5 py-1.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
               Marquer tout comme lu
             </button>
           )}
@@ -2751,32 +2743,32 @@ function NotificationsCenterSection() {
             className="w-full text-left flex items-start gap-4 px-4 py-3 rounded-sm border transition-all"
             style={{
               backgroundColor: notif.isRead ? "transparent" : "rgba(216,169,91,0.03)",
-              borderColor: notif.isRead ? "#F0EBE3" : "rgba(216,169,91,0.1)",
+              borderColor: notif.isRead ? "#EBE3D7" : "rgba(216,169,91,0.1)",
             }}>
             <div className="flex items-center gap-2 w-[100px] shrink-0">
               {!notif.isRead && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#C9973F" }} />}
-              <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${priorityColors[notif.priority]}15`, color: priorityColors[notif.priority] }}>
+              <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${priorityColors[notif.priority]}15`, color: priorityColors[notif.priority] }}>
                 {notif.priority === "high" ? "Haute" : notif.priority === "medium" ? "Moy." : "Basse"}
               </span>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
-                <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F3EEE8", color: "#7A6E63" }}>
+                <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F1EBE2", color: "#5F5145" }}>
                   {NOTIF_TYPE_LABELS[notif.type]}
                 </span>
                 <span className="text-[11px] font-medium" style={{ color: notif.isRead ? "#6E6257" : "#17120C" }}>
                   {notif.title}
                 </span>
                 {notif.revenue !== null && (
-                  <span className="text-[10px] font-mono ml-auto shrink-0" style={{ color: "#2F7D4E" }}>+{formatEuro(notif.revenue)}</span>
+                  <span className="text-[13px] font-mono ml-auto shrink-0" style={{ color: "#2F7D4E" }}>+{formatEuro(notif.revenue)}</span>
                 )}
               </div>
-              <p className="text-[10px] truncate" style={{ color: "#7A6E63" }}>{notif.description}</p>
+              <p className="text-[13px] truncate" style={{ color: "#5F5145" }}>{notif.description}</p>
               <div className="flex items-center gap-3 mt-1.5">
-                <span className="text-[9px]" style={{ color: "#AEA294" }}>{formatRelative(notif.timestamp)}</span>
+                <span className="text-[12px]" style={{ color: "#5F5145" }}>{formatRelative(notif.timestamp)}</span>
                 <div className="flex items-center gap-1">
                   {notif.channels.map((ch) => (
-                    <span key={ch} className="text-[8px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F5F2EB", color: "#AEA294" }}>
+                    <span key={ch} className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F2EDE4", color: "#5F5145" }}>
                       {NOTIF_CHANNEL_LABELS[ch]}
                     </span>
                   ))}
@@ -2810,9 +2802,9 @@ function CreativeEngineSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Creative Engine / AI Reels</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Creative Engine / AI Reels</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["creative_engine"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Scripts Reels/TikTok générés par IA — preview seulement, approbation humaine obligatoire</p>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Scripts Reels/TikTok générés par IA — preview seulement, approbation humaine obligatoire</p>
         </div>
       </div>
 
@@ -2820,7 +2812,7 @@ function CreativeEngineSection() {
       <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-sm"
         style={{ backgroundColor: "rgba(216,169,91,0.06)", border: "1px dashed rgba(216,169,91,0.15)" }}>
         <Sparkles size={12} style={{ color: "#C9973F" }} />
-        <span className="text-[10px] font-medium" style={{ color: "#C9973F" }}>IA propose → Humain valide → Créatrice publie. Aucune publication automatique.</span>
+        <span className="text-[13px] font-medium" style={{ color: "#C9973F" }}>IA propose → Humain valide → Créatrice publie. Aucune publication automatique.</span>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -2836,7 +2828,7 @@ function CreativeEngineSection() {
                 <Video size={14} style={{ color: "#C9973F" }} />
                 <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{reel.title}</h3>
               </div>
-              <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[reel.status]}15`, color: statusColors[reel.status] }}>
+              <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[reel.status]}15`, color: statusColors[reel.status] }}>
                 {statusLabels[reel.status]}
               </span>
             </div>
@@ -2844,33 +2836,33 @@ function CreativeEngineSection() {
             {selectedReelId === reel.id && (
               <div className="mt-3 space-y-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
                 <div className="grid grid-cols-3 gap-2 text-[10px]">
-                  <div><span style={{ color: "#9A8D7C" }}>Plateforme</span>
-                    <p style={{ color: "#6E6257" }}>{REEL_PLATFORM_LABELS[reel.platform]}</p></div>
-                  <div><span style={{ color: "#9A8D7C" }}>Durée</span>
-                    <p style={{ color: "#6E6257" }}>{reel.duration}</p></div>
-                  <div><span style={{ color: "#9A8D7C" }}>Score viral</span>
+                  <div><span style={{ color: "#5F5145" }}>Plateforme</span>
+                    <p style={{ color: "#5F5145" }}>{REEL_PLATFORM_LABELS[reel.platform]}</p></div>
+                  <div><span style={{ color: "#5F5145" }}>Durée</span>
+                    <p style={{ color: "#5F5145" }}>{reel.duration}</p></div>
+                  <div><span style={{ color: "#5F5145" }}>Score viral</span>
                     <p className="font-mono font-semibold" style={{ color: reel.viralScore > 85 ? "#2F7D4E" : "#C9973F" }}>{reel.viralScore}/100</p></div>
                 </div>
 
                 <div className="space-y-2">
                   <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.06)" }}>
-                    <span className="text-[9px] font-medium" style={{ color: "#1D4ED8" }}>HOOK</span>
-                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "#6E6257" }}>{reel.hook}</p>
+                    <span className="text-[12px] font-medium" style={{ color: "#1D4ED8" }}>HOOK</span>
+                    <p className="text-[13px] mt-0.5 leading-relaxed" style={{ color: "#5F5145" }}>{reel.hook}</p>
                   </div>
-                  <div className="p-2 rounded-sm" style={{ backgroundColor: "#F5F2EB" }}>
-                    <span className="text-[9px] font-medium" style={{ color: "#6E6257" }}>BODY</span>
-                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "#6E6257" }}>{reel.body}</p>
+                  <div className="p-2 rounded-sm" style={{ backgroundColor: "#F2EDE4" }}>
+                    <span className="text-[12px] font-medium" style={{ color: "#5F5145" }}>BODY</span>
+                    <p className="text-[13px] mt-0.5 leading-relaxed" style={{ color: "#5F5145" }}>{reel.body}</p>
                   </div>
                   <div className="p-2 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.04)" }}>
-                    <span className="text-[9px] font-medium" style={{ color: "#2F7D4E" }}>CTA</span>
-                    <p className="text-[10px] mt-0.5 leading-relaxed" style={{ color: "#6E6257" }}>{reel.cta}</p>
+                    <span className="text-[12px] font-medium" style={{ color: "#2F7D4E" }}>CTA</span>
+                    <p className="text-[13px] mt-0.5 leading-relaxed" style={{ color: "#5F5145" }}>{reel.cta}</p>
                   </div>
                 </div>
 
                 <div className="flex items-center gap-2 pt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
-                  <span className="text-[9px]" style={{ color: "#AEA294" }}>Trend: {reel.trendAlignment}</span>
+                  <span className="text-[12px]" style={{ color: "#5F5145" }}>Trend: {reel.trendAlignment}</span>
                   {reel.reviewedBy && (
-                    <span className="text-[9px] ml-auto" style={{ color: "#9A8D7C" }}>Relu par {reel.reviewedBy}</span>
+                    <span className="text-[12px] ml-auto" style={{ color: "#5F5145" }}>Relu par {reel.reviewedBy}</span>
                   )}
                 </div>
                 <div className="flex items-center gap-2">
@@ -2880,17 +2872,17 @@ function CreativeEngineSection() {
                   <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}>
                     <Edit3 size={10} /> Modifier
                   </button>
-                  <button className="text-[10px] px-2 py-1" style={{ color: "#9A8D7C" }}>Ignorer</button>
+                  <button className="text-[13px] px-2 py-1" style={{ color: "#5F5145" }}>Ignorer</button>
                 </div>
               </div>
             )}
 
             {selectedReelId !== reel.id && (
               <>
-                <p className="text-[10px] mt-1.5 line-clamp-2" style={{ color: "#6E6257" }}>{reel.description}</p>
+                <p className="text-[13px] mt-1.5 line-clamp-2" style={{ color: "#5F5145" }}>{reel.description}</p>
                 <div className="flex items-center gap-3 mt-2 text-[9px]">
-                  <span style={{ color: "#AEA294" }}>{REEL_PLATFORM_LABELS[reel.platform]}</span>
-                  <span style={{ color: "#AEA294" }}>{reel.duration}</span>
+                  <span style={{ color: "#5F5145" }}>{REEL_PLATFORM_LABELS[reel.platform]}</span>
+                  <span style={{ color: "#5F5145" }}>{reel.duration}</span>
                   <span className="font-mono" style={{ color: "#C9973F" }}>Viral: {reel.viralScore}</span>
                 </div>
               </>
@@ -2900,8 +2892,8 @@ function CreativeEngineSection() {
       </div>
 
       {/* Consent reminder */}
-      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "#F8F5F0", borderColor: "#F0EBE3" }}>
-        <p className="text-[9px]" style={{ color: "#BFB5A7" }}>
+      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "#F5F1EB", borderColor: "#EBE3D7" }}>
+        <p className="text-[12px]" style={{ color: "#8A7E72" }}>
           Toute publication nécessite l&apos;approbation explicite de la créatrice. L&apos;IA ne publie jamais automatiquement.
         </p>
       </div>
@@ -2930,13 +2922,13 @@ function RoadmapSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-display font-semibold" style={{ color: "#17120C" }}>Roadmap & Feature Requests</h2>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Roadmap & Feature Requests</h2>
           <SectionInfoBar description={SECTION_DESCRIPTIONS["roadmap"]} />
-          <p className="text-[11px] mt-1" style={{ color: "#6E6257" }}>Suggestions et demandes de fonctionnalités par la communauté d&apos;agences</p>
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Suggestions et demandes de fonctionnalités par la communauté d&apos;agences</p>
         </div>
         <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}
-          className="text-[11px] px-2.5 py-1.5 rounded-sm outline-none"
-          style={{ backgroundColor: "#F0EBE3", color: categoryFilter ? "#17120C" : "#6E6257", border: "1px solid #E0D8CF" }}>
+          className="text-[14px] px-3 py-2 rounded-sm outline-none"
+          style={{ backgroundColor: "#EBE3D7", color: categoryFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}>
           <option value="">Toutes les catégories</option>
           {Object.entries(FEATURE_CATEGORY_LABELS).map(([key, label]) => (
             <option key={key} value={key}>{label}</option>
@@ -2946,10 +2938,10 @@ function RoadmapSection() {
 
       {/* Top agency requests highlight */}
       <div className="flex items-center gap-2">
-        <span className="text-[10px] font-medium px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
+        <span className="text-[13px] font-medium px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
           Top demandes agences
         </span>
-        <div className="h-px flex-1" style={{ backgroundColor: "#F0EBE3" }} />
+        <div className="h-px flex-1" style={{ backgroundColor: "#EBE3D7" }} />
       </div>
 
       <div className="space-y-2">
@@ -2962,9 +2954,9 @@ function RoadmapSection() {
               <button onClick={() => handleUpvote(feature.id)}
                 className="flex flex-col items-center px-2 py-1.5 rounded-sm transition-all shrink-0 min-w-[40px]"
                 style={{
-                  backgroundColor: hasVoted ? "rgba(216,169,91,0.1)" : "#F5F2EB",
-                  color: hasVoted ? "#C9973F" : "#9A8D7C",
-                  border: `1px solid ${hasVoted ? "rgba(216,169,91,0.2)" : "#F0EBE3"}`,
+                  backgroundColor: hasVoted ? "rgba(216,169,91,0.1)" : "#F2EDE4",
+                  color: hasVoted ? "#C9973F" : "#6E6257",
+                  border: `1px solid ${hasVoted ? "rgba(216,169,91,0.2)" : "#EBE3D7"}`,
                 }}>
                 <ThumbsUp size={14} />
                 <span className="text-[11px] font-mono font-semibold mt-0.5">{feature.upvotes + (hasVoted ? 1 : 0)}</span>
@@ -2974,19 +2966,19 @@ function RoadmapSection() {
                 <div className="flex items-center gap-2 mb-1">
                   <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{feature.title}</h3>
                   {feature.agencyRequest && (
-                    <span className="text-[8px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
+                    <span className="text-[11px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
                       Demande agence
                     </span>
                   )}
                 </div>
-                <p className="text-[10px] mb-2" style={{ color: "#6E6257" }}>{feature.description}</p>
+                <p className="text-[13px] mb-2" style={{ color: "#5F5145" }}>{feature.description}</p>
                 <div className="flex items-center gap-3">
-                  <span className="text-[9px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[feature.status]}15`, color: statusColors[feature.status] }}>
+                  <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[feature.status]}15`, color: statusColors[feature.status] }}>
                     {FEATURE_STATUS_LABELS[feature.status]}
                   </span>
-                  <span className="text-[9px]" style={{ color: "#AEA294" }}>{FEATURE_CATEGORY_LABELS[feature.category]}</span>
-                  <span className="text-[9px]" style={{ color: "#BFB5A7" }}>{feature.requestedBy}</span>
-                  <span className="text-[9px] ml-auto" style={{ color: "#D5CDC3" }}>{formatRelative(feature.createdAt)}</span>
+                  <span className="text-[12px]" style={{ color: "#5F5145" }}>{FEATURE_CATEGORY_LABELS[feature.category]}</span>
+                  <span className="text-[12px]" style={{ color: "#8A7E72" }}>{feature.requestedBy}</span>
+                  <span className="text-[12px] ml-auto" style={{ color: "#B8ADA0" }}>{formatRelative(feature.createdAt)}</span>
                 </div>
               </div>
             </div>
@@ -2995,8 +2987,8 @@ function RoadmapSection() {
       </div>
 
       {/* Submit idea */}
-      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "#F8F5F0", borderColor: "#F0EBE3" }}>
-        <button className="flex items-center gap-1.5 mx-auto text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.12)", color: "#C9973F" }}>
+      <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "#F5F1EB", borderColor: "#EBE3D7" }}>
+        <button className="flex items-center gap-1.5 mx-auto text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
           <Lightbulb size={12} /> Soumettre une idée
         </button>
       </div>
