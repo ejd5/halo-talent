@@ -93,7 +93,7 @@ export interface AIMessage {
   channel: string;
   content: string;
   occurredAt: string;
-  aiGenerated: boolean;
+  aiGenerated?: boolean;
 }
 
 export interface AIDraft {
