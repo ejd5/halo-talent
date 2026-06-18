@@ -30,7 +30,7 @@
 | Services | Dropdown | 8 liens (management, stratégie image, croissance, Studio IA, CRM, juridique, protection, reporting) |
 | Départements | Dropdown | 5 liens (Glamour Premium, Influenceurs, YouTube/Podcast, Musique, Sport/Fitness) |
 | Atlas CRM | Dropdown | 7 liens (fonctionnalités, CRM, dashboard, automatisation, reporting, conformité, tarifs) |
-| Chat AI | Dropdown | 7 liens (comment ça marche, IA+validation, Fan Brain, QA Review, Audit Logs, PPV Copilot, sécurité) |
+| CHATEENG | Dropdown | 7 liens (comment ça marche, IA+validation, Fan Brain, QA Review, Audit Logs, PPV Copilot, sécurité) |
 | Lex | Dropdown | 6 liens (IA juridique, contrats, droits image, dossiers avocat, guides, changements) |
 | Protection | Dropdown | 6 liens (guide global, OnlyFans, Fansly, MYM, Instagram, YouTube) |
 | Tarifs | Lien direct | `/pricing` |

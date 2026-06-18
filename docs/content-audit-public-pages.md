@@ -35,7 +35,7 @@
 
 | URL | État actuel | Problème détecté | Priorité | Contenu à ajouter | CTA recommandé | Risque | Recommandation SEO |
 |-----|------------|------------------|----------|-------------------|----------------|--------|-------------------|
-| `/` (homepage) | Riche — 10 composants Couture | Page orchestration pure, contenu dans sous-composants | P1 | Vérifier H1 dans CoutureHero | Démo, Découvrir, Chat AI | Faible | Ajouter metadata dans page.tsx |
+| `/` (homepage) | Riche — 10 composants Couture | Page orchestration pure, contenu dans sous-composants | P1 | Vérifier H1 dans CoutureHero | Démo, Découvrir, CHATEENG | Faible | Ajouter metadata dans page.tsx |
 | `/manifeste` | Réel — 4 valeurs + hero | Pas de métadonnées SEO | P1 | OK (4 cartes valeurs solides) | Postuler | Faible | `title: "Notre Manifeste — Halo Talent"` |
 | `/contact` | Réel — formulaire + sidebar | Pas de métadonnées SEO | P1 | OK | Envoyer un message | Faible | `title: "Contact — Halo Talent"` |
 | `/demo` | Réel — démo interactive 4 phases | Pas de métadonnées statiques (client component) | P1 | OK (démo fonctionnelle) | Postuler après démo | Faible | Layout metadata nécessaire |
@@ -48,7 +48,7 @@
 | `/saas` | Réel — 2 produits + atouts | Pas de métadonnées | P1 | OK | Explorer Studio, Explorer Atlas | Faible | `title: "Suite SaaS — Halo Talent"` |
 | `/pricing` | Riche — 4 onglets + FAQ 8 items | Pas de métadonnées (client component) | P1 | OK (tarifs détaillés) | Comparer les offres | Faible | Layout metadata nécessaire |
 | `/commissions` | Riche — calcul marginal + exemple | Pas de métadonnées, claim comparatif "6 000€/mois" | P1 | OK | Postuler | Moyen — claim comparatif à documenter | `title: "Commissions Transparentes — Halo Talent"` |
-| `/chat-ai` | **Excellent** — 11 sections + FAQ + anti-promesses | **Métadonnées présentes** — page modèle | P2 | OK (déjà complet) | Essayer Demo Chat AI | Faible | Déjà optimisé |
+| `/chat-ai` | **Excellent** — 11 sections + FAQ + anti-promesses | **Métadonnées présentes** — page modèle | P2 | OK (déjà complet) | Essayer Demo CHATEENG | Faible | Déjà optimisé |
 | `/outils` | Réel — 8 outils listés | Pas de métadonnées, pas de contenu éditorial | P2 | Intro éditoriale, cas d'usage par outil | Explorer les outils | Faible | `title: "Outils Gratuits — Halo Talent"` |
 | `/guides` | 1 seul guide | Contenu squelettique (1 article) | P1 | 5-8 guides supplémentaires à rédiger | Lire les guides | Faible | `title: "Guides Pratiques — Halo Talent"` |
 | `/glossaire` | Réel — 31 entrées | Pas de métadonnées | P2 | OK (31 définitions, recherche A-Z) | Explorer le glossaire | Faible | `title: "Glossaire OFM — Halo Talent"` |

@@ -31,7 +31,7 @@
 | 6 | PhraseForte | "Atlas ne remplace pas votre intuition..." | Encre |
 | 7 | CasUsageSection | 5 profils créateurs (glamour, lifestyle, YouTube, musique, sport) | Encre |
 | 8 | TableauComparatifSection | 8 critères : Excel / Outils dispersés / Atlas | Crème |
-| 9 | IntegrationsSection | 3 intégrations : Chat AI, Halo Lex, Protection | Encre |
+| 9 | IntegrationsSection | 3 intégrations : CHATEENG, Halo Lex, Protection | Encre |
 | 10 | FAQSection | 5 questions accordéon | Crème |
 | 11 | CTASection | "Prêt à centraliser votre activité ?" | Encre |
 
@@ -50,7 +50,7 @@ Créatrice glamour, Influenceuse lifestyle, YouTuber/Vidéaste, Musicien/Artiste
 Centralisation des contacts, Historique des conversations, Segmentation dynamique, Suivi des revenus, Relances automatiques, Content Vault, Dossier de preuves juridiques, Conformité RGPD
 
 ### 3 intégrations Halo
-Chat AI, Halo Lex, Protection
+CHATEENG, Halo Lex, Protection
 
 ## Wording Check
 

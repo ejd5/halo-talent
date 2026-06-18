@@ -16,14 +16,16 @@ export function ChatAIPageHeader({ isActive, isPaused, demoMode, consentComplete
     <div style={{ marginBottom: 24 }}>
       <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
         <div>
-          <h1 style={{
-            fontSize: 22, fontWeight: 700, color: "var(--text-primary)",
-            fontFamily: "var(--font-display)", letterSpacing: "-0.02em", marginBottom: 4,
-          }}>
-            WTF Sovereign Chat AI
-          </h1>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 4 }}>
+                        <h1 style={{
+              fontSize: 22, fontWeight: 700, color: "var(--text-primary)",
+              fontFamily: "var(--font-display)", letterSpacing: "-0.02em",
+            }}>
+              CHATEENG
+            </h1>
+          </div>
           <p style={{ fontSize: 12, color: "rgba(245,240,235,0.4)", maxWidth: 480 }}>
-            Revenue Inbox, Fan Brain et brouillons IA validés humainement.
+            Conversations assistées par IA, validées par humain.
           </p>
         </div>
 

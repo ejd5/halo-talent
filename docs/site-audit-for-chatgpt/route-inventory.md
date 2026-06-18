@@ -96,7 +96,7 @@
 | `/dashboard/settings/integrations` | `(private)/dashboard/settings/integrations/page.tsx` | **Placeholder** | static | no |
 | `/dashboard/settings/co-management` | `(private)/dashboard/settings/co-management/page.tsx` | **Placeholder** | static | no |
 
-## Chat AI (private)
+## CHATEENG (private)
 
 | Route | Fichier | Statut | Data |
 |-------|---------|--------|------|
@@ -274,7 +274,7 @@
 | Marketing | 35 | 28 | 5 | 2 | 0 |
 | Auth | 3 | 1 | 1 | 0 | 0 |
 | Dashboard Core | 28 | 13 | 7 | 5 | ~20 |
-| Chat AI | 4 | 4 | 0 | 0 | 0 |
+| CHATEENG | 4 | 4 | 0 | 0 | 0 |
 | Atlas | 28 | 28 | 0 | 0 | ~5 |
 | Sovereign Chat | 14 | 13 | 1 | 0 | 0 |
 | Trends | 6 | 6 | 0 | 0 | 0 |

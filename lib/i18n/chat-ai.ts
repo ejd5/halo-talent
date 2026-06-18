@@ -1,4 +1,4 @@
-// ─── WTF Sovereign Chat AI, i18n namespace ─────────────
+// ─── CHATEENG, i18n namespace ─────────────
 // 6 languages: fr, en, es, de, pt-BR, it
 
 import type { Locale } from "./common";
@@ -7,7 +7,7 @@ type Messages = Record<string, Record<Locale, string>>;
 
 export const chatAIMessages: Messages = {
   // ─── Module ──────────────────────────────────────────────
-  "chatAI.title": { fr: "Sovereign Chat AI", en: "Sovereign Chat AI", es: "Sovereign Chat AI", "pt-BR": "Sovereign Chat AI", de: "Sovereign Chat AI", it: "Sovereign Chat AI" },
+  "chatAI.title": { fr: "CHATEENG", en: "CHATEENG", es: "CHATEENG", "pt-BR": "CHATEENG", de: "CHATEENG", it: "CHATEENG" },
   "chatAI.tagline": { fr: "L'IA prépare. Vous validez. WTF mesure.", en: "AI prepares. You approve. WTF measures.", es: "La IA prepara. Usted valida. WTF mide.", "pt-BR": "A IA prepara. Você valida. A WTF mede.", de: "KI bereitet vor. Sie genehmigen. WTF misst.", it: "L'IA prepara. Tu approvi. WTF misura." },
   "chatAI.demo_badge": { fr: "Demo Data", en: "Demo Data", es: "Datos Demo", "pt-BR": "Dados Demo", de: "Demo-Daten", it: "Dati Demo" },
 

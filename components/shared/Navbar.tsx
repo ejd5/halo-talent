@@ -57,10 +57,10 @@ const navbarCSS = `
   /* ── Nav trigger text ── */
   .cf-trigger {
     position: relative;
-    padding: 8px 14px;
-    font-size: 11px;
+    padding: 7px 12px;
+    font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(245, 240, 235, 0.55);
     background: none;
@@ -141,15 +141,15 @@ const navbarCSS = `
   .cf-cta {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 9px 20px;
-    font-size: 12px;
+    gap: 4px;
+    padding: 7px 14px;
+    font-size: 10px;
     font-weight: 600;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
     border-radius: 999px;
-    background: #C8A66E; /* Golden yellow */
-    color: #0A0806; /* Dark text */
+    background: #C8A66E;
+    color: #0A0806;
     border: 1px solid #C8A66E;
     transition: background 0.25s, transform 0.25s, box-shadow 0.25s, color 0.25s, border-color 0.25s;
     text-decoration: none;
@@ -168,10 +168,10 @@ const navbarCSS = `
   .cf-signin {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
-    font-size: 12px;
+    gap: 3px;
+    font-size: 10px;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     color: rgba(245, 240, 235, 0.5);
     transition: color 0.25s;
@@ -207,9 +207,9 @@ const navbarCSS = `
   .cf-lang-btn {
     display: flex;
     align-items: center;
-    gap: 4px;
-    font-size: 12px;
-    padding: 6px 8px;
+    gap: 3px;
+    font-size: 10px;
+    padding: 4px 6px;
     color: rgba(245, 240, 235, 0.4);
     background: none;
     border: none;
@@ -367,12 +367,15 @@ export function Navbar() {
     left: 0,
     right: 0,
     zIndex: 50,
-    height: 72,
+    height: 103,
+    padding: "16px 40px 0 40px",
     display: "flex",
     alignItems: "center",
-    background: scrolled ? "rgba(12,10,8,0.88)" : "transparent",
-    backdropFilter: scrolled ? "blur(24px)" : "none",
-    WebkitBackdropFilter: scrolled ? "blur(24px)" : "none",
+    gap: 30,
+    overflow: "visible",
+    background: scrolled ? "rgba(12,10,8,0.72)" : "rgba(12,10,8,0.12)",
+    backdropFilter: "blur(16px)",
+    WebkitBackdropFilter: "blur(16px)",
     borderBottom: scrolled ? "1px solid rgba(245,240,235,0.06)" : "1px solid transparent",
     transition: "background 0.45s, backdrop-filter 0.45s, border-color 0.45s",
   };
@@ -385,118 +388,100 @@ export function Navbar() {
       <div className={`cf-overlay ${menuOpen ? "active" : ""}`} />
 
       <nav style={navStyle}>
-        <div
-          style={{
-            width: "100%",
-            padding: "0 40px",
-            display: "flex",
-            alignItems: "center",
-            height: "100%",
-          }}
-        >
-          {/* ─── Logo (Left area, flex-1, centered within its space) ─── */}
-          <div style={{ flex: 1, display: "flex", justifyContent: "center" }}>
-            <Link href="/">
-              <HaloCoutureLogo size={scrolled ? "sm" : "md"} variant="ivoire" />
-            </Link>
-          </div>
+        {/* ─── Logo (Left) ─── */}
+        <Link href="/" style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>
+          <img
+            src="/wtf-logo.png"
+            alt="WTF Talent"
+            style={{ height: 160, width: 288 }}
+          />
+        </Link>
 
-          {/* ─── Desktop: Floating pill (Center, exact middle of screen) ─── */}
-          <div className="hidden lg:flex items-center" style={{ flexShrink: 0 }}>
-            <NavigationMenu onValueChange={handleValueChange}>
-              <NavigationMenuList className="cf-pill" style={{ gap: 0 }}>
-                {NAV_SECTIONS.map((section) => {
-                  if (section.href && !section.cards) {
-                    // Direct link (like Pricing)
-                    return (
-                      <NavigationMenuItem key={section.labelKey}>
-                        <NavigationMenuLink asChild>
-                          <Link href={section.href} className="cf-trigger">
-                            {t(section.labelKey, l)}
-                          </Link>
-                        </NavigationMenuLink>
-                      </NavigationMenuItem>
-                    );
-                  }
-
-                  // Dropdown with cards
+        {/* ─── Desktop: Floating pill (Center) ─── */}
+        <div className="hidden lg:flex items-center justify-center" style={{ flex: 1, minWidth: 0 }}>
+          <NavigationMenu onValueChange={handleValueChange}>
+            <NavigationMenuList className="cf-pill" style={{ gap: 0 }}>
+              {NAV_SECTIONS.map((section) => {
+                if (section.href && !section.cards) {
                   return (
-                    <NavigationMenuItem key={section.labelKey} value={section.labelKey}>
-                      <NavigationMenuTrigger className="cf-trigger">
-                        {t(section.labelKey, l)}
-                      </NavigationMenuTrigger>
-                      <NavigationMenuContent>
-                        <MegaMenuPanel section={section} locale={l} />
-                      </NavigationMenuContent>
+                    <NavigationMenuItem key={section.labelKey}>
+                      <NavigationMenuLink asChild>
+                        <Link href={section.href} className="cf-trigger">
+                          {t(section.labelKey, l)}
+                        </Link>
+                      </NavigationMenuLink>
                     </NavigationMenuItem>
                   );
-                })}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-
-          {/* ─── Desktop: Right actions (Right area, flex-1, pushed to right) ─── */}
-          <div className="hidden lg:flex items-center justify-end gap-4" style={{ flex: 1 }}>
-            {/* Language */}
-            <div className="cf-lang">
-              <button
-                onClick={() => setLangOpen(!langOpen)}
-                className="cf-lang-btn"
-              >
-                <span>{LOCALE_FLAGS[l]}</span>
-              </button>
-              {langOpen && (
-                <>
-                  <div style={{ position: "fixed", inset: 0, zIndex: 55 }} onClick={() => setLangOpen(false)} />
-                  <div className="cf-lang-dropdown">
-                    {ALL_LOCALES.map((loc) => (
-                      <button
-                        key={loc}
-                        onClick={() => {
-                          const code = loc === "pt-BR" ? "pt" : loc;
-                          window.location.href = `/${code}`;
-                          setLangOpen(false);
-                        }}
-                        className={`cf-lang-item ${loc === l ? "active" : ""}`}
-                      >
-                        <span>{LOCALE_FLAGS[loc]}</span>
-                        <span>{loc === "pt-BR" ? "BR" : loc.toUpperCase()}</span>
-                      </button>
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Sign In */}
-            <Link href="/login" className="cf-signin">
-              {t("nav.login", l)}
-              <ArrowUpRight size={12} />
-            </Link>
-
-            {/* CTA */}
-            <Link href="/apply" className="cf-cta">
-              {t("nav.start_free", l)}
-              <ArrowUpRight size={13} />
-            </Link>
-          </div>
-
-          {/* ─── Mobile hamburger ─── */}
-          <button
-            className="lg:hidden"
-            onClick={() => setMobileOpen(true)}
-            style={{
-              color: "rgba(245,240,235,0.85)",
-              background: "none",
-              border: "none",
-              cursor: "pointer",
-              padding: 8,
-            }}
-            aria-label="Menu"
-          >
-            <Menu size={22} />
-          </button>
+                }
+                return (
+                  <NavigationMenuItem key={section.labelKey} value={section.labelKey}>
+                    <NavigationMenuTrigger className="cf-trigger">
+                      {t(section.labelKey, l)}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <MegaMenuPanel section={section} locale={l} />
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                );
+              })}
+            </NavigationMenuList>
+          </NavigationMenu>
         </div>
+
+        {/* ─── Desktop: Right actions ─── */}
+        <div className="hidden lg:flex items-center gap-2" style={{ flexShrink: 0, whiteSpace: "nowrap" }}>
+          <div className="cf-lang">
+            <button onClick={() => setLangOpen(!langOpen)} className="cf-lang-btn">
+              <span>{LOCALE_FLAGS[l]}</span>
+            </button>
+            {langOpen && (
+              <>
+                <div style={{ position: "fixed", inset: 0, zIndex: 55 }} onClick={() => setLangOpen(false)} />
+                <div className="cf-lang-dropdown">
+                  {ALL_LOCALES.map((loc) => (
+                    <button
+                      key={loc}
+                      onClick={() => {
+                        const code = loc === "pt-BR" ? "pt" : loc;
+                        window.location.href = `/${code}`;
+                        setLangOpen(false);
+                      }}
+                      className={`cf-lang-item ${loc === l ? "active" : ""}`}
+                    >
+                      <span>{LOCALE_FLAGS[loc]}</span>
+                      <span>{loc === "pt-BR" ? "BR" : loc.toUpperCase()}</span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+          <Link href="/login" className="cf-signin">
+            {t("nav.login", l)}
+            <ArrowUpRight size={10} />
+          </Link>
+          <Link href="/apply" className="cf-cta">
+            {l === "fr" ? "Essayer" : t("nav.start_free", l)}
+            <ArrowUpRight size={11} />
+          </Link>
+        </div>
+
+        {/* ─── Mobile hamburger ─── */}
+        <button
+          className="lg:hidden"
+          onClick={() => setMobileOpen(true)}
+          style={{
+            color: "rgba(245,240,235,0.85)",
+            background: "none",
+            border: "none",
+            cursor: "pointer",
+            padding: 8,
+            flexShrink: 0,
+          }}
+          aria-label="Menu"
+        >
+          <Menu size={22} />
+        </button>
       </nav>
 
       {/* ─── Mobile drawer ─── */}
@@ -674,7 +659,11 @@ function MobileDrawer({
         }}
       >
         <Link href="/" onClick={onClose}>
-          <HaloCoutureLogo size="sm" variant="ivoire" />
+          <img
+            src="/wtf-logo.png"
+            alt="WTF Talent"
+            style={{ height: 48, width: "auto" }}
+          />
         </Link>
         <button
           onClick={onClose}

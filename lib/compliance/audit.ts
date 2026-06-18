@@ -1,4 +1,4 @@
-// ─── Audit Log Service, Chat AI ─────────────────────────
+// ─── Audit Log Service, CHATEENG ─────────────────────────
 // Logs every sensitive action: draft generated, approved, copied,
 // PPV created, follow-up approved, settings changed, pause/resume.
 
@@ -35,7 +35,7 @@ export async function logAction(input: LogActionInput): Promise<void> {
     await supabase.from("chat_ai_audit_logs").insert(entry);
   } catch (err) {
     // Fallback: always log to console
-    console.log("[Chat AI Audit]", JSON.stringify(entry));
+    console.log("[CHATEENG Audit]", JSON.stringify(entry));
   }
 }
 
@@ -62,7 +62,7 @@ export async function getAuditLogs(
     if (error) throw error;
     return (data || []) as AuditLogEntry[];
   } catch (err) {
-    console.error("[Chat AI Audit] Failed to fetch logs:", err);
+    console.error("[CHATEENG Audit] Failed to fetch logs:", err);
     return [];
   }
 }

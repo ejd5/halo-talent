@@ -230,7 +230,7 @@ export default function DevTestPage() {
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16 }}>
         <div>
           <h1 style={{ fontSize: 18, fontWeight: 700, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-            WTF Chat AI, Vertical Slice Test
+            WTF CHATEENG, Vertical Slice Test
           </h1>
           <p style={{ fontSize: 11, color: "rgba(245,240,235,0.4)", marginTop: 2 }}>
             Test réel: Supabase → DeepSeek → Compliance → Audit

@@ -23,9 +23,9 @@
 | 4 | Workflow | "Fonctionnement" — étapes | Crème |
 | 5 | PPV Copilot | Assistant conversationnel fans | Encre |
 | 6 | QA & Compliance | Qualité et conformité | Crème |
-| 7 | Comparison Table | Tableau comparatif Chat AI vs alternatives | Encre |
+| 7 | Comparison Table | Tableau comparatif CHATEENG vs alternatives | Encre |
 | 8 | Profiles | Cas d'usage par profil créateur | Crème |
-| 9 | No Promise | "Ce que Chat AI ne fait pas" — 4 vérités | Encre |
+| 9 | No Promise | "Ce que CHATEENG ne fait pas" — 4 vérités | Encre |
 | 10 | FAQ | 5 questions accordéon | Crème |
 | 11 | Final CTA | "Prêt à essayer ?" — Demo / Atlas / Protection | Encre |
 
@@ -49,13 +49,13 @@
 - "L'IA prépare, l'humain valide, le créateur contrôle" explicite
 - Aucune promesse de résultat
 - Aucun faux témoignage
-- "Chat AI ne remplace pas le créateur" préservé
+- "CHATEENG ne remplace pas le créateur" préservé
 
 ## SEO
 
 | Élément | Valeur |
 |---------|--------|
-| Meta title | "Chat AI — Halo Talent" |
+| Meta title | "CHATEENG — Halo Talent" |
 | Meta description | "Assistant IA pour gérer vos conversations fans. L'IA prépare, l'humain valide, le créateur contrôle." |
 | Open Graph | Configuré |
 

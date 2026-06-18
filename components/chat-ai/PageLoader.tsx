@@ -134,7 +134,7 @@ export function PageLoader() {
 
       {/* Bottom label */}
       <div
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[9px]"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[9px] flex items-center gap-2"
         style={{
           fontFamily: "var(--font-util), monospace",
           letterSpacing: "0.2em",
@@ -143,7 +143,7 @@ export function PageLoader() {
           opacity: 0.4,
         }}
       >
-        WTF Sovereign Chat AI
+                CHATEENG
       </div>
     </div>
   );

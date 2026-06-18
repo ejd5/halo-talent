@@ -70,7 +70,7 @@
 - 5 guides plateformes (OnlyFans, MYM, Fansly, migration, algorithme)
 - 3 protection (checklist sécurité, 2FA, contenu piraté)
 - 4 juridique (clauses abusives, sponsoring, propriété intellectuelle, obligations légales)
-- 4 IA & CRM (Content Vault, Chat AI, ADN Créatif, automatisation)
+- 4 IA & CRM (Content Vault, CHATEENG, ADN Créatif, automatisation)
 - 3 image & stratégie (média kit, planification, niche)
 - 5 départements (Glamour, Influence, YouTube, Musique, Sport)
 - 6 commissions (marginal vs forfaitaire, calcul, frais cachés, fiscalité, négociation, agence toxique)

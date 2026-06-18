@@ -1,4 +1,4 @@
-# Chat AI Phase 2E-QA Report — Release Gate
+# CHATEENG Phase 2E-QA Report — Release Gate
 
 **Date**: 2026-06-12
 **Status**: APPROVED_FOR_RELEASE_PREP
@@ -79,7 +79,7 @@ The removed `useEffect(() => { setIsOpen(false); setLangOpen(false); }, [pathnam
 
 | Element | Text | Risky claim? |
 |---------|------|-------------|
-| Badge | "Sovereign Chat AI" | No |
+| Badge | "CHATEENG" | No |
 | Title | "Un copilote de chatting conçu pour vendre mieux, sans perdre le contrôle." | No — "sans perdre le contrôle" is a caution, not a guarantee |
 | Tagline | "L'IA prépare. L'humain valide. Le créateur contrôle." | No — approved messaging |
 | Brand | "Halo Talent" | No |

@@ -55,7 +55,7 @@
 
 ## 2. Dashboard Screenshots (P1)
 
-### 2.1 Chat AI — Gold Standard (Phase 2A)
+### 2.1 CHATEENG — Gold Standard (Phase 2A)
 
 | Shot | Viewport | What to capture |
 |------|----------|-----------------|
@@ -65,7 +65,7 @@
 | `chat-ai-fans-drawer.png` | 1440×900 | FanBrainDrawer open |
 | `chat-ai-compliance-block.png` | 1440×900 | Compliance block state (do_not_contact or vulnerable_fan) |
 | `chat-ai-draft-generated.png` | 1440×900 | Draft preview after generation |
-| `chat-ai-mobile.png` | 375×812 | Any Chat AI page on mobile |
+| `chat-ai-mobile.png` | 375×812 | Any CHATEENG Page on mobile |
 
 ### 2.2 Atlas Dashboard — Mock Data Problem
 

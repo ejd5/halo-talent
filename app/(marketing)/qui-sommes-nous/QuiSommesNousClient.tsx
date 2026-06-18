@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Eye, EyeOff, Shield, Sparkles, TrendingUp, Building2, Heart } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 // ═══════════════════════════════════════════════════════
 // Animation helpers
@@ -93,7 +92,7 @@ const DEPARTEMENTS = [
     profil: "Créateurs mode, beauté, lifestyle haut de gamme",
     besoin: "Image contrôlée, partnerships luxe, personal branding sophistiqué",
     accompagnement: "Direction artistique, stratégie éditoriale, relations marques premium",
-    outils: "Studio IA, Atlas CRM, Chat AI",
+    outils: "Studio IA, Atlas CRM, CHATEENG",
     objectif: "Construire une marque personnelle désirable et durable dans l'univers du luxe",
     gradient: "rgba(216,169,91,0.08)",
   },
@@ -102,7 +101,7 @@ const DEPARTEMENTS = [
     profil: "Créateurs contenu digital, réseaux sociaux, UGC",
     besoin: "Volume maîtrisé, diversification des revenus, protection d'image",
     accompagnement: "Stratégie de contenu, monétisation cross-plateforme, gestion de communauté",
-    outils: "Chat AI, Atlas CRM, Dashboard WTF",
+    outils: "CHATEENG, Atlas CRM, Dashboard WTF",
     objectif: "Transformer une audience en entreprise, sans perdre son authenticité",
     gradient: "rgba(216,169,91,0.06)",
   },
@@ -120,7 +119,7 @@ const DEPARTEMENTS = [
     profil: "Artistes, producteurs, compositeurs, DJs",
     besoin: "Gestion des droits, distribution, image publique, collaborations",
     accompagnement: "Stratégie de sortie, négociation contrats, protection propriété intellectuelle",
-    outils: "WTF Lex, Dashboard WTF, Chat AI",
+    outils: "WTF Lex, Dashboard WTF, CHATEENG",
     objectif: "Développer une carrière musicale maîtrisée, de la production à la monétisation",
     gradient: "rgba(216,169,91,0.07)",
   },
@@ -154,7 +153,7 @@ function HeroSection() {
           animate={inView ? { opacity: 0.6, scale: 1 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <CoutureEmblem size={24} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 120, width: "auto" }} />
         </motion.div>
         <motion.p
           className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6"
@@ -228,7 +227,7 @@ function LeConstat() {
           animate={inView ? { opacity: 0.4, scale: 1 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <CoutureEmblem size={22} color="var(--encre)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 110, width: "auto" }} />
         </motion.div>
         <motion.h2
           className="display-medium text-center mx-auto mb-6"
@@ -380,7 +379,7 @@ function NotreConviction() {
           animate={inView ? { opacity: 0.5, scale: 1 } : {}}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <CoutureEmblem size={32} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 160, width: "auto" }} />
         </motion.div>
         <motion.p
           className="text-[0.6rem] font-bold uppercase tracking-[0.18em] mb-8"
@@ -813,7 +812,7 @@ function Conclusion() {
           animate={inView ? { opacity: 0.6, scale: 1 } : {}}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.blockquote
           className="display-medium mb-8"

@@ -15,7 +15,7 @@
 - **i18n coverage**: 45% overall (588 translation keys, ~445 hardcoded strings)
 - **Broken conversion paths**: 3/7 CTAs dead
 - **Content quality**: Marketing avg 2.16/5, Dashboard avg 2.87/5
-- **Chat AI Phase 2A**: Only fully complete feature — 5.0/5.0 gold standard
+- **CHATEENG Phase 2A**: Only fully complete feature — 5.0/5.0 gold standard
 
 ---
 
@@ -62,7 +62,7 @@ The following claims create legal liability. Replace them.
 
 ### 4. Internationalize Everything (P1-P2)
 
-Currently only Chat AI (149 keys, 6 languages) and auth/common (439 keys) are internationalized.
+Currently only CHATEENG (149 keys, 6 languages) and auth/common (439 keys) are internationalized.
 
 Zero i18n coverage on:
 - All marketing pages (home, atlas, conformité, à propos, contact)
@@ -82,7 +82,7 @@ Zero i18n coverage on:
 
 ## What's Already Good (Gold Standard)
 
-The Chat AI Phase 2A implementation (`/dashboard/chat-ai/*`) is the quality benchmark:
+The CHATEENG Phase 2A implementation (`/dashboard/chat-ai/*`) is the quality benchmark:
 
 - 100% real Supabase data (no mocks)
 - 100% i18n coverage (149 keys, 6 languages)
@@ -92,7 +92,7 @@ The Chat AI Phase 2A implementation (`/dashboard/chat-ai/*`) is the quality benc
 - 0 TypeScript errors, 0 ESLint warnings
 - "npm run build" passes cleanly
 
-**Use Chat AI pages as the template for all corrections.**
+**Use CHATEENG Pages as the template for all corrections.**
 
 ---
 
@@ -137,7 +137,7 @@ When asking ChatGPT to generate correction prompts, specify:
 1. **Which file** to modify (exact path)
 2. **What to change** (specific text, component, data source)
 3. **What to replace it with** (exact new text or approach)
-4. **Constraints** (no redesign, no touching Admin/Studio/Atlas dashboards redesign, Chat AI is gold standard)
+4. **Constraints** (no redesign, no touching Admin/Studio/Atlas dashboards redesign, CHATEENG is gold standard)
 5. **Tech stack**: Next.js 16 App Router, TypeScript, Supabase, React 18, CSS-in-JS (inline styles), lucide-react icons, i18n with `t()` function
 
 ### Example prompt for ChatGPT:
@@ -147,7 +147,7 @@ Fix the risky claims in components/landing/PricingSection.tsx.
 Replace all 3 occurrences of "Zero ban garanti" with "Protection anti-ban proactive".
 Replace "Crédits illimités" with "Crédits généreux" and add a small "(fair use policy applies)" note.
 Do not change layout, styling, or any other text.
-Use the Chat AI pages as the quality standard for i18n patterns.
+Use the CHATEENG Pages as the quality standard for i18n patterns.
 ```
 
 ---

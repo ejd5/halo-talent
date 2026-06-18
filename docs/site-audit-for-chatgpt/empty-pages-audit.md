@@ -104,8 +104,8 @@ These show "0" or "Aucun(e)" with no backend:
 | # | Location | What Shows Zero | Fix Needed |
 |---|----------|-----------------|------------|
 | 1 | Dashboard notification badge | Always 3 (hardcoded) | Connect to real notifications |
-| 2 | Chat AI pending drafts | Always 0 | Aggregate from `chat_ai_drafts` |
-| 3 | Chat AI compliance alerts | Always 0 | Aggregate from compliance events |
+| 2 | CHATEENG pending drafts | Always 0 | Aggregate from `chat_ai_drafts` |
+| 3 | CHATEENG compliance alerts | Always 0 | Aggregate from compliance events |
 | 4 | Atlas messages unread | Always 0 | Connect to real messaging |
 | 5 | Studio analytics | All zeros | Connect to real analytics pipeline |
 

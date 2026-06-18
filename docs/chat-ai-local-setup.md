@@ -1,4 +1,4 @@
-# Halo Chat AI — Setup Local
+# Halo CHATEENG — Setup Local
 
 ## Prérequis
 
@@ -22,7 +22,7 @@ DEEPSEEK_API_KEY=sk-...
 ## Migrations
 
 ```bash
-# Appliquer les migrations Chat AI
+# Appliquer les migrations CHATEENG
 npx supabase migration up
 ```
 
@@ -117,7 +117,7 @@ Le smoke test vérifie :
 # Vérifier TypeScript
 npx tsc --noEmit
 
-# Lint des fichiers Chat AI
+# Lint des fichiers CHATEENG
 npx eslint "app/api/chat-ai/" "app/(private)/dashboard/chat-ai/"
 
 # Build complet

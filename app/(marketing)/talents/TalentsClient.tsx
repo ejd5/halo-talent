@@ -17,7 +17,6 @@ import {
   MessageCircle,
   Send,
 } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 function useReveal(amount = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -191,7 +190,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 100 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 740, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Rejoindre WTF
@@ -446,7 +445,7 @@ function CTASection() {
     <section ref={ref} className="couture-section text-center" style={{ backgroundColor: "var(--encre)", paddingTop: 100, paddingBottom: 100 }}>
       <div className="wrap-eco" style={{ maxWidth: 600, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={26} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.p className="display-medium mb-6" style={{ color: "var(--ivoire)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Prêt à construire plus qu'une audience ?

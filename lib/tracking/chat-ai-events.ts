@@ -1,4 +1,4 @@
-// ─── Tracking Events, Chat AI ───────────────────────────
+// ─── Tracking Events, CHATEENG ───────────────────────────
 // Lightweight event tracking. Logs to console + Supabase.
 // No third-party analytics services.
 
@@ -41,7 +41,7 @@ export async function trackEvent(
   userId?: string
 ): Promise<void> {
   // Always log to console (dev-friendly)
-  console.log(`[Chat AI Event] ${name}`, JSON.stringify(payload).substring(0, 200));
+  console.log(`[CHATEENG Event] ${name}`, JSON.stringify(payload).substring(0, 200));
 
   // Persist to Supabase if userId provided
   if (userId) {
@@ -55,7 +55,7 @@ export async function trackEvent(
       });
     } catch (err) {
       // Silent fallback, tracking should never break the app
-      console.warn("[Chat AI Tracking] Failed to persist event:", err);
+      console.warn("[CHATEENG Tracking] Failed to persist event:", err);
     }
   }
 }

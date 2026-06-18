@@ -15,11 +15,11 @@ import {
 } from "@/lib/marketing/chat-ai-landing";
 
 export const metadata: Metadata = {
-  title: "Chat AI, Where Talent Forms",
+  title: "CHATEENG, Where Talent Forms",
   description:
     "Une IA de conversation pensée pour le contrôle, pas pour l'abandon. L'IA prépare, l'humain valide, le créateur contrôle. Brouillons, audit logs, conformité.",
   openGraph: {
-    title: "Chat AI, Copilote de conversation, Where Talent Forms",
+    title: "CHATEENG, Copilote de conversation, Where Talent Forms",
     description:
       "Préparez des réponses, priorisez les conversations, contrôlez les risques. Validation humaine obligatoire avant chaque envoi.",
   },
@@ -47,7 +47,7 @@ const QA_ITEMS = [
   { title: "QA Review", desc: "Scan automatisé de chaque brouillon pour détecter les risques : ton inapproprié, promesses non autorisées, fans vulnérables." },
   { title: "Severity badges", desc: "Chaque item QA reçoit un score de sévérité (1-5). Les alertes critiques sont remontées en priorité." },
   { title: "Escalade & blocage", desc: "Un brouillon à risque peut être escaladé à un superviseur ou bloqué avant d'atteindre le fan." },
-  { title: "Pause urgence", desc: "Possibilité de mettre en pause le module Chat AI en un clic. Toutes les générations s'arrêtent immédiatement." },
+  { title: "Pause urgence", desc: "Possibilité de mettre en pause le module CHATEENG en un clic. Toutes les générations s'arrêtent immédiatement." },
   { title: "Consent checklist", desc: "Checklist de 11 points que chaque créateur doit compléter avant d'activer le module. Traçable et auditée." },
   { title: "Audit logs complets", desc: "Qui a généré quoi, quand, avec quelle validation. Historique horodaté de chaque action." },
   { title: "Supervision admin", desc: "Les managers et admins ont une vue d'ensemble sur tous les créateurs, avec contrôles QA et conformité." },
@@ -182,10 +182,10 @@ export default function ChatAIPage() {
                 <thead>
                   <tr style={{ borderBottom: "2px solid var(--or)" }}>
                     <th className="text-left py-3 px-4 text-[0.6rem] uppercase tracking-[0.1em] font-semibold" style={{ color: "var(--encre)", opacity: 0.5, fontFamily: "var(--font-util), monospace" }}>Critère</th>
-                    <th className="text-center py-3 px-4 text-[0.6rem] uppercase tracking-[0.1em] font-semibold" style={{ color: "var(--encre)", opacity: 0.4, fontFamily: "var(--font-util), monospace" }}>Chat IA isolé</th>
+                    <th className="text-center py-3 px-4 text-[0.6rem] uppercase tracking-[0.1em] font-semibold" style={{ color: "var(--encre)", opacity: 0.4, fontFamily: "var(--font-util), monospace" }}>CHATEENG isolé</th>
                     <th className="text-center py-3 px-4 text-[0.6rem] uppercase tracking-[0.1em] font-semibold" style={{ color: "var(--encre)", opacity: 0.4, fontFamily: "var(--font-util), monospace" }}>Chatter freelance</th>
                     <th className="text-center py-3 px-4 text-[0.6rem] uppercase tracking-[0.1em] font-semibold" style={{ color: "var(--encre)", opacity: 0.4, fontFamily: "var(--font-util), monospace" }}>CRM classique</th>
-                    <th className="text-center py-3 px-4 text-[0.6rem] uppercase tracking-[0.1em] font-semibold" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }}>WTF Chat AI</th>
+                    <th className="text-center py-3 px-4 text-[0.6rem] uppercase tracking-[0.1em] font-semibold" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }}>WTF CHATEENG</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -278,7 +278,7 @@ export default function ChatAIPage() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" style={{ width: 600, height: 400, background: "radial-gradient(ellipse at center, rgba(216,169,91,0.06) 0%, transparent 70%)" }} aria-hidden="true" />
           <div className="wrap-eco relative" style={{ maxWidth: 640, margin: "0 auto" }}>
             <h2 className="display-medium mb-4" style={{ color: "var(--encre)" }}>Construisez une équipe de chatting plus claire, plus traçable et mieux contrôlée.</h2>
-            <p className="text-[15px] leading-relaxed mb-8" style={{ color: "var(--encre)", opacity: 0.6, fontFamily: "var(--font-body), sans-serif" }}>WTF Chat AI est le copilote qui prépare, structure et sécurise vos conversations, sans jamais prendre le contrôle à votre place.</p>
+            <p className="text-[15px] leading-relaxed mb-8" style={{ color: "var(--encre)", opacity: 0.6, fontFamily: "var(--font-body), sans-serif" }}>WTF CHATEENG est le copilote qui prépare, structure et sécurise vos conversations, sans jamais prendre le contrôle à votre place.</p>
             <div className="flex flex-wrap justify-center gap-4">
               <TrackedLink href="/demo" eventName={ChatAITrackingEvents.LANDING_FINAL_DEMO} className="btn-eco" style={{ backgroundColor: "var(--or)", color: "var(--encre)", borderColor: "var(--or)" }}>
                 Demander une démo

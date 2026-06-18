@@ -17,7 +17,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
       {
         question: "Qu'est-ce que Where Talent Forms ?",
         answer:
-          "Where Talent Forms est une plateforme d'outils conçue pour les créateurs de contenu. Elle regroupe un CRM (Atlas), une IA de création (Studio IA), un assistant juridique (WTF Lex), un outil de protection (Bouclier Légal), et un assistant conversationnel (Chat AI). L'objectif : vous aider à structurer votre activité avec plus de clarté et de contrôle.",
+          "Where Talent Forms est une plateforme d'outils conçue pour les créateurs de contenu. Elle regroupe un CRM (Atlas), une IA de création (Studio IA), un assistant juridique (WTF Lex), un outil de protection (Bouclier Légal), et un assistant conversationnel (CHATEENG). L'objectif : vous aider à structurer votre activité avec plus de clarté et de contrôle.",
       },
       {
         question: "Where Talent Forms est-il une agence ?",
@@ -164,48 +164,48 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
     ],
   },
   {
-    categorie: "Chat AI",
+    categorie: "CHATEENG",
     description: "L'assistant IA conversationnel disponible 24/7.",
     items: [
       {
-        question: "Qu'est-ce que Chat AI ?",
+        question: "Qu'est-ce que CHATEENG ?",
         answer:
-          "Chat AI est l'assistant conversationnel de Where Talent Forms. Il est disponible 24/7 pour répondre à vos questions, vous aider à prioriser vos actions, analyser des situations, et vous suggérer des pistes d'amélioration dans votre activité.",
+          "CHATEENG est l'assistant conversationnel de Where Talent Forms. Il est disponible 24/7 pour répondre à vos questions, vous aider à prioriser vos actions, analyser des situations, et vous suggérer des pistes d'amélioration dans votre activité.",
       },
       {
-        question: "Quel modèle d'IA utilise Chat AI ?",
+        question: "Quel modèle d'IA utilise CHATEENG ?",
         answer:
-          "Chat AI utilise les modèles Claude d'Anthropic. Ces modèles ne sont pas entraînés sur vos conversations. Vos échanges restent privés et confidentiels.",
+          "CHATEENG utilise les modèles Claude d'Anthropic. Ces modèles ne sont pas entraînés sur vos conversations. Vos échanges restent privés et confidentiels.",
       },
       {
-        question: "Chat AI peut-il prendre des décisions à ma place ?",
+        question: "CHATEENG peut-il prendre des décisions à ma place ?",
         answer:
-          "Non. Chat AI vous fournit des analyses, des suggestions et des informations pour éclairer vos décisions. La décision finale vous appartient toujours. L'IA est un outil d'aide, pas un substitut à votre jugement.",
+          "Non. CHATEENG vous fournit des analyses, des suggestions et des informations pour éclairer vos décisions. La décision finale vous appartient toujours. L'IA est un outil d'aide, pas un substitut à votre jugement.",
       },
       {
-        question: "Mes conversations avec Chat AI sont-elles privées ?",
+        question: "Mes conversations avec CHATEENG sont-elles privées ?",
         answer:
-          "Oui. Vos conversations avec Chat AI sont strictement confidentielles. Elles ne sont pas partagées avec des tiers, ne sont pas utilisées pour entraîner des modèles, et sont stockées de manière sécurisée.",
+          "Oui. Vos conversations avec CHATEENG sont strictement confidentielles. Elles ne sont pas partagées avec des tiers, ne sont pas utilisées pour entraîner des modèles, et sont stockées de manière sécurisée.",
       },
       {
-        question: "Chat AI peut-il m'aider sur des sujets juridiques ?",
+        question: "CHATEENG peut-il m'aider sur des sujets juridiques ?",
         answer:
-          "Chat AI peut vous orienter et vous aider à comprendre des concepts généraux, mais il ne remplace pas un avocat. Pour une analyse juridique approfondie, utilisez WTF Lex, notre outil dédié à l'analyse de contrats, ou consultez un avocat partenaire.",
+          "CHATEENG peut vous orienter et vous aider à comprendre des concepts généraux, mais il ne remplace pas un avocat. Pour une analyse juridique approfondie, utilisez WTF Lex, notre outil dédié à l'analyse de contrats, ou consultez un avocat partenaire.",
       },
       {
-        question: "Chat AI est-il disponible en français ?",
+        question: "CHATEENG est-il disponible en français ?",
         answer:
-          "Oui. Chat AI est optimisé pour le français et comprend les spécificités culturelles et juridiques francophones. Il peut également converser dans d'autres langues si nécessaire.",
+          "Oui. CHATEENG est optimisé pour le français et comprend les spécificités culturelles et juridiques francophones. Il peut également converser dans d'autres langues si nécessaire.",
       },
       {
-        question: "Puis-je utiliser Chat AI sans les autres outils WTF ?",
+        question: "Puis-je utiliser CHATEENG sans les autres outils WTF ?",
         answer:
-          "Chat AI fait partie intégrante de l'écosystème Where Talent Forms. Il est le plus utile lorsqu'il peut accéder aux données de vos autres outils (CRM, Revenue Radar) pour vous fournir des réponses contextualisées.",
+          "CHATEENG fait partie intégrante de l'écosystème Where Talent Forms. Il est le plus utile lorsqu'il peut accéder aux données de vos autres outils (CRM, Revenue Radar) pour vous fournir des réponses contextualisées.",
       },
       {
-        question: "Y a-t-il une limite de messages avec Chat AI ?",
+        question: "Y a-t-il une limite de messages avec CHATEENG ?",
         answer:
-          "Chat AI est disponible sans limite de messages dans le cadre d'un usage normal de la plateforme. Un usage abusif ou automatisé peut être soumis à des limitations, comme précisé dans nos CGU.",
+          "CHATEENG est disponible sans limite de messages dans le cadre d'un usage normal de la plateforme. Un usage abusif ou automatisé peut être soumis à des limitations, comme précisé dans nos CGU.",
       },
     ],
   },
@@ -308,7 +308,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
       {
         question: "Comment Where Talent Forms est-il structuré ?",
         answer:
-          "Where Talent Forms est organisé en départements, comme une maison. Chaque département couvre un aspect de l'activité créateur : Stratégie, Image, Protection, CRM, IA Studio, Chat AI, Juridique. Cette structure vous permet d'activer les services dont vous avez besoin.",
+          "Where Talent Forms est organisé en départements, comme une maison. Chaque département couvre un aspect de l'activité créateur : Stratégie, Image, Protection, CRM, IA Studio, CHATEENG, Juridique. Cette structure vous permet d'activer les services dont vous avez besoin.",
       },
       {
         question: "Puis-je n'activer qu'un seul département ?",
@@ -328,7 +328,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
       {
         question: "Y a-t-il un département pour les débutants ?",
         answer:
-          "Tous les départements sont conçus pour être accessibles aux débutants comme aux créateurs expérimentés. Chat AI vous accompagne dans la prise en main. Des guides sont disponibles pour chaque outil.",
+          "Tous les départements sont conçus pour être accessibles aux débutants comme aux créateurs expérimentés. CHATEENG vous accompagne dans la prise en main. Des guides sont disponibles pour chaque outil.",
       },
       {
         question: "De nouveaux départements seront-ils créés ?",
@@ -338,7 +338,7 @@ export const FAQ_CATEGORIES: FAQCategory[] = [
       {
         question: "Comment les départements communiquent-ils entre eux ?",
         answer:
-          "Les départements WTF sont intégrés : vos données CRM alimentent les suggestions du Chat AI, les analyses de Fan Brain informent le Studio IA, les alertes du Bouclier Légal sont accessibles depuis votre tableau de bord central.",
+          "Les départements WTF sont intégrés : vos données CRM alimentent les suggestions du CHATEENG, les analyses de Fan Brain informent le Studio IA, les alertes du Bouclier Légal sont accessibles depuis votre tableau de bord central.",
       },
       {
         question: "Puis-je changer de départements en cours de route ?",

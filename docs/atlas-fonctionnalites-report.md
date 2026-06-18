@@ -33,7 +33,7 @@
 | 8 | Content Vault | Stockage indexé, assets, exemple campagne cosmétiques | Encre |
 | 9 | Revenus et priorités | Suivi multi-source, visualisation, exemple musicien merch vs streaming | Crème |
 | 10 | Documents et preuves | Archivage horodaté, dossier litige, exemple contestation contrat | Encre |
-| 11 | Intégrations Halo | Chat AI, Halo Lex, Bouclier Légal, flux natif | Crème |
+| 11 | Intégrations Halo | CHATEENG, Halo Lex, Bouclier Légal, flux natif | Crème |
 | 12 | Permissions et sécurité | Accès granulaires, chiffrement, exemple assistant | Encre |
 | 13 | FAQ technique | 6 questions (appareils, export, import, contacts, RGPD, indépendance) | Crème |
 | 14 | CTASection | "Prêt à essayer Atlas ?" | Encre |

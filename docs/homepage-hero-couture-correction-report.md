@@ -22,7 +22,7 @@ Correction du hero Halo Talent pour aligner avec la direction "éditorial magazi
 
 ## Éléments supprimés
 
-- **6 badges flottants** (Management, Studio IA, Atlas CRM, Chat AI, Halo Lex, Commissions) — donnaient un effet "SaaS dashboard / orbital UI"
+- **6 badges flottants** (Management, Studio IA, Atlas CRM, CHATEENG, Halo Lex, Commissions) — donnaient un effet "SaaS dashboard / orbital UI"
 - **Effets ambient** (halo-glow, halo-ring) — trop futuristes/tech
 - **Fond noir** du hero — remplacé par ivoire/crème
 - **CTA orange cuivre** dans la navbar — remplacé par champagne/noir

@@ -122,7 +122,7 @@ const BOTTOM_ITEMS: SidebarItem[] = [
   },
   { label: "Documentation", href: "/admin/docs", icon: Book },
   {
-    label: "Chat AI",
+    label: "CHATEENG",
     icon: Bot,
     submenu: [
       { label: "Vue d'ensemble", href: "/admin/chat-ai/overview", icon: LayoutDashboard },

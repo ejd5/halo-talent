@@ -88,7 +88,7 @@ export default function ChatAIInboxDetailPage() {
         setDrafts((convData.drafts as Draft[]) || []);
       }
     } catch (err) {
-      console.error("[Chat AI Inbox] Fetch error:", err);
+      console.error("[CHATEENG Inbox] Fetch error:", err);
     } finally {
       setLoading(false);
     }

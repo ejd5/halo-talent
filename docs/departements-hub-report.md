@@ -44,7 +44,7 @@ Chaque département inclut : description, baseline, profils concernés, 4 probl�
 
 ## Tableau comparatif
 
-6 besoins évalués par département : Image de marque, Production IA, Protection juridique, Gestion fans/CRM, Monétisation, Chat AI fans. Niveaux : Essentiel, Élevé, Important, Modéré. Code couleur : rouge/or/vert/gris.
+6 besoins évalués par département : Image de marque, Production IA, Protection juridique, Gestion fans/CRM, Monétisation, CHATEENG fans. Niveaux : Essentiel, Élevé, Important, Modéré. Code couleur : rouge/or/vert/gris.
 
 ## Wording Check
 

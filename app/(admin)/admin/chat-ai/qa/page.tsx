@@ -162,9 +162,11 @@ export default function ChatAIQAPage() {
   return (
     <div style={{ padding: "24px 32px", maxWidth: 1400 }}>
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-          QA Review, Chat AI
-        </h1>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+          <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
+            QA Review, CHATEENG
+          </h1>
+        </div>
         <p style={{ fontSize: 11, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>
           Revue qualité des messages et brouillons IA
         </p>

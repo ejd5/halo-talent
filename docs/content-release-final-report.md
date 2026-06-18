@@ -91,7 +91,7 @@ app/(marketing)/
 │   └── start/                     → Démo interactive
 ├── blog/                          → Blog (10 articles, 30 idées)
 │   └── [slug]/                    → Article (dynamique)
-├── chat-ai/                       → Chat AI (8 sections, workflow)
+├── chat-ai/                       → CHATEENG (8 sections, workflow)
 ├── atlas/                         → Atlas CRM (5 sections, comparatif)
 │   ├── conformite/                → Conformité (RGPD, audit)
 │   ├── fonctionnalites/           → Fonctionnalités (11 sections)

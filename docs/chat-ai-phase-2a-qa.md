@@ -10,7 +10,7 @@
 | Check | Result | Details |
 |-------|--------|---------|
 | `npx tsc --noEmit` | PASS | 0 errors |
-| `npx eslint` (all Chat AI files) | PASS | 0 errors, 0 warnings |
+| `npx eslint` (all CHATEENG files) | PASS | 0 errors, 0 warnings |
 | `npm run build` | PASS | Production build successful, 0 errors |
 
 No `any` casts used. No TypeScript suppressions. No `eslint-disable` except for intentional `react-hooks/exhaustive-deps` in `useEffect` init wrappers.
@@ -131,7 +131,7 @@ All new files scanned for:
 - `100% conforme` → NOT FOUND
 - `garanti` (in positive context) → Found only in proper disclaimers
 
-All uses of these words are in compliance consent items and disclaimers that explicitly NEGATE the claim. All Chat AI API responses include `requiresValidation: true` and `message: "...aucun envoi automatique n'a été effectué"`.
+All uses of these words are in compliance consent items and disclaimers that explicitly NEGATE the claim. All CHATEENG API responses include `requiresValidation: true` and `message: "...aucun envoi automatique n'a été effectué"`.
 
 ---
 
@@ -199,7 +199,7 @@ No imports from `lib/mock`. No hardcoded data arrays. No `MOCK_` constants.
 ## 10. Visual Description
 
 ### Desktop — Overview (`/dashboard/chat-ai`)
-- Top: "Halo Sovereign Chat AI" heading + subtitle + status badges + pause button
+- Top: "Halo CHATEENG" heading + subtitle + status badges + pause button
 - Below: 8 metric cards in auto-fit grid (2-4 per row depending on width)
 - Main area: Revenue Inbox header + 4 filter dropdowns + conversation list with priority bars, fan names, FanRiskBadge, unread counts, LTV/Intent/Churn scores
 - Right sidebar (280px): "Activité récente" audit mini-feed with icon + action label + timestamp

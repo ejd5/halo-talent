@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Users, Layers, Clock, MessageCircle, Bell, FolderOpen, FileText, TrendingUp, Shield, Sparkles } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 function useReveal(amount = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -117,8 +116,8 @@ const FONCTIONNALITES: Fonctionnalite[] = [
     id: "integrations",
     icon: Sparkles,
     titre: "Intégrations WTF",
-    description: "Atlas est le centre de gravité de l'écosystème WTF. Il s'intègre nativement avec Chat AI (conversations), WTF Lex (contrats), et le Bouclier Légal (surveillance des contenus). Les données circulent entre les outils sans double saisie.",
-    exemple: "Quand Chat AI génère une réponse à un fan, la conversation est automatiquement enregistrée dans la fiche Atlas du contact. Quand WTF Lex analyse un contrat, le rapport est archivé dans le dossier Documents du contact concerné.",
+    description: "Atlas est le centre de gravité de l'écosystème WTF. Il s'intègre nativement avec CHATEENG (conversations), WTF Lex (contrats), et le Bouclier Légal (surveillance des contenus). Les données circulent entre les outils sans double saisie.",
+    exemple: "Quand CHATEENG génère une réponse à un fan, la conversation est automatiquement enregistrée dans la fiche Atlas du contact. Quand WTF Lex analyse un contrat, le rapport est archivé dans le dossier Documents du contact concerné.",
     benefice: "Un écosystème cohérent plutôt qu'un empilement d'outils déconnectés.",
     limite: "Les intégrations fonctionnent au sein de l'écosystème WTF. Atlas n'est pas (encore) connecté à des outils tiers externes.",
   },
@@ -148,7 +147,7 @@ const FAQ_TECHNIQUE = [
   { q: "Comment fonctionne l'import de contacts ?", r: "Import CSV depuis n'importe quel outil (Excel, Google Contacts, autre CRM). Pour les migrations plus complexes (API, volume important), notre équipe vous accompagne gratuitement." },
   { q: "Combien de contacts puis-je gérer ?", r: "Le plan Free inclut jusqu'à 500 contacts. Le plan Pro monte à 5000 contacts. Le plan Enterprise est illimité. Au-delà de 100 000 contacts, contactez-nous pour une infrastructure dédiée." },
   { q: "Atlas respecte-t-il le RGPD ?", r: "Oui. Atlas est conçu pour respecter le RGPD : données hébergées en Europe, chiffrement au repos et en transit, gestion des consentements, droit à l'oubli, registre des traitements. Nous ne revendons aucune donnée." },
-  { q: "Puis-je utiliser Atlas sans les autres outils WTF ?", r: "Oui, absolument. Atlas est un produit autonome. Les intégrations avec Chat AI, WTF Lex et le Bouclier Légal sont optionnelles. Vous pouvez utiliser Atlas seul, ou avec l'écosystème complet." },
+  { q: "Puis-je utiliser Atlas sans les autres outils WTF ?", r: "Oui, absolument. Atlas est un produit autonome. Les intégrations avec CHATEENG, WTF Lex et le Bouclier Légal sont optionnelles. Vous pouvez utiliser Atlas seul, ou avec l'écosystème complet." },
 ];
 
 function FoncDetailSection({ fonc, index, inView }: { fonc: Fonctionnalite; index: number; inView: boolean }) {
@@ -249,7 +248,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 100 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 800, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Documentation produit
@@ -298,7 +297,7 @@ function CTASection() {
     <section ref={ref} className="couture-section text-center" style={{ backgroundColor: "var(--encre)", paddingTop: 100, paddingBottom: 100 }}>
       <div className="wrap-eco" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={26} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.p className="display-medium mb-6" style={{ color: "var(--ivoire)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Prêt à essayer Atlas ?

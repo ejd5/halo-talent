@@ -24,7 +24,7 @@ export const HERO_REASSURANCE =
 export const HERO_CTAS = [
   { label: "Demander une démo", href: "/demo", variant: "fill" as const },
   { label: "Découvrir WTF", href: "#maison", variant: "outline" as const },
-  { label: "Explorer Chat AI", href: "/chat-ai", variant: "ghost" as const },
+  { label: "Explorer CHATEENG", href: "/chat-ai", variant: "ghost" as const },
 ];
 
 // --- Hero editorial bottom line ---
@@ -39,7 +39,7 @@ export const FLOATING_CARD_LABELS = [
   { label: "Management", x: "6%", y: "16%", delay: 0 },
   { label: "Studio IA", x: "80%", y: "10%", delay: 0.6 },
   { label: "Atlas CRM", x: "84%", y: "52%", delay: 0.3 },
-  { label: "Chat AI", x: "10%", y: "60%", delay: 1.0 },
+  { label: "CHATEENG", x: "10%", y: "60%", delay: 1.0 },
   { label: "WTF Lex", x: "48%", y: "76%", delay: 0.5 },
   { label: "Commissions", x: "54%", y: "18%", delay: 0.8 },
 ];
@@ -51,7 +51,7 @@ export const SIGNAL_WORDS = [
   "PROTECTION",
   "CRM",
   "IA STUDIO",
-  "CHAT AI",
+  "CHATEENG",
   "LEGAL",
   "CREATOR OS",
 ];
@@ -90,7 +90,7 @@ export const VIGNETTES: Vignette[] = [
   {
     id: "chat",
     num: "04",
-    title: "Sovereign Chat AI",
+    title: "CHATEENG",
     desc: "Assistant qui prépare, vérifie et structure, l'IA propose, l'humain valide, le créateur contrôle.",
     href: "/chat-ai",
   },
@@ -232,7 +232,7 @@ export const SERVICES: CoutureService[] = [
   },
   {
     id: "chat",
-    title: "Sovereign Chat AI",
+    title: "CHATEENG",
     desc: "L'IA prépare. L'humain valide. Le créateur contrôle.",
     capabilities: [
       "Préparation de réponses",
@@ -240,7 +240,7 @@ export const SERVICES: CoutureService[] = [
       "Brouillons réutilisables",
       "Mode multi-langues",
     ],
-    cta: { label: "Explorer Chat AI", href: "/chat-ai" },
+    cta: { label: "Explorer CHATEENG", href: "/chat-ai" },
   },
   {
     id: "lex",
@@ -300,7 +300,7 @@ export const CAROUSEL_SLIDES: CarouselSlide[] = [
     title: "Équipe créative",
     subtitle: "Vous gérez une équipe de création et de production.",
     problem: "Coordination difficile, droits flous, validation lente.",
-    system: "Studio IA collaboratif + Chat AI + Content Vault.",
+    system: "Studio IA collaboratif + CHATEENG + Content Vault.",
     benefit: "Améliore la traçabilité et réduit la dispersion.",
   },
   {
@@ -324,7 +324,7 @@ export const CAROUSEL_SLIDES: CarouselSlide[] = [
     title: "Expansion internationale",
     subtitle: "Vous percez à l'international, les règles changent.",
     problem: "Contrats multi-juridictions, fiscalité complexe, audience fragmentée.",
-    system: "WTF Lex multi-droit + Atlas CRM global + Chat AI 6 langues.",
+    system: "WTF Lex multi-droit + Atlas CRM global + CHATEENG 6 langues.",
     benefit: "Structure la conformité et facilite la coordination.",
   },
 ];
@@ -342,7 +342,7 @@ export const REASSURANCE_ITEMS: ReassuranceItem[] = [
   },
   {
     title: "Des outils connectés",
-    desc: "Studio IA, CRM, Chat AI, Legal, des modules qui communiquent entre eux, sans silos.",
+    desc: "Studio IA, CRM, CHATEENG, Legal, des modules qui communiquent entre eux, sans silos.",
   },
   {
     title: "Des décisions documentées",
@@ -406,7 +406,7 @@ export const FOOTER_LINKS = {
   ],
   ressources: [
     { label: "Atlas CRM", href: "/atlas" },
-    { label: "Chat AI", href: "/chat-ai" },
+    { label: "CHATEENG", href: "/chat-ai" },
     { label: "WTF Lex", href: "/lex-ai" },
     { label: "Bouclier Légal", href: "/protection" },
     { label: "Blog", href: "/blog" },

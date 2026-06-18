@@ -44,7 +44,7 @@ Nouvelles variables activées au runtime : `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_
 | URL | HTTP | Contenu |
 |-----|------|---------|
 | `/` | 200 | Page d'accueil |
-| `/chat-ai` | 200 | Landing Chat AI |
+| `/chat-ai` | 200 | Landing CHATEENG |
 | `/contact` | 200 | Formulaire de contact |
 | `/demo` | 200 | Page démo |
 
@@ -69,7 +69,7 @@ Aucune erreur serveur. Aucun secret exposé.
 
 ---
 
-## 5. Smoke Test Chat AI
+## 5. Smoke Test CHATEENG
 
 ```
 📡 API Base: https://halo-talent.vercel.app
@@ -129,7 +129,7 @@ Les clés existent dans `.env.local` — prêtes à être ajoutées quand néces
 La plateforme est techniquement prête pour la beta publique :
 - 8/8 variables critiques configurées
 - 36/36 pages publiques HTTP 200
-- 13/13 smoke tests Chat AI OK
+- 13/13 smoke tests CHATEENG OK
 - Contact et newsletter fonctionnels avec Resend
 - Auth et protections correctes
 - Aucun secret exposé, aucune erreur serveur

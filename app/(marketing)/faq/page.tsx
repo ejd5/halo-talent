@@ -4,7 +4,7 @@ import { FAQClient } from "./FAQClient";
 export const metadata: Metadata = {
   title: "FAQ, Where Talent Forms",
   description:
-    "Questions fréquentes sur Where Talent Forms : général, commissions, Atlas CRM, Chat AI, WTF Lex, protection, départements, candidature, juridique, sécurité. 10 catégories, 80+ réponses.",
+    "Questions fréquentes sur Where Talent Forms : général, commissions, Atlas CRM, CHATEENG, WTF Lex, protection, départements, candidature, juridique, sécurité. 10 catégories, 80+ réponses.",
   openGraph: {
     title: "FAQ, Where Talent Forms",
     description:

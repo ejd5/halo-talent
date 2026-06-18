@@ -16,7 +16,7 @@ Nous ne sommes pas une agence opportuniste qui prend 50% et disparaît. Nous ne 
 
 1. **Transparence radicale** — Commissions publiées, marges dégressives, calcul public. Aucune agence comparable ne le fait.
 2. **Souveraineté du créateur** — Vous gardez 100% de vos comptes, 100% de vos données, 100% de votre contenu. Nous sommes un partenaire, pas un propriétaire.
-3. **Technologie intégrée** — Chat AI, Atlas CRM, Studio IA, Halo Lex. Pas des outils éparpillés : un système d'exploitation cohérent.
+3. **Technologie intégrée** — CHATEENG, Atlas CRM, Studio IA, Halo Lex. Pas des outils éparpillés : un système d'exploitation cohérent.
 
 **Ce que nous ne sommes pas :**
 - Une agence qui promet la richesse
@@ -164,7 +164,7 @@ Toute communication Halo Talent suit cette structure en 8 séquences :
    ── Une maison unique qui combine management + technologie + protection.
 
 3. NOS OUTILS
-   ── Atlas CRM, Dashboard Halo, Sovereign Chat AI, Studio IA, Halo Lex.
+   ── Atlas CRM, Dashboard Halo, CHATEENG, Studio IA, Halo Lex.
 
 4. NOS DÉPARTEMENTS
    ── Glamour premium, Influenceurs, YouTube/Podcast, Musique, Sport/Fitness.
@@ -187,7 +187,7 @@ Toute communication Halo Talent suit cette structure en 8 séquences :
 | Type de page | Séquences utilisées | Longueur cible |
 |-------------|-------------------|----------------|
 | **Homepage** | 1 → 2 → 3 → 4 → 5 → 6 → 8 | 10-12 sections |
-| **Page produit** (Chat AI, Atlas, Lex) | 1 → 2 → 3 → 7 → 8 | 8-11 sections |
+| **Page produit** (CHATEENG, Atlas, Lex) | 1 → 2 → 3 → 7 → 8 | 8-11 sections |
 | **Page département** | 1 → 4 → 5 → 8 | 5-7 sections |
 | **Page légale / protection** | 1 → 6 → 8 | 5-8 sections |
 | **Blog / Guide** | 1 → (contenu éducatif) → 8 | 5-10 sections |
@@ -234,7 +234,7 @@ Toute communication Halo Talent suit cette structure en 8 séquences :
 
 - **Fleur de lys** : emblème SVG inline, discret, utilisé comme ornement éditorial (pas comme logo principal)
 - **Logo Halo Talent** : composition horizontale, "Halo" en Fraunces, "Talent" en Instrument Serif
-- **Marquee** : bandeau défilant de mots-clés (STRATÉGIE · IMAGE · PROTECTION · CRM · IA STUDIO · CHAT AI · LEGAL)
+- **Marquee** : bandeau défilant de mots-clés (STRATÉGIE · IMAGE · PROTECTION · CRM · IA STUDIO · CHATEENG · LEGAL)
 - **Cartes flottantes** : effets CSS-only (halo-glow, halo-ring) pour les sections hero
 
 ---
@@ -305,10 +305,10 @@ Les résultats dépendent du travail, du contenu et de l'audience de chaque cré
 
 | Page | CTA primaire | CTA secondaire(s) |
 |------|-------------|-------------------|
-| Homepage | Demander une démo | Découvrir Halo, Explorer Chat AI |
+| Homepage | Demander une démo | Découvrir Halo, Explorer CHATEENG |
 | /commissions | Postuler | Simuler mes commissions |
 | /pricing | Commencer gratuitement | Comparer les offres |
-| /chat-ai | Essayer la démo Chat AI | Voir les fonctionnalités |
+| /chat-ai | Essayer la démo CHATEENG | Voir les fonctionnalités |
 | /atlas | Essayer Atlas | Voir les fonctionnalités |
 | /lex | Analyser mon contrat | Voir les modules |
 | /protection | Analyser mon contrat | Lire le guide |

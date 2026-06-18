@@ -59,7 +59,7 @@ Toutes les autres occurrences de `garanti`, `protection`, `conforme`, `risque`, 
 | Lex | `app/(marketing)/lex/` | Safe |
 | Protection | `app/(marketing)/protection/` | Safe |
 | Atlas | `app/(marketing)/atlas/` | Safe |
-| Chat AI | `app/(marketing)/chat-ai/` | Safe |
+| CHATEENG | `app/(marketing)/chat-ai/` | Safe |
 
 ## Vérification post-correction
 

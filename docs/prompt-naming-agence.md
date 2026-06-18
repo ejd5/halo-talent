@@ -10,7 +10,7 @@ Je cherche un nom pour mon agence/studiocreative. Voici le brief complet :
 
 On développe **Halo Talent**, une plateforme SaaS tout-en-un pour créateurs de contenu sur plateformes (OnlyFans, Fansly, MYM, etc.). La plateforme combine :
 
-- **Sovereign Chat AI** : un assistant IA qui aide les créateurs à gérer leurs conversations avec leurs fans, générer des brouillons de messages, automatiser les relances, tout en restant sous supervision humaine (principe "human-in-the-loop").
+- **CHATEENG** : un assistant IA qui aide les créateurs à gérer leurs conversations avec leurs fans, générer des brouillons de messages, automatiser les relances, tout en restant sous supervision humaine (principe "human-in-the-loop").
 - **PPV Copilot** : un moteur de pricing intelligent qui recommande le prix optimal pour chaque actif PPV (photos, vidéos, bundles) en fonction du profil du fan, de son historique d'achat, et du marché.
 - **Vault** : une bibliothèque sécurisée pour les actifs PPV avec suivi des ventes, historique de prix, et détection de fans ayant déjà acheté.
 - **QA Review & Compliance** : un système de contrôle qualité qui scanne les messages générés par l'IA, détecte les risques (ton inapproprié, promesses non autorisées, fans vulnérables) et permet une revue humaine.

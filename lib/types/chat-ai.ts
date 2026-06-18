@@ -1,5 +1,5 @@
-// ─── WTF Sovereign Chat AI, TypeScript Types ────────────
-// All interfaces, enums, and type aliases for the Chat AI module
+// ─── CHATEENG, TypeScript Types ────────────
+// All interfaces, enums, and type aliases for the CHATEENG module
 
 // ============================================================
 // ENUMS
@@ -465,7 +465,7 @@ export interface ComplianceScanOutput {
 }
 
 // ============================================================
-// CHAT AI ACTION TYPES (for compliance gate)
+// CHATEENG Action TYPES (for compliance gate)
 // ============================================================
 
 export type ChatAIAction =

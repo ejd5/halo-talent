@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 import {
   FOOTER_WORDMARK,
   FOOTER_TAGLINE,
@@ -78,7 +77,11 @@ export function CoutureFooter() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div className="couture-ornament mb-8">
-            <CoutureEmblem size={36} color="var(--or)" />
+            <img
+              src="/wtf-logo-rond.png"
+              alt="WTF Talent"
+              style={{ height: 240, width: "auto" }}
+            />
           </div>
           <h2
             className="mb-4"

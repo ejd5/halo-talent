@@ -137,7 +137,7 @@
 | Text | Several locations use "revenu" near "garanti" or imply guaranteed income |
 | Severity | **MEDIUM** |
 | Issue | Income guarantees are illegal in many jurisdictions without disclaimers. |
-| Note | Chat AI disclaimers properly negate these ("Aucun revenu garanti"), but marketing pages need audit. |
+| Note | CHATEENG disclaimers properly negate these ("Aucun revenu garanti"), but marketing pages need audit. |
 
 ### Finding 12: "Jamais banni" — Home/Atlas pages
 
@@ -171,9 +171,9 @@
 
 ---
 
-## 4. Forbidden Wordings — Chat AI Compliance (Clean)
+## 4. Forbidden Wordings — CHATEENG Compliance (Clean)
 
-The following scan confirms Chat AI is CLEAN:
+The following scan confirms CHATEENG is CLEAN:
 
 | Term | Found? | Context |
 |------|--------|---------|
@@ -186,7 +186,7 @@ The following scan confirms Chat AI is CLEAN:
 | `100% conforme` | NOT FOUND | — |
 | `garanti` (positive) | Only in disclaimers | Compliance consent items |
 
-Chat AI API responses all include `requiresValidation: true` and the message: "...aucun envoi automatique n'a été effectué."
+CHATEENG API responses all include `requiresValidation: true` and the message: "...aucun envoi automatique n'a été effectué."
 
 ---
 

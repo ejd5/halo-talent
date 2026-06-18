@@ -48,7 +48,7 @@
 ## Contenu ajouté
 
 ### /saas — 6 outils présentés
-Atlas CRM, Studio IA, Chat AI, Halo Lex, Reporting, Protection — chacun avec 5 fonctionnalités
+Atlas CRM, Studio IA, CHATEENG, Halo Lex, Reporting, Protection — chacun avec 5 fonctionnalités
 
 ### /saas — 5 cas d'usage
 Créatrice glamour, Influenceuse lifestyle, YouTuber/vidéaste, Musicien/artiste, Sportive/athlète

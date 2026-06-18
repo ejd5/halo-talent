@@ -25,10 +25,10 @@
 
 | Section | Contenu |
 |---------|---------|
-| Marquee | Bandeau défilant avec mots-clés (STRATEGY · IMAGE · PROTECTION · CRM · IA STUDIO · CHAT AI · LEGAL) |
+| Marquee | Bandeau défilant avec mots-clés (STRATEGY · IMAGE · PROTECTION · CRM · IA STUDIO · CHATEENG · LEGAL) |
 | Emblem + Wordmark | Fleur de lys SVG + "Halo Talent" + phrase manifeste |
 | Navigation (colonne 1) | Qui nous sommes, Manifeste, Départements, Commissions, Tarifs, Contact |
-| Ressources (colonne 2) | Atlas CRM, Chat AI, Halo Lex, Bouclier Légal, Blog, Guides, FAQ, Glossaire |
+| Ressources (colonne 2) | Atlas CRM, CHATEENG, Halo Lex, Bouclier Légal, Blog, Guides, FAQ, Glossaire |
 | Légal (colonne 3) | Mentions légales, Confidentialité, CGU, Contrat type, Comparaisons |
 | Newsletter (colonne 4) | Texte + formulaire email → POST /api/newsletter → Supabase |
 | Divider | Ligne dégradée horizontale |

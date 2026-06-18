@@ -22,7 +22,7 @@ Phase P0-C created the three missing legal pages, wired the Footer with real lin
 
 ### `/confidentialite`
 - **File**: `app/(marketing)/confidentialite/page.tsx`
-- **Content**: 9 sections — Introduction, Données collectées (7 sub-sections: contact, apply, compte, Chat AI/CRM, Halo Lex, newsletter, données techniques), Finalités, Durées de conservation, Sous-traitants, Vos droits, Sécurité, Cookies, Contact
+- **Content**: 9 sections — Introduction, Données collectées (7 sub-sections: contact, apply, compte, CHATEENG/CRM, Halo Lex, newsletter, données techniques), Finalités, Durées de conservation, Sous-traitants, Vos droits, Sécurité, Cookies, Contact
 - **Legal review notice**: "Document informatif à finaliser avec un conseil juridique avant production."
 - **Sub-sections**: Each data collection point explains what, why, and tentative legal basis with "à confirmer" annotations
 - **No absolute claims**: All legal bases marked as indicative

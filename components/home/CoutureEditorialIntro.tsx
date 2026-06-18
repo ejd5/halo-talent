@@ -2,7 +2,6 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 import {
   EDITORIAL_INTRO_TITLE,
   EDITORIAL_INTRO_TEXT,
@@ -26,7 +25,7 @@ export function CoutureEditorialIntro() {
           animate={inView ? { opacity: 0.5, scale: 1 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
 
         {/* Title */}

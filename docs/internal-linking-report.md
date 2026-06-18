@@ -67,7 +67,7 @@ Aucune page publique n'est strictement orpheline — toutes sont accessibles via
 | Nous contacter | /contact |
 | Simuler vos commissions | /commissions |
 | Découvrir Atlas CRM | /atlas |
-| Essayer Chat AI | /chat-ai |
+| Essayer CHATEENG | /chat-ai |
 | Analyser un contrat | /lex-ai |
 
 ## Composant ContinuerAvec

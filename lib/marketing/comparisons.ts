@@ -46,7 +46,7 @@ export const AGENCE_VS_HALO: ComparisonRow[] = [
     agenceTraditionnelle:
       "Variable selon les agences. Certaines offrent un suivi personnalisé, d'autres un service standardisé.",
     halo:
-      "Chat AI copilot disponible 24/7. Accompagnement humain ponctuel pour les décisions stratégiques. Pas de dépendance.",
+      "CHATEENG disponible 24/7. Accompagnement humain ponctuel pour les décisions stratégiques. Pas de dépendance.",
   },
   {
     critere: "Gestion juridique préparatoire",
@@ -60,7 +60,7 @@ export const AGENCE_VS_HALO: ComparisonRow[] = [
     agenceTraditionnelle:
       "L'IA, si utilisée, est un outil interne à l'agence. Le créateur n'y a pas accès directement.",
     halo:
-      "Studio IA, Chat AI, WTF Lex, PPV Copilot : l'IA est entre vos mains. Vous l'utilisez comme vous l'entendez, quand vous voulez.",
+      "Studio IA, CHATEENG, WTF Lex, PPV Copilot : l'IA est entre vos mains. Vous l'utilisez comme vous l'entendez, quand vous voulez.",
   },
   {
     critere: "CRM créateur",
@@ -166,7 +166,7 @@ export const BESOIN_SOLUTIONS: BesoinSolution[] = [
     solutionHalo:
       "Revenue Radar : visualisez vos revenus par plateforme, par période, par type de contenu. Croisez avec vos campagnes CRM.",
     pourQui: "Tout créateur générant des revenus sur au moins une plateforme",
-    optionPossible: "Tableau de bord seul ou avec analyse assistée Chat AI",
+    optionPossible: "Tableau de bord seul ou avec analyse assistée CHATEENG",
     niveauAutonomie: "Autonome",
   },
   {
@@ -174,7 +174,7 @@ export const BESOIN_SOLUTIONS: BesoinSolution[] = [
     solutionHalo:
       "Atlas CRM : segmentez vos fans, suivez leurs interactions, créez des campagnes ciblées. Fan Brain analyse les tendances.",
     pourQui: "Créateurs avec une communauté active (dès 100 fans)",
-    optionPossible: "CRM seul ou couplé au Chat AI pour les suggestions",
+    optionPossible: "CRM seul ou couplé au CHATEENG pour les suggestions",
     niveauAutonomie: "Autonome",
   },
   {
@@ -212,15 +212,15 @@ export const BESOIN_SOLUTIONS: BesoinSolution[] = [
   {
     besoin: "Être accompagné au quotidien",
     solutionHalo:
-      "Chat AI Copilot : disponible 24/7 pour répondre à vos questions, suggérer des actions, vous aider à prioriser.",
+      "CHATEENG : disponible 24/7 pour répondre à vos questions, suggérer des actions, vous aider à prioriser.",
     pourQui: "Tout utilisateur WTF, quel que soit son niveau",
-    optionPossible: "Chat AI seul ou en complément d'un accompagnement humain",
+    optionPossible: "CHATEENG seul ou en complément d'un accompagnement humain",
     niveauAutonomie: "Assisté",
   },
   {
     besoin: "Préparer ma stratégie de contenu",
     solutionHalo:
-      "Content Vault + Chat AI : stockez vos idées, planifiez votre calendrier éditorial, recevez des suggestions basées sur les tendances.",
+      "Content Vault + CHATEENG : stockez vos idées, planifiez votre calendrier éditorial, recevez des suggestions basées sur les tendances.",
     pourQui: "Créateurs souhaitant professionnaliser leur production de contenu",
     optionPossible: "Planification manuelle ou suggestions IA",
     niveauAutonomie: "Autonome",

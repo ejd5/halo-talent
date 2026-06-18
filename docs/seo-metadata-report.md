@@ -38,7 +38,7 @@ Toutes les pages listées dans le prompt avaient déjà des metadata complets :
 | `/qui-nous-sommes` | "Qui nous sommes — Halo Talent" | OK |
 | `/commissions` | "Commissions — Halo Talent" | OK |
 | `/atlas` | "Atlas CRM — Halo Talent" | OK |
-| `/chat-ai` | "Chat AI — Halo Talent" | OK |
+| `/chat-ai` | "CHATEENG — Halo Talent" | OK |
 | `/lex-ai` | "Lex AI — Assistant juridique préparatoire" | OK |
 | `/protection` | "Protection créateur — Bouclier Légal" | OK |
 | `/departements` | "Départements — Halo Talent" | OK |

@@ -47,11 +47,13 @@ export default function ChatAIOverviewPage() {
   return (
     <div style={{ padding: "24px 32px", maxWidth: 1400 }}>
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-          Chat AI, Vue d'ensemble
-        </h1>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+          <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
+            CHATEENG, Vue d'ensemble
+          </h1>
+        </div>
         <p style={{ fontSize: 11, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>
-          Statistiques globales du module Sovereign Chat AI
+          Statistiques globales du module CHATEENG
         </p>
       </div>
 
@@ -98,7 +100,7 @@ export default function ChatAIOverviewPage() {
 
       {!loading && !error && data && data.totalCreators === 0 && (
         <div style={{ marginTop: 32, padding: 24, textAlign: "center", color: "rgba(245,240,235,0.2)", fontSize: 13 }}>
-          Aucune donnée Chat AI disponible. Les créateurs commencent à utiliser le module.
+          Aucune donnée CHATEENG disponible. Les créateurs commencent à utiliser le module.
         </div>
       )}
     </div>

@@ -1,5 +1,5 @@
-// ─── Compliance Gate, Chat AI Actions ──────────────────
-// Central gate for all sensitive Chat AI operations.
+// ─── Compliance Gate, CHATEENG Actions ──────────────────
+// Central gate for all sensitive CHATEENG operations.
 // Checks: consent → pause → platform → fan status → cooldown → vault → sensitive words → pricing
 
 import type {

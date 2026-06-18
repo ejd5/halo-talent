@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Users, MessageCircle, Layers, TrendingUp, FileText, Bell, FolderOpen, Clock, Shield, Brain } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 function useReveal(amount = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -41,7 +40,7 @@ const BENEFICES = [
 ];
 
 const CAS_USAGE = [
-  { profil: "Créatrice glamour", besoin: "Gérer 500+ DMs par jour sans perdre les fans premium.", usage: "Segmente par score d'engagement, priorise les top fans, délègue les réponses simples à Chat AI." },
+  { profil: "Créatrice glamour", besoin: "Gérer 500+ DMs par jour sans perdre les fans premium.", usage: "Segmente par score d'engagement, priorise les top fans, délègue les réponses simples à CHATEENG." },
   { profil: "Influenceuse lifestyle", besoin: "Coordonner brand deals, contenu sponsorisé et calendrier éditorial.", usage: "Utilise le Content Vault pour ses briefs, suit ses revenus brand deals, relaçe les marques après proposition." },
   { profil: "YouTuber / Vidéaste", besoin: "Suivre les sponsors, gérer les collaborations et les droits d'auteur.", usage: "Archive ses contrats dans Documents, suit les paiements sponsors, segmente ses contacts par type de collaboration." },
   { profil: "Musicien / Artiste", besoin: "Fédérer une communauté de fans, gérer les ventes directes.", usage: "Segmente par localisation pour ses tournées, suit les ventes de merch, centralise les échanges avec labels et producteurs." },
@@ -60,7 +59,7 @@ const TABLEAU_COMPARATIF = [
 ];
 
 const INTEGRATIONS = [
-  { nom: "Chat AI", description: "Les conversations gérées par Chat AI alimentent automatiquement l'historique Atlas. Chaque réponse, chaque relance, chaque intention détectée est enregistrée dans la fiche du contact.", href: "/chat-ai", couleur: "#C44536" },
+  { nom: "CHATEENG", description: "Les conversations gérées par CHATEENG alimentent automatiquement l'historique Atlas. Chaque réponse, chaque relance, chaque intention détectée est enregistrée dans la fiche du contact.", href: "/chat-ai", couleur: "#C44536" },
   { nom: "WTF Lex", description: "Les contrats analysés par WTF Lex sont archivés dans le dossier Documents d'Atlas. Les alertes juridiques (clause abusive, date d'échéance) remontent dans le fil d'activité.", href: "/protection", couleur: "var(--or)" },
   { nom: "Protection", description: "Le Bouclier Légal surveille vos contenus. En cas d'atteinte détectée, l'incident est documenté dans Atlas avec captures, horodatage et suggestions d'action.", href: "/protection", couleur: "#5A7D4A" },
 ];
@@ -69,7 +68,7 @@ const FAQ = [
   { q: "Est-ce qu'Atlas remplace mon fichier Excel ?", r: "Oui, et il fait bien plus. Atlas centralise ce qu'un fichier Excel ne peut pas : historique des conversations, segmentation dynamique, relances automatiques, content vault, et dossier de preuves juridiques. Vous gagnez du temps et vous évitez les erreurs." },
   { q: "Mes données sont-elles en sécurité ?", r: "Oui. Atlas est conçu pour respecter le RGPD. Toutes les données sont chiffrées au repos et en transit. Vous contrôlez qui accède à quoi. Nous ne revendons aucune donnée, jamais." },
   { q: "Puis-je importer mes contacts existants ?", r: "Oui. Import CSV depuis n'importe quel outil. Nous proposons un accompagnement pour les migrations plus complexes." },
-  { q: "Atlas fonctionne-t-il avec Chat AI ?", r: "Oui, l'intégration est native. Chat AI gère les conversations, Atlas centralise l'historique et les profils. Les deux outils se nourrissent mutuellement." },
+  { q: "Atlas fonctionne-t-il avec CHATEENG ?", r: "Oui, l'intégration est native. CHATEENG gère les conversations, Atlas centralise l'historique et les profils. Les deux outils se nourrissent mutuellement." },
   { q: "Quel est le prix d'Atlas ?", r: "Atlas est disponible en trois plans : Free (0€), Pro (29€/mois) et Enterprise (99€/mois). Chaque plan inclut des fonctionnalités adaptées à votre niveau d'activité. Consultez la page dédiée pour le détail." },
 ];
 
@@ -79,7 +78,7 @@ function PhraseForte({ texte }: { texte: string }) {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 80, paddingBottom: 80 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 700, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={24} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 120, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[1.25rem] leading-relaxed" style={{ color: "var(--ivoire)", fontFamily: "var(--font-accent), serif", fontStyle: "italic" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0.1}>
           {texte}
@@ -135,7 +134,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 100 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 860, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           CRM &middot; Intelligence &middot; Automatisation
@@ -373,7 +372,7 @@ function CTASection() {
     <section ref={ref} className="couture-section text-center" style={{ backgroundColor: "var(--encre)", paddingTop: 100, paddingBottom: 100 }}>
       <div className="wrap-eco" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={26} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.p className="display-medium mb-6" style={{ color: "var(--ivoire)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Prêt à centraliser votre activité ?

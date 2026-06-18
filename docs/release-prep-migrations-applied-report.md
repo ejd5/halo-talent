@@ -8,7 +8,7 @@
 
 ## 1. Summary
 
-Migrations 038–041 applied to remote Supabase project `lsabyfolyqlrvbseggit`. All 16 Chat AI tables verified, seed populated successfully, smoke test 13/13 passing.
+Migrations 038–041 applied to remote Supabase project `lsabyfolyqlrvbseggit`. All 16 CHATEENG tables verified, seed populated successfully, smoke test 13/13 passing.
 
 ---
 
@@ -16,9 +16,9 @@ Migrations 038–041 applied to remote Supabase project `lsabyfolyqlrvbseggit`. 
 
 | Step | Command | Result |
 |------|---------|--------|
-| Verify tables pre-migration | `curl GET /rest/v1/` | 33 tables (no Chat AI) |
+| Verify tables pre-migration | `curl GET /rest/v1/` | 33 tables (no CHATEENG) |
 | Apply migration SQL | SQL Editor: 7 chunks (Parts 1, 2a, 2b-1 through 2b-4) | All applied |
-| Verify tables post-migration | `curl GET /rest/v1/` + `Accept: text/csv` | 49 tables (+16 Chat AI) |
+| Verify tables post-migration | `curl GET /rest/v1/` + `Accept: text/csv` | 49 tables (+16 CHATEENG) |
 | Apply RLS | `NOTIFY pgrst, 'reload schema'` via SQL Editor | Schema cache refreshed |
 | Seed data | `npm run seed:chat-ai` | All 11 tables populated |
 | Smoke test | `SMOKE_API_BASE="http://localhost:3001" npm run smoke:chat-ai` | 13/13 passed |
@@ -122,7 +122,7 @@ Migrations 038–041 applied to remote Supabase project `lsabyfolyqlrvbseggit`. 
 ## 7. Smoke Test Results
 
 ```
-🧪 Smoke Test — Chat AI API Routes
+🧪 Smoke Test — CHATEENG API Routes
 📡 API Base: http://localhost:3001
 
 ✅ GET conversations: 25 conversations

@@ -1,4 +1,4 @@
-# Chat AI Phase 2C Report — Admin Control Center + Live Testing Fix
+# CHATEENG Phase 2C Report — Admin Control Center + Live Testing Fix
 
 **Date**: 2026-06-12
 **Status**: COMPLETED
@@ -8,7 +8,7 @@
 
 ## 1. Summary
 
-Phase 2C delivered the Chat AI Admin Control Center (6 pages + 6 API endpoints), fixed the seed/smoke test tooling (Node 20 + ws), and added the PPV recommendation history GET endpoint. All TypeScript, ESLint, and build checks pass.
+Phase 2C delivered the CHATEENG admin Control Center (6 pages + 6 API endpoints), fixed the seed/smoke test tooling (Node 20 + ws), and added the PPV recommendation history GET endpoint. All TypeScript, ESLint, and build checks pass.
 
 ---
 
@@ -70,7 +70,7 @@ All under `app/api/admin/chat-ai/` using `createAdminClient()` (service-role byp
 | `/api/admin/chat-ai/compliance` | GET | Compliance overview: consent rates, pause states, QA breakdown, per-creator detail |
 | `/api/admin/chat-ai/audit` | GET | Cross-creator audit log. Filters: `?action=&userId=`. Export: `?export=true`. Returns available action types |
 | `/api/admin/chat-ai/usage` | GET | Usage analytics: demo/prod users, mode/plan distribution, daily drafts/PPV (30d), top audit actions |
-| `/api/admin/chat-ai/creators/[id]/pause` | PATCH | Pause/resume Chat AI module for a specific creator. Body: `{ is_paused: boolean }` |
+| `/api/admin/chat-ai/creators/[id]/pause` | PATCH | Pause/resume CHATEENG module for a specific creator. Body: `{ is_paused: boolean }` |
 | `/api/admin/chat-ai/qa/[id]` | PATCH | Review/update QA item status. Body: `{ status, notes? }`. Valid statuses: approved, revised, blocked, escalated, false_positive |
 
 ### Mission 3.5 — Admin Action Buttons
@@ -80,7 +80,7 @@ All under `app/api/admin/chat-ai/` using `createAdminClient()` (service-role byp
 
 ### Mission 4 — Admin UI Components
 
-- Added "Chat AI" sidebar section to `app/(admin)/admin/components/Sidebar.tsx` with 6 submenu items (Bot icon)
+- Added "CHATEENG" sidebar section to `app/(admin)/admin/components/Sidebar.tsx` with 6 submenu items (Bot icon)
 - Added `Bot` to lucide-react imports
 
 ---
@@ -113,7 +113,7 @@ All under `app/api/admin/chat-ai/` using `createAdminClient()` (service-role byp
 | 1 | `scripts/seed-chat-ai-demo.ts` | Added ws import + global WebSocket polyfill |
 | 2 | `scripts/smoke-chat-ai.ts` | Added ws import + global WebSocket polyfill |
 | 3 | `app/(private)/dashboard/sovereign-chat/ppv-copilot/page.tsx` | Added `vaultAssetTitle`/`vaultAssetType` to PPVRecommendation interface, render asset title in history items |
-| 4 | `app/(admin)/admin/components/Sidebar.tsx` | Added "Chat AI" section with 6 submenu items, added Bot icon import |
+| 4 | `app/(admin)/admin/components/Sidebar.tsx` | Added "CHATEENG" section with 6 submenu items, added Bot icon import |
 | 5 | `package.json` | Added `ws` and `@types/ws` as devDependencies |
 | 6 | `app/(admin)/admin/chat-ai/creators/page.tsx` | Added pause/resume button with confirm dialog + optimistic UI |
 | 7 | `app/(admin)/admin/chat-ai/qa/page.tsx` | Added review action buttons (5 statuses) + notes textarea |
@@ -150,7 +150,7 @@ Scanned all Phase 2C files (15 files) for forbidden phrases:
 
 | Page | Loading | Empty | Error | Data |
 |------|---------|-------|-------|------|
-| Overview | 9 skeleton cards | "Aucune donnée Chat AI" | Red error banner | 9 KPI cards |
+| Overview | 9 skeleton cards | "Aucune donnée CHATEENG" | Red error banner | 9 KPI cards |
 | Creators | 8 skeleton rows | "Aucun créateur trouvé" | Red error banner | Table with badges |
 | QA Review | 8 skeleton rows | "Aucun item QA trouvé" | Red error banner | Expandable items + severity bars |
 | Compliance | 4 skeleton cards | "Aucun créateur" | Red error banner | KPI cards + tables |
@@ -159,9 +159,9 @@ Scanned all Phase 2C files (15 files) for forbidden phrases:
 
 ## 8. Admin Sidebar Integration
 
-The "Chat AI" section was added under the BOTTOM_ITEMS array (after "Documentation"), containing:
+The "CHATEENG" section was added under the BOTTOM_ITEMS array (after "Documentation"), containing:
 
-- Chat AI (Bot icon)
+- CHATEENG (Bot icon)
   - Vue d'ensemble → `/admin/chat-ai/overview`
   - Créateurs → `/admin/chat-ai/creators`
   - QA Review → `/admin/chat-ai/qa`
@@ -169,7 +169,7 @@ The "Chat AI" section was added under the BOTTOM_ITEMS array (after "Documentati
   - Audit Log → `/admin/chat-ai/audit`
   - Usage → `/admin/chat-ai/usage`
 
-Auto-expands when navigating to any Chat AI page. Uses existing collapsible/layout patterns.
+Auto-expands when navigating to any CHATEENG Page. Uses existing collapsible/layout patterns.
 
 ## 9. Architecture Compliance
 
@@ -199,7 +199,7 @@ Auto-expands when navigating to any Chat AI page. Uses existing collapsible/layo
 - [x] Mission 1: PPV recommendation history GET endpoint created + PPV Copilot page updated
 - [x] Mission 2: 6 admin pages created (overview, creators, qa, compliance, audit, usage)
 - [x] Mission 3: 6 admin API endpoints created
-- [x] Mission 4: Admin sidebar updated with Chat AI section
+- [x] Mission 4: Admin sidebar updated with CHATEENG section
 - [x] TypeScript: 0 errors
 - [x] ESLint: 0 errors, 0 warnings (on Phase 2C files)
 - [x] Build: 385/385 pages

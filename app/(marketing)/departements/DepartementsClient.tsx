@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Music, Star, TrendingUp, Video, Dumbbell, Sparkles, X } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 function useReveal(amount = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -35,7 +34,7 @@ const DEPARTEMENTS = [
       "Protection de l'image contre les utilisations non autorisées",
     ],
     reponse: "Un accompagnement qui comprend les codes du luxe : direction artistique, production photo et vidéo premium, gestion des relations marques, et protection juridique de l'image.",
-    outils: ["Studio IA générative", "Chat AI personnalisé", "WTF Lex", "Atlas CRM", "Plateformes sociales"],
+    outils: ["Studio IA générative", "CHATEENG personnalisé", "WTF Lex", "Atlas CRM", "Plateformes sociales"],
     parcours: "Une créatrice mode arrive avec 50K followers. En 6 mois : identité visuelle unifiée, partenariat avec deux marques luxe, revenus ×3, communauté à 200K.",
   },
   {
@@ -51,7 +50,7 @@ const DEPARTEMENTS = [
       "Dépendance aux algorithmes des plateformes",
     ],
     reponse: "Nous vous aidons à structurer votre activité comme une entreprise : stratégie de contenu, monétisation diversifiée, gestion des partenariats, protection juridique, et outils IA pour gagner du temps.",
-    outils: ["Chat AI", "Studio IA", "Atlas CRM", "WTF Lex", "Sovereign Chat"],
+    outils: ["CHATEENG", "Studio IA", "Atlas CRM", "WTF Lex", "Sovereign Chat"],
     parcours: "Un streamer gaming avec 20K abonnés. En 6 mois : diversification YouTube + TikTok, monétisation ×4, première collaboration marque gaming, communauté Discord structurée.",
   },
   {
@@ -67,7 +66,7 @@ const DEPARTEMENTS = [
       "Monétisation uniquement dépendante de la publicité",
     ],
     reponse: "Production assistée par IA, stratégie de référencement, diversification des revenus (sponsoring, abonnements, produits dérivés), et gestion des droits avec WTF Lex.",
-    outils: ["Studio IA (texte, audio, vidéo)", "Atlas CRM", "WTF Lex", "Chat AI", "Sovereign Chat"],
+    outils: ["Studio IA (texte, audio, vidéo)", "Atlas CRM", "WTF Lex", "CHATEENG", "Sovereign Chat"],
     parcours: "Un podcasteur tech avec 5K écoutes par épisode. En 6 mois : chaîne YouTube lancée, 3 sponsors récurrents, équipe de production externalisée, revenus ×5.",
   },
   {
@@ -83,7 +82,7 @@ const DEPARTEMENTS = [
       "Absence de stratégie marketing structurée",
     ],
     reponse: "Studio IA pour la production musicale, stratégie de distribution multi-plateforme, gestion des droits et royalties avec WTF Lex, marketing digital et community building.",
-    outils: ["Studio IA (musique et audio)", "WTF Lex", "Atlas CRM", "Chat AI", "Plateformes streaming"],
+    outils: ["Studio IA (musique et audio)", "WTF Lex", "Atlas CRM", "CHATEENG", "Plateformes streaming"],
     parcours: "Un beatmaker autodidacte avec 500 followers. En 6 mois : premier EP distribué sur 5 plateformes, 3 placements synchro, communauté 15K, signature avec un label partenaire.",
   },
   {
@@ -99,7 +98,7 @@ const DEPARTEMENTS = [
       "Transition post-carrière non préparée",
     ],
     reponse: "Construction de marque personnelle, diversification des revenus (programmes, produits, consulting), gestion de communauté, et préparation de l'après-carrière avec Atlas.",
-    outils: ["Atlas CRM", "Chat AI", "Studio IA", "WTF Lex", "Sovereign Chat"],
+    outils: ["Atlas CRM", "CHATEENG", "Studio IA", "WTF Lex", "Sovereign Chat"],
     parcours: "Un coach fitness avec 10K followers. En 6 mois : programme en ligne lancé, 200 clients payants, marque de compléments en développement, revenus ×3.",
   },
 ];
@@ -110,7 +109,7 @@ const TABLEAU_COMPARATIF = [
   { besoin: "Protection juridique", glamour: "Essentiel", influenceurs: "Élevé", youtube: "Élevé", musique: "Essentiel", sport: "Élevé" },
   { besoin: "Gestion fans/CRM", glamour: "Élevé", influenceurs: "Essentiel", youtube: "Élevé", musique: "Élevé", sport: "Essentiel" },
   { besoin: "Monétisation", glamour: "Important", influenceurs: "Essentiel", youtube: "Essentiel", musique: "Essentiel", sport: "Essentiel" },
-  { besoin: "Chat AI fans", glamour: "Modéré", influenceurs: "Élevé", youtube: "Modéré", musique: "Modéré", sport: "Élevé" },
+  { besoin: "CHATEENG fans", glamour: "Modéré", influenceurs: "Élevé", youtube: "Modéré", musique: "Modéré", sport: "Élevé" },
 ];
 
 const CE_QUE_NOUS_REFUSONS = [
@@ -194,7 +193,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 100 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 900, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Nos départements
@@ -406,7 +405,7 @@ function CTASection() {
     <section ref={ref} className="couture-section text-center" style={{ backgroundColor: "var(--encre)", paddingTop: 100, paddingBottom: 100 }}>
       <div className="wrap-eco" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={26} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.p className="display-medium mb-6" style={{ color: "var(--ivoire)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Prêt à construire une image qui dure ?

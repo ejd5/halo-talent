@@ -128,7 +128,7 @@ export function Footer() {
               <li><Link href="/manifeste">Manifeste</Link></li>
               <li><Link href="/commissions">Commissions</Link></li>
               <li><Link href="/protection">Bouclier Légal</Link></li>
-              <li><Link href="/chat-ai">Sovereign Chat AI</Link></li>
+              <li><Link href="/chat-ai">CHATEENG</Link></li>
               <li><Link href="/saas">SaaS</Link></li>
               <li><Link href="/blog">Blog</Link></li>
               <li><Link href="/contact">Contact</Link></li>

@@ -1,4 +1,4 @@
-# Chat AI Phase 2B Report
+# CHATEENG Phase 2B Report
 
 **Date**: 2026-06-11
 **Status**: APPROVED_FOR_2B_QA

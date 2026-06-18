@@ -45,7 +45,7 @@ export const CONTINUER_AVEC: LinkGroup[] = [
     page: "/atlas",
     title: "Continuer avec",
     links: [
-      { label: "Chat AI", href: "/chat-ai", description: "L'assistant IA qui comprend votre activité." },
+      { label: "CHATEENG", href: "/chat-ai", description: "L'assistant IA qui comprend votre activité." },
       { label: "Protection", href: "/protection", description: "Bouclier Légal et conformité." },
       { label: "Scénarios d'usage", href: "/atlas/testimonials", description: "Comment les créateurs utilisent Atlas." },
     ],
@@ -54,9 +54,9 @@ export const CONTINUER_AVEC: LinkGroup[] = [
     page: "/chat-ai",
     title: "Continuer avec",
     links: [
-      { label: "Atlas CRM", href: "/atlas", description: "Le CRM qui alimente votre Chat AI." },
+      { label: "Atlas CRM", href: "/atlas", description: "Le CRM qui alimente votre CHATEENG." },
       { label: "Protection", href: "/protection", description: "Sécurisez vos comptes et contenus." },
-      { label: "Démo", href: "/demo", description: "Essayez Chat AI par vous-même." },
+      { label: "Démo", href: "/demo", description: "Essayez CHATEENG par vous-même." },
     ],
   },
   {
@@ -83,7 +83,7 @@ export const CONTINUER_AVEC: LinkGroup[] = [
     title: "Continuer avec",
     links: [
       { label: "Atlas CRM", href: "/atlas", description: "Département CRM." },
-      { label: "Chat AI", href: "/chat-ai", description: "Département IA conversationnelle." },
+      { label: "CHATEENG", href: "/chat-ai", description: "Département IA conversationnelle." },
       { label: "Lex AI", href: "/lex-ai", description: "Département juridique." },
       { label: "Protection", href: "/protection", description: "Département protection." },
     ],
@@ -102,7 +102,7 @@ export const CONTINUER_AVEC: LinkGroup[] = [
     title: "Continuer avec",
     links: [
       { label: "Tarifs", href: "/pricing", description: "Nos formules." },
-      { label: "Chat AI", href: "/chat-ai", description: "Découvrez l'assistant IA." },
+      { label: "CHATEENG", href: "/chat-ai", description: "Découvrez l'assistant IA." },
       { label: "Contact", href: "/contact", description: "Parlez-nous de votre projet." },
     ],
   },
@@ -194,7 +194,7 @@ export const CROSS_CTA = {
     description: "Le CRM pensé pour les créateurs.",
   },
   chatAi: {
-    label: "Essayer Chat AI",
+    label: "Essayer CHATEENG",
     href: "/chat-ai",
     description: "L'assistant IA disponible 24/7.",
   },

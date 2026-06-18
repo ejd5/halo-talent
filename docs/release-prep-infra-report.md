@@ -8,7 +8,7 @@
 
 ## 1. Summary
 
-Release preparation audit covering Supabase environment, migrations, RLS security, seed/smoke testing, public pages, dashboard pages, build quality, and Vercel deploy checklist. One blocking issue found: **migrations 038-041 are not applied to the remote Supabase instance** (`lsabyfolyqlrvbseggit`). This blocks seed, smoke, and all Chat AI functionality on production.
+Release preparation audit covering Supabase environment, migrations, RLS security, seed/smoke testing, public pages, dashboard pages, build quality, and Vercel deploy checklist. One blocking issue found: **migrations 038-041 are not applied to the remote Supabase instance** (`lsabyfolyqlrvbseggit`). This blocks seed, smoke, and all CHATEENG functionality on production.
 
 ---
 
@@ -55,7 +55,7 @@ Release preparation audit covering Supabase environment, migrations, RLS securit
 
 ### 3.1 Remote State
 
-Remote Supabase (`lsabyfolyqlrvbseggit.supabase.co`) has **33 tables** — all from migrations 001-037. None of the Chat AI tables (038-039) or contact/newsletter tables (040-041) exist.
+Remote Supabase (`lsabyfolyqlrvbseggit.supabase.co`) has **33 tables** — all from migrations 001-037. None of the CHATEENG tables (038-039) or contact/newsletter tables (040-041) exist.
 
 ```
 Remote tables (33 total):
@@ -145,7 +145,7 @@ npm run seed:chat-ai
 
 ## 4. Mission 3 — RLS Risk Matrix
 
-### 4.1 Chat AI Tables (migration 038 → updated by 039)
+### 4.1 CHATEENG tables (migration 038 → updated by 039)
 
 After both migrations applied, the final RLS state is:
 
@@ -341,7 +341,7 @@ All 8 admin endpoints use `requireAdmin()` from `lib/auth/require-admin.ts`:
 |------|--------|
 | `npx tsc --noEmit` | PASS — 0 errors |
 | `npx eslint` (Phase 2E files only) | PASS — 0 errors, 0 warnings |
-| `npm run lint` (global) | 947 errors, 864 warnings — ALL pre-existing (Remotion, legacy scripts). ZERO in Chat AI files. |
+| `npm run lint` (global) | 947 errors, 864 warnings — ALL pre-existing (Remotion, legacy scripts). ZERO in CHATEENG files. |
 | `npm run build` | PASS — 389/389 pages, compiled successfully (24.4s) |
 
 ### 9.1 Pre-existing Lint Debt
@@ -407,8 +407,8 @@ RESEND_API_KEY=<to be obtained>
 - [ ] Newsletter form submits successfully
 - [ ] Contact form submits successfully
 - [ ] Admin login works at `/login`
-- [ ] Admin Chat AI pages load with data
-- [ ] Dashboard Chat AI pages load with data for demo user
+- [ ] Admin CHATEENG Pages load with data
+- [ ] Dashboard CHATEENG Pages load with data for demo user
 
 ### Rollback Plan
 
@@ -422,7 +422,7 @@ If critical issues found post-deploy:
 ## 12. Final Status: NEEDS_INFRA_FIX
 
 **Blocking issue**: Migrations 038-041 not applied to remote Supabase (`lsabyfolyqlrvbseggit`). This blocks:
-- All Chat AI functionality (16 tables missing)
+- All CHATEENG functionality (16 tables missing)
 - Contact form storage (`contact_messages` table missing)
 - Newsletter storage (`newsletter_subscribers` table missing)
 - Seed data creation
@@ -430,7 +430,7 @@ If critical issues found post-deploy:
 
 **All other checks pass:**
 - Build: 389/389 pages, 0 TypeScript errors
-- Chat AI files: 0 ESLint errors/warnings
+- CHATEENG files: 0 ESLint errors/warnings
 - Public pages: 13/13 return 200
 - Dashboard auth gates: active
 - Admin API security: hardened (`requireAdmin()`)

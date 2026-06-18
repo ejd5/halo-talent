@@ -1,4 +1,4 @@
-# Chat AI Phase 2D Report — Public Landing Page
+# CHATEENG Phase 2D Report — Public Landing Page
 
 **Date**: 2026-06-12
 **Status**: APPROVED_FOR_2D_QA
@@ -8,7 +8,7 @@
 
 ## 1. Summary
 
-Phase 2D created the public marketing landing page for Halo Sovereign Chat AI at `/chat-ai`. Prior to this, Chat AI existed only in authenticated contexts (admin panel at `/admin/chat-ai/*` and dashboard at `/dashboard/sovereign-chat/*`). The new landing page presents all 8 product pillars, a 5-step workflow, PPV Copilot capabilities, QA & compliance features, a comparison table, persona profiles, a "what we don't promise" section, FAQ, and CTAs — all following existing marketing conventions.
+Phase 2D created the public marketing landing page for Halo CHATEENG at `/chat-ai`. Prior to this, CHATEENG existed only in authenticated contexts (admin panel at `/admin/chat-ai/*` and dashboard at `/dashboard/sovereign-chat/*`). The new landing page presents all 8 product pillars, a 5-step workflow, PPV Copilot capabilities, QA & compliance features, a comparison table, persona profiles, a "what we don't promise" section, FAQ, and CTAs — all following existing marketing conventions.
 
 ---
 
@@ -49,9 +49,9 @@ Phase 2D created the public marketing landing page for Halo Sovereign Chat AI at
 
 | # | File | Changes |
 |---|------|---------|
-| 1 | `lib/i18n/common.ts` | Added `nav.chat_ai` + 22 Chat AI landing translation keys in 6 languages |
+| 1 | `lib/i18n/common.ts` | Added `nav.chat_ai` + 22 CHATEENG Landing translation keys in 6 languages |
 | 2 | `components/shared/Navbar.tsx` | Added `/chat-ai` to NAV_ITEMS array |
-| 3 | `components/shared/Footer.tsx` | Added "Sovereign Chat AI" link to Navigation section |
+| 3 | `components/shared/Footer.tsx` | Added "CHATEENG" link to Navigation section |
 
 ---
 
@@ -59,7 +59,7 @@ Phase 2D created the public marketing landing page for Halo Sovereign Chat AI at
 
 ```typescript
 export const metadata: Metadata = {
-  title: "Halo Sovereign Chat AI — Copilote de chatting pour créateurs et agences",
+  title: "Halo CHATEENG — Copilote de chatting pour créateurs et agences",
   description:
     "Préparez des réponses, priorisez les conversations, recommandez des PPV, contrôlez les risques et gardez une trace des actions avec validation humaine.",
 };
@@ -146,8 +146,8 @@ Scanned `app/(marketing)/chat-ai/page.tsx` and `lib/marketing/chat-ai-landing.ts
 
 ## 12. Navigation Integration
 
-- **Navbar**: "Chat AI" link added between "Contact" and "Blog"
-- **Footer**: "Sovereign Chat AI" link added to Navigation section above "SaaS"
+- **Navbar**: "CHATEENG" link added between "Contact" and "Blog"
+- **Footer**: "CHATEENG" link added to Navigation section above "SaaS"
 - Both links resolve to `/chat-ai`
 - Navbar label uses i18n key `nav.chat_ai` (same label in all 6 languages)
 
@@ -176,6 +176,6 @@ Scanned `app/(marketing)/chat-ai/page.tsx` and `lib/marketing/chat-ai-landing.ts
 - [x] Build OK (387/387 pages)
 - [x] 0 TypeScript errors
 - [x] 0 ESLint errors/warnings on Phase 2D files
-- [x] Navbar and Footer include Chat AI link
+- [x] Navbar and Footer include CHATEENG link
 - [x] i18n keys prepared in 6 languages
 - [x] SEO metadata exported with safe title and description

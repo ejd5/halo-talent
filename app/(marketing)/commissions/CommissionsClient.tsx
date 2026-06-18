@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Check, ChevronDown, EyeOff, Globe, Sparkles, TrendingUp, Users } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 function useReveal(amount = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -81,7 +80,7 @@ const FAQ_ITEMS = [
 ];
 
 const PROFILES = [
-  { icon: Users, titre: "La créatrice autonome", revenus: "2 000 € – 8 000 € / mois", besoin: "Structurer sans se faire aspirer", solution: "Commission légère + CRM + Chat AI pour gérer les conversations. Accompagnement humain ponctuel, outils en continu." },
+  { icon: Users, titre: "La créatrice autonome", revenus: "2 000 € – 8 000 € / mois", besoin: "Structurer sans se faire aspirer", solution: "Commission légère + CRM + CHATEENG pour gérer les conversations. Accompagnement humain ponctuel, outils en continu." },
   { icon: TrendingUp, titre: "L'influenceuse en croissance", revenus: "8 000 € – 30 000 € / mois", besoin: "Scaler sans perdre le contrôle", solution: "Management dédié + Studio IA + Stratégie de marque. Commission marginale qui baisse avec la croissance." },
   { icon: Sparkles, titre: "L'artiste ou le sportif", revenus: "Variable, projets", besoin: "Protéger l'image et monétiser sans pression", solution: "Protection juridique prioritaire + Brand deals + Direction artistique. Pas d'obligation de volume de contenu." },
   { icon: Globe, titre: "L'équipe déjà constituée", revenus: "30 000 € – 100 000 €+ / mois", besoin: "Optimiser, internationaliser, sécuriser", solution: "Équipe dédiée complète + Atlas CRM avancé + Veille juridique internationale. Taux marginal plancher." },
@@ -91,7 +90,7 @@ const INCLUS_ITEMS = [
   "Management de carrière personnalisé",
   "Accès complet à Atlas CRM",
   "Studio IA de création de contenu",
-  "Chat AI avec mémoire contextuelle",
+  "CHATEENG avec mémoire contextuelle",
   "Négociation de partenariats et brand deals",
   "Bouclier Légal (protection juridique préparatoire)",
   "Reporting mensuel détaillé",
@@ -188,7 +187,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 100 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 800, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Tarification transparente
@@ -454,7 +453,7 @@ function CTASection() {
     <section ref={ref} className="couture-section text-center" style={{ backgroundColor: "var(--creme)", paddingTop: 100, paddingBottom: 100 }}>
       <div className="wrap-eco" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.4, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={26} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.p className="display-medium mb-6" style={{ color: "var(--encre)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Une commission juste, c'est possible.

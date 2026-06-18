@@ -11,7 +11,7 @@
 lib/i18n/
 ├── config.ts         — Supported locales, default locale (fr)
 ├── common.ts         — Shared UI strings (439 keys)
-├── chat-ai.ts        — Chat AI namespace (149 keys)
+├── chat-ai.ts        — CHATEENG namespace (149 keys)
 ├── index.ts          — t() function, useLocale() hook
 └── types.ts          — TypeScript types for i18n
 
@@ -154,9 +154,9 @@ Pattern: Nested key objects → t("namespace.section.key")
 
 | Page/Feature | Namespace |
 |--------------|-----------|
-| Chat AI Overview | `chat-ai` (149 keys) |
-| Chat AI Inbox Detail | `chat-ai` |
-| Chat AI Fans | `chat-ai` |
+| CHATEENG Overview | `chat-ai` (149 keys) |
+| CHATEENG Inbox Detail | `chat-ai` |
+| CHATEENG Fans | `chat-ai` |
 | Auth pages (login/register/reset) | `common.auth` |
 | Account settings | `common.settings` |
 | Dashboard sidebar/header chrome | `common.nav`, `common.header` |
@@ -172,7 +172,7 @@ Pattern: Nested key objects → t("namespace.section.key")
 <h1>La solution tout-en-un pour créateurs de contenu</h1>
 <p>Protégez votre activité, boostez vos revenus</p>
 
-// GOOD — Only in Chat AI + auth + settings
+// GOOD — Only in CHATEENG + auth + settings
 <h1>{t("chatAI.page.overview")}</h1>
 <p>{t("chatAI.page.overviewDesc")}</p>
 ```
@@ -206,7 +206,7 @@ placeholder="Rechercher une page, une action..."
 
 | Area | Keys | Coverage | Hardcoded |
 |------|------|----------|-----------|
-| Chat AI (3 pages) | 149 | **100%** | 0 strings |
+| CHATEENG (3 pages) | 149 | **100%** | 0 strings |
 | Common (auth/settings/nav) | 439 | **100%** | 0 strings in covered areas |
 | Home page | 0 | **28%** | ~150 hardcoded strings |
 | Atlas dashboard | 0 | **0%** | ~80 hardcoded strings |

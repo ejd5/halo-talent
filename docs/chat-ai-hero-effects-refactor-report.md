@@ -1,4 +1,4 @@
-# Chat AI Page — Premium Effects Refactor Report
+# CHATEENG Page — Premium Effects Refactor Report
 
 **Date**: 2026-06-12
 **Status**: APPROVED
@@ -17,7 +17,7 @@ All effects are CSS-only (no external libraries, no WebGL, no canvas). The page 
 | Technique | Synchronized Studio | Our Implementation |
 |-----------|-------------------|-------------------|
 | Loading counter | "0%" → 100% with progress bar | `PageLoader` — 0→100% with eased counter + marquee |
-| Marquee strips | "synchronized archive" ×44, "watch-showreel" ×28 | `MarqueeStrip` — 8× Chat AI terms in infinite scroll |
+| Marquee strips | "synchronized archive" ×44, "watch-showreel" ×28 | `MarqueeStrip` — 8× CHATEENG terms in infinite scroll |
 | Split typography | "SYNCHRO" / "NIZED" on separate lines | `HeroTitle` — H1 split into 3 lines with staggered rise |
 | Circular text SVG | `circle-text.svg` spinning | `CircularText` — SVG textPath rotating at 18s |
 | Floating elements | `hand.svg`, `face.svg` parallax | `FloatingOrbs` — 3 radial gradient orbs floating |
@@ -96,8 +96,8 @@ Inspired by Synchronized Studio's loading screen (0% counter + "watch-showreel" 
 - Percentage counter: 0→100% with cubic ease-out progression over 1.8s
 - `requestAnimationFrame`-driven counter for smooth 60fps updates
 - Progress bar: 1px height bar with emerald→blue gradient fill
-- Bottom marquee: infinite scrolling Chat AI keywords strip (same as MarqueeStrip style)
-- Bottom label: "Halo Sovereign Chat AI" in monospace uppercase
+- Bottom marquee: infinite scrolling CHATEENG keywords strip (same as MarqueeStrip style)
+- Bottom label: "Halo CHATEENG" in monospace uppercase
 - Exit animation: fade out + scale down over 0.6s after counter reaches 100%
 - `prefers-reduced-motion`: skips animation, sets 100% immediately, exits in 100ms
 - z-index 9999 overlay, removed from DOM after exit
@@ -107,7 +107,7 @@ Inspired by Synchronized Studio's loading screen (0% counter + "watch-showreel" 
 Inspired by Synchronized Studio's "synchronized archive" ×44 infinite scroll.
 
 **Implementation:**
-- 8× repetition of 8 Chat AI terms (64 total words in strip)
+- 8× repetition of 8 CHATEENG terms (64 total words in strip)
 - Infinite horizontal scroll at 22s linear
 - Words: Fan Brain · PPV Check · QA Review · Compliance Gate · Audit Log · Human Approved · Draft Ready · Risk Checked
 - Green dot separators between each word

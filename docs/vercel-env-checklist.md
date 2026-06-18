@@ -12,7 +12,7 @@
 | 1 | `NEXT_PUBLIC_SUPABASE_URL` | Public | Browser/client Supabase, health check, proxy, seed/smoke scripts | App won't connect to DB. All pages fail. |
 | 2 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Public | Browser/client Supabase, server-side SSR client | Auth fails. No user sessions. |
 | 3 | `SUPABASE_SERVICE_ROLE_KEY` | **Secret** | Admin client (`createAdminClient`), Halo Lex ingestion, seed/smoke scripts | Admin operations fail. RLS-bypass queries blocked. Seed/ingestion fail. |
-| 4 | `DEEPSEEK_API_KEY` | **Secret** | Chat AI draft/PPV, Halo Lex LLM, AI chat, Atlas inbox | All AI features return errors. Chat AI unusable. |
+| 4 | `DEEPSEEK_API_KEY` | **Secret** | CHATEENG draft/PPV, Halo Lex LLM, AI chat, Atlas inbox | All AI features return errors. CHATEENG unusable. |
 | 5 | `NEXT_PUBLIC_APP_URL` | Public | Internal API calls (fan brain, memory, trends, campaigns), admin invites, push tracking | Internal fetch calls fail. Invite links broken. |
 | 6 | `CRON_SECRET` | **Secret** | 13 cron endpoints (trends, atlas, legal-scan, token refresh, credit reset, etc.) | All cron jobs return 401. Background processing stops. |
 
@@ -117,5 +117,5 @@ The mobile app uses `EXPO_PUBLIC_` prefixed env vars. These must be set in Expo'
 
 - **`NEXT_PUBLIC_APP_URL`**: Many internal API calls (fan brain, memory store, trend tools, campaign sends, admin invites) use this to construct full URLs. On Vercel, the `VERCEL_URL` env var is auto-populated with the deployment URL. The app can use `process.env.VERCEL_URL || process.env.NEXT_PUBLIC_APP_URL` for auto-detection.
 - **`RESEND_API_KEY`**: The email module gracefully degrades — if unset, it logs instead of sending. Contact/newsletter store data in Supabase regardless. Safe to omit in Preview.
-- **`DEEPSEEK_API_KEY`**: No graceful degradation. Chat AI and Halo Lex will throw errors if unset. Must be set for these features to work.
+- **`DEEPSEEK_API_KEY`**: No graceful degradation. CHATEENG and Halo Lex will throw errors if unset. Must be set for these features to work.
 - **`CRON_SECRET`**: 13 endpoints validate against this. Must be set for all background processing. Generate a strong random value.

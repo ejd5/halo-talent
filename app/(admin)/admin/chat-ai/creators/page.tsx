@@ -30,7 +30,7 @@ export default function ChatAICreatorsPage() {
   const limit = 50;
 
   async function handlePauseToggle(creatorId: string, currentPaused: boolean) {
-    if (!confirm(`${currentPaused ? "Réactiver" : "Mettre en pause"} le module Chat AI pour ce créateur ?`)) return;
+    if (!confirm(`${currentPaused ? "Réactiver" : "Mettre en pause"} le module CHATEENG pour ce créateur ?`)) return;
     setPausingId(creatorId);
     try {
       const res = await fetch(`/api/admin/chat-ai/creators/${creatorId}/pause`, {
@@ -87,11 +87,13 @@ export default function ChatAICreatorsPage() {
   return (
     <div style={{ padding: "24px 32px", maxWidth: 1400 }}>
       <div style={{ marginBottom: 24 }}>
-        <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
-          Créateurs, Chat AI
-        </h1>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+          <h1 style={{ fontSize: 18, fontWeight: 600, color: "var(--text-primary)", fontFamily: "var(--font-display)" }}>
+            Créateurs, CHATEENG
+          </h1>
+        </div>
         <p style={{ fontSize: 11, color: "rgba(245,240,235,0.3)", marginTop: 4 }}>
-          {total} créateur(s) utilisant le module Sovereign Chat AI
+          {total} créateur(s) utilisant le module CHATEENG
         </p>
       </div>
 

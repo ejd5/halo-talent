@@ -10,7 +10,7 @@
 ```
 /dashboard
 ├── /                    ← Welcome/Overview
-├── /chat-ai/            ← Halo Sovereign Chat AI
+├── /chat-ai/            ← Halo CHATEENG
 │   ├── /                ← Overview + Revenue Inbox
 │   ├── /inbox/[id]      ← Conversation detail + draft composer
 │   └── /fans            ← Fan Brain list + profiles
@@ -57,7 +57,7 @@
 
 ---
 
-### 2.2 `/dashboard/chat-ai` — Chat AI Overview
+### 2.2 `/dashboard/chat-ai` — CHATEENG Overview
 
 | Criteria | Status | Details |
 |----------|--------|---------|
@@ -317,6 +317,6 @@
 6. **Studio Settings** — Settings page.
 
 ### Complete (no action needed)
-1. **Chat AI Overview** — Phase 2A complete.
-2. **Chat AI Inbox Detail** — Phase 2A complete.
-3. **Chat AI Fans** — Phase 2A complete.
+1. **CHATEENG Overview** — Phase 2A complete.
+2. **CHATEENG Inbox Detail** — Phase 2A complete.
+3. **CHATEENG Fans** — Phase 2A complete.

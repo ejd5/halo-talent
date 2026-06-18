@@ -420,7 +420,7 @@ export function ChatAIHero() {
                   animation: "chat-ai-pulse-node 2.5s ease-out infinite",
                 }}
               />
-              Sovereign Chat AI
+CHATEENG
             </span>
 
             {/* H1, split lines */}

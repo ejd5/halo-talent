@@ -1,4 +1,4 @@
-# Chat AI Phase 2C-QA Report — Final Audit
+# CHATEENG Phase 2C-QA Report — Final Audit
 
 **Date**: 2026-06-12
 **Status**: APPROVED_FOR_2D
@@ -8,7 +8,7 @@
 
 ## 1. Summary
 
-Phase 2C-QA audited, secured, and validated the entire Chat AI Admin Control Center. One critical vulnerability was found and fixed (6 GET endpoints with zero auth). A shared `requireAdmin()` helper was created and applied to all 8 admin endpoints. The 2 PATCH endpoints were hardened with creator existence checks and previous-state audit metadata. Build, TypeScript, and ESLint all pass. Migrations 038-041 are ready but not applied to remote Supabase — exact commands documented below.
+Phase 2C-QA audited, secured, and validated the entire CHATEENG admin Control Center. One critical vulnerability was found and fixed (6 GET endpoints with zero auth). A shared `requireAdmin()` helper was created and applied to all 8 admin endpoints. The 2 PATCH endpoints were hardened with creator existence checks and previous-state audit metadata. Build, TypeScript, and ESLint all pass. Migrations 038-041 are ready but not applied to remote Supabase — exact commands documented below.
 
 ---
 
@@ -110,7 +110,7 @@ All admin GET endpoints use `createAdminClient()` which bypasses RLS, but this i
 
 | Page | Loading | Empty | Error | Data |
 |------|---------|-------|-------|------|
-| Overview | 9 skeleton cards | "Aucune donnée Chat AI" | Red error banner | 9 KPI cards |
+| Overview | 9 skeleton cards | "Aucune donnée CHATEENG" | Red error banner | 9 KPI cards |
 | Creators | 8 skeleton rows | "Aucun créateur trouvé" | Red error banner | Table with pause/resume buttons |
 | QA Review | 8 skeleton rows | "Aucun item QA trouvé" | Red error banner | Expandable items + review actions |
 | Compliance | 4 skeleton cards | "Aucun créateur" | Red error banner | KPI cards + tables |
@@ -281,7 +281,7 @@ export async function requireAdmin(): Promise<
 }
 ```
 
-Used by all 8 Chat AI admin endpoints. Centralized — a single source of truth for admin auth.
+Used by all 8 CHATEENG admin endpoints. Centralized — a single source of truth for admin auth.
 
 ---
 
@@ -336,7 +336,7 @@ All admin actions are audit-logged via `lib/compliance/audit.ts` with `actorType
 
 | Severity | Description |
 |----------|-------------|
-| HIGH | Migrations 038-041 not applied to remote Supabase — ALL Chat AI tables missing. `supabase login` + `supabase link` + `supabase migration up` required. |
+| HIGH | Migrations 038-041 not applied to remote Supabase — ALL CHATEENG tables missing. `supabase login` + `supabase link` + `supabase migration up` required. |
 | HIGH | Seed/smoke tests blocked — cannot run without tables + dev server. |
 | LOW | Optimistic UI on pause/review actions has empty catch blocks — on network error, no user feedback is shown (but state is correctly NOT rolled back since update only occurs on `res.ok`). |
 | LOW | Usage page charts are text-based div bars, not a chart library. |

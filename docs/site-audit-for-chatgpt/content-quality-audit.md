@@ -44,9 +44,9 @@
 | Page | Clarté | Crédibilité | Densité | Conversion | Risque | **Score** |
 |------|--------|------------|---------|------------|--------|-----------|
 | Dashboard `/dashboard` | 3 | 3 | 2 | 2 | 5 | **3.00** |
-| Chat AI `/dashboard/chat-ai` | 5 | 5 | 5 | 5 | 5 | **5.00** |
-| Chat AI Inbox `/dashboard/chat-ai/inbox/[id]` | 5 | 5 | 5 | 5 | 5 | **5.00** |
-| Chat AI Fans `/dashboard/chat-ai/fans` | 5 | 5 | 5 | 5 | 5 | **5.00** |
+| CHATEENG `/dashboard/chat-ai` | 5 | 5 | 5 | 5 | 5 | **5.00** |
+| CHATEENG Inbox `/dashboard/chat-ai/inbox/[id]` | 5 | 5 | 5 | 5 | 5 | **5.00** |
+| CHATEENG Fans `/dashboard/chat-ai/fans` | 5 | 5 | 5 | 5 | 5 | **5.00** |
 | Atlas `/dashboard/atlas` | 3 | 1 | 4 | 2 | 4 | **2.60** |
 | Atlas subpages (6) | 1 | 1 | 1 | 1 | 5 | **1.65** |
 | Studio `/dashboard/studio` | 3 | 1 | 3 | 2 | 4 | **2.45** |
@@ -71,7 +71,7 @@
 ## 3. Content Quality Distribution
 
 ```
-Score 5.0: ██████ Chat AI (×3)              ← Gold standard
+Score 5.0: ██████ CHATEENG (×3)              ← Gold standard
 Score 4.0: ████ Auth pages (×3)
 Score 3.0: ███ Home, Dashboard welcome
 Score 2.5: ██½ Atlas, Conformité, Contact, Studio, À propos
@@ -83,7 +83,7 @@ Score 1.6: █½ 19 empty/placeholder pages     ← Critical
 
 ## 4. Detailed Pattern Analysis
 
-### 4.1 Gold Standard — Chat AI Pages (Score: 5.0)
+### 4.1 Gold Standard — CHATEENG Pages (Score: 5.0)
 
 **What works**:
 - Every label uses i18n with full 6-language coverage
@@ -96,7 +96,7 @@ Score 1.6: █½ 19 empty/placeholder pages     ← Critical
 - Mobile responsive with flexbox wrap layouts
 - Dark theme consistent, proper contrast ratios
 
-**Pattern to replicate**: Chat AI pages should be the template for all other dashboard pages.
+**Pattern to replicate**: CHATEENG Pages should be the template for all other dashboard pages.
 
 ### 4.2 Critical Failures — Mock Data Pages (Score: 1.0-2.6)
 
@@ -130,7 +130,7 @@ Score 1.6: █½ 19 empty/placeholder pages     ← Critical
 
 | Category | Pages | Avg Words | Assessment |
 |----------|-------|-----------|------------|
-| Chat AI pages | 3 | ~200 (labels only) | Appropriate for dashboard |
+| CHATEENG Pages | 3 | ~200 (labels only) | Appropriate for dashboard |
 | Home page | 1 | ~800 | Good density |
 | Marketing pages | 4 | ~400 | Adequate but generic |
 | Empty pages | 19 | ~5 | Critically sparse |
@@ -190,5 +190,5 @@ Score 1.6: █½ 19 empty/placeholder pages     ← Critical
 4. Launch blog with 3-5 articles or remove from nav
 
 ### Done
-1. Chat AI pages (Phase 2A) — 5.0/5.0, gold standard
+1. CHATEENG Pages (Phase 2A) — 5.0/5.0, gold standard
 2. Auth pages — 4.0/5.0, functional and translated

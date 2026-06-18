@@ -4,7 +4,7 @@ import { ConfidentialiteClient } from "./ConfidentialiteClient";
 export const metadata: Metadata = {
   title: "Politique de confidentialité, Where Talent Forms",
   description:
-    "Comment Where Talent Forms collecte, utilise et protège vos données personnelles. Conforme RGPD. Données de contact, compte, Chat AI, CRM, WTF Lex. Vos droits, sécurité, cookies.",
+    "Comment Where Talent Forms collecte, utilise et protège vos données personnelles. Conforme RGPD. Données de contact, compte, CHATEENG, CRM, WTF Lex. Vos droits, sécurité, cookies.",
   openGraph: {
     title: "Politique de confidentialité, Where Talent Forms",
     description:

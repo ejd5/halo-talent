@@ -5,7 +5,7 @@ import { DemoShell } from "@/components/demo/DemoShell";
 export const metadata: Metadata = {
   title: "Démo Where Talent Forms, Essayez la plateforme",
   description:
-    "Prenez en main la plateforme Where Talent Forms. Testez Atlas CRM, Studio IA, Chat AI et WTF Lex dans un environnement de démonstration interactif.",
+    "Prenez en main la plateforme Where Talent Forms. Testez Atlas CRM, Studio IA, CHATEENG et WTF Lex dans un environnement de démonstration interactif.",
   openGraph: {
     title: "Démo interactive, Where Talent Forms",
     description:

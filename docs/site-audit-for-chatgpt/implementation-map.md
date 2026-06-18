@@ -108,8 +108,8 @@ Each row is one actionable correction. Complexity is estimated in developer-hour
 | DQ-1 | Personalize welcome dashboard | `app/(private)/dashboard/page.tsx` | M | 8 |
 | DQ-2 | Internationalize UI primitives (EmptyState, ErrorState, etc.) | `components/ui/*` | S | 4 |
 | DQ-3 | Internationalize dashboard chrome (CommandPalette, KeyboardShortcuts, AtlasLauncher) | `components/dashboard/*` | S | 3 |
-| DQ-4 | Add real-time polling for Chat AI audit feed | `components/chat-ai/AuditMiniFeed.tsx` | S | 3 |
-| DQ-5 | Add pending drafts/compliance alerts aggregation | Chat AI overview + API | S | 4 |
+| DQ-4 | Add real-time polling for CHATEENG audit feed | `components/chat-ai/AuditMiniFeed.tsx` | S | 3 |
+| DQ-5 | Add pending drafts/compliance alerts aggregation | CHATEENG overview + API | S | 4 |
 
 **Subtotal DQ: 22 hours (2.75 days)**
 

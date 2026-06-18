@@ -89,7 +89,7 @@
 5. **Pricing basé sur les revenus BRUTS** — Infloww le fait et se fait critiquer. Pricing au net ou flat.
 6. **Lock-in contracts** — Tout contrat avec durée minimale, frais de sortie ou clause de non-compétition est toxique.
 7. **Fausse rareté** — "Only 3 spots left" mis à jour chaque semaine. Les créateurs voient le pattern.
-8. **Chat AI non supervisé** — TDM dit "on a testé l'IA, c'était horrible". Le marché exige AI + humain, pas 100% IA sans contrôle.
+8. **CHATEENG non supervisé** — TDM dit "on a testé l'IA, c'était horrible". Le marché exige AI + humain, pas 100% IA sans contrôle.
 9. **Copying identity** — Copier le design/ton d'Aruna ou TDM. Chaque agence a sa propre identité visuelle forte.
 10. **Ignorer la compliance RGPD/ePrivacy** — Surtout pour un produit français. Les concurrents US sont souvent laxistes sur ce point = avantage compétitif pour Halo.
 

@@ -157,7 +157,7 @@ export const noPromiseItems: NoPromiseItem[] = [
   },
   {
     title: "Pas un substitut d'avocat",
-    description: "WTF Sovereign Chat AI n'est pas un conseiller juridique. Pour toute question légale, rapprochez-vous d'un professionnel du droit ou consultez WTF Lex.",
+    description: "CHATEENG n'est pas un conseiller juridique. Pour toute question légale, rapprochez-vous d'un professionnel du droit ou consultez WTF Lex.",
   },
   {
     title: "Aucun envoi automatique non contrôlé",

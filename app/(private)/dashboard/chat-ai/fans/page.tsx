@@ -37,7 +37,7 @@ export default function ChatAIFansPage() {
       const data = await res.json();
       setFans(data.fans || []);
     } catch (err) {
-      console.error("[Chat AI Fans] Fetch error:", err);
+      console.error("[CHATEENG Fans] Fetch error:", err);
     } finally {
       setLoading(false);
     }
@@ -60,7 +60,7 @@ export default function ChatAIFansPage() {
       const data = await res.json();
       if (data.fan) setSelectedFan(data.fan);
     } catch (err) {
-      console.error("[Chat AI Fans] Detail fetch error:", err);
+      console.error("[CHATEENG Fans] Detail fetch error:", err);
     } finally {
       setDrawerLoading(false);
     }

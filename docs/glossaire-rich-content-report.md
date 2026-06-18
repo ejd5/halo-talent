@@ -39,7 +39,7 @@
 | # | Terme | Lettre |
 |---|-------|--------|
 | 1 | Audit log | A |
-| 2 | Chat AI | C |
+| 2 | CHATEENG | C |
 | 3 | Commission | C |
 | 4 | Consentement | C |
 | 5 | Content Vault | C |

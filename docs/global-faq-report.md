@@ -22,7 +22,7 @@
 | 1 | Général | 10 | Mission, fonctionnement, qui, combien, différenciation |
 | 2 | Commissions | 9 | Taux, transparence, comparaison, simulateur |
 | 3 | Atlas | 8 | CRM, données, export, Fan Brain, sécurité |
-| 4 | Chat AI | 8 | Assistant, modèle IA, confidentialité, disponibilité |
+| 4 | CHATEENG | 8 | Assistant, modèle IA, confidentialité, disponibilité |
 | 5 | Lex | 8 | Contrats, analyse, limites, avocats partenaires |
 | 6 | Protection | 8 | Bouclier Légal, conformité, CGU plateformes |
 | 7 | Départements | 8 | Structure, activation, évolution |

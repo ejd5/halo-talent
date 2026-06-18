@@ -4,7 +4,6 @@ import { useRef, useState, useMemo } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { Search, ArrowRight, X, BookOpen } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 function useReveal(amount = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -40,12 +39,12 @@ const GLOSSAIRE: GlossaireEntry[] = [
     lien: { label: "Sécurité WTF", href: "/security" },
   },
   {
-    terme: "Chat AI",
+    terme: "CHATEENG",
     lettre: "C",
     definition: "Assistant conversationnel WTF qui aide les créateurs à gérer leurs conversations avec les fans : réponses personnalisées, détection des intentions d'achat, relances automatiques et vérification de conformité (Tone Guard).",
-    importance: "Le Chat AI réduit le temps passé en messages de 60 à 80%, tout en augmentant le taux de conversion des conversations en ventes, grâce à des réponses plus rapides et mieux ciblées.",
-    exemple: "Un fan demande un contenu personnalisé. Le Chat AI détecte l'intention d'achat, propose un prix adapté au profil du fan, et rédige une réponse dans le ton du créateur.",
-    lien: { label: "Chat AI WTF", href: "/chat-ai" },
+    importance: "Le CHATEENG réduit le temps passé en messages de 60 à 80%, tout en augmentant le taux de conversion des conversations en ventes, grâce à des réponses plus rapides et mieux ciblées.",
+    exemple: "Un fan demande un contenu personnalisé. Le CHATEENG détecte l'intention d'achat, propose un prix adapté au profil du fan, et rédige une réponse dans le ton du créateur.",
+    lien: { label: "CHATEENG WTF", href: "/chat-ai" },
   },
   {
     terme: "Commission",
@@ -243,7 +242,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 90 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Référence
@@ -397,7 +396,7 @@ function CTASection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 90, paddingBottom: 110 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 520, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
-          <CoutureEmblem size={24} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 120, width: "auto" }} />
         </motion.div>
         <motion.h2 className="display-medium mb-6" style={{ color: "var(--ivoire)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0.08}>
           Un terme manque au glossaire ?

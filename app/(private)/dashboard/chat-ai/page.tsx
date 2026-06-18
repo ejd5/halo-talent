@@ -63,7 +63,7 @@ export default function ChatAIOverviewPage() {
         consentComplete: hasData,
       });
     } catch (err) {
-      console.error("[Chat AI Overview] Fetch error:", err);
+      console.error("[CHATEENG Overview] Fetch error:", err);
     } finally {
       setLoading(false);
     }

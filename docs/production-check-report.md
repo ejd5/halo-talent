@@ -52,7 +52,7 @@ Development:  0 PRESENT  / 16 MISSING  (0% configuré)
 
 ### Variables critiques présentes (6)
 - `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`, `SUPABASE_SERVICE_ROLE_KEY` — auth/DB fonctionnel ✅
-- `DEEPSEEK_API_KEY` — Chat AI drafts fonctionnel ✅
+- `DEEPSEEK_API_KEY` — CHATEENG drafts fonctionnel ✅
 - `CRON_SECRET` — cron jobs protégés ✅
 - `RESEND_API_KEY` — emails fonctionnels ✅ (ajouté il y a 6s)
 
@@ -145,7 +145,7 @@ Ajout des 5 variables preview impossible : Vercel exige une branche non-producti
 ✅ Draft demoMode: DeepSeek réel
 ```
 
-Toutes les routes Chat AI fonctionnent, la compliance gate bloque correctement, l'audit est tracé.
+Toutes les routes CHATEENG fonctionnent, la compliance gate bloque correctement, l'audit est tracé.
 
 ---
 
@@ -219,7 +219,7 @@ Les clés Replicate, APIFY et VAPID existent déjà dans `.env.local` — il suf
 - TypeScript : 0 erreur (`npx tsc --noEmit`)
 - ESLint : 0 erreur, 0 warning
 - Pages publiques : 36/36 HTTP 200
-- Chat AI API : 13/13 smoke tests OK
+- CHATEENG API : 13/13 smoke tests OK
 - Auth : Protections 307/401 correctes
 - Auth : Demo creator existant et confirmé
 - Déploiement : Protection anti-DDoS en place

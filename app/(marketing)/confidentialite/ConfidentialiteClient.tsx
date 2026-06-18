@@ -111,7 +111,7 @@ export function ConfidentialiteClient() {
                 </p>
               </SubSection>
 
-              <SubSection title="2.4 Données Chat AI et CRM (Atlas)">
+              <SubSection title="2.4 Données CHATEENG et CRM (Atlas)">
                 <p>
                   Les conversations avec nos assistants IA, les données de fans,
                   segments, campagnes et analyses sont stockées pour fournir le
@@ -211,7 +211,7 @@ export function ConfidentialiteClient() {
                 </li>
                 <li>
                   <strong style={{ color: "var(--encre)", opacity: 0.85 }}>Anthropic PBC (USA) :</strong> modèles d'IA (Claude)
-                  pour WTF Lex et Chat AI
+                  pour WTF Lex et CHATEENG
                 </li>
               </ul>
               <p>

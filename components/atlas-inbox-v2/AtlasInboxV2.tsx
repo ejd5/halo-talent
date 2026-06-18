@@ -51,10 +51,88 @@ import {
   type NotificationItem, type AiReel,
   type EmployeeStats, type FeatureRequest,
 } from "./data";
+import { AtlasLocaleProvider, useT, useAtlasLocale, LocaleSwitcher } from "./i18n";
+
+// ═══ Nav Label → i18n Key Mapping ══════════════════════
+
+const GROUP_KEY_MAP: Record<string, string> = {
+  "INBOX": "nav.inbox",
+  "AI SALES ENGINE": "nav.aiSalesEngine",
+  "CAMPAIGNS": "nav.campaigns",
+  "SCRIPTS": "nav.scripts",
+  "VAULT": "nav.vault",
+  "TEAM": "nav.team",
+  "SAFETY": "nav.safety",
+  "SETTINGS": "nav.settings",
+  "ROADMAP": "nav.roadmap",
+};
+
+const SECTION_KEY_MAP: Record<string, string> = {
+  "AI Sales Engine": "nav.salesEngine",
+  "Message Ledger": "nav.messageLedger",
+  "Opportunity Queue": "nav.opportunityQueue",
+  "Dynamic Lists": "nav.dynamicLists",
+  "Script Builder / PPV": "nav.scriptBuilder",
+  "Campaign Builder": "nav.campaignBuilder",
+  "Creative Engine / Reels": "nav.creativeEngine",
+  "Dynamic Pricing": "nav.dynamicPricing",
+  "Hybrid Handoff Rules": "nav.hybridHandoff",
+  "AI Core Settings": "nav.aiCoreSettings",
+  "Creator Profile": "nav.creatorProfile",
+  "Banned Keywords": "nav.bannedKeywords",
+  "Tracking & Attribution": "nav.tracking",
+  "Fan Journey": "nav.fanJourney",
+  "Team Control Room": "nav.teamControl",
+  "Notifications Center": "nav.notifications",
+  "Compliance Review": "nav.complianceReview",
+  "Safety Guard": "nav.safetyGuard",
+  "Automation Triggers": "nav.automationTriggers",
+  "Why Atlas is Safer": "nav.whyAtlasSafer",
+  "Browser Workspace": "nav.browserWorkspace",
+  "Feature Requests": "nav.featureRequests",
+};
+
+// ═══ Label Key Maps (data key → translation key suffix) ══
+
+const FAN_TIER_KEY: Record<string, string> = {
+  whale: "fanTier.whale", vip: "fanTier.vip", engaged: "fanTier.engaged",
+  new: "fanTier.newFan", at_risk: "fanTier.atRisk", dormant: "fanTier.dormant",
+};
+const STATUS_KEY: Record<string, string> = {
+  ai_draft_ready: "status.aiDraftReady", human_reviewing: "status.reviewing",
+  approved: "status.approved", sent: "status.sent", rejected: "status.rejected", waiting: "status.waiting",
+};
+const TRIGGER_EVENT_KEY: Record<string, string> = {
+  fan_message_received: "trigger.fanMessage", fan_subscribed: "trigger.newSub",
+  fan_unsubscribed: "trigger.unsub", purchase_completed: "trigger.purchase",
+  fan_inactive_7d: "trigger.inactive7", fan_inactive_30d: "trigger.inactive30",
+  ppv_viewed: "trigger.ppvViewed", birthday: "trigger.fanBirthday", vip_milestone: "trigger.vipTier",
+};
+const TRIGGER_ACTION_KEY: Record<string, string> = {
+  send_welcome_message: "action.welcome", send_ppv_offer: "action.proposePpv",
+  send_reengagement: "action.reengage", assign_to_chatter: "action.assignChatter",
+  add_tag: "action.addTag", flag_for_review: "action.flagReview",
+  send_discount: "action.sendDiscount", send_birthday_gift: "action.birthdayGift",
+};
+
+const ONBOARDING_KEY: Record<string, string> = {
+  step1: "onboarding.configureAi", step2: "onboarding.createScript",
+  step3: "onboarding.reviewHandoff", step4: "onboarding.inviteChatter",
+  step5: "onboarding.checkCompliance",
+};
 
 // ═══ Main Component ═══════════════════════════════════════
 
 export function AtlasInboxV2() {
+  return (
+    <AtlasLocaleProvider>
+      <AtlasInboxV2Inner />
+    </AtlasLocaleProvider>
+  );
+}
+
+function AtlasInboxV2Inner() {
+  const t = useT();
   const [activeSection, setActiveSection] = useState<SectionId>("sales_engine");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [collapsedGroups, setCollapsedGroups] = useState<Set<string>>(new Set(["VAULT", "SETTINGS", "ROADMAP"]));
@@ -82,7 +160,7 @@ export function AtlasInboxV2() {
         style={{ borderColor: "#E5D7C3", color: "#5F5145" }}
       >
         <Menu size={14} />
-        <span>Menu</span>
+        <span>{t("sidebar.menu")}</span>
         <span className="text-[12px] ml-auto" style={{ color: "#C9973F" }}>{activeSection}</span>
       </button>
 
@@ -103,7 +181,7 @@ export function AtlasInboxV2() {
               <h1 className="text-[14px] font-display font-semibold tracking-widest" style={{ color: "#F4EEE3" }}>
                 ATLAS<span style={{ color: "#C9973F" }}>.</span>OS
               </h1>
-              <p className="text-[12px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>Agency OS</p>
+              <p className="text-[12px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>{t("sidebar.agencyOs")}</p>
             </div>
           )}
           <button
@@ -127,7 +205,7 @@ export function AtlasInboxV2() {
                   className="w-full flex items-center gap-1 text-[10px] font-medium tracking-widest px-4 py-1.5 hover:bg-white/[0.02] transition-colors"
                   style={{ color: "rgba(255,255,255,0.20)" }}
                 >
-                  <span className="flex-1 text-left">{group.label}</span>
+                  <span className="flex-1 text-left">{t(GROUP_KEY_MAP[group.label] || group.label)}</span>
                   <ChevronDown size={10} style={{ transform: isCollapsed ? "rotate(-90deg)" : undefined, transition: "transform 0.15s" }} />
                 </button>
               )}
@@ -138,7 +216,7 @@ export function AtlasInboxV2() {
                   <button
                     key={section.id}
                     onClick={() => setActiveSection(section.id)}
-                    title={section.description || section.label}
+                    title={section.description || t(SECTION_KEY_MAP[section.label] || section.label)}
                     className={`w-full flex items-center gap-2 text-left transition-colors ${
                       sidebarCollapsed ? "px-3 py-2.5 justify-center" : "px-4 py-2"
                     }`}
@@ -150,7 +228,7 @@ export function AtlasInboxV2() {
                   >
                     <Icon size={14} style={{ color: isActive ? "#C9973F" : "rgba(255,255,255,0.30)" }} />
                     {!sidebarCollapsed && (
-                      <span className="text-[12px] font-medium truncate">{section.label}</span>
+                      <span className="text-[12px] font-medium truncate">{t(SECTION_KEY_MAP[section.label] || section.label)}</span>
                     )}
                     {isActive && !sidebarCollapsed && (
                       <div className="ml-auto w-1 h-1 rounded-full" style={{ backgroundColor: "#C9973F" }} />
@@ -172,7 +250,7 @@ export function AtlasInboxV2() {
             >
               <ShieldCheck size={11} style={{ color: "#C9973F" }} />
               <span className="text-[13px] font-medium" style={{ color: "#C9973F" }}>
-                Compliance-first Creator OS
+                {t("sidebar.footerBadge")}
               </span>
             </div>
           </div>
@@ -189,18 +267,19 @@ export function AtlasInboxV2() {
                 Atlas Inbox
               </h1>
               <p className="text-[14px] mt-0.5" style={{ color: "#5F5145" }}>
-                AI-assisted sales workspace. Human approval required before every send.
+                {t("topbar.subtitle")}
               </p>
             </div>
             <div className="flex items-center gap-3 text-[12px] font-medium">
+              <LocaleSwitcher />
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#E8F2EA", color: "#2F7D4E" }}>
-                <ShieldCheck size={13} /> No auto-send
+                <ShieldCheck size={13} /> {t("topbar.badge.noAutoSend")}
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#E8F2EA", color: "#2F7D4E" }}>
-                <Lock size={13} /> No scraping
+                <Lock size={13} /> {t("topbar.badge.noScraping")}
               </span>
               <span className="flex items-center gap-1.5 px-3 py-1.5 rounded-sm" style={{ backgroundColor: "#E8F2EA", color: "#2F7D4E" }}>
-                <UserCheck size={13} /> Human approved
+                <UserCheck size={13} /> {t("topbar.badge.humanApproved")}
               </span>
             </div>
           </div>
@@ -210,11 +289,11 @@ export function AtlasInboxV2() {
         <div className="flex items-center justify-center gap-4 lg:gap-6 px-4 py-1.5 border-b shrink-0"
           style={{ backgroundColor: "#F8F6F2", borderColor: "#E5D7C3" }}>
           <span className="text-[12px] flex items-center gap-1.5 font-medium" style={{ color: "#5F5145" }}>
-            <ShieldCheck size={12} style={{ color: "#C9973F" }} /> IA propose, humain valide
+            <ShieldCheck size={12} style={{ color: "#C9973F" }} /> {t("safety.propose")}
           </span>
-          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>Aucun envoi automatique</span>
-          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>Pas de scraping</span>
-          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>Pas d'usurpation</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>{t("safety.noAuto")}</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>{t("safety.noScraping")}</span>
+          <span className="text-[12px] hidden sm:inline" style={{ color: "#5F5145" }}>{t("safety.noUsurpation")}</span>
         </div>
 
         {/* Onboarding: Launch Atlas OS */}
@@ -273,6 +352,7 @@ function AtlasLaunchBlock({
   onNavigate: (id: string) => void;
   onDismiss: () => void;
 }) {
+  const t = useT();
   if (steps.length === 0) return null;
   const done = completedSteps.size;
   const total = steps.length;
@@ -282,7 +362,7 @@ function AtlasLaunchBlock({
       <div className="flex items-center gap-4">
         <div className="flex items-center gap-2 shrink-0">
           <Sparkles size={14} style={{ color: "#C9973F" }} />
-          <span className="text-[13px] font-semibold" style={{ color: "#17120C" }}>Get Started</span>
+          <span className="text-[13px] font-semibold" style={{ color: "#17120C" }}>{t("onboarding.getStarted")}</span>
           <span className="text-[12px] font-mono" style={{ color: "#5F5145" }}>{done}/{total}</span>
         </div>
         {/* Progress bar */}
@@ -307,7 +387,7 @@ function AtlasLaunchBlock({
                 }}
               >
                 {isComplete ? <CheckCircle size={11} /> : <Icon size={11} />}
-                {step.label}
+                {t(ONBOARDING_KEY[step.id] || step.label)}
               </button>
             );
           })}
@@ -323,6 +403,7 @@ function AtlasLaunchBlock({
 }
 
 function SectionInfoBar({ description }: { description: string }) {
+  const t = useT();
   const [expanded, setExpanded] = useState(false);
   if (!description) return null;
   return (
@@ -333,7 +414,7 @@ function SectionInfoBar({ description }: { description: string }) {
         style={{ backgroundColor: "#FFFBF4", color: "#5F5145", border: "1px solid #E5D7C3" }}
       >
         <Info size={12} style={{ color: "#C9973F" }} />
-        <span className="flex-1 text-left">Comment ça marche</span>
+        <span className="flex-1 text-left">{t("section.howItWorks")}</span>
         <ChevronRight size={10} style={{ transform: expanded ? "rotate(90deg)" : undefined, transition: "transform 0.15s" }} />
       </button>
       {expanded && (
@@ -348,6 +429,7 @@ function SectionInfoBar({ description }: { description: string }) {
 // ═══ 1. AI Sales Engine ═════════════════════════════════
 
 function SalesEngineSection() {
+  const t = useT();
   const [conversations] = useState<AIConversation[]>(mockConversations);
   const [selectedId, setSelectedId] = useState<string | null>(
     () => conversations.length > 0 ? conversations[0].id : null,
@@ -418,7 +500,7 @@ function SalesEngineSection() {
             <input
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Rechercher un fan..."
+              placeholder={t("salesEngine.searchPlaceholder")}
               className="w-full pl-8 pr-3 py-2 text-[14px] rounded-sm outline-none"
               style={{ color: "#17120C", backgroundColor: "#F6F1E8", border: "1px solid #E5D7C3" }}
             />
@@ -450,9 +532,9 @@ function SalesEngineSection() {
                   </div>
                   <div className="flex items-center gap-1.5 mt-0.5">
                     <span className="text-[11px] px-1.5 py-0.5 rounded-sm font-medium" style={{ backgroundColor: `${FAN_TIER_COLORS[conv.fanTier]}18`, color: FAN_TIER_COLORS[conv.fanTier] }}>
-                      {FAN_TIER_LABELS[conv.fanTier]}
+                      {t(FAN_TIER_KEY[conv.fanTier] || conv.fanTier)}
                     </span>
-                    <span className="text-[11px]" style={{ color: "#5F5145" }}>{PLATFORM_LABELS[conv.platform]}</span>
+                    <span className="text-[11px]" style={{ color: "#5F5145" }}>{t(`platform.${conv.platform}`)}</span>
                   </div>
                   <p className="text-[13px] mt-1.5 leading-relaxed line-clamp-1" style={{ color: "#5F5145" }}>
                     {conv.lastMessagePreview}
@@ -467,7 +549,7 @@ function SalesEngineSection() {
                       className="text-[11px] px-2 py-0.5 rounded-sm font-medium"
                       style={{ backgroundColor: `${STATUS_COLORS[conv.status]}18`, color: STATUS_COLORS[conv.status] }}
                     >
-                      {STATUS_LABELS[conv.status]}
+                      {t(STATUS_KEY[conv.status] || conv.status)}
                     </span>
                     {conv.unread && (
                       <span className="w-2 h-2 rounded-full ml-auto" style={{ backgroundColor: "#C9973F" }} />
@@ -485,7 +567,7 @@ function SalesEngineSection() {
         {!selectedConv ? (
           <div className="flex-1 flex flex-col items-center justify-center">
             <MessageCircle size={32} style={{ color: "#EBE3D7" }} />
-            <p className="text-sm mt-3 font-medium" style={{ color: "#5F5145" }}>Sélectionne une conversation</p>
+            <p className="text-sm mt-3 font-medium" style={{ color: "#5F5145" }}>{t("salesEngine.empty")}</p>
             <p className="text-xs mt-1" style={{ color: "#D9CCBB" }}>L&apos;IA te proposera des suggestions de réponse</p>
           </div>
         ) : (
@@ -499,11 +581,11 @@ function SalesEngineSection() {
                 <div className="flex items-center gap-2">
                   <span className="text-[16px] font-semibold truncate" style={{ color: "#17120C" }}>{selectedConv.fanName}</span>
                   <span className="text-[12px] px-2 py-0.5 rounded-sm font-medium" style={{ backgroundColor: `${FAN_TIER_COLORS[selectedConv.fanTier]}18`, color: FAN_TIER_COLORS[selectedConv.fanTier] }}>
-                    {FAN_TIER_LABELS[selectedConv.fanTier]}
+                    {t(FAN_TIER_KEY[selectedConv.fanTier] || selectedConv.fanTier)}
                   </span>
                 </div>
                 <span className="text-[13px]" style={{ color: "#5F5145" }}>
-                  {PLATFORM_LABELS[selectedConv.platform]} · {formatEuro(selectedConv.totalSpent)} dépensé · Score {selectedConv.intentScore}/100
+                  {t(`platform.${selectedConv.platform}`)} · {formatEuro(selectedConv.totalSpent)} {t("salesEngine.spent")} · {t("salesEngine.score")} {selectedConv.intentScore}/100
                 </span>
               </div>
               {selectedConv.complianceFlags.length > 0 && (
@@ -546,7 +628,7 @@ function SalesEngineSection() {
                   <div className="flex items-center gap-3">
                     <div className="h-px flex-1" style={{ backgroundColor: "#E5D7C3" }} />
                     <span className="text-[13px] font-semibold flex items-center gap-1.5" style={{ color: "#C9973F" }}>
-                      <Zap size={13} /> Brouillons IA · {selectedConv.drafts.length} suggestions
+                      <Zap size={13} /> {t("salesEngine.aiDrafts")} · {selectedConv.drafts.length} suggestions
                     </span>
                     <div className="h-px flex-1" style={{ backgroundColor: "#E5D7C3" }} />
                   </div>
@@ -587,9 +669,9 @@ function SalesEngineSection() {
                   style={{ backgroundColor: "#C9973F", color: "#FFFFFF" }}
                 >
                   {generatingId === selectedConv.id ? (
-                    <><Loader size={15} className="animate-spin" /> Génération...</>
+                    <><Loader size={15} className="animate-spin" /> {t("salesEngine.aiGenerating")}</>
                   ) : (
-                    <><Zap size={15} /> Régénérer les drafts IA</>
+                    <><Zap size={15} /> {t("salesEngine.regenerate")}</>
                   )}
                 </button>
                 <span className="text-[12px]" style={{ color: "#5F5145" }}>
@@ -621,6 +703,7 @@ function DraftCard({
   onCancelEdit: () => void;
   onEditTextChange: (text: string) => void;
 }) {
+  const t = useT();
   const approachColors: Record<string, string> = {
     chaleureuse: "#2F7D4E",
     directe: "#C9973F",
@@ -634,7 +717,7 @@ function DraftCard({
       <div className="p-3 rounded-sm border" style={{ backgroundColor: "#E8F2EA", borderColor: "rgba(47,125,78,0.15)", boxShadow: "0 1px 2px rgba(23,18,12,0.02)" }}>
         <div className="flex items-center gap-2">
           <CheckCircle size={14} style={{ color: "#2F7D4E" }} />
-          <span className="text-[13px] font-semibold" style={{ color: "#2F7D4E" }}>Approuvé — prêt à envoyer</span>
+          <span className="text-[13px] font-semibold" style={{ color: "#2F7D4E" }}>{t("compliance.statusApproved")} — {t("salesEngine.readyToSend")}</span>
         </div>
       </div>
     );
@@ -700,7 +783,7 @@ function DraftCard({
               className="flex items-center gap-1.5 text-[13px] px-3 py-1.5 rounded-sm font-semibold transition-colors"
               style={{ backgroundColor: "#2F7D4E", color: "#FFFFFF" }}
             >
-              <CheckCircle size={13} /> Approuver et envoyer
+              <CheckCircle size={13} /> {t("salesEngine.approve")}
             </button>
             <button
               onClick={onEdit}
@@ -728,6 +811,7 @@ function DraftCard({
 // ═══ 2. Pricing Lab ════════════════════════════════════
 
 function PricingLabSection() {
+  const t = useT();
   const [selectedProduct, setSelectedProduct] = useState<PricingScenario>(mockPricingScenarios[0]);
   const [price, setPrice] = useState(selectedProduct.suggestedPriceMid);
   const [priceLevel, setPriceLevel] = useState<"low" | "mid" | "high">("mid");
@@ -748,14 +832,14 @@ function PricingLabSection() {
     if (p) { setSelectedProduct(p); setPrice(p.suggestedPriceMid); setPriceLevel("mid"); }
   };
 
-  const currentTier = selectedProduct.commissionTiers.findLast((t) => totalRevenue >= t.threshold) || selectedProduct.commissionTiers[0];
+  const currentTier = [...selectedProduct.commissionTiers].reverse().find((t) => totalRevenue >= t.threshold) || selectedProduct.commissionTiers[0];
 
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Dynamic Pricing & Negotiation Engine</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["pricing_lab"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Simule les prix, commissions et marges de négociation pour maximiser le revenu net</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("pricing.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.pricingLab")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("pricing.subtitle")}</p>
       </div>
 
       {/* Product selector */}
@@ -780,7 +864,7 @@ function PricingLabSection() {
         {/* Price slider */}
         <div className="col-span-2 space-y-4 p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
           <div className="flex items-center justify-between">
-            <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>Prix de vente</span>
+            <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{t("pricing.salesPrice")}</span>
             <div className="flex items-center gap-1">
               <button
                 onClick={() => { setPrice(selectedProduct.suggestedPriceLow); setPriceLevel("low"); }}
@@ -819,21 +903,21 @@ function PricingLabSection() {
           {/* Revenue breakdown */}
           <div className="grid grid-cols-4 gap-3 mt-4 pt-4 border-t" style={{ borderColor: "#E5D7C3" }}>
             <div className="text-center">
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>Frais plateforme</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{t("pricing.platformFees")}</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(platformFeeAmount)}</p>
               <p className="text-[12px]" style={{ color: "#5F5145" }}>{(selectedProduct.platformFee * 100).toFixed(0)}%</p>
             </div>
             <div className="text-center">
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>Coût base</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{t("pricing.baseCost")}</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(selectedProduct.costBase)}</p>
             </div>
             <div className="text-center">
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>Net / vente</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{t("pricing.netPerSale")}</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(netRevenue)}</p>
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>{margin.toFixed(0)}% marge</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{margin.toFixed(0)}{t("pricing.marginPct")}</p>
             </div>
             <div className="text-center">
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>Ventes estimées</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{t("pricing.estimatedSales")}</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{conversions}</p>
               <p className="text-[12px]" style={{ color: "#5F5145" }}>{((conversions / selectedProduct.audienceSize) * 100).toFixed(1)}% de l&apos;audience</p>
             </div>
@@ -843,14 +927,14 @@ function PricingLabSection() {
         {/* Commission tiers + totals */}
         <div className="space-y-4">
           <div className="p-5 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
-            <h3 className="text-[11px] font-medium mb-3" style={{ color: "#17120C" }}>Tiers de commission</h3>
+            <h3 className="text-[11px] font-medium mb-3" style={{ color: "#17120C" }}>{t("pricing.commissionTiers")}</h3>
             <div className="space-y-2">
               {selectedProduct.commissionTiers.map((tier) => {
                 const isActive = totalRevenue >= tier.threshold;
                 return (
                   <div key={tier.label} className="flex items-center justify-between text-[11px] py-1.5 px-2 rounded-sm"
                     style={{ backgroundColor: isActive ? "rgba(216,169,91,0.06)" : "transparent" }}>
-                    <span style={{ color: isActive ? "#17120C" : "#6E6257" }}>{tier.label}</span>
+                    <span style={{ color: isActive ? "#17120C" : "#6E6257" }}>{t(`commission.${tier.label.toLowerCase()}`)}</span>
                     <span style={{ color: isActive ? "#C9973F" : "#6E6257" }}>{(tier.rate * 100).toFixed(0)}% · &gt;{formatEuro(tier.threshold)}</span>
                   </div>
                 );
@@ -858,17 +942,17 @@ function PricingLabSection() {
             </div>
             <div className="mt-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
               <div className="flex items-center justify-between">
-                <span className="text-[13px]" style={{ color: "#5F5145" }}>Tier actuel</span>
-                <span className="text-[11px] font-semibold" style={{ color: "#C9973F" }}>{currentTier.label} ({(currentTier.rate * 100).toFixed(0)}%)</span>
+                <span className="text-[13px]" style={{ color: "#5F5145" }}>{t("pricing.currentTier")}</span>
+                <span className="text-[11px] font-semibold" style={{ color: "#C9973F" }}>{t(`commission.${currentTier.label.toLowerCase()}`)} ({(currentTier.rate * 100).toFixed(0)}%)</span>
               </div>
             </div>
           </div>
 
           {/* Totals */}
           <div className="p-5 rounded-sm border" style={{ backgroundColor: "rgba(47,125,78,0.04)", borderColor: "rgba(47,125,78,0.1)" }}>
-            <p className="text-[13px]" style={{ color: "#5F5145" }}>Revenu brut estimé</p>
+            <p className="text-[13px]" style={{ color: "#5F5145" }}>{t("pricing.grossRevenue")}</p>
             <p className="text-xl font-mono font-semibold mt-0.5" style={{ color: "#17120C" }}>{formatEuro(totalRevenue)}</p>
-            <p className="text-[13px] mt-2" style={{ color: "#5F5145" }}>Revenu net estimé</p>
+            <p className="text-[13px] mt-2" style={{ color: "#5F5145" }}>{t("pricing.netRevenue")}</p>
             <p className="text-xl font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(totalNet)}</p>
             <p className="text-[12px] mt-2" style={{ color: "#5F5145" }}>
               {conversions} ventes × {formatEuro(netRevenue)} net = {formatEuro(totalNet)}
@@ -880,28 +964,28 @@ function PricingLabSection() {
       {/* Negotiation Confidence Panel */}
       <div className="grid grid-cols-4 gap-3">
         <div className="col-span-3 p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
-          <h3 className="text-[13px] font-medium tracking-wider uppercase mb-3" style={{ color: "#8A7E72" }}>Négociation Engine</h3>
+          <h3 className="text-[13px] font-medium tracking-wider uppercase mb-3" style={{ color: "#8A7E72" }}>{t("pricing.negotiationEngine")}</h3>
           <div className="grid grid-cols-4 gap-4">
             <div>
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>Prix plancher</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{t("pricing.floorPrice")}</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#C54A3A" }}>{formatEuro(selectedProduct.suggestedPriceLow)}</p>
-              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>Minimum viable</p>
+              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>{t("pricing.minViable")}</p>
             </div>
             <div>
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>Prix optimal</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{t("pricing.optimalPrice")}</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{formatEuro(selectedProduct.suggestedPriceMid)}</p>
-              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>Max conversion</p>
+              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>{t("pricing.maxConversion")}</p>
             </div>
             <div>
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>Marge de négo</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{t("pricing.negoMargin")}</p>
               <p className="text-sm font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(selectedProduct.suggestedPriceHigh - selectedProduct.suggestedPriceLow)}</p>
-              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>{((1 - selectedProduct.suggestedPriceLow / selectedProduct.suggestedPriceHigh) * 100).toFixed(0)}% de flex</p>
+              <p className="text-[11px] mt-0.5" style={{ color: "#5F5145" }}>{((1 - selectedProduct.suggestedPriceLow / selectedProduct.suggestedPriceHigh) * 100).toFixed(0)}{t("pricing.flexPct")}</p>
             </div>
             <div>
-              <p className="text-[12px]" style={{ color: "#5F5145" }}>Confiance</p>
+              <p className="text-[12px]" style={{ color: "#5F5145" }}>{t("pricing.confidence")}</p>
               <div className="flex items-center gap-1.5 mt-0.5">
                 <span className="text-sm font-mono font-semibold" style={{ color: price >= selectedProduct.suggestedPriceMid ? "#2F7D4E" : "#B7791F" }}>
-                  {price >= selectedProduct.suggestedPriceMid ? "Élevée" : "Modérée"}
+                  {price >= selectedProduct.suggestedPriceMid ? t("pricing.confidenceHigh") : t("pricing.confidenceModerate")}
                 </span>
               </div>
               <div className="w-full h-1 rounded-full mt-1" style={{ backgroundColor: "#D9CCBB" }}>
@@ -914,11 +998,11 @@ function PricingLabSection() {
           </div>
         </div>
         <div className="p-4 rounded-sm border flex flex-col justify-center" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
-          <p className="text-[12px] mb-1" style={{ color: "#5F5145" }}>Recommandation IA</p>
+          <p className="text-[12px] mb-1" style={{ color: "#5F5145" }}>{t("pricing.aiRecommendation")}</p>
           <p className="text-[11px] font-medium leading-relaxed" style={{ color: "#C9973F" }}>
             {price >= selectedProduct.suggestedPriceMid
-              ? "Prix optimal. Bon équilibre conversion/revenu. Marge confortable."
-              : "Baisser le prix augmente les conversions. Attention à la rentabilité."}
+              ? `${t("pricing.optimalPrice")}. ${t("pricing.optimalPriceReason")}`
+              : t("pricing.lowerPriceWarning")}
           </p>
           <p className="text-[12px] mt-2" style={{ color: "#8A7E72" }}>Basé sur {selectedProduct.audienceSize} fans</p>
         </div>
@@ -930,6 +1014,7 @@ function PricingLabSection() {
 // ═══ 3. Dynamic Lists Builder ═══════════════════════════
 
 function ListsBuilderSection() {
+  const t = useT();
   const [savedSegments] = useState<SavedSegment[]>(mockSavedSegments);
   const [activeFilters, setActiveFilters] = useState<FanFilter[]>([]);
   const [newFilterField, setNewFilterField] = useState("");
@@ -962,9 +1047,9 @@ function ListsBuilderSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Dynamic Lists Builder</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["lists_builder"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Crée des segments de fans dynamiques avec filtres pour campagnes ciblées</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("lists.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.listsBuilder")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("lists.subtitle")}</p>
       </div>
 
       {/* Filter builder */}
@@ -976,7 +1061,7 @@ function ListsBuilderSection() {
             className="text-[14px] px-3 py-2 rounded-sm outline-none"
             style={{ backgroundColor: "#EBE3D7", color: newFilterField ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}
           >
-            <option value="">Champ...</option>
+            <option value="">{t("lists.fieldPlaceholder")}</option>
             {AVAILABLE_FILTER_FIELDS.map((f) => (
               <option key={f.field} value={f.field}>{f.label}</option>
             ))}
@@ -989,7 +1074,7 @@ function ListsBuilderSection() {
               className="text-[14px] px-3 py-2 rounded-sm outline-none"
               style={{ backgroundColor: "#EBE3D7", color: newFilterOp ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}
             >
-              <option value="">Opérateur...</option>
+              <option value="">{t("lists.operatorPlaceholder")}</option>
               {currentField.operators.map((op) => (
                 <option key={op} value={op}>{op}</option>
               ))}
@@ -999,7 +1084,7 @@ function ListsBuilderSection() {
           <input
             value={newFilterValue}
             onChange={(e) => setNewFilterValue(e.target.value)}
-            placeholder={currentField?.hint || "Valeur..."}
+            placeholder={currentField?.hint || t("lists.valuePlaceholder")}
             className="flex-1 min-w-[120px] text-[11px] px-2.5 py-1.5 rounded-sm outline-none bg-transparent"
             style={{ color: "#17120C", border: "1px solid #D9CCBB" }}
             onKeyDown={(e) => { if (e.key === "Enter") addFilter(); }}
@@ -1032,13 +1117,13 @@ function ListsBuilderSection() {
             </div>
             <div className="flex items-center gap-4 pt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
               <span className="text-[11px]" style={{ color: "#5F5145" }}>
-                Fans estimés: <span className="font-semibold font-mono" style={{ color: "#17120C" }}>{estimatedFans}</span>
+                {t("lists.estimatedFans")} <span className="font-semibold font-mono" style={{ color: "#17120C" }}>{estimatedFans}</span>
               </span>
               <span className="text-[11px]" style={{ color: "#5F5145" }}>
-                Revenu potentiel: <span className="font-semibold font-mono" style={{ color: "#C9973F" }}>{formatEuro(estimatedFans * 45)}</span>
+                {t("lists.potentialRevenue")} <span className="font-semibold font-mono" style={{ color: "#C9973F" }}>{formatEuro(estimatedFans * 45)}</span>
               </span>
               <button className="text-[13px] px-2.5 py-1 rounded-sm ml-auto" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
-                Sauvegarder le segment
+                {t("lists.saveSegment")}
               </button>
             </div>
           </>
@@ -1047,7 +1132,7 @@ function ListsBuilderSection() {
 
       {/* Saved segments */}
       <div>
-        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#5F5145" }}>Segments sauvegardés</h3>
+        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#5F5145" }}>{t("lists.savedSegments")}</h3>
         <div className="grid grid-cols-2 gap-3">
           {savedSegments.map((seg) => (
             <div key={seg.id} className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
@@ -1081,6 +1166,7 @@ function ListsBuilderSection() {
 // ═══ 4. Automation Triggers ═════════════════════════════
 
 function AutomationTriggersSection() {
+  const t = useT();
   const [rules, setRules] = useState<AutomationRule[]>(mockAutomationRules);
 
   const toggleRule = (id: string) => {
@@ -1091,12 +1177,12 @@ function AutomationTriggersSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Automation Triggers</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["automation_triggers"]} />
-          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Règles WHEN → THEN pour automatiser les actions de vente</p>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("automation.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.automationTriggers")} />
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("automation.subtitle")}</p>
         </div>
         <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
-          <Plus size={12} /> Nouvelle règle
+          <Plus size={12} /> {t("automation.newRule")}
         </button>
       </div>
 
@@ -1104,12 +1190,12 @@ function AutomationTriggersSection() {
         <table className="w-full">
           <thead>
             <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Règle</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>WHEN</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>IF</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>THEN</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Statut</th>
-              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Déclenché</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("automation.rule")}</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("automation.when")}</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("automation.if")}</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("automation.then")}</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("automation.status")}</th>
+              <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("automation.triggered")}</th>
             </tr>
           </thead>
           <tbody>
@@ -1119,13 +1205,13 @@ function AutomationTriggersSection() {
                   <span className="text-[12px] font-medium" style={{ color: "#17120C" }}>{rule.name}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[11px] font-mono" style={{ color: "#5F5145" }}>{TRIGGER_EVENT_LABELS[rule.when]}</span>
+                  <span className="text-[11px] font-mono" style={{ color: "#5F5145" }}>{t(TRIGGER_EVENT_KEY[rule.when] || rule.when)}</span>
                 </td>
                 <td className="px-4 py-3">
                   <code className="text-[13px] px-1.5 py-0.5 rounded-sm font-mono" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>{rule.condition}</code>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[11px]" style={{ color: "#C9973F" }}>{TRIGGER_ACTION_LABELS[rule.then]}</span>
+                  <span className="text-[11px]" style={{ color: "#C9973F" }}>{t(TRIGGER_ACTION_KEY[rule.then] || rule.then)}</span>
                   <p className="text-[12px] mt-0.5" style={{ color: "#5F5145" }}>{rule.thenDetail}</p>
                 </td>
                 <td className="px-4 py-3">
@@ -1158,6 +1244,7 @@ function AutomationTriggersSection() {
 // ═══ 5. Tracking Links / Attribution ════════════════════
 
 function TrackingLinksSection() {
+  const t = useT();
   const [links] = useState<TrackingLink[]>(mockTrackingLinks);
   const [copiedId, setCopiedId] = useState<string | null>(null);
 
@@ -1175,18 +1262,18 @@ function TrackingLinksSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Tracking Links & Attribution</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["tracking_links"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Suis les clics, conversions et revenus par lien de tracking</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("tracking.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.trackingLinks")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("tracking.subtitle")}</p>
       </div>
 
       {/* KPI cards */}
       <div className="grid grid-cols-4 gap-3">
         {[
-          { label: "Clics totaux", value: totalClicks.toLocaleString(), color: "#17120C" },
-          { label: "Conversions", value: totalConversions.toLocaleString(), color: "#2F7D4E" },
-          { label: "Taux de conversion", value: `${avgRate.toFixed(1)}%`, color: "#C9973F" },
-          { label: "Revenu attribué", value: formatEuro(totalRevenue), color: "#2F7D4E" },
+          { label: t("tracking.totalClicks"), value: totalClicks.toLocaleString(), color: "#17120C" },
+          { label: t("tracking.conversions"), value: totalConversions.toLocaleString(), color: "#2F7D4E" },
+          { label: t("tracking.convRate"), value: `${avgRate.toFixed(1)}%`, color: "#C9973F" },
+          { label: t("tracking.attributedRevenue"), value: formatEuro(totalRevenue), color: "#2F7D4E" },
         ].map((kpi) => (
           <div key={kpi.label} className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
             <p className="text-[13px]" style={{ color: "#5F5145" }}>{kpi.label}</p>
@@ -1207,7 +1294,7 @@ function TrackingLinksSection() {
               <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Conv.</th>
               <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Taux</th>
               <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Revenu</th>
-              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Copier</th>
+              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("tracking.copy")}</th>
             </tr>
           </thead>
           <tbody>
@@ -1220,7 +1307,7 @@ function TrackingLinksSection() {
                   <span className="text-[11px]" style={{ color: "#5F5145" }}>{link.campaign}</span>
                 </td>
                 <td className="px-4 py-3">
-                  <span className="text-[13px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>{PLATFORM_LABELS[link.platform]}</span>
+                  <span className="text-[13px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>{t(`platform.${link.platform}`)}</span>
                 </td>
                 <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "#17120C" }}>{link.clicks.toLocaleString()}</td>
                 <td className="px-4 py-3 text-right font-mono text-[11px]" style={{ color: "#2F7D4E" }}>{link.conversions}</td>
@@ -1247,15 +1334,16 @@ function TrackingLinksSection() {
 // ═══ 6. Browser OF / MYM Workspace Mock ═════════════════
 
 function BrowserMockSection() {
+  const t = useT();
   const [activeTabId, setActiveTabId] = useState(mockBrowserTabs[0].id);
   const activeTab = mockBrowserTabs.find((t) => t.id === activeTabId) || mockBrowserTabs[0];
 
   return (
     <div className="p-5 space-y-4 h-full flex flex-col">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Browser Workspace</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["browser_mock"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Mock — Interface de navigation simulée des plateformes</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("browser.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.browserMock")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("browser.subtitle")}</p>
       </div>
 
       {/* Mock watermark banner */}
@@ -1306,7 +1394,7 @@ function BrowserMockSection() {
         <div className="flex-1 overflow-y-auto p-4 grid grid-cols-2 gap-4">
           {/* Feed posts */}
           <div className="space-y-3">
-            <p className="text-[13px] font-medium" style={{ color: "#5F5145" }}>Posts récents</p>
+            <p className="text-[13px] font-medium" style={{ color: "#5F5145" }}>{t("browser.recentPosts")}</p>
             {mockFeedPosts.map((post) => (
               <div key={post.id} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
                 <div className="flex items-center gap-1.5 mb-1.5">
@@ -1327,7 +1415,7 @@ function BrowserMockSection() {
 
           {/* DMs */}
           <div className="space-y-3">
-            <p className="text-[13px] font-medium" style={{ color: "#5F5145" }}>Messages directs</p>
+            <p className="text-[13px] font-medium" style={{ color: "#5F5145" }}>{t("browser.directMessages")}</p>
             {mockDMs.map((dm) => (
               <div key={dm.id} className="p-3 rounded-sm border transition-colors"
                 style={{
@@ -1344,7 +1432,7 @@ function BrowserMockSection() {
                 <p className="text-[11px] leading-relaxed" style={{ color: "#5F5145" }}>{dm.content}</p>
                 {dm.hasPPVInterest && (
                   <span className="inline-block text-[8px] px-1.5 py-0.5 rounded-sm mt-1.5" style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}>
-                    Intérêt PPV détecté
+                    {t("browser.ppvInterest")}
                   </span>
                 )}
               </div>
@@ -1359,6 +1447,7 @@ function BrowserMockSection() {
 // ═══ 7. Campaign Builder ════════════════════════════════
 
 function CampaignBuilderSection() {
+  const t = useT();
   const [campaigns] = useState<CampaignBuild[]>(mockCampaigns);
   const [selectedCampaignId, setSelectedCampaignId] = useState(campaigns[0]?.id || null);
   const [currentStep, setCurrentStep] = useState<CampaignStep>("audience");
@@ -1369,9 +1458,9 @@ function CampaignBuilderSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Campaign Builder</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["campaign_builder"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Crée et lance des campagnes de vente en 6 étapes</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("campaign.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.campaignBuilder")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("campaign.subtitle")}</p>
       </div>
 
       {/* Campaign selector */}
@@ -1387,11 +1476,11 @@ function CampaignBuilderSection() {
             }}
           >
             <span className="text-[11px] font-medium block" style={{ color: "#17120C" }}>{c.name}</span>
-            <span className="text-[12px]" style={{ color: "#5F5145" }}>{CAMPAIGN_TYPE_LABELS[c.type]}</span>
+            <span className="text-[12px]" style={{ color: "#5F5145" }}>{t(`campaignType.${c.type}`)}</span>
           </button>
         ))}
         <button className="flex items-center gap-1 text-[10px] px-3 py-2 rounded-sm" style={{ color: "#5F5145", border: "1px dashed #B8ADA0" }}>
-          <Plus size={11} /> Nouvelle
+          <Plus size={11} /> {t("campaign.new")}
         </button>
       </div>
 
@@ -1414,7 +1503,7 @@ function CampaignBuilderSection() {
                     }}
                   >
                     {isDone ? <CheckCircle size={10} className="inline mr-1" /> : null}
-                    {CAMPAIGN_STEP_LABELS[step]}
+                    {t(`step.${step}`)}
                   </button>
                   {!isLast && (
                     <div className="w-4 h-px" style={{ backgroundColor: isDone ? "#2F7D4E" : "#D9CCBB" }} />
@@ -1468,7 +1557,7 @@ function CampaignBuilderSection() {
                     <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#C9973F" }}>{campaign.pricing.discountPercent}%</p>
                   </div>
                   <div className="p-3 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.04)" }}>
-                    <span className="text-[13px]" style={{ color: "#5F5145" }}>Revenu estimé</span>
+                    <span className="text-[13px]" style={{ color: "#5F5145" }}>{t("script.estimatedRevenue")}</span>
                     <p className="text-lg font-mono font-semibold mt-0.5" style={{ color: "#2F7D4E" }}>{formatEuro(campaign.pricing.expectedRevenue)}</p>
                   </div>
                 </div>
@@ -1490,7 +1579,7 @@ function CampaignBuilderSection() {
                       campaign.complianceStatus === "flagged" ? <AlertTriangle size={16} style={{ color: "#B7791F" }} /> :
                       <Clock size={16} style={{ color: "#5F5145" }} />}
                     <span className="text-[12px] font-medium" style={{ color: "#17120C" }}>
-                      {campaign.complianceStatus === "passed" ? "Conforme" : campaign.complianceStatus === "flagged" ? "Problème détecté" : "En attente de vérification"}
+                      {campaign.complianceStatus === "passed" ? t("campaign.compliant") : campaign.complianceStatus === "flagged" ? t("campaign.issueDetected") : t("campaign.pendingCheck")}
                     </span>
                   </div>
                   {campaign.complianceNotes && (
@@ -1505,7 +1594,7 @@ function CampaignBuilderSection() {
                 <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>Résumé de la campagne</h3>
                 <div className="space-y-2 p-4 rounded-sm" style={{ backgroundColor: "#F2EDE4" }}>
                   {[
-                    { label: "Type", value: CAMPAIGN_TYPE_LABELS[campaign.type] },
+                    { label: "Type", value: t(`campaignType.${campaign.type}`) },
                     { label: "Audience", value: `${campaign.audience.segmentName} (${campaign.audience.fanCount} fans)` },
                     { label: "Contenu", value: campaign.content.productName },
                     { label: "Prix", value: `${formatEuro(campaign.pricing.basePrice)} (-${campaign.pricing.discountPercent}%)` },
@@ -1523,10 +1612,10 @@ function CampaignBuilderSection() {
             {currentStep === "launch" && (
               <div className="text-center py-8">
                 <Send size={28} style={{ color: "#C9973F" }} />
-                <h3 className="text-sm font-semibold mt-3" style={{ color: "#17120C" }}>Prêt à lancer</h3>
+                <h3 className="text-sm font-semibold mt-3" style={{ color: "#17120C" }}>{t("campaign.readyToLaunch")}</h3>
                 <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Tout est vérifié. La campagne sera envoyée à {campaign.audience.fanCount} fans.</p>
                 <button className="mt-4 px-4 py-2 rounded-sm text-[11px] font-medium" style={{ backgroundColor: "#C9973F", color: "#FFFFFF" }}>
-                  Lancer la campagne
+                  {t("campaign.launch")}
                 </button>
               </div>
             )}
@@ -1540,7 +1629,7 @@ function CampaignBuilderSection() {
               className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm transition-opacity disabled:opacity-20"
               style={{ color: "#5F5145" }}
             >
-              <ArrowLeft size={12} /> Précédent
+              <ArrowLeft size={12} /> {t("campaign.previous")}
             </button>
             <button
               onClick={() => { const next = CAMPAIGN_STEP_ORDER[stepIndex + 1]; if (next) setCurrentStep(next); }}
@@ -1548,7 +1637,7 @@ function CampaignBuilderSection() {
               className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm transition-opacity disabled:opacity-20"
               style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}
             >
-              Suivant <ArrowRight size={12} />
+              {t("campaign.next")} <ArrowRight size={12} />
             </button>
           </div>
         </>
@@ -1560,6 +1649,7 @@ function CampaignBuilderSection() {
 // ═══ 8. Fan Journey ════════════════════════════════════
 
 function FanJourneySection() {
+  const t = useT();
   const stages = mockFanJourneyStages;
   const maxFans = Math.max(...stages.map((s) => s.fanCount));
 
@@ -1568,9 +1658,9 @@ function FanJourneySection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Fan Journey</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["fan_journey"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Visualise le parcours fan de la découverte à l&apos;ambassadeur</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("journey.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.fanJourney")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("journey.subtitle")}</p>
       </div>
 
       <div className="space-y-3">
@@ -1588,7 +1678,7 @@ function FanJourneySection() {
                     <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{stage.name}</h3>
                     <div className="flex items-center gap-3 text-[10px]">
                       <span className="font-mono font-semibold" style={{ color: "#C9973F" }}>{stage.fanCount.toLocaleString()} fans</span>
-                      <span style={{ color: "#5F5145" }}>{stage.avgDaysInStage}j en moyenne</span>
+                      <span style={{ color: "#5F5145" }}>{stage.avgDaysInStage}{t("journey.daysAvg")}</span>
                       <span style={{ color: "#2F7D4E" }}>{formatEuro(stage.avgRevenueInStage)}/fan</span>
                     </div>
                   </div>
@@ -1624,6 +1714,7 @@ function FanJourneySection() {
 // ═══ 9. Opportunity Queue ══════════════════════════════
 
 function OpportunityQueueSection() {
+  const t = useT();
   const [opportunities] = useState<SalesOpportunity[]>(mockOpportunities);
   const [typeFilter, setTypeFilter] = useState("");
 
@@ -1640,9 +1731,9 @@ function OpportunityQueueSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Opportunity Queue</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["opportunity_queue"]} />
-          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>File d&apos;opportunités de vente priorisées par l&apos;IA</p>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("opportunity.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.opportunityQueue")} />
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("opportunity.subtitle")}</p>
         </div>
         <select
           value={typeFilter}
@@ -1650,7 +1741,7 @@ function OpportunityQueueSection() {
           className="text-[14px] px-3 py-2 rounded-sm outline-none"
           style={{ backgroundColor: "#EBE3D7", color: typeFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}
         >
-          <option value="">Tous les types</option>
+          <option value="">{t("opportunity.allTypes")}</option>
           {Object.entries(OPPORTUNITY_TYPE_LABELS).map(([key, label]) => (
             <option key={key} value={key}>{label}</option>
           ))}
@@ -1663,7 +1754,7 @@ function OpportunityQueueSection() {
           return (
             <div key={stage} className="rounded-sm border" style={{ borderColor: "#E5D7C3", backgroundColor: "#F5F1EB" }}>
               <div className="px-3 py-2.5 border-b flex items-center justify-between" style={{ borderColor: "#E5D7C3" }}>
-                <span className="text-[13px] font-medium" style={{ color: "#5F5145" }}>{OPPORTUNITY_STAGE_LABELS[stage]}</span>
+                <span className="text-[13px] font-medium" style={{ color: "#5F5145" }}>{t(`oppStage.${stage}`)}</span>
                 <span className="text-[13px] font-mono font-semibold px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${OPPORTUNITY_STAGE_COLORS[stage]}20`, color: OPPORTUNITY_STAGE_COLORS[stage] }}>
                   {items.length}
                 </span>
@@ -1674,7 +1765,7 @@ function OpportunityQueueSection() {
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-[11px] font-medium truncate" style={{ color: "#17120C" }}>{op.fanName}</span>
                       <span className="text-[12px] px-1.5 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: `${OPPORTUNITY_TYPE_COLORS[op.type]}20`, color: OPPORTUNITY_TYPE_COLORS[op.type] }}>
-                        {OPPORTUNITY_TYPE_LABELS[op.type]}
+                        {t(`oppType.${op.type}`)}
                       </span>
                     </div>
                     <p className="text-[13px] leading-relaxed line-clamp-2 mb-2" style={{ color: "#5F5145" }}>{op.aiSuggestion}</p>
@@ -1706,6 +1797,7 @@ function OpportunityQueueSection() {
 // ═══ 10. Team Control Room ═════════════════════════════
 
 function TeamControlRoomSection() {
+  const t = useT();
   const [members] = useState<TeamMember[]>(mockTeamMembers);
   const [activities] = useState(mockTeamActivity);
   const [employeeStats] = useState<EmployeeStats[]>(mockEmployeeStats);
@@ -1722,9 +1814,9 @@ function TeamControlRoomSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Team Control Room</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["team_control"]} />
-          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Vue d&apos;ensemble de l&apos;activité de l&apos;équipe</p>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("team.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.teamControl")} />
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("team.subtitle")}</p>
         </div>
         <div className="flex items-center gap-4 text-[10px]">
           <span style={{ color: "#5F5145" }}>{totalActive} conversations actives</span>
@@ -1761,7 +1853,7 @@ function TeamControlRoomSection() {
 
       {/* Activity feed */}
       <div>
-        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#5F5145" }}>Activité récente</h3>
+        <h3 className="text-[11px] font-medium mb-3" style={{ color: "#5F5145" }}>{t("team.recentActivity")}</h3>
         <div className="space-y-1.5">
           {activities.slice(0, 10).map((activity) => {
             const member = members.find((m) => m.id === activity.memberId);
@@ -1795,7 +1887,7 @@ function TeamControlRoomSection() {
                 <th className="text-left text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Rôle</th>
                 <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>CA généré</th>
                 <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Convs.</th>
-                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Approuvés</th>
+                <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>{t("ledger.approved")}</th>
                 <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Taux appro.</th>
                 <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>Tps réponse</th>
                 <th className="text-right text-[10px] font-medium px-3 py-2.5" style={{ color: "#5F5145" }}>CA/conv</th>
@@ -1843,7 +1935,7 @@ function TeamControlRoomSection() {
           </table>
         </div>
         <p className="text-[12px] mt-2" style={{ color: "#8A7E72" }}>
-          Golden Ratio = (Taux d&apos;approbation × CA/conversation) / Temps de réponse. Score &gt; 80 = Excellent, 60-80 = Bon, &lt; 60 = À améliorer.
+          {t("team.goldenRatioExplanation")}
         </p>
       </div>
     </div>
@@ -1853,6 +1945,7 @@ function TeamControlRoomSection() {
 // ═══ 11. Compliance Review Queue ═══════════════════════
 
 function ComplianceReviewSection() {
+  const t = useT();
   const [items, setItems] = useState<ComplianceReviewItem[]>(mockComplianceItems);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [categoryFilter, setCategoryFilter] = useState("");
@@ -1871,9 +1964,9 @@ function ComplianceReviewSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Compliance Review Queue</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["compliance_review"]} />
-          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Contenus et messages nécessitant une révision humaine</p>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("compliance.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.complianceReview")} />
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("compliance.subtitle")}</p>
         </div>
         <select
           value={categoryFilter}
@@ -1881,7 +1974,7 @@ function ComplianceReviewSection() {
           className="text-[14px] px-3 py-2 rounded-sm outline-none"
           style={{ backgroundColor: "#EBE3D7", color: categoryFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}
         >
-          <option value="">Toutes les catégories</option>
+          <option value="">{t("compliance.allCategories")}</option>
           {Object.entries(RISK_CATEGORY_LABELS).map(([key, label]) => (
             <option key={key} value={key}>{label}</option>
           ))}
@@ -1903,7 +1996,7 @@ function ComplianceReviewSection() {
                     {item.riskScore}/100
                   </span>
                   <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
-                    {RISK_CATEGORY_LABELS[item.riskCategory]}
+                    {t(`risk.${item.riskCategory}`)}
                   </span>
                 </div>
                 <span className="flex-1 text-[11px] truncate" style={{ color: "#17120C" }}>{item.content}</span>
@@ -1916,7 +2009,7 @@ function ComplianceReviewSection() {
                       item.status === "approved" ? "#2F7D4E" :
                       item.status === "escalated" ? "#B7791F" : "#6E6257",
                   }}>
-                  {item.status === "pending" ? "En attente" : item.status === "approved" ? "Approuvé" : item.status === "escalated" ? "Escaladé" : "Rejeté"}
+                  {item.status === "pending" ? t("compliance.statusPending") : item.status === "approved" ? t("compliance.statusApproved") : item.status === "escalated" ? t("compliance.statusEscalated") : t("compliance.statusRejected")}
                 </span>
                 <ChevronRight size={12} style={{ color: "#5F5145", transform: isExpanded ? "rotate(90deg)" : undefined }} />
               </button>
@@ -1925,7 +2018,7 @@ function ComplianceReviewSection() {
                 <div className="px-4 pb-4 border-t pt-3" style={{ borderColor: "#E5D7C3" }}>
                   <div className="grid grid-cols-2 gap-3 mb-3 text-[10px]">
                     <div>
-                      <span style={{ color: "#5F5145" }}>Détecté par: </span>
+                      <span style={{ color: "#5F5145" }}>{t("compliance.detectedBy")} </span>
                       <span style={{ color: "#5F5145" }}>{item.flaggedBy === "ai" ? "IA" : item.flaggedBy === "human" ? "Humain" : "Plateforme"}</span>
                     </div>
                     <div>
@@ -1952,21 +2045,21 @@ function ComplianceReviewSection() {
                           className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm"
                           style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}
                         >
-                          <CheckCircle size={12} /> Approuver (conforme)
+                          <CheckCircle size={12} /> {t("compliance.approveCompliant")}
                         </button>
                         <button
                           onClick={() => handleAction(item.id, "rejected")}
                           className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm"
                           style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}
                         >
-                          <X size={12} /> Rejeter (non conforme)
+                          <X size={12} /> {t("compliance.rejectNonCompliant")}
                         </button>
                         <button
                           onClick={() => handleAction(item.id, "escalated")}
                           className="flex items-center gap-1 text-[11px] px-3 py-1.5 rounded-sm"
                           style={{ backgroundColor: "rgba(183,121,31,0.1)", color: "#B7791F" }}
                         >
-                          <AlertTriangle size={12} /> Escalader au manager
+                          <AlertTriangle size={12} /> {t("compliance.escalate")}
                         </button>
                       </>
                     )}
@@ -1984,15 +2077,16 @@ function ComplianceReviewSection() {
 // ═══ 12. Why Atlas is safer ════════════════════════════
 
 function WhyAtlasSaferSection() {
+  const t = useT();
   const reasons = mockSafetyReasons;
   const iconMap: Record<string, React.ComponentType<{ size?: number; className?: string }>> = { UserCheck, ShieldCheck, Settings, FileCheck, Lock, AlertTriangle };
 
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Why Atlas is Safer</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["why_atlas_safer"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Pourquoi les créatrices choisissent Atlas pour gérer leurs ventes en toute sécurité</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("whySafer.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.whyAtlasSafer")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("whySafer.subtitle")}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -2017,8 +2111,8 @@ function WhyAtlasSaferSection() {
 
       {/* Bottom CTA */}
       <div className="p-4 rounded-sm border text-center" style={{ backgroundColor: "rgba(216,169,91,0.04)", borderColor: "rgba(216,169,91,0.1)" }}>
-        <p className="text-[12px] font-medium mb-1" style={{ color: "#17120C" }}>IA propose → Humain vérifie → Humain valide → Envoi humain</p>
-        <p className="text-[13px]" style={{ color: "#5F5145" }}>Aucun envoi automatique. 100% des messages sont validés par un humain.</p>
+        <p className="text-[12px] font-medium mb-1" style={{ color: "#17120C" }}>{t("whySafer.bottomCta")}</p>
+        <p className="text-[13px]" style={{ color: "#5F5145" }}>{t("whySafer.bottomSubtitle")}</p>
       </div>
     </div>
   );
@@ -2027,6 +2121,7 @@ function WhyAtlasSaferSection() {
 // ═══ 13. Safety Guard ══════════════════════════════════
 
 function SafetyGuardSection() {
+  const t = useT();
   const [settings, setSettings] = useState<SafetyGuardSetting[]>(mockGuardSettings);
 
   const toggleSetting = (id: string) => {
@@ -2042,9 +2137,9 @@ function SafetyGuardSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Safety Guard</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["safety_guard"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Barrières de sécurité configurables pour protéger la créatrice</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("safetyGuard.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.safetyGuard")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("safetyGuard.subtitle")}</p>
       </div>
 
       {categories.map((category) => {
@@ -2052,7 +2147,7 @@ function SafetyGuardSection() {
         return (
           <div key={category} className="space-y-2">
             <h3 className="text-[13px] font-medium tracking-wider uppercase" style={{ color: "#8A7E72" }}>
-              {GUARD_CATEGORY_LABELS[category] || category}
+              {t(`guardCat.${category}`) || category}
             </h3>
             {categorySettings.map((setting) => (
               <div key={setting.id} className="flex items-center gap-4 px-4 py-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
@@ -2071,7 +2166,7 @@ function SafetyGuardSection() {
                       {setting.severity}
                     </span>
                     {setting.adminOnly && (
-                      <span className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>Admin only</span>
+                      <span className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>{t("safetyGuard.adminOnly")}</span>
                     )}
                   </div>
                   <p className="text-[13px] mt-0.5" style={{ color: "#5F5145" }}>{setting.description}</p>
@@ -2098,6 +2193,7 @@ function SafetyGuardSection() {
 // ═══ 14. AI Core Settings ═════════════════════════════════
 
 function AiCoreSettingsSection() {
+  const t = useT();
   const [settings, setSettings] = useState<AiCoreSettings>(mockAiCoreSettings);
   const modes: AiCoreSettings["mode"][] = ["manual_only", "ai_draft_assist", "hybrid_qualification", "full_ai_simulation"];
 
@@ -2114,14 +2210,14 @@ function AiCoreSettingsSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>AI Core Settings</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["ai_core_settings"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Configure le niveau d&apos;assistance IA pour les conversations</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("aiCore.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.aiCoreSettings")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("aiCore.subtitle")}</p>
       </div>
 
       {/* Mode selector */}
       <div className="space-y-2">
-        <h3 className="text-[13px] font-medium tracking-wider uppercase" style={{ color: "#8A7E72" }}>Mode opératoire</h3>
+        <h3 className="text-[13px] font-medium tracking-wider uppercase" style={{ color: "#8A7E72" }}>{t("aiCore.modeSelector")}</h3>
         <div className="grid grid-cols-2 gap-2">
           {modes.map((mode) => (
             <button
@@ -2143,7 +2239,7 @@ function AiCoreSettingsSection() {
                 )}
               </div>
               <p className="text-[13px] leading-relaxed" style={{ color: "#5F5145" }}>
-                {AI_CORE_MODE_LABELS[mode]}
+                {t(`aiMode.${mode}`)}
               </p>
             </button>
           ))}
@@ -2152,7 +2248,7 @@ function AiCoreSettingsSection() {
 
       {/* Configuration options */}
       <div className="p-4 rounded-sm border space-y-3" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
-        <h3 className="text-[13px] font-medium tracking-wider uppercase mb-3" style={{ color: "#8A7E72" }}>Paramètres IA</h3>
+        <h3 className="text-[13px] font-medium tracking-wider uppercase mb-3" style={{ color: "#8A7E72" }}>{t("aiCore.configHeading")}</h3>
         {([
           { key: "autoGenerateOnNewMessage" as const, label: "Auto-génération sur nouveau message", desc: "L'IA génère des brouillons dès qu'un nouveau message arrive" },
           { key: "requireHumanApproval" as const, label: "Approbation humaine obligatoire", desc: "Chaque brouillon IA doit être validé avant envoi" },
@@ -2185,10 +2281,10 @@ function AiCoreSettingsSection() {
           onChange={(e) => setSettings((prev) => ({ ...prev, modelTemperature: Number(e.target.value) }))}
           className="w-full accent-[#C9973F]" />
         <div className="flex items-center justify-between text-[9px]" style={{ color: "#5F5145" }}>
-          <span>Précis (0)</span><span>Créatif (1.5)</span>
+          <span>{t("aiCore.precise")}</span><span>{t("aiCore.creative")}</span>
         </div>
         <div className="flex items-center gap-1.5 pt-2 mt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
-          <span className="text-[13px]" style={{ color: "#5F5145" }}>Langues:</span>
+          <span className="text-[13px]" style={{ color: "#5F5145" }}>{t("aiCore.languages")}</span>
           {settings.languages.map((l) => (
             <span key={l} className="text-[12px] px-1.5 py-0.5 rounded-sm uppercase" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>{l}</span>
           ))}
@@ -2201,6 +2297,7 @@ function AiCoreSettingsSection() {
 // ═══ 15. Hybrid Handoff Rules ═════════════════════════════
 
 function HybridHandoffSection() {
+  const t = useT();
   const [groups, setGroups] = useState<HandoffRuleGroup[]>(mockHandoffRules);
 
   const toggleRule = (groupId: string, ruleId: string) => {
@@ -2212,9 +2309,9 @@ function HybridHandoffSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Hybrid Handoff Rules</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["hybrid_handoff"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Définis quand les conversations doivent être gérées par un humain ou assistées par l&apos;IA</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("handoff.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.hybridHandoff")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("handoff.subtitle")}</p>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -2248,7 +2345,7 @@ function HybridHandoffSection() {
                   </div>
                   <span className="text-[11px] px-1.5 py-0.5 rounded-sm shrink-0"
                     style={{ backgroundColor: "#F1EBE2", color: "#5F5145" }}>
-                    {HANDOFF_ACTION_LABELS[rule.action]}
+                    {t(`handoffAction.${rule.action}`)}
                   </span>
                 </div>
               ))}
@@ -2269,6 +2366,7 @@ function HybridHandoffSection() {
 // ═══ 16. Script Builder / PPV Ladder ═══════════════════════
 
 function ScriptBuilderSection() {
+  const t = useT();
   const [scripts] = useState<PpvLadderScript[]>(mockPpvLadderScripts);
   const [selectedScriptId, setSelectedScriptId] = useState(scripts[0]?.id || null);
   const [expandedStepId, setExpandedStepId] = useState<string | null>(null);
@@ -2279,12 +2377,12 @@ function ScriptBuilderSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Script Builder / PPV Ladder</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["script_builder"]} />
-          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Crée des entonnoirs PPV progressifs avec étapes et templates</p>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("script.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.scriptBuilder")} />
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("script.subtitle")}</p>
         </div>
         <button className="flex items-center gap-1.5 text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
-          <Plus size={12} /> Créer un script PPV
+          <Plus size={12} /> {t("script.create")}
         </button>
       </div>
 
@@ -2299,7 +2397,7 @@ function ScriptBuilderSection() {
             }}>
             <span className="text-[11px] font-medium block" style={{ color: "#17120C" }}>{s.name}</span>
             <span className="text-[12px] mt-0.5 block" style={{ color: "#5F5145" }}>
-              {s.totalSteps} étapes · {FAN_TIER_LABELS[s.targetTier]} · {formatEuro(s.estimatedRevenue)}
+              {s.totalSteps} étapes · {t(FAN_TIER_KEY[s.targetTier] || s.targetTier)} · {formatEuro(s.estimatedRevenue)}
             </span>
           </button>
         ))}
@@ -2310,10 +2408,10 @@ function ScriptBuilderSection() {
           {/* Header KPIs */}
           <div className="grid grid-cols-4 gap-3">
             {[
-              { label: "Étapes", value: script.totalSteps.toString(), color: "#17120C" },
-              { label: "Taux de conversion", value: `${script.conversionRate}%`, color: "#C9973F" },
-              { label: "Revenu estimé", value: formatEuro(script.estimatedRevenue), color: "#2F7D4E" },
-              { label: "Statut", value: script.isActive ? "Actif" : "Inactif", color: script.isActive ? "#2F7D4E" : "#6E6257" },
+              { label: t("script.etapes"), value: script.totalSteps.toString(), color: "#17120C" },
+              { label: t("tracking.convRate"), value: `${script.conversionRate}%`, color: "#C9973F" },
+              { label: t("script.estimatedRevenue"), value: formatEuro(script.estimatedRevenue), color: "#2F7D4E" },
+              { label: t("automation.status"), value: script.isActive ? t("banned.active") : t("script.inactive"), color: script.isActive ? "#2F7D4E" : "#6E6257" },
             ].map((kpi) => (
               <div key={kpi.label} className="p-3 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
                 <p className="text-[12px]" style={{ color: "#5F5145" }}>{kpi.label}</p>
@@ -2350,7 +2448,7 @@ function ScriptBuilderSection() {
                       <span className="text-[11px] font-mono font-semibold shrink-0" style={{ color: "#C9973F" }}>{formatEuro(step.price)}</span>
                     )}
                     {step.isRequired && (
-                      <span className="text-[11px] px-1 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: "rgba(197,74,58,0.1)", color: "#C54A3A" }}>Requis</span>
+                      <span className="text-[11px] px-1 py-0.5 rounded-sm shrink-0" style={{ backgroundColor: "rgba(197,74,58,0.1)", color: "#C54A3A" }}>{t("script.required")}</span>
                     )}
                     <ChevronRight size={12} style={{ color: "#5F5145", transform: isExpanded ? "rotate(90deg)" : undefined }} />
                   </button>
@@ -2359,11 +2457,11 @@ function ScriptBuilderSection() {
                       <p className="text-[11px] leading-relaxed mb-3" style={{ color: "#5F5145" }}>{step.content}</p>
                       <div className="flex items-center gap-4 text-[10px]">
                         <span style={{ color: "#5F5145" }}>
-                          Délai après précédent: <span style={{ color: "#5F5145" }}>{step.delayAfterPrevious}</span>
+                          {t("script.delayAfterPrevious")} <span style={{ color: "#5F5145" }}>{step.delayAfterPrevious}</span>
                         </span>
                         <div className="flex items-center gap-1.5 ml-auto">
-                          <button className="text-[13px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>Déplacer</button>
-                          <button className="text-[13px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}>Modifier</button>
+                          <button className="text-[13px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>{t("script.move")}</button>
+                          <button className="text-[13px] px-2 py-1 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}>{t("salesEngine.edit")}</button>
                         </div>
                       </div>
                     </div>
@@ -2375,11 +2473,11 @@ function ScriptBuilderSection() {
 
           {/* Mock CTA preview */}
           <div className="p-4 rounded-sm border text-center" style={{ backgroundColor: "rgba(47,125,78,0.03)", borderColor: "rgba(47,125,78,0.1)" }}>
-            <p className="text-[13px] mb-1" style={{ color: "#5F5145" }}>CTA final mock</p>
+            <p className="text-[13px] mb-1" style={{ color: "#5F5145" }}>{t("script.finalCta")}</p>
             <p className="text-[12px] font-medium" style={{ color: "#17120C" }}>
-              Merci pour ton soutien ! Les offres exclusives expirent dans 24h 🔥
+              {t("script.finalCtaText")} 🔥
             </p>
-            <p className="text-[12px] mt-1" style={{ color: "#5F5145" }}>Ce message sera envoyé 72h après l'étape précédente</p>
+            <p className="text-[12px] mt-1" style={{ color: "#5F5145" }}>{t("script.finalCtaSub")}</p>
           </div>
         </div>
       )}
@@ -2390,6 +2488,7 @@ function ScriptBuilderSection() {
 // ═══ 17. Message Ledger ══════════════════════════════════
 
 function MessageLedgerSection() {
+  const t = useT();
   const [entries] = useState<MessageLedgerEntry[]>(mockMessageLedger);
   const [statusFilter, setStatusFilter] = useState("");
 
@@ -2403,18 +2502,18 @@ function MessageLedgerSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Message Ledger</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["message_ledger"]} />
-          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Registre complet de tous les messages envoyés et reçus</p>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("ledger.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.messageLedger")} />
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("ledger.subtitle")}</p>
         </div>
         <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}
           className="text-[14px] px-3 py-2 rounded-sm outline-none"
           style={{ backgroundColor: "#EBE3D7", color: statusFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}>
-          <option value="">Tous les statuts</option>
-          <option value="draft">Brouillons</option>
-          <option value="approved">Approuvés</option>
-          <option value="sent">Envoyés</option>
-          <option value="flagged">Signalés</option>
+          <option value="">{t("ledger.allStatuses")}</option>
+          <option value="draft">{t("ledger.drafts")}</option>
+          <option value="approved">{t("compliance.statusApproved")}s</option>
+          <option value="sent">{t("ledger.sent")}</option>
+          <option value="flagged">{t("ledger.flagged")}</option>
         </select>
       </div>
 
@@ -2426,7 +2525,7 @@ function MessageLedgerSection() {
               <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Message</th>
               <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Direction</th>
               <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Créateur</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Statut</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("automation.status")}</th>
               <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Revenu</th>
               <th className="text-right text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Date</th>
             </tr>
@@ -2438,7 +2537,7 @@ function MessageLedgerSection() {
                   <div className="flex items-center gap-2">
                     <span className="text-[11px] font-medium" style={{ color: "#17120C" }}>{entry.fanName}</span>
                     <span className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: `${FAN_TIER_COLORS[entry.fanTier]}20`, color: FAN_TIER_COLORS[entry.fanTier] }}>
-                      {FAN_TIER_LABELS[entry.fanTier]}
+                      {t(FAN_TIER_KEY[entry.fanTier] || entry.fanTier)}
                     </span>
                   </div>
                 </td>
@@ -2448,7 +2547,7 @@ function MessageLedgerSection() {
                 <td className="px-4 py-2.5">
                   <span className="text-[13px] flex items-center gap-1" style={{ color: entry.direction === "inbound" ? "#1D4ED8" : "#C9973F" }}>
                     {entry.direction === "inbound" ? <ArrowLeft size={10} /> : <ArrowRight size={10} />}
-                    {entry.direction === "inbound" ? "Entrant" : "Sortant"}
+                    {entry.direction === "inbound" ? t("ledger.inbound") : t("ledger.outbound")}
                   </span>
                 </td>
                 <td className="px-4 py-2.5">
@@ -2456,7 +2555,7 @@ function MessageLedgerSection() {
                 </td>
                 <td className="px-4 py-2.5">
                   <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[entry.status]}15`, color: statusColors[entry.status] }}>
-                    {entry.status === "draft" ? "Brouillon" : entry.status === "approved" ? "Approuvé" : entry.status === "sent" ? "Envoyé" : "Signalé"}
+                    {entry.status === "draft" ? t("ledger.draft") : entry.status === "approved" ? t("compliance.statusApproved") : entry.status === "sent" ? t("compliance.statusApproved") : t("ledger.flagged")}
                   </span>
                 </td>
                 <td className="px-4 py-2.5 text-right">
@@ -2485,6 +2584,7 @@ function MessageLedgerSection() {
 // ═══ 18. Banned Keywords ════════════════════════════════
 
 function BannedKeywordsSection() {
+  const t = useT();
   const [keywords, setKeywords] = useState<BannedKeyword[]>(mockBannedKeywords);
   const [newKeyword, setNewKeyword] = useState("");
 
@@ -2499,15 +2599,15 @@ function BannedKeywordsSection() {
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Banned Keywords & Safety Rules</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["banned_keywords"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Mots-clés interdits appliqués aux brouillons IA, templates et messages manuels</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("banned.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.bannedKeywords")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("banned.subtitle")}</p>
       </div>
 
       {/* Add custom keyword */}
       <div className="flex items-center gap-2">
         <input value={newKeyword} onChange={(e) => setNewKeyword(e.target.value)}
-          placeholder="Ajouter un mot-clé personnalisé..."
+          placeholder={t("banned.addKeywordPlaceholder")}
           className="flex-1 text-[11px] px-3 py-2 rounded-sm outline-none bg-transparent"
           style={{ color: "#17120C", border: "1px solid #D9CCBB" }}
           onKeyDown={(e) => { if (e.key === "Enter" && newKeyword.trim()) {
@@ -2531,12 +2631,12 @@ function BannedKeywordsSection() {
         <table className="w-full">
           <thead>
             <tr style={{ borderBottom: "1px solid #E5D7C3" }}>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Mot-clé</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Catégorie</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Sévérité</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Appliqué à</th>
-              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Remplacement</th>
-              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>Actif</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("banned.keyword")}</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("banned.category")}</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("banned.severity")}</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("banned.appliedTo")}</th>
+              <th className="text-left text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("banned.replacement")}</th>
+              <th className="text-center text-[10px] font-medium px-4 py-2.5" style={{ color: "#5F5145" }}>{t("banned.active")}</th>
             </tr>
           </thead>
           <tbody>
@@ -2549,7 +2649,7 @@ function BannedKeywordsSection() {
                   <span className="text-[13px] px-1.5 py-0.5 rounded-sm" style={{
                     backgroundColor: kw.category === "system" ? "rgba(197,74,58,0.08)" : "rgba(29,77,216,0.08)",
                     color: kw.category === "system" ? "#C54A3A" : "#1D4ED8",
-                  }}>{BANNED_CATEGORY_LABELS[kw.category]}</span>
+                  }}>{t(`bannedCat.${kw.category}`)}</span>
                 </td>
                 <td className="px-4 py-2.5">
                   <span className="text-[13px] font-medium capitalize" style={{ color: severityColors[kw.severity] }}>{kw.severity}</span>
@@ -2558,7 +2658,7 @@ function BannedKeywordsSection() {
                   <div className="flex items-center gap-1">
                     {kw.appliesTo.map((a) => (
                       <span key={a} className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F1EBE2", color: "#5F5145" }}>
-                        {BANNED_APPLIES_TO_LABELS[a]}
+                        {t(`bannedApplies.${a}`)}
                       </span>
                     ))}
                   </div>
@@ -2588,14 +2688,15 @@ function BannedKeywordsSection() {
 // ═══ 19. Creator Intelligence Profile ══════════════════════
 
 function CreatorProfileSection() {
+  const t = useT();
   const [profile] = useState<CreatorProfile>(mockCreatorProfile);
 
   return (
     <div className="p-5 space-y-5">
       <div>
-        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Creator Intelligence Profile</h2>
-        <SectionInfoBar description={SECTION_DESCRIPTIONS["creator_profile"]} />
-        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Profil IA de la créatrice — persona, limites, règles et préférences</p>
+        <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("creatorProfile.heading")}</h2>
+        <SectionInfoBar description={t("sectionDesc.creatorProfile")} />
+        <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("creatorProfile.subtitle")}</p>
       </div>
 
       <div className="grid grid-cols-3 gap-6">
@@ -2613,9 +2714,9 @@ function CreatorProfileSection() {
             </div>
             <div className="space-y-2 text-[11px]">
               <div className="flex justify-between"><span style={{ color: "#5F5145" }}>Timezone</span><span style={{ color: "#5F5145" }}>{profile.timezone}</span></div>
-              <div className="flex justify-between"><span style={{ color: "#5F5145" }}>Horaires actifs</span><span style={{ color: "#5F5145" }}>{profile.activeHours}</span></div>
+              <div className="flex justify-between"><span style={{ color: "#5F5145" }}>{t("creatorProfile.activeHours")}</span><span style={{ color: "#5F5145" }}>{profile.activeHours}</span></div>
               <div className="flex justify-between"><span style={{ color: "#5F5145" }}>Ton</span>
-                <span className="px-1.5 py-0.5 rounded-sm text-[10px]" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>{CREATOR_TONE_LABELS[profile.tone]}</span>
+                <span className="px-1.5 py-0.5 rounded-sm text-[10px]" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>{t(`tone.${profile.tone}`)}</span>
               </div>
               <div className="flex justify-between"><span style={{ color: "#5F5145" }}>Langues</span>
                 <span style={{ color: "#17120C" }}>{profile.languages.map((l) => l.toUpperCase()).join(", ")}</span>
@@ -2625,11 +2726,11 @@ function CreatorProfileSection() {
 
           {/* Platforms */}
           <div className="p-4 rounded-sm border" style={{ backgroundColor: "#FFFFFF", borderColor: "#E5D7C3", boxShadow: "0 1px 3px rgba(23,18,12,0.04)" }}>
-            <h3 className="text-[13px] font-medium mb-2" style={{ color: "#5F5145" }}>Plateformes actives</h3>
+            <h3 className="text-[13px] font-medium mb-2" style={{ color: "#5F5145" }}>{t("creatorProfile.activePlatforms")}</h3>
             <div className="flex flex-wrap gap-1.5">
               {profile.platforms.map((p) => (
                 <span key={p} className="text-[13px] px-2 py-1 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
-                  {PLATFORM_LABELS[p]}
+                  {t(`platform.${p}`)}
                 </span>
               ))}
             </div>
@@ -2645,7 +2746,7 @@ function CreatorProfileSection() {
           {/* Boundaries */}
           <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(197,74,58,0.04)", borderColor: "rgba(197,74,58,0.1)" }}>
             <h3 className="text-[13px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#C54A3A" }}>
-              <AlertTriangle size={10} /> Limites strictes
+              <AlertTriangle size={10} /> {t("creatorProfile.strictBoundaries")}
             </h3>
             <ul className="space-y-1">
               {profile.boundaries.map((b, i) => (
@@ -2661,7 +2762,7 @@ function CreatorProfileSection() {
         <div className="space-y-4">
           <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(47,125,78,0.04)", borderColor: "rgba(47,125,78,0.1)" }}>
             <h3 className="text-[13px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#2F7D4E" }}>
-              <CheckCircle size={10} /> À faire
+              <CheckCircle size={10} /> {t("creatorProfile.toDo")}
             </h3>
             <ul className="space-y-1">
               {profile.doRules.map((r, i) => (
@@ -2673,7 +2774,7 @@ function CreatorProfileSection() {
           </div>
           <div className="p-4 rounded-sm border" style={{ backgroundColor: "rgba(183,121,31,0.04)", borderColor: "rgba(183,121,31,0.1)" }}>
             <h3 className="text-[13px] font-medium mb-2 flex items-center gap-1.5" style={{ color: "#B7791F" }}>
-              <Ban size={10} /> À ne pas faire
+              <Ban size={10} /> {t("creatorProfile.notToDo")}
             </h3>
             <ul className="space-y-1">
               {profile.dontRules.map((r, i) => (
@@ -2692,6 +2793,7 @@ function CreatorProfileSection() {
 // ═══ 20. Notifications Center ════════════════════════════
 
 function NotificationsCenterSection() {
+  const t = useT();
   const [notifications, setNotifications] = useState<NotificationItem[]>(mockNotifications);
   const [typeFilter, setTypeFilter] = useState("");
 
@@ -2714,8 +2816,8 @@ function NotificationsCenterSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Notifications Center</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["notifications_center"]} />
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("notifications.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.notificationsCenter")} />
           <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>
             {unreadCount} non lues sur {notifications.length} notifications
           </p>
@@ -2731,7 +2833,7 @@ function NotificationsCenterSection() {
           </select>
           {unreadCount > 0 && (
             <button onClick={markAllRead} className="text-[13px] px-2.5 py-1.5 rounded-sm" style={{ backgroundColor: "#EBE3D7", color: "#5F5145" }}>
-              Marquer tout comme lu
+              {t("notifications.markAllRead")}
             </button>
           )}
         </div>
@@ -2748,13 +2850,13 @@ function NotificationsCenterSection() {
             <div className="flex items-center gap-2 w-[100px] shrink-0">
               {!notif.isRead && <span className="w-2 h-2 rounded-full" style={{ backgroundColor: "#C9973F" }} />}
               <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${priorityColors[notif.priority]}15`, color: priorityColors[notif.priority] }}>
-                {notif.priority === "high" ? "Haute" : notif.priority === "medium" ? "Moy." : "Basse"}
+                {notif.priority === "high" ? t("notifications.high") : notif.priority === "medium" ? t("notifications.medium") : t("notifications.low")}
               </span>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
                 <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "#F1EBE2", color: "#5F5145" }}>
-                  {NOTIF_TYPE_LABELS[notif.type]}
+                  {t(`notifType.${notif.type}`)}
                 </span>
                 <span className="text-[11px] font-medium" style={{ color: notif.isRead ? "#6E6257" : "#17120C" }}>
                   {notif.title}
@@ -2769,7 +2871,7 @@ function NotificationsCenterSection() {
                 <div className="flex items-center gap-1">
                   {notif.channels.map((ch) => (
                     <span key={ch} className="text-[11px] px-1 py-0.5 rounded-sm" style={{ backgroundColor: "#F2EDE4", color: "#5F5145" }}>
-                      {NOTIF_CHANNEL_LABELS[ch]}
+                      {t(`notifChannel.${ch}`)}
                     </span>
                   ))}
                 </div>
@@ -2785,6 +2887,7 @@ function NotificationsCenterSection() {
 // ═══ 21. Creative Engine / AI Reels ════════════════════════
 
 function CreativeEngineSection() {
+  const t = useT();
   const [reels] = useState<AiReel[]>(mockAiReels);
   const [selectedReelId, setSelectedReelId] = useState<string | null>(null);
 
@@ -2795,16 +2898,16 @@ function CreativeEngineSection() {
   };
 
   const statusLabels: Record<string, string> = {
-    draft: "Brouillon", reviewed: "Révisé", approved: "Approuvé", published: "Publié",
+    draft: t("ledger.draft"), reviewed: t("creative.reviewed"), approved: t("compliance.statusApproved"), published: t("creative.published"),
   };
 
   return (
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Creative Engine / AI Reels</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["creative_engine"]} />
-          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Scripts Reels/TikTok générés par IA — preview seulement, approbation humaine obligatoire</p>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("creative.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.creativeEngine")} />
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("creative.subtitle")}</p>
         </div>
       </div>
 
@@ -2812,7 +2915,7 @@ function CreativeEngineSection() {
       <div className="flex items-center justify-center gap-2 px-4 py-2 rounded-sm"
         style={{ backgroundColor: "rgba(216,169,91,0.06)", border: "1px dashed rgba(216,169,91,0.15)" }}>
         <Sparkles size={12} style={{ color: "#C9973F" }} />
-        <span className="text-[13px] font-medium" style={{ color: "#C9973F" }}>IA propose → Humain valide → Créatrice publie. Aucune publication automatique.</span>
+        <span className="text-[13px] font-medium" style={{ color: "#C9973F" }}>{t("creative.warningBanner")}</span>
       </div>
 
       <div className="grid grid-cols-2 gap-4">
@@ -2837,10 +2940,10 @@ function CreativeEngineSection() {
               <div className="mt-3 space-y-3 pt-3 border-t" style={{ borderColor: "#E5D7C3" }}>
                 <div className="grid grid-cols-3 gap-2 text-[10px]">
                   <div><span style={{ color: "#5F5145" }}>Plateforme</span>
-                    <p style={{ color: "#5F5145" }}>{REEL_PLATFORM_LABELS[reel.platform]}</p></div>
-                  <div><span style={{ color: "#5F5145" }}>Durée</span>
+                    <p style={{ color: "#5F5145" }}>{t(`reelPlatform.${reel.platform}`)}</p></div>
+                  <div><span style={{ color: "#5F5145" }}>{t("creative.duration")}</span>
                     <p style={{ color: "#5F5145" }}>{reel.duration}</p></div>
-                  <div><span style={{ color: "#5F5145" }}>Score viral</span>
+                  <div><span style={{ color: "#5F5145" }}>{t("creative.viralScore")}</span>
                     <p className="font-mono font-semibold" style={{ color: reel.viralScore > 85 ? "#2F7D4E" : "#C9973F" }}>{reel.viralScore}/100</p></div>
                 </div>
 
@@ -2862,17 +2965,17 @@ function CreativeEngineSection() {
                 <div className="flex items-center gap-2 pt-2 border-t" style={{ borderColor: "#E5D7C3" }}>
                   <span className="text-[12px]" style={{ color: "#5F5145" }}>Trend: {reel.trendAlignment}</span>
                   {reel.reviewedBy && (
-                    <span className="text-[12px] ml-auto" style={{ color: "#5F5145" }}>Relu par {reel.reviewedBy}</span>
+                    <span className="text-[12px] ml-auto" style={{ color: "#5F5145" }}>{t("creative.reviewedBy")} {reel.reviewedBy}</span>
                   )}
                 </div>
                 <div className="flex items-center gap-2">
                   <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(47,125,78,0.1)", color: "#2F7D4E" }}>
-                    <CheckCircle size={10} /> Approuver le script
+                    <CheckCircle size={10} /> {t("creative.approveScript")}
                   </button>
                   <button className="flex items-center gap-1 text-[10px] px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(29,77,216,0.1)", color: "#1D4ED8" }}>
                     <Edit3 size={10} /> Modifier
                   </button>
-                  <button className="text-[13px] px-2 py-1" style={{ color: "#5F5145" }}>Ignorer</button>
+                  <button className="text-[13px] px-2 py-1" style={{ color: "#5F5145" }}>{t("creative.ignore")}</button>
                 </div>
               </div>
             )}
@@ -2881,9 +2984,9 @@ function CreativeEngineSection() {
               <>
                 <p className="text-[13px] mt-1.5 line-clamp-2" style={{ color: "#5F5145" }}>{reel.description}</p>
                 <div className="flex items-center gap-3 mt-2 text-[9px]">
-                  <span style={{ color: "#5F5145" }}>{REEL_PLATFORM_LABELS[reel.platform]}</span>
+                  <span style={{ color: "#5F5145" }}>{t(`reelPlatform.${reel.platform}`)}</span>
                   <span style={{ color: "#5F5145" }}>{reel.duration}</span>
-                  <span className="font-mono" style={{ color: "#C9973F" }}>Viral: {reel.viralScore}</span>
+                  <span className="font-mono" style={{ color: "#C9973F" }}>{t("creative.viral")} {reel.viralScore}</span>
                 </div>
               </>
             )}
@@ -2904,6 +3007,7 @@ function CreativeEngineSection() {
 // ═══ 22. Roadmap / Feature Requests ════════════════════════
 
 function RoadmapSection() {
+  const t = useT();
   const [features] = useState<FeatureRequest[]>(mockFeatureRequests);
   const [categoryFilter, setCategoryFilter] = useState("");
   const [votedIds, setVotedIds] = useState<Set<string>>(new Set());
@@ -2922,14 +3026,14 @@ function RoadmapSection() {
     <div className="p-5 space-y-5">
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>Roadmap & Feature Requests</h2>
-          <SectionInfoBar description={SECTION_DESCRIPTIONS["roadmap"]} />
-          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>Suggestions et demandes de fonctionnalités par la communauté d&apos;agences</p>
+          <h2 className="text-[20px] font-display font-semibold" style={{ color: "#17120C" }}>{t("roadmap.heading")}</h2>
+          <SectionInfoBar description={t("sectionDesc.roadmap")} />
+          <p className="text-[14px] mt-1.5" style={{ color: "#5F5145" }}>{t("roadmap.subtitle")}</p>
         </div>
         <select value={categoryFilter} onChange={(e) => setCategoryFilter(e.target.value)}
           className="text-[14px] px-3 py-2 rounded-sm outline-none"
           style={{ backgroundColor: "#EBE3D7", color: categoryFilter ? "#17120C" : "#6E6257", border: "1px solid #D9CCBB" }}>
-          <option value="">Toutes les catégories</option>
+          <option value="">{t("compliance.allCategories")}</option>
           {Object.entries(FEATURE_CATEGORY_LABELS).map(([key, label]) => (
             <option key={key} value={key}>{label}</option>
           ))}
@@ -2939,7 +3043,7 @@ function RoadmapSection() {
       {/* Top agency requests highlight */}
       <div className="flex items-center gap-2">
         <span className="text-[13px] font-medium px-2.5 py-1 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
-          Top demandes agences
+          {t("roadmap.topAgencyRequests")}
         </span>
         <div className="h-px flex-1" style={{ backgroundColor: "#EBE3D7" }} />
       </div>
@@ -2967,16 +3071,16 @@ function RoadmapSection() {
                   <h3 className="text-[12px] font-medium" style={{ color: "#17120C" }}>{feature.title}</h3>
                   {feature.agencyRequest && (
                     <span className="text-[11px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: "rgba(216,169,91,0.08)", color: "#C9973F" }}>
-                      Demande agence
+                      {t("roadmap.agencyRequest")}
                     </span>
                   )}
                 </div>
                 <p className="text-[13px] mb-2" style={{ color: "#5F5145" }}>{feature.description}</p>
                 <div className="flex items-center gap-3">
                   <span className="text-[12px] px-1.5 py-0.5 rounded-sm" style={{ backgroundColor: `${statusColors[feature.status]}15`, color: statusColors[feature.status] }}>
-                    {FEATURE_STATUS_LABELS[feature.status]}
+                    {t(`featureStatus.${feature.status}`)}
                   </span>
-                  <span className="text-[12px]" style={{ color: "#5F5145" }}>{FEATURE_CATEGORY_LABELS[feature.category]}</span>
+                  <span className="text-[12px]" style={{ color: "#5F5145" }}>{t(`featureCat.${feature.category}`)}</span>
                   <span className="text-[12px]" style={{ color: "#8A7E72" }}>{feature.requestedBy}</span>
                   <span className="text-[12px] ml-auto" style={{ color: "#B8ADA0" }}>{formatRelative(feature.createdAt)}</span>
                 </div>
@@ -2989,7 +3093,7 @@ function RoadmapSection() {
       {/* Submit idea */}
       <div className="p-3 rounded-sm border text-center" style={{ backgroundColor: "#F5F1EB", borderColor: "#EBE3D7" }}>
         <button className="flex items-center gap-1.5 mx-auto text-[11px] px-3 py-2 rounded-sm" style={{ backgroundColor: "#C9973F", color: "#FFFFFF", fontWeight: 600 }}>
-          <Lightbulb size={12} /> Soumettre une idée
+          <Lightbulb size={12} /> {t("roadmap.submitIdea")}
         </button>
       </div>
     </div>

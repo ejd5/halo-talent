@@ -20,7 +20,6 @@ import {
   X,
   Check,
 } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 function useReveal(amount = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -113,7 +112,7 @@ const DEPARTEMENTS_DATA: Record<string, DepartementData> = {
       { nom: "Studio IA générative", description: "Production de visuels photo et vidéo en qualité éditoriale, sans shooting physique." },
       { nom: "Atlas CRM", description: "Gestion de la communauté et des relations marques avec segmentation premium." },
       { nom: "WTF Lex", description: "Protection juridique : dépôts, contrats, veille sur les utilisations non autorisées de votre image." },
-      { nom: "Chat AI personnalisé", description: "Un assistant qui connaît votre univers et répond à vos fans dans votre tonalité." },
+      { nom: "CHATEENG personnalisé", description: "Un assistant qui connaît votre univers et répond à vos fans dans votre tonalité." },
       { nom: "Sovereign Chat", description: "Communications confidentielles avec l'équipe WTF, chiffrées de bout en bout." },
     ],
     parcours:
@@ -183,11 +182,11 @@ const DEPARTEMENTS_DATA: Record<string, DepartementData> = {
       { titre: "Stratégie de contenu", description: "Calendrier éditorial, analyse de performance, identification des formats gagnants, planification multiplateforme.", icon: Zap },
       { titre: "Monétisation diversifiée", description: "Brand deals, abonnements, produits dérivés, consulting, contenu exclusif ,  ne dépendre d'aucune source unique.", icon: TrendingUp },
       { titre: "Négociation de marque", description: "Valorisation de l'audience, structuration des partenariats, relecture des contrats, optimisation des revenus par deal.", icon: Check },
-      { titre: "Outils IA", description: "Studio IA pour la production de contenu, Chat AI pour la gestion de communauté, Atlas pour le CRM et les relations marques.", icon: Sparkles },
+      { titre: "Outils IA", description: "Studio IA pour la production de contenu, CHATEENG pour la gestion de communauté, Atlas pour le CRM et les relations marques.", icon: Sparkles },
       { titre: "Protection et conformité", description: "Déclaration des partenariats commerciaux, contrats de cession de droits, protection contre le shadowban.", icon: Shield },
     ],
     outils: [
-      { nom: "Chat AI personnalisé", description: "Automatisez les réponses aux fans tout en gardant votre voix. Gagnez 10+ heures par semaine." },
+      { nom: "CHATEENG personnalisé", description: "Automatisez les réponses aux fans tout en gardant votre voix. Gagnez 10+ heures par semaine." },
       { nom: "Studio IA", description: "Générez des visuels, des miniatures, des scripts et des descriptions optimisées pour chaque plateforme." },
       { nom: "Atlas CRM", description: "Gérez vos contacts marques, vos partenariats en cours, et votre communauté dans un seul outil." },
       { nom: "WTF Lex", description: "Contrats de partenariat, dépôts de preuves, conformité réglementaire (mentions obligatoires, droits d'auteur)." },
@@ -267,7 +266,7 @@ const DEPARTEMENTS_DATA: Record<string, DepartementData> = {
       { nom: "Studio IA (vidéo et audio)", description: "Montage, nettoyage audio, génération de sous-titres, vignettes optimisées, déclinaison en shorts." },
       { nom: "Atlas CRM", description: "Gestion des sponsors, des invitations, des collaborations, et segmentation de votre communauté." },
       { nom: "WTF Lex", description: "Protection contre les revendications Content ID abusives, contrats de sponsoring, gestion des droits musicaux." },
-      { nom: "Chat AI", description: "Assistant pour répondre aux commentaires, modérer la communauté, et interagir avec votre audience 24/7." },
+      { nom: "CHATEENG", description: "Assistant pour répondre aux commentaires, modérer la communauté, et interagir avec votre audience 24/7." },
       { nom: "Sovereign Chat", description: "Communications confidentielles avec vos collaborateurs et l'équipe WTF." },
     ],
     parcours:
@@ -344,7 +343,7 @@ const DEPARTEMENTS_DATA: Record<string, DepartementData> = {
       { nom: "Studio IA (musique et audio)", description: "Génération, arrangement, mixage et mastering assistés par IA. Réduisez le temps de production sans sacrifier la qualité." },
       { nom: "WTF Lex", description: "Dépôt SACEM, contrats d'édition, licences sync, gestion des royalties et des droits voisins." },
       { nom: "Atlas CRM", description: "Gestion des contacts professionnels, des playlists, des médias, et de votre communauté de fans." },
-      { nom: "Chat AI", description: "Interagissez avec vos fans 24/7 dans votre univers, partagez des exclusivités, construisez une relation directe." },
+      { nom: "CHATEENG", description: "Interagissez avec vos fans 24/7 dans votre univers, partagez des exclusivités, construisez une relation directe." },
       { nom: "Sovereign Chat", description: "Échanges confidentiels avec vos collaborateurs, managers, et l'équipe WTF." },
     ],
     parcours:
@@ -419,7 +418,7 @@ const DEPARTEMENTS_DATA: Record<string, DepartementData> = {
     ],
     outils: [
       { nom: "Atlas CRM", description: "Gérez vos clients, vos élèves, vos sponsors, et votre communauté. Segmentez, automatisez, personnalisez." },
-      { nom: "Chat AI", description: "Un assistant qui répond aux questions de votre communauté (conseils fitness, programmes, nutrition) dans votre tonalité." },
+      { nom: "CHATEENG", description: "Un assistant qui répond aux questions de votre communauté (conseils fitness, programmes, nutrition) dans votre tonalité." },
       { nom: "Studio IA", description: "Générez du contenu visuel et vidéo pour vos réseaux sociaux, vos programmes en ligne, et vos offres commerciales." },
       { nom: "WTF Lex", description: "Contrats de sponsoring, droit à l'image, conformité réglementaire (allégations santé), protection de la réputation." },
       { nom: "Sovereign Chat", description: "Communications confidentielles avec votre entourage professionnel et l'équipe WTF." },
@@ -790,7 +789,7 @@ function ParcoursSection({ data }: { data: DepartementData }) {
           style={{ border: "1px solid var(--ligne)", background: "rgba(216,169,91,0.03)" }}
         >
           <div className="couture-ornament mb-6" style={{ opacity: 0.4 }}>
-            <CoutureEmblem size={20} color="var(--or)" />
+            <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 100, width: "auto" }} />
           </div>
           <p className="text-[1rem] leading-relaxed" style={{ color: "var(--encre)", opacity: 0.65, fontFamily: "var(--font-body), sans-serif" }}>
             {data.parcours}
@@ -899,7 +898,7 @@ function CTASection({ data }: { data: DepartementData }) {
           animate={inView ? { opacity: 0.6, scale: 1 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <CoutureEmblem size={26} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.p className="display-medium mb-4" style={{ color: "var(--ivoire)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           {data.nom} vous correspond ?

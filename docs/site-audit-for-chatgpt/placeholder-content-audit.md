@@ -155,7 +155,7 @@ Scanned all `.tsx`, `.ts` files for these patterns:
 2. **Empty section**: Page has real content but one section is placeholder (12 sections)
 3. **Mock data page**: Page appears functional but uses 100% hardcoded data (2 dashboards)
 4. **TODO comment**: Developer note about missing functionality (8 instances)
-5. **Legitimate empty state**: Real data source, just empty (5 Chat AI components)
+5. **Legitimate empty state**: Real data source, just empty (5 CHATEENG components)
 6. **Zero-hardcoded count**: Shows "0" without backend aggregation (5 locations)
 
 ### Technical Debt Distribution

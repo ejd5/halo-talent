@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, ChevronDown, Wand2, MessageCircle, Shield, FileText, TrendingUp, Users } from "lucide-react";
-import { CoutureEmblem } from "@/components/home/CoutureEmblem";
 
 function useReveal(amount = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -37,22 +36,22 @@ function PhraseForte({ children, bg = "encre" }: { children: React.ReactNode; bg
 const OUTILS = [
   { icon: Users, nom: "Atlas CRM", couleur: "#5A7D4A", description: "Centralisez votre audience, automatisez vos campagnes email/SMS/push, segmentez vos fans par niveau d'engagement, et mesurez votre ROI en temps réel. Le CRM pensé pour les créateurs, pas pour les forces de vente B2B.", fonctionnalites: ["CRM avec scoring et segmentation", "Campagnes email, SMS et push automatisées", "Messagerie unifiée multi-plateforme", "Funnels de conversion prêts à l'emploi", "Analytics et rapports exportables"], lien: "/atlas" },
   { icon: Wand2, nom: "Studio IA", couleur: "var(--or)", description: "L'outil de création de contenu augmenté par IA. Générez des visuels, des vidéos, des légendes et des stratégies éditoriales optimisées pour chaque plateforme.", fonctionnalites: ["Compositeur de contenu assisté par IA", "Génération vidéo et image", "Planification éditoriale multi-plateforme", "Analyse de tendances en temps réel", "Bibliothèque de templates personnalisables"], lien: "/studio" },
-  { icon: MessageCircle, nom: "Chat AI", couleur: "#C44536", description: "Un assistant IA entraîné sur votre ton, votre historique et vos règles. Il rédige vos réponses, filtre vos messages, et vous alerte sur les conversations prioritaires, sans jamais envoyer sans votre validation.", fonctionnalites: ["Rédaction assistée contextuelle", "Filtrage intelligent des messages", "Détection des conversations urgentes", "Mémoire conversationnelle par fan", "Validation humaine obligatoire avant envoi"], lien: "/chat-ai" },
+  { icon: MessageCircle, nom: "CHATEENG", couleur: "#C44536", description: "Un assistant IA entraîné sur votre ton, votre historique et vos règles. Il rédige vos réponses, filtre vos messages, et vous alerte sur les conversations prioritaires, sans jamais envoyer sans votre validation.", fonctionnalites: ["Rédaction assistée contextuelle", "Filtrage intelligent des messages", "Détection des conversations urgentes", "Mémoire conversationnelle par fan", "Validation humaine obligatoire avant envoi"], lien: "/chat-ai" },
   { icon: Shield, nom: "WTF Lex", couleur: "#C44536", description: "Analysez vos contrats, suivez les changements de CGU des plateformes, préparez vos dossiers juridiques. WTF Lex ne remplace pas un avocat, il vous donne les outils pour comprendre vos obligations et identifier les risques.", fonctionnalites: ["Analyse de contrats assistée", "Veille CGU multi-plateforme", "Préparation de dossiers pour avocats", "Bouclier Légal intégré", "Alertes de conformité"], lien: "/lex" },
   { icon: FileText, nom: "Reporting", couleur: "#5A7D4A", description: "Des rapports clairs, mensuels, qui vous montrent exactement d'où viennent vos revenus, quels contenus performent, et comment votre audience évolue. Pas de chiffres opaques, des données actionnables.", fonctionnalites: ["Décompte mensuel détaillé", "Analyse de performance par contenu", "Suivi d'évolution d'audience", "Projections et scénarios", "Export CSV/PDF"], lien: "/studio/insights" },
   { icon: TrendingUp, nom: "Protection", couleur: "var(--or)", description: "Protégez votre contenu contre le vol, le repost non autorisé et l'usurpation d'identité. Surveillance proactive, alertes en temps réel, procédures de retrait documentées.", fonctionnalites: ["Surveillance anti-repost", "Détection d'usurpation", "Procédures de retrait guidées", "Watermarking automatique", "Rapports de protection mensuels"], lien: "/protection" },
 ];
 
 const CAS_USAGE = [
-  { profil: "Créatrice glamour", besoin: "Produire du contenu qualitatif sans y passer 10h par jour", outils: "Studio IA pour la génération de visuels, Chat AI pour filtrer les messages, Atlas CRM pour fidéliser les fans" },
-  { profil: "Influenceuse lifestyle", besoin: "Publier régulièrement sur 4 plateformes sans équipe", outils: "Studio IA pour le planning éditorial multi-plateforme, Reporting pour mesurer ce qui marche, Chat AI pour les réponses" },
+  { profil: "Créatrice glamour", besoin: "Produire du contenu qualitatif sans y passer 10h par jour", outils: "Studio IA pour la génération de visuels, CHATEENG pour filtrer les messages, Atlas CRM pour fidéliser les fans" },
+  { profil: "Influenceuse lifestyle", besoin: "Publier régulièrement sur 4 plateformes sans équipe", outils: "Studio IA pour le planning éditorial multi-plateforme, Reporting pour mesurer ce qui marche, CHATEENG pour les réponses" },
   { profil: "YouTuber / vidéaste", besoin: "Monétiser son audience au-delà de YouTube", outils: "Atlas CRM pour les campagnes email/SMS, Protection pour éviter le repost, Reporting pour le suivi des revenus" },
-  { profil: "Musicien / artiste", besoin: "Gérer une communauté fragmentée sur plusieurs plateformes", outils: "Atlas CRM pour centraliser les fans, Chat AI pour l'engagement personnalisé, Protection pour le contenu exclusif" },
+  { profil: "Musicien / artiste", besoin: "Gérer une communauté fragmentée sur plusieurs plateformes", outils: "Atlas CRM pour centraliser les fans, CHATEENG pour l'engagement personnalisé, Protection pour le contenu exclusif" },
   { profil: "Sportive / athlète", besoin: "Protéger son image et monétiser ses partenariats", outils: "WTF Lex pour les contrats de sponsoring, Protection pour l'image, Studio IA pour le contenu de marque" },
 ];
 
 const TABLEAU_SANS_AVEC = [
-  { tache: "Répondre aux messages", sansHalo: "Heures passées chaque jour à trier et répondre manuellement", avecHalo: "Chat AI filtre, priorise et prépare les réponses, vous validez en un clic" },
+  { tache: "Répondre aux messages", sansHalo: "Heures passées chaque jour à trier et répondre manuellement", avecHalo: "CHATEENG filtre, priorise et prépare les réponses, vous validez en un clic" },
   { tache: "Créer du contenu", sansHalo: "Applications multiples, pas de cohérence, temps de production élevé", avecHalo: "Studio IA génère, propose, adapte, vous choisissez et publiez" },
   { tache: "Suivre son audience", sansHalo: "Données éparpillées, aucune vue d'ensemble, décisions instinctives", avecHalo: "Atlas CRM centralise, segmente, analyse, vous décidez avec des données" },
   { tache: "Protéger son contenu", sansHalo: "Repost non détecté, procédures complexes, perte de revenus", avecHalo: "Surveillance proactive, alertes automatiques, procédures de retrait guidées" },
@@ -62,11 +61,11 @@ const TABLEAU_SANS_AVEC = [
 ];
 
 const FAQ_SAAS = [
-  { q: "Est-ce que je peux utiliser un seul outil ?", a: "Oui. Chaque outil est utilisable indépendamment. Vous pouvez commencer avec Atlas CRM gratuit, puis ajouter Studio IA, puis activer Chat AI. Rien n'est imposé, vous composez votre suite selon vos besoins." },
-  { q: "Les outils sont-ils inclus dans la commission ?", a: "Les outils essentiels (CRM, Chat AI, Reporting) sont inclus dans la commission de management. Les options avancées (Studio IA crédits supplémentaires, WTF Lex analyse approfondie) sont disponibles en option." },
+  { q: "Est-ce que je peux utiliser un seul outil ?", a: "Oui. Chaque outil est utilisable indépendamment. Vous pouvez commencer avec Atlas CRM gratuit, puis ajouter Studio IA, puis activer CHATEENG. Rien n'est imposé, vous composez votre suite selon vos besoins." },
+  { q: "Les outils sont-ils inclus dans la commission ?", a: "Les outils essentiels (CRM, CHATEENG, Reporting) sont inclus dans la commission de management. Les options avancées (Studio IA crédits supplémentaires, WTF Lex analyse approfondie) sont disponibles en option." },
   { q: "Mes données sont-elles en sécurité ?", a: "Oui. Vos données vous appartiennent. Elles sont stockées de manière sécurisée, jamais partagées avec des tiers, et vous pouvez les exporter à tout moment. Si vous quittez WTF, vous partez avec toutes vos données." },
   { q: "L'IA remplace-t-elle le créateur ?", a: "Non. L'IA propose, l'humain valide, le créateur contrôle. Aucun message n'est envoyé automatiquement. Aucune décision n'est déléguée à un algorithme. L'IA est un assistant, pas un remplacement." },
-  { q: "Puis-je tester avant de m'engager ?", a: "Oui. Atlas CRM a un plan Free permanent. Studio IA propose des crédits gratuits chaque mois. Chat AI est inclus dans l'accompagnement. Vous pouvez tester chaque outil sans engagement." },
+  { q: "Puis-je tester avant de m'engager ?", a: "Oui. Atlas CRM a un plan Free permanent. Studio IA propose des crédits gratuits chaque mois. CHATEENG est inclus dans l'accompagnement. Vous pouvez tester chaque outil sans engagement." },
 ];
 
 export function SaasClient() {
@@ -91,7 +90,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 100 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 800, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={28} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Technologie
@@ -297,7 +296,7 @@ function CTASection() {
     <section ref={ref} className="couture-section text-center" style={{ backgroundColor: "var(--creme)", paddingTop: 100, paddingBottom: 100 }}>
       <div className="wrap-eco" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.4, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <CoutureEmblem size={26} color="var(--or)" />
+          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.p className="display-medium mb-6" style={{ color: "var(--encre)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Prêt à découvrir la suite ?

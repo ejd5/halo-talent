@@ -27,7 +27,7 @@
 
 ```
 e061221 fix: disable Vercel Deployment Protection for public access
-ddd984e feat: prepare Halo Chat AI release preview
+ddd984e feat: prepare Halo CHATEENG release preview
 ```
 
 Commit `e061221` contenait : revert de `vercel.json` (suppression de `deploymentProtection` invalide), fix `creator_id` → `user_id` dans copy route, fix auth smoke test (cookie SSR), fix seed UUIDs et JSONB.
@@ -126,7 +126,7 @@ vercel env add CRON_SECRET preview
 | 2 | `/api/newsletter` | POST | 200 | Inscription dans `newsletter_subscribers` |
 | 3 | `/api/tracking` | POST | 200 | Event reçu (non persisté sans user_id) |
 
-### 5.3 Smoke Test Chat AI (13/13)
+### 5.3 Smoke Test CHATEENG (13/13)
 
 Exécuté contre `https://halo-talent.vercel.app` avec auth cookie Supabase SSR.
 
@@ -165,7 +165,7 @@ Exécuté contre `https://halo-talent.vercel.app` avec auth cookie Supabase SSR.
 
 ### 6.2 RLS vérifié
 
-Toutes les requêtes Chat AI retournent des données scopées à l'utilisateur `demo-creator@halo-talent.com`. Les compliance gates fonctionnent correctement (do_not_contact bloqué, vulnerable_fan bloqué).
+Toutes les requêtes CHATEENG retournent des données scopées à l'utilisateur `demo-creator@halo-talent.com`. Les compliance gates fonctionnent correctement (do_not_contact bloqué, vulnerable_fan bloqué).
 
 ---
 
@@ -218,7 +218,7 @@ Le projet Supabase `lsabyfolyqlrvbseggit` est partagé entre tous les environnem
 - [x] Build Vercel réussi (3min, 0 erreurs)
 - [x] 21/21 pages publiques HTTP 200
 - [x] 3/3 APIs publiques fonctionnelles
-- [x] Smoke test Chat AI 13/13 avec DeepSeek actif
+- [x] Smoke test CHATEENG 13/13 avec DeepSeek actif
 - [x] Supabase : données créées, RLS actif, compliance gates ok
 - [x] 6 bugs corrigés
 - [ ] Variables Preview à ajouter (5 variables)

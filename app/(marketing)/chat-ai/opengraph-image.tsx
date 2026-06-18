@@ -41,7 +41,7 @@ export default function Image() {
           }}
         >
           <span style={{ display: "flex", width: "8px", height: "8px", borderRadius: "50%", backgroundColor: "#D8A95B" }} />
-          Sovereign Chat AI
+          CHATEENG
         </div>
 
         {/* Title */}
