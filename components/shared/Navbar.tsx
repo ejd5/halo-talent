@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState, useCallback, useRef } from "react";
 import {
   Menu,
@@ -390,9 +391,12 @@ export function Navbar() {
       <nav style={navStyle}>
         {/* ─── Logo (Left) ─── */}
         <Link href="/" style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>
-          <img
+          <Image
             src="/wtf-logo.png"
             alt="WTF Talent"
+            width={288}
+            height={160}
+            priority
             style={{ height: 160, width: 288 }}
           />
         </Link>
@@ -659,9 +663,11 @@ function MobileDrawer({
         }}
       >
         <Link href="/" onClick={onClose}>
-          <img
+          <Image
             src="/wtf-logo.png"
             alt="WTF Talent"
+            width={96}
+            height={48}
             style={{ height: 48, width: "auto" }}
           />
         </Link>

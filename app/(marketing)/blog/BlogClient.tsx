@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import {
   ChevronDown,
   ArrowRight,
-  Image,
+  Image as LucideImage,
   Shield,
   Sparkles,
   Scale,
@@ -35,7 +36,7 @@ const fadeItem = {
 };
 
 const CATEGORIES = [
-  { id: "image-strategie", label: "Image &amp; stratégie", description: "Branding, positionnement, direction artistique et stratégie de contenu.", icon: Image, couleur: "#BFA07A" },
+  { id: "image-strategie", label: "Image &amp; stratégie", description: "Branding, positionnement, direction artistique et stratégie de contenu.", icon: LucideImage, couleur: "#BFA07A" },
   { id: "protection", label: "Protection", description: "Sécurité des comptes, confidentialité, prévention des intrusions et bonnes pratiques.", icon: Shield, couleur: "#8B9D83" },
   { id: "ia-crm", label: "IA &amp; CRM", description: "Intelligence artificielle, CRM créateur, automatisation et outils intelligents.", icon: Sparkles, couleur: "#C4A35A" },
   { id: "juridique", label: "Juridique préparatoire", description: "Contrats, clauses, droits, conformité et anticipation juridique.", icon: Scale, couleur: "#9B8E7A" },
@@ -281,8 +282,8 @@ const IDEES_ARTICLES = [
   { titre: "Portrait-robot d'une agence toxique : les 10 signaux", categorie: "commissions", temps: "9 min" },
 ];
 
-const CATEGORIE_META: Record<string, { label: string; icon: typeof Image }> = {
-  "image-strategie": { label: "Image &amp; stratégie", icon: Image },
+const CATEGORIE_META: Record<string, { label: string; icon: typeof LucideImage }> = {
+  "image-strategie": { label: "Image &amp; stratégie", icon: LucideImage },
   protection: { label: "Protection", icon: Shield },
   "ia-crm": { label: "IA &amp; CRM", icon: Sparkles },
   juridique: { label: "Juridique préparatoire", icon: Scale },
@@ -344,7 +345,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 90 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={140} height={140} style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Éditorial
@@ -575,7 +576,7 @@ function CTASection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--creme)", paddingTop: 40, paddingBottom: 110 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 520, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 120, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={120} height={120} style={{ height: 120, width: "auto" }} />
         </motion.div>
         <motion.h2 className="display-medium mb-6" style={{ color: "var(--encre)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0.08}>
           Un sujet vous intéresse ?

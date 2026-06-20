@@ -12,6 +12,7 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme/ThemeProvider";
+import { Toaster } from "sonner";
 
 const syne = Syne({
   variable: "--font-display-legacy",
@@ -80,6 +81,7 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wheretalentforms.com"),
   title: {
     default: "Where Talent Forms, Maison de création",
     template: "%s, Where Talent Forms",
@@ -98,6 +100,12 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     type: "website",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Where Talent Forms, Maison de création",
+    description:
+      "Management, IA, CRM, protection juridique et stratégie de croissance pour créateurs ambitieux.",
+  },
 };
 
 export default function RootLayout({
@@ -112,7 +120,10 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <Toaster theme="dark" position="top-right" richColors />
+        </ThemeProvider>
       </body>
     </html>
   );

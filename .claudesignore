@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.git/
+extension/node_modules/
+mobile/node_modules/
+build/
+out/
+dist/
+.vercel/
+extension-dist/

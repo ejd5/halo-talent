@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Eye, EyeOff, Shield, Sparkles, TrendingUp, Building2, Heart } from "lucide-react";
@@ -153,7 +154,7 @@ function HeroSection() {
           animate={inView ? { opacity: 0.6, scale: 1 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 120, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={120} height={120} style={{ height: 120, width: "auto" }} />
         </motion.div>
         <motion.p
           className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6"
@@ -227,7 +228,7 @@ function LeConstat() {
           animate={inView ? { opacity: 0.4, scale: 1 } : {}}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 110, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={110} height={110} style={{ height: 110, width: "auto" }} />
         </motion.div>
         <motion.h2
           className="display-medium text-center mx-auto mb-6"
@@ -379,7 +380,7 @@ function NotreConviction() {
           animate={inView ? { opacity: 0.5, scale: 1 } : {}}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 160, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={160} height={160} style={{ height: 160, width: "auto" }} />
         </motion.div>
         <motion.p
           className="text-[0.6rem] font-bold uppercase tracking-[0.18em] mb-8"
@@ -812,7 +813,7 @@ function Conclusion() {
           animate={inView ? { opacity: 0.6, scale: 1 } : {}}
           transition={{ duration: 1, ease: "easeOut" }}
         >
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={140} height={140} style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.blockquote
           className="display-medium mb-8"

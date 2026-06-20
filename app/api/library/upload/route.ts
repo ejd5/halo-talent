@@ -69,10 +69,5 @@ export async function POST(request: NextRequest) {
   }
 }
 
-// Increase body size limit for file uploads
-export const config = {
-  api: {
-    bodyParser: false,
-    responseLimit: "100mb",
-  },
-};
+// Increase serverless function timeout for large file uploads
+export const maxDuration = 60; // seconds

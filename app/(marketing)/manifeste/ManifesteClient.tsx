@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import { ArrowRight, Eye, EyeOff, Shield, TrendingUp, Lock, Sparkles, Scale, Heart, Globe } from "lucide-react";
@@ -26,7 +27,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 100 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 800, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={140} height={140} style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Nos convictions fondatrices
@@ -49,7 +50,7 @@ function SectionBlock({ label, title, children, bg = "encre", ornament = false }
       <div className="wrap-eco" style={{ maxWidth: 760, margin: "0 auto" }}>
         {ornament && (
           <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: bg === "creme" ? 0.4 : 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-            <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 100, width: "auto" }} />
+            <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={100} height={100} style={{ height: 100, width: "auto" }} />
           </motion.div>
         )}
         <motion.p className="text-[0.6rem] font-bold uppercase tracking-[0.16em] mb-5" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
@@ -122,7 +123,7 @@ function ConclusionCTA() {
     <section ref={ref} className="couture-section text-center" style={{ backgroundColor: "var(--encre)", paddingTop: 100, paddingBottom: 100 }}>
       <div className="wrap-eco" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={130} height={130} style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.blockquote className="display-medium mb-6" style={{ color: "var(--ivoire)", fontStyle: "normal" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Une maison plus juste.

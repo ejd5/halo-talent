@@ -1,14 +1,35 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const base = "https://halotalent.com";
+  const base = "https://wheretalentforms.com";
+  const now = new Date();
 
-  return [
-    { url: base, lastModified: new Date(), changeFrequency: "monthly", priority: 1 },
-    { url: `${base}/login`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
-    { url: `${base}/dashboard`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: `${base}/dashboard/library`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 },
-    { url: `${base}/dashboard/community`, lastModified: new Date(), changeFrequency: "daily", priority: 0.6 },
-    { url: `${base}/admin`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.3 },
+  const marketingRoutes = [
+    "",
+    "/pricing",
+    "/contact",
+    "/faq",
+    "/qui-sommes-nous",
+    "/apply",
+    "/creator-os",
+    "/atlas",
+    "/chat-ai",
+    "/lex",
+    "/lex-ai",
+    "/assisted-chat",
+    "/wtf-companion",
+    "/revenue-desk",
+    "/departements",
+    "/commissions",
+    "/mentions-legales",
+    "/cgu",
+    "/confidentialite",
   ];
+
+  return marketingRoutes.map((route) => ({
+    url: `${base}${route}`,
+    lastModified: now,
+    changeFrequency: route === "" ? "daily" : "weekly",
+    priority: route === "" ? 1.0 : route.startsWith("/mentions") || route.startsWith("/cgu") || route.startsWith("/confidentialite") ? 0.3 : 0.8,
+  }));
 }

@@ -1,13 +1,14 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import {
   ChevronDown,
   ArrowRight,
   BookOpen,
-  Image,
+  Image as LucideImage,
   Shield,
   FileText,
   Users,
@@ -58,7 +59,7 @@ type CategorieMeta = {
 };
 
 const CATEGORIES: CategorieMeta[] = [
-  { id: "image", label: "Construire son image", description: "Positionnement, branding, direction artistique et stratégie de contenu.", icon: Image },
+  { id: "image", label: "Construire son image", description: "Positionnement, branding, direction artistique et stratégie de contenu.", icon: LucideImage },
   { id: "protection", label: "Protéger ses accès", description: "Sécurité des comptes, authentification, confidentialité numérique.", icon: Shield },
   { id: "contrats", label: "Comprendre les contrats", description: "Clauses, droits, obligations, négociation et sortie d'agence.", icon: FileText },
   { id: "communaute", label: "Gérer sa communauté", description: "Engagement, modération, fidélisation, service fans.", icon: Users },
@@ -261,7 +262,7 @@ function HeroSection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--encre)", paddingTop: 160, paddingBottom: 90 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 640, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" initial={{ opacity: 0, scale: 0.8 }} animate={inView ? { opacity: 0.6, scale: 1 } : {}} transition={{ duration: 0.8 }}>
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 140, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={140} height={140} style={{ height: 140, width: "auto" }} />
         </motion.div>
         <motion.p className="text-[0.65rem] font-semibold uppercase tracking-[0.14em] mb-6" style={{ color: "var(--or)", fontFamily: "var(--font-util), monospace" }} variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           Ressources
@@ -411,7 +412,7 @@ function CTASection() {
     <section ref={ref} className="couture-section" style={{ backgroundColor: "var(--creme)", paddingTop: 90, paddingBottom: 110 }}>
       <div className="wrap-eco text-center" style={{ maxWidth: 520, margin: "0 auto" }}>
         <motion.div className="couture-ornament mb-8" variants={fadeItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 120, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={120} height={120} style={{ height: 120, width: "auto" }} />
         </motion.div>
         <motion.h2 className="display-medium mb-6" style={{ color: "var(--encre)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0.08}>
           Un sujet que vous ne trouvez pas ?

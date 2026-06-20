@@ -77,7 +77,7 @@ export function CoutureHero() {
   /* ─── Positions initiales des slides ─── */
   const applyPositions = useCallback((animated: boolean, toIndex: number) => {
     const dur = animated
-      ? `transform ${TRANSITION_MS}ms cubic-bezier(0.77,0,0.18,1)`
+      ? `transform ${TRANSITION_MS}ms cubic-bezier(0.77,0,0.18,1), opacity 0.7s ease`
       : "none";
 
     const s1 = slide1Ref.current;
@@ -111,22 +111,21 @@ export function CoutureHero() {
 
     /* Préparer la vidéo entrante */
     toVid.currentTime = 0;
-    toVid.play().catch(() => {});
+    toVid.play().catch(() => console.warn("CoutureHero: autoplay bloqué"));
 
-    /* Fade sortant */
-    fromSlide.style.opacity = "0";
-
-    /* Slide + fade entrant */
+    /* Slide entrant : snap à opacity 0 avant la transition */
     toSlide.style.transition = "none";
     toSlide.style.opacity = "0";
     toSlide.getBoundingClientRect(); // force reflow
-    toSlide.style.transition = `transform ${TRANSITION_MS}ms cubic-bezier(0.77,0,0.18,1), opacity 0.7s ease`;
-    toSlide.style.opacity = "1";
 
-    /* Glissement */
+    /* Glissement + transition (opacity incluse via applyPositions) */
     currentRef.current = toIndex;
     setCurrent(toIndex);
     applyPositions(true, toIndex);
+
+    /* Fade sortant + fade entrant */
+    fromSlide.style.opacity = "0";
+    toSlide.style.opacity = "1";
 
     setTimeout(() => {
       fromVid.pause();
@@ -148,7 +147,7 @@ export function CoutureHero() {
     const v2 = video2Ref.current;
     if (!v1 || !v2) return;
 
-    v1.play().catch(() => {});
+    v1.play().catch(() => console.warn("CoutureHero: autoplay initial bloqué"));
     trackProgress(v1);
 
     const onV1End = () => { if (currentRef.current === 0 && !lockedRef.current) go(1); };
@@ -186,9 +185,9 @@ export function CoutureHero() {
           navbarH={NAVBAR_H}
         />
 
-        {/* ── Vidéo droite ── */}
+        {/* ── Vidéo droite (hidden on mobile, full bg on mobile) ── */}
         <div
-          className="absolute overflow-hidden"
+          className="absolute overflow-hidden hidden md:block"
           style={{
             left: "36%",
             right: 0,
@@ -219,6 +218,36 @@ export function CoutureHero() {
           <MaskBottom />
           <MaskTopSubtle />
         </div>
+        {/* Mobile: video as background behind text */}
+        <div
+          className="absolute inset-0 md:hidden overflow-hidden"
+          style={{ zIndex: 1 }}
+        >
+          <video
+            muted
+            playsInline
+            preload="auto"
+            autoPlay
+            loop
+            src="/videos/halo-hero.mp4"
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "50% 30%",
+              opacity: 0.35,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to top, rgba(10,8,6,1) 0%, rgba(10,8,6,0.7) 40%, rgba(10,8,6,0.4) 100%)",
+              pointerEvents: "none",
+            }}
+          />
+        </div>
       </div>
 
       {/* ══════════════════════════════════════════════
@@ -232,9 +261,9 @@ export function CoutureHero() {
           willChange: "transform, opacity",
         }}
       >
-        {/* ── Vidéo gauche (miroir) ── */}
+        {/* ── Vidéo gauche (miroir) — hidden on mobile ── */}
         <div
-          className="absolute overflow-hidden"
+          className="absolute overflow-hidden hidden md:block"
           style={{
             right: "36%",
             left: 0,
@@ -264,6 +293,36 @@ export function CoutureHero() {
           <MaskRight />
           <MaskBottom />
           <MaskTopSubtle />
+        </div>
+        {/* Mobile: video as background for slide 2 */}
+        <div
+          className="absolute inset-0 md:hidden overflow-hidden"
+          style={{ zIndex: 1 }}
+        >
+          <video
+            muted
+            playsInline
+            preload="auto"
+            autoPlay
+            loop
+            src="/videos/halo-hero-2.mp4"
+            style={{
+              position: "absolute",
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition: "50% 30%",
+              opacity: 0.35,
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              background: "linear-gradient(to top, rgba(10,8,6,1) 0%, rgba(10,8,6,0.7) 40%, rgba(10,8,6,0.4) 100%)",
+              pointerEvents: "none",
+            }}
+          />
         </div>
 
         {/* ── Texte droite ── */}
@@ -332,7 +391,7 @@ export function CoutureHero() {
           BOTTOM EDITORIAL BAR
           ══════════════════════════════════════════════ */}
       <div
-        className="absolute bottom-0 left-0 right-0 flex items-center justify-center"
+        className="absolute bottom-0 left-0 right-0 hidden md:flex items-center justify-center"
         style={{
           height: 50,
           background: "rgba(10,8,6,0.97)",
@@ -392,19 +451,22 @@ function TextBlock({
 
   return (
     <div
-      className="relative flex flex-col"
+      className="relative flex flex-col w-full md:w-[46%] md:flex-shrink-0"
       style={{
-        width: "46%",
-        minWidth: 420,
-        flexShrink: 0,
         marginLeft: isLeft ? 0 : "auto",
         background: TOKEN.noir,
         zIndex: 10,
-        padding: isLeft
-          ? `0 52px 80px 80px`
-          : `0 80px 80px 52px`,
       }}
     >
+      {/* Responsive padding via inline + media override */}
+      <style>{`
+        .hero-text-block { padding: 0 24px 60px 24px; }
+        @media (min-width: 768px) {
+          .hero-text-left { padding: 0 52px 80px 80px; }
+          .hero-text-right { padding: 0 80px 80px 52px; }
+        }
+      `}</style>
+      <div className={`hero-text-block ${isLeft ? 'hero-text-left' : 'hero-text-right'} relative flex flex-col h-full`}>
       {/* Brouillard qui déborde vers la vidéo */}
       <div
         style={{
@@ -430,20 +492,20 @@ function TextBlock({
         }}
       />
 
-      {/* Villes, en haut, pleine largeur */}
+      {/* Villes, en haut — hidden on mobile */}
       <div
+        className="hidden md:flex"
         style={{
           position: "absolute",
           top: navbarH + 28,
           left: isLeft ? 80 : 52,
           right: isLeft ? 52 : 80,
-          display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
         }}
       >
         {CITIES.map((city, i) => (
-          <div key={city} className="flex items-center" style={{ flex: i < CITIES.length - 1 ? "none" : "none" }}>
+          <div key={city} className="flex items-center">
             <span
               style={{
                 fontFamily: "var(--font-util), monospace",
@@ -516,7 +578,7 @@ function TextBlock({
         <h1
           style={{
             fontFamily: "var(--font-couture), Georgia, serif",
-            fontSize: "clamp(58px, 6.8vw, 112px)",
+            fontSize: "clamp(36px, 6.8vw, 112px)",
             fontWeight: 900,
             lineHeight: 0.92,
             letterSpacing: "-0.04em",
@@ -546,7 +608,7 @@ function TextBlock({
         {/* CTAs */}
         <div
           className="flex items-center flex-wrap"
-          style={{ gap: 14, justifyContent: isLeft ? "flex-start" : "flex-end" }}
+          style={{ gap: 12, justifyContent: isLeft ? "flex-start" : "flex-end" }}
         >
           {slide.ctas.map((cta) =>
             cta.variant === "fill" ? (
@@ -611,6 +673,7 @@ function TextBlock({
           )}
         </div>
       </div>
+      </div>{/* end hero-text-block */}
     </div>
   );
 }

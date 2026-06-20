@@ -1,163 +1,210 @@
-# BRAND.md — Halo Talent — Direction artistique v2
+# BRAND.md — Where Talent Forms — Direction artistique Couture v3
 
 ## PHILOSOPHIE DESIGN
 
-Ce site ne doit JAMAIS ressembler à un template IA.
-Chaque page doit donner l'impression d'avoir été designée
-par un directeur artistique humain pour un magazine de mode.
+Ce site ne doit JAMAIS ressembler à un template SaaS/IA.
+Chaque page doit donner l'impression d'avoir été conçue
+par un directeur artistique pour une maison de couture parisienne.
 
-Mots-clés : éditorial, vivant, photographique, asymétrique, cinématique.
-Anti-mots-clés : template, centré, générique, doré, serif italic hero.
+Mots-clés : couture, éditorial, cinématique, or et encre, maison de création.
+Anti-mots-clés : template, corporate, néon, gradient tech, centré générique.
 
-## PALETTE
+## NOM DE MARQUE
 
-### Couleurs principales
---color-base: #F5F0EB          /* Crème chaud (PAS noir) */
---color-base-alt: #FFFFFF       /* Blanc pur pour contrast */
---color-surface: #EDE8E1        /* Crème plus foncé pour cards */
---color-ink: #1A1614            /* Encre quasi-noir (texte) */
---color-ink-muted: #7A736B      /* Texte secondaire */
+- Nom complet : **Where Talent Forms**
+- Abréviation : **WTF**
+- Tagline : *Maison de création*
+- Positionnement : Agence de talents premium pour créateurs ambitieux
+- Villes : Paris · New York · Milan · Tokyo
 
-### Accent (UN SEUL — pas d'or)
---color-accent: #C75B39         /* Terracotta chaud — unique, jamais vu en AI template */
---color-accent-hover: #A84A2D
---color-accent-soft: #F0DDD4    /* Version pâle pour backgrounds subtils */
+## PALETTE — COUTURE (ENCRE & OR)
 
-### Sections sombres (utilisées ponctuellement, pas partout)
---color-dark: #1A1614           /* Pour sections de contraste */
---color-dark-text: #F5F0EB      /* Texte sur fond sombre */
---color-dark-muted: #9A9590
+### Couleurs fondamentales
+```
+--encre:       #0C0A08    /* Noir chaud — fond principal */
+--fumee:       #15110D    /* Surface légèrement plus claire */
+--surface:     #1C1712    /* Cards et éléments surélevés */
+--ivoire:      #F4EEE3    /* Texte principal — blanc chaud */
+--creme:       #F9F6EF    /* Fond clair pour sections alternées */
+--pierre:      #9C9183    /* Texte secondaire — gris chaud */
+```
+
+### Accent principal — Or / Champagne
+```
+--or:          #D8A95B    /* Accent principal — or champagne */
+--or-clair:    #EBC98A    /* Accent hover — or pâle */
+--cuivre:      #E2702E    /* Accent secondaire — cuivre chaud */
+```
+
+### Accents sémantiques
+```
+--sauge:       #8FB58A    /* Succès / validé */
+--terre:       #C96A4A    /* Warning / attention */
+--danger:      #E8634A    /* Erreur / danger */
+```
+
+### Bordures & Lignes
+```
+--ligne:       rgba(216, 169, 91, 0.18)    /* Bordure visible */
+--ligne-faible: rgba(244, 238, 227, 0.08)  /* Bordure subtile */
+```
+
+### Identité chromatique
+- L'or champagne (`#D8A95B`) est la couleur signature — présente sur les eyebrows, les CTA, les accents
+- Le noir chaud encre (`#0C0A08`) crée la profondeur et le luxe
+- L'ivoire (`#F4EEE3`) assure la lisibilité avec chaleur
+- Les sections alternent entre encre (dark) et crème (light) pour le rythme
 
 ### Interdits absolus
-- PAS de doré (#D4AF37, #B8860B, #D4A853)
-- PAS de gradient violet, bleu, ou turquoise
-- PAS de noir pur (#000000) comme fond principal
+- PAS de bleu tech (#0066FF, #3B82F6)
+- PAS de violet IA (#7C3AED, #8B5CF6)
+- PAS de gradient arc-en-ciel ou néon
+- PAS de noir pur (#000000) — toujours utiliser --encre (#0C0A08)
 
-## TYPOGRAPHIES (Google Fonts)
+## TYPOGRAPHIES (Google Fonts — 9 polices chargées)
 
-### Headlines — Syne
-- Font : 'Syne', sans-serif
-- Weights : 700 (Bold), 800 (ExtraBold)
-- Usage : H1, H2, hero, titres de section
-- Style : uppercase pour H1 hero, normal pour H2-H6
-- Tracking : 0.02em pour uppercase, normal sinon
-- Pourquoi Syne : géométrique, moderne, distinctive, zéro rapport avec Cormorant
+### Titres Hero — Playfair Display (`--font-couture`)
+- Font : 'Playfair Display', Georgia, serif
+- Weights : 400–900
+- Usage : H1 hero, titres de section principaux
+- Style : Bold à Extra Bold, lettres serrées (-0.02em à -0.04em)
+- Le choix du serif display apporte l'élégance couture
 
-### Body — Plus Jakarta Sans
-- Font : 'Plus Jakarta Sans', sans-serif
-- Weights : 400 (Regular), 500 (Medium), 600 (SemiBold)
-- Usage : paragraphes, navigation, boutons, UI
-- Leading : 1.65
-- Pourquoi : lisible, chaleureuse, professionnelle sans être générique
+### Titres de section — Fraunces (`--font-display-alt`)
+- Font : 'Fraunces', Georgia, serif
+- Weights : 300–600 (Regular + Italic)
+- Usage : H2, H3, sous-titres éditoriaux, display-large/medium/small
+- Style : Light (300) pour les grands titres, 400 pour le texte
 
-### Accent — Instrument Serif (usage RARE)
-- Font : 'Instrument Serif', serif
-- Weights : 400 (Regular), 400 Italic
-- Usage : UNIQUEMENT pour des citations isolées ou des pull-quotes
-- JAMAIS pour les headlines hero
-- JAMAIS pour la navigation
-- Max 1 occurrence par page
+### Body / UI — Instrument Sans (`--font-body`)
+- Font : 'Instrument Sans', Inter, sans-serif
+- Weights : 400–600
+- Usage : Paragraphes, navigation, interface
+
+### Display Legacy — Plus Jakarta Sans (`--font-display`)
+- Font : 'Plus Jakarta Sans', Inter, sans-serif
+- Weights : 400–700
+- Usage : Dashboard, headings d'interface, mega-menu
+
+### Utilitaire / Mono — Space Grotesk (`--font-util`)
+- Font : 'Space Grotesk', JetBrains Mono, monospace
+- Weights : 400–500
+- Usage : Eyebrows, labels uppercase, badges, boutons CTA
+- Style : TOUJOURS uppercase, tracking 0.18–0.38em, taille 9–11px
+
+### Accent Serif — Instrument Serif (`--font-accent`)
+- Font : 'Instrument Serif', Georgia, serif
+- Weight : 400 (Regular + Italic)
+- Usage : Citations, blockquotes, accents éditoriaux
+- RARE — max 1–2 occurrences par page
+
+### Code — JetBrains Mono (`--font-mono`)
+- Font : 'JetBrains Mono', Fira Code, monospace
+- Usage : KPIs, valeurs numériques, code
+
+### Sans-Serif — Inter (`--font-sans`)
+- Font : 'Inter', system-ui, sans-serif
+- Usage : Fallback body, texte secondaire
+
+### Display Legacy — Syne (`--font-display-legacy`)
+- Font : 'Syne', system-ui, sans-serif
+- Usage : Hérité, certains composants legacy
 
 ## LAYOUT
 
 ### Principes
-- ASYMÉTRIE par défaut. Ne jamais centrer un hero.
-- Split-screen hero : image à gauche/droite, texte de l'autre côté
-- Grids cassées : éléments qui chevauchent, débordent, créent du mouvement
-- Full-bleed images : les photos prennent toute la largeur
-- Sections alternées : clair → sombre → clair (pas tout sombre)
-- Whitespace généreux entre les sections (120-160px)
+- **Full-height hero** : slider vidéo immersif occupant 100vh
+- **Split-screen** : texte d'un côté, vidéo de l'autre, alternance gauche/droite
+- **Asymétrie** : les éléments ne sont jamais centrés par défaut
+- **Sections alternées** : encre (dark) → crème (light) → encre pour le rythme
+- **Whitespace couture** : 120–130px entre les sections (sec-eco padding)
+- **Max-width contrôlé** : 1240px (wrap-eco)
 
-### Interdit layout
-- Pas de hero centré texte-seul sur fond uni
-- Pas de 3 colonnes identiques (le "triptych générique IA")
-- Pas de cards identiques empilées à l'infini
+### Navigation
+- Pill flottante centrée avec mega-menu (style Chargeflow)
+- Logo à gauche (grande taille, 160px height)
+- CTA capsule "Essayer" dorée à droite
+- Sélecteur de langue avec drapeaux
+- Backdrop blur quand mega-menu ouvert
 
-## PHOTOGRAPHIE
+### Footer
+- Fond fumée avec halo ambiant
+- Logo rond centré + wordmark Fraunces
+- Grille de liens : Navigation / Ressources / Légal / Newsletter
+- Marquee signal strip
+- Copyright + villes en bas
 
-### Style requis
-- Portraits éditoriaux (façon magazine, pas stock photo)
-- Noir et blanc OU traitement warm desaturé
-- Grain léger (film-like)
-- Composition : off-center, crop serré, regard hors champ
-- Énergie : confiance, mouvement, authenticité
+## COMPOSANTS SIGNATURE
 
-### En attendant de vraies photos
-- Utiliser des photos de stock PREMIUM (Unsplash collections éditoriales)
-- Appliquer un traitement uniforme : desaturation -30%, warmth +10%, grain overlay
-- NE JAMAIS utiliser de photos stock corporate/génériques
+### Eyebrow (surtitre)
+- Font : Space Grotesk
+- Taille : 9–11px
+- Tracking : 0.28–0.38em
+- Transform : uppercase
+- Couleur : --or
 
-### Où mettre les photos
-- Hero : OBLIGATOIRE (split-screen avec photo)
-- Section départements : un visage par département
-- Section talents/roster : grille de portraits
-- Section équipe : portraits réels des fondateurs
-- Background de sections : photos full-bleed avec overlay
+### Boutons (btn-eco)
+- Outline : bordure --ligne, texte --ivoire, fond transparent
+- Fill : fond --or, texte --encre, bordure --or
+- Gold : bordure --or, texte --or, hover → fond --or
+- Font : Space Grotesk, 11px, tracking 0.22em, uppercase
+- Padding : 14px 26px
+- Border-radius : 2px (quasi-carré, pas arrondi)
+
+### Cards
+- Fond : --surface ou transparent
+- Bordure : 1px solid --ligne-faible
+- Accent line : gradient or en haut (2px)
+- Hover : translateY(-2px) + border-color accent
+- Pas de border-radius (angles droits = éditorial)
+
+### Halo Ring (signature visuelle)
+- Anneau conic-gradient avec or/cuivre
+- Rotation infinie (26s)
+- Glow radial qui respire (7s)
+- Utilisé en arrière-plan des sections clés
+
+### Marquee Strip
+- Bordure haut/bas --ligne-faible
+- Font : Space Grotesk, 12–13px, tracking 0.3em, uppercase
+- Défilement infini (32–36s)
+- Séparateurs ◆ en or
 
 ## MOTION & ANIMATION
 
-### Scroll-triggered (bibliothèque : framer-motion ou CSS IntersectionObserver)
-- Texte hero : clip-path reveal de gauche à droite (pas fade-in)
-- Photos : scale de 1.05 à 1.0 (zoom-out subtle au scroll)
-- Sections : slide-in latéral alterné (gauche, droite, gauche)
-- Chiffres/stats : count-up animation au scroll
+### Scroll-triggered (classe .rv)
+- Révélation : translateY(36px) → 0, opacity 0 → 1
+- Durée : 0.9s cubic-bezier(0.16, 1, 0.3, 1)
+- Délais staggerés : .rv-d1 (0.1s), .rv-d2 (0.2s), .rv-d3 (0.3s)
+
+### Hero
+- Slider bidirectionnel avec fondu croisé (1400ms)
+- Barre de progression vidéo en bas
+- Dots de navigation minimalistes (lignes 24/40px)
+- Text reveal : translateY(110%) avec clip-path
 
 ### Hover
-- Boutons : changement de fond instantané (pas de transition lente)
-- Cards créateurs : overlay avec nom + infos qui montent
-- Liens nav : underline animée custom (pas text-decoration)
-- Images : léger zoom (scale 1.03) + filtre de luminosité
+- Cards : translateY(-2px) + border-color transition (0.35s)
+- Boutons : changement instantané fond/texte
+- Liens : opacity transition, couleur --ivoire → --or
 
-### Page transitions
-- Pas de transition de page complexe (simple et rapide)
-- Skeleton loaders pour les contenus dynamiques
+### Ambient
+- Halo ring : spin 26s linear infinite
+- Halo glow : breathe 7s ease-in-out infinite
+- Marquee : scroll 32s linear infinite
 
-### Interdits animation
-- Pas de fade-in générique (le marqueur #1 du vibe coding)
-- Pas de bounce, wobble, ou effets "fun"
-- Pas d'animation au chargement de plus de 800ms
-
-## COMPOSANTS
-
-### Boutons
-- Primaire : fond --color-accent, texte blanc, padding 16px 32px, radius 0px (CARRÉ, pas arrondi)
-- Secondaire : border 1px --color-ink, fond transparent, texte --color-ink
-- Hover : inversion instantanée (pas de transition 300ms)
-- UPPERCASE, font Plus Jakarta Sans 600, tracking 0.08em, font-size 13px
-
-### Cards
-- Fond --color-surface ou --color-base-alt
-- Pas de border-radius (angles droits = editorial)
-- Pas de shadow. Ligne fine en bas ou à gauche si besoin.
-- Photo en haut (aspect ratio 3:4 pour portraits)
-
-### Navigation
-- FIXE en haut
-- Fond --color-base avec blur backdrop
-- Logo à gauche (Syne Bold, pas d'icône fantaisie)
-- Liens à droite : Plus Jakarta Sans 500, uppercase, tracking 0.05em, 13px
-- Pas de méga-menu. Liens directs. Maximum 7 items.
-- CTA "POSTULER" en bouton accent (terracotta) à droite
-
-### Footer
-- Fond --color-dark
-- Layout en colonnes asymétriques (pas 4 colonnes identiques)
-- Logo + tagline à gauche (grand)
-- Liens au centre
-- Newsletter à droite
-- Copyright en bas, discret
-
-### Sections
-- Alternance : fond clair → fond sombre → fond clair
-- Section sombre = --color-dark avec texte clair
-- Section claire = --color-base avec texte sombre
-- Transition entre sections : ligne fine --color-accent ou rien
+### Accessibilité
+- @media (prefers-reduced-motion: reduce) désactive TOUTES les animations
+- .rv → opacity 1, transform none
+- .marquee-track → animation none
+- .halo-ring, .halo-glow → animation none
 
 ## CE QUI REND CE SITE MÉMORABLE
 
-1. Les VRAIES PHOTOS de créateurs (pas du texte sur fond noir)
-2. Le TERRACOTTA comme accent unique (jamais vu dans l'industrie)
-3. L'ASYMÉTRIE du layout (pas le template centré habituel)
-4. La TYPOGRAPHIE BOLD sans-serif (pas le serif italic générique)
-5. Le MOUVEMENT cinématique (clip-path, parallax, pas fade-in)
-6. L'alternance CLAIR/SOMBRE (pas tout noir)
+1. L'univers **ENCRE & OR** — unique, jamais vu dans l'industrie OFM
+2. Le **slider vidéo Hero** cinématique en plein écran
+3. La **typographie couture** (Playfair Display + Fraunces + Space Grotesk)
+4. Les **animations ambiantes** (halo ring, glow, marquee)
+5. L'**asymétrie** du layout (alternance gauche/droite, split-screen)
+6. Le **rythme dark/light** entre les sections
+7. Les **micro-détails** : eyebrows, dots, rails latéraux, floating cards

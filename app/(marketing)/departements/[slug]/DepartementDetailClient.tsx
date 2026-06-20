@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import Image from "next/image";
 import { motion, useInView } from "framer-motion";
 import Link from "next/link";
 import {
@@ -13,7 +14,7 @@ import {
   Dumbbell,
   Sparkles,
   Shield,
-  Image,
+  Image as LucideImage,
   Users,
   Clock,
   Zap,
@@ -102,7 +103,7 @@ const DEPARTEMENTS_DATA: Record<string, DepartementData> = {
     reponseIntro:
       "Le département Glamour Premium combine direction artistique, production IA, gestion des partenariats luxe, et protection juridique pour construire une image premium qui attire les bonnes collaborations et résiste au temps.",
     piliers: [
-      { titre: "Direction artistique", description: "Identité visuelle unifiée, charte graphique, moodboards, cohérence multi-plateforme.", icon: Image },
+      { titre: "Direction artistique", description: "Identité visuelle unifiée, charte graphique, moodboards, cohérence multi-plateforme.", icon: LucideImage },
       { titre: "Production premium IA", description: "Studio IA pour générer du contenu photo et vidéo esthétique en heures, pas en semaines.", icon: Sparkles },
       { titre: "Protection juridique", description: "Dépôts de preuves, contrats de cession de droits, lutte contre les usages non autorisés.", icon: Shield },
       { titre: "Gestion des partenariats", description: "Sélection, négociation et structuration des collaborations avec les marques luxe et beauté.", icon: Users },
@@ -410,7 +411,7 @@ const DEPARTEMENTS_DATA: Record<string, DepartementData> = {
     reponseIntro:
       "Le département Sport / Fitness construit une marque personnelle autour de votre discipline, diversifie vos revenus (programmes, produits, contenu), gère votre réputation, et prépare votre transition post-carrière.",
     piliers: [
-      { titre: "Construction de marque", description: "De l'athlète à la marque : identité, valeurs, storytelling, univers visuel cohérent.", icon: Image },
+      { titre: "Construction de marque", description: "De l'athlète à la marque : identité, valeurs, storytelling, univers visuel cohérent.", icon: LucideImage },
       { titre: "Diversification des revenus", description: "Programmes en ligne, produits, sponsoring, événements. Ne plus dépendre d'une seule source.", icon: TrendingUp },
       { titre: "Gestion de communauté", description: "Atlas CRM pour engager votre communauté, structurer vos offres, et convertir l'audience en clients.", icon: Users },
       { titre: "Protection et réputation", description: "Veille médiatique, gestion de crise, protection juridique contre les usages non autorisés de votre image.", icon: Shield },
@@ -789,7 +790,7 @@ function ParcoursSection({ data }: { data: DepartementData }) {
           style={{ border: "1px solid var(--ligne)", background: "rgba(216,169,91,0.03)" }}
         >
           <div className="couture-ornament mb-6" style={{ opacity: 0.4 }}>
-            <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 100, width: "auto" }} />
+            <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={100} height={100} style={{ height: 100, width: "auto" }} />
           </div>
           <p className="text-[1rem] leading-relaxed" style={{ color: "var(--encre)", opacity: 0.65, fontFamily: "var(--font-body), sans-serif" }}>
             {data.parcours}
@@ -898,7 +899,7 @@ function CTASection({ data }: { data: DepartementData }) {
           animate={inView ? { opacity: 0.6, scale: 1 } : {}}
           transition={{ duration: 0.8 }}
         >
-          <img src="/wtf-logo-rond.png" alt="WTF Talent" style={{ height: 130, width: "auto" }} />
+          <Image src="/wtf-logo-rond.png" alt="WTF Talent" width={130} height={130} style={{ height: 130, width: "auto" }} />
         </motion.div>
         <motion.p className="display-medium mb-4" style={{ color: "var(--ivoire)" }} variants={riseItem} initial="hidden" animate={inView ? "visible" : "hidden"} custom={0}>
           {data.nom} vous correspond ?

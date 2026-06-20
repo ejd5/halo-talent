@@ -173,24 +173,34 @@ function AtlasInboxV2Inner() {
       >
         {/* Header */}
         <div
-          className="flex items-center gap-2 px-4 py-3.5 border-b shrink-0"
+          className="flex flex-col gap-0 px-4 py-3.5 border-b shrink-0"
           style={{ borderColor: "rgba(255,255,255,0.06)" }}
         >
-          {!sidebarCollapsed && (
-            <div className="flex-1 min-w-0">
-              <h1 className="text-[14px] font-display font-semibold tracking-widest" style={{ color: "#F4EEE3" }}>
-                ATLAS<span style={{ color: "#C9973F" }}>.</span>OS
-              </h1>
-              <p className="text-[12px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>{t("sidebar.agencyOs")}</p>
-            </div>
-          )}
-          <button
-            onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
-            className="p-1 rounded-sm hover:bg-white/[0.04] transition-colors shrink-0"
-            style={{ color: "rgba(255,255,255,0.30)" }}
+          <a
+            href="/dashboard"
+            className="inline-flex items-center gap-1 text-[11px] font-medium transition-colors hover:opacity-80 mb-2"
+            style={{ color: "rgba(255,255,255,0.35)" }}
           >
-            {sidebarCollapsed ? <ChevronRight size={14} /> : <ChevronRight size={14} className="rotate-180" />}
-          </button>
+            <ArrowLeft size={11} />
+            <span>WTF</span>
+          </a>
+          <div className="flex items-center gap-2">
+            {!sidebarCollapsed && (
+              <div className="flex-1 min-w-0">
+                <h1 className="text-[14px] font-display font-semibold tracking-widest" style={{ color: "#F4EEE3" }}>
+                  ATLAS<span style={{ color: "#C9973F" }}>.</span>OS
+                </h1>
+                <p className="text-[12px] mt-0.5 tracking-[0.15em] uppercase" style={{ color: "rgba(255,255,255,0.25)" }}>{t("sidebar.agencyOs")}</p>
+              </div>
+            )}
+            <button
+              onClick={() => setSidebarCollapsed(!sidebarCollapsed)}
+              className="p-1 rounded-sm hover:bg-white/[0.04] transition-colors shrink-0"
+              style={{ color: "rgba(255,255,255,0.30)" }}
+            >
+              {sidebarCollapsed ? <ChevronRight size={14} /> : <ChevronRight size={14} className="rotate-180" />}
+            </button>
+          </div>
         </div>
 
         {/* Nav Groups */}
